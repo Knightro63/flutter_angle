@@ -44,7 +44,7 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display)
 @end
 
 @implementation FlutterGlTexture
-- (instancetype)initWithWidth:(int) width andHeight:(int)height registerWidth:(NSObject<FlutterTextureRegistry>*) registry{
+- (instancetype)initWithWidth:(int) width andHeight:(int)height useOpenGL:(bool)allow registerWidth:(NSObject<FlutterTextureRegistry>*) registry{
     self = [super init];
     if (self){
         _width = width;
@@ -68,8 +68,9 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display)
         //     buffer[i] = CFSwapInt32HostToBig(0x00ff00ff);
         // }
         // CVPixelBufferUnlockBaseAddress(_pixelData, 0);
-
-        [self createMtlTextureFromCVPixBufferWithWidth:width andHeight:height];
+        if(!allow){
+            [self createMtlTextureFromCVPixBufferWithWidth:width andHeight:height];
+        }
         glGenFramebuffers(1, &_fbo);
         glBindFramebuffer(GL_FRAMEBUFFER, _fbo);
 
@@ -250,7 +251,6 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display)
             return;
         }
 
-
         // This is just a dummy surface that it needed to make an OpenGL context current (bind it to this thread)
         CALayer* dummyLayer       = [[CALayer alloc] init];
         dummyLayer.frame = CGRectMake(0, 0, 1, 1);
@@ -284,19 +284,16 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display)
         if (v==NULL)
         {
             NSLog(@"GetString: GL_VENDOR returned NULL");
-            v="No Vendor";
         }
         if (r==NULL)
         {
             NSLog(@"GetString: GL_RENDERER returned NULL");
-            r="No renderer";
         }
         if (v2==NULL)
         {
             NSLog(@"GetString: GL_VERSION returned NULL");
-            v2="No Version";
         }
-       NSLog(@"%@\n%@\n%@\n",[[NSString alloc] initWithUTF8String: v],[[NSString alloc] initWithUTF8String: r],[[NSString alloc] initWithUTF8String: v2]);
+//       NSLog(@"%@\n%@\n%@\n",[[NSString alloc] initWithUTF8String: v],[[NSString alloc] initWithUTF8String: r],[[NSString alloc] initWithUTF8String: v2]);
         /// we send back the context. This might look a bit strange, but is necessary to allow this function to be called
         /// from Dart Isolates.
         result(@{@"context" : [NSNumber numberWithLong: (long)context],
@@ -308,6 +305,7 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display)
     if ([call.method isEqualToString:@"createTexture"]) {
         NSNumber* width;
         NSNumber* height;
+        NSNumber* allow;
         if (call.arguments) {
             width = call.arguments[@"width"];
             if (width == NULL)
@@ -323,6 +321,11 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display)
                 return;
 
             }
+            
+            allow = call.arguments[@"useOpenGL"];
+            if (allow == NULL){
+                allow = 0;
+            }
         }
         else
         {
@@ -332,7 +335,7 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display)
 
         @try
         {
-            _flutterGLTexture = [[FlutterGlTexture alloc] initWithWidth:width.intValue andHeight:height.intValue registerWidth:_textureRegistry];
+            _flutterGLTexture = [[FlutterGlTexture alloc] initWithWidth:width.intValue andHeight:height.intValue useOpenGL:allow.boolValue registerWidth:_textureRegistry];
         }
         @catch (OpenGLException* ex)
         {
@@ -367,16 +370,6 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display)
               return;
             }
 
-                // Check if the received ID is registered
-/*                if (flutterGLTextures.find(textureId) == flutterGLTextures.end())
-                {
-                    result->Error("Invalid texture ID", "Invalid Texture ID: " + std::to_string(textureId));
-                    return;
-                }
-
-                auto currentTexture = flutterGLTextures[textureId].get();
-                
-*/
                 FlutterGlTexture* currentTexture = _flutterGLTexture;
 
             if (currentTexture.metalAsGLTexture) {
@@ -428,9 +421,6 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display)
             result([FlutterError errorWithCode: @"No arguments" message: @"No arguments received by the native part of FlutterGL.deleteTexture"  details:NULL]);
             return;
         }
-        
-        //flutterGLTextures[textureId].release();
-        //flutterGLTextures.erase(textureId);
 
         result(nil);
         return;

@@ -10,7 +10,7 @@
 @end
 		
 @interface FlutterGlTexture : NSObject<FlutterTexture>
-- (instancetype)initWithWidth:(int) width andHeight:(int)height registerWidth:(NSObject<FlutterTextureRegistry>*) registry;
+- (instancetype)initWithWidth:(int) width andHeight:(int)height useOpenGL:(bool)allow registerWidth:(NSObject<FlutterTextureRegistry>*) registry;
 @property (nonatomic,assign) int width;
 @property (nonatomic,assign) int height;
 @property (nonatomic,assign) GLuint fbo;

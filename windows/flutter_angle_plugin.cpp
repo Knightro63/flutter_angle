@@ -142,11 +142,6 @@ using flutter::EncodableValue;
      buffer.reset();
  }
 
-
-
-
- 
-
 // static
 void FlutterAnglePlugin::RegisterWithRegistrar(
     flutter::PluginRegistrarWindows *registrar) {

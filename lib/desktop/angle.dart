@@ -286,7 +286,7 @@ class FlutterAngle {
     final textureTarget = GL_TEXTURE_2D;//GL_TEXTURE_RECTANGLE;//GL_TEXTURE_2D
     final height = (options.height*options.dpr).toInt();
     final width = (options.width*options.dpr).toInt();
-    final result = await _channel.invokeMethod('createTexture', {"width": width, "height": height});
+    final result = await _channel.invokeMethod('createTexture', {"width": width, "height": height,"useOpenGL":options.forceOpenGL?1:0});
     
     if (Platform.isAndroid) {
       final newTexture = FlutterGLTexture.fromMap(result, null, 0, options);

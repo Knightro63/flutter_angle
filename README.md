@@ -30,7 +30,7 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
 
 **Android**
  - compileSdkVersion: 34
- - Vulkan and OpenGL supported
+ - OpenGL supported
 
  **Windows**
  - Intel supported.

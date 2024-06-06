@@ -167,7 +167,6 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
 
       try
       {
-
         TextureRegistry.SurfaceTextureEntry surfaceTextureEntry = textureRegistry.createSurfaceTexture();
         flutterGLTexture = new FlutterGLTexture(surfaceTextureEntry,openGLManager,  width, height);
       }
