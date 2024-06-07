@@ -60,13 +60,11 @@ class _MyAppState extends State<ExampleTriangle01> {
   }
 
   void setup() async {
-    // web no need use fbo
     sourceTexture = await FlutterAngle.createTexture(      
       AngleOptions(
         width: width.toInt(), 
         height: height.toInt(), 
         dpr: dpr,
-        forceOpenGL: true
       )
     );
     _gl = sourceTexture.getContext();

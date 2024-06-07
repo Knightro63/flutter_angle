@@ -11,525 +11,6 @@ import 'bindings/index.dart';
 import '../shared/webgl.dart';
 import '../shared/classes.dart';
 
-// // The web wrapper uses this as base class everywhere
-
-// // laong as we don't know if we need it, we use this dummy class
-// class Interceptor {}
-
-// class AngleInstancedArrays extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory AngleInstancedArrays._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int VERTEX_ATTRIB_ARRAY_DIVISOR_ANGLE = 0x88FE;
-
-//   void drawArraysInstancedAngle(int mode, int first, int count, int primcount);
-
-//   void drawElementsInstancedAngle(int mode, int count, int type, int offset, int primcount);
-
-//   void vertexAttribDivisorAngle(int index, int divisor);
-// }
-
-// class Canvas extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory Canvas._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   CanvasElement get canvas;
-
-//   OffscreenCanvas? get offscreenCanvas;
-// }
-
-// class ColorBufferFloat extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory ColorBufferFloat._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// class CompressedTextureAstc extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory CompressedTextureAstc._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int COMPRESSED_RGBA_ASTC_10x10_KHR = 0x93BB;
-
-//   static const int COMPRESSED_RGBA_ASTC_10x5_KHR = 0x93B8;
-
-//   static const int COMPRESSED_RGBA_ASTC_10x6_KHR = 0x93B9;
-
-//   static const int COMPRESSED_RGBA_ASTC_10x8_KHR = 0x93BA;
-
-//   static const int COMPRESSED_RGBA_ASTC_12x10_KHR = 0x93BC;
-
-//   static const int COMPRESSED_RGBA_ASTC_12x12_KHR = 0x93BD;
-
-//   static const int COMPRESSED_RGBA_ASTC_4x4_KHR = 0x93B0;
-
-//   static const int COMPRESSED_RGBA_ASTC_5x4_KHR = 0x93B1;
-
-//   static const int COMPRESSED_RGBA_ASTC_5x5_KHR = 0x93B2;
-
-//   static const int COMPRESSED_RGBA_ASTC_6x5_KHR = 0x93B3;
-
-//   static const int COMPRESSED_RGBA_ASTC_6x6_KHR = 0x93B4;
-
-//   static const int COMPRESSED_RGBA_ASTC_8x5_KHR = 0x93B5;
-
-//   static const int COMPRESSED_RGBA_ASTC_8x6_KHR = 0x93B6;
-
-//   static const int COMPRESSED_RGBA_ASTC_8x8_KHR = 0x93B7;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_10x10_KHR = 0x93DB;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_10x5_KHR = 0x93D8;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_10x6_KHR = 0x93D9;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_10x8_KHR = 0x93DA;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_12x10_KHR = 0x93DC;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_12x12_KHR = 0x93DD;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_4x4_KHR = 0x93D0;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_5x4_KHR = 0x93D1;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_5x5_KHR = 0x93D2;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_6x5_KHR = 0x93D3;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_6x6_KHR = 0x93D4;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_8x5_KHR = 0x93D5;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_8x6_KHR = 0x93D6;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ASTC_8x8_KHR = 0x93D7;
-// }
-
-// // JS "WebGLCompressedTextureATC,WEBGL_compressed_texture_atc")
-// class CompressedTextureAtc extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory CompressedTextureAtc._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int COMPRESSED_RGBA_ATC_EXPLICIT_ALPHA_WEBGL = 0x8C93;
-
-//   static const int COMPRESSED_RGBA_ATC_INTERPOLATED_ALPHA_WEBGL = 0x87EE;
-
-//   static const int COMPRESSED_RGB_ATC_WEBGL = 0x8C92;
-// }
-
-// // JS "WebGLCompressedTextureETC1,WEBGL_compressed_texture_etc1")
-// class CompressedTextureETC1 extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory CompressedTextureETC1._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int COMPRESSED_RGB_ETC1_WEBGL = 0x8D64;
-// }
-
-// // JS "WebGLCompressedTextureETC")
-// class CompressedTextureEtc extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory CompressedTextureEtc._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int COMPRESSED_R11_EAC = 0x9270;
-
-//   static const int COMPRESSED_RG11_EAC = 0x9272;
-
-//   static const int COMPRESSED_RGB8_ETC2 = 0x9274;
-
-//   static const int COMPRESSED_RGB8_PUNCHTHROUGH_ALPHA1_ETC2 = 0x9276;
-
-//   static const int COMPRESSED_RGBA8_ETC2_EAC = 0x9278;
-
-//   static const int COMPRESSED_SIGNED_R11_EAC = 0x9271;
-
-//   static const int COMPRESSED_SIGNED_RG11_EAC = 0x9273;
-
-//   static const int COMPRESSED_SRGB8_ALPHA8_ETC2_EAC = 0x9279;
-
-//   static const int COMPRESSED_SRGB8_ETC2 = 0x9275;
-
-//   static const int COMPRESSED_SRGB8_PUNCHTHROUGH_ALPHA1_ETC2 = 0x9277;
-// }
-
-// // JS "WebGLCompressedTexturePVRTC,WEBGL_compressed_texture_pvrtc")
-// class CompressedTexturePvrtc extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory CompressedTexturePvrtc._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int COMPRESSED_RGBA_PVRTC_2BPPV1_IMG = 0x8C03;
-
-//   static const int COMPRESSED_RGBA_PVRTC_4BPPV1_IMG = 0x8C02;
-
-//   static const int COMPRESSED_RGB_PVRTC_2BPPV1_IMG = 0x8C01;
-
-//   static const int COMPRESSED_RGB_PVRTC_4BPPV1_IMG = 0x8C00;
-// }
-
-// // JS "WebGLCompressedTextureS3TC,WEBGL_compressed_texture_s3tc")
-// class CompressedTextureS3TC extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory CompressedTextureS3TC._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int COMPRESSED_RGBA_S3TC_DXT1_EXT = 0x83F1;
-
-//   static const int COMPRESSED_RGBA_S3TC_DXT3_EXT = 0x83F2;
-
-//   static const int COMPRESSED_RGBA_S3TC_DXT5_EXT = 0x83F3;
-
-//   static const int COMPRESSED_RGB_S3TC_DXT1_EXT = 0x83F0;
-// }
-
-// // JS "WebGLCompressedTextureS3TCsRGB")
-// class CompressedTextureS3TCsRgb extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory CompressedTextureS3TCsRgb._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int COMPRESSED_SRGB_ALPHA_S3TC_DXT1_EXT = 0x8C4D;
-
-//   static const int COMPRESSED_SRGB_ALPHA_S3TC_DXT3_EXT = 0x8C4E;
-
-//   static const int COMPRESSED_SRGB_ALPHA_S3TC_DXT5_EXT = 0x8C4F;
-
-//   static const int COMPRESSED_SRGB_S3TC_DXT1_EXT = 0x8C4C;
-// }
-
-// // JS "WebGLContextEvent")
-// class ContextEvent extends Event {
-//   // To suppress missing implicit constructor warnings.
-//   factory ContextEvent._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   factory ContextEvent(String type, [Map? eventInit]) {
-//     if (eventInit != null) {
-//       var eventInit_1 = convertDartToNative_Dictionary(eventInit);
-//       return ContextEvent._create_1(type, eventInit_1);
-//     }
-//     return ContextEvent._create_2(type);
-//   }
-//   static ContextEvent _create_1(type, eventInit) => JS('ContextEvent', 'new WebGLContextEvent(#,#)', type, eventInit);
-//   static ContextEvent _create_2(type) => JS('ContextEvent', 'new WebGLContextEvent(#)', type);
-
-//   String get statusMessage;
-// }
-
-// // JS "WebGLDebugRendererInfo,WEBGL_debug_renderer_info")
-// class DebugRendererInfo extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory DebugRendererInfo._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int UNMASKED_RENDERER_WEBGL = 0x9246;
-
-//   static const int UNMASKED_VENDOR_WEBGL = 0x9245;
-// }
-
-// // JS "WebGLDebugShaders,WEBGL_debug_shaders")
-// class DebugShaders extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory DebugShaders._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   String? getTranslatedShaderSource(WebGLShader shader);
-// }
-
-// // JS "WebGLDepthTexture,WEBGL_depth_texture")
-// class DepthTexture extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory DepthTexture._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int UNSIGNED_INT_24_8_WEBGL = 0x84FA;
-// }
-
-// // JS "WebGLDrawBuffers,WEBGL_draw_buffers")
-// class DrawBuffers extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory DrawBuffers._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   //JS ('drawBuffersWEBGL')
-//   void drawBuffersWebgl(List<int> buffers);
-// }
-
-// // JS "EXTsRGB,EXT_sRGB")
-// class EXTsRgb extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory EXTsRgb._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int FRAMEBUFFER_ATTACHMENT_COLOR_ENCODING_EXT = 0x8210;
-
-//   static const int SRGB8_ALPHA8_EXT = 0x8C43;
-
-//   static const int SRGB_ALPHA_EXT = 0x8C42;
-
-//   static const int SRGB_EXT = 0x8C40;
-// }
-
-// // JS "EXTBlendMinMax,EXT_blend_minmax")
-// class ExtBlendMinMax extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory ExtBlendMinMax._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int MAX_EXT = 0x8008;
-
-//   static const int MIN_EXT = 0x8007;
-// }
-
-// // JS "EXTColorBufferFloat")
-// class ExtColorBufferFloat extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory ExtColorBufferFloat._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "EXTColorBufferHalfFloat")
-// class ExtColorBufferHalfFloat extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory ExtColorBufferHalfFloat._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "EXTDisjointTimerQuery")
-// class ExtDisjointTimerQuery extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory ExtDisjointTimerQuery._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int CURRENT_QUERY_EXT = 0x8865;
-
-//   static const int GPU_DISJOINT_EXT = 0x8FBB;
-
-//   static const int QUERY_COUNTER_BITS_EXT = 0x8864;
-
-//   static const int QUERY_RESULT_AVAILABLE_EXT = 0x8867;
-
-//   static const int QUERY_RESULT_EXT = 0x8866;
-
-//   static const int TIMESTAMP_EXT = 0x8E28;
-
-//   static const int TIME_ELAPSED_EXT = 0x88BF;
-
-//   //JS ('beginQueryEXT')
-//   void beginQueryExt(int target, TimerQueryExt query);
-
-//   //JS ('createQueryEXT')
-//   TimerQueryExt createQueryExt();
-
-//   //JS ('deleteQueryEXT')
-//   void deleteQueryExt(TimerQueryExt? query);
-
-//   //JS ('endQueryEXT')
-//   void endQueryExt(int target);
-
-//   //JS ('getQueryEXT')
-//   Object? getQueryExt(int target, int pname);
-
-//   //JS ('getQueryObjectEXT')
-//   Object? getQueryObjectExt(TimerQueryExt query, int pname);
-
-//   //JS ('isQueryEXT')
-//   bool isQueryExt(TimerQueryExt? query);
-
-//   //JS ('queryCounterEXT')
-//   void queryCounterExt(TimerQueryExt query, int target);
-// }
-
-// // JS "EXTDisjointTimerQueryWebGL2")
-// class ExtDisjointTimerQueryWebGL2 extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory ExtDisjointTimerQueryWebGL2._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int GPU_DISJOINT_EXT = 0x8FBB;
-
-//   static const int QUERY_COUNTER_BITS_EXT = 0x8864;
-
-//   static const int TIMESTAMP_EXT = 0x8E28;
-
-//   static const int TIME_ELAPSED_EXT = 0x88BF;
-
-//   //JS ('queryCounterEXT')
-//   void queryCounterExt(Query query, int target);
-// }
-
-// // JS "EXTFragDepth,EXT_frag_depth")
-// class ExtFragDepth extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory ExtFragDepth._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "EXTShaderTextureLOD,EXT_shader_texture_lod")
-// class ExtShaderTextureLod extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory ExtShaderTextureLod._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "EXTTextureFilterAnisotropic,EXT_texture_filter_anisotropic")
-// class ExtTextureFilterAnisotropic extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory ExtTextureFilterAnisotropic._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int MAX_TEXTURE_MAX_ANISOTROPY_EXT = 0x84FF;
-
-//   static const int TEXTURE_MAX_ANISOTROPY_EXT = 0x84FE;
-// }
-
-// // JS "WebGLFramebuffer")
-// class Framebuffer extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory Framebuffer._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "WebGLGetBufferSubDataAsync")
-// class GetBufferSubDataAsync extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory GetBufferSubDataAsync._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   Future getBufferSubDataAsync(int target, int srcByteOffset, TypedData dstData, [int? dstOffset, int? length]) =>
-//       promiseToFuture(
-//           JS("", "#.getBufferSubDataAsync(#, #, #, #, #)", this, target, srcByteOffset, dstData, dstOffset, length));
-// }
-
-// // JS "WebGLLoseContext,WebGLExtensionLoseContext,WEBGL_lose_context")
-// class LoseContext extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory LoseContext._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   void loseContext();
-
-//   void restoreContext();
-// }
-
-// // JS "OESElementIndexUint,OES_element_index_uint")
-// class OesElementIndexUint extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory OesElementIndexUint._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "OESStandardDerivatives,OES_standard_derivatives")
-// class OesStandardDerivatives extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory OesStandardDerivatives._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int FRAGMENT_SHADER_DERIVATIVE_HINT_OES = 0x8B8B;
-// }
-
-// // JS "OESTextureFloat,OES_texture_float")
-// class OesTextureFloat extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory OesTextureFloat._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "OESTextureFloatLinear,OES_texture_float_linear")
-// class OesTextureFloatLinear extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory OesTextureFloatLinear._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "OESTextureHalfFloat,OES_texture_half_float")
-// class OesTextureHalfFloat extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory OesTextureHalfFloat._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int HALF_FLOAT_OES = 0x8D61;
-// }
-
-// // JS "OESTextureHalfFloatLinear,OES_texture_half_float_linear")
-// class OesTextureHalfFloatLinear extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory OesTextureHalfFloatLinear._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "OESVertexArrayObject,OES_vertex_array_object")
-// class OesVertexArrayObject extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory OesVertexArrayObject._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   static const int VERTEX_ARRAY_BINDING_OES = 0x85B5;
-
-//   //JS ('bindVertexArrayOES')
-//   void bindVertexArray(VertexArrayObjectOes? arrayObject);
-
-//   //JS ('createVertexArrayOES')
-//   VertexArrayObjectOes createVertexArray();
-
-//   //JS ('deleteVertexArrayOES')
-//   void deleteVertexArray(VertexArrayObjectOes? arrayObject);
-
-//   //JS ('isVertexArrayOES')
-//   bool isVertexArray(VertexArrayObjectOes? arrayObject);
-// }
-
-// JS "WebGLProgram")
-
-
-
-// // JS "WebGLQuery")
-// class Query extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory Query._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
 // JS "WebGL2RenderingContext")
 class RenderingContext {
   final LibOpenGLES gl;
@@ -551,20 +32,10 @@ class RenderingContext {
     }
   }
 
-  // From WebGL2RenderingContextBase
-
-  // void beginQuery(int target, Query query);
-
   void beginTransformFeedback(int primitiveMode){
     gl.glBeginTransformFeedback(primitiveMode);
     // checkError('beginTransformFeedback');
   }
-
-  // void bindBufferBase(int target, int index, Buffer? buffer);
-
-  // void bindBufferRange(int target, int index, Buffer? buffer, int offset, int size);
-
-  // void bindSampler(int unit, Sampler? sampler);
 
   void bindTransformFeedback(int target, TransformFeedback feedback){
     gl.glBindTransformFeedback(target, feedback.id);
@@ -580,9 +51,6 @@ class RenderingContext {
     gl.glBlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
     // checkError('blitFramebuffer');
   }
-
-  // //JS ('bufferData')
-  // void bufferData2(int target, TypedData srcData, int usage, int srcOffset, [int? length]);
 
   // //JS ('bufferSubData')
   void bufferSubData(int target, int dstByteOffset, TypedData srcData){
@@ -613,59 +81,6 @@ class RenderingContext {
     // checkError('texSubImage2D');
   }
 
-  // void clearBufferfi(int buffer, int drawbuffer, num depth, int stencil);
-
-  // void clearBufferfv(int buffer, int drawbuffer, value, [int? srcOffset]);
-
-  // void clearBufferiv(int buffer, int drawbuffer, value, [int? srcOffset]);
-
-  // void clearBufferuiv(int buffer, int drawbuffer, value, [int? srcOffset]);
-
-  // int clientWaitSync(Sync sync, int flags, int timeout);
-
-  // //JS ('compressedTexImage2D')
-  // void compressedTexImage2D2(
-  //     int target, int level, int internalformat, int width, int height, int border, TypedData data, int srcOffset,
-  //     [int? srcLengthOverride]);
-
-  // //JS ('compressedTexImage2D')
-  // void compressedTexImage2D3(
-  //     int target, int level, int internalformat, int width, int height, int border, int imageSize, int offset);
-
-  // void compressedTexImage3D(
-  //     int target, int level, int internalformat, int width, int height, int depth, int border, TypedData data,
-  //     [int? srcOffset, int? srcLengthOverride]);
-
-  // //JS ('compressedTexImage3D')
-  // void compressedTexImage3D2(int target, int level, int internalformat, int width, int height, int depth, int border,
-  //     int imageSize, int offset);
-
-  // //JS ('compressedTexSubImage2D')
-  // void compressedTexSubImage2D2(
-  //     int target, int level, int xoffset, int yoffset, int width, int height, int format, TypedData data, int srcOffset,
-  //     [int? srcLengthOverride]);
-
-  // //JS ('compressedTexSubImage2D')
-  // void compressedTexSubImage2D3(
-  //     int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, int offset);
-
-  // void compressedTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height,
-  //     int depth, int format, TypedData data,
-  //     [int? srcOffset, int? srcLengthOverride]);
-
-  // //JS ('compressedTexSubImage3D')
-  // void compressedTexSubImage3D2(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height,
-  //     int depth, int format, int imageSize, int offset);
-
-  // void copyBufferSubData(int readTarget, int writeTarget, int readOffset, int writeOffset, int size);
-
-  // void copyTexSubImage3D(
-  //     int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
-
-  // Query? createQuery();
-
-  // Sampler? createSampler();
-
   TransformFeedback createTransformFeedback() {
     final vPointer = calloc<Uint32>();
     gl.glGenTransformFeedbacks(1, vPointer);
@@ -680,12 +95,6 @@ class RenderingContext {
     calloc.free(v);
     return VertexArrayObject(_v);
   }
-
-  // void deleteQuery(Query? query);
-
-  // void deleteSampler(Sampler? sampler);
-
-  // void deleteSync(Sync? sync);
 
   void deleteTransformFeedback(TransformFeedback feedback){
     final List<int> _texturesList = [feedback.id];
@@ -724,40 +133,10 @@ class RenderingContext {
     calloc.free(indices);
   }
 
-  // void drawRangeElements(int mode, int start, int end, int count, int type, int offset);
-
-  // void endQuery(int target);
-
   void endTransformFeedback(){
     gl.glEndTransformFeedback();
     // checkError('endTransformFeedback');
   }
-
-  // Sync? fenceSync(int condition, int flags);
-
-  // void framebufferTextureLayer(int target, int attachment, WebGLTexture? texture, int level, int layer);
-
-  // String? getActiveUniformBlockName(Program program, int uniformBlockIndex);
-
-  // Object? getActiveUniformBlockParameter(Program program, int uniformBlockIndex, int pname);
-
-  // Object? getActiveUniforms(Program program, List<int> uniformIndices, int pname);
-
-  // void getBufferSubData(int target, int srcByteOffset, TypedData dstData, [int? dstOffset, int? length]);
-
-  // int getFragDataLocation(Program program, String name);
-
-  // Object? getIndexedParameter(int target, int index);
-
-  // Object? getInternalformatParameter(int target, int internalformat, int pname);
-
-  // Object? getQuery(int target, int pname);
-
-  // Object? getQueryParameter(Query query, int pname);
-
-  // Object? getSamplerParameter(Sampler sampler, int pname);
-
-  // Object? getSyncParameter(Sync sync, int pname);
 
   ActiveInfo getTransformFeedbackVarying(int program, int index) {
     int maxLen = 100;
@@ -780,16 +159,6 @@ class RenderingContext {
     return ActiveInfo(_type, _name, _size);
   }
 
-  // int getUniformBlockIndex(Program program, String uniformBlockName);
-
-  // List<int>? getUniformIndices(Program program, List<String> uniformNames) {
-  //   List uniformNames_1 = convertDartToNative_StringArray(uniformNames);
-  //   return _getUniformIndices_1(program, uniformNames_1);
-  // }
-
-  // //JS ('getUniformIndices')
-  // List<int>? _getUniformIndices_1(Program program, List uniformNames);
-
   void invalidateFramebuffer(int target, List<int> attachments){
     int count = attachments.length;
     final valuePtr = calloc<Uint32>(count);
@@ -799,29 +168,14 @@ class RenderingContext {
     // checkError('invalidateFramebuffer'); 
   }
 
-  // void invalidateSubFramebuffer(int target, List<int> attachments, int x, int y, int width, int height);
-
-  // bool isQuery(Query? query);
-
-  // bool isSampler(Sampler? sampler);
-
-  // bool isSync(Sync? sync);
-
   bool isTransformFeedback(TransformFeedback feedback){
     return gl.glIsTransformFeedback(feedback.id) == 0?false:true;
   }
-
-  // bool isVertexArray(VertexArrayObject? vertexArray);
 
   void pauseTransformFeedback(){
     gl.glPauseTransformFeedback();
     // checkError('pauseTransformFeedback'); 
   }
-
-  // void readBuffer(int mode);
-
-  // //JS ('readPixels')
-  // void readPixels2(int x, int y, int width, int height, int format, int type, dstData_OR_offset, [int? offset]);
 
   void renderbufferStorageMultisample(int target, int samples, int internalformat, int width, int height){
     gl.glRenderbufferStorageMultisample(target, samples, internalformat, width, height);
@@ -832,66 +186,6 @@ class RenderingContext {
     gl.glResumeTransformFeedback();
     // checkError('resumeTransformFeedback');
   }
-
-  // void samplerParameterf(Sampler sampler, int pname, num param);
-
-  // void samplerParameteri(Sampler sampler, int pname, int param);
-
-  // void texImage2D2(int target, int level, int internalformat, int width, int height, int border, int format, int type,
-  //     bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video,
-  //     [int? srcOffset]) {
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is int) && srcOffset == null) {
-  //     _texImage2D2_1(target, level, internalformat, width, height, border, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is ImageData) && srcOffset == null) {
-  //     var data_1 = convertDartToNative_ImageData(bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video);
-  //     _texImage2D2_2(target, level, internalformat, width, height, border, format, type, data_1);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is ImageElement) && srcOffset == null) {
-  //     _texImage2D2_3(target, level, internalformat, width, height, border, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is CanvasElement) && srcOffset == null) {
-  //     _texImage2D2_4(target, level, internalformat, width, height, border, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is VideoElement) && srcOffset == null) {
-  //     _texImage2D2_5(target, level, internalformat, width, height, border, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is ImageBitmap) && srcOffset == null) {
-  //     _texImage2D2_6(target, level, internalformat, width, height, border, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video);
-  //     return;
-  //   }
-  //   if (srcOffset != null && (bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is TypedData)) {
-  //     _texImage2D2_7(target, level, internalformat, width, height, border, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video, srcOffset);
-  //     return;
-  //   }
-  //   throw new ArgumentError("Incorrect number or type of arguments");
-  // }
-
-  // //JS ('texImage2D')
-  // void _texImage2D2_1(target, level, internalformat, width, height, border, format, type, int offset);
-  // //JS ('texImage2D')
-  // void _texImage2D2_2(target, level, internalformat, width, height, border, format, type, data);
-  // //JS ('texImage2D')
-  // void _texImage2D2_3(target, level, internalformat, width, height, border, format, type, ImageElement image);
-  // //JS ('texImage2D')
-  // void _texImage2D2_4(target, level, internalformat, width, height, border, format, type, CanvasElement canvas);
-  // //JS ('texImage2D')
-  // void _texImage2D2_5(target, level, internalformat, width, height, border, format, type, VideoElement video);
-  // //JS ('texImage2D')
-  // void _texImage2D2_6(target, level, internalformat, width, height, border, format, type, ImageBitmap bitmap);
-  // //JS ('texImage2D')
-  // void _texImage2D2_7(target, level, internalformat, width, height, border, format, type, TypedData srcData, srcOffset);
 
   void texImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, TypedData? pixels) {
     Pointer<Int8>? nativeBuffer;
@@ -908,72 +202,6 @@ class RenderingContext {
     // checkError('texImage3D');
   }
 
-  // void texImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format,
-  //     int type, bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video,
-  //     [int? srcOffset]) {
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is int) && srcOffset == null) {
-  //     _texImage3D_1(target, level, internalformat, width, height, depth, border, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is ImageData) && srcOffset == null) {
-  //     var data_1 = convertDartToNative_ImageData(bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     _texImage3D_2(target, level, internalformat, width, height, depth, border, format, type, data_1);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is ImageElement) && srcOffset == null) {
-  //     _texImage3D_3(target, level, internalformat, width, height, depth, border, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is CanvasElement) && srcOffset == null) {
-  //     _texImage3D_4(target, level, internalformat, width, height, depth, border, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is VideoElement) && srcOffset == null) {
-  //     _texImage3D_5(target, level, internalformat, width, height, depth, border, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is ImageBitmap) && srcOffset == null) {
-  //     _texImage3D_6(target, level, internalformat, width, height, depth, border, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is TypedData ||
-  //           bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video == null) &&
-  //       srcOffset == null) {
-  //     _texImage3D_7(target, level, internalformat, width, height, depth, border, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if (srcOffset != null && (bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is TypedData)) {
-  //     _texImage3D_8(target, level, internalformat, width, height, depth, border, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video, srcOffset);
-  //     return;
-  //   }
-  //   throw new ArgumentError("Incorrect number or type of arguments");
-  // }
-
-  // //JS ('texImage3D')
-  // void _texImage3D_1(target, level, internalformat, width, height, depth, border, format, type, int offset);
-  // //JS ('texImage3D')
-  // void _texImage3D_2(target, level, internalformat, width, height, depth, border, format, type, data);
-  // //JS ('texImage3D')
-  // void _texImage3D_3(target, level, internalformat, width, height, depth, border, format, type, ImageElement image);
-  // //JS ('texImage3D')
-  // void _texImage3D_4(target, level, internalformat, width, height, depth, border, format, type, CanvasElement canvas);
-  // //JS ('texImage3D')
-  // void _texImage3D_5(target, level, internalformat, width, height, depth, border, format, type, VideoElement video);
-  // //JS ('texImage3D')
-  // void _texImage3D_6(target, level, internalformat, width, height, depth, border, format, type, ImageBitmap bitmap);
-  // //JS ('texImage3D')
-  // void _texImage3D_7(target, level, internalformat, width, height, depth, border, format, type, TypedData? pixels);
-  // //JS ('texImage3D')
-  // void _texImage3D_8(
-  //     target, level, internalformat, width, height, depth, border, format, type, TypedData pixels, srcOffset);
-
   void texStorage2D(int target, int levels, int internalformat, int width, int height){
     gl.glTexStorage2D(target, levels, internalformat, width, height);
   }
@@ -981,108 +209,6 @@ class RenderingContext {
   void texStorage3D(int target, int levels, int internalformat, int width, int height, int depth){
     gl.glTexStorage3D(target, levels, internalformat, width, height, depth);
   }
-
-  // void texSubImage2D2(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type,
-  //     bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video,
-  //     [int? srcOffset]) {
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is int) && srcOffset == null) {
-  //     _texSubImage2D2_1(target, level, xoffset, yoffset, width, height, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is ImageData) && srcOffset == null) {
-  //     var data_1 = convertDartToNative_ImageData(bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video);
-  //     _texSubImage2D2_2(target, level, xoffset, yoffset, width, height, format, type, data_1);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is ImageElement) && srcOffset == null) {
-  //     _texSubImage2D2_3(target, level, xoffset, yoffset, width, height, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is CanvasElement) && srcOffset == null) {
-  //     _texSubImage2D2_4(target, level, xoffset, yoffset, width, height, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is VideoElement) && srcOffset == null) {
-  //     _texSubImage2D2_5(target, level, xoffset, yoffset, width, height, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is ImageBitmap) && srcOffset == null) {
-  //     _texSubImage2D2_6(target, level, xoffset, yoffset, width, height, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video);
-  //     return;
-  //   }
-  //   if (srcOffset != null && (bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video is TypedData)) {
-  //     _texSubImage2D2_7(target, level, xoffset, yoffset, width, height, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_srcData_OR_video, srcOffset);
-  //     return;
-  //   }
-  //   throw new ArgumentError("Incorrect number or type of arguments");
-  // }
-
-  // //JS ('texSubImage2D')
-  // void _texSubImage2D2_1(target, level, xoffset, yoffset, width, height, format, type, int offset);
-  // //JS ('texSubImage2D')
-  // void _texSubImage2D2_2(target, level, xoffset, yoffset, width, height, format, type, data);
-  // //JS ('texSubImage2D')
-  // void _texSubImage2D2_3(target, level, xoffset, yoffset, width, height, format, type, ImageElement image);
-  // //JS ('texSubImage2D')
-  // void _texSubImage2D2_4(target, level, xoffset, yoffset, width, height, format, type, CanvasElement canvas);
-  // //JS ('texSubImage2D')
-  // void _texSubImage2D2_5(target, level, xoffset, yoffset, width, height, format, type, VideoElement video);
-  // //JS ('texSubImage2D')
-  // void _texSubImage2D2_6(target, level, xoffset, yoffset, width, height, format, type, ImageBitmap bitmap);
-  // //JS ('texSubImage2D')
-  // void _texSubImage2D2_7(target, level, xoffset, yoffset, width, height, format, type, TypedData srcData, srcOffset);
-
-  // void texSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth,
-  //     int format, int type, bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video,
-  //     [int? srcOffset]) {
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is int) && srcOffset == null) {
-  //     _texSubImage3D_1(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is ImageData) && srcOffset == null) {
-  //     var data_1 = convertDartToNative_ImageData(bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     _texSubImage3D_2(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data_1);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is ImageElement) && srcOffset == null) {
-  //     _texSubImage3D_3(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is CanvasElement) && srcOffset == null) {
-  //     _texSubImage3D_4(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is VideoElement) && srcOffset == null) {
-  //     _texSubImage3D_5(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is ImageBitmap) && srcOffset == null) {
-  //     _texSubImage3D_6(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is TypedData) && srcOffset == null) {
-  //     _texSubImage3D_7(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if (srcOffset != null && (bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video is TypedData)) {
-  //     _texSubImage3D_8(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type,
-  //         bitmap_OR_canvas_OR_data_OR_image_OR_offset_OR_pixels_OR_video, srcOffset);
-  //     return;
-  //   }
-  //   throw new ArgumentError("Incorrect number or type of arguments");
-  // }
 
   // //JS ('texSubImage3D')
   void texSubImage3D(
@@ -1112,31 +238,7 @@ class RenderingContext {
     }
     // checkError('texSubImage2D');
   }
-  // //JS ('texSubImage3D')
-  // void _texSubImage3D_2(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
-  // //JS ('texSubImage3D')
-  // void _texSubImage3D_3(
-  //     target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, ImageElement image);
-  // //JS ('texSubImage3D')
-  // void _texSubImage3D_4(
-  //     target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, CanvasElement canvas);
-  // //JS ('texSubImage3D')
-  // void _texSubImage3D_5(
-  //     target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, VideoElement video);
-  // //JS ('texSubImage3D')
-  // void _texSubImage3D_6(
-  //     target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, ImageBitmap bitmap);
-  // //JS ('texSubImage3D')
-  // void _texSubImage3D_7(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, TypedData pixels);
-  // //JS ('texSubImage3D')
-  // void _texSubImage3D_8(
-  //     target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, TypedData pixels, srcOffset);
 
-  // void transformFeedbackVaryings(Program program, List<String> varyings, int bufferMode) {
-  //   List varyings_1 = convertDartToNative_StringArray(varyings);
-  //   _transformFeedbackVaryings_1(program, varyings_1, bufferMode);
-  //   return;
-  // }
   void transformFeedbackVaryings(Program program, int count, List<String> varyings, int bufferMode) {
     final varyingsPtr = calloc<Pointer<Int8>>(varyings.length);
     int i = 0;
@@ -1147,14 +249,6 @@ class RenderingContext {
     gl.glTransformFeedbackVaryings(program.id, count, varyingsPtr, bufferMode);
     calloc.free(varyingsPtr);
   }
-  // //JS ('transformFeedbackVaryings')
-  // void _transformFeedbackVaryings_1(Program program, List varyings, bufferMode);
-
-  // //JS ('uniform1fv')
-  // void uniform1fv2(UniformLocation? location, v, int srcOffset, [int? srcLength]);
-
-  // //JS ('uniform1iv')
-  // void uniform1iv2(UniformLocation? location, v, int srcOffset, [int? srcLength]);
 
   void uniform1ui(UniformLocation? location, int v0){
     gl.glUniform1ui(location?.id  ?? nullptr.address, v0);
@@ -1170,12 +264,6 @@ class RenderingContext {
     // checkError('uniform1uiv'); 
   }
 
-  // //JS ('uniform2fv')
-  // void uniform2fv2(UniformLocation? location, v, int srcOffset, [int? srcLength]);
-
-  // //JS ('uniform2iv')
-  // void uniform2iv2(UniformLocation? location, v, int srcOffset, [int? srcLength]);
-
   void uniform2ui(UniformLocation? location, int v0, int v1){
     gl.glUniform2ui(location?.id  ?? nullptr.address, v0, v1);
     // checkError('uniform2ui');
@@ -1189,11 +277,6 @@ class RenderingContext {
     calloc.free(valuePtr);
     // checkError('uniform1uiv'); 
   }
-  // //JS ('uniform3fv')
-  // void uniform3fv2(UniformLocation? location, v, int srcOffset, [int? srcLength]);
-
-  // //JS ('uniform3iv')
-  // void uniform3iv2(UniformLocation? location, v, int srcOffset, [int? srcLength]);
 
   void uniform3ui(UniformLocation? location, int v0, int v1, int v2){
     gl.glUniform3ui(location?.id  ?? nullptr.address, v0, v1, v2);
@@ -1208,11 +291,6 @@ class RenderingContext {
     calloc.free(valuePtr);
     // checkError('uniform1uiv'); 
   }
-  // //JS ('uniform4fv')
-  // void uniform4fv2(UniformLocation? location, v, int srcOffset, [int? srcLength]);
-
-  // //JS ('uniform4iv')
-  // void uniform4iv2(UniformLocation? location, v, int srcOffset, [int? srcLength]);
 
   void uniform4ui(UniformLocation? location, int v0, int v1, int v2, int v3){
     gl.glUniform4ui(location?.id  ?? nullptr.address, v0, v1, v2, v3);
@@ -1227,40 +305,10 @@ class RenderingContext {
     calloc.free(valuePtr);
     // checkError('uniform1uiv'); 
   }
-  // void uniformBlockBinding(Program program, int uniformBlockIndex, int uniformBlockBinding);
-
-  // //JS ('uniformMatrix2fv')
-  // void uniformMatrix2fv2(UniformLocation? location, bool transpose, array, int srcOffset, [int? srcLength]);
-
-  // void uniformMatrix2x3fv(UniformLocation? location, bool transpose, value, [int? srcOffset, int? srcLength]);
-
-  // void uniformMatrix2x4fv(UniformLocation? location, bool transpose, value, [int? srcOffset, int? srcLength]);
-
-  // //JS ('uniformMatrix3fv')
-  // void uniformMatrix3fv2(UniformLocation? location, bool transpose, array, int srcOffset, [int? srcLength]);
-
-  // void uniformMatrix3x2fv(UniformLocation? location, bool transpose, value, [int? srcOffset, int? srcLength]);
-
-  // void uniformMatrix3x4fv(UniformLocation? location, bool transpose, value, [int? srcOffset, int? srcLength]);
-
-  // //JS ('uniformMatrix4fv')
-  // void uniformMatrix4fv2(UniformLocation? location, bool transpose, array, int srcOffset, [int? srcLength]);
-
-  // void uniformMatrix4x2fv(UniformLocation? location, bool transpose, value, [int? srcOffset, int? srcLength]);
-
-  // void uniformMatrix4x3fv(UniformLocation? location, bool transpose, value, [int? srcOffset, int? srcLength]);
 
   void vertexAttribDivisor(int index, int divisor){
     gl.glVertexAttribDivisor(index, divisor);
   }
-
-  // void vertexAttribI4i(int index, int x, int y, int z, int w);
-
-  // void vertexAttribI4iv(int index, v);
-
-  // void vertexAttribI4ui(int index, int x, int y, int z, int w);
-
-  // void vertexAttribI4uiv(int index, v);
 
   void vertexAttribIPointer(int index, int size, int type, int stride, int pointer){
     var _pointer = calloc<Int32>();
@@ -1269,14 +317,6 @@ class RenderingContext {
     calloc.free(_pointer);
     // checkError('vertexAttribIPointer');
   }
-
-  // void waitSync(Sync sync, int flags, int timeout);
-
-  // // From WebGLRenderingContextBase
-
-  // int? get drawingBufferHeight;
-
-  // int? get drawingBufferWidth;
 
   void activeTexture(int texture) {
     gl.glActiveTexture(texture);
@@ -1441,7 +481,6 @@ class RenderingContext {
     // checkError('colorMask');
   }
 
-  // Future commit() => promiseToFuture(JS("", "#.commit()", this));
 
   void compileShader(WebGLShader shader, [bool checkForErrors = true]) {
     gl.glCompileShader(shader.id);
@@ -1663,10 +702,6 @@ class RenderingContext {
     // checkError('depthMask');
   }
 
-  // void depthRange(num zNear, num zFar);
-
-  // void detachShader(Program program, WebGLShader shader);
-
   void disable(int cap) {
     gl.glDisable(cap);
     // checkError('disable');
@@ -1764,7 +799,6 @@ class RenderingContext {
 
     return ActiveInfo(_type, _name, _size);
   }
-  // List<WebGLShader>? getAttachedShaders(Program program);
 
   UniformLocation getAttribLocation(Program program, String name) {
     final locationName = name.toNativeUtf8();
@@ -1773,14 +807,10 @@ class RenderingContext {
     calloc.free(locationName);
     return UniformLocation(location);
   }
-  // Object? getBufferParameter(int target, int pname);
 
   dynamic getContextAttributes() {
     return null;
   }
-
-  // //JS ('getContextAttributes')
-  // _getContextAttributes_1();
 
   int getError(){
     return gl.glGetError();
@@ -1822,10 +852,6 @@ class RenderingContext {
 
     return _v;
   }
-  
-  // Object? getFramebufferAttachmentParameter(int target, int attachment, int pname);
-
-  // Object? getParameter(int pname);
 
   String? getProgramInfoLog(Program program){
     var infoLen = calloc<Int32>();
@@ -1858,7 +884,6 @@ class RenderingContext {
     return WebGLParameter(_v);
   }
 
-  // Object? getRenderbufferParameter(int target, int pname);
 
   String? getShaderInfoLog(WebGLShader shader){
     final infoLen = calloc<Int32>();
@@ -1901,12 +926,6 @@ class RenderingContext {
     return null;
   }
 
-  // List<String>? getSupportedExtensions();
-
-  // Object? getTexParameter(int target, int pname);
-
-  // Object? getUniform(Program program, UniformLocation location);
-
   UniformLocation getUniformLocation(Program program, String name) {
     final locationName = name.toNativeUtf8();
     final location = gl.glGetUniformLocation(program.id, locationName.cast());
@@ -1915,29 +934,9 @@ class RenderingContext {
     return UniformLocation(location);
   }
 
-  // Object? getVertexAttrib(int index, int pname);
-
-  // int getVertexAttribOffset(int index, int pname);
-
-  // void hint(int target, int mode);
-
-  // bool isBuffer(Buffer? buffer);
-
-  // bool isContextLost();
-
-  // bool isEnabled(int cap);
-
-  // bool isFramebuffer(Framebuffer? framebuffer);
-
   bool isProgram(Program program){
     return gl.glIsProgram(program.id) != 0;
   }
-
-  // bool isRenderbuffer(Renderbuffer? renderbuffer);
-
-  // bool isShader(WebGLShader? shader);
-
-  // bool isTexture(WebGLTexture? texture);
 
   void lineWidth(double width){
     gl.glLineWidth(width);
@@ -1979,14 +978,9 @@ class RenderingContext {
     gl.glPolygonOffset(factor, units);
   }
 
-  // //JS ('readPixels')
-  // void _readPixels(int x, int y, int width, int height, int format, int type, TypedData? pixels);
-
   void renderbufferStorage(int target, int internalformat, int width, int height){
     gl.glRenderbufferStorage(target, internalformat, width, height);
   }
-
-  // void sampleCoverage(num value, bool invert);
 
   void scissor(int x, int y, int width, int height){
     gl.glScissor(x, y, width, height);
@@ -2007,24 +1001,16 @@ class RenderingContext {
     gl.glStencilFunc(func, ref, mask);
   }
 
-  // void stencilFuncSeparate(int face, int func, int ref, int mask);
-
   void stencilMask(int mask){
     gl.glStencilMask(mask);
     // checkError('stencilMask');
   }
-
-  // void stencilMaskSeparate(int face, int mask);
 
   void stencilOp(int fail, int zfail, int zpass){
     gl.glStencilOp(fail, zfail, zpass);
     // checkError('stencilOp');
   }
 
-  // void stencilOpSeparate(int face, int fail, int zfail, int zpass);
-
-  // //JS ('texImage2D')
-  /// passing null for pixels is perfectly fine, in that case an empty WebGLTexture is allocated
   void texImage2D(
     int target, 
     int level, 
@@ -2104,42 +1090,6 @@ class RenderingContext {
     // checkError('texParameteri');
   }
 
-  // void texSubImage2D(int target, int level, int xoffset, int yoffset, int format_OR_width, int height_OR_type,
-  //     bitmap_OR_canvas_OR_format_OR_image_OR_pixels_OR_video,
-  //     [int? type, TypedData? pixels]) {
-  //   if (type != null && (bitmap_OR_canvas_OR_format_OR_image_OR_pixels_OR_video is int)) {
-  //     _texSubImage2D_1(target, level, xoffset, yoffset, format_OR_width, height_OR_type,
-  //         bitmap_OR_canvas_OR_format_OR_image_OR_pixels_OR_video, type, pixels);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_format_OR_image_OR_pixels_OR_video is ImageData) && type == null && pixels == null) {
-  //     var pixels_1 = convertDartToNative_ImageData(bitmap_OR_canvas_OR_format_OR_image_OR_pixels_OR_video);
-  //     _texSubImage2D_2(target, level, xoffset, yoffset, format_OR_width, height_OR_type, pixels_1);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_format_OR_image_OR_pixels_OR_video is ImageElement) && type == null && pixels == null) {
-  //     _texSubImage2D_3(target, level, xoffset, yoffset, format_OR_width, height_OR_type,
-  //         bitmap_OR_canvas_OR_format_OR_image_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_format_OR_image_OR_pixels_OR_video is CanvasElement) && type == null && pixels == null) {
-  //     _texSubImage2D_4(target, level, xoffset, yoffset, format_OR_width, height_OR_type,
-  //         bitmap_OR_canvas_OR_format_OR_image_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_format_OR_image_OR_pixels_OR_video is VideoElement) && type == null && pixels == null) {
-  //     _texSubImage2D_5(target, level, xoffset, yoffset, format_OR_width, height_OR_type,
-  //         bitmap_OR_canvas_OR_format_OR_image_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   if ((bitmap_OR_canvas_OR_format_OR_image_OR_pixels_OR_video is ImageBitmap) && type == null && pixels == null) {
-  //     _texSubImage2D_6(target, level, xoffset, yoffset, format_OR_width, height_OR_type,
-  //         bitmap_OR_canvas_OR_format_OR_image_OR_pixels_OR_video);
-  //     return;
-  //   }
-  //   throw new ArgumentError("Incorrect number or type of arguments");
-  // }
-
   // //JS ('texSubImage2D')
   void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, TypedData? pixels){
     /// TODO this can probably optimized depending on if the length can be devided by 4 or 2
@@ -2160,16 +1110,6 @@ class RenderingContext {
   void texSubImage2D_NOSIZE(int target, int level, int xoffset, int yoffset, int format, int type, TypedData? pixels){
     texSubImage2D(target, level, xoffset, yoffset, 0, 0, format, type, pixels);
   }
-  // //JS ('texSubImage2D')
-  // void _texSubImage2D_2(target, level, xoffset, yoffset, format, type, pixels);
-  // //JS ('texSubImage2D')
-  // void _texSubImage2D_3(target, level, xoffset, yoffset, format, type, ImageElement image);
-  // //JS ('texSubImage2D')
-  // void _texSubImage2D_4(target, level, xoffset, yoffset, format, type, CanvasElement canvas);
-  // //JS ('texSubImage2D')
-  // void _texSubImage2D_5(target, level, xoffset, yoffset, format, type, VideoElement video);
-  // //JS ('texSubImage2D')
-  // void _texSubImage2D_6(target, level, xoffset, yoffset, format, type, ImageBitmap bitmap);
 
   void uniform1f(UniformLocation location, double x){
     gl.glUniform1f(location.id, x);
@@ -2232,8 +1172,6 @@ class RenderingContext {
     calloc.free(arrayPointer);
   }
 
-  // void uniform3i(UniformLocation? location, int x, int y, int z);
-
   void uniform3iv(UniformLocation location, List<int> v){
     int count = v.length;
     final valuePtr = calloc<Int32>(count);
@@ -2254,8 +1192,6 @@ class RenderingContext {
     // checkError('uniform4fv');
     calloc.free(arrayPointer);
   }
-
-  // void uniform4i(UniformLocation? location, int x, int y, int z, int w);
 
   void uniform4iv(UniformLocation location, List<int> v){
     int count = v.length;
@@ -2295,10 +1231,6 @@ class RenderingContext {
     // checkError('useProgram');
   }
 
-  // void validateProgram(Program program);
-
-  // void vertexAttrib1f(int indx, num x);
-
   void vertexAttrib1fv(int index, List<double> values){
     var arrayPointer = floatListToArrayPointer(values);
     gl.glVertexAttrib1fv(index, arrayPointer);
@@ -2306,16 +1238,12 @@ class RenderingContext {
     calloc.free(arrayPointer);
   }
 
-  // void vertexAttrib2f(int indx, num x, num y);
-
   void vertexAttrib2fv(int index, List<double> values){
     var arrayPointer = floatListToArrayPointer(values);
     gl.glVertexAttrib2fv(index, arrayPointer);
     // checkError('vertexAttrib2fv');
     calloc.free(arrayPointer);
   }
-
-  // void vertexAttrib3f(int indx, num x, num y, num z);
 
   void vertexAttrib3fv(int index, List<double> values){
     var arrayPointer = floatListToArrayPointer(values);
@@ -2361,68 +1289,3 @@ class RenderingContext {
     // checkError('texImage2D');
   }
 }
-
-// // JS "WebGLSampler")
-// class Sampler extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory Sampler._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "WebGLShaderPrecisionFormat")
-// class ShaderPrecisionFormat extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory ShaderPrecisionFormat._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   int get precision;
-
-//   int get rangeMax;
-
-//   int get rangeMin;
-// }
-
-// // JS "WebGLSync")
-// class Sync extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory Sync._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "WebGLTimerQueryEXT")
-// class TimerQueryExt extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory TimerQueryExt._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "WebGLTransformFeedback")
-// class TransformFeedback extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory TransformFeedback._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "WebGLVertexArrayObject")
-// class VertexArrayObject extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory VertexArrayObject._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-
-// // JS "WebGLVertexArrayObjectOES")
-// class VertexArrayObjectOes extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory VertexArrayObjectOes._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }
-// // Copyright (c) 2018, the Dart project authors.  Please see the AUTHORS file
-// // for details. All rights reserved. Use of this source code is governed by a
-// // BSD-style license that can be found in the LICENSE file.

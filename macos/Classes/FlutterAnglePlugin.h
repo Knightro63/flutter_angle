@@ -1,4 +1,5 @@
 #import <FlutterMacOS/FlutterMacOS.h>
+#define GL_SILENCE_DEPRECATION
 
 @interface FlutterAnglePlugin : NSObject<FlutterPlugin>
 @end
@@ -10,11 +11,9 @@
 @end
 		
 @interface FlutterGlTexture : NSObject<FlutterTexture>
-- (instancetype)initWithWidth:(int) width andHeight:(int)height useOpenGL:(bool)allow registerWidth:(NSObject<FlutterTextureRegistry>*) registry;
+- (instancetype)initWithWidth:(int) width andHeight:(int)height registerWidth:(NSObject<FlutterTextureRegistry>*) registry;
 @property (nonatomic,assign) int width;
 @property (nonatomic,assign) int height;
-@property (nonatomic,assign) GLuint fbo;
-@property (nonatomic,assign) GLuint rbo;
 @property (nonatomic,assign) int64_t flutterTextureId;
 @property (nonatomic) CVPixelBufferRef  pixelData;
 // Metal -> GL interop texture

@@ -52,7 +52,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
       width: textureWidth, 
       height: textureHeight, 
       dpr: dpr,
-      forceOpenGL: true
     );
 
     try {
