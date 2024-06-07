@@ -76,7 +76,6 @@ class _MyAppState extends State<ExampleDemoTest> {
           width: width.toInt(), 
           height: height.toInt(), 
           dpr: dpr,
-          
         )
       );
 
