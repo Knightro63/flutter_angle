@@ -1,5 +1,5 @@
-import 'dart:typed_data';
 import 'package:flutter/services.dart';
+import 'package:flutter_angle/native-array/index.dart';
 import 'dart:html' as html;
 import '../shared/webgl.dart';
 import '../shared/classes.dart';
@@ -48,7 +48,7 @@ class RenderingContext{
   }
 
   void bindTexture(int target, WebGLTexture? texture) {
-    _gl.bindTexture(target, texture?.id);
+    _gl.bindTexture(target, texture!.id);
     // checkError('bindTexture');
   }
 
@@ -169,9 +169,9 @@ class RenderingContext{
     int border, 
     int format, 
     int type, 
-    TypedData? pixels
+    NativeArray? pixels
   ) {
-    _gl.texImage2D(target, level, internalformat, width, height, border, format, type, pixels);
+    _gl.texImage2D(target, level, internalformat, width, height, border, format, type, pixels?.data);
     // checkError('texImage2D');
   }
 
@@ -188,8 +188,8 @@ class RenderingContext{
   }
 
   //TODO
-  void texImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, TypedData? pixels) {
-    _gl.texImage3D(target, level, internalformat, width, height, depth,border, format, type, pixels);
+  void texImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, NativeArray? pixels) {
+    _gl.texImage3D(target, level, internalformat, width, height, depth,border, format, type, pixels?.data);
     // checkError('texImage3D');
   }
 
@@ -293,8 +293,8 @@ class RenderingContext{
     // checkError('clearColor');
   }
 
-  void compressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, TypedData? data){
-    _gl.compressedTexImage2D(target, level, internalformat, width, height, border, data);
+  void compressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, NativeArray? data){
+    _gl.compressedTexImage2D(target, level, internalformat, width, height, border, data?.data);
     // checkError('compressedTexImage2D');
   }
 
@@ -373,8 +373,8 @@ class RenderingContext{
     // checkError('bindBuffer');
   }
 
-  void bufferData(int target, TypedData data, int usage) {
-    _gl.bufferData(target, data, usage);
+  void bufferData(int target, NativeArray data, int usage) {
+    _gl.bufferData(target, data.data, usage);
     // checkError('bufferData');
   }
 
@@ -427,7 +427,7 @@ class RenderingContext{
   }
 
   void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, pixels) {
-    _gl.texSubImage2D(target, level, xoffset, yoffset, width, height, format,type, pixels);
+    _gl.texSubImage2D(target, level, xoffset, yoffset, width, height, format,type, pixels?.data);
     // checkError('texSubImage2D');
   }
 
@@ -447,14 +447,14 @@ class RenderingContext{
     int depth,
     int format,
     int type,
-    TypedData? pixels
+    NativeArray? pixels
   ) {
-    _gl.texSubImage3D(target, level, xoffset, yoffset, zoffset, width,height, depth, format, type, pixels);
+    _gl.texSubImage3D(target, level, xoffset, yoffset, zoffset, width,height, depth, format, type, pixels?.data);
     // checkError('texSubImage3D');
   }
 
-  void compressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, TypedData? pixels) {
-    _gl.compressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, pixels);
+  void compressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, NativeArray? pixels) {
+    _gl.compressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, pixels?.data);
     // checkError('compressedTexSubImage2D');
   }
 
@@ -491,8 +491,8 @@ class RenderingContext{
     // checkError('blitFramebuffer');
   }
 
-  void bufferSubData(int target, int dstByteOffset, TypedData srcData){
-    _gl.bufferSubData(target, dstByteOffset, srcData);
+  void bufferSubData(int target, int dstByteOffset, NativeArray srcData){
+    _gl.bufferSubData(target, dstByteOffset, srcData.data);
     // checkError('bufferSubData');
   }
 
@@ -571,23 +571,23 @@ class RenderingContext{
     // checkError('vertexAttribIPointer');
   }
 
-  void vertexAttrib2fv(int index, List<double> values) {
-    _gl.vertexAttrib2fv(index, values);
+  void vertexAttrib2fv(int index, NativeArray<double> values) {
+    _gl.vertexAttrib2fv(index, values.data);
     // checkError('vertexAttrib2fv');
   }
 
-  void vertexAttrib3fv(int index, List<double> values) {
-    _gl.vertexAttrib3fv(index, values);
+  void vertexAttrib3fv(int index, NativeArray<double> values) {
+    _gl.vertexAttrib3fv(index, values.data);
     // checkError('vertexAttrib3fv');
   }
 
-  void vertexAttrib4fv(int index, List<double> values) {
-    _gl.vertexAttrib4fv(index, values);
+  void vertexAttrib4fv(int index, NativeArray<double> values) {
+    _gl.vertexAttrib4fv(index, values.data);
     // checkError('vertexAttrib4fv');
   }
 
-  void vertexAttrib1fv(int index, List<double> values) {
-    _gl.vertexAttrib1fv(index, values);
+  void vertexAttrib1fv(int index, NativeArray<double> values) {
+    _gl.vertexAttrib1fv(index, values.data);
     // checkError('vertexAttrib1fv');
   }
 
@@ -596,8 +596,8 @@ class RenderingContext{
     // checkError('drawElements');
   }
 
-  void drawBuffers(List<int> buffers) {
-    _gl.drawBuffers(buffers);
+  void drawBuffers(Uint32Array buffers) {
+    _gl.drawBuffers(buffers.data);
     // checkError('drawBuffers');
   }
 
@@ -638,18 +638,18 @@ class RenderingContext{
     // checkError('uniform4f');
   }
 
-  void uniform1fv(UniformLocation location, List<double> v){
-    _gl.uniform1fv(location.id, v);
+  void uniform1fv(UniformLocation location, NativeArray<double> v){
+    _gl.uniform1fv(location.id, v.data);
     // checkError('uniform1fv');
   }
 
-  void uniform2fv(UniformLocation location, List<double> v){
-    _gl.uniform2fv(location.id, v);
+  void uniform2fv(UniformLocation location, NativeArray<double> v){
+    _gl.uniform2fv(location.id, v.data);
     // checkError('uniform2fv');
   }
 
-  void uniform3fv(UniformLocation location, List<double> v){
-    _gl.uniform3fv(location.id, v);
+  void uniform3fv(UniformLocation location, NativeArray<double> v){
+    _gl.uniform3fv(location.id, v.data);
     // checkError('uniform3fv');
   }
 
@@ -657,18 +657,18 @@ class RenderingContext{
     _gl.uniform1f(location.id, x);
     // checkError('uniform1f');
   }
-  void uniformMatrix2fv(UniformLocation location, bool transpose, List<double> values) {
-    _gl.uniformMatrix2fv(location.id, transpose, values);
+  void uniformMatrix2fv(UniformLocation location, bool transpose, NativeArray<double> values) {
+    _gl.uniformMatrix2fv(location.id, transpose, values.data);
     // checkError('uniformMatrix2fv');
   }
 
-  void uniformMatrix3fv(UniformLocation location, bool transpose, List<double> values) {
-    _gl.uniformMatrix3fv(location.id, transpose, values);
+  void uniformMatrix3fv(UniformLocation location, bool transpose, NativeArray<double> values) {
+    _gl.uniformMatrix3fv(location.id, transpose, values.data);
     // checkError('uniformMatrix3fv');
   }
 
-  void uniformMatrix4fv(UniformLocation location, bool transpose, List<double> values) {
-    _gl.uniformMatrix4fv(location.id, transpose, values);
+  void uniformMatrix4fv(UniformLocation location, bool transpose, NativeArray<double> values) {
+    _gl.uniformMatrix4fv(location.id, transpose, values.data);
     // checkError('uniformMatrix4fv');
   }
 
@@ -681,43 +681,43 @@ class RenderingContext{
     // checkError('uniform2f');
   }
 
-  void uniform1iv(UniformLocation location, List<int> v){
-    _gl.uniform1iv(location.id, v);
+  void uniform1iv(UniformLocation location, Int32Array v){
+    _gl.uniform1iv(location.id, v.data);
     // checkError('uniform1iv');
   }
 
-  void uniform2iv(UniformLocation location, List<int> v){
-    _gl.uniform2iv(location.id, v);
+  void uniform2iv(UniformLocation location, Int32Array v){
+    _gl.uniform2iv(location.id, v.data);
     // checkError('uniform2iv');
   }
 
-  void uniform3iv(UniformLocation location, List<int> v){
-    _gl.uniform3iv(location.id, v);
+  void uniform3iv(UniformLocation location, Int32Array v){
+    _gl.uniform3iv(location.id, v.data);
     // checkError('uniform3iv');
   }
 
-  void uniform4iv(UniformLocation location, List<int> v){
-    _gl.uniform4iv(location.id, v);
+  void uniform4iv(UniformLocation location, Int32Array v){
+    _gl.uniform4iv(location.id, v.data);
     // checkError('uniform4iv');
   }
 
-  void uniform1uiv(UniformLocation? location, List<int> v){
-    _gl.uniform1uiv(location?.id, v);
+  void uniform1uiv(UniformLocation? location, Uint32Array v){
+    _gl.uniform1uiv(location?.id, v.data);
     // checkError('uniform1uiv');
   }
   
-  void uniform2uiv(UniformLocation? location, List<int> v){
-    _gl.uniform2uiv(location?.id, v);
+  void uniform2uiv(UniformLocation? location, Uint32Array v){
+    _gl.uniform2uiv(location?.id, v.data);
     // checkError('uniform2uiv');
   }
 
-  void uniform3uiv(UniformLocation? location, List<int> v){
-    _gl.uniform3uiv(location?.id, v);
+  void uniform3uiv(UniformLocation? location, Uint32Array v){
+    _gl.uniform3uiv(location?.id, v.data);
     // checkError('uniform3uiv');
   }
 
-  void uniform4uiv(UniformLocation? location, List<int> v){
-    _gl.uniform4uiv(location?.id, v);
+  void uniform4uiv(UniformLocation? location, Uint32Array v){
+    _gl.uniform4uiv(location?.id, v.data);
     // checkError('uniform4uiv');
   }
 
@@ -741,8 +741,8 @@ class RenderingContext{
     // checkError('uniform2ui');
   }
 
-  void uniform4fv(UniformLocation location, List<double> vectors) {
-    _gl.uniform4fv(location.id, vectors);
+  void uniform4fv(UniformLocation location, NativeArray<double> vectors) {
+    _gl.uniform4fv(location.id, vectors.data);
     // checkError('uniform4fv');
   }
 
@@ -820,12 +820,5 @@ class RenderingContext{
   void invalidateFramebuffer(int target, List<int> attachments){
     _gl.invalidateFramebuffer(target, attachments);
     // checkError('invalidateFramebuffer');
-  }
-
-  Uint8List readCurrentPixels(int x, int y, int width, int height) {
-    int _len = width * height * 4;
-    var buffer = Uint8List(_len);
-    _gl.readPixels(x, y, width, height, WebGL.RGBA, WebGL.UNSIGNED_BYTE, buffer);
-    return buffer;
   }
 }

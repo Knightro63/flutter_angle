@@ -197,7 +197,8 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
           EGL_GREEN_SIZE, 8,
           EGL_BLUE_SIZE, 8,
           EGL_ALPHA_SIZE, 8,
-          EGL_DEPTH_SIZE, 16,
+          EGL_DEPTH_SIZE, 24,
+          EGL_STENCIL_SIZE, 8,
           EGL_NONE
         };
 

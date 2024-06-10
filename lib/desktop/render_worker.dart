@@ -4,6 +4,7 @@ import 'angle.dart';
 import '../shared/webgl.dart';
 import '../shared/classes.dart';
 import 'wrapper.dart';
+import '../native-array/index.dart';
 import 'shaders.dart';
 
 class RenderWorker{
@@ -18,7 +19,7 @@ class RenderWorker{
     setupVBO4FBO();
   }
 
-  void renderTexture(WebGLTexture? texture, {Float32List? matrix, bool isFBO = false}){
+  void renderTexture(WebGLTexture? texture, {Float32Array? matrix, bool isFBO = false}){
     var _vertexBuffer;
     
     if(isFBO) {
@@ -34,7 +35,7 @@ class RenderWorker{
     double w = 1.0;
     double h = 1.0;
 
-    Float32List vertices = Float32List.fromList([
+    Float32Array vertices = Float32Array.fromList([
       -w,-h,0,0,1,
       w,-h,0,1,1,
       -w,h,0,0,0,
@@ -44,6 +45,7 @@ class RenderWorker{
     vertexBuffer = _gl.createBuffer();
     _gl.bindBuffer(WebGL.ARRAY_BUFFER, vertexBuffer);
     _gl.bufferData(WebGL.ARRAY_BUFFER, vertices, WebGL.STATIC_DRAW);
+    vertices.dispose();
   }
   
   
@@ -51,7 +53,7 @@ class RenderWorker{
     double w = 1.0;
     double h = 1.0;
 
-    Float32List vertices = Float32List.fromList([
+    Float32Array vertices = Float32Array.fromList([
       -w,-h,0,0,0,
       w,-h,0,1,0,
       -w,h,0,0,1,
@@ -61,9 +63,10 @@ class RenderWorker{
     vertexBuffer4FBO = _gl.createBuffer();
     _gl.bindBuffer(WebGL.ARRAY_BUFFER, vertexBuffer4FBO);
     _gl.bufferData(WebGL.ARRAY_BUFFER, vertices, WebGL.STATIC_DRAW);
+    vertices.dispose();
   }
 
-  void drawTexture({required WebGLTexture? texture, required Buffer vertexBuffer, Float32List? matrix}) {
+  void drawTexture({required WebGLTexture? texture, required Buffer vertexBuffer, Float32Array? matrix}) {
     _gl.checkError("drawTexture 01");
     
     final _program = GlProgram(
@@ -87,7 +90,7 @@ class RenderWorker{
     _gl.uniform1i(_texture0Uniform, 10);
     _gl.checkError("drawTexture 03");
     
-    Float32List _matrix = Float32List.fromList([
+    Float32Array _matrix = Float32Array.fromList([
       1.0, 0.0, 0.0, 0.0,
       0.0, 1.0, 0.0, 0.0,
       0.0, 0.0, 1.0, 0.0,
@@ -95,6 +98,7 @@ class RenderWorker{
     ]);
     
     if(matrix != null) {
+      _matrix.dispose();
       _matrix = matrix;
     }
 
@@ -126,6 +130,7 @@ class RenderWorker{
     _gl.drawArrays(WebGL.TRIANGLE_STRIP, 0, 4);
     _gl.deleteVertexArray(vao);
     _gl.checkError("drawTexture 09");
+    _matrix.dispose();
   }
 
   void dispose(){
