@@ -23,7 +23,7 @@ class _MyAppState extends State<ExampleDemoTest> {
 
   Size? screenSize;
 
-  late FlutterGLTexture sourceTexture;
+  late FlutterAngleTexture sourceTexture;
   late final defaultFramebufferTexture;
 
   int n = 0;

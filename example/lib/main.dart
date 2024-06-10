@@ -17,7 +17,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
-  final textures = <FlutterGLTexture>[];
+  final textures = <FlutterAngleTexture>[];
   int textureId = -1;
   int textureId2 = -1;
   Lesson? lesson;

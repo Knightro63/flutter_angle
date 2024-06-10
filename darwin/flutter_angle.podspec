@@ -12,16 +12,20 @@ Pod::Spec.new do |s|
   s.license          = { :file => '../LICENSE' }
   s.authors          = 'Multiple Authors'
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*.{h,m,swift,inc,plist}'
-  s.public_header_files = 'Classes/**/*.{h,inc}'
-  s.osx.dependency 'FlutterMacOS'
-  s.ios.dependency 'Flutter'
-  s.osx.deployment_target = '10.14'
-  s.ios.deployment_target = '11.0'
-  s.ios.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES'}  
+  s.source_files = 'Classes/**/*'
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES'}  
   s.swift_version = '5.0'
-  
-  s.preserve_paths = 'frameworks/libEGL.xcframework', 'frameworks/libGLESv2.xcframework'
+
+  s.osx.dependency 'FlutterMacOS'
+  s.osx.dependency "three3d_egl_osx", '~> 0.1.1'
+  s.osx.deployment_target = '10.13'
+  s.osx.preserve_paths = 'osx/MetalANGLE.framework', 'osx/three3d_egl.framework'
+
+  s.ios.dependency 'Flutter'
+  s.ios.dependency "three3d_egl", '~> 0.1.3'
+  s.ios.deployment_target = '11.0'
+  s.ios.preserve_paths = 'ios/MetalANGLE.framework', 'ios/three3d_egl.framework'
+
   s.xcconfig = { 'OTHER_LDFLAGS' => '-framework libEGL', 'HEADER_SEARCH_PATHS' => '"${PODS_TARGET_SRCROOT}/libEGL.xcframework/Headers"'}
   s.vendored_frameworks = 'frameworks/libEGL.xcframework', 'frameworks/libGLESv2.xcframework'
   s.library = 'c++'

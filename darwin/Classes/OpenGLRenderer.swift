@@ -97,8 +97,15 @@ public class OGLEglEnv : NSObject {
   var dummySurface:NSOpenGLContext?;
   var dummySurfaceForDartSide:NSOpenGLContext?;
   
+    func getEgl() -> Array<Int64> {
+        var _egls = [Int64](repeating: 0, count: 6);
+        _egls[2] = getContext(1);
+        _egls[5] = getContext(2);
+        return _egls;
+    }
+
   func setupRender(){
-    setupOGLEglEnv(nil);
+    setupOGLEglEnv();
     self.dummySurface = setupDummy(shareContext: context);
     self.dummySurfaceForDartSide = setupDummy(shareContext: context);
   }
@@ -122,13 +129,10 @@ public class OGLEglEnv : NSObject {
       ]
 
       let format = NSOpenGLPixelFormat(attributes: attr)
-        
       return NSOpenGLContext(format: format!, share: shareContext)
   }
 
-    func setupOGLEglEnv(_ shareContext: NSOpenGLContext?){
-       self.context = shareContext;
-
+    func setupOGLEglEnv(){
         if(self.context == nil) {
             let attr = [
                 NSOpenGLPixelFormatAttribute(NSOpenGLPFAAllowOfflineRenderers),

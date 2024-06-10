@@ -1,5 +1,3 @@
-library flutter_angle;
-
 import '../shared/classes.dart';
 import '../shared/options.dart';
 import 'dart:async';
@@ -8,7 +6,7 @@ import 'wrapper.dart';
 import 'gles_bindings.dart';
 import 'dart:ui_web' as ui;
 
-class FlutterGLTexture {
+class FlutterAngleTexture {
   final CanvasElement? element;
   final int textureId;
   final int rboId;
@@ -18,7 +16,7 @@ class FlutterGLTexture {
   LibOpenGLES? _libOpenGLES;
   late AngleOptions options;
   
-  FlutterGLTexture(
+  FlutterAngleTexture(
     this.textureId, 
     this.rboId, 
     this.metalAsGLTextureId,
@@ -43,13 +41,13 @@ class FlutterGLTexture {
     return _libOpenGLES!;
   }
 
-  static FlutterGLTexture fromMap(
+  static FlutterAngleTexture fromMap(
     dynamic map, 
     CanvasElement? element,
     int fboId, 
     AngleOptions options
   ) {
-    return FlutterGLTexture(
+    return FlutterAngleTexture(
       map['textureId']! as int,
       map['rbo'] as int? ?? 0,
       map['metalAsGLTexture'] as int? ?? 0,
@@ -101,7 +99,7 @@ class FlutterAngle{
     int pUserParam
   ) {}
 
-  static Future<FlutterGLTexture> createTexture(AngleOptions options) async {
+  static Future<FlutterAngleTexture> createTexture(AngleOptions options) async {
     final _divId = DateTime.now().microsecondsSinceEpoch;
     final element = CanvasElement(
       width: (options.width * options.dpr).toInt(), 
@@ -112,7 +110,7 @@ class FlutterAngle{
       return element;
     });
 
-    final newTexture = FlutterGLTexture.fromMap({
+    final newTexture = FlutterAngleTexture.fromMap({
       "textureId": _divId
     }, element, 0, options);
 
@@ -120,8 +118,8 @@ class FlutterAngle{
   }
 
   static Future<void> initOpenGL([bool useDebugContext = false]) async {}
-  static Future<void> updateTexture(FlutterGLTexture texture,[WebGLTexture? sourceTexture]) async {}
-  static Future<void> deleteTexture(FlutterGLTexture texture) async {}
-  static void activateTexture(FlutterGLTexture texture) {}
+  static Future<void> updateTexture(FlutterAngleTexture texture,[WebGLTexture? sourceTexture]) async {}
+  static Future<void> deleteTexture(FlutterAngleTexture texture) async {}
+  static void activateTexture(FlutterAngleTexture texture) {}
   static void printOpenGLError(String message) {}
 }

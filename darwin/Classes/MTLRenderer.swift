@@ -100,21 +100,21 @@ public class MTLRender: NSObject, FlutterTexture {
       let attribs:[EGLint] = [
           EGL_NONE
       ];
-        EGLDisplay dpy, EGLContext ctx, EGLenum target, EGLClientBuffer buffer, const EGLAttrib *attrib_list
-      metalAsEGLImage = eglCreateImage(
-          display,
-          EGL_NO_CONTEXT,
-          EGL_MTL_TEXTURE_MGL,
-          (__bridge EGLClientBuffer)(_metalTexture),
-          attribs
-      );
+
+//      metalAsEGLImage = eglCreateImage(
+//          display,
+//          EGL_NO_CONTEXT,
+//          EGL_MTL_TEXTURE_MGL,
+//          (__bridge EGLClientBuffer)(_metalTexture),
+//          attribs
+//      );
 
       // Create a texture target to bind the egl image
-      glGenTextures(1, &metalAsGLTexture);
-      glBindTexture(GL_TEXTURE_2D, metalAsGLTexture);
+//      glGenTextures(1, &metalAsGLTexture);
+//      glBindTexture(GL_TEXTURE_2D, metalAsGLTexture);
       
-      var glEGLImageTargetTexture2DOES = eglGetProcAddress("glEGLImageTargetTexture2DOES");
-      glEGLImageTargetTexture2DOES(GL_TEXTURE_2D, metalAsEGLImage);
+//      var glEGLImageTargetTexture2DOES = eglGetProcAddress("glEGLImageTargetTexture2DOES");
+//      glEGLImageTargetTexture2DOES(GL_TEXTURE_2D, metalAsEGLImage);
     }
     
     func dispose(){

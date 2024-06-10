@@ -1,5 +1,3 @@
-library flutter_angle;
-
 import 'package:flutter/widgets.dart';
 import 'package:flutter_angle/desktop/render_worker.dart';
 import 'package:flutter_angle/flutter_angle.dart';
@@ -13,7 +11,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'lib_egl.dart';
 
-class FlutterGLTexture {
+class FlutterAngleTexture {
   final dynamic element;
   final int textureId;
   final int rboId;
@@ -27,7 +25,7 @@ class FlutterGLTexture {
     return FlutterAngle._rawOpenGl;
   }
 
-  FlutterGLTexture(
+  FlutterAngleTexture(
     this.textureId, 
     this.rboId, 
     this.metalAsGLTextureId,
@@ -39,13 +37,13 @@ class FlutterGLTexture {
     androidSurface = Pointer.fromAddress(androidSurfaceId);
   }
 
-  static FlutterGLTexture fromMap(
+  static FlutterAngleTexture fromMap(
     dynamic map, 
     dynamic element,
     int fboId, 
     AngleOptions options
   ){    
-    return FlutterGLTexture(
+    return FlutterAngleTexture(
       map['textureId']! as int,
       map['rbo'] as int? ?? 0,
       map['metalAsGLTexture'] as int? ?? 0,
@@ -127,12 +125,13 @@ class FlutterAngle {
     loadEGL();
     // Initialize native part of he plugin
     final result = await _channel.invokeMethod('initOpenGL');
+
     print(result);
     if (result == null) {
       throw EglException('Plugin.initOpenGL didn\'t return anything. Something is really wrong!');
     }
 
-    final pluginContextAdress = result['context'] as int?;
+    final pluginContextAdress = result['context'] ?? result['openGLContext'];
     if (pluginContextAdress == null) {
       throw EglException('Plugin.initOpenGL didn\'t return a Context. Something is really wrong!');
     }
@@ -284,14 +283,14 @@ class FlutterAngle {
     print('\n');
   }
 
-  static Future<FlutterGLTexture> createTexture(AngleOptions options) async {
+  static Future<FlutterAngleTexture> createTexture(AngleOptions options) async {
     final textureTarget = GL_TEXTURE_2D;
     final height = (options.height*options.dpr).toInt();
     final width = (options.width*options.dpr).toInt();
     final result = await _channel.invokeMethod('createTexture', {"width": width, "height": height,});
     
     if (Platform.isAndroid) {
-      final newTexture = FlutterGLTexture.fromMap(result, null, 0, options);
+      final newTexture = FlutterAngleTexture.fromMap(result, null, 0, options);
       _rawOpenGl.glViewport(0, 0, width, height);
 
       if(!options.customRenderer){
@@ -305,7 +304,7 @@ class FlutterAngle {
     _rawOpenGl.glGenFramebuffers(1, fbo);
     _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, fbo.value);
 
-    final newTexture = FlutterGLTexture.fromMap(result, null, fbo.value, options);
+    final newTexture = FlutterAngleTexture.fromMap(result, null, fbo.value, options);
     print(newTexture.toMap());
     print(_rawOpenGl.glGetError());
     _rawOpenGl.glActiveTexture(WebGL.TEXTURE);
@@ -349,7 +348,7 @@ class FlutterAngle {
     return newTexture;
   }
 
-  static Future<void> updateTexture(FlutterGLTexture texture,[WebGLTexture? sourceTexture]) async {
+  static Future<void> updateTexture(FlutterAngleTexture texture,[WebGLTexture? sourceTexture]) async {
     if(sourceTexture != null){
       _rawOpenGl.glClearColor(0.0, 0.0, 0.0, 0.0);
       _rawOpenGl.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
@@ -367,7 +366,7 @@ class FlutterAngle {
     _channel.invokeMethod('updateTexture', {"textureId": texture.textureId});    
   }
 
-  static Future<void> deleteTexture(FlutterGLTexture texture) async {
+  static Future<void> deleteTexture(FlutterAngleTexture texture) async {
     if (Platform.isAndroid) {
       return;
     }
@@ -384,7 +383,7 @@ class FlutterAngle {
     await _channel.invokeMethod('deleteTexture', {"textureId": texture.textureId});
   }
 
-  static void activateTexture(FlutterGLTexture texture) {
+  static void activateTexture(FlutterAngleTexture texture) {
     _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, texture.fboId);
     if (Platform.isAndroid) {
       eglMakeCurrent(_display, texture.androidSurface, texture.androidSurface,_baseAppContext);

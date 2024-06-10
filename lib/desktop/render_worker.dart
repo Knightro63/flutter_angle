@@ -1,7 +1,5 @@
 import 'dart:typed_data';
-
-import 'package:flutter_angle/desktop/gl_program.dart';
-
+import 'gl_program.dart';
 import 'angle.dart';
 import '../shared/webgl.dart';
 import '../shared/classes.dart';
@@ -13,7 +11,7 @@ class RenderWorker{
   late final Buffer vertexBuffer4FBO;
   late final RenderingContext _gl;
 
-  RenderWorker(FlutterGLTexture texture){
+  RenderWorker(FlutterAngleTexture texture){
     _gl = texture.getContext();
 
     setupVBO();

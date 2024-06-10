@@ -83,7 +83,6 @@ public class FlutterAnglePlugin: NSObject, FlutterPlugin {
         self.mtlRenders[textureId!] = render;
         result([
           "textureId": textureId,
-          "rbo": render.frameBuffer,
           "metalAsGLTexture": render.metalAsGLTexture
         ]);
       }

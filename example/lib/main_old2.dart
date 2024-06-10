@@ -26,7 +26,7 @@ class _MyAppState extends State<ExampleTriangle01> {
   Size? screenSize;
   late final RenderingContext _gl;
 
-  late FlutterGLTexture sourceTexture;
+  late FlutterAngleTexture sourceTexture;
 
   late int defaultFramebufferTexture;
 
