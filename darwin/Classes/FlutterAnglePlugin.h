@@ -1,4 +1,8 @@
-#import <FlutterMacOS/FlutterMacOS.h>
+#if TARGET_OS_IOS
+    #import <Flutter/Flutter.h>
+#elif TARGET_OS_MAC
+    #import <FlutterMacOS/FlutterMacOS.h>
+#endif
 #define GL_SILENCE_DEPRECATION
 
 @interface FlutterAnglePlugin : NSObject<FlutterPlugin>
@@ -21,4 +25,3 @@
 
 
 @end
-
