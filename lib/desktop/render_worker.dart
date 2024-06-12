@@ -19,7 +19,7 @@ class RenderWorker{
     setupVBO4FBO();
   }
 
-  void renderTexture(WebGLTexture? texture, {Float32Array? matrix, bool isFBO = false}){
+  void renderTexture(WebGLTexture? texture, {Float32List? matrix, bool isFBO = false}){
     var _vertexBuffer;
     
     if(isFBO) {
@@ -66,7 +66,7 @@ class RenderWorker{
     vertices.dispose();
   }
 
-  void drawTexture({required WebGLTexture? texture, required Buffer vertexBuffer, Float32Array? matrix}) {
+  void drawTexture({required WebGLTexture? texture, required Buffer vertexBuffer, Float32List? matrix}) {
     _gl.checkError("drawTexture 01");
     
     final _program = GlProgram(
@@ -90,7 +90,7 @@ class RenderWorker{
     _gl.uniform1i(_texture0Uniform, 10);
     _gl.checkError("drawTexture 03");
     
-    Float32Array _matrix = Float32Array.fromList([
+    Float32List _matrix = Float32List.fromList([
       1.0, 0.0, 0.0, 0.0,
       0.0, 1.0, 0.0, 0.0,
       0.0, 0.0, 1.0, 0.0,
@@ -98,7 +98,6 @@ class RenderWorker{
     ]);
     
     if(matrix != null) {
-      _matrix.dispose();
       _matrix = matrix;
     }
 
@@ -130,7 +129,6 @@ class RenderWorker{
     _gl.drawArrays(WebGL.TRIANGLE_STRIP, 0, 4);
     _gl.deleteVertexArray(vao);
     _gl.checkError("drawTexture 09");
-    _matrix.dispose();
   }
 
   void dispose(){
