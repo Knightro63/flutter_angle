@@ -48,7 +48,7 @@ class RenderingContext{
   }
 
   void bindTexture(int target, WebGLTexture? texture) {
-    _gl.bindTexture(target, texture!.id);
+    _gl.bindTexture(target, texture?.id);
     // checkError('bindTexture');
   }
 
@@ -638,18 +638,18 @@ class RenderingContext{
     // checkError('uniform4f');
   }
 
-  void uniform1fv(UniformLocation location, NativeArray<double> v){
-    _gl.uniform1fv(location.id, v.data);
+  void uniform1fv(UniformLocation location, List<double> v){
+    _gl.uniform1fv(location.id, v);
     // checkError('uniform1fv');
   }
 
-  void uniform2fv(UniformLocation location, NativeArray<double> v){
-    _gl.uniform2fv(location.id, v.data);
+  void uniform2fv(UniformLocation location, List<double> v){
+    _gl.uniform2fv(location.id, v);
     // checkError('uniform2fv');
   }
 
-  void uniform3fv(UniformLocation location, NativeArray<double> v){
-    _gl.uniform3fv(location.id, v.data);
+  void uniform3fv(UniformLocation location, List<double> v){
+    _gl.uniform3fv(location.id, v);
     // checkError('uniform3fv');
   }
 
@@ -657,18 +657,18 @@ class RenderingContext{
     _gl.uniform1f(location.id, x);
     // checkError('uniform1f');
   }
-  void uniformMatrix2fv(UniformLocation location, bool transpose, NativeArray<double> values) {
-    _gl.uniformMatrix2fv(location.id, transpose, values.data);
+  void uniformMatrix2fv(UniformLocation location, bool transpose, List<double> values) {
+    _gl.uniformMatrix2fv(location.id, transpose, values);
     // checkError('uniformMatrix2fv');
   }
 
-  void uniformMatrix3fv(UniformLocation location, bool transpose, NativeArray<double> values) {
-    _gl.uniformMatrix3fv(location.id, transpose, values.data);
+  void uniformMatrix3fv(UniformLocation location, bool transpose, List<double> values) {
+    _gl.uniformMatrix3fv(location.id, transpose, values);
     // checkError('uniformMatrix3fv');
   }
 
-  void uniformMatrix4fv(UniformLocation location, bool transpose, NativeArray<double> values) {
-    _gl.uniformMatrix4fv(location.id, transpose, values.data);
+  void uniformMatrix4fv(UniformLocation location, bool transpose, List<double> values) {
+    _gl.uniformMatrix4fv(location.id, transpose, values);
     // checkError('uniformMatrix4fv');
   }
 
@@ -681,43 +681,43 @@ class RenderingContext{
     // checkError('uniform2f');
   }
 
-  void uniform1iv(UniformLocation location, Int32Array v){
-    _gl.uniform1iv(location.id, v.data);
+  void uniform1iv(UniformLocation location, List<int> v){
+    _gl.uniform1iv(location.id, v);
     // checkError('uniform1iv');
   }
 
-  void uniform2iv(UniformLocation location, Int32Array v){
-    _gl.uniform2iv(location.id, v.data);
+  void uniform2iv(UniformLocation location, List<int> v){
+    _gl.uniform2iv(location.id, v);
     // checkError('uniform2iv');
   }
 
-  void uniform3iv(UniformLocation location, Int32Array v){
-    _gl.uniform3iv(location.id, v.data);
+  void uniform3iv(UniformLocation location, List<int> v){
+    _gl.uniform3iv(location.id, v);
     // checkError('uniform3iv');
   }
 
-  void uniform4iv(UniformLocation location, Int32Array v){
-    _gl.uniform4iv(location.id, v.data);
+  void uniform4iv(UniformLocation location, List<int> v){
+    _gl.uniform4iv(location.id, v);
     // checkError('uniform4iv');
   }
 
-  void uniform1uiv(UniformLocation? location, Uint32Array v){
-    _gl.uniform1uiv(location?.id, v.data);
+  void uniform1uiv(UniformLocation? location, List<int> v){
+    _gl.uniform1uiv(location?.id, v);
     // checkError('uniform1uiv');
   }
   
-  void uniform2uiv(UniformLocation? location, Uint32Array v){
-    _gl.uniform2uiv(location?.id, v.data);
+  void uniform2uiv(UniformLocation? location, List<int> v){
+    _gl.uniform2uiv(location?.id, v);
     // checkError('uniform2uiv');
   }
 
-  void uniform3uiv(UniformLocation? location, Uint32Array v){
-    _gl.uniform3uiv(location?.id, v.data);
+  void uniform3uiv(UniformLocation? location, List<int> v){
+    _gl.uniform3uiv(location?.id, v);
     // checkError('uniform3uiv');
   }
 
-  void uniform4uiv(UniformLocation? location, Uint32Array v){
-    _gl.uniform4uiv(location?.id, v.data);
+  void uniform4uiv(UniformLocation? location, List<int> v){
+    _gl.uniform4uiv(location?.id, v);
     // checkError('uniform4uiv');
   }
 
@@ -741,8 +741,8 @@ class RenderingContext{
     // checkError('uniform2ui');
   }
 
-  void uniform4fv(UniformLocation location, NativeArray<double> vectors) {
-    _gl.uniform4fv(location.id, vectors.data);
+  void uniform4fv(UniformLocation location, List<double> vectors) {
+    _gl.uniform4fv(location.id, vectors);
     // checkError('uniform4fv');
   }
 

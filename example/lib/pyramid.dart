@@ -20,13 +20,17 @@ class Pyramid implements Renderable {
   late Buffer colorBuffer;
   RenderingContext gl;
 
+  Float32Array? vertices;
+  Float32Array? vertexNormals;
+  Float32Array? colors;
+
   Pyramid(this.gl){
     positionBuffer = gl.createBuffer();
     normalBuffer = gl.createBuffer();
     textureCoordBuffer = gl.createBuffer();
 
     gl.bindBuffer(WebGL.ARRAY_BUFFER, positionBuffer);
-    var vertices = [
+    vertices ??= Float32Array.fromList([
       // Front face
       0.0, 1.0, 0.0,
       -1.0, -1.0, 1.0,
@@ -54,16 +58,16 @@ class Pyramid implements Renderable {
       -1.0, -1.0, -1.0,
       1.0, -1.0, 1.0,
       -1.0, -1.0, 1.0,
-    ];
+    ]);
     gl.bufferData(
       WebGL.ARRAY_BUFFER,
-      new Float32List.fromList(vertices),
+      vertices!,
       WebGL.STATIC_DRAW,
     );
 
     normalBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, normalBuffer);
-    var vertexNormals = [
+    vertexNormals ??= Float32Array.fromList([
       // Front face
       0.0, 0.4472135901451111, 0.8944271802902222,
       0.0, 0.4472135901451111, 0.8944271802902222,
@@ -91,17 +95,17 @@ class Pyramid implements Renderable {
       0.0, -1.0, 0.0,
       0.0, -1.0, 0.0,
       0.0, -1.0, 0.0
-    ];
+    ]);
     gl.bufferData(
       WebGL.ARRAY_BUFFER,
-      new Float32List.fromList(vertexNormals),
+      vertexNormals!,
       WebGL.STATIC_DRAW,
     );
 
     // TODO: Come up with a better way to store color buffer vs texture buffer :)
     colorBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, colorBuffer);
-    var colors = [
+    colors ??= Float32Array.fromList([
       // Front face
       1.0, 0.0, 0.0, 1.0,
       0.0, 1.0, 0.0, 1.0,
@@ -129,10 +133,10 @@ class Pyramid implements Renderable {
       0.0, 1.0, 0.0, 1.0,
       0.0, 1.0, 0.0, 1.0,
       0.0, 1.0, 0.0, 1.0
-    ];
+    ]);
     gl.bufferData(
       WebGL.ARRAY_BUFFER,
-      new Float32List.fromList(colors),
+      colors!,
       WebGL.STATIC_DRAW,
     );
 
@@ -171,5 +175,15 @@ class Pyramid implements Renderable {
 
     if (setUniforms != null) setUniforms();
     gl.drawArrays(WebGL.TRIANGLES, 0, 18);
+  }
+
+  void dispose(){
+    colors?.dispose();
+    vertexNormals?.dispose();
+    vertices?.dispose();
+
+    colors = null;
+    vertexNormals = null;
+    vertices = null;
   }
 }

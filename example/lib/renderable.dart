@@ -16,4 +16,5 @@ part of 'learn_gl.dart';
 
 abstract class Renderable {
   void draw({int vertex, int normal, int coord, setUniforms()});
+  void dispose(){}
 }

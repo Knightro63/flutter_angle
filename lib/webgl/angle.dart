@@ -5,6 +5,7 @@ import 'dart:html';
 import 'wrapper.dart';
 import 'gles_bindings.dart';
 import 'dart:ui_web' as ui;
+import 'dart:math' as math;
 
 class FlutterAngleTexture {
   final CanvasElement? element;
@@ -104,7 +105,7 @@ class FlutterAngle{
     final element = CanvasElement(
       width: (options.width * options.dpr).toInt(), 
       height: (options.height * options.dpr).toInt()
-    )..id = 'canvas-id';
+    )..id = 'canvas-id${math.Random().nextInt(100)}';
 
     ui.platformViewRegistry.registerViewFactory(_divId.toString(), (int viewId) {
       return element;
@@ -118,7 +119,9 @@ class FlutterAngle{
   }
 
   static Future<void> initOpenGL([bool useDebugContext = false]) async {}
-  static Future<void> updateTexture(FlutterAngleTexture texture,[WebGLTexture? sourceTexture]) async {}
+  static Future<void> updateTexture(FlutterAngleTexture texture,[WebGLTexture? sourceTexture]) async {
+    texture.rawOpenGl.glFlush();
+  }
   static Future<void> deleteTexture(FlutterAngleTexture texture) async {}
   static void activateTexture(FlutterAngleTexture texture) {}
   static void printOpenGLError(String message) {}

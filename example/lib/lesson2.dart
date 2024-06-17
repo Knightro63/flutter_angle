@@ -21,6 +21,11 @@ class Lesson2 extends Lesson {
   late Buffer triangleVertexPositionBuffer, squareVertexPositionBuffer;
   late Buffer triangleVertexColorBuffer, squareVertexColorBuffer;
 
+  Float32Array? colors1;
+  Float32Array? colors2; 
+  Float32Array? indexes1;
+  Float32Array? indexes2; 
+
   Lesson2(RenderingContext gl):super(gl) {
     program = GlProgram(
       gl,
@@ -60,36 +65,48 @@ class Lesson2 extends Lesson {
     triangleVertexPositionBuffer = gl.createBuffer();
 
     // bindBuffer() tells the WebGL system the target of future calls
+    indexes1 ??= Float32Array.fromList([0.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0]);
     gl.bindBuffer(WebGL.ARRAY_BUFFER, triangleVertexPositionBuffer);
-    gl.bufferData(
-        WebGL.ARRAY_BUFFER, Float32List.fromList([0.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0]), WebGL.STATIC_DRAW);
+    gl.bufferData(WebGL.ARRAY_BUFFER, indexes1!, WebGL.STATIC_DRAW);
 
     triangleVertexColorBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, triangleVertexColorBuffer);
-    var colors = [1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0];
+    colors1 ??= Float32Array.fromList([1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0]);
     gl.bufferData(
       WebGL.ARRAY_BUFFER,
-      Float32List.fromList(colors),
+      colors1!,
       WebGL.STATIC_DRAW,
     );
 
     squareVertexPositionBuffer = gl.createBuffer();
+    indexes2 ??= Float32Array.fromList([1.0, 1.0, 0.0, -1.0, 1.0, 0.0, 1.0, -1.0, 0.0, -1.0, -1.0, 0.0]);
     gl.bindBuffer(WebGL.ARRAY_BUFFER, squareVertexPositionBuffer);
-    gl.bufferData(WebGL.ARRAY_BUFFER,
-        Float32List.fromList([1.0, 1.0, 0.0, -1.0, 1.0, 0.0, 1.0, -1.0, 0.0, -1.0, -1.0, 0.0]), WebGL.STATIC_DRAW);
+    gl.bufferData(WebGL.ARRAY_BUFFER,indexes2!, WebGL.STATIC_DRAW);
 
     squareVertexColorBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, squareVertexColorBuffer);
-    colors = [0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0];
+    colors2 ??= Float32Array.fromList([0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0]);
     gl.bufferData(
       WebGL.ARRAY_BUFFER,
-      Float32List.fromList(colors),
+      colors2!,
       WebGL.STATIC_DRAW,
     );
 
     // Specify the color to clear with (black with 100% alpha) and then enable
     // depth testing.
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
+  }
+
+  void dispose(){
+    indexes1?.dispose();
+    indexes2?.dispose();
+    colors1?.dispose();
+    colors2?.dispose();
+
+    indexes1 = null;
+    indexes2 = null;
+    colors1 = null;
+    colors2 = null;
   }
 
   void drawScene(int viewWidth, int viewHeight, double aspect) {

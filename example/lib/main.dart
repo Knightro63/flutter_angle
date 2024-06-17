@@ -127,6 +127,8 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   void dispose() {
     ticker.dispose();
     timer?.cancel();
+    lesson?.dispose();
+    lesson2?.dispose();
     super.dispose();
   }
 
@@ -155,15 +157,35 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
                   ? Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Expanded(child: HtmlElementView(viewType: textureId.toString())),
-                      Expanded(child: HtmlElementView(viewType: textureId2.toString())),
+                      Expanded(child: 
+                        Transform.scale(
+                          scaleY: -1,
+                          child: HtmlElementView(viewType: textureId.toString()),
+                        ) 
+                      ),
+                      Expanded(child: 
+                        Transform.scale(
+                          scaleY: -1,
+                          child: HtmlElementView(viewType: textureId2.toString()),
+                        ) 
+                      ),
                     ],
                   )
                 : Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Expanded(child: HtmlElementView(viewType: textureId.toString())),
-                      Expanded(child: HtmlElementView(viewType: textureId2.toString())),
+                      Expanded(child: 
+                        Transform.scale(
+                          scaleY: -1,
+                          child: HtmlElementView(viewType: textureId.toString()),
+                        ) 
+                      ),
+                      Expanded(child: 
+                        Transform.scale(
+                          scaleY: -1,
+                          child: HtmlElementView(viewType: textureId2.toString()),
+                        ) 
+                      ),
                     ],
                   )
                 :useRow

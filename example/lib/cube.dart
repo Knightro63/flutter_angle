@@ -18,10 +18,15 @@ class Cube implements Renderable {
   RenderingContext gl;
   late dynamic positionBuffer, normalBuffer, textureCoordBuffer, indexBuffer;
 
+  Float32Array? vertices; 
+  Float32Array? vertexNormals;
+  Float32Array? textureCoords;
+  Uint16Array? indxes;
+
   Cube(this.gl){
     positionBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, positionBuffer);
-    var vertices = [
+    vertices ??= Float32Array.fromList([
       // Front face
       -1.0, -1.0, 1.0,
       1.0, -1.0, 1.0,
@@ -57,16 +62,16 @@ class Cube implements Renderable {
       -1.0, -1.0, 1.0,
       -1.0, 1.0, 1.0,
       -1.0, 1.0, -1.0
-    ];
+    ]);
     gl.bufferData(
       WebGL.ARRAY_BUFFER,
-      new Float32List.fromList(vertices),
+      vertices!,
       WebGL.STATIC_DRAW,
     );
 
     normalBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, normalBuffer);
-    var vertexNormals = [
+    vertexNormals ??= Float32Array.fromList([
       // Front face
       0.0, 0.0, 1.0,
       0.0, 0.0, 1.0,
@@ -102,16 +107,16 @@ class Cube implements Renderable {
       -1.0, 0.0, 0.0,
       -1.0, 0.0, 0.0,
       -1.0, 0.0, 0.0,
-    ];
+    ]);
     gl.bufferData(
       WebGL.ARRAY_BUFFER,
-      new Float32List.fromList(vertexNormals),
+      vertexNormals!,
       WebGL.STATIC_DRAW,
     );
 
     textureCoordBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, textureCoordBuffer);
-    var textureCoords = [
+    textureCoords = Float32Array.fromList([
       // Front face
       0.0, 0.0,
       1.0, 0.0,
@@ -147,26 +152,27 @@ class Cube implements Renderable {
       1.0, 0.0,
       1.0, 1.0,
       0.0, 1.0,
-    ];
+    ]);
     gl.bufferData(
       WebGL.ARRAY_BUFFER,
-      new Float32List.fromList(textureCoords),
+      textureCoords!,
       WebGL.STATIC_DRAW,
     );
-
+    indxes ??= Uint16Array.fromList([
+      0, 1, 2, 0, 2, 3, // Front face
+      4, 5, 6, 4, 6, 7, // Back face
+      8, 9, 10, 8, 10, 11, // Top face
+      12, 13, 14, 12, 14, 15, // Bottom face
+      16, 17, 18, 16, 18, 19, // Right face
+      20, 21, 22, 20, 22, 23 // Left face
+    ]);
     indexBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ELEMENT_ARRAY_BUFFER, indexBuffer);
     gl.bufferData(
-        WebGL.ELEMENT_ARRAY_BUFFER,
-        new Uint16List.fromList([
-          0, 1, 2, 0, 2, 3, // Front face
-          4, 5, 6, 4, 6, 7, // Back face
-          8, 9, 10, 8, 10, 11, // Top face
-          12, 13, 14, 12, 14, 15, // Bottom face
-          16, 17, 18, 16, 18, 19, // Right face
-          20, 21, 22, 20, 22, 23 // Left face
-        ]),
-        WebGL.STATIC_DRAW);
+      WebGL.ELEMENT_ARRAY_BUFFER,
+      indxes!,
+      WebGL.STATIC_DRAW
+    );
   }
 
   void draw({int? vertex, int? normal, int? coord, int? color, void Function()? setUniforms}) {
@@ -199,12 +205,24 @@ class Cube implements Renderable {
   addColor(CubeColor color) {
     this.color = color;
   }
+
+  void dispose(){
+    vertices?.dispose();
+    vertexNormals?.dispose();
+    textureCoords?.dispose();
+    indxes?.dispose();
+
+    vertices = null;
+    vertexNormals = null;
+    textureCoords = null;
+    indxes = null;
+  }
 }
 
 /// Holds a color [Buffer] for our cube's element array
 class CubeColor {
   late Buffer colorBuffer;
-
+  Float32Array? unpackedColors; 
   CubeColor(RenderingContext gl) {
     colorBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, colorBuffer);
@@ -218,16 +236,23 @@ class CubeColor {
       [1.0, 0.0, 1.0, 1.0], // Right face
       [0.0, 0.0, 1.0, 1.0] // Left face
     ];
-    var unpackedColors = <double>[];
+    unpackedColors ??= Float32Array(24);
+    int k = 0;
     for (var i in colors) {
       for (var j = 0; j < 4; j++) {
-        unpackedColors.addAll(i);
+        unpackedColors?[k] = i[j];
+        k++;
       }
     }
     gl.bufferData(
       WebGL.ARRAY_BUFFER,
-      new Float32List.fromList(unpackedColors),
+      unpackedColors!,
       WebGL.STATIC_DRAW,
     );
+  }
+
+  void dispose(){
+    unpackedColors?.dispose();
+    unpackedColors = null;
   }
 }

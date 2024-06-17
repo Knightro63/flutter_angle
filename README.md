@@ -20,13 +20,13 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Minimum os Deployment Target: 10.13
  - Xcode 13 or newer
  - Swift 5
- - Metal and OpenGL supported
+ - Metal supported
 
 **iOS**
  - Minimum os Deployment Target: 11.0
  - Xcode 13 or newer
  - Swift 5
- - Metal and OpenGL supported
+ - Metal supported
 
 **Android**
  - compileSdkVersion: 34

@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +32,7 @@ class _MyAppState extends State<ExampleTriangle01> {
   int n = 0;
 
   int t = DateTime.now().millisecondsSinceEpoch;
-
+  Float32Array? vertices; 
   @override
   void initState() {
     super.initState();
@@ -42,6 +41,8 @@ class _MyAppState extends State<ExampleTriangle01> {
 
   @override
   void dispose(){
+    vertices?.dispose();
+    vertices = null;
     super.dispose();
   }
 
@@ -210,7 +211,7 @@ class _MyAppState extends State<ExampleTriangle01> {
   int initVertexBuffers(RenderingContext gl) {
     // Vertices
     final dim = 3;
-    final vertices = Float32List.fromList([
+    vertices = Float32Array.fromList([
       -0.5, -0.5, 0, // Vertice #2
       0.5, -0.5, 0, // Vertice #3
       0, 0.5, 0, // Vertice #1
@@ -219,7 +220,7 @@ class _MyAppState extends State<ExampleTriangle01> {
     // Create a buffer object
     dynamic vertexBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, vertexBuffer);
-    gl.bufferData(WebGL.ARRAY_BUFFER, vertices, WebGL.STATIC_DRAW);
+    gl.bufferData(WebGL.ARRAY_BUFFER, vertices!, WebGL.STATIC_DRAW);
 
     // Assign the vertices in buffer object to a_Position variable
     final a_Position = gl.getAttribLocation(glProgram, 'a_Position').id;
@@ -232,7 +233,7 @@ class _MyAppState extends State<ExampleTriangle01> {
     gl.enableVertexAttribArray(a_Position);
 
     // Return number of vertices
-    return vertices.length ~/ dim;
+    return vertices!.length ~/ dim;
   }
 
   bool initShaders(RenderingContext gl, String vs_source, String fs_source) {

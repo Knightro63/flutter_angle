@@ -15,7 +15,6 @@
 
 import 'dart:async';
 import 'dart:math';
-import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:flutter/foundation.dart';
@@ -124,6 +123,8 @@ abstract class Lesson {
 
   /// Render the scene to the [viewWidth], [viewHeight], and [aspect] ratio.
   void drawScene(int viewWidth, int viewHeight, double aspect);
+
+  void dispose(){}
 
   /// Animate the scene any way you like. [now] is provided as a clock reference
   /// since the scene rendering started.
