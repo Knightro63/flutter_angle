@@ -109,9 +109,11 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
     status = CVMetalTextureCacheCreateTextureFromImage(
         kCFAllocatorDefault,
         _metalTextureCache,
-        _pixelData, nil,
+        _pixelData, 
+        nil,
         MTLPixelFormatBGRA8Unorm,
-        width, height,
+        width, 
+        height,
         0,
         &_metalTextureCVRef
     );

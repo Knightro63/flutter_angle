@@ -15,7 +15,10 @@ import '../shared/classes.dart';
 // JS "WebGL2RenderingContext")
 class RenderingContext {
   final LibOpenGLES gl;
-  RenderingContext.create(this.gl);
+  final int width;
+  final int height;
+
+  RenderingContext.create(this.gl, this.width, this.height);
 
   /// As allocating and freeing native memory is expensive and we need regularly
   /// buffers to receive values from FFI function we create a small set here that will
@@ -43,6 +46,19 @@ class RenderingContext {
     startCheck('beginTransformFeedback');
     gl.glBeginTransformFeedback(primitiveMode);
     checkError('beginTransformFeedback');
+  }
+
+  int getUniformBlockIndex(Program program, String uniformBlockName){
+    var sourceString = uniformBlockName.toNativeUtf8();
+    var arrayPointer = Pointer<Int8>.fromAddress(sourceString.address);
+    int i = gl.glGetUniformBlockIndex(program.id, arrayPointer);
+    calloc.free(arrayPointer);
+    calloc.free(sourceString);
+    return i;
+  }
+
+  void uniformBlockBinding(Program program, int uniformBlockIndex,int uniformBlockBinding){
+    gl.glUniformBlockBinding(program.id,uniformBlockIndex,uniformBlockBinding);
   }
 
   void bindTransformFeedback(int target, TransformFeedback feedback){
@@ -318,10 +334,32 @@ class RenderingContext {
     calloc.free(locationName);
   }
 
-  void bindBuffer(int target, Buffer buffer) {
+  void clearBufferuiv(int buffer,int drawbuffer, int value){
+    startCheck('clearBufferuiv');
+    Pointer<Uint32> id = calloc<Uint32>(value);
+    gl.glClearBufferuiv(buffer,drawbuffer,id);
+    checkError('clearBufferuiv');
+    calloc.free(id);
+  }
+
+  void clearBufferiv(int buffer,int drawbuffer, int value){
+    startCheck('clearBufferiv');
+    Pointer<Int32> id = calloc<Int32>(value);
+    gl.glClearBufferiv(buffer,drawbuffer,id);
+    checkError('clearBufferiv');
+    calloc.free(id);
+  }
+
+  void bindBuffer(int target, Buffer? buffer) {
     startCheck('bindBuffer');
-    gl.glBindBuffer(target, buffer.id);
+    gl.glBindBuffer(target, buffer?.id ?? 0);
     checkError('bindBuffer');
+  }
+
+  void bindBufferBase(int target,int index, Buffer? buffer){
+    startCheck('bindBufferBase');
+    gl.glBindBufferBase(target,index,buffer?.id ?? 0);
+    checkError('bindBufferBase');
   }
 
   void bindFramebuffer(int target, Framebuffer? framebuffer){
@@ -531,7 +569,8 @@ class RenderingContext {
       WebGL.MAX_COMBINED_TEXTURE_IMAGE_UNITS,
       WebGL.SCISSOR_BOX,
       WebGL.VIEWPORT,
-      WebGL.MAX_TEXTURE_MAX_ANISOTROPY_EXT
+      WebGL.MAX_TEXTURE_MAX_ANISOTROPY_EXT,
+      WebGL.MAX_UNIFORM_BUFFER_BINDINGS
     ];
 
     if (_intValues.indexOf(key) >= 0) {
@@ -559,7 +598,8 @@ class RenderingContext {
     checkError('deleteBuffer');
   }
 
-  void deleteFramebuffer(Framebuffer framebuffer){
+  void deleteFramebuffer(Framebuffer? framebuffer){
+    if(framebuffer == null) return;
     startCheck('deleteFramebuffer');
     final List<int> _texturesList = [framebuffer.id];
     final ptr = calloc<Uint32>(_texturesList.length);
@@ -667,9 +707,9 @@ class RenderingContext {
     checkError('framebufferRenderbuffer');
   }
 
-  void framebufferTexture2D(int target, int attachment, int textarget, WebGLTexture texture, int level){
+  void framebufferTexture2D(int target, int attachment, int textarget, WebGLTexture? texture, int level){
     startCheck('framebufferTexture2D');
-    gl.glFramebufferTexture2D(target, attachment, textarget, texture.id, level);
+    gl.glFramebufferTexture2D(target, attachment, textarget, texture?.id ?? 0, level);
     checkError('framebufferTexture2D');
   }
 
@@ -853,6 +893,11 @@ class RenderingContext {
     final _v = _pointer.value;
     calloc.free(_pointer);
     return _v == 0?false:true;
+  }
+  void framebufferTextureLayer(int target,int attachment,int texture,int level,int layer){
+    startCheck('framebufferTextureLayer');
+    gl.glFramebufferTextureLayer(target, attachment, texture, level, layer);
+    checkError('framebufferTextureLayer');
   }
 
   ShaderPrecisionFormat getShaderPrecisionFormat(int shadertype, int precisiontype){
@@ -1221,6 +1266,38 @@ class RenderingContext {
     gl.glVertexAttrib4fv(index, arrayPointer);
     checkError('vertexAttrib4fv');
     calloc.free(arrayPointer);
+  }
+
+  void compressedTexSubImage3D(
+    int target,
+    int level,
+    int xoffset,
+    int yoffset,
+    int zoffset,
+    int width,
+    int height,
+    int depth,
+    int format,
+    NativeArray? pixels,
+  ){
+    startCheck('compressedTexSubImage3D');
+    gl.glCompressedTexSubImage3D(target,level,xoffset,yoffset,zoffset,width,height,depth,format,pixels?.lengthInBytes??0,pixels?.data?? nullptr);
+    checkError('compressedTexSubImage3D');
+  }
+
+  void compressedTexImage3D(
+    int target,
+    int level,
+    int internalformat,
+    int width,
+    int height,
+    int depth,
+    int border,
+    NativeArray? pixels,
+  ){
+    startCheck('compressedTexImage3D');
+    gl.glCompressedTexImage3D(target,level,internalformat,width,height,depth,border,pixels?.lengthInBytes??0,pixels?.data?? nullptr);
+    checkError('compressedTexImage3D');
   }
 
   void vertexAttribPointer(int index, int size, int type, bool normalized, int stride, int offset) {

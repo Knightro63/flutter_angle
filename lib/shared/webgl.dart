@@ -1,3 +1,5 @@
+import 'package:flutter_angle/shared/array.dart';
+
 /// Amalgamation of the WebGL constants from the IDL interfaces in
 /// WebGLRenderingContextBase, WebGL2RenderingContextBase, & WebGLDrawBuffers.
 /// Because the RenderingContextBase interfaces are hidden they would be
@@ -10,6 +12,24 @@ abstract class WebGL {
   factory WebGL._() {
     throw new UnsupportedError("Not supported");
   }
+
+  static int? get(int? i){
+    if(webGL.contains(i)){
+      return i;
+    }
+    else{
+      return null;
+    }
+  }
+
+  operator [](int? i) => (){
+    if(webGL.contains(i)){
+      return i;
+    }
+    else{
+      return null;
+    }
+  };
 
   static const int ACTIVE_ATTRIBUTES = 0x8B89;
 
@@ -1203,20 +1223,3 @@ abstract class WebGL {
 
   static const int ZERO = 0;
 }
-
-// // JS "WebGL2RenderingContextBase")
-// abstract class _WebGL2RenderingContextBase extends Interceptor implements _WebGLRenderingContextBase {
-//   // To suppress missing implicit constructor warnings.
-//   factory _WebGL2RenderingContextBase._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-
-//   // From WebGLRenderingContextBase
-// }
-
-// abstract class _WebGLRenderingContextBase extends Interceptor {
-//   // To suppress missing implicit constructor warnings.
-//   factory _WebGLRenderingContextBase._() {
-//     throw new UnsupportedError("Not supported");
-//   }
-// }

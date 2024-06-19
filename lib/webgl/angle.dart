@@ -80,7 +80,7 @@ class FlutterAngleTexture {
   }
 
   RenderingContext getContext() {
-    return RenderingContext.create(rawOpenGl);
+    return RenderingContext.create(rawOpenGl,options.width, options.height);
   }
 }
 

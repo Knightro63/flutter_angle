@@ -64,7 +64,7 @@ class FlutterAngleTexture {
 
   RenderingContext getContext() {
     assert(FlutterAngle._baseAppContext != nullptr, "OpenGL isn't initialized! Please call FlutterAngle.initOpenGL");
-    return RenderingContext.create(FlutterAngle._rawOpenGl);
+    return RenderingContext.create(FlutterAngle._rawOpenGl,options.width, options.height);
   }
 
   /// Whenever you finished your rendering you have to call this function to signal

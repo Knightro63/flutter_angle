@@ -10,10 +10,10 @@ import 'gles_bindings.dart';
 class RenderingContext{
   final LibOpenGLES gl;
   dynamic _gl;
+  final int width;
+  final int height;
 
-  //final int contextId;
-
-  RenderingContext.create(this.gl){
+  RenderingContext.create(this.gl, this.width, this.height){
     _gl = gl.gl;
   }
 
@@ -27,14 +27,20 @@ class RenderingContext{
     // checkError('viewport');
   }
 
-  ShaderPrecisionFormat getShaderPrecisionFormat() {
+  ShaderPrecisionFormat getShaderPrecisionFormat(int shadertype, int precisiontype) {
     return ShaderPrecisionFormat();
   }
 
   Object? getExtension(String key) {
     return _gl.getExtension(key);
   }
+  int getUniformBlockIndex(Program program, String uniformBlockName){
+    return _gl.glGetUniformBlockIndex(program.id, uniformBlockName);
+  }
 
+  void uniformBlockBinding(Program program, int uniformBlockIndex,int uniformBlockBinding){
+    _gl.glUniformBlockBinding(program.id,uniformBlockIndex,uniformBlockBinding);
+  }
   // getParameter(key) {
   //   _gl.getParameter(key);
   // }
@@ -48,7 +54,8 @@ class RenderingContext{
   }
 
   void bindTexture(int target, WebGLTexture? texture) {
-    _gl.bindTexture(target, texture?.id);
+    if(texture == null) return;
+    _gl.bindTexture(target, texture.id);
     // checkError('bindTexture');
   }
 
@@ -368,11 +375,24 @@ class RenderingContext{
     return Buffer(_gl.createBuffer());
   }
 
-  void bindBuffer(int target, Buffer buffer) {
-    _gl.bindBuffer(target, buffer.id);
-    // checkError('bindBuffer');
+  void clearBufferuiv(int buffer,int drawbuffer, int value){
+    _gl.clearBufferuiv(buffer,drawbuffer,value);
+    // checkError('clearBufferuiv');
   }
 
+  void clearBufferiv(int buffer,int drawbuffer, int value){
+    _gl.clearBufferiv(buffer,drawbuffer,value);
+    // checkError('clearBufferiv');
+  }
+
+  void bindBuffer(int target, Buffer? buffer) {
+    _gl.bindBuffer(target, buffer?.id);
+    // checkError('bindBuffer');
+  }
+  void bindBufferBase(int target,int index, Buffer? buffer){
+    _gl.bindBufferBase(target, index, buffer?.id);
+    // checkError('bindBufferBase');
+  }
   void bufferData(int target, NativeArray data, int usage) {
     _gl.bufferData(target, data.data, usage);
     // checkError('bufferData');
@@ -401,9 +421,12 @@ class RenderingContext{
   int checkFramebufferStatus(int target) {
     return _gl.checkFramebufferStatus(target);
   }
-
-  void framebufferTexture2D(int target, int attachment, int textarget, WebGLTexture texture, int level){
-    _gl.framebufferTexture2D(target, attachment, textarget, texture.id, level);
+  void framebufferTextureLayer(int target,int attachment,int texture,int level,int layer){
+    _gl.framebufferTextureLayer(target, attachment, texture, level, layer);
+    // checkError('framebufferTextureLayer');
+  }
+  void framebufferTexture2D(int target, int attachment, int textarget, WebGLTexture? texture, int level){
+    _gl.framebufferTexture2D(target, attachment, textarget, texture?.id, level);
     // checkError('framebufferTexture2D');
   }
 
@@ -451,6 +474,36 @@ class RenderingContext{
   ) {
     _gl.texSubImage3D(target, level, xoffset, yoffset, zoffset, width,height, depth, format, type, pixels?.data);
     // checkError('texSubImage3D');
+  }
+
+  void compressedTexSubImage3D(
+    int target,
+    int level,
+    int xoffset,
+    int yoffset,
+    int zoffset,
+    int width,
+    int height,
+    int depth,
+    int format,
+    NativeArray? pixels,
+  ){
+    _gl.compressedTexSubImage3D(target,level,xoffset,yoffset,zoffset,width,height,depth,format,pixels?.data);
+    // checkError('compressedTexSubImage3D');
+  }
+
+  void compressedTexImage3D(
+    int target,
+    int level,
+    int internalformat,
+    int width,
+    int height,
+    int depth,
+    int border,
+    NativeArray? pixels,
+  ){
+    _gl.compressedTexImage3D(target,level,internalformat,width,height,depth,border,pixels?.data);
+    // checkError('compressedTexImage3D');
   }
 
   void compressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, NativeArray? pixels) {
