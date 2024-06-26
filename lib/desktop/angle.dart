@@ -9,6 +9,7 @@ import 'package:dylib/dylib.dart';
 import 'package:ffi/ffi.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_angle/shared/console.dart';
 import 'lib_egl.dart';
 
 class FlutterAngleTexture {
@@ -126,7 +127,7 @@ class FlutterAngle {
     // Initialize native part of he plugin
     final result = await _channel.invokeMethod('initOpenGL');
 
-    print(result);
+    angleConsole.info(result);
     if (result == null) {
       throw EglException('Plugin.initOpenGL didn\'t return anything. Something is really wrong!');
     }
@@ -213,74 +214,77 @@ class FlutterAngle {
     // ignore non-significant error/warning codes
     // if (id == 131169 || id == 131185 || id == 131218 || id == 131204) return;
 
-    print("---------------");
-    print("Debug message $id  $message");
+    String error = "---------------\n";
+    error += "Debug message $id  $message\n";
 
     switch (source) {
       case GL_DEBUG_SOURCE_API:
-        print("Source: API");
+        error +="Source: API";
         break;
       case GL_DEBUG_SOURCE_WINDOW_SYSTEM:
-        print("Source: Window System");
+        error +="Source: Window System";
         break;
       case GL_DEBUG_SOURCE_SHADER_COMPILER:
-        print("Source: Shader Compiler");
+        error +="Source: Shader Compiler";
         break;
       case GL_DEBUG_SOURCE_THIRD_PARTY:
-        print("Source: Third Party");
+        error +="Source: Third Party";
         break;
       case GL_DEBUG_SOURCE_APPLICATION:
-        print("Source: Application");
+        error +="Source: Application";
         break;
       case GL_DEBUG_SOURCE_OTHER:
-        print("Source: Other");
+        error +="Source: Other";
         break;
     }
+    error += '\n';
     switch (type) {
       case GL_DEBUG_TYPE_ERROR:
-        print("Type: Error");
+        error +="Type: Error";
         break;
       case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR:
-        print("Type: Deprecated Behaviour");
+        error +="Type: Deprecated Behaviour";
         break;
       case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR:
-        print("Type: Undefined Behaviour");
+        error +="Type: Undefined Behaviour";
         break;
       case GL_DEBUG_TYPE_PORTABILITY:
-        print("Type: Portability");
+        error +="Type: Portability";
         break;
       case GL_DEBUG_TYPE_PERFORMANCE:
-        print("Type: Performance");
+        error +="Type: Performance";
         break;
       case GL_DEBUG_TYPE_MARKER:
-        print("Type: Marker");
+        error +="Type: Marker";
         break;
       case GL_DEBUG_TYPE_PUSH_GROUP:
-        print("Type: Push Group");
+        error +="Type: Push Group";
         break;
       case GL_DEBUG_TYPE_POP_GROUP:
-        print("Type: Pop Group");
+        error +="Type: Pop Group";
         break;
       case GL_DEBUG_TYPE_OTHER:
-        print("Type: Other");
+        error +="Type: Other";
         break;
     }
-
+    error += '\n';
     switch (severity) {
       case GL_DEBUG_SEVERITY_HIGH:
-        print("Severity: high");
+        error +="Severity: high";
         break;
       case GL_DEBUG_SEVERITY_MEDIUM:
-        print("Severity: medium");
+        error +="Severity: medium";
         break;
       case GL_DEBUG_SEVERITY_LOW:
-        print("Severity: low");
+        error +="Severity: low";
         break;
       case GL_DEBUG_SEVERITY_NOTIFICATION:
-        print("Severity: notification");
+        error +="Severity: notification";
         break;
     }
-    print('\n');
+    error +='\n';
+
+    angleConsole.error(error);
   }
 
   static Future<FlutterAngleTexture> createTexture(AngleOptions options) async {
@@ -305,8 +309,8 @@ class FlutterAngle {
     _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, fbo.value);
 
     final newTexture = FlutterAngleTexture.fromMap(result, null, fbo.value, options);
-    print(newTexture.toMap());
-    print(_rawOpenGl.glGetError());
+    angleConsole.info(newTexture.toMap());
+    angleConsole.info(_rawOpenGl.glGetError());
     _rawOpenGl.glActiveTexture(WebGL.TEXTURE);
 
     if (newTexture.metalAsGLTextureId != 0) {
@@ -321,7 +325,7 @@ class FlutterAngle {
 
     var frameBufferCheck = _rawOpenGl.glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (frameBufferCheck != GL_FRAMEBUFFER_COMPLETE) {
-      print("Framebuffer (color) check failed: $frameBufferCheck");
+      angleConsole.error("Framebuffer (color) check failed: $frameBufferCheck");
     }
 
     _rawOpenGl.glViewport(0, 0, width, height);
@@ -335,7 +339,7 @@ class FlutterAngle {
 
     frameBufferCheck = _rawOpenGl.glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (frameBufferCheck != GL_FRAMEBUFFER_COMPLETE) {
-      print("Framebuffer (depth) check failed: $frameBufferCheck");
+      angleConsole.error("Framebuffer (depth) check failed: $frameBufferCheck");
     }
     
     _activeFramebuffer = fbo.value;
@@ -404,7 +408,7 @@ class FlutterAngle {
   static void printOpenGLError(String message) {
     var glGetError = _rawOpenGl.glGetError();
     if (glGetError != GL_NO_ERROR) {
-      print('$message: $glGetError');
+      angleConsole.error('$message: $glGetError');
     }
   }
 }

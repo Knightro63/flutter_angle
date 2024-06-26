@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_angle/native-array/index.dart';
+import 'package:flutter_angle/shared/console.dart';
 import 'dart:html' as html;
 import '../shared/webgl.dart';
 import '../shared/classes.dart';
@@ -79,7 +80,7 @@ class RenderingContext{
     if (glError != WebGL.NO_ERROR) {
       final openGLException = OpenGLException('RenderingContext.$message', glError);
       // assert(() {
-        print(openGLException.toString());
+        angleConsole.info(openGLException.toString());
       //   return true;
       // }());
       // throw openGLException;
@@ -111,7 +112,7 @@ class RenderingContext{
     } 
     else {
       return key;
-      throw (" OpenGL getParameter key: ${key} is not support ");
+      //throw (" OpenGL getParameter key: ${key} is not support ");
     }
   }
 
@@ -194,7 +195,6 @@ class RenderingContext{
     // checkError('texImage2D_NOSIZE');
   }
 
-  //TODO
   void texImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, NativeArray? pixels) {
     _gl.texImage3D(target, level, internalformat, width, height, depth,border, format, type, pixels?.data);
     // checkError('texImage3D');
@@ -343,7 +343,6 @@ class RenderingContext{
     return WebGLParameter(_gl.getProgramParameter(program.id, pname));
   }
 
-  //TODO
   ActiveInfo getActiveUniform(Program v0, v1) {
     final val = _gl.getActiveUniform(v0.id, v1);
     return ActiveInfo(

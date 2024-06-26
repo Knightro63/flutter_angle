@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:dylib/dylib.dart';
 import 'package:ffi/ffi.dart';
+import 'package:flutter_angle/shared/console.dart';
 import 'bindings/index.dart';
 
 LibEGL? _libEGL;
@@ -166,57 +167,57 @@ int eglGetConfigAttrib(
 }
 
 void printConfigAttributes(Pointer<Void> display, Pointer<Void> config) {
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.alphaMaskSize.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.alphaMaskSize)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.alphaSize.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.alphaSize)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.bindToTextureRgb.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.bindToTextureRgb)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.bindToTextureRgba.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.bindToTextureRgba)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.blueSize.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.blueSize)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.bufferSize.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.bufferSize)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.colorBufferType.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.colorBufferType)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.configCaveat.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.configCaveat)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.configId.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.configId)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.conformant.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.conformant)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.depthSize.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.depthSize)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.greenSize.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.greenSize)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.level.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.level)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.luminanceSize.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.luminanceSize)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.matchNativePixmap.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.matchNativePixmap)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.nativeRenderable.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.nativeRenderable)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.maxSwapInterval.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.maxSwapInterval)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.minSwapInterval.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.minSwapInterval)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.redSize.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.redSize)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.sampleBuffers.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.sampleBuffers)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.samples.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.samples)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.stencilSize.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.stencilSize)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.renderableType.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.renderableType)}');
 
   final surfaceType =
       eglGetConfigAttrib(display, config, EglConfigAttribute.surfaceType);
 
-  print(
+  angleConsole.info(
       'SurfaceType: ${(surfaceType & EGL_MULTISAMPLE_RESOLVE_BOX_BIT) != 0 ? 'EGL_MULTISAMPLE_RESOLVE_BOX_BIT, ' : ''}'
       '${(surfaceType & EGL_PBUFFER_BIT) != 0 ? 'EGL_PBUFFER_BIT, ' : ''}'
       '${(surfaceType & EGL_PIXMAP_BIT) != 0 ? 'EGL_PIXMAP_BIT, ' : ''}'
@@ -224,13 +225,13 @@ void printConfigAttributes(Pointer<Void> display, Pointer<Void> config) {
       '${(surfaceType & EGL_VG_ALPHA_FORMAT_PRE_BIT) != 0 ? 'EGL_VG_ALPHA_FORMAT_PRE_BIT, ' : ''}'
       '${(surfaceType & EGL_VG_COLORSPACE_LINEAR_BIT) != 0 ? 'EGL_VG_COLORSPACE_LINEAR_BIT, ' : ''}'
       '${(surfaceType & EGL_WINDOW_BIT) != 0 ? 'EGL_WINDOW_BIT, ' : ''}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.transparentType.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.transparentType)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.transparentRedValue.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.transparentRedValue)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.transparentGreenValue.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.transparentGreenValue)}');
-  print(
+  angleConsole.info(
       '${EglConfigAttribute.transparentBlueValue.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.transparentBlueValue)}');
 }
 

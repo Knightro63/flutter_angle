@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_angle/native-array/index.dart';
+import 'package:flutter_angle/shared/console.dart';
 
 import 'bindings/gles_bindings.dart';
 import 'dart:ffi';
@@ -25,12 +26,11 @@ class RenderingContext {
   /// be reused constantly
   /// 
   void checkError([String message = '']) {
-    return;
     final glError = gl.glGetError();
     if (glError != WebGL.NO_ERROR) {
       final openGLException = OpenGLException('RenderingContext.$message', glError);
       // assert(() {
-        print(openGLException.toString());
+        angleConsole.info(openGLException.toString());
       //   return true;
       // }());
       // throw openGLException;
@@ -38,8 +38,7 @@ class RenderingContext {
   }
 
   void startCheck(String type){
-    return;
-    print('Start: $type');
+    angleConsole.info('Start: $type');
   }
 
   void beginTransformFeedback(int primitiveMode){

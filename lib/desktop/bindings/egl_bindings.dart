@@ -657,143 +657,143 @@ class LibEGL {
 
   _dart_eglWaitSync? _eglWaitSync;
 
-  void __va_start(
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
-  ) {
-    return (___va_start ??=
-        _dylib.lookupFunction<_c___va_start, _dart___va_start>('__va_start'))(
-      arg0,
-    );
-  }
+  // void __va_start(
+  //   ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+  // ) {
+  //   return (___va_start ??=
+  //       _dylib.lookupFunction<_c___va_start, _dart___va_start>('__va_start'))(
+  //     arg0,
+  //   );
+  // }
 
-  _dart___va_start? ___va_start;
+  // _dart___va_start? ___va_start;
 
-  void __security_init_cookie() {
-    return (___security_init_cookie ??= _dylib.lookupFunction<
-        _c___security_init_cookie,
-        _dart___security_init_cookie>('__security_init_cookie'))();
-  }
+  // void __security_init_cookie() {
+  //   return (___security_init_cookie ??= _dylib.lookupFunction<
+  //       _c___security_init_cookie,
+  //       _dart___security_init_cookie>('__security_init_cookie'))();
+  // }
 
-  _dart___security_init_cookie? ___security_init_cookie;
+  // _dart___security_init_cookie? ___security_init_cookie;
 
-  void __security_check_cookie(
-    int _StackCookie,
-  ) {
-    return (___security_check_cookie ??= _dylib.lookupFunction<
-        _c___security_check_cookie,
-        _dart___security_check_cookie>('__security_check_cookie'))(
-      _StackCookie,
-    );
-  }
+  // void __security_check_cookie(
+  //   int _StackCookie,
+  // ) {
+  //   return (___security_check_cookie ??= _dylib.lookupFunction<
+  //       _c___security_check_cookie,
+  //       _dart___security_check_cookie>('__security_check_cookie'))(
+  //     _StackCookie,
+  //   );
+  // }
 
-  _dart___security_check_cookie? ___security_check_cookie;
+  // _dart___security_check_cookie? ___security_check_cookie;
 
-  void __report_gsfailure(
-    int _StackCookie,
-  ) {
-    return (___report_gsfailure ??=
-        _dylib.lookupFunction<_c___report_gsfailure, _dart___report_gsfailure>(
-            '__report_gsfailure'))(
-      _StackCookie,
-    );
-  }
+  // void __report_gsfailure(
+  //   int _StackCookie,
+  // ) {
+  //   return (___report_gsfailure ??=
+  //       _dylib.lookupFunction<_c___report_gsfailure, _dart___report_gsfailure>(
+  //           '__report_gsfailure'))(
+  //     _StackCookie,
+  //   );
+  // }
 
-  _dart___report_gsfailure? ___report_gsfailure;
+  // _dart___report_gsfailure? ___report_gsfailure;
 
-  int __C_specific_handler(
-    ffi.Pointer<EXCEPTION_RECORD> ExceptionRecord,
-    ffi.Pointer<ffi.Void> EstablisherFrame,
-    ffi.Pointer<PCONTEXT> ContextRecord,
-    ffi.Pointer<PDISPATCHER_CONTEXT> DispatcherContext,
-  ) {
-    return (___C_specific_handler ??= _dylib.lookupFunction<
-        _c___C_specific_handler,
-        _dart___C_specific_handler>('__C_specific_handler'))(
-      ExceptionRecord,
-      EstablisherFrame,
-      ContextRecord,
-      DispatcherContext,
-    );
-  }
+  // int __C_specific_handler(
+  //   ffi.Pointer<EXCEPTION_RECORD> ExceptionRecord,
+  //   ffi.Pointer<ffi.Void> EstablisherFrame,
+  //   ffi.Pointer<PCONTEXT> ContextRecord,
+  //   ffi.Pointer<PDISPATCHER_CONTEXT> DispatcherContext,
+  // ) {
+  //   return (___C_specific_handler ??= _dylib.lookupFunction<
+  //       _c___C_specific_handler,
+  //       _dart___C_specific_handler>('__C_specific_handler'))(
+  //     ExceptionRecord,
+  //     EstablisherFrame,
+  //     ContextRecord,
+  //     DispatcherContext,
+  //   );
+  // }
 
-  _dart___C_specific_handler? ___C_specific_handler;
+  // _dart___C_specific_handler? ___C_specific_handler;
 
-  int _exception_code() {
-    return (__exception_code ??=
-        _dylib.lookupFunction<_c__exception_code, _dart__exception_code>(
-            '_exception_code'))();
-  }
+  // int _exception_code() {
+  //   return (__exception_code ??=
+  //       _dylib.lookupFunction<_c__exception_code, _dart__exception_code>(
+  //           '_exception_code'))();
+  // }
 
-  _dart__exception_code? __exception_code;
+  // _dart__exception_code? __exception_code;
 
-  ffi.Pointer<ffi.Void> _exception_info() {
-    return (__exception_info ??=
-        _dylib.lookupFunction<_c__exception_info, _dart__exception_info>(
-            '_exception_info'))();
-  }
+  // ffi.Pointer<ffi.Void> _exception_info() {
+  //   return (__exception_info ??=
+  //       _dylib.lookupFunction<_c__exception_info, _dart__exception_info>(
+  //           '_exception_info'))();
+  // }
 
-  _dart__exception_info? __exception_info;
+  // _dart__exception_info? __exception_info;
 
-  int _abnormal_termination() {
-    return (__abnormal_termination ??= _dylib.lookupFunction<
-        _c__abnormal_termination,
-        _dart__abnormal_termination>('_abnormal_termination'))();
-  }
+  // int _abnormal_termination() {
+  //   return (__abnormal_termination ??= _dylib.lookupFunction<
+  //       _c__abnormal_termination,
+  //       _dart__abnormal_termination>('_abnormal_termination'))();
+  // }
 
-  _dart__abnormal_termination? __abnormal_termination;
+  // _dart__abnormal_termination? __abnormal_termination;
 
-  void _invalid_parameter_noinfo() {
-    return (__invalid_parameter_noinfo ??= _dylib.lookupFunction<
-        _c__invalid_parameter_noinfo,
-        _dart__invalid_parameter_noinfo>('_invalid_parameter_noinfo'))();
-  }
+  // void _invalid_parameter_noinfo() {
+  //   return (__invalid_parameter_noinfo ??= _dylib.lookupFunction<
+  //       _c__invalid_parameter_noinfo,
+  //       _dart__invalid_parameter_noinfo>('_invalid_parameter_noinfo'))();
+  // }
 
-  _dart__invalid_parameter_noinfo? __invalid_parameter_noinfo;
+  // _dart__invalid_parameter_noinfo? __invalid_parameter_noinfo;
 
-  void _invalid_parameter_noinfo_noreturn() {
-    return (__invalid_parameter_noinfo_noreturn ??= _dylib.lookupFunction<
-            _c__invalid_parameter_noinfo_noreturn,
-            _dart__invalid_parameter_noinfo_noreturn>(
-        '_invalid_parameter_noinfo_noreturn'))();
-  }
+  // void _invalid_parameter_noinfo_noreturn() {
+  //   return (__invalid_parameter_noinfo_noreturn ??= _dylib.lookupFunction<
+  //           _c__invalid_parameter_noinfo_noreturn,
+  //           _dart__invalid_parameter_noinfo_noreturn>(
+  //       '_invalid_parameter_noinfo_noreturn'))();
+  // }
 
-  _dart__invalid_parameter_noinfo_noreturn? __invalid_parameter_noinfo_noreturn;
+  // _dart__invalid_parameter_noinfo_noreturn? __invalid_parameter_noinfo_noreturn;
 
-  void _invoke_watson(
-    ffi.Pointer<ffi.Uint16> _Expression,
-    ffi.Pointer<ffi.Uint16> _FunctionName,
-    ffi.Pointer<ffi.Uint16> _FileName,
-    int _LineNo,
-    int _Reserved,
-  ) {
-    return (__invoke_watson ??=
-        _dylib.lookupFunction<_c__invoke_watson, _dart__invoke_watson>(
-            '_invoke_watson'))(
-      _Expression,
-      _FunctionName,
-      _FileName,
-      _LineNo,
-      _Reserved,
-    );
-  }
+  // void _invoke_watson(
+  //   ffi.Pointer<ffi.Uint16> _Expression,
+  //   ffi.Pointer<ffi.Uint16> _FunctionName,
+  //   ffi.Pointer<ffi.Uint16> _FileName,
+  //   int _LineNo,
+  //   int _Reserved,
+  // ) {
+  //   return (__invoke_watson ??=
+  //       _dylib.lookupFunction<_c__invoke_watson, _dart__invoke_watson>(
+  //           '_invoke_watson'))(
+  //     _Expression,
+  //     _FunctionName,
+  //     _FileName,
+  //     _LineNo,
+  //     _Reserved,
+  //   );
+  // }
 
-  _dart__invoke_watson? __invoke_watson;
+  // _dart__invoke_watson? __invoke_watson;
 
-  ffi.Pointer<ffi.Uint16> __pctype_func() {
-    return (___pctype_func ??=
-        _dylib.lookupFunction<_c___pctype_func, _dart___pctype_func>(
-            '__pctype_func'))();
-  }
+  // ffi.Pointer<ffi.Uint16> __pctype_func() {
+  //   return (___pctype_func ??=
+  //       _dylib.lookupFunction<_c___pctype_func, _dart___pctype_func>(
+  //           '__pctype_func'))();
+  // }
 
-  _dart___pctype_func? ___pctype_func;
+  // _dart___pctype_func? ___pctype_func;
 
-  ffi.Pointer<ffi.Uint16> __pwctype_func() {
-    return (___pwctype_func ??=
-        _dylib.lookupFunction<_c___pwctype_func, _dart___pwctype_func>(
-            '__pwctype_func'))();
-  }
+  // ffi.Pointer<ffi.Uint16> __pwctype_func() {
+  //   return (___pwctype_func ??=
+  //       _dylib.lookupFunction<_c___pwctype_func, _dart___pwctype_func>(
+  //           '__pwctype_func'))();
+  // }
 
-  _dart___pwctype_func? ___pwctype_func;
+  // _dart___pwctype_func? ___pwctype_func;
 
   int iswalnum(
     int _C,
@@ -938,209 +938,209 @@ class LibEGL {
 
   _dart_iswxdigit? _iswxdigit;
 
-  int __iswcsymf(
-    int _C,
-  ) {
-    return (___iswcsymf ??=
-        _dylib.lookupFunction<_c___iswcsymf, _dart___iswcsymf>('__iswcsymf'))(
-      _C,
-    );
-  }
+  // int __iswcsymf(
+  //   int _C,
+  // ) {
+  //   return (___iswcsymf ??=
+  //       _dylib.lookupFunction<_c___iswcsymf, _dart___iswcsymf>('__iswcsymf'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart___iswcsymf? ___iswcsymf;
+  // _dart___iswcsymf? ___iswcsymf;
 
-  int __iswcsym(
-    int _C,
-  ) {
-    return (___iswcsym ??=
-        _dylib.lookupFunction<_c___iswcsym, _dart___iswcsym>('__iswcsym'))(
-      _C,
-    );
-  }
+  // int __iswcsym(
+  //   int _C,
+  // ) {
+  //   return (___iswcsym ??=
+  //       _dylib.lookupFunction<_c___iswcsym, _dart___iswcsym>('__iswcsym'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart___iswcsym? ___iswcsym;
+  // _dart___iswcsym? ___iswcsym;
 
-  int _iswalnum_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswalnum_l ??= _dylib
-        .lookupFunction<_c__iswalnum_l, _dart__iswalnum_l>('_iswalnum_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswalnum_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswalnum_l ??= _dylib
+  //       .lookupFunction<_c__iswalnum_l, _dart__iswalnum_l>('_iswalnum_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswalnum_l? __iswalnum_l;
+  // _dart__iswalnum_l? __iswalnum_l;
 
-  int _iswalpha_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswalpha_l ??= _dylib
-        .lookupFunction<_c__iswalpha_l, _dart__iswalpha_l>('_iswalpha_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswalpha_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswalpha_l ??= _dylib
+  //       .lookupFunction<_c__iswalpha_l, _dart__iswalpha_l>('_iswalpha_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswalpha_l? __iswalpha_l;
+  // _dart__iswalpha_l? __iswalpha_l;
 
-  int _iswblank_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswblank_l ??= _dylib
-        .lookupFunction<_c__iswblank_l, _dart__iswblank_l>('_iswblank_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswblank_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswblank_l ??= _dylib
+  //       .lookupFunction<_c__iswblank_l, _dart__iswblank_l>('_iswblank_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswblank_l? __iswblank_l;
+  // _dart__iswblank_l? __iswblank_l;
 
-  int _iswcntrl_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswcntrl_l ??= _dylib
-        .lookupFunction<_c__iswcntrl_l, _dart__iswcntrl_l>('_iswcntrl_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswcntrl_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswcntrl_l ??= _dylib
+  //       .lookupFunction<_c__iswcntrl_l, _dart__iswcntrl_l>('_iswcntrl_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswcntrl_l? __iswcntrl_l;
+  // _dart__iswcntrl_l? __iswcntrl_l;
 
-  int _iswdigit_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswdigit_l ??= _dylib
-        .lookupFunction<_c__iswdigit_l, _dart__iswdigit_l>('_iswdigit_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswdigit_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswdigit_l ??= _dylib
+  //       .lookupFunction<_c__iswdigit_l, _dart__iswdigit_l>('_iswdigit_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswdigit_l? __iswdigit_l;
+  // _dart__iswdigit_l? __iswdigit_l;
 
-  int _iswgraph_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswgraph_l ??= _dylib
-        .lookupFunction<_c__iswgraph_l, _dart__iswgraph_l>('_iswgraph_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswgraph_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswgraph_l ??= _dylib
+  //       .lookupFunction<_c__iswgraph_l, _dart__iswgraph_l>('_iswgraph_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswgraph_l? __iswgraph_l;
+  // _dart__iswgraph_l? __iswgraph_l;
 
-  int _iswlower_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswlower_l ??= _dylib
-        .lookupFunction<_c__iswlower_l, _dart__iswlower_l>('_iswlower_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswlower_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswlower_l ??= _dylib
+  //       .lookupFunction<_c__iswlower_l, _dart__iswlower_l>('_iswlower_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswlower_l? __iswlower_l;
+  // _dart__iswlower_l? __iswlower_l;
 
-  int _iswprint_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswprint_l ??= _dylib
-        .lookupFunction<_c__iswprint_l, _dart__iswprint_l>('_iswprint_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswprint_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswprint_l ??= _dylib
+  //       .lookupFunction<_c__iswprint_l, _dart__iswprint_l>('_iswprint_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswprint_l? __iswprint_l;
+  // _dart__iswprint_l? __iswprint_l;
 
-  int _iswpunct_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswpunct_l ??= _dylib
-        .lookupFunction<_c__iswpunct_l, _dart__iswpunct_l>('_iswpunct_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswpunct_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswpunct_l ??= _dylib
+  //       .lookupFunction<_c__iswpunct_l, _dart__iswpunct_l>('_iswpunct_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswpunct_l? __iswpunct_l;
+  // _dart__iswpunct_l? __iswpunct_l;
 
-  int _iswspace_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswspace_l ??= _dylib
-        .lookupFunction<_c__iswspace_l, _dart__iswspace_l>('_iswspace_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswspace_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswspace_l ??= _dylib
+  //       .lookupFunction<_c__iswspace_l, _dart__iswspace_l>('_iswspace_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswspace_l? __iswspace_l;
+  // _dart__iswspace_l? __iswspace_l;
 
-  int _iswupper_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswupper_l ??= _dylib
-        .lookupFunction<_c__iswupper_l, _dart__iswupper_l>('_iswupper_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswupper_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswupper_l ??= _dylib
+  //       .lookupFunction<_c__iswupper_l, _dart__iswupper_l>('_iswupper_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswupper_l? __iswupper_l;
+  // _dart__iswupper_l? __iswupper_l;
 
-  int _iswxdigit_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswxdigit_l ??= _dylib
-        .lookupFunction<_c__iswxdigit_l, _dart__iswxdigit_l>('_iswxdigit_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswxdigit_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswxdigit_l ??= _dylib
+  //       .lookupFunction<_c__iswxdigit_l, _dart__iswxdigit_l>('_iswxdigit_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswxdigit_l? __iswxdigit_l;
+  // _dart__iswxdigit_l? __iswxdigit_l;
 
-  int _iswcsymf_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswcsymf_l ??= _dylib
-        .lookupFunction<_c__iswcsymf_l, _dart__iswcsymf_l>('_iswcsymf_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswcsymf_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswcsymf_l ??= _dylib
+  //       .lookupFunction<_c__iswcsymf_l, _dart__iswcsymf_l>('_iswcsymf_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswcsymf_l? __iswcsymf_l;
+  // _dart__iswcsymf_l? __iswcsymf_l;
 
-  int _iswcsym_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswcsym_l ??=
-        _dylib.lookupFunction<_c__iswcsym_l, _dart__iswcsym_l>('_iswcsym_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iswcsym_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswcsym_l ??=
+  //       _dylib.lookupFunction<_c__iswcsym_l, _dart__iswcsym_l>('_iswcsym_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswcsym_l? __iswcsym_l;
+  // _dart__iswcsym_l? __iswcsym_l;
 
   int towupper(
     int _C,
@@ -1177,46 +1177,46 @@ class LibEGL {
 
   _dart_iswctype? _iswctype;
 
-  int _towupper_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__towupper_l ??= _dylib
-        .lookupFunction<_c__towupper_l, _dart__towupper_l>('_towupper_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _towupper_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__towupper_l ??= _dylib
+  //       .lookupFunction<_c__towupper_l, _dart__towupper_l>('_towupper_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__towupper_l? __towupper_l;
+  // _dart__towupper_l? __towupper_l;
 
-  int _towlower_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__towlower_l ??= _dylib
-        .lookupFunction<_c__towlower_l, _dart__towlower_l>('_towlower_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _towlower_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__towlower_l ??= _dylib
+  //       .lookupFunction<_c__towlower_l, _dart__towlower_l>('_towlower_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__towlower_l? __towlower_l;
+  // _dart__towlower_l? __towlower_l;
 
-  int _iswctype_l(
-    int _C,
-    int _Type,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iswctype_l ??= _dylib
-        .lookupFunction<_c__iswctype_l, _dart__iswctype_l>('_iswctype_l'))(
-      _C,
-      _Type,
-      _Locale,
-    );
-  }
+  // int _iswctype_l(
+  //   int _C,
+  //   int _Type,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iswctype_l ??= _dylib
+  //       .lookupFunction<_c__iswctype_l, _dart__iswctype_l>('_iswctype_l'))(
+  //     _C,
+  //     _Type,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iswctype_l? __iswctype_l;
+  // _dart__iswctype_l? __iswctype_l;
 
   int isleadbyte(
     int _C,
@@ -1229,19 +1229,19 @@ class LibEGL {
 
   _dart_isleadbyte? _isleadbyte;
 
-  int _isleadbyte_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__isleadbyte_l ??=
-        _dylib.lookupFunction<_c__isleadbyte_l, _dart__isleadbyte_l>(
-            '_isleadbyte_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _isleadbyte_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__isleadbyte_l ??=
+  //       _dylib.lookupFunction<_c__isleadbyte_l, _dart__isleadbyte_l>(
+  //           '_isleadbyte_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__isleadbyte_l? __isleadbyte_l;
+  // _dart__isleadbyte_l? __isleadbyte_l;
 
   int is_wctype(
     int _C,
@@ -1256,33 +1256,33 @@ class LibEGL {
 
   _dart_is_wctype? _is_wctype;
 
-  int _isctype(
-    int _C,
-    int _Type,
-  ) {
-    return (__isctype ??=
-        _dylib.lookupFunction<_c__isctype, _dart__isctype>('_isctype'))(
-      _C,
-      _Type,
-    );
-  }
+  // int _isctype(
+  //   int _C,
+  //   int _Type,
+  // ) {
+  //   return (__isctype ??=
+  //       _dylib.lookupFunction<_c__isctype, _dart__isctype>('_isctype'))(
+  //     _C,
+  //     _Type,
+  //   );
+  // }
 
-  _dart__isctype? __isctype;
+  // _dart__isctype? __isctype;
 
-  int _isctype_l(
-    int _C,
-    int _Type,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__isctype_l ??=
-        _dylib.lookupFunction<_c__isctype_l, _dart__isctype_l>('_isctype_l'))(
-      _C,
-      _Type,
-      _Locale,
-    );
-  }
+  // int _isctype_l(
+  //   int _C,
+  //   int _Type,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__isctype_l ??=
+  //       _dylib.lookupFunction<_c__isctype_l, _dart__isctype_l>('_isctype_l'))(
+  //     _C,
+  //     _Type,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__isctype_l? __isctype_l;
+  // _dart__isctype_l? __isctype_l;
 
   int isalpha(
     int _C,
@@ -1295,18 +1295,18 @@ class LibEGL {
 
   _dart_isalpha? _isalpha;
 
-  int _isalpha_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__isalpha_l ??=
-        _dylib.lookupFunction<_c__isalpha_l, _dart__isalpha_l>('_isalpha_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _isalpha_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__isalpha_l ??=
+  //       _dylib.lookupFunction<_c__isalpha_l, _dart__isalpha_l>('_isalpha_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__isalpha_l? __isalpha_l;
+  // _dart__isalpha_l? __isalpha_l;
 
   int isupper(
     int _C,
@@ -1319,18 +1319,18 @@ class LibEGL {
 
   _dart_isupper? _isupper;
 
-  int _isupper_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__isupper_l ??=
-        _dylib.lookupFunction<_c__isupper_l, _dart__isupper_l>('_isupper_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _isupper_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__isupper_l ??=
+  //       _dylib.lookupFunction<_c__isupper_l, _dart__isupper_l>('_isupper_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__isupper_l? __isupper_l;
+  // _dart__isupper_l? __isupper_l;
 
   int islower(
     int _C,
@@ -1343,18 +1343,18 @@ class LibEGL {
 
   _dart_islower? _islower;
 
-  int _islower_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__islower_l ??=
-        _dylib.lookupFunction<_c__islower_l, _dart__islower_l>('_islower_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _islower_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__islower_l ??=
+  //       _dylib.lookupFunction<_c__islower_l, _dart__islower_l>('_islower_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__islower_l? __islower_l;
+  // _dart__islower_l? __islower_l;
 
   int isdigit(
     int _C,
@@ -1367,18 +1367,18 @@ class LibEGL {
 
   _dart_isdigit? _isdigit;
 
-  int _isdigit_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__isdigit_l ??=
-        _dylib.lookupFunction<_c__isdigit_l, _dart__isdigit_l>('_isdigit_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _isdigit_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__isdigit_l ??=
+  //       _dylib.lookupFunction<_c__isdigit_l, _dart__isdigit_l>('_isdigit_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__isdigit_l? __isdigit_l;
+  // _dart__isdigit_l? __isdigit_l;
 
   int isxdigit(
     int _C,
@@ -1391,18 +1391,18 @@ class LibEGL {
 
   _dart_isxdigit? _isxdigit;
 
-  int _isxdigit_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__isxdigit_l ??= _dylib
-        .lookupFunction<_c__isxdigit_l, _dart__isxdigit_l>('_isxdigit_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _isxdigit_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__isxdigit_l ??= _dylib
+  //       .lookupFunction<_c__isxdigit_l, _dart__isxdigit_l>('_isxdigit_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__isxdigit_l? __isxdigit_l;
+  // _dart__isxdigit_l? __isxdigit_l;
 
   int isspace(
     int _C,
@@ -1415,18 +1415,18 @@ class LibEGL {
 
   _dart_isspace? _isspace;
 
-  int _isspace_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__isspace_l ??=
-        _dylib.lookupFunction<_c__isspace_l, _dart__isspace_l>('_isspace_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _isspace_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__isspace_l ??=
+  //       _dylib.lookupFunction<_c__isspace_l, _dart__isspace_l>('_isspace_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__isspace_l? __isspace_l;
+  // _dart__isspace_l? __isspace_l;
 
   int ispunct(
     int _C,
@@ -1439,18 +1439,18 @@ class LibEGL {
 
   _dart_ispunct? _ispunct;
 
-  int _ispunct_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__ispunct_l ??=
-        _dylib.lookupFunction<_c__ispunct_l, _dart__ispunct_l>('_ispunct_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _ispunct_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__ispunct_l ??=
+  //       _dylib.lookupFunction<_c__ispunct_l, _dart__ispunct_l>('_ispunct_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__ispunct_l? __ispunct_l;
+  // _dart__ispunct_l? __ispunct_l;
 
   int isblank(
     int _C,
@@ -1463,18 +1463,18 @@ class LibEGL {
 
   _dart_isblank? _isblank;
 
-  int _isblank_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__isblank_l ??=
-        _dylib.lookupFunction<_c__isblank_l, _dart__isblank_l>('_isblank_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _isblank_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__isblank_l ??=
+  //       _dylib.lookupFunction<_c__isblank_l, _dart__isblank_l>('_isblank_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__isblank_l? __isblank_l;
+  // _dart__isblank_l? __isblank_l;
 
   int isalnum(
     int _C,
@@ -1487,18 +1487,18 @@ class LibEGL {
 
   _dart_isalnum? _isalnum;
 
-  int _isalnum_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__isalnum_l ??=
-        _dylib.lookupFunction<_c__isalnum_l, _dart__isalnum_l>('_isalnum_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _isalnum_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__isalnum_l ??=
+  //       _dylib.lookupFunction<_c__isalnum_l, _dart__isalnum_l>('_isalnum_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__isalnum_l? __isalnum_l;
+  // _dart__isalnum_l? __isalnum_l;
 
   int isprint(
     int _C,
@@ -1511,18 +1511,18 @@ class LibEGL {
 
   _dart_isprint? _isprint;
 
-  int _isprint_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__isprint_l ??=
-        _dylib.lookupFunction<_c__isprint_l, _dart__isprint_l>('_isprint_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _isprint_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__isprint_l ??=
+  //       _dylib.lookupFunction<_c__isprint_l, _dart__isprint_l>('_isprint_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__isprint_l? __isprint_l;
+  // _dart__isprint_l? __isprint_l;
 
   int isgraph(
     int _C,
@@ -1535,18 +1535,18 @@ class LibEGL {
 
   _dart_isgraph? _isgraph;
 
-  int _isgraph_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__isgraph_l ??=
-        _dylib.lookupFunction<_c__isgraph_l, _dart__isgraph_l>('_isgraph_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _isgraph_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__isgraph_l ??=
+  //       _dylib.lookupFunction<_c__isgraph_l, _dart__isgraph_l>('_isgraph_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__isgraph_l? __isgraph_l;
+  // _dart__isgraph_l? __isgraph_l;
 
   int iscntrl(
     int _C,
@@ -1559,18 +1559,18 @@ class LibEGL {
 
   _dart_iscntrl? _iscntrl;
 
-  int _iscntrl_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__iscntrl_l ??=
-        _dylib.lookupFunction<_c__iscntrl_l, _dart__iscntrl_l>('_iscntrl_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _iscntrl_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__iscntrl_l ??=
+  //       _dylib.lookupFunction<_c__iscntrl_l, _dart__iscntrl_l>('_iscntrl_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__iscntrl_l? __iscntrl_l;
+  // _dart__iscntrl_l? __iscntrl_l;
 
   int toupper(
     int _C,
@@ -1594,251 +1594,251 @@ class LibEGL {
 
   _dart_tolower? _tolower_1;
 
-  int _tolower(
-    int _C,
-  ) {
-    return (__tolower ??=
-        _dylib.lookupFunction<_c__tolower, _dart__tolower>('_tolower'))(
-      _C,
-    );
-  }
+  // int _tolower(
+  //   int _C,
+  // ) {
+  //   return (__tolower ??=
+  //       _dylib.lookupFunction<_c__tolower, _dart__tolower>('_tolower'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart__tolower? __tolower;
+  // _dart__tolower? __tolower;
 
-  int _tolower_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__tolower_l ??=
-        _dylib.lookupFunction<_c__tolower_l, _dart__tolower_l>('_tolower_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _tolower_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__tolower_l ??=
+  //       _dylib.lookupFunction<_c__tolower_l, _dart__tolower_l>('_tolower_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__tolower_l? __tolower_l;
+  // _dart__tolower_l? __tolower_l;
 
-  int _toupper(
-    int _C,
-  ) {
-    return (__toupper ??=
-        _dylib.lookupFunction<_c__toupper, _dart__toupper>('_toupper'))(
-      _C,
-    );
-  }
+  // int _toupper(
+  //   int _C,
+  // ) {
+  //   return (__toupper ??=
+  //       _dylib.lookupFunction<_c__toupper, _dart__toupper>('_toupper'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart__toupper? __toupper;
+  // _dart__toupper? __toupper;
 
-  int _toupper_l(
-    int _C,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__toupper_l ??=
-        _dylib.lookupFunction<_c__toupper_l, _dart__toupper_l>('_toupper_l'))(
-      _C,
-      _Locale,
-    );
-  }
+  // int _toupper_l(
+  //   int _C,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__toupper_l ??=
+  //       _dylib.lookupFunction<_c__toupper_l, _dart__toupper_l>('_toupper_l'))(
+  //     _C,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__toupper_l? __toupper_l;
+  // _dart__toupper_l? __toupper_l;
 
-  int __isascii(
-    int _C,
-  ) {
-    return (___isascii ??=
-        _dylib.lookupFunction<_c___isascii, _dart___isascii>('__isascii'))(
-      _C,
-    );
-  }
+  // int __isascii(
+  //   int _C,
+  // ) {
+  //   return (___isascii ??=
+  //       _dylib.lookupFunction<_c___isascii, _dart___isascii>('__isascii'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart___isascii? ___isascii;
+  // _dart___isascii? ___isascii;
 
-  int __toascii(
-    int _C,
-  ) {
-    return (___toascii ??=
-        _dylib.lookupFunction<_c___toascii, _dart___toascii>('__toascii'))(
-      _C,
-    );
-  }
+  // int __toascii(
+  //   int _C,
+  // ) {
+  //   return (___toascii ??=
+  //       _dylib.lookupFunction<_c___toascii, _dart___toascii>('__toascii'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart___toascii? ___toascii;
+  // _dart___toascii? ___toascii;
 
-  int __iscsymf(
-    int _C,
-  ) {
-    return (___iscsymf ??=
-        _dylib.lookupFunction<_c___iscsymf, _dart___iscsymf>('__iscsymf'))(
-      _C,
-    );
-  }
+  // int __iscsymf(
+  //   int _C,
+  // ) {
+  //   return (___iscsymf ??=
+  //       _dylib.lookupFunction<_c___iscsymf, _dart___iscsymf>('__iscsymf'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart___iscsymf? ___iscsymf;
+  // _dart___iscsymf? ___iscsymf;
 
-  int __iscsym(
-    int _C,
-  ) {
-    return (___iscsym ??=
-        _dylib.lookupFunction<_c___iscsym, _dart___iscsym>('__iscsym'))(
-      _C,
-    );
-  }
+  // int __iscsym(
+  //   int _C,
+  // ) {
+  //   return (___iscsym ??=
+  //       _dylib.lookupFunction<_c___iscsym, _dart___iscsym>('__iscsym'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart___iscsym? ___iscsym;
+  // _dart___iscsym? ___iscsym;
 
-  int __acrt_locale_get_ctype_array_value(
-    ffi.Pointer<ffi.Uint16> _Locale_pctype_array,
-    int _Char_value,
-    int _Mask,
-  ) {
-    return (___acrt_locale_get_ctype_array_value ??= _dylib.lookupFunction<
-            _c___acrt_locale_get_ctype_array_value,
-            _dart___acrt_locale_get_ctype_array_value>(
-        '__acrt_locale_get_ctype_array_value'))(
-      _Locale_pctype_array,
-      _Char_value,
-      _Mask,
-    );
-  }
+  // int __acrt_locale_get_ctype_array_value(
+  //   ffi.Pointer<ffi.Uint16> _Locale_pctype_array,
+  //   int _Char_value,
+  //   int _Mask,
+  // ) {
+  //   return (___acrt_locale_get_ctype_array_value ??= _dylib.lookupFunction<
+  //           _c___acrt_locale_get_ctype_array_value,
+  //           _dart___acrt_locale_get_ctype_array_value>(
+  //       '__acrt_locale_get_ctype_array_value'))(
+  //     _Locale_pctype_array,
+  //     _Char_value,
+  //     _Mask,
+  //   );
+  // }
 
-  _dart___acrt_locale_get_ctype_array_value?
-      ___acrt_locale_get_ctype_array_value;
+  // _dart___acrt_locale_get_ctype_array_value?
+  //     ___acrt_locale_get_ctype_array_value;
 
-  int ___mb_cur_max_func() {
-    return (____mb_cur_max_func ??=
-        _dylib.lookupFunction<_c____mb_cur_max_func, _dart____mb_cur_max_func>(
-            '___mb_cur_max_func'))();
-  }
+  // int ___mb_cur_max_func() {
+  //   return (____mb_cur_max_func ??=
+  //       _dylib.lookupFunction<_c____mb_cur_max_func, _dart____mb_cur_max_func>(
+  //           '___mb_cur_max_func'))();
+  // }
 
-  _dart____mb_cur_max_func? ____mb_cur_max_func;
+  // _dart____mb_cur_max_func? ____mb_cur_max_func;
 
-  int ___mb_cur_max_l_func(
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (____mb_cur_max_l_func ??= _dylib.lookupFunction<
-        _c____mb_cur_max_l_func,
-        _dart____mb_cur_max_l_func>('___mb_cur_max_l_func'))(
-      _Locale,
-    );
-  }
+  // int ___mb_cur_max_l_func(
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (____mb_cur_max_l_func ??= _dylib.lookupFunction<
+  //       _c____mb_cur_max_l_func,
+  //       _dart____mb_cur_max_l_func>('___mb_cur_max_l_func'))(
+  //     _Locale,
+  //   );
+  // }
 
-  _dart____mb_cur_max_l_func? ____mb_cur_max_l_func;
+  // _dart____mb_cur_max_l_func? ____mb_cur_max_l_func;
 
-  int __ascii_tolower(
-    int _C,
-  ) {
-    return (___ascii_tolower ??=
-        _dylib.lookupFunction<_c___ascii_tolower, _dart___ascii_tolower>(
-            '__ascii_tolower'))(
-      _C,
-    );
-  }
+  // int __ascii_tolower(
+  //   int _C,
+  // ) {
+  //   return (___ascii_tolower ??=
+  //       _dylib.lookupFunction<_c___ascii_tolower, _dart___ascii_tolower>(
+  //           '__ascii_tolower'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart___ascii_tolower? ___ascii_tolower;
+  // _dart___ascii_tolower? ___ascii_tolower;
 
-  int __ascii_toupper(
-    int _C,
-  ) {
-    return (___ascii_toupper ??=
-        _dylib.lookupFunction<_c___ascii_toupper, _dart___ascii_toupper>(
-            '__ascii_toupper'))(
-      _C,
-    );
-  }
+  // int __ascii_toupper(
+  //   int _C,
+  // ) {
+  //   return (___ascii_toupper ??=
+  //       _dylib.lookupFunction<_c___ascii_toupper, _dart___ascii_toupper>(
+  //           '__ascii_toupper'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart___ascii_toupper? ___ascii_toupper;
+  // _dart___ascii_toupper? ___ascii_toupper;
 
-  int __ascii_iswalpha(
-    int _C,
-  ) {
-    return (___ascii_iswalpha ??=
-        _dylib.lookupFunction<_c___ascii_iswalpha, _dart___ascii_iswalpha>(
-            '__ascii_iswalpha'))(
-      _C,
-    );
-  }
+  // int __ascii_iswalpha(
+  //   int _C,
+  // ) {
+  //   return (___ascii_iswalpha ??=
+  //       _dylib.lookupFunction<_c___ascii_iswalpha, _dart___ascii_iswalpha>(
+  //           '__ascii_iswalpha'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart___ascii_iswalpha? ___ascii_iswalpha;
+  // _dart___ascii_iswalpha? ___ascii_iswalpha;
 
-  int __ascii_iswdigit(
-    int _C,
-  ) {
-    return (___ascii_iswdigit ??=
-        _dylib.lookupFunction<_c___ascii_iswdigit, _dart___ascii_iswdigit>(
-            '__ascii_iswdigit'))(
-      _C,
-    );
-  }
+  // int __ascii_iswdigit(
+  //   int _C,
+  // ) {
+  //   return (___ascii_iswdigit ??=
+  //       _dylib.lookupFunction<_c___ascii_iswdigit, _dart___ascii_iswdigit>(
+  //           '__ascii_iswdigit'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart___ascii_iswdigit? ___ascii_iswdigit;
+  // _dart___ascii_iswdigit? ___ascii_iswdigit;
 
-  int __ascii_towlower(
-    int _C,
-  ) {
-    return (___ascii_towlower ??=
-        _dylib.lookupFunction<_c___ascii_towlower, _dart___ascii_towlower>(
-            '__ascii_towlower'))(
-      _C,
-    );
-  }
+  // int __ascii_towlower(
+  //   int _C,
+  // ) {
+  //   return (___ascii_towlower ??=
+  //       _dylib.lookupFunction<_c___ascii_towlower, _dart___ascii_towlower>(
+  //           '__ascii_towlower'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart___ascii_towlower? ___ascii_towlower;
+  // _dart___ascii_towlower? ___ascii_towlower;
 
-  int __ascii_towupper(
-    int _C,
-  ) {
-    return (___ascii_towupper ??=
-        _dylib.lookupFunction<_c___ascii_towupper, _dart___ascii_towupper>(
-            '__ascii_towupper'))(
-      _C,
-    );
-  }
+  // int __ascii_towupper(
+  //   int _C,
+  // ) {
+  //   return (___ascii_towupper ??=
+  //       _dylib.lookupFunction<_c___ascii_towupper, _dart___ascii_towupper>(
+  //           '__ascii_towupper'))(
+  //     _C,
+  //   );
+  // }
 
-  _dart___ascii_towupper? ___ascii_towupper;
+  // _dart___ascii_towupper? ___ascii_towupper;
 
-  ffi.Pointer<__crt_locale_data_public> __acrt_get_locale_data_prefix(
-    ffi.Pointer<ffi.Void> _LocalePointers,
-  ) {
-    return (___acrt_get_locale_data_prefix ??= _dylib.lookupFunction<
-        _c___acrt_get_locale_data_prefix,
-        _dart___acrt_get_locale_data_prefix>('__acrt_get_locale_data_prefix'))(
-      _LocalePointers,
-    );
-  }
+  // ffi.Pointer<__crt_locale_data_public> __acrt_get_locale_data_prefix(
+  //   ffi.Pointer<ffi.Void> _LocalePointers,
+  // ) {
+  //   return (___acrt_get_locale_data_prefix ??= _dylib.lookupFunction<
+  //       _c___acrt_get_locale_data_prefix,
+  //       _dart___acrt_get_locale_data_prefix>('__acrt_get_locale_data_prefix'))(
+  //     _LocalePointers,
+  //   );
+  // }
 
-  _dart___acrt_get_locale_data_prefix? ___acrt_get_locale_data_prefix;
+  // _dart___acrt_get_locale_data_prefix? ___acrt_get_locale_data_prefix;
 
-  int _chvalidchk_l(
-    int _C,
-    int _Mask,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__chvalidchk_l ??=
-        _dylib.lookupFunction<_c__chvalidchk_l, _dart__chvalidchk_l>(
-            '_chvalidchk_l'))(
-      _C,
-      _Mask,
-      _Locale,
-    );
-  }
+  // int _chvalidchk_l(
+  //   int _C,
+  //   int _Mask,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__chvalidchk_l ??=
+  //       _dylib.lookupFunction<_c__chvalidchk_l, _dart__chvalidchk_l>(
+  //           '_chvalidchk_l'))(
+  //     _C,
+  //     _Mask,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__chvalidchk_l? __chvalidchk_l;
+  // _dart__chvalidchk_l? __chvalidchk_l;
 
-  int _ischartype_l(
-    int _C,
-    int _Mask,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__ischartype_l ??=
-        _dylib.lookupFunction<_c__ischartype_l, _dart__ischartype_l>(
-            '_ischartype_l'))(
-      _C,
-      _Mask,
-      _Locale,
-    );
-  }
+  // int _ischartype_l(
+  //   int _C,
+  //   int _Mask,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__ischartype_l ??=
+  //       _dylib.lookupFunction<_c__ischartype_l, _dart__ischartype_l>(
+  //           '_ischartype_l'))(
+  //     _C,
+  //     _Mask,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__ischartype_l? __ischartype_l;
+  // _dart__ischartype_l? __ischartype_l;
 
   int HandleToULong(
     ffi.Pointer<ffi.Void> h,
@@ -2030,167 +2030,167 @@ class LibEGL {
 
   _dart_PtrToPtr32? _PtrToPtr32;
 
-  int _rotl8(
-    int Value,
-    int Shift,
-  ) {
-    return (__rotl8 ??=
-        _dylib.lookupFunction<_c__rotl8, _dart__rotl8>('_rotl8'))(
-      Value,
-      Shift,
-    );
-  }
+  // int _rotl8(
+  //   int Value,
+  //   int Shift,
+  // ) {
+  //   return (__rotl8 ??=
+  //       _dylib.lookupFunction<_c__rotl8, _dart__rotl8>('_rotl8'))(
+  //     Value,
+  //     Shift,
+  //   );
+  // }
 
-  _dart__rotl8? __rotl8;
+  // _dart__rotl8? __rotl8;
 
-  int _rotl16(
-    int Value,
-    int Shift,
-  ) {
-    return (__rotl16 ??=
-        _dylib.lookupFunction<_c__rotl16, _dart__rotl16>('_rotl16'))(
-      Value,
-      Shift,
-    );
-  }
+  // int _rotl16(
+  //   int Value,
+  //   int Shift,
+  // ) {
+  //   return (__rotl16 ??=
+  //       _dylib.lookupFunction<_c__rotl16, _dart__rotl16>('_rotl16'))(
+  //     Value,
+  //     Shift,
+  //   );
+  // }
 
-  _dart__rotl16? __rotl16;
+  // _dart__rotl16? __rotl16;
 
-  int _rotr8(
-    int Value,
-    int Shift,
-  ) {
-    return (__rotr8 ??=
-        _dylib.lookupFunction<_c__rotr8, _dart__rotr8>('_rotr8'))(
-      Value,
-      Shift,
-    );
-  }
+  // int _rotr8(
+  //   int Value,
+  //   int Shift,
+  // ) {
+  //   return (__rotr8 ??=
+  //       _dylib.lookupFunction<_c__rotr8, _dart__rotr8>('_rotr8'))(
+  //     Value,
+  //     Shift,
+  //   );
+  // }
 
-  _dart__rotr8? __rotr8;
+  // _dart__rotr8? __rotr8;
 
-  int _rotr16(
-    int Value,
-    int Shift,
-  ) {
-    return (__rotr16 ??=
-        _dylib.lookupFunction<_c__rotr16, _dart__rotr16>('_rotr16'))(
-      Value,
-      Shift,
-    );
-  }
+  // int _rotr16(
+  //   int Value,
+  //   int Shift,
+  // ) {
+  //   return (__rotr16 ??=
+  //       _dylib.lookupFunction<_c__rotr16, _dart__rotr16>('_rotr16'))(
+  //     Value,
+  //     Shift,
+  //   );
+  // }
 
-  _dart__rotr16? __rotr16;
+  // _dart__rotr16? __rotr16;
 
-  int _rotl(
-    int Value,
-    int Shift,
-  ) {
-    return (__rotl ??= _dylib.lookupFunction<_c__rotl, _dart__rotl>('_rotl'))(
-      Value,
-      Shift,
-    );
-  }
+  // int _rotl(
+  //   int Value,
+  //   int Shift,
+  // ) {
+  //   return (__rotl ??= _dylib.lookupFunction<_c__rotl, _dart__rotl>('_rotl'))(
+  //     Value,
+  //     Shift,
+  //   );
+  // }
 
-  _dart__rotl? __rotl;
+  // _dart__rotl? __rotl;
 
-  int _rotl64(
-    int Value,
-    int Shift,
-  ) {
-    return (__rotl64 ??=
-        _dylib.lookupFunction<_c__rotl64, _dart__rotl64>('_rotl64'))(
-      Value,
-      Shift,
-    );
-  }
+  // int _rotl64(
+  //   int Value,
+  //   int Shift,
+  // ) {
+  //   return (__rotl64 ??=
+  //       _dylib.lookupFunction<_c__rotl64, _dart__rotl64>('_rotl64'))(
+  //     Value,
+  //     Shift,
+  //   );
+  // }
 
-  _dart__rotl64? __rotl64;
+  // _dart__rotl64? __rotl64;
 
-  int _rotr(
-    int Value,
-    int Shift,
-  ) {
-    return (__rotr ??= _dylib.lookupFunction<_c__rotr, _dart__rotr>('_rotr'))(
-      Value,
-      Shift,
-    );
-  }
+  // int _rotr(
+  //   int Value,
+  //   int Shift,
+  // ) {
+  //   return (__rotr ??= _dylib.lookupFunction<_c__rotr, _dart__rotr>('_rotr'))(
+  //     Value,
+  //     Shift,
+  //   );
+  // }
 
-  _dart__rotr? __rotr;
+  // _dart__rotr? __rotr;
 
-  int _rotr64(
-    int Value,
-    int Shift,
-  ) {
-    return (__rotr64 ??=
-        _dylib.lookupFunction<_c__rotr64, _dart__rotr64>('_rotr64'))(
-      Value,
-      Shift,
-    );
-  }
+  // int _rotr64(
+  //   int Value,
+  //   int Shift,
+  // ) {
+  //   return (__rotr64 ??=
+  //       _dylib.lookupFunction<_c__rotr64, _dart__rotr64>('_rotr64'))(
+  //     Value,
+  //     Shift,
+  //   );
+  // }
 
-  _dart__rotr64? __rotr64;
+  // _dart__rotr64? __rotr64;
 
-  ffi.Pointer<ffi.Int32> _errno() {
-    return (__errno ??=
-        _dylib.lookupFunction<_c__errno, _dart__errno>('_errno'))();
-  }
+  // ffi.Pointer<ffi.Int32> _errno() {
+  //   return (__errno ??=
+  //       _dylib.lookupFunction<_c__errno, _dart__errno>('_errno'))();
+  // }
 
-  _dart__errno? __errno;
+  // _dart__errno? __errno;
 
-  int _set_errno(
-    int _Value,
-  ) {
-    return (__set_errno ??=
-        _dylib.lookupFunction<_c__set_errno, _dart__set_errno>('_set_errno'))(
-      _Value,
-    );
-  }
+  // int _set_errno(
+  //   int _Value,
+  // ) {
+  //   return (__set_errno ??=
+  //       _dylib.lookupFunction<_c__set_errno, _dart__set_errno>('_set_errno'))(
+  //     _Value,
+  //   );
+  // }
 
-  _dart__set_errno? __set_errno;
+  // _dart__set_errno? __set_errno;
 
-  int _get_errno(
-    ffi.Pointer<ffi.Int32> _Value,
-  ) {
-    return (__get_errno ??=
-        _dylib.lookupFunction<_c__get_errno, _dart__get_errno>('_get_errno'))(
-      _Value,
-    );
-  }
+  // int _get_errno(
+  //   ffi.Pointer<ffi.Int32> _Value,
+  // ) {
+  //   return (__get_errno ??=
+  //       _dylib.lookupFunction<_c__get_errno, _dart__get_errno>('_get_errno'))(
+  //     _Value,
+  //   );
+  // }
 
-  _dart__get_errno? __get_errno;
+  // _dart__get_errno? __get_errno;
 
-  ffi.Pointer<ffi.Uint64> __doserrno() {
-    return (___doserrno ??=
-        _dylib.lookupFunction<_c___doserrno, _dart___doserrno>('__doserrno'))();
-  }
+  // ffi.Pointer<ffi.Uint64> __doserrno() {
+  //   return (___doserrno ??=
+  //       _dylib.lookupFunction<_c___doserrno, _dart___doserrno>('__doserrno'))();
+  // }
 
-  _dart___doserrno? ___doserrno;
+  // _dart___doserrno? ___doserrno;
 
-  int _set_doserrno(
-    int _Value,
-  ) {
-    return (__set_doserrno ??=
-        _dylib.lookupFunction<_c__set_doserrno, _dart__set_doserrno>(
-            '_set_doserrno'))(
-      _Value,
-    );
-  }
+  // int _set_doserrno(
+  //   int _Value,
+  // ) {
+  //   return (__set_doserrno ??=
+  //       _dylib.lookupFunction<_c__set_doserrno, _dart__set_doserrno>(
+  //           '_set_doserrno'))(
+  //     _Value,
+  //   );
+  // }
 
-  _dart__set_doserrno? __set_doserrno;
+  // _dart__set_doserrno? __set_doserrno;
 
-  int _get_doserrno(
-    ffi.Pointer<ffi.Uint64> _Value,
-  ) {
-    return (__get_doserrno ??=
-        _dylib.lookupFunction<_c__get_doserrno, _dart__get_doserrno>(
-            '_get_doserrno'))(
-      _Value,
-    );
-  }
+  // int _get_doserrno(
+  //   ffi.Pointer<ffi.Uint64> _Value,
+  // ) {
+  //   return (__get_doserrno ??=
+  //       _dylib.lookupFunction<_c__get_doserrno, _dart__get_doserrno>(
+  //           '_get_doserrno'))(
+  //     _Value,
+  //   );
+  // }
 
-  _dart__get_doserrno? __get_doserrno;
+  // _dart__get_doserrno? __get_doserrno;
 
   ffi.Pointer<ffi.Void> memchr(
     ffi.Pointer<ffi.Void> _Buf,
@@ -2379,37 +2379,37 @@ class LibEGL {
 
   _dart_memmove_s? _memmove_s;
 
-  int _memicmp(
-    ffi.Pointer<ffi.Void> _Buf1,
-    ffi.Pointer<ffi.Void> _Buf2,
-    int _Size,
-  ) {
-    return (__memicmp ??=
-        _dylib.lookupFunction<_c__memicmp, _dart__memicmp>('_memicmp'))(
-      _Buf1,
-      _Buf2,
-      _Size,
-    );
-  }
+  // int _memicmp(
+  //   ffi.Pointer<ffi.Void> _Buf1,
+  //   ffi.Pointer<ffi.Void> _Buf2,
+  //   int _Size,
+  // ) {
+  //   return (__memicmp ??=
+  //       _dylib.lookupFunction<_c__memicmp, _dart__memicmp>('_memicmp'))(
+  //     _Buf1,
+  //     _Buf2,
+  //     _Size,
+  //   );
+  // }
 
-  _dart__memicmp? __memicmp;
+  // _dart__memicmp? __memicmp;
 
-  int _memicmp_l(
-    ffi.Pointer<ffi.Void> _Buf1,
-    ffi.Pointer<ffi.Void> _Buf2,
-    int _Size,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__memicmp_l ??=
-        _dylib.lookupFunction<_c__memicmp_l, _dart__memicmp_l>('_memicmp_l'))(
-      _Buf1,
-      _Buf2,
-      _Size,
-      _Locale,
-    );
-  }
+  // int _memicmp_l(
+  //   ffi.Pointer<ffi.Void> _Buf1,
+  //   ffi.Pointer<ffi.Void> _Buf2,
+  //   int _Size,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__memicmp_l ??=
+  //       _dylib.lookupFunction<_c__memicmp_l, _dart__memicmp_l>('_memicmp_l'))(
+  //     _Buf1,
+  //     _Buf2,
+  //     _Size,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__memicmp_l? __memicmp_l;
+  // _dart__memicmp_l? __memicmp_l;
 
   ffi.Pointer<ffi.Void> memccpy(
     ffi.Pointer<ffi.Void> _Dst,
@@ -2522,16 +2522,16 @@ class LibEGL {
 
   _dart_wcstok_s? _wcstok_s;
 
-  ffi.Pointer<ffi.Uint16> _wcsdup(
-    ffi.Pointer<ffi.Uint16> _String,
-  ) {
-    return (__wcsdup ??=
-        _dylib.lookupFunction<_c__wcsdup, _dart__wcsdup>('_wcsdup'))(
-      _String,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> _wcsdup(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  // ) {
+  //   return (__wcsdup ??=
+  //       _dylib.lookupFunction<_c__wcsdup, _dart__wcsdup>('_wcsdup'))(
+  //     _String,
+  //   );
+  // }
 
-  _dart__wcsdup? __wcsdup;
+  // _dart__wcsdup? __wcsdup;
 
   ffi.Pointer<ffi.Uint16> wcscat(
     ffi.Pointer<ffi.Uint16> _Destination,
@@ -2708,305 +2708,305 @@ class LibEGL {
 
   _dart_wcstok? _wcstok_1;
 
-  ffi.Pointer<ffi.Uint16> _wcstok(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Uint16> _Delimiter,
-  ) {
-    return (__wcstok ??=
-        _dylib.lookupFunction<_c__wcstok, _dart__wcstok>('_wcstok'))(
-      _String,
-      _Delimiter,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> _wcstok(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<ffi.Uint16> _Delimiter,
+  // ) {
+  //   return (__wcstok ??=
+  //       _dylib.lookupFunction<_c__wcstok, _dart__wcstok>('_wcstok'))(
+  //     _String,
+  //     _Delimiter,
+  //   );
+  // }
 
-  _dart__wcstok? __wcstok;
+  // _dart__wcstok? __wcstok;
 
-  ffi.Pointer<ffi.Uint16> _wcserror(
-    int _ErrorNumber,
-  ) {
-    return (__wcserror_1 ??=
-        _dylib.lookupFunction<_c__wcserror, _dart__wcserror>('_wcserror'))(
-      _ErrorNumber,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> _wcserror(
+  //   int _ErrorNumber,
+  // ) {
+  //   return (__wcserror_1 ??=
+  //       _dylib.lookupFunction<_c__wcserror, _dart__wcserror>('_wcserror'))(
+  //     _ErrorNumber,
+  //   );
+  // }
 
-  _dart__wcserror? __wcserror_1;
+  // _dart__wcserror? __wcserror_1;
 
-  int _wcserror_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _SizeInWords,
-    int _ErrorNumber,
-  ) {
-    return (__wcserror_s_1 ??= _dylib
-        .lookupFunction<_c__wcserror_s, _dart__wcserror_s>('_wcserror_s'))(
-      _Buffer,
-      _SizeInWords,
-      _ErrorNumber,
-    );
-  }
+  // int _wcserror_s(
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _SizeInWords,
+  //   int _ErrorNumber,
+  // ) {
+  //   return (__wcserror_s_1 ??= _dylib
+  //       .lookupFunction<_c__wcserror_s, _dart__wcserror_s>('_wcserror_s'))(
+  //     _Buffer,
+  //     _SizeInWords,
+  //     _ErrorNumber,
+  //   );
+  // }
 
-  _dart__wcserror_s? __wcserror_s_1;
+  // _dart__wcserror_s? __wcserror_s_1;
 
-  ffi.Pointer<ffi.Uint16> __wcserror(
-    ffi.Pointer<ffi.Uint16> _String,
-  ) {
-    return (___wcserror ??=
-        _dylib.lookupFunction<_c___wcserror, _dart___wcserror>('__wcserror'))(
-      _String,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> __wcserror(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  // ) {
+  //   return (___wcserror ??=
+  //       _dylib.lookupFunction<_c___wcserror, _dart___wcserror>('__wcserror'))(
+  //     _String,
+  //   );
+  // }
 
-  _dart___wcserror? ___wcserror;
+  // _dart___wcserror? ___wcserror;
 
-  int __wcserror_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _SizeInWords,
-    ffi.Pointer<ffi.Uint16> _ErrorMessage,
-  ) {
-    return (___wcserror_s ??= _dylib
-        .lookupFunction<_c___wcserror_s, _dart___wcserror_s>('__wcserror_s'))(
-      _Buffer,
-      _SizeInWords,
-      _ErrorMessage,
-    );
-  }
+  // int __wcserror_s(
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _SizeInWords,
+  //   ffi.Pointer<ffi.Uint16> _ErrorMessage,
+  // ) {
+  //   return (___wcserror_s ??= _dylib
+  //       .lookupFunction<_c___wcserror_s, _dart___wcserror_s>('__wcserror_s'))(
+  //     _Buffer,
+  //     _SizeInWords,
+  //     _ErrorMessage,
+  //   );
+  // }
 
-  _dart___wcserror_s? ___wcserror_s;
+  // _dart___wcserror_s? ___wcserror_s;
 
-  int _wcsicmp(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-  ) {
-    return (__wcsicmp ??=
-        _dylib.lookupFunction<_c__wcsicmp, _dart__wcsicmp>('_wcsicmp'))(
-      _String1,
-      _String2,
-    );
-  }
+  // int _wcsicmp(
+  //   ffi.Pointer<ffi.Uint16> _String1,
+  //   ffi.Pointer<ffi.Uint16> _String2,
+  // ) {
+  //   return (__wcsicmp ??=
+  //       _dylib.lookupFunction<_c__wcsicmp, _dart__wcsicmp>('_wcsicmp'))(
+  //     _String1,
+  //     _String2,
+  //   );
+  // }
 
-  _dart__wcsicmp? __wcsicmp;
+  // _dart__wcsicmp? __wcsicmp;
 
-  int _wcsicmp_l(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcsicmp_l ??=
-        _dylib.lookupFunction<_c__wcsicmp_l, _dart__wcsicmp_l>('_wcsicmp_l'))(
-      _String1,
-      _String2,
-      _Locale,
-    );
-  }
+  // int _wcsicmp_l(
+  //   ffi.Pointer<ffi.Uint16> _String1,
+  //   ffi.Pointer<ffi.Uint16> _String2,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcsicmp_l ??=
+  //       _dylib.lookupFunction<_c__wcsicmp_l, _dart__wcsicmp_l>('_wcsicmp_l'))(
+  //     _String1,
+  //     _String2,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcsicmp_l? __wcsicmp_l;
+  // _dart__wcsicmp_l? __wcsicmp_l;
 
-  int _wcsnicmp(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-    int _MaxCount,
-  ) {
-    return (__wcsnicmp ??=
-        _dylib.lookupFunction<_c__wcsnicmp, _dart__wcsnicmp>('_wcsnicmp'))(
-      _String1,
-      _String2,
-      _MaxCount,
-    );
-  }
+  // int _wcsnicmp(
+  //   ffi.Pointer<ffi.Uint16> _String1,
+  //   ffi.Pointer<ffi.Uint16> _String2,
+  //   int _MaxCount,
+  // ) {
+  //   return (__wcsnicmp ??=
+  //       _dylib.lookupFunction<_c__wcsnicmp, _dart__wcsnicmp>('_wcsnicmp'))(
+  //     _String1,
+  //     _String2,
+  //     _MaxCount,
+  //   );
+  // }
 
-  _dart__wcsnicmp? __wcsnicmp;
+  // _dart__wcsnicmp? __wcsnicmp;
 
-  int _wcsnicmp_l(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-    int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcsnicmp_l ??= _dylib
-        .lookupFunction<_c__wcsnicmp_l, _dart__wcsnicmp_l>('_wcsnicmp_l'))(
-      _String1,
-      _String2,
-      _MaxCount,
-      _Locale,
-    );
-  }
+  // int _wcsnicmp_l(
+  //   ffi.Pointer<ffi.Uint16> _String1,
+  //   ffi.Pointer<ffi.Uint16> _String2,
+  //   int _MaxCount,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcsnicmp_l ??= _dylib
+  //       .lookupFunction<_c__wcsnicmp_l, _dart__wcsnicmp_l>('_wcsnicmp_l'))(
+  //     _String1,
+  //     _String2,
+  //     _MaxCount,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcsnicmp_l? __wcsnicmp_l;
+  // _dart__wcsnicmp_l? __wcsnicmp_l;
 
-  int _wcsnset_s(
-    ffi.Pointer<ffi.Uint16> _Destination,
-    int _SizeInWords,
-    int _Value,
-    int _MaxCount,
-  ) {
-    return (__wcsnset_s ??=
-        _dylib.lookupFunction<_c__wcsnset_s, _dart__wcsnset_s>('_wcsnset_s'))(
-      _Destination,
-      _SizeInWords,
-      _Value,
-      _MaxCount,
-    );
-  }
+  // int _wcsnset_s(
+  //   ffi.Pointer<ffi.Uint16> _Destination,
+  //   int _SizeInWords,
+  //   int _Value,
+  //   int _MaxCount,
+  // ) {
+  //   return (__wcsnset_s ??=
+  //       _dylib.lookupFunction<_c__wcsnset_s, _dart__wcsnset_s>('_wcsnset_s'))(
+  //     _Destination,
+  //     _SizeInWords,
+  //     _Value,
+  //     _MaxCount,
+  //   );
+  // }
 
-  _dart__wcsnset_s? __wcsnset_s;
+  // _dart__wcsnset_s? __wcsnset_s;
 
-  ffi.Pointer<ffi.Uint16> _wcsnset(
-    ffi.Pointer<ffi.Uint16> _String,
-    int _Value,
-    int _MaxCount,
-  ) {
-    return (__wcsnset ??=
-        _dylib.lookupFunction<_c__wcsnset, _dart__wcsnset>('_wcsnset'))(
-      _String,
-      _Value,
-      _MaxCount,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> _wcsnset(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   int _Value,
+  //   int _MaxCount,
+  // ) {
+  //   return (__wcsnset ??=
+  //       _dylib.lookupFunction<_c__wcsnset, _dart__wcsnset>('_wcsnset'))(
+  //     _String,
+  //     _Value,
+  //     _MaxCount,
+  //   );
+  // }
 
-  _dart__wcsnset? __wcsnset;
+  // _dart__wcsnset? __wcsnset;
 
-  ffi.Pointer<ffi.Uint16> _wcsrev(
-    ffi.Pointer<ffi.Uint16> _String,
-  ) {
-    return (__wcsrev ??=
-        _dylib.lookupFunction<_c__wcsrev, _dart__wcsrev>('_wcsrev'))(
-      _String,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> _wcsrev(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  // ) {
+  //   return (__wcsrev ??=
+  //       _dylib.lookupFunction<_c__wcsrev, _dart__wcsrev>('_wcsrev'))(
+  //     _String,
+  //   );
+  // }
 
-  _dart__wcsrev? __wcsrev;
+  // _dart__wcsrev? __wcsrev;
 
-  int _wcsset_s(
-    ffi.Pointer<ffi.Uint16> _Destination,
-    int _SizeInWords,
-    int _Value,
-  ) {
-    return (__wcsset_s ??=
-        _dylib.lookupFunction<_c__wcsset_s, _dart__wcsset_s>('_wcsset_s'))(
-      _Destination,
-      _SizeInWords,
-      _Value,
-    );
-  }
+  // int _wcsset_s(
+  //   ffi.Pointer<ffi.Uint16> _Destination,
+  //   int _SizeInWords,
+  //   int _Value,
+  // ) {
+  //   return (__wcsset_s ??=
+  //       _dylib.lookupFunction<_c__wcsset_s, _dart__wcsset_s>('_wcsset_s'))(
+  //     _Destination,
+  //     _SizeInWords,
+  //     _Value,
+  //   );
+  // }
 
-  _dart__wcsset_s? __wcsset_s;
+  // _dart__wcsset_s? __wcsset_s;
 
-  ffi.Pointer<ffi.Uint16> _wcsset(
-    ffi.Pointer<ffi.Uint16> _String,
-    int _Value,
-  ) {
-    return (__wcsset ??=
-        _dylib.lookupFunction<_c__wcsset, _dart__wcsset>('_wcsset'))(
-      _String,
-      _Value,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> _wcsset(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   int _Value,
+  // ) {
+  //   return (__wcsset ??=
+  //       _dylib.lookupFunction<_c__wcsset, _dart__wcsset>('_wcsset'))(
+  //     _String,
+  //     _Value,
+  //   );
+  // }
 
-  _dart__wcsset? __wcsset;
+  // _dart__wcsset? __wcsset;
 
-  int _wcslwr_s(
-    ffi.Pointer<ffi.Uint16> _String,
-    int _SizeInWords,
-  ) {
-    return (__wcslwr_s ??=
-        _dylib.lookupFunction<_c__wcslwr_s, _dart__wcslwr_s>('_wcslwr_s'))(
-      _String,
-      _SizeInWords,
-    );
-  }
+  // int _wcslwr_s(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   int _SizeInWords,
+  // ) {
+  //   return (__wcslwr_s ??=
+  //       _dylib.lookupFunction<_c__wcslwr_s, _dart__wcslwr_s>('_wcslwr_s'))(
+  //     _String,
+  //     _SizeInWords,
+  //   );
+  // }
 
-  _dart__wcslwr_s? __wcslwr_s;
+  // _dart__wcslwr_s? __wcslwr_s;
 
-  ffi.Pointer<ffi.Uint16> _wcslwr(
-    ffi.Pointer<ffi.Uint16> _String,
-  ) {
-    return (__wcslwr ??=
-        _dylib.lookupFunction<_c__wcslwr, _dart__wcslwr>('_wcslwr'))(
-      _String,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> _wcslwr(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  // ) {
+  //   return (__wcslwr ??=
+  //       _dylib.lookupFunction<_c__wcslwr, _dart__wcslwr>('_wcslwr'))(
+  //     _String,
+  //   );
+  // }
 
-  _dart__wcslwr? __wcslwr;
+  // _dart__wcslwr? __wcslwr;
 
-  int _wcslwr_s_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    int _SizeInWords,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcslwr_s_l ??= _dylib
-        .lookupFunction<_c__wcslwr_s_l, _dart__wcslwr_s_l>('_wcslwr_s_l'))(
-      _String,
-      _SizeInWords,
-      _Locale,
-    );
-  }
+  // int _wcslwr_s_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   int _SizeInWords,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcslwr_s_l ??= _dylib
+  //       .lookupFunction<_c__wcslwr_s_l, _dart__wcslwr_s_l>('_wcslwr_s_l'))(
+  //     _String,
+  //     _SizeInWords,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcslwr_s_l? __wcslwr_s_l;
+  // _dart__wcslwr_s_l? __wcslwr_s_l;
 
-  ffi.Pointer<ffi.Uint16> _wcslwr_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcslwr_l ??=
-        _dylib.lookupFunction<_c__wcslwr_l, _dart__wcslwr_l>('_wcslwr_l'))(
-      _String,
-      _Locale,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> _wcslwr_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcslwr_l ??=
+  //       _dylib.lookupFunction<_c__wcslwr_l, _dart__wcslwr_l>('_wcslwr_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcslwr_l? __wcslwr_l;
+  // _dart__wcslwr_l? __wcslwr_l;
 
-  int _wcsupr_s(
-    ffi.Pointer<ffi.Uint16> _String,
-    int _Size,
-  ) {
-    return (__wcsupr_s ??=
-        _dylib.lookupFunction<_c__wcsupr_s, _dart__wcsupr_s>('_wcsupr_s'))(
-      _String,
-      _Size,
-    );
-  }
+  // int _wcsupr_s(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   int _Size,
+  // ) {
+  //   return (__wcsupr_s ??=
+  //       _dylib.lookupFunction<_c__wcsupr_s, _dart__wcsupr_s>('_wcsupr_s'))(
+  //     _String,
+  //     _Size,
+  //   );
+  // }
 
-  _dart__wcsupr_s? __wcsupr_s;
+  // _dart__wcsupr_s? __wcsupr_s;
 
-  ffi.Pointer<ffi.Uint16> _wcsupr(
-    ffi.Pointer<ffi.Uint16> _String,
-  ) {
-    return (__wcsupr ??=
-        _dylib.lookupFunction<_c__wcsupr, _dart__wcsupr>('_wcsupr'))(
-      _String,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> _wcsupr(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  // ) {
+  //   return (__wcsupr ??=
+  //       _dylib.lookupFunction<_c__wcsupr, _dart__wcsupr>('_wcsupr'))(
+  //     _String,
+  //   );
+  // }
 
-  _dart__wcsupr? __wcsupr;
+  // _dart__wcsupr? __wcsupr;
 
-  int _wcsupr_s_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    int _Size,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcsupr_s_l ??= _dylib
-        .lookupFunction<_c__wcsupr_s_l, _dart__wcsupr_s_l>('_wcsupr_s_l'))(
-      _String,
-      _Size,
-      _Locale,
-    );
-  }
+  // int _wcsupr_s_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   int _Size,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcsupr_s_l ??= _dylib
+  //       .lookupFunction<_c__wcsupr_s_l, _dart__wcsupr_s_l>('_wcsupr_s_l'))(
+  //     _String,
+  //     _Size,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcsupr_s_l? __wcsupr_s_l;
+  // _dart__wcsupr_s_l? __wcsupr_s_l;
 
-  ffi.Pointer<ffi.Uint16> _wcsupr_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcsupr_l ??=
-        _dylib.lookupFunction<_c__wcsupr_l, _dart__wcsupr_l>('_wcsupr_l'))(
-      _String,
-      _Locale,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> _wcsupr_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcsupr_l ??=
+  //       _dylib.lookupFunction<_c__wcsupr_l, _dart__wcsupr_l>('_wcsupr_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcsupr_l? __wcsupr_l;
+  // _dart__wcsupr_l? __wcsupr_l;
 
   int wcsxfrm(
     ffi.Pointer<ffi.Uint16> _Destination,
@@ -3023,22 +3023,22 @@ class LibEGL {
 
   _dart_wcsxfrm? _wcsxfrm;
 
-  int _wcsxfrm_l(
-    ffi.Pointer<ffi.Uint16> _Destination,
-    ffi.Pointer<ffi.Uint16> _Source,
-    int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcsxfrm_l ??=
-        _dylib.lookupFunction<_c__wcsxfrm_l, _dart__wcsxfrm_l>('_wcsxfrm_l'))(
-      _Destination,
-      _Source,
-      _MaxCount,
-      _Locale,
-    );
-  }
+  // int _wcsxfrm_l(
+  //   ffi.Pointer<ffi.Uint16> _Destination,
+  //   ffi.Pointer<ffi.Uint16> _Source,
+  //   int _MaxCount,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcsxfrm_l ??=
+  //       _dylib.lookupFunction<_c__wcsxfrm_l, _dart__wcsxfrm_l>('_wcsxfrm_l'))(
+  //     _Destination,
+  //     _Source,
+  //     _MaxCount,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcsxfrm_l? __wcsxfrm_l;
+  // _dart__wcsxfrm_l? __wcsxfrm_l;
 
   int wcscoll(
     ffi.Pointer<ffi.Uint16> _String1,
@@ -3053,112 +3053,112 @@ class LibEGL {
 
   _dart_wcscoll? _wcscoll;
 
-  int _wcscoll_l(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcscoll_l ??=
-        _dylib.lookupFunction<_c__wcscoll_l, _dart__wcscoll_l>('_wcscoll_l'))(
-      _String1,
-      _String2,
-      _Locale,
-    );
-  }
+  // int _wcscoll_l(
+  //   ffi.Pointer<ffi.Uint16> _String1,
+  //   ffi.Pointer<ffi.Uint16> _String2,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcscoll_l ??=
+  //       _dylib.lookupFunction<_c__wcscoll_l, _dart__wcscoll_l>('_wcscoll_l'))(
+  //     _String1,
+  //     _String2,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcscoll_l? __wcscoll_l;
+  // _dart__wcscoll_l? __wcscoll_l;
 
-  int _wcsicoll(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-  ) {
-    return (__wcsicoll ??=
-        _dylib.lookupFunction<_c__wcsicoll, _dart__wcsicoll>('_wcsicoll'))(
-      _String1,
-      _String2,
-    );
-  }
+  // int _wcsicoll(
+  //   ffi.Pointer<ffi.Uint16> _String1,
+  //   ffi.Pointer<ffi.Uint16> _String2,
+  // ) {
+  //   return (__wcsicoll ??=
+  //       _dylib.lookupFunction<_c__wcsicoll, _dart__wcsicoll>('_wcsicoll'))(
+  //     _String1,
+  //     _String2,
+  //   );
+  // }
 
-  _dart__wcsicoll? __wcsicoll;
+  // _dart__wcsicoll? __wcsicoll;
 
-  int _wcsicoll_l(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcsicoll_l ??= _dylib
-        .lookupFunction<_c__wcsicoll_l, _dart__wcsicoll_l>('_wcsicoll_l'))(
-      _String1,
-      _String2,
-      _Locale,
-    );
-  }
+  // int _wcsicoll_l(
+  //   ffi.Pointer<ffi.Uint16> _String1,
+  //   ffi.Pointer<ffi.Uint16> _String2,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcsicoll_l ??= _dylib
+  //       .lookupFunction<_c__wcsicoll_l, _dart__wcsicoll_l>('_wcsicoll_l'))(
+  //     _String1,
+  //     _String2,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcsicoll_l? __wcsicoll_l;
+  // _dart__wcsicoll_l? __wcsicoll_l;
 
-  int _wcsncoll(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-    int _MaxCount,
-  ) {
-    return (__wcsncoll ??=
-        _dylib.lookupFunction<_c__wcsncoll, _dart__wcsncoll>('_wcsncoll'))(
-      _String1,
-      _String2,
-      _MaxCount,
-    );
-  }
+  // int _wcsncoll(
+  //   ffi.Pointer<ffi.Uint16> _String1,
+  //   ffi.Pointer<ffi.Uint16> _String2,
+  //   int _MaxCount,
+  // ) {
+  //   return (__wcsncoll ??=
+  //       _dylib.lookupFunction<_c__wcsncoll, _dart__wcsncoll>('_wcsncoll'))(
+  //     _String1,
+  //     _String2,
+  //     _MaxCount,
+  //   );
+  // }
 
-  _dart__wcsncoll? __wcsncoll;
+  // _dart__wcsncoll? __wcsncoll;
 
-  int _wcsncoll_l(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-    int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcsncoll_l ??= _dylib
-        .lookupFunction<_c__wcsncoll_l, _dart__wcsncoll_l>('_wcsncoll_l'))(
-      _String1,
-      _String2,
-      _MaxCount,
-      _Locale,
-    );
-  }
+  // int _wcsncoll_l(
+  //   ffi.Pointer<ffi.Uint16> _String1,
+  //   ffi.Pointer<ffi.Uint16> _String2,
+  //   int _MaxCount,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcsncoll_l ??= _dylib
+  //       .lookupFunction<_c__wcsncoll_l, _dart__wcsncoll_l>('_wcsncoll_l'))(
+  //     _String1,
+  //     _String2,
+  //     _MaxCount,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcsncoll_l? __wcsncoll_l;
+  // _dart__wcsncoll_l? __wcsncoll_l;
 
-  int _wcsnicoll(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-    int _MaxCount,
-  ) {
-    return (__wcsnicoll ??=
-        _dylib.lookupFunction<_c__wcsnicoll, _dart__wcsnicoll>('_wcsnicoll'))(
-      _String1,
-      _String2,
-      _MaxCount,
-    );
-  }
+  // int _wcsnicoll(
+  //   ffi.Pointer<ffi.Uint16> _String1,
+  //   ffi.Pointer<ffi.Uint16> _String2,
+  //   int _MaxCount,
+  // ) {
+  //   return (__wcsnicoll ??=
+  //       _dylib.lookupFunction<_c__wcsnicoll, _dart__wcsnicoll>('_wcsnicoll'))(
+  //     _String1,
+  //     _String2,
+  //     _MaxCount,
+  //   );
+  // }
 
-  _dart__wcsnicoll? __wcsnicoll;
+  // _dart__wcsnicoll? __wcsnicoll;
 
-  int _wcsnicoll_l(
-    ffi.Pointer<ffi.Uint16> _String1,
-    ffi.Pointer<ffi.Uint16> _String2,
-    int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcsnicoll_l ??= _dylib
-        .lookupFunction<_c__wcsnicoll_l, _dart__wcsnicoll_l>('_wcsnicoll_l'))(
-      _String1,
-      _String2,
-      _MaxCount,
-      _Locale,
-    );
-  }
+  // int _wcsnicoll_l(
+  //   ffi.Pointer<ffi.Uint16> _String1,
+  //   ffi.Pointer<ffi.Uint16> _String2,
+  //   int _MaxCount,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcsnicoll_l ??= _dylib
+  //       .lookupFunction<_c__wcsnicoll_l, _dart__wcsnicoll_l>('_wcsnicoll_l'))(
+  //     _String1,
+  //     _String2,
+  //     _MaxCount,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcsnicoll_l? __wcsnicoll_l;
+  // _dart__wcsnicoll_l? __wcsnicoll_l;
 
   ffi.Pointer<ffi.Uint16> wcsdup(
     ffi.Pointer<ffi.Uint16> _String,
@@ -3367,22 +3367,22 @@ class LibEGL {
 
   _dart_strtok_s? _strtok_s;
 
-  ffi.Pointer<ffi.Void> _memccpy(
-    ffi.Pointer<ffi.Void> _Dst,
-    ffi.Pointer<ffi.Void> _Src,
-    int _Val,
-    int _MaxCount,
-  ) {
-    return (__memccpy ??=
-        _dylib.lookupFunction<_c__memccpy, _dart__memccpy>('_memccpy'))(
-      _Dst,
-      _Src,
-      _Val,
-      _MaxCount,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _memccpy(
+  //   ffi.Pointer<ffi.Void> _Dst,
+  //   ffi.Pointer<ffi.Void> _Src,
+  //   int _Val,
+  //   int _MaxCount,
+  // ) {
+  //   return (__memccpy ??=
+  //       _dylib.lookupFunction<_c__memccpy, _dart__memccpy>('_memccpy'))(
+  //     _Dst,
+  //     _Src,
+  //     _Val,
+  //     _MaxCount,
+  //   );
+  // }
 
-  _dart__memccpy? __memccpy;
+  // _dart__memccpy? __memccpy;
 
   ffi.Pointer<ffi.Int8> strcat(
     ffi.Pointer<ffi.Int8> _Destination,
@@ -3410,18 +3410,18 @@ class LibEGL {
 
   _dart_strcmp? _strcmp;
 
-  int _strcmpi(
-    ffi.Pointer<ffi.Int8> _String1,
-    ffi.Pointer<ffi.Int8> _String2,
-  ) {
-    return (__strcmpi ??=
-        _dylib.lookupFunction<_c__strcmpi, _dart__strcmpi>('_strcmpi'))(
-      _String1,
-      _String2,
-    );
-  }
+  // int _strcmpi(
+  //   ffi.Pointer<ffi.Int8> _String1,
+  //   ffi.Pointer<ffi.Int8> _String2,
+  // ) {
+  //   return (__strcmpi ??=
+  //       _dylib.lookupFunction<_c__strcmpi, _dart__strcmpi>('_strcmpi'))(
+  //     _String1,
+  //     _String2,
+  //   );
+  // }
 
-  _dart__strcmpi? __strcmpi;
+  // _dart__strcmpi? __strcmpi;
 
   int strcoll(
     ffi.Pointer<ffi.Int8> _String1,
@@ -3436,20 +3436,20 @@ class LibEGL {
 
   _dart_strcoll? _strcoll;
 
-  int _strcoll_l(
-    ffi.Pointer<ffi.Int8> _String1,
-    ffi.Pointer<ffi.Int8> _String2,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strcoll_l ??=
-        _dylib.lookupFunction<_c__strcoll_l, _dart__strcoll_l>('_strcoll_l'))(
-      _String1,
-      _String2,
-      _Locale,
-    );
-  }
+  // int _strcoll_l(
+  //   ffi.Pointer<ffi.Int8> _String1,
+  //   ffi.Pointer<ffi.Int8> _String2,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strcoll_l ??=
+  //       _dylib.lookupFunction<_c__strcoll_l, _dart__strcoll_l>('_strcoll_l'))(
+  //     _String1,
+  //     _String2,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strcoll_l? __strcoll_l;
+  // _dart__strcoll_l? __strcoll_l;
 
   ffi.Pointer<ffi.Int8> strcpy(
     ffi.Pointer<ffi.Int8> _Destination,
@@ -3477,42 +3477,42 @@ class LibEGL {
 
   _dart_strcspn? _strcspn;
 
-  ffi.Pointer<ffi.Int8> _strdup(
-    ffi.Pointer<ffi.Int8> _Source,
-  ) {
-    return (__strdup ??=
-        _dylib.lookupFunction<_c__strdup, _dart__strdup>('_strdup'))(
-      _Source,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _strdup(
+  //   ffi.Pointer<ffi.Int8> _Source,
+  // ) {
+  //   return (__strdup ??=
+  //       _dylib.lookupFunction<_c__strdup, _dart__strdup>('_strdup'))(
+  //     _Source,
+  //   );
+  // }
 
-  _dart__strdup? __strdup;
+  // _dart__strdup? __strdup;
 
-  ffi.Pointer<ffi.Int8> _strerror(
-    ffi.Pointer<ffi.Int8> _ErrorMessage,
-  ) {
-    return (__strerror ??=
-        _dylib.lookupFunction<_c__strerror, _dart__strerror>('_strerror'))(
-      _ErrorMessage,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _strerror(
+  //   ffi.Pointer<ffi.Int8> _ErrorMessage,
+  // ) {
+  //   return (__strerror ??=
+  //       _dylib.lookupFunction<_c__strerror, _dart__strerror>('_strerror'))(
+  //     _ErrorMessage,
+  //   );
+  // }
 
-  _dart__strerror? __strerror;
+  // _dart__strerror? __strerror;
 
-  int _strerror_s(
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _SizeInBytes,
-    ffi.Pointer<ffi.Int8> _ErrorMessage,
-  ) {
-    return (__strerror_s ??= _dylib
-        .lookupFunction<_c__strerror_s, _dart__strerror_s>('_strerror_s'))(
-      _Buffer,
-      _SizeInBytes,
-      _ErrorMessage,
-    );
-  }
+  // int _strerror_s(
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _SizeInBytes,
+  //   ffi.Pointer<ffi.Int8> _ErrorMessage,
+  // ) {
+  //   return (__strerror_s ??= _dylib
+  //       .lookupFunction<_c__strerror_s, _dart__strerror_s>('_strerror_s'))(
+  //     _Buffer,
+  //     _SizeInBytes,
+  //     _ErrorMessage,
+  //   );
+  // }
 
-  _dart__strerror_s? __strerror_s;
+  // _dart__strerror_s? __strerror_s;
 
   ffi.Pointer<ffi.Int8> strerror(
     int _ErrorMessage,
@@ -3525,61 +3525,61 @@ class LibEGL {
 
   _dart_strerror? _strerror_1;
 
-  int _stricmp(
-    ffi.Pointer<ffi.Int8> _String1,
-    ffi.Pointer<ffi.Int8> _String2,
-  ) {
-    return (__stricmp ??=
-        _dylib.lookupFunction<_c__stricmp, _dart__stricmp>('_stricmp'))(
-      _String1,
-      _String2,
-    );
-  }
+  // int _stricmp(
+  //   ffi.Pointer<ffi.Int8> _String1,
+  //   ffi.Pointer<ffi.Int8> _String2,
+  // ) {
+  //   return (__stricmp ??=
+  //       _dylib.lookupFunction<_c__stricmp, _dart__stricmp>('_stricmp'))(
+  //     _String1,
+  //     _String2,
+  //   );
+  // }
 
-  _dart__stricmp? __stricmp;
+  // _dart__stricmp? __stricmp;
 
-  int _stricoll(
-    ffi.Pointer<ffi.Int8> _String1,
-    ffi.Pointer<ffi.Int8> _String2,
-  ) {
-    return (__stricoll ??=
-        _dylib.lookupFunction<_c__stricoll, _dart__stricoll>('_stricoll'))(
-      _String1,
-      _String2,
-    );
-  }
+  // int _stricoll(
+  //   ffi.Pointer<ffi.Int8> _String1,
+  //   ffi.Pointer<ffi.Int8> _String2,
+  // ) {
+  //   return (__stricoll ??=
+  //       _dylib.lookupFunction<_c__stricoll, _dart__stricoll>('_stricoll'))(
+  //     _String1,
+  //     _String2,
+  //   );
+  // }
 
-  _dart__stricoll? __stricoll;
+  // _dart__stricoll? __stricoll;
 
-  int _stricoll_l(
-    ffi.Pointer<ffi.Int8> _String1,
-    ffi.Pointer<ffi.Int8> _String2,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__stricoll_l ??= _dylib
-        .lookupFunction<_c__stricoll_l, _dart__stricoll_l>('_stricoll_l'))(
-      _String1,
-      _String2,
-      _Locale,
-    );
-  }
+  // int _stricoll_l(
+  //   ffi.Pointer<ffi.Int8> _String1,
+  //   ffi.Pointer<ffi.Int8> _String2,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__stricoll_l ??= _dylib
+  //       .lookupFunction<_c__stricoll_l, _dart__stricoll_l>('_stricoll_l'))(
+  //     _String1,
+  //     _String2,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__stricoll_l? __stricoll_l;
+  // _dart__stricoll_l? __stricoll_l;
 
-  int _stricmp_l(
-    ffi.Pointer<ffi.Int8> _String1,
-    ffi.Pointer<ffi.Int8> _String2,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__stricmp_l ??=
-        _dylib.lookupFunction<_c__stricmp_l, _dart__stricmp_l>('_stricmp_l'))(
-      _String1,
-      _String2,
-      _Locale,
-    );
-  }
+  // int _stricmp_l(
+  //   ffi.Pointer<ffi.Int8> _String1,
+  //   ffi.Pointer<ffi.Int8> _String2,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__stricmp_l ??=
+  //       _dylib.lookupFunction<_c__stricmp_l, _dart__stricmp_l>('_stricmp_l'))(
+  //     _String1,
+  //     _String2,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__stricmp_l? __stricmp_l;
+  // _dart__stricmp_l? __stricmp_l;
 
   int strlen(
     ffi.Pointer<ffi.Int8> _Str,
@@ -3592,57 +3592,57 @@ class LibEGL {
 
   _dart_strlen? _strlen;
 
-  int _strlwr_s(
-    ffi.Pointer<ffi.Int8> _String,
-    int _Size,
-  ) {
-    return (__strlwr_s ??=
-        _dylib.lookupFunction<_c__strlwr_s, _dart__strlwr_s>('_strlwr_s'))(
-      _String,
-      _Size,
-    );
-  }
+  // int _strlwr_s(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   int _Size,
+  // ) {
+  //   return (__strlwr_s ??=
+  //       _dylib.lookupFunction<_c__strlwr_s, _dart__strlwr_s>('_strlwr_s'))(
+  //     _String,
+  //     _Size,
+  //   );
+  // }
 
-  _dart__strlwr_s? __strlwr_s;
+  // _dart__strlwr_s? __strlwr_s;
 
-  ffi.Pointer<ffi.Int8> _strlwr(
-    ffi.Pointer<ffi.Int8> _String,
-  ) {
-    return (__strlwr ??=
-        _dylib.lookupFunction<_c__strlwr, _dart__strlwr>('_strlwr'))(
-      _String,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _strlwr(
+  //   ffi.Pointer<ffi.Int8> _String,
+  // ) {
+  //   return (__strlwr ??=
+  //       _dylib.lookupFunction<_c__strlwr, _dart__strlwr>('_strlwr'))(
+  //     _String,
+  //   );
+  // }
 
-  _dart__strlwr? __strlwr;
+  // _dart__strlwr? __strlwr;
 
-  int _strlwr_s_l(
-    ffi.Pointer<ffi.Int8> _String,
-    int _Size,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strlwr_s_l ??= _dylib
-        .lookupFunction<_c__strlwr_s_l, _dart__strlwr_s_l>('_strlwr_s_l'))(
-      _String,
-      _Size,
-      _Locale,
-    );
-  }
+  // int _strlwr_s_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   int _Size,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strlwr_s_l ??= _dylib
+  //       .lookupFunction<_c__strlwr_s_l, _dart__strlwr_s_l>('_strlwr_s_l'))(
+  //     _String,
+  //     _Size,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strlwr_s_l? __strlwr_s_l;
+  // _dart__strlwr_s_l? __strlwr_s_l;
 
-  ffi.Pointer<ffi.Int8> _strlwr_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strlwr_l ??=
-        _dylib.lookupFunction<_c__strlwr_l, _dart__strlwr_l>('_strlwr_l'))(
-      _String,
-      _Locale,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _strlwr_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strlwr_l ??=
+  //       _dylib.lookupFunction<_c__strlwr_l, _dart__strlwr_l>('_strlwr_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strlwr_l? __strlwr_l;
+  // _dart__strlwr_l? __strlwr_l;
 
   ffi.Pointer<ffi.Int8> strncat(
     ffi.Pointer<ffi.Int8> _Destination,
@@ -3674,114 +3674,114 @@ class LibEGL {
 
   _dart_strncmp? _strncmp;
 
-  int _strnicmp(
-    ffi.Pointer<ffi.Int8> _String1,
-    ffi.Pointer<ffi.Int8> _String2,
-    int _MaxCount,
-  ) {
-    return (__strnicmp ??=
-        _dylib.lookupFunction<_c__strnicmp, _dart__strnicmp>('_strnicmp'))(
-      _String1,
-      _String2,
-      _MaxCount,
-    );
-  }
+  // int _strnicmp(
+  //   ffi.Pointer<ffi.Int8> _String1,
+  //   ffi.Pointer<ffi.Int8> _String2,
+  //   int _MaxCount,
+  // ) {
+  //   return (__strnicmp ??=
+  //       _dylib.lookupFunction<_c__strnicmp, _dart__strnicmp>('_strnicmp'))(
+  //     _String1,
+  //     _String2,
+  //     _MaxCount,
+  //   );
+  // }
 
-  _dart__strnicmp? __strnicmp;
+  // _dart__strnicmp? __strnicmp;
 
-  int _strnicmp_l(
-    ffi.Pointer<ffi.Int8> _String1,
-    ffi.Pointer<ffi.Int8> _String2,
-    int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strnicmp_l ??= _dylib
-        .lookupFunction<_c__strnicmp_l, _dart__strnicmp_l>('_strnicmp_l'))(
-      _String1,
-      _String2,
-      _MaxCount,
-      _Locale,
-    );
-  }
+  // int _strnicmp_l(
+  //   ffi.Pointer<ffi.Int8> _String1,
+  //   ffi.Pointer<ffi.Int8> _String2,
+  //   int _MaxCount,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strnicmp_l ??= _dylib
+  //       .lookupFunction<_c__strnicmp_l, _dart__strnicmp_l>('_strnicmp_l'))(
+  //     _String1,
+  //     _String2,
+  //     _MaxCount,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strnicmp_l? __strnicmp_l;
+  // _dart__strnicmp_l? __strnicmp_l;
 
-  int _strnicoll(
-    ffi.Pointer<ffi.Int8> _String1,
-    ffi.Pointer<ffi.Int8> _String2,
-    int _MaxCount,
-  ) {
-    return (__strnicoll ??=
-        _dylib.lookupFunction<_c__strnicoll, _dart__strnicoll>('_strnicoll'))(
-      _String1,
-      _String2,
-      _MaxCount,
-    );
-  }
+  // int _strnicoll(
+  //   ffi.Pointer<ffi.Int8> _String1,
+  //   ffi.Pointer<ffi.Int8> _String2,
+  //   int _MaxCount,
+  // ) {
+  //   return (__strnicoll ??=
+  //       _dylib.lookupFunction<_c__strnicoll, _dart__strnicoll>('_strnicoll'))(
+  //     _String1,
+  //     _String2,
+  //     _MaxCount,
+  //   );
+  // }
 
-  _dart__strnicoll? __strnicoll;
+  // _dart__strnicoll? __strnicoll;
 
-  int _strnicoll_l(
-    ffi.Pointer<ffi.Int8> _String1,
-    ffi.Pointer<ffi.Int8> _String2,
-    int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strnicoll_l ??= _dylib
-        .lookupFunction<_c__strnicoll_l, _dart__strnicoll_l>('_strnicoll_l'))(
-      _String1,
-      _String2,
-      _MaxCount,
-      _Locale,
-    );
-  }
+  // int _strnicoll_l(
+  //   ffi.Pointer<ffi.Int8> _String1,
+  //   ffi.Pointer<ffi.Int8> _String2,
+  //   int _MaxCount,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strnicoll_l ??= _dylib
+  //       .lookupFunction<_c__strnicoll_l, _dart__strnicoll_l>('_strnicoll_l'))(
+  //     _String1,
+  //     _String2,
+  //     _MaxCount,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strnicoll_l? __strnicoll_l;
+  // _dart__strnicoll_l? __strnicoll_l;
 
-  int _strncoll(
-    ffi.Pointer<ffi.Int8> _String1,
-    ffi.Pointer<ffi.Int8> _String2,
-    int _MaxCount,
-  ) {
-    return (__strncoll ??=
-        _dylib.lookupFunction<_c__strncoll, _dart__strncoll>('_strncoll'))(
-      _String1,
-      _String2,
-      _MaxCount,
-    );
-  }
+  // int _strncoll(
+  //   ffi.Pointer<ffi.Int8> _String1,
+  //   ffi.Pointer<ffi.Int8> _String2,
+  //   int _MaxCount,
+  // ) {
+  //   return (__strncoll ??=
+  //       _dylib.lookupFunction<_c__strncoll, _dart__strncoll>('_strncoll'))(
+  //     _String1,
+  //     _String2,
+  //     _MaxCount,
+  //   );
+  // }
 
-  _dart__strncoll? __strncoll;
+  // _dart__strncoll? __strncoll;
 
-  int _strncoll_l(
-    ffi.Pointer<ffi.Int8> _String1,
-    ffi.Pointer<ffi.Int8> _String2,
-    int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strncoll_l ??= _dylib
-        .lookupFunction<_c__strncoll_l, _dart__strncoll_l>('_strncoll_l'))(
-      _String1,
-      _String2,
-      _MaxCount,
-      _Locale,
-    );
-  }
+  // int _strncoll_l(
+  //   ffi.Pointer<ffi.Int8> _String1,
+  //   ffi.Pointer<ffi.Int8> _String2,
+  //   int _MaxCount,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strncoll_l ??= _dylib
+  //       .lookupFunction<_c__strncoll_l, _dart__strncoll_l>('_strncoll_l'))(
+  //     _String1,
+  //     _String2,
+  //     _MaxCount,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strncoll_l? __strncoll_l;
+  // _dart__strncoll_l? __strncoll_l;
 
-  int __strncnt(
-    ffi.Pointer<ffi.Int8> _String,
-    int _Count,
-  ) {
-    return (___strncnt ??=
-        _dylib.lookupFunction<_c___strncnt, _dart___strncnt>('__strncnt'))(
-      _String,
-      _Count,
-    );
-  }
+  // int __strncnt(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   int _Count,
+  // ) {
+  //   return (___strncnt ??=
+  //       _dylib.lookupFunction<_c___strncnt, _dart___strncnt>('__strncnt'))(
+  //     _String,
+  //     _Count,
+  //   );
+  // }
 
-  _dart___strncnt? ___strncnt;
+  // _dart___strncnt? ___strncnt;
 
   ffi.Pointer<ffi.Int8> strncpy(
     ffi.Pointer<ffi.Int8> _Destination,
@@ -3824,37 +3824,37 @@ class LibEGL {
 
   _dart_strnlen_s? _strnlen_s;
 
-  int _strnset_s(
-    ffi.Pointer<ffi.Int8> _String,
-    int _SizeInBytes,
-    int _Value,
-    int _MaxCount,
-  ) {
-    return (__strnset_s ??=
-        _dylib.lookupFunction<_c__strnset_s, _dart__strnset_s>('_strnset_s'))(
-      _String,
-      _SizeInBytes,
-      _Value,
-      _MaxCount,
-    );
-  }
+  // int _strnset_s(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   int _SizeInBytes,
+  //   int _Value,
+  //   int _MaxCount,
+  // ) {
+  //   return (__strnset_s ??=
+  //       _dylib.lookupFunction<_c__strnset_s, _dart__strnset_s>('_strnset_s'))(
+  //     _String,
+  //     _SizeInBytes,
+  //     _Value,
+  //     _MaxCount,
+  //   );
+  // }
 
-  _dart__strnset_s? __strnset_s;
+  // _dart__strnset_s? __strnset_s;
 
-  ffi.Pointer<ffi.Int8> _strnset(
-    ffi.Pointer<ffi.Int8> _Destination,
-    int _Value,
-    int _Count,
-  ) {
-    return (__strnset ??=
-        _dylib.lookupFunction<_c__strnset, _dart__strnset>('_strnset'))(
-      _Destination,
-      _Value,
-      _Count,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _strnset(
+  //   ffi.Pointer<ffi.Int8> _Destination,
+  //   int _Value,
+  //   int _Count,
+  // ) {
+  //   return (__strnset ??=
+  //       _dylib.lookupFunction<_c__strnset, _dart__strnset>('_strnset'))(
+  //     _Destination,
+  //     _Value,
+  //     _Count,
+  //   );
+  // }
 
-  _dart__strnset? __strnset;
+  // _dart__strnset? __strnset;
 
   ffi.Pointer<ffi.Int8> strpbrk(
     ffi.Pointer<ffi.Int8> _Str,
@@ -3869,44 +3869,44 @@ class LibEGL {
 
   _dart_strpbrk? _strpbrk;
 
-  ffi.Pointer<ffi.Int8> _strrev(
-    ffi.Pointer<ffi.Int8> _Str,
-  ) {
-    return (__strrev ??=
-        _dylib.lookupFunction<_c__strrev, _dart__strrev>('_strrev'))(
-      _Str,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _strrev(
+  //   ffi.Pointer<ffi.Int8> _Str,
+  // ) {
+  //   return (__strrev ??=
+  //       _dylib.lookupFunction<_c__strrev, _dart__strrev>('_strrev'))(
+  //     _Str,
+  //   );
+  // }
 
-  _dart__strrev? __strrev;
+  // _dart__strrev? __strrev;
 
-  int _strset_s(
-    ffi.Pointer<ffi.Int8> _Destination,
-    int _DestinationSize,
-    int _Value,
-  ) {
-    return (__strset_s ??=
-        _dylib.lookupFunction<_c__strset_s, _dart__strset_s>('_strset_s'))(
-      _Destination,
-      _DestinationSize,
-      _Value,
-    );
-  }
+  // int _strset_s(
+  //   ffi.Pointer<ffi.Int8> _Destination,
+  //   int _DestinationSize,
+  //   int _Value,
+  // ) {
+  //   return (__strset_s ??=
+  //       _dylib.lookupFunction<_c__strset_s, _dart__strset_s>('_strset_s'))(
+  //     _Destination,
+  //     _DestinationSize,
+  //     _Value,
+  //   );
+  // }
 
-  _dart__strset_s? __strset_s;
+  // _dart__strset_s? __strset_s;
 
-  ffi.Pointer<ffi.Int8> _strset(
-    ffi.Pointer<ffi.Int8> _Destination,
-    int _Value,
-  ) {
-    return (__strset ??=
-        _dylib.lookupFunction<_c__strset, _dart__strset>('_strset'))(
-      _Destination,
-      _Value,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _strset(
+  //   ffi.Pointer<ffi.Int8> _Destination,
+  //   int _Value,
+  // ) {
+  //   return (__strset ??=
+  //       _dylib.lookupFunction<_c__strset, _dart__strset>('_strset'))(
+  //     _Destination,
+  //     _Value,
+  //   );
+  // }
 
-  _dart__strset? __strset;
+  // _dart__strset? __strset;
 
   int strspn(
     ffi.Pointer<ffi.Int8> _Str,
@@ -3934,57 +3934,57 @@ class LibEGL {
 
   _dart_strtok? _strtok;
 
-  int _strupr_s(
-    ffi.Pointer<ffi.Int8> _String,
-    int _Size,
-  ) {
-    return (__strupr_s ??=
-        _dylib.lookupFunction<_c__strupr_s, _dart__strupr_s>('_strupr_s'))(
-      _String,
-      _Size,
-    );
-  }
+  // int _strupr_s(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   int _Size,
+  // ) {
+  //   return (__strupr_s ??=
+  //       _dylib.lookupFunction<_c__strupr_s, _dart__strupr_s>('_strupr_s'))(
+  //     _String,
+  //     _Size,
+  //   );
+  // }
 
-  _dart__strupr_s? __strupr_s;
+  // _dart__strupr_s? __strupr_s;
 
-  ffi.Pointer<ffi.Int8> _strupr(
-    ffi.Pointer<ffi.Int8> _String,
-  ) {
-    return (__strupr ??=
-        _dylib.lookupFunction<_c__strupr, _dart__strupr>('_strupr'))(
-      _String,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _strupr(
+  //   ffi.Pointer<ffi.Int8> _String,
+  // ) {
+  //   return (__strupr ??=
+  //       _dylib.lookupFunction<_c__strupr, _dart__strupr>('_strupr'))(
+  //     _String,
+  //   );
+  // }
 
-  _dart__strupr? __strupr;
+  // _dart__strupr? __strupr;
 
-  int _strupr_s_l(
-    ffi.Pointer<ffi.Int8> _String,
-    int _Size,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strupr_s_l ??= _dylib
-        .lookupFunction<_c__strupr_s_l, _dart__strupr_s_l>('_strupr_s_l'))(
-      _String,
-      _Size,
-      _Locale,
-    );
-  }
+  // int _strupr_s_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   int _Size,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strupr_s_l ??= _dylib
+  //       .lookupFunction<_c__strupr_s_l, _dart__strupr_s_l>('_strupr_s_l'))(
+  //     _String,
+  //     _Size,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strupr_s_l? __strupr_s_l;
+  // _dart__strupr_s_l? __strupr_s_l;
 
-  ffi.Pointer<ffi.Int8> _strupr_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strupr_l ??=
-        _dylib.lookupFunction<_c__strupr_l, _dart__strupr_l>('_strupr_l'))(
-      _String,
-      _Locale,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _strupr_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strupr_l ??=
+  //       _dylib.lookupFunction<_c__strupr_l, _dart__strupr_l>('_strupr_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strupr_l? __strupr_l;
+  // _dart__strupr_l? __strupr_l;
 
   int strxfrm(
     ffi.Pointer<ffi.Int8> _Destination,
@@ -4001,22 +4001,22 @@ class LibEGL {
 
   _dart_strxfrm? _strxfrm;
 
-  int _strxfrm_l(
-    ffi.Pointer<ffi.Int8> _Destination,
-    ffi.Pointer<ffi.Int8> _Source,
-    int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strxfrm_l ??=
-        _dylib.lookupFunction<_c__strxfrm_l, _dart__strxfrm_l>('_strxfrm_l'))(
-      _Destination,
-      _Source,
-      _MaxCount,
-      _Locale,
-    );
-  }
+  // int _strxfrm_l(
+  //   ffi.Pointer<ffi.Int8> _Destination,
+  //   ffi.Pointer<ffi.Int8> _Source,
+  //   int _MaxCount,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strxfrm_l ??=
+  //       _dylib.lookupFunction<_c__strxfrm_l, _dart__strxfrm_l>('_strxfrm_l'))(
+  //     _Destination,
+  //     _Source,
+  //     _MaxCount,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strxfrm_l? __strxfrm_l;
+  // _dart__strxfrm_l? __strxfrm_l;
 
   ffi.Pointer<ffi.Int8> strdup(
     ffi.Pointer<ffi.Int8> _String,
@@ -4131,1060 +4131,1060 @@ class LibEGL {
 
   _dart_strupr? _strupr_1;
 
-  int _bittest(
-    ffi.Pointer<ffi.Int64> Base,
-    int Offset,
-  ) {
-    return (__bittest ??=
-        _dylib.lookupFunction<_c__bittest, _dart__bittest>('_bittest'))(
-      Base,
-      Offset,
-    );
-  }
-
-  _dart__bittest? __bittest;
-
-  int _bittestandcomplement(
-    ffi.Pointer<ffi.Int64> Base,
-    int Offset,
-  ) {
-    return (__bittestandcomplement ??= _dylib.lookupFunction<
-        _c__bittestandcomplement,
-        _dart__bittestandcomplement>('_bittestandcomplement'))(
-      Base,
-      Offset,
-    );
-  }
-
-  _dart__bittestandcomplement? __bittestandcomplement;
-
-  int _bittestandset(
-    ffi.Pointer<ffi.Int64> Base,
-    int Offset,
-  ) {
-    return (__bittestandset ??=
-        _dylib.lookupFunction<_c__bittestandset, _dart__bittestandset>(
-            '_bittestandset'))(
-      Base,
-      Offset,
-    );
-  }
-
-  _dart__bittestandset? __bittestandset;
-
-  int _bittestandreset(
-    ffi.Pointer<ffi.Int64> Base,
-    int Offset,
-  ) {
-    return (__bittestandreset ??=
-        _dylib.lookupFunction<_c__bittestandreset, _dart__bittestandreset>(
-            '_bittestandreset'))(
-      Base,
-      Offset,
-    );
-  }
-
-  _dart__bittestandreset? __bittestandreset;
-
-  int _interlockedbittestandset(
-    ffi.Pointer<ffi.Int64> Base,
-    int Offset,
-  ) {
-    return (__interlockedbittestandset ??= _dylib.lookupFunction<
-        _c__interlockedbittestandset,
-        _dart__interlockedbittestandset>('_interlockedbittestandset'))(
-      Base,
-      Offset,
-    );
-  }
-
-  _dart__interlockedbittestandset? __interlockedbittestandset;
-
-  int _interlockedbittestandreset(
-    ffi.Pointer<ffi.Int64> Base,
-    int Offset,
-  ) {
-    return (__interlockedbittestandreset ??= _dylib.lookupFunction<
-        _c__interlockedbittestandreset,
-        _dart__interlockedbittestandreset>('_interlockedbittestandreset'))(
-      Base,
-      Offset,
-    );
-  }
-
-  _dart__interlockedbittestandreset? __interlockedbittestandreset;
-
-  int _bittest64(
-    ffi.Pointer<ffi.Int64> Base,
-    int Offset,
-  ) {
-    return (__bittest64 ??=
-        _dylib.lookupFunction<_c__bittest64, _dart__bittest64>('_bittest64'))(
-      Base,
-      Offset,
-    );
-  }
-
-  _dart__bittest64? __bittest64;
-
-  int _bittestandcomplement64(
-    ffi.Pointer<ffi.Int64> Base,
-    int Offset,
-  ) {
-    return (__bittestandcomplement64 ??= _dylib.lookupFunction<
-        _c__bittestandcomplement64,
-        _dart__bittestandcomplement64>('_bittestandcomplement64'))(
-      Base,
-      Offset,
-    );
-  }
-
-  _dart__bittestandcomplement64? __bittestandcomplement64;
-
-  int _bittestandset64(
-    ffi.Pointer<ffi.Int64> Base,
-    int Offset,
-  ) {
-    return (__bittestandset64 ??=
-        _dylib.lookupFunction<_c__bittestandset64, _dart__bittestandset64>(
-            '_bittestandset64'))(
-      Base,
-      Offset,
-    );
-  }
-
-  _dart__bittestandset64? __bittestandset64;
-
-  int _bittestandreset64(
-    ffi.Pointer<ffi.Int64> Base,
-    int Offset,
-  ) {
-    return (__bittestandreset64 ??=
-        _dylib.lookupFunction<_c__bittestandreset64, _dart__bittestandreset64>(
-            '_bittestandreset64'))(
-      Base,
-      Offset,
-    );
-  }
-
-  _dart__bittestandreset64? __bittestandreset64;
-
-  int _interlockedbittestandset64(
-    ffi.Pointer<ffi.Int64> Base,
-    int Offset,
-  ) {
-    return (__interlockedbittestandset64 ??= _dylib.lookupFunction<
-        _c__interlockedbittestandset64,
-        _dart__interlockedbittestandset64>('_interlockedbittestandset64'))(
-      Base,
-      Offset,
-    );
-  }
-
-  _dart__interlockedbittestandset64? __interlockedbittestandset64;
-
-  int _interlockedbittestandreset64(
-    ffi.Pointer<ffi.Int64> Base,
-    int Offset,
-  ) {
-    return (__interlockedbittestandreset64 ??= _dylib.lookupFunction<
-        _c__interlockedbittestandreset64,
-        _dart__interlockedbittestandreset64>('_interlockedbittestandreset64'))(
-      Base,
-      Offset,
-    );
-  }
-
-  _dart__interlockedbittestandreset64? __interlockedbittestandreset64;
-
-  int _BitScanForward(
-    ffi.Pointer<ffi.Uint64> Index,
-    int Mask,
-  ) {
-    return (__BitScanForward ??=
-        _dylib.lookupFunction<_c__BitScanForward, _dart__BitScanForward>(
-            '_BitScanForward'))(
-      Index,
-      Mask,
-    );
-  }
-
-  _dart__BitScanForward? __BitScanForward;
-
-  int _BitScanReverse(
-    ffi.Pointer<ffi.Uint64> Index,
-    int Mask,
-  ) {
-    return (__BitScanReverse ??=
-        _dylib.lookupFunction<_c__BitScanReverse, _dart__BitScanReverse>(
-            '_BitScanReverse'))(
-      Index,
-      Mask,
-    );
-  }
-
-  _dart__BitScanReverse? __BitScanReverse;
-
-  int _BitScanForward64(
-    ffi.Pointer<ffi.Uint64> Index,
-    int Mask,
-  ) {
-    return (__BitScanForward64 ??=
-        _dylib.lookupFunction<_c__BitScanForward64, _dart__BitScanForward64>(
-            '_BitScanForward64'))(
-      Index,
-      Mask,
-    );
-  }
-
-  _dart__BitScanForward64? __BitScanForward64;
-
-  int _BitScanReverse64(
-    ffi.Pointer<ffi.Uint64> Index,
-    int Mask,
-  ) {
-    return (__BitScanReverse64 ??=
-        _dylib.lookupFunction<_c__BitScanReverse64, _dart__BitScanReverse64>(
-            '_BitScanReverse64'))(
-      Index,
-      Mask,
-    );
-  }
-
-  _dart__BitScanReverse64? __BitScanReverse64;
-
-  int _InterlockedIncrement16(
-    ffi.Pointer<ffi.Int16> Addend,
-  ) {
-    return (__InterlockedIncrement16 ??= _dylib.lookupFunction<
-        _c__InterlockedIncrement16,
-        _dart__InterlockedIncrement16>('_InterlockedIncrement16'))(
-      Addend,
-    );
-  }
-
-  _dart__InterlockedIncrement16? __InterlockedIncrement16;
-
-  int _InterlockedDecrement16(
-    ffi.Pointer<ffi.Int16> Addend,
-  ) {
-    return (__InterlockedDecrement16 ??= _dylib.lookupFunction<
-        _c__InterlockedDecrement16,
-        _dart__InterlockedDecrement16>('_InterlockedDecrement16'))(
-      Addend,
-    );
-  }
-
-  _dart__InterlockedDecrement16? __InterlockedDecrement16;
-
-  int _InterlockedCompareExchange16(
-    ffi.Pointer<ffi.Int16> Destination,
-    int ExChange,
-    int Comperand,
-  ) {
-    return (__InterlockedCompareExchange16 ??= _dylib.lookupFunction<
-        _c__InterlockedCompareExchange16,
-        _dart__InterlockedCompareExchange16>('_InterlockedCompareExchange16'))(
-      Destination,
-      ExChange,
-      Comperand,
-    );
-  }
-
-  _dart__InterlockedCompareExchange16? __InterlockedCompareExchange16;
-
-  int _InterlockedAnd(
-    ffi.Pointer<ffi.Int64> Destination,
-    int Value,
-  ) {
-    return (__InterlockedAnd ??=
-        _dylib.lookupFunction<_c__InterlockedAnd, _dart__InterlockedAnd>(
-            '_InterlockedAnd'))(
-      Destination,
-      Value,
-    );
-  }
-
-  _dart__InterlockedAnd? __InterlockedAnd;
-
-  int _InterlockedOr(
-    ffi.Pointer<ffi.Int64> Destination,
-    int Value,
-  ) {
-    return (__InterlockedOr ??=
-        _dylib.lookupFunction<_c__InterlockedOr, _dart__InterlockedOr>(
-            '_InterlockedOr'))(
-      Destination,
-      Value,
-    );
-  }
-
-  _dart__InterlockedOr? __InterlockedOr;
-
-  int _InterlockedXor(
-    ffi.Pointer<ffi.Int64> Destination,
-    int Value,
-  ) {
-    return (__InterlockedXor ??=
-        _dylib.lookupFunction<_c__InterlockedXor, _dart__InterlockedXor>(
-            '_InterlockedXor'))(
-      Destination,
-      Value,
-    );
-  }
-
-  _dart__InterlockedXor? __InterlockedXor;
-
-  int _InterlockedAnd64(
-    ffi.Pointer<ffi.Int64> Destination,
-    int Value,
-  ) {
-    return (__InterlockedAnd64 ??=
-        _dylib.lookupFunction<_c__InterlockedAnd64, _dart__InterlockedAnd64>(
-            '_InterlockedAnd64'))(
-      Destination,
-      Value,
-    );
-  }
-
-  _dart__InterlockedAnd64? __InterlockedAnd64;
-
-  int _InterlockedOr64(
-    ffi.Pointer<ffi.Int64> Destination,
-    int Value,
-  ) {
-    return (__InterlockedOr64 ??=
-        _dylib.lookupFunction<_c__InterlockedOr64, _dart__InterlockedOr64>(
-            '_InterlockedOr64'))(
-      Destination,
-      Value,
-    );
-  }
-
-  _dart__InterlockedOr64? __InterlockedOr64;
-
-  int _InterlockedXor64(
-    ffi.Pointer<ffi.Int64> Destination,
-    int Value,
-  ) {
-    return (__InterlockedXor64 ??=
-        _dylib.lookupFunction<_c__InterlockedXor64, _dart__InterlockedXor64>(
-            '_InterlockedXor64'))(
-      Destination,
-      Value,
-    );
-  }
-
-  _dart__InterlockedXor64? __InterlockedXor64;
-
-  int _InterlockedIncrement(
-    ffi.Pointer<ffi.Int64> Addend,
-  ) {
-    return (__InterlockedIncrement ??= _dylib.lookupFunction<
-        _c__InterlockedIncrement,
-        _dart__InterlockedIncrement>('_InterlockedIncrement'))(
-      Addend,
-    );
-  }
-
-  _dart__InterlockedIncrement? __InterlockedIncrement;
-
-  int _InterlockedDecrement(
-    ffi.Pointer<ffi.Int64> Addend,
-  ) {
-    return (__InterlockedDecrement ??= _dylib.lookupFunction<
-        _c__InterlockedDecrement,
-        _dart__InterlockedDecrement>('_InterlockedDecrement'))(
-      Addend,
-    );
-  }
-
-  _dart__InterlockedDecrement? __InterlockedDecrement;
-
-  int _InterlockedExchange(
-    ffi.Pointer<ffi.Int64> Target,
-    int Value,
-  ) {
-    return (__InterlockedExchange ??= _dylib.lookupFunction<
-        _c__InterlockedExchange,
-        _dart__InterlockedExchange>('_InterlockedExchange'))(
-      Target,
-      Value,
-    );
-  }
-
-  _dart__InterlockedExchange? __InterlockedExchange;
-
-  int _InterlockedExchangeAdd(
-    ffi.Pointer<ffi.Int64> Addend,
-    int Value,
-  ) {
-    return (__InterlockedExchangeAdd ??= _dylib.lookupFunction<
-        _c__InterlockedExchangeAdd,
-        _dart__InterlockedExchangeAdd>('_InterlockedExchangeAdd'))(
-      Addend,
-      Value,
-    );
-  }
-
-  _dart__InterlockedExchangeAdd? __InterlockedExchangeAdd;
-
-  int _InlineInterlockedAdd(
-    ffi.Pointer<ffi.Int64> Addend,
-    int Value,
-  ) {
-    return (__InlineInterlockedAdd ??= _dylib.lookupFunction<
-        _c__InlineInterlockedAdd,
-        _dart__InlineInterlockedAdd>('_InlineInterlockedAdd'))(
-      Addend,
-      Value,
-    );
-  }
-
-  _dart__InlineInterlockedAdd? __InlineInterlockedAdd;
-
-  int _InterlockedCompareExchange(
-    ffi.Pointer<ffi.Int64> Destination,
-    int ExChange,
-    int Comperand,
-  ) {
-    return (__InterlockedCompareExchange ??= _dylib.lookupFunction<
-        _c__InterlockedCompareExchange,
-        _dart__InterlockedCompareExchange>('_InterlockedCompareExchange'))(
-      Destination,
-      ExChange,
-      Comperand,
-    );
-  }
-
-  _dart__InterlockedCompareExchange? __InterlockedCompareExchange;
-
-  int _InterlockedIncrement64(
-    ffi.Pointer<ffi.Int64> Addend,
-  ) {
-    return (__InterlockedIncrement64 ??= _dylib.lookupFunction<
-        _c__InterlockedIncrement64,
-        _dart__InterlockedIncrement64>('_InterlockedIncrement64'))(
-      Addend,
-    );
-  }
-
-  _dart__InterlockedIncrement64? __InterlockedIncrement64;
-
-  int _InterlockedDecrement64(
-    ffi.Pointer<ffi.Int64> Addend,
-  ) {
-    return (__InterlockedDecrement64 ??= _dylib.lookupFunction<
-        _c__InterlockedDecrement64,
-        _dart__InterlockedDecrement64>('_InterlockedDecrement64'))(
-      Addend,
-    );
-  }
-
-  _dart__InterlockedDecrement64? __InterlockedDecrement64;
-
-  int _InterlockedExchange64(
-    ffi.Pointer<ffi.Int64> Target,
-    int Value,
-  ) {
-    return (__InterlockedExchange64 ??= _dylib.lookupFunction<
-        _c__InterlockedExchange64,
-        _dart__InterlockedExchange64>('_InterlockedExchange64'))(
-      Target,
-      Value,
-    );
-  }
-
-  _dart__InterlockedExchange64? __InterlockedExchange64;
-
-  int _InterlockedExchangeAdd64(
-    ffi.Pointer<ffi.Int64> Addend,
-    int Value,
-  ) {
-    return (__InterlockedExchangeAdd64 ??= _dylib.lookupFunction<
-        _c__InterlockedExchangeAdd64,
-        _dart__InterlockedExchangeAdd64>('_InterlockedExchangeAdd64'))(
-      Addend,
-      Value,
-    );
-  }
-
-  _dart__InterlockedExchangeAdd64? __InterlockedExchangeAdd64;
-
-  int _InlineInterlockedAdd64(
-    ffi.Pointer<ffi.Int64> Addend,
-    int Value,
-  ) {
-    return (__InlineInterlockedAdd64 ??= _dylib.lookupFunction<
-        _c__InlineInterlockedAdd64,
-        _dart__InlineInterlockedAdd64>('_InlineInterlockedAdd64'))(
-      Addend,
-      Value,
-    );
-  }
-
-  _dart__InlineInterlockedAdd64? __InlineInterlockedAdd64;
-
-  int _InterlockedCompareExchange64(
-    ffi.Pointer<ffi.Int64> Destination,
-    int ExChange,
-    int Comperand,
-  ) {
-    return (__InterlockedCompareExchange64 ??= _dylib.lookupFunction<
-        _c__InterlockedCompareExchange64,
-        _dart__InterlockedCompareExchange64>('_InterlockedCompareExchange64'))(
-      Destination,
-      ExChange,
-      Comperand,
-    );
-  }
-
-  _dart__InterlockedCompareExchange64? __InterlockedCompareExchange64;
-
-  int _InterlockedCompareExchange128(
-    ffi.Pointer<ffi.Int64> Destination,
-    int ExchangeHigh,
-    int ExchangeLow,
-    ffi.Pointer<ffi.Int64> ComparandResult,
-  ) {
-    return (__InterlockedCompareExchange128 ??= _dylib.lookupFunction<
-            _c__InterlockedCompareExchange128,
-            _dart__InterlockedCompareExchange128>(
-        '_InterlockedCompareExchange128'))(
-      Destination,
-      ExchangeHigh,
-      ExchangeLow,
-      ComparandResult,
-    );
-  }
-
-  _dart__InterlockedCompareExchange128? __InterlockedCompareExchange128;
-
-  ffi.Pointer<ffi.Void> _InterlockedCompareExchangePointer(
-    ffi.Pointer<ffi.Pointer<ffi.Void>> Destination,
-    ffi.Pointer<ffi.Void> Exchange,
-    ffi.Pointer<ffi.Void> Comperand,
-  ) {
-    return (__InterlockedCompareExchangePointer ??= _dylib.lookupFunction<
-            _c__InterlockedCompareExchangePointer,
-            _dart__InterlockedCompareExchangePointer>(
-        '_InterlockedCompareExchangePointer'))(
-      Destination,
-      Exchange,
-      Comperand,
-    );
-  }
-
-  _dart__InterlockedCompareExchangePointer? __InterlockedCompareExchangePointer;
-
-  ffi.Pointer<ffi.Void> _InterlockedExchangePointer(
-    ffi.Pointer<ffi.Pointer<ffi.Void>> Target,
-    ffi.Pointer<ffi.Void> Value,
-  ) {
-    return (__InterlockedExchangePointer ??= _dylib.lookupFunction<
-        _c__InterlockedExchangePointer,
-        _dart__InterlockedExchangePointer>('_InterlockedExchangePointer'))(
-      Target,
-      Value,
-    );
-  }
-
-  _dart__InterlockedExchangePointer? __InterlockedExchangePointer;
-
-  int _InterlockedExchange8(
-    ffi.Pointer<ffi.Int8> Target,
-    int Value,
-  ) {
-    return (__InterlockedExchange8 ??= _dylib.lookupFunction<
-        _c__InterlockedExchange8,
-        _dart__InterlockedExchange8>('_InterlockedExchange8'))(
-      Target,
-      Value,
-    );
-  }
-
-  _dart__InterlockedExchange8? __InterlockedExchange8;
-
-  int _InterlockedExchange16(
-    ffi.Pointer<ffi.Int16> Destination,
-    int ExChange,
-  ) {
-    return (__InterlockedExchange16 ??= _dylib.lookupFunction<
-        _c__InterlockedExchange16,
-        _dart__InterlockedExchange16>('_InterlockedExchange16'))(
-      Destination,
-      ExChange,
-    );
-  }
-
-  _dart__InterlockedExchange16? __InterlockedExchange16;
-
-  int _InterlockedExchangeAdd8(
-    ffi.Pointer<ffi.Int8> _Addend,
-    int _Value,
-  ) {
-    return (__InterlockedExchangeAdd8 ??= _dylib.lookupFunction<
-        _c__InterlockedExchangeAdd8,
-        _dart__InterlockedExchangeAdd8>('_InterlockedExchangeAdd8'))(
-      _Addend,
-      _Value,
-    );
-  }
-
-  _dart__InterlockedExchangeAdd8? __InterlockedExchangeAdd8;
-
-  int _InterlockedAnd8(
-    ffi.Pointer<ffi.Int8> Destination,
-    int Value,
-  ) {
-    return (__InterlockedAnd8 ??=
-        _dylib.lookupFunction<_c__InterlockedAnd8, _dart__InterlockedAnd8>(
-            '_InterlockedAnd8'))(
-      Destination,
-      Value,
-    );
-  }
-
-  _dart__InterlockedAnd8? __InterlockedAnd8;
-
-  int _InterlockedOr8(
-    ffi.Pointer<ffi.Int8> Destination,
-    int Value,
-  ) {
-    return (__InterlockedOr8 ??=
-        _dylib.lookupFunction<_c__InterlockedOr8, _dart__InterlockedOr8>(
-            '_InterlockedOr8'))(
-      Destination,
-      Value,
-    );
-  }
-
-  _dart__InterlockedOr8? __InterlockedOr8;
-
-  int _InterlockedXor8(
-    ffi.Pointer<ffi.Int8> Destination,
-    int Value,
-  ) {
-    return (__InterlockedXor8 ??=
-        _dylib.lookupFunction<_c__InterlockedXor8, _dart__InterlockedXor8>(
-            '_InterlockedXor8'))(
-      Destination,
-      Value,
-    );
-  }
-
-  _dart__InterlockedXor8? __InterlockedXor8;
-
-  int _InterlockedAnd16(
-    ffi.Pointer<ffi.Int16> Destination,
-    int Value,
-  ) {
-    return (__InterlockedAnd16 ??=
-        _dylib.lookupFunction<_c__InterlockedAnd16, _dart__InterlockedAnd16>(
-            '_InterlockedAnd16'))(
-      Destination,
-      Value,
-    );
-  }
-
-  _dart__InterlockedAnd16? __InterlockedAnd16;
-
-  int _InterlockedOr16(
-    ffi.Pointer<ffi.Int16> Destination,
-    int Value,
-  ) {
-    return (__InterlockedOr16 ??=
-        _dylib.lookupFunction<_c__InterlockedOr16, _dart__InterlockedOr16>(
-            '_InterlockedOr16'))(
-      Destination,
-      Value,
-    );
-  }
-
-  _dart__InterlockedOr16? __InterlockedOr16;
-
-  int _InterlockedXor16(
-    ffi.Pointer<ffi.Int16> Destination,
-    int Value,
-  ) {
-    return (__InterlockedXor16 ??=
-        _dylib.lookupFunction<_c__InterlockedXor16, _dart__InterlockedXor16>(
-            '_InterlockedXor16'))(
-      Destination,
-      Value,
-    );
-  }
-
-  _dart__InterlockedXor16? __InterlockedXor16;
-
-  void __cpuidex(
-    ffi.Pointer<ffi.Int32> CPUInfo,
-    int Function_1,
-    int SubLeaf,
-  ) {
-    return (___cpuidex ??=
-        _dylib.lookupFunction<_c___cpuidex, _dart___cpuidex>('__cpuidex'))(
-      CPUInfo,
-      Function_1,
-      SubLeaf,
-    );
-  }
-
-  _dart___cpuidex? ___cpuidex;
-
-  void _mm_clflush(
-    ffi.Pointer<ffi.Void> Address,
-  ) {
-    return (__mm_clflush ??= _dylib
-        .lookupFunction<_c__mm_clflush, _dart__mm_clflush>('_mm_clflush'))(
-      Address,
-    );
-  }
-
-  _dart__mm_clflush? __mm_clflush;
-
-  void _ReadWriteBarrier() {
-    return (__ReadWriteBarrier ??=
-        _dylib.lookupFunction<_c__ReadWriteBarrier, _dart__ReadWriteBarrier>(
-            '_ReadWriteBarrier'))();
-  }
-
-  _dart__ReadWriteBarrier? __ReadWriteBarrier;
-
-  void __faststorefence() {
-    return (___faststorefence ??=
-        _dylib.lookupFunction<_c___faststorefence, _dart___faststorefence>(
-            '__faststorefence'))();
-  }
-
-  _dart___faststorefence? ___faststorefence;
-
-  void _mm_lfence() {
-    return (__mm_lfence ??=
-        _dylib.lookupFunction<_c__mm_lfence, _dart__mm_lfence>('_mm_lfence'))();
-  }
-
-  _dart__mm_lfence? __mm_lfence;
-
-  void _mm_mfence() {
-    return (__mm_mfence ??=
-        _dylib.lookupFunction<_c__mm_mfence, _dart__mm_mfence>('_mm_mfence'))();
-  }
-
-  _dart__mm_mfence? __mm_mfence;
-
-  void _mm_sfence() {
-    return (__mm_sfence ??=
-        _dylib.lookupFunction<_c__mm_sfence, _dart__mm_sfence>('_mm_sfence'))();
-  }
-
-  _dart__mm_sfence? __mm_sfence;
-
-  void _mm_pause() {
-    return (__mm_pause ??=
-        _dylib.lookupFunction<_c__mm_pause, _dart__mm_pause>('_mm_pause'))();
-  }
-
-  _dart__mm_pause? __mm_pause;
-
-  void _mm_prefetch(
-    ffi.Pointer<ffi.Int8> a,
-    int sel,
-  ) {
-    return (__mm_prefetch ??= _dylib
-        .lookupFunction<_c__mm_prefetch, _dart__mm_prefetch>('_mm_prefetch'))(
-      a,
-      sel,
-    );
-  }
-
-  _dart__mm_prefetch? __mm_prefetch;
-
-  void _m_prefetchw(
-    ffi.Pointer<ffi.Void> Source,
-  ) {
-    return (__m_prefetchw ??= _dylib
-        .lookupFunction<_c__m_prefetchw, _dart__m_prefetchw>('_m_prefetchw'))(
-      Source,
-    );
-  }
-
-  _dart__m_prefetchw? __m_prefetchw;
-
-  int _mm_getcsr() {
-    return (__mm_getcsr ??=
-        _dylib.lookupFunction<_c__mm_getcsr, _dart__mm_getcsr>('_mm_getcsr'))();
-  }
-
-  _dart__mm_getcsr? __mm_getcsr;
-
-  void _mm_setcsr(
-    int MxCsr,
-  ) {
-    return (__mm_setcsr ??=
-        _dylib.lookupFunction<_c__mm_setcsr, _dart__mm_setcsr>('_mm_setcsr'))(
-      MxCsr,
-    );
-  }
-
-  _dart__mm_setcsr? __mm_setcsr;
-
-  int __getcallerseflags() {
-    return (___getcallerseflags ??=
-        _dylib.lookupFunction<_c___getcallerseflags, _dart___getcallerseflags>(
-            '__getcallerseflags'))();
-  }
-
-  _dart___getcallerseflags? ___getcallerseflags;
-
-  int __segmentlimit(
-    int Selector,
-  ) {
-    return (___segmentlimit ??=
-        _dylib.lookupFunction<_c___segmentlimit, _dart___segmentlimit>(
-            '__segmentlimit'))(
-      Selector,
-    );
-  }
-
-  _dart___segmentlimit? ___segmentlimit;
-
-  int __readpmc(
-    int Counter,
-  ) {
-    return (___readpmc ??=
-        _dylib.lookupFunction<_c___readpmc, _dart___readpmc>('__readpmc'))(
-      Counter,
-    );
-  }
-
-  _dart___readpmc? ___readpmc;
-
-  int __rdtsc() {
-    return (___rdtsc ??=
-        _dylib.lookupFunction<_c___rdtsc, _dart___rdtsc>('__rdtsc'))();
-  }
-
-  _dart___rdtsc? ___rdtsc;
-
-  void __movsb(
-    ffi.Pointer<ffi.Uint8> Destination,
-    ffi.Pointer<ffi.Uint8> Source,
-    int Count,
-  ) {
-    return (___movsb ??=
-        _dylib.lookupFunction<_c___movsb, _dart___movsb>('__movsb'))(
-      Destination,
-      Source,
-      Count,
-    );
-  }
-
-  _dart___movsb? ___movsb;
-
-  void __movsw(
-    ffi.Pointer<ffi.Uint16> Destination,
-    ffi.Pointer<ffi.Uint16> Source,
-    int Count,
-  ) {
-    return (___movsw ??=
-        _dylib.lookupFunction<_c___movsw, _dart___movsw>('__movsw'))(
-      Destination,
-      Source,
-      Count,
-    );
-  }
-
-  _dart___movsw? ___movsw;
-
-  void __movsd(
-    ffi.Pointer<ffi.Uint64> Destination,
-    ffi.Pointer<ffi.Uint64> Source,
-    int Count,
-  ) {
-    return (___movsd ??=
-        _dylib.lookupFunction<_c___movsd, _dart___movsd>('__movsd'))(
-      Destination,
-      Source,
-      Count,
-    );
-  }
-
-  _dart___movsd? ___movsd;
-
-  void __movsq(
-    ffi.Pointer<ffi.Uint64> Destination,
-    ffi.Pointer<ffi.Uint64> Source,
-    int Count,
-  ) {
-    return (___movsq ??=
-        _dylib.lookupFunction<_c___movsq, _dart___movsq>('__movsq'))(
-      Destination,
-      Source,
-      Count,
-    );
-  }
-
-  _dart___movsq? ___movsq;
-
-  void __stosb(
-    ffi.Pointer<ffi.Uint8> Destination,
-    int Value,
-    int Count,
-  ) {
-    return (___stosb ??=
-        _dylib.lookupFunction<_c___stosb, _dart___stosb>('__stosb'))(
-      Destination,
-      Value,
-      Count,
-    );
-  }
-
-  _dart___stosb? ___stosb;
-
-  void __stosw(
-    ffi.Pointer<ffi.Uint16> Destination,
-    int Value,
-    int Count,
-  ) {
-    return (___stosw ??=
-        _dylib.lookupFunction<_c___stosw, _dart___stosw>('__stosw'))(
-      Destination,
-      Value,
-      Count,
-    );
-  }
-
-  _dart___stosw? ___stosw;
-
-  void __stosd(
-    ffi.Pointer<ffi.Uint64> Destination,
-    int Value,
-    int Count,
-  ) {
-    return (___stosd ??=
-        _dylib.lookupFunction<_c___stosd, _dart___stosd>('__stosd'))(
-      Destination,
-      Value,
-      Count,
-    );
-  }
-
-  _dart___stosd? ___stosd;
-
-  void __stosq(
-    ffi.Pointer<ffi.Uint64> Destination,
-    int Value,
-    int Count,
-  ) {
-    return (___stosq ??=
-        _dylib.lookupFunction<_c___stosq, _dart___stosq>('__stosq'))(
-      Destination,
-      Value,
-      Count,
-    );
-  }
-
-  _dart___stosq? ___stosq;
-
-  int __mulh(
-    int Multiplier,
-    int Multiplicand,
-  ) {
-    return (___mulh ??=
-        _dylib.lookupFunction<_c___mulh, _dart___mulh>('__mulh'))(
-      Multiplier,
-      Multiplicand,
-    );
-  }
-
-  _dart___mulh? ___mulh;
-
-  int __umulh(
-    int Multiplier,
-    int Multiplicand,
-  ) {
-    return (___umulh ??=
-        _dylib.lookupFunction<_c___umulh, _dart___umulh>('__umulh'))(
-      Multiplier,
-      Multiplicand,
-    );
-  }
-
-  _dart___umulh? ___umulh;
-
-  int __popcnt64(
-    int operand,
-  ) {
-    return (___popcnt64 ??=
-        _dylib.lookupFunction<_c___popcnt64, _dart___popcnt64>('__popcnt64'))(
-      operand,
-    );
-  }
-
-  _dart___popcnt64? ___popcnt64;
-
-  int __shiftleft128(
-    int LowPart,
-    int HighPart,
-    int Shift,
-  ) {
-    return (___shiftleft128 ??=
-        _dylib.lookupFunction<_c___shiftleft128, _dart___shiftleft128>(
-            '__shiftleft128'))(
-      LowPart,
-      HighPart,
-      Shift,
-    );
-  }
-
-  _dart___shiftleft128? ___shiftleft128;
-
-  int __shiftright128(
-    int LowPart,
-    int HighPart,
-    int Shift,
-  ) {
-    return (___shiftright128 ??=
-        _dylib.lookupFunction<_c___shiftright128, _dart___shiftright128>(
-            '__shiftright128'))(
-      LowPart,
-      HighPart,
-      Shift,
-    );
-  }
-
-  _dart___shiftright128? ___shiftright128;
-
-  int _mul128(
-    int Multiplier,
-    int Multiplicand,
-    ffi.Pointer<ffi.Int64> HighProduct,
-  ) {
-    return (__mul128 ??=
-        _dylib.lookupFunction<_c__mul128, _dart__mul128>('_mul128'))(
-      Multiplier,
-      Multiplicand,
-      HighProduct,
-    );
-  }
-
-  _dart__mul128? __mul128;
-
-  int _umul128(
-    int Multiplier,
-    int Multiplicand,
-    ffi.Pointer<ffi.Uint64> HighProduct,
-  ) {
-    return (__umul128 ??=
-        _dylib.lookupFunction<_c__umul128, _dart__umul128>('_umul128'))(
-      Multiplier,
-      Multiplicand,
-      HighProduct,
-    );
-  }
-
-  _dart__umul128? __umul128;
+  // int _bittest(
+  //   ffi.Pointer<ffi.Int64> Base,
+  //   int Offset,
+  // ) {
+  //   return (__bittest ??=
+  //       _dylib.lookupFunction<_c__bittest, _dart__bittest>('_bittest'))(
+  //     Base,
+  //     Offset,
+  //   );
+  // }
+
+  // _dart__bittest? __bittest;
+
+  // int _bittestandcomplement(
+  //   ffi.Pointer<ffi.Int64> Base,
+  //   int Offset,
+  // ) {
+  //   return (__bittestandcomplement ??= _dylib.lookupFunction<
+  //       _c__bittestandcomplement,
+  //       _dart__bittestandcomplement>('_bittestandcomplement'))(
+  //     Base,
+  //     Offset,
+  //   );
+  // }
+
+  // _dart__bittestandcomplement? __bittestandcomplement;
+
+  // int _bittestandset(
+  //   ffi.Pointer<ffi.Int64> Base,
+  //   int Offset,
+  // ) {
+  //   return (__bittestandset ??=
+  //       _dylib.lookupFunction<_c__bittestandset, _dart__bittestandset>(
+  //           '_bittestandset'))(
+  //     Base,
+  //     Offset,
+  //   );
+  // }
+
+  // _dart__bittestandset? __bittestandset;
+
+  // int _bittestandreset(
+  //   ffi.Pointer<ffi.Int64> Base,
+  //   int Offset,
+  // ) {
+  //   return (__bittestandreset ??=
+  //       _dylib.lookupFunction<_c__bittestandreset, _dart__bittestandreset>(
+  //           '_bittestandreset'))(
+  //     Base,
+  //     Offset,
+  //   );
+  // }
+
+  // _dart__bittestandreset? __bittestandreset;
+
+  // int _interlockedbittestandset(
+  //   ffi.Pointer<ffi.Int64> Base,
+  //   int Offset,
+  // ) {
+  //   return (__interlockedbittestandset ??= _dylib.lookupFunction<
+  //       _c__interlockedbittestandset,
+  //       _dart__interlockedbittestandset>('_interlockedbittestandset'))(
+  //     Base,
+  //     Offset,
+  //   );
+  // }
+
+  // _dart__interlockedbittestandset? __interlockedbittestandset;
+
+  // int _interlockedbittestandreset(
+  //   ffi.Pointer<ffi.Int64> Base,
+  //   int Offset,
+  // ) {
+  //   return (__interlockedbittestandreset ??= _dylib.lookupFunction<
+  //       _c__interlockedbittestandreset,
+  //       _dart__interlockedbittestandreset>('_interlockedbittestandreset'))(
+  //     Base,
+  //     Offset,
+  //   );
+  // }
+
+  // _dart__interlockedbittestandreset? __interlockedbittestandreset;
+
+  // int _bittest64(
+  //   ffi.Pointer<ffi.Int64> Base,
+  //   int Offset,
+  // ) {
+  //   return (__bittest64 ??=
+  //       _dylib.lookupFunction<_c__bittest64, _dart__bittest64>('_bittest64'))(
+  //     Base,
+  //     Offset,
+  //   );
+  // }
+
+  // _dart__bittest64? __bittest64;
+
+  // int _bittestandcomplement64(
+  //   ffi.Pointer<ffi.Int64> Base,
+  //   int Offset,
+  // ) {
+  //   return (__bittestandcomplement64 ??= _dylib.lookupFunction<
+  //       _c__bittestandcomplement64,
+  //       _dart__bittestandcomplement64>('_bittestandcomplement64'))(
+  //     Base,
+  //     Offset,
+  //   );
+  // }
+
+  // _dart__bittestandcomplement64? __bittestandcomplement64;
+
+  // int _bittestandset64(
+  //   ffi.Pointer<ffi.Int64> Base,
+  //   int Offset,
+  // ) {
+  //   return (__bittestandset64 ??=
+  //       _dylib.lookupFunction<_c__bittestandset64, _dart__bittestandset64>(
+  //           '_bittestandset64'))(
+  //     Base,
+  //     Offset,
+  //   );
+  // }
+
+  // _dart__bittestandset64? __bittestandset64;
+
+  // int _bittestandreset64(
+  //   ffi.Pointer<ffi.Int64> Base,
+  //   int Offset,
+  // ) {
+  //   return (__bittestandreset64 ??=
+  //       _dylib.lookupFunction<_c__bittestandreset64, _dart__bittestandreset64>(
+  //           '_bittestandreset64'))(
+  //     Base,
+  //     Offset,
+  //   );
+  // }
+
+  // _dart__bittestandreset64? __bittestandreset64;
+
+  // int _interlockedbittestandset64(
+  //   ffi.Pointer<ffi.Int64> Base,
+  //   int Offset,
+  // ) {
+  //   return (__interlockedbittestandset64 ??= _dylib.lookupFunction<
+  //       _c__interlockedbittestandset64,
+  //       _dart__interlockedbittestandset64>('_interlockedbittestandset64'))(
+  //     Base,
+  //     Offset,
+  //   );
+  // }
+
+  // _dart__interlockedbittestandset64? __interlockedbittestandset64;
+
+  // int _interlockedbittestandreset64(
+  //   ffi.Pointer<ffi.Int64> Base,
+  //   int Offset,
+  // ) {
+  //   return (__interlockedbittestandreset64 ??= _dylib.lookupFunction<
+  //       _c__interlockedbittestandreset64,
+  //       _dart__interlockedbittestandreset64>('_interlockedbittestandreset64'))(
+  //     Base,
+  //     Offset,
+  //   );
+  // }
+
+  // _dart__interlockedbittestandreset64? __interlockedbittestandreset64;
+
+  // int _BitScanForward(
+  //   ffi.Pointer<ffi.Uint64> Index,
+  //   int Mask,
+  // ) {
+  //   return (__BitScanForward ??=
+  //       _dylib.lookupFunction<_c__BitScanForward, _dart__BitScanForward>(
+  //           '_BitScanForward'))(
+  //     Index,
+  //     Mask,
+  //   );
+  // }
+
+  // _dart__BitScanForward? __BitScanForward;
+
+  // int _BitScanReverse(
+  //   ffi.Pointer<ffi.Uint64> Index,
+  //   int Mask,
+  // ) {
+  //   return (__BitScanReverse ??=
+  //       _dylib.lookupFunction<_c__BitScanReverse, _dart__BitScanReverse>(
+  //           '_BitScanReverse'))(
+  //     Index,
+  //     Mask,
+  //   );
+  // }
+
+  // _dart__BitScanReverse? __BitScanReverse;
+
+  // int _BitScanForward64(
+  //   ffi.Pointer<ffi.Uint64> Index,
+  //   int Mask,
+  // ) {
+  //   return (__BitScanForward64 ??=
+  //       _dylib.lookupFunction<_c__BitScanForward64, _dart__BitScanForward64>(
+  //           '_BitScanForward64'))(
+  //     Index,
+  //     Mask,
+  //   );
+  // }
+
+  // _dart__BitScanForward64? __BitScanForward64;
+
+  // int _BitScanReverse64(
+  //   ffi.Pointer<ffi.Uint64> Index,
+  //   int Mask,
+  // ) {
+  //   return (__BitScanReverse64 ??=
+  //       _dylib.lookupFunction<_c__BitScanReverse64, _dart__BitScanReverse64>(
+  //           '_BitScanReverse64'))(
+  //     Index,
+  //     Mask,
+  //   );
+  // }
+
+  // _dart__BitScanReverse64? __BitScanReverse64;
+
+  // int _InterlockedIncrement16(
+  //   ffi.Pointer<ffi.Int16> Addend,
+  // ) {
+  //   return (__InterlockedIncrement16 ??= _dylib.lookupFunction<
+  //       _c__InterlockedIncrement16,
+  //       _dart__InterlockedIncrement16>('_InterlockedIncrement16'))(
+  //     Addend,
+  //   );
+  // }
+
+  // _dart__InterlockedIncrement16? __InterlockedIncrement16;
+
+  // int _InterlockedDecrement16(
+  //   ffi.Pointer<ffi.Int16> Addend,
+  // ) {
+  //   return (__InterlockedDecrement16 ??= _dylib.lookupFunction<
+  //       _c__InterlockedDecrement16,
+  //       _dart__InterlockedDecrement16>('_InterlockedDecrement16'))(
+  //     Addend,
+  //   );
+  // }
+
+  // _dart__InterlockedDecrement16? __InterlockedDecrement16;
+
+  // int _InterlockedCompareExchange16(
+  //   ffi.Pointer<ffi.Int16> Destination,
+  //   int ExChange,
+  //   int Comperand,
+  // ) {
+  //   return (__InterlockedCompareExchange16 ??= _dylib.lookupFunction<
+  //       _c__InterlockedCompareExchange16,
+  //       _dart__InterlockedCompareExchange16>('_InterlockedCompareExchange16'))(
+  //     Destination,
+  //     ExChange,
+  //     Comperand,
+  //   );
+  // }
+
+  // _dart__InterlockedCompareExchange16? __InterlockedCompareExchange16;
+
+  // int _InterlockedAnd(
+  //   ffi.Pointer<ffi.Int64> Destination,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedAnd ??=
+  //       _dylib.lookupFunction<_c__InterlockedAnd, _dart__InterlockedAnd>(
+  //           '_InterlockedAnd'))(
+  //     Destination,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedAnd? __InterlockedAnd;
+
+  // int _InterlockedOr(
+  //   ffi.Pointer<ffi.Int64> Destination,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedOr ??=
+  //       _dylib.lookupFunction<_c__InterlockedOr, _dart__InterlockedOr>(
+  //           '_InterlockedOr'))(
+  //     Destination,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedOr? __InterlockedOr;
+
+  // int _InterlockedXor(
+  //   ffi.Pointer<ffi.Int64> Destination,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedXor ??=
+  //       _dylib.lookupFunction<_c__InterlockedXor, _dart__InterlockedXor>(
+  //           '_InterlockedXor'))(
+  //     Destination,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedXor? __InterlockedXor;
+
+  // int _InterlockedAnd64(
+  //   ffi.Pointer<ffi.Int64> Destination,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedAnd64 ??=
+  //       _dylib.lookupFunction<_c__InterlockedAnd64, _dart__InterlockedAnd64>(
+  //           '_InterlockedAnd64'))(
+  //     Destination,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedAnd64? __InterlockedAnd64;
+
+  // int _InterlockedOr64(
+  //   ffi.Pointer<ffi.Int64> Destination,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedOr64 ??=
+  //       _dylib.lookupFunction<_c__InterlockedOr64, _dart__InterlockedOr64>(
+  //           '_InterlockedOr64'))(
+  //     Destination,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedOr64? __InterlockedOr64;
+
+  // int _InterlockedXor64(
+  //   ffi.Pointer<ffi.Int64> Destination,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedXor64 ??=
+  //       _dylib.lookupFunction<_c__InterlockedXor64, _dart__InterlockedXor64>(
+  //           '_InterlockedXor64'))(
+  //     Destination,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedXor64? __InterlockedXor64;
+
+  // int _InterlockedIncrement(
+  //   ffi.Pointer<ffi.Int64> Addend,
+  // ) {
+  //   return (__InterlockedIncrement ??= _dylib.lookupFunction<
+  //       _c__InterlockedIncrement,
+  //       _dart__InterlockedIncrement>('_InterlockedIncrement'))(
+  //     Addend,
+  //   );
+  // }
+
+  // _dart__InterlockedIncrement? __InterlockedIncrement;
+
+  // int _InterlockedDecrement(
+  //   ffi.Pointer<ffi.Int64> Addend,
+  // ) {
+  //   return (__InterlockedDecrement ??= _dylib.lookupFunction<
+  //       _c__InterlockedDecrement,
+  //       _dart__InterlockedDecrement>('_InterlockedDecrement'))(
+  //     Addend,
+  //   );
+  // }
+
+  // _dart__InterlockedDecrement? __InterlockedDecrement;
+
+  // int _InterlockedExchange(
+  //   ffi.Pointer<ffi.Int64> Target,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedExchange ??= _dylib.lookupFunction<
+  //       _c__InterlockedExchange,
+  //       _dart__InterlockedExchange>('_InterlockedExchange'))(
+  //     Target,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedExchange? __InterlockedExchange;
+
+  // int _InterlockedExchangeAdd(
+  //   ffi.Pointer<ffi.Int64> Addend,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedExchangeAdd ??= _dylib.lookupFunction<
+  //       _c__InterlockedExchangeAdd,
+  //       _dart__InterlockedExchangeAdd>('_InterlockedExchangeAdd'))(
+  //     Addend,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedExchangeAdd? __InterlockedExchangeAdd;
+
+  // int _InlineInterlockedAdd(
+  //   ffi.Pointer<ffi.Int64> Addend,
+  //   int Value,
+  // ) {
+  //   return (__InlineInterlockedAdd ??= _dylib.lookupFunction<
+  //       _c__InlineInterlockedAdd,
+  //       _dart__InlineInterlockedAdd>('_InlineInterlockedAdd'))(
+  //     Addend,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InlineInterlockedAdd? __InlineInterlockedAdd;
+
+  // int _InterlockedCompareExchange(
+  //   ffi.Pointer<ffi.Int64> Destination,
+  //   int ExChange,
+  //   int Comperand,
+  // ) {
+  //   return (__InterlockedCompareExchange ??= _dylib.lookupFunction<
+  //       _c__InterlockedCompareExchange,
+  //       _dart__InterlockedCompareExchange>('_InterlockedCompareExchange'))(
+  //     Destination,
+  //     ExChange,
+  //     Comperand,
+  //   );
+  // }
+
+  // _dart__InterlockedCompareExchange? __InterlockedCompareExchange;
+
+  // int _InterlockedIncrement64(
+  //   ffi.Pointer<ffi.Int64> Addend,
+  // ) {
+  //   return (__InterlockedIncrement64 ??= _dylib.lookupFunction<
+  //       _c__InterlockedIncrement64,
+  //       _dart__InterlockedIncrement64>('_InterlockedIncrement64'))(
+  //     Addend,
+  //   );
+  // }
+
+  // _dart__InterlockedIncrement64? __InterlockedIncrement64;
+
+  // int _InterlockedDecrement64(
+  //   ffi.Pointer<ffi.Int64> Addend,
+  // ) {
+  //   return (__InterlockedDecrement64 ??= _dylib.lookupFunction<
+  //       _c__InterlockedDecrement64,
+  //       _dart__InterlockedDecrement64>('_InterlockedDecrement64'))(
+  //     Addend,
+  //   );
+  // }
+
+  // _dart__InterlockedDecrement64? __InterlockedDecrement64;
+
+  // int _InterlockedExchange64(
+  //   ffi.Pointer<ffi.Int64> Target,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedExchange64 ??= _dylib.lookupFunction<
+  //       _c__InterlockedExchange64,
+  //       _dart__InterlockedExchange64>('_InterlockedExchange64'))(
+  //     Target,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedExchange64? __InterlockedExchange64;
+
+  // int _InterlockedExchangeAdd64(
+  //   ffi.Pointer<ffi.Int64> Addend,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedExchangeAdd64 ??= _dylib.lookupFunction<
+  //       _c__InterlockedExchangeAdd64,
+  //       _dart__InterlockedExchangeAdd64>('_InterlockedExchangeAdd64'))(
+  //     Addend,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedExchangeAdd64? __InterlockedExchangeAdd64;
+
+  // int _InlineInterlockedAdd64(
+  //   ffi.Pointer<ffi.Int64> Addend,
+  //   int Value,
+  // ) {
+  //   return (__InlineInterlockedAdd64 ??= _dylib.lookupFunction<
+  //       _c__InlineInterlockedAdd64,
+  //       _dart__InlineInterlockedAdd64>('_InlineInterlockedAdd64'))(
+  //     Addend,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InlineInterlockedAdd64? __InlineInterlockedAdd64;
+
+  // int _InterlockedCompareExchange64(
+  //   ffi.Pointer<ffi.Int64> Destination,
+  //   int ExChange,
+  //   int Comperand,
+  // ) {
+  //   return (__InterlockedCompareExchange64 ??= _dylib.lookupFunction<
+  //       _c__InterlockedCompareExchange64,
+  //       _dart__InterlockedCompareExchange64>('_InterlockedCompareExchange64'))(
+  //     Destination,
+  //     ExChange,
+  //     Comperand,
+  //   );
+  // }
+
+  // _dart__InterlockedCompareExchange64? __InterlockedCompareExchange64;
+
+  // int _InterlockedCompareExchange128(
+  //   ffi.Pointer<ffi.Int64> Destination,
+  //   int ExchangeHigh,
+  //   int ExchangeLow,
+  //   ffi.Pointer<ffi.Int64> ComparandResult,
+  // ) {
+  //   return (__InterlockedCompareExchange128 ??= _dylib.lookupFunction<
+  //           _c__InterlockedCompareExchange128,
+  //           _dart__InterlockedCompareExchange128>(
+  //       '_InterlockedCompareExchange128'))(
+  //     Destination,
+  //     ExchangeHigh,
+  //     ExchangeLow,
+  //     ComparandResult,
+  //   );
+  // }
+
+  // _dart__InterlockedCompareExchange128? __InterlockedCompareExchange128;
+
+  // ffi.Pointer<ffi.Void> _InterlockedCompareExchangePointer(
+  //   ffi.Pointer<ffi.Pointer<ffi.Void>> Destination,
+  //   ffi.Pointer<ffi.Void> Exchange,
+  //   ffi.Pointer<ffi.Void> Comperand,
+  // ) {
+  //   return (__InterlockedCompareExchangePointer ??= _dylib.lookupFunction<
+  //           _c__InterlockedCompareExchangePointer,
+  //           _dart__InterlockedCompareExchangePointer>(
+  //       '_InterlockedCompareExchangePointer'))(
+  //     Destination,
+  //     Exchange,
+  //     Comperand,
+  //   );
+  // }
+
+  // _dart__InterlockedCompareExchangePointer? __InterlockedCompareExchangePointer;
+
+  // ffi.Pointer<ffi.Void> _InterlockedExchangePointer(
+  //   ffi.Pointer<ffi.Pointer<ffi.Void>> Target,
+  //   ffi.Pointer<ffi.Void> Value,
+  // ) {
+  //   return (__InterlockedExchangePointer ??= _dylib.lookupFunction<
+  //       _c__InterlockedExchangePointer,
+  //       _dart__InterlockedExchangePointer>('_InterlockedExchangePointer'))(
+  //     Target,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedExchangePointer? __InterlockedExchangePointer;
+
+  // int _InterlockedExchange8(
+  //   ffi.Pointer<ffi.Int8> Target,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedExchange8 ??= _dylib.lookupFunction<
+  //       _c__InterlockedExchange8,
+  //       _dart__InterlockedExchange8>('_InterlockedExchange8'))(
+  //     Target,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedExchange8? __InterlockedExchange8;
+
+  // int _InterlockedExchange16(
+  //   ffi.Pointer<ffi.Int16> Destination,
+  //   int ExChange,
+  // ) {
+  //   return (__InterlockedExchange16 ??= _dylib.lookupFunction<
+  //       _c__InterlockedExchange16,
+  //       _dart__InterlockedExchange16>('_InterlockedExchange16'))(
+  //     Destination,
+  //     ExChange,
+  //   );
+  // }
+
+  // _dart__InterlockedExchange16? __InterlockedExchange16;
+
+  // int _InterlockedExchangeAdd8(
+  //   ffi.Pointer<ffi.Int8> _Addend,
+  //   int _Value,
+  // ) {
+  //   return (__InterlockedExchangeAdd8 ??= _dylib.lookupFunction<
+  //       _c__InterlockedExchangeAdd8,
+  //       _dart__InterlockedExchangeAdd8>('_InterlockedExchangeAdd8'))(
+  //     _Addend,
+  //     _Value,
+  //   );
+  // }
+
+  // _dart__InterlockedExchangeAdd8? __InterlockedExchangeAdd8;
+
+  // int _InterlockedAnd8(
+  //   ffi.Pointer<ffi.Int8> Destination,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedAnd8 ??=
+  //       _dylib.lookupFunction<_c__InterlockedAnd8, _dart__InterlockedAnd8>(
+  //           '_InterlockedAnd8'))(
+  //     Destination,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedAnd8? __InterlockedAnd8;
+
+  // int _InterlockedOr8(
+  //   ffi.Pointer<ffi.Int8> Destination,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedOr8 ??=
+  //       _dylib.lookupFunction<_c__InterlockedOr8, _dart__InterlockedOr8>(
+  //           '_InterlockedOr8'))(
+  //     Destination,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedOr8? __InterlockedOr8;
+
+  // int _InterlockedXor8(
+  //   ffi.Pointer<ffi.Int8> Destination,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedXor8 ??=
+  //       _dylib.lookupFunction<_c__InterlockedXor8, _dart__InterlockedXor8>(
+  //           '_InterlockedXor8'))(
+  //     Destination,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedXor8? __InterlockedXor8;
+
+  // int _InterlockedAnd16(
+  //   ffi.Pointer<ffi.Int16> Destination,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedAnd16 ??=
+  //       _dylib.lookupFunction<_c__InterlockedAnd16, _dart__InterlockedAnd16>(
+  //           '_InterlockedAnd16'))(
+  //     Destination,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedAnd16? __InterlockedAnd16;
+
+  // int _InterlockedOr16(
+  //   ffi.Pointer<ffi.Int16> Destination,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedOr16 ??=
+  //       _dylib.lookupFunction<_c__InterlockedOr16, _dart__InterlockedOr16>(
+  //           '_InterlockedOr16'))(
+  //     Destination,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedOr16? __InterlockedOr16;
+
+  // int _InterlockedXor16(
+  //   ffi.Pointer<ffi.Int16> Destination,
+  //   int Value,
+  // ) {
+  //   return (__InterlockedXor16 ??=
+  //       _dylib.lookupFunction<_c__InterlockedXor16, _dart__InterlockedXor16>(
+  //           '_InterlockedXor16'))(
+  //     Destination,
+  //     Value,
+  //   );
+  // }
+
+  // _dart__InterlockedXor16? __InterlockedXor16;
+
+  // void __cpuidex(
+  //   ffi.Pointer<ffi.Int32> CPUInfo,
+  //   int Function_1,
+  //   int SubLeaf,
+  // ) {
+  //   return (___cpuidex ??=
+  //       _dylib.lookupFunction<_c___cpuidex, _dart___cpuidex>('__cpuidex'))(
+  //     CPUInfo,
+  //     Function_1,
+  //     SubLeaf,
+  //   );
+  // }
+
+  // _dart___cpuidex? ___cpuidex;
+
+  // void _mm_clflush(
+  //   ffi.Pointer<ffi.Void> Address,
+  // ) {
+  //   return (__mm_clflush ??= _dylib
+  //       .lookupFunction<_c__mm_clflush, _dart__mm_clflush>('_mm_clflush'))(
+  //     Address,
+  //   );
+  // }
+
+  // _dart__mm_clflush? __mm_clflush;
+
+  // void _ReadWriteBarrier() {
+  //   return (__ReadWriteBarrier ??=
+  //       _dylib.lookupFunction<_c__ReadWriteBarrier, _dart__ReadWriteBarrier>(
+  //           '_ReadWriteBarrier'))();
+  // }
+
+  // _dart__ReadWriteBarrier? __ReadWriteBarrier;
+
+  // void __faststorefence() {
+  //   return (___faststorefence ??=
+  //       _dylib.lookupFunction<_c___faststorefence, _dart___faststorefence>(
+  //           '__faststorefence'))();
+  // }
+
+  // _dart___faststorefence? ___faststorefence;
+
+  // void _mm_lfence() {
+  //   return (__mm_lfence ??=
+  //       _dylib.lookupFunction<_c__mm_lfence, _dart__mm_lfence>('_mm_lfence'))();
+  // }
+
+  // _dart__mm_lfence? __mm_lfence;
+
+  // void _mm_mfence() {
+  //   return (__mm_mfence ??=
+  //       _dylib.lookupFunction<_c__mm_mfence, _dart__mm_mfence>('_mm_mfence'))();
+  // }
+
+  // _dart__mm_mfence? __mm_mfence;
+
+  // void _mm_sfence() {
+  //   return (__mm_sfence ??=
+  //       _dylib.lookupFunction<_c__mm_sfence, _dart__mm_sfence>('_mm_sfence'))();
+  // }
+
+  // _dart__mm_sfence? __mm_sfence;
+
+  // void _mm_pause() {
+  //   return (__mm_pause ??=
+  //       _dylib.lookupFunction<_c__mm_pause, _dart__mm_pause>('_mm_pause'))();
+  // }
+
+  // _dart__mm_pause? __mm_pause;
+
+  // void _mm_prefetch(
+  //   ffi.Pointer<ffi.Int8> a,
+  //   int sel,
+  // ) {
+  //   return (__mm_prefetch ??= _dylib
+  //       .lookupFunction<_c__mm_prefetch, _dart__mm_prefetch>('_mm_prefetch'))(
+  //     a,
+  //     sel,
+  //   );
+  // }
+
+  // _dart__mm_prefetch? __mm_prefetch;
+
+  // void _m_prefetchw(
+  //   ffi.Pointer<ffi.Void> Source,
+  // ) {
+  //   return (__m_prefetchw ??= _dylib
+  //       .lookupFunction<_c__m_prefetchw, _dart__m_prefetchw>('_m_prefetchw'))(
+  //     Source,
+  //   );
+  // }
+
+  // _dart__m_prefetchw? __m_prefetchw;
+
+  // int _mm_getcsr() {
+  //   return (__mm_getcsr ??=
+  //       _dylib.lookupFunction<_c__mm_getcsr, _dart__mm_getcsr>('_mm_getcsr'))();
+  // }
+
+  // _dart__mm_getcsr? __mm_getcsr;
+
+  // void _mm_setcsr(
+  //   int MxCsr,
+  // ) {
+  //   return (__mm_setcsr ??=
+  //       _dylib.lookupFunction<_c__mm_setcsr, _dart__mm_setcsr>('_mm_setcsr'))(
+  //     MxCsr,
+  //   );
+  // }
+
+  // _dart__mm_setcsr? __mm_setcsr;
+
+  // int __getcallerseflags() {
+  //   return (___getcallerseflags ??=
+  //       _dylib.lookupFunction<_c___getcallerseflags, _dart___getcallerseflags>(
+  //           '__getcallerseflags'))();
+  // }
+
+  // _dart___getcallerseflags? ___getcallerseflags;
+
+  // int __segmentlimit(
+  //   int Selector,
+  // ) {
+  //   return (___segmentlimit ??=
+  //       _dylib.lookupFunction<_c___segmentlimit, _dart___segmentlimit>(
+  //           '__segmentlimit'))(
+  //     Selector,
+  //   );
+  // }
+
+  // _dart___segmentlimit? ___segmentlimit;
+
+  // int __readpmc(
+  //   int Counter,
+  // ) {
+  //   return (___readpmc ??=
+  //       _dylib.lookupFunction<_c___readpmc, _dart___readpmc>('__readpmc'))(
+  //     Counter,
+  //   );
+  // }
+
+  // _dart___readpmc? ___readpmc;
+
+  // int __rdtsc() {
+  //   return (___rdtsc ??=
+  //       _dylib.lookupFunction<_c___rdtsc, _dart___rdtsc>('__rdtsc'))();
+  // }
+
+  // _dart___rdtsc? ___rdtsc;
+
+  // void __movsb(
+  //   ffi.Pointer<ffi.Uint8> Destination,
+  //   ffi.Pointer<ffi.Uint8> Source,
+  //   int Count,
+  // ) {
+  //   return (___movsb ??=
+  //       _dylib.lookupFunction<_c___movsb, _dart___movsb>('__movsb'))(
+  //     Destination,
+  //     Source,
+  //     Count,
+  //   );
+  // }
+
+  // _dart___movsb? ___movsb;
+
+  // void __movsw(
+  //   ffi.Pointer<ffi.Uint16> Destination,
+  //   ffi.Pointer<ffi.Uint16> Source,
+  //   int Count,
+  // ) {
+  //   return (___movsw ??=
+  //       _dylib.lookupFunction<_c___movsw, _dart___movsw>('__movsw'))(
+  //     Destination,
+  //     Source,
+  //     Count,
+  //   );
+  // }
+
+  // _dart___movsw? ___movsw;
+
+  // void __movsd(
+  //   ffi.Pointer<ffi.Uint64> Destination,
+  //   ffi.Pointer<ffi.Uint64> Source,
+  //   int Count,
+  // ) {
+  //   return (___movsd ??=
+  //       _dylib.lookupFunction<_c___movsd, _dart___movsd>('__movsd'))(
+  //     Destination,
+  //     Source,
+  //     Count,
+  //   );
+  // }
+
+  // _dart___movsd? ___movsd;
+
+  // void __movsq(
+  //   ffi.Pointer<ffi.Uint64> Destination,
+  //   ffi.Pointer<ffi.Uint64> Source,
+  //   int Count,
+  // ) {
+  //   return (___movsq ??=
+  //       _dylib.lookupFunction<_c___movsq, _dart___movsq>('__movsq'))(
+  //     Destination,
+  //     Source,
+  //     Count,
+  //   );
+  // }
+
+  // _dart___movsq? ___movsq;
+
+  // void __stosb(
+  //   ffi.Pointer<ffi.Uint8> Destination,
+  //   int Value,
+  //   int Count,
+  // ) {
+  //   return (___stosb ??=
+  //       _dylib.lookupFunction<_c___stosb, _dart___stosb>('__stosb'))(
+  //     Destination,
+  //     Value,
+  //     Count,
+  //   );
+  // }
+
+  // _dart___stosb? ___stosb;
+
+  // void __stosw(
+  //   ffi.Pointer<ffi.Uint16> Destination,
+  //   int Value,
+  //   int Count,
+  // ) {
+  //   return (___stosw ??=
+  //       _dylib.lookupFunction<_c___stosw, _dart___stosw>('__stosw'))(
+  //     Destination,
+  //     Value,
+  //     Count,
+  //   );
+  // }
+
+  // _dart___stosw? ___stosw;
+
+  // void __stosd(
+  //   ffi.Pointer<ffi.Uint64> Destination,
+  //   int Value,
+  //   int Count,
+  // ) {
+  //   return (___stosd ??=
+  //       _dylib.lookupFunction<_c___stosd, _dart___stosd>('__stosd'))(
+  //     Destination,
+  //     Value,
+  //     Count,
+  //   );
+  // }
+
+  // _dart___stosd? ___stosd;
+
+  // void __stosq(
+  //   ffi.Pointer<ffi.Uint64> Destination,
+  //   int Value,
+  //   int Count,
+  // ) {
+  //   return (___stosq ??=
+  //       _dylib.lookupFunction<_c___stosq, _dart___stosq>('__stosq'))(
+  //     Destination,
+  //     Value,
+  //     Count,
+  //   );
+  // }
+
+  // _dart___stosq? ___stosq;
+
+  // int __mulh(
+  //   int Multiplier,
+  //   int Multiplicand,
+  // ) {
+  //   return (___mulh ??=
+  //       _dylib.lookupFunction<_c___mulh, _dart___mulh>('__mulh'))(
+  //     Multiplier,
+  //     Multiplicand,
+  //   );
+  // }
+
+  // _dart___mulh? ___mulh;
+
+  // int __umulh(
+  //   int Multiplier,
+  //   int Multiplicand,
+  // ) {
+  //   return (___umulh ??=
+  //       _dylib.lookupFunction<_c___umulh, _dart___umulh>('__umulh'))(
+  //     Multiplier,
+  //     Multiplicand,
+  //   );
+  // }
+
+  // _dart___umulh? ___umulh;
+
+  // int __popcnt64(
+  //   int operand,
+  // ) {
+  //   return (___popcnt64 ??=
+  //       _dylib.lookupFunction<_c___popcnt64, _dart___popcnt64>('__popcnt64'))(
+  //     operand,
+  //   );
+  // }
+
+  // _dart___popcnt64? ___popcnt64;
+
+  // int __shiftleft128(
+  //   int LowPart,
+  //   int HighPart,
+  //   int Shift,
+  // ) {
+  //   return (___shiftleft128 ??=
+  //       _dylib.lookupFunction<_c___shiftleft128, _dart___shiftleft128>(
+  //           '__shiftleft128'))(
+  //     LowPart,
+  //     HighPart,
+  //     Shift,
+  //   );
+  // }
+
+  // _dart___shiftleft128? ___shiftleft128;
+
+  // int __shiftright128(
+  //   int LowPart,
+  //   int HighPart,
+  //   int Shift,
+  // ) {
+  //   return (___shiftright128 ??=
+  //       _dylib.lookupFunction<_c___shiftright128, _dart___shiftright128>(
+  //           '__shiftright128'))(
+  //     LowPart,
+  //     HighPart,
+  //     Shift,
+  //   );
+  // }
+
+  // _dart___shiftright128? ___shiftright128;
+
+  // int _mul128(
+  //   int Multiplier,
+  //   int Multiplicand,
+  //   ffi.Pointer<ffi.Int64> HighProduct,
+  // ) {
+  //   return (__mul128 ??=
+  //       _dylib.lookupFunction<_c__mul128, _dart__mul128>('_mul128'))(
+  //     Multiplier,
+  //     Multiplicand,
+  //     HighProduct,
+  //   );
+  // }
+
+  // _dart__mul128? __mul128;
+
+  // int _umul128(
+  //   int Multiplier,
+  //   int Multiplicand,
+  //   ffi.Pointer<ffi.Uint64> HighProduct,
+  // ) {
+  //   return (__umul128 ??=
+  //       _dylib.lookupFunction<_c__umul128, _dart__umul128>('_umul128'))(
+  //     Multiplier,
+  //     Multiplicand,
+  //     HighProduct,
+  //   );
+  // }
+
+  // _dart__umul128? __umul128;
 
   int MultiplyExtract128(
     int Multiplier,
@@ -5218,210 +5218,210 @@ class LibEGL {
 
   _dart_UnsignedMultiplyExtract128? _UnsignedMultiplyExtract128;
 
-  int __readgsbyte(
-    int Offset,
-  ) {
-    return (___readgsbyte ??= _dylib
-        .lookupFunction<_c___readgsbyte, _dart___readgsbyte>('__readgsbyte'))(
-      Offset,
-    );
-  }
+  // int __readgsbyte(
+  //   int Offset,
+  // ) {
+  //   return (___readgsbyte ??= _dylib
+  //       .lookupFunction<_c___readgsbyte, _dart___readgsbyte>('__readgsbyte'))(
+  //     Offset,
+  //   );
+  // }
 
-  _dart___readgsbyte? ___readgsbyte;
+  // _dart___readgsbyte? ___readgsbyte;
 
-  int __readgsword(
-    int Offset,
-  ) {
-    return (___readgsword ??= _dylib
-        .lookupFunction<_c___readgsword, _dart___readgsword>('__readgsword'))(
-      Offset,
-    );
-  }
+  // int __readgsword(
+  //   int Offset,
+  // ) {
+  //   return (___readgsword ??= _dylib
+  //       .lookupFunction<_c___readgsword, _dart___readgsword>('__readgsword'))(
+  //     Offset,
+  //   );
+  // }
 
-  _dart___readgsword? ___readgsword;
+  // _dart___readgsword? ___readgsword;
 
-  int __readgsdword(
-    int Offset,
-  ) {
-    return (___readgsdword ??=
-        _dylib.lookupFunction<_c___readgsdword, _dart___readgsdword>(
-            '__readgsdword'))(
-      Offset,
-    );
-  }
+  // int __readgsdword(
+  //   int Offset,
+  // ) {
+  //   return (___readgsdword ??=
+  //       _dylib.lookupFunction<_c___readgsdword, _dart___readgsdword>(
+  //           '__readgsdword'))(
+  //     Offset,
+  //   );
+  // }
 
-  _dart___readgsdword? ___readgsdword;
+  // _dart___readgsdword? ___readgsdword;
 
-  int __readgsqword(
-    int Offset,
-  ) {
-    return (___readgsqword ??=
-        _dylib.lookupFunction<_c___readgsqword, _dart___readgsqword>(
-            '__readgsqword'))(
-      Offset,
-    );
-  }
+  // int __readgsqword(
+  //   int Offset,
+  // ) {
+  //   return (___readgsqword ??=
+  //       _dylib.lookupFunction<_c___readgsqword, _dart___readgsqword>(
+  //           '__readgsqword'))(
+  //     Offset,
+  //   );
+  // }
 
-  _dart___readgsqword? ___readgsqword;
+  // _dart___readgsqword? ___readgsqword;
 
-  void __writegsbyte(
-    int Offset,
-    int Data,
-  ) {
-    return (___writegsbyte ??=
-        _dylib.lookupFunction<_c___writegsbyte, _dart___writegsbyte>(
-            '__writegsbyte'))(
-      Offset,
-      Data,
-    );
-  }
+  // void __writegsbyte(
+  //   int Offset,
+  //   int Data,
+  // ) {
+  //   return (___writegsbyte ??=
+  //       _dylib.lookupFunction<_c___writegsbyte, _dart___writegsbyte>(
+  //           '__writegsbyte'))(
+  //     Offset,
+  //     Data,
+  //   );
+  // }
 
-  _dart___writegsbyte? ___writegsbyte;
+  // _dart___writegsbyte? ___writegsbyte;
 
-  void __writegsword(
-    int Offset,
-    int Data,
-  ) {
-    return (___writegsword ??=
-        _dylib.lookupFunction<_c___writegsword, _dart___writegsword>(
-            '__writegsword'))(
-      Offset,
-      Data,
-    );
-  }
+  // void __writegsword(
+  //   int Offset,
+  //   int Data,
+  // ) {
+  //   return (___writegsword ??=
+  //       _dylib.lookupFunction<_c___writegsword, _dart___writegsword>(
+  //           '__writegsword'))(
+  //     Offset,
+  //     Data,
+  //   );
+  // }
 
-  _dart___writegsword? ___writegsword;
+  // _dart___writegsword? ___writegsword;
 
-  void __writegsdword(
-    int Offset,
-    int Data,
-  ) {
-    return (___writegsdword ??=
-        _dylib.lookupFunction<_c___writegsdword, _dart___writegsdword>(
-            '__writegsdword'))(
-      Offset,
-      Data,
-    );
-  }
+  // void __writegsdword(
+  //   int Offset,
+  //   int Data,
+  // ) {
+  //   return (___writegsdword ??=
+  //       _dylib.lookupFunction<_c___writegsdword, _dart___writegsdword>(
+  //           '__writegsdword'))(
+  //     Offset,
+  //     Data,
+  //   );
+  // }
 
-  _dart___writegsdword? ___writegsdword;
+  // _dart___writegsdword? ___writegsdword;
 
-  void __writegsqword(
-    int Offset,
-    int Data,
-  ) {
-    return (___writegsqword ??=
-        _dylib.lookupFunction<_c___writegsqword, _dart___writegsqword>(
-            '__writegsqword'))(
-      Offset,
-      Data,
-    );
-  }
+  // void __writegsqword(
+  //   int Offset,
+  //   int Data,
+  // ) {
+  //   return (___writegsqword ??=
+  //       _dylib.lookupFunction<_c___writegsqword, _dart___writegsqword>(
+  //           '__writegsqword'))(
+  //     Offset,
+  //     Data,
+  //   );
+  // }
 
-  _dart___writegsqword? ___writegsqword;
+  // _dart___writegsqword? ___writegsqword;
 
-  void __incgsbyte(
-    int Offset,
-  ) {
-    return (___incgsbyte ??= _dylib
-        .lookupFunction<_c___incgsbyte, _dart___incgsbyte>('__incgsbyte'))(
-      Offset,
-    );
-  }
+  // void __incgsbyte(
+  //   int Offset,
+  // ) {
+  //   return (___incgsbyte ??= _dylib
+  //       .lookupFunction<_c___incgsbyte, _dart___incgsbyte>('__incgsbyte'))(
+  //     Offset,
+  //   );
+  // }
 
-  _dart___incgsbyte? ___incgsbyte;
+  // _dart___incgsbyte? ___incgsbyte;
 
-  void __addgsbyte(
-    int Offset,
-    int Value,
-  ) {
-    return (___addgsbyte ??= _dylib
-        .lookupFunction<_c___addgsbyte, _dart___addgsbyte>('__addgsbyte'))(
-      Offset,
-      Value,
-    );
-  }
+  // void __addgsbyte(
+  //   int Offset,
+  //   int Value,
+  // ) {
+  //   return (___addgsbyte ??= _dylib
+  //       .lookupFunction<_c___addgsbyte, _dart___addgsbyte>('__addgsbyte'))(
+  //     Offset,
+  //     Value,
+  //   );
+  // }
 
-  _dart___addgsbyte? ___addgsbyte;
+  // _dart___addgsbyte? ___addgsbyte;
 
-  void __incgsword(
-    int Offset,
-  ) {
-    return (___incgsword ??= _dylib
-        .lookupFunction<_c___incgsword, _dart___incgsword>('__incgsword'))(
-      Offset,
-    );
-  }
+  // void __incgsword(
+  //   int Offset,
+  // ) {
+  //   return (___incgsword ??= _dylib
+  //       .lookupFunction<_c___incgsword, _dart___incgsword>('__incgsword'))(
+  //     Offset,
+  //   );
+  // }
 
-  _dart___incgsword? ___incgsword;
+  // _dart___incgsword? ___incgsword;
 
-  void __addgsword(
-    int Offset,
-    int Value,
-  ) {
-    return (___addgsword ??= _dylib
-        .lookupFunction<_c___addgsword, _dart___addgsword>('__addgsword'))(
-      Offset,
-      Value,
-    );
-  }
+  // void __addgsword(
+  //   int Offset,
+  //   int Value,
+  // ) {
+  //   return (___addgsword ??= _dylib
+  //       .lookupFunction<_c___addgsword, _dart___addgsword>('__addgsword'))(
+  //     Offset,
+  //     Value,
+  //   );
+  // }
 
-  _dart___addgsword? ___addgsword;
+  // _dart___addgsword? ___addgsword;
 
-  void __incgsdword(
-    int Offset,
-  ) {
-    return (___incgsdword ??= _dylib
-        .lookupFunction<_c___incgsdword, _dart___incgsdword>('__incgsdword'))(
-      Offset,
-    );
-  }
+  // void __incgsdword(
+  //   int Offset,
+  // ) {
+  //   return (___incgsdword ??= _dylib
+  //       .lookupFunction<_c___incgsdword, _dart___incgsdword>('__incgsdword'))(
+  //     Offset,
+  //   );
+  // }
 
-  _dart___incgsdword? ___incgsdword;
+  // _dart___incgsdword? ___incgsdword;
 
-  void __addgsdword(
-    int Offset,
-    int Value,
-  ) {
-    return (___addgsdword ??= _dylib
-        .lookupFunction<_c___addgsdword, _dart___addgsdword>('__addgsdword'))(
-      Offset,
-      Value,
-    );
-  }
+  // void __addgsdword(
+  //   int Offset,
+  //   int Value,
+  // ) {
+  //   return (___addgsdword ??= _dylib
+  //       .lookupFunction<_c___addgsdword, _dart___addgsdword>('__addgsdword'))(
+  //     Offset,
+  //     Value,
+  //   );
+  // }
 
-  _dart___addgsdword? ___addgsdword;
+  // _dart___addgsdword? ___addgsdword;
 
-  void __incgsqword(
-    int Offset,
-  ) {
-    return (___incgsqword ??= _dylib
-        .lookupFunction<_c___incgsqword, _dart___incgsqword>('__incgsqword'))(
-      Offset,
-    );
-  }
+  // void __incgsqword(
+  //   int Offset,
+  // ) {
+  //   return (___incgsqword ??= _dylib
+  //       .lookupFunction<_c___incgsqword, _dart___incgsqword>('__incgsqword'))(
+  //     Offset,
+  //   );
+  // }
 
-  _dart___incgsqword? ___incgsqword;
+  // _dart___incgsqword? ___incgsqword;
 
-  void __addgsqword(
-    int Offset,
-    int Value,
-  ) {
-    return (___addgsqword ??= _dylib
-        .lookupFunction<_c___addgsqword, _dart___addgsqword>('__addgsqword'))(
-      Offset,
-      Value,
-    );
-  }
+  // void __addgsqword(
+  //   int Offset,
+  //   int Value,
+  // ) {
+  //   return (___addgsqword ??= _dylib
+  //       .lookupFunction<_c___addgsqword, _dart___addgsqword>('__addgsqword'))(
+  //     Offset,
+  //     Value,
+  //   );
+  // }
 
-  _dart___addgsqword? ___addgsqword;
+  // _dart___addgsqword? ___addgsqword;
 
-  void __int2c() {
-    return (___int2c ??=
-        _dylib.lookupFunction<_c___int2c, _dart___int2c>('__int2c'))();
-  }
+  // void __int2c() {
+  //   return (___int2c ??=
+  //       _dylib.lookupFunction<_c___int2c, _dart___int2c>('__int2c'))();
+  // }
 
-  _dart___int2c? ___int2c;
+  // _dart___int2c? ___int2c;
 
   int ReadAcquire8(
     ffi.Pointer<ffi.Int8> Source,
@@ -6448,16 +6448,16 @@ class LibEGL {
 
   _dart_RtlGetReturnAddressHijackTarget? _RtlGetReturnAddressHijackTarget;
 
-  void __fastfail(
-    int Code,
-  ) {
-    return (___fastfail ??=
-        _dylib.lookupFunction<_c___fastfail, _dart___fastfail>('__fastfail'))(
-      Code,
-    );
-  }
+  // void __fastfail(
+  //   int Code,
+  // ) {
+  //   return (___fastfail ??=
+  //       _dylib.lookupFunction<_c___fastfail, _dart___fastfail>('__fastfail'))(
+  //     Code,
+  //   );
+  // }
 
-  _dart___fastfail? ___fastfail;
+  // _dart___fastfail? ___fastfail;
 
   int HEAP_MAKE_TAG_FLAGS(
     int TagBase,
@@ -19943,117 +19943,117 @@ class LibEGL {
 
   _dart_OpenFile? _OpenFile;
 
-  int _lopen(
-    ffi.Pointer<ffi.Int8> lpPathName,
-    int iReadWrite,
-  ) {
-    return (__lopen ??=
-        _dylib.lookupFunction<_c__lopen, _dart__lopen>('_lopen'))(
-      lpPathName,
-      iReadWrite,
-    );
-  }
+  // int _lopen(
+  //   ffi.Pointer<ffi.Int8> lpPathName,
+  //   int iReadWrite,
+  // ) {
+  //   return (__lopen ??=
+  //       _dylib.lookupFunction<_c__lopen, _dart__lopen>('_lopen'))(
+  //     lpPathName,
+  //     iReadWrite,
+  //   );
+  // }
 
-  _dart__lopen? __lopen;
+  // _dart__lopen? __lopen;
 
-  int _lcreat(
-    ffi.Pointer<ffi.Int8> lpPathName,
-    int iAttribute,
-  ) {
-    return (__lcreat ??=
-        _dylib.lookupFunction<_c__lcreat, _dart__lcreat>('_lcreat'))(
-      lpPathName,
-      iAttribute,
-    );
-  }
+  // int _lcreat(
+  //   ffi.Pointer<ffi.Int8> lpPathName,
+  //   int iAttribute,
+  // ) {
+  //   return (__lcreat ??=
+  //       _dylib.lookupFunction<_c__lcreat, _dart__lcreat>('_lcreat'))(
+  //     lpPathName,
+  //     iAttribute,
+  //   );
+  // }
 
-  _dart__lcreat? __lcreat;
+  // _dart__lcreat? __lcreat;
 
-  int _lread(
-    int hFile,
-    ffi.Pointer<ffi.Void> lpBuffer,
-    int uBytes,
-  ) {
-    return (__lread ??=
-        _dylib.lookupFunction<_c__lread, _dart__lread>('_lread'))(
-      hFile,
-      lpBuffer,
-      uBytes,
-    );
-  }
+  // int _lread(
+  //   int hFile,
+  //   ffi.Pointer<ffi.Void> lpBuffer,
+  //   int uBytes,
+  // ) {
+  //   return (__lread ??=
+  //       _dylib.lookupFunction<_c__lread, _dart__lread>('_lread'))(
+  //     hFile,
+  //     lpBuffer,
+  //     uBytes,
+  //   );
+  // }
 
-  _dart__lread? __lread;
+  // _dart__lread? __lread;
 
-  int _lwrite(
-    int hFile,
-    ffi.Pointer<ffi.Int8> lpBuffer,
-    int uBytes,
-  ) {
-    return (__lwrite ??=
-        _dylib.lookupFunction<_c__lwrite, _dart__lwrite>('_lwrite'))(
-      hFile,
-      lpBuffer,
-      uBytes,
-    );
-  }
+  // int _lwrite(
+  //   int hFile,
+  //   ffi.Pointer<ffi.Int8> lpBuffer,
+  //   int uBytes,
+  // ) {
+  //   return (__lwrite ??=
+  //       _dylib.lookupFunction<_c__lwrite, _dart__lwrite>('_lwrite'))(
+  //     hFile,
+  //     lpBuffer,
+  //     uBytes,
+  //   );
+  // }
 
-  _dart__lwrite? __lwrite;
+  // _dart__lwrite? __lwrite;
 
-  int _hread(
-    int hFile,
-    ffi.Pointer<ffi.Void> lpBuffer,
-    int lBytes,
-  ) {
-    return (__hread ??=
-        _dylib.lookupFunction<_c__hread, _dart__hread>('_hread'))(
-      hFile,
-      lpBuffer,
-      lBytes,
-    );
-  }
+  // int _hread(
+  //   int hFile,
+  //   ffi.Pointer<ffi.Void> lpBuffer,
+  //   int lBytes,
+  // ) {
+  //   return (__hread ??=
+  //       _dylib.lookupFunction<_c__hread, _dart__hread>('_hread'))(
+  //     hFile,
+  //     lpBuffer,
+  //     lBytes,
+  //   );
+  // }
 
-  _dart__hread? __hread;
+  // _dart__hread? __hread;
 
-  int _hwrite(
-    int hFile,
-    ffi.Pointer<ffi.Int8> lpBuffer,
-    int lBytes,
-  ) {
-    return (__hwrite ??=
-        _dylib.lookupFunction<_c__hwrite, _dart__hwrite>('_hwrite'))(
-      hFile,
-      lpBuffer,
-      lBytes,
-    );
-  }
+  // int _hwrite(
+  //   int hFile,
+  //   ffi.Pointer<ffi.Int8> lpBuffer,
+  //   int lBytes,
+  // ) {
+  //   return (__hwrite ??=
+  //       _dylib.lookupFunction<_c__hwrite, _dart__hwrite>('_hwrite'))(
+  //     hFile,
+  //     lpBuffer,
+  //     lBytes,
+  //   );
+  // }
 
-  _dart__hwrite? __hwrite;
+  // _dart__hwrite? __hwrite;
 
-  int _lclose(
-    int hFile,
-  ) {
-    return (__lclose ??=
-        _dylib.lookupFunction<_c__lclose, _dart__lclose>('_lclose'))(
-      hFile,
-    );
-  }
+  // int _lclose(
+  //   int hFile,
+  // ) {
+  //   return (__lclose ??=
+  //       _dylib.lookupFunction<_c__lclose, _dart__lclose>('_lclose'))(
+  //     hFile,
+  //   );
+  // }
 
-  _dart__lclose? __lclose;
+  // _dart__lclose? __lclose;
 
-  int _llseek(
-    int hFile,
-    int lOffset,
-    int iOrigin,
-  ) {
-    return (__llseek ??=
-        _dylib.lookupFunction<_c__llseek, _dart__llseek>('_llseek'))(
-      hFile,
-      lOffset,
-      iOrigin,
-    );
-  }
+  // int _llseek(
+  //   int hFile,
+  //   int lOffset,
+  //   int iOrigin,
+  // ) {
+  //   return (__llseek ??=
+  //       _dylib.lookupFunction<_c__llseek, _dart__llseek>('_llseek'))(
+  //     hFile,
+  //     lOffset,
+  //     iOrigin,
+  //   );
+  // }
 
-  _dart__llseek? __llseek;
+  // _dart__llseek? __llseek;
 
   int IsTextUnicode(
     ffi.Pointer<ffi.Void> lpv,
@@ -50226,317 +50226,317 @@ class LibEGL {
 
   _dart_ImmDisableLegacyIME? _ImmDisableLegacyIME;
 
-  void _fperrraise(
-    int _Except,
-  ) {
-    return (__fperrraise ??= _dylib
-        .lookupFunction<_c__fperrraise, _dart__fperrraise>('_fperrraise'))(
-      _Except,
-    );
-  }
+  // void _fperrraise(
+  //   int _Except,
+  // ) {
+  //   return (__fperrraise ??= _dylib
+  //       .lookupFunction<_c__fperrraise, _dart__fperrraise>('_fperrraise'))(
+  //     _Except,
+  //   );
+  // }
 
-  _dart__fperrraise? __fperrraise;
+  // _dart__fperrraise? __fperrraise;
 
-  int _dclass(
-    double _X,
-  ) {
-    return (__dclass ??=
-        _dylib.lookupFunction<_c__dclass, _dart__dclass>('_dclass'))(
-      _X,
-    );
-  }
+  // int _dclass(
+  //   double _X,
+  // ) {
+  //   return (__dclass ??=
+  //       _dylib.lookupFunction<_c__dclass, _dart__dclass>('_dclass'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__dclass? __dclass;
+  // _dart__dclass? __dclass;
 
-  int _fdclass(
-    double _X,
-  ) {
-    return (__fdclass ??=
-        _dylib.lookupFunction<_c__fdclass, _dart__fdclass>('_fdclass'))(
-      _X,
-    );
-  }
+  // int _fdclass(
+  //   double _X,
+  // ) {
+  //   return (__fdclass ??=
+  //       _dylib.lookupFunction<_c__fdclass, _dart__fdclass>('_fdclass'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__fdclass? __fdclass;
+  // _dart__fdclass? __fdclass;
 
-  int _dsign(
-    double _X,
-  ) {
-    return (__dsign ??=
-        _dylib.lookupFunction<_c__dsign, _dart__dsign>('_dsign'))(
-      _X,
-    );
-  }
+  // int _dsign(
+  //   double _X,
+  // ) {
+  //   return (__dsign ??=
+  //       _dylib.lookupFunction<_c__dsign, _dart__dsign>('_dsign'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__dsign? __dsign;
+  // _dart__dsign? __dsign;
 
-  int _fdsign(
-    double _X,
-  ) {
-    return (__fdsign ??=
-        _dylib.lookupFunction<_c__fdsign, _dart__fdsign>('_fdsign'))(
-      _X,
-    );
-  }
+  // int _fdsign(
+  //   double _X,
+  // ) {
+  //   return (__fdsign ??=
+  //       _dylib.lookupFunction<_c__fdsign, _dart__fdsign>('_fdsign'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__fdsign? __fdsign;
+  // _dart__fdsign? __fdsign;
 
-  int _dpcomp(
-    double _X,
-    double _Y,
-  ) {
-    return (__dpcomp ??=
-        _dylib.lookupFunction<_c__dpcomp, _dart__dpcomp>('_dpcomp'))(
-      _X,
-      _Y,
-    );
-  }
+  // int _dpcomp(
+  //   double _X,
+  //   double _Y,
+  // ) {
+  //   return (__dpcomp ??=
+  //       _dylib.lookupFunction<_c__dpcomp, _dart__dpcomp>('_dpcomp'))(
+  //     _X,
+  //     _Y,
+  //   );
+  // }
 
-  _dart__dpcomp? __dpcomp;
+  // _dart__dpcomp? __dpcomp;
 
-  int _fdpcomp(
-    double _X,
-    double _Y,
-  ) {
-    return (__fdpcomp ??=
-        _dylib.lookupFunction<_c__fdpcomp, _dart__fdpcomp>('_fdpcomp'))(
-      _X,
-      _Y,
-    );
-  }
+  // int _fdpcomp(
+  //   double _X,
+  //   double _Y,
+  // ) {
+  //   return (__fdpcomp ??=
+  //       _dylib.lookupFunction<_c__fdpcomp, _dart__fdpcomp>('_fdpcomp'))(
+  //     _X,
+  //     _Y,
+  //   );
+  // }
 
-  _dart__fdpcomp? __fdpcomp;
+  // _dart__fdpcomp? __fdpcomp;
 
-  int _dtest(
-    ffi.Pointer<ffi.Double> _Px,
-  ) {
-    return (__dtest ??=
-        _dylib.lookupFunction<_c__dtest, _dart__dtest>('_dtest'))(
-      _Px,
-    );
-  }
+  // int _dtest(
+  //   ffi.Pointer<ffi.Double> _Px,
+  // ) {
+  //   return (__dtest ??=
+  //       _dylib.lookupFunction<_c__dtest, _dart__dtest>('_dtest'))(
+  //     _Px,
+  //   );
+  // }
 
-  _dart__dtest? __dtest;
+  // _dart__dtest? __dtest;
 
-  int _fdtest(
-    ffi.Pointer<ffi.Float> _Px,
-  ) {
-    return (__fdtest ??=
-        _dylib.lookupFunction<_c__fdtest, _dart__fdtest>('_fdtest'))(
-      _Px,
-    );
-  }
+  // int _fdtest(
+  //   ffi.Pointer<ffi.Float> _Px,
+  // ) {
+  //   return (__fdtest ??=
+  //       _dylib.lookupFunction<_c__fdtest, _dart__fdtest>('_fdtest'))(
+  //     _Px,
+  //   );
+  // }
 
-  _dart__fdtest? __fdtest;
+  // _dart__fdtest? __fdtest;
 
-  int _d_int(
-    ffi.Pointer<ffi.Double> _Px,
-    int _Xexp,
-  ) {
-    return (__d_int ??=
-        _dylib.lookupFunction<_c__d_int, _dart__d_int>('_d_int'))(
-      _Px,
-      _Xexp,
-    );
-  }
+  // int _d_int(
+  //   ffi.Pointer<ffi.Double> _Px,
+  //   int _Xexp,
+  // ) {
+  //   return (__d_int ??=
+  //       _dylib.lookupFunction<_c__d_int, _dart__d_int>('_d_int'))(
+  //     _Px,
+  //     _Xexp,
+  //   );
+  // }
 
-  _dart__d_int? __d_int;
+  // _dart__d_int? __d_int;
 
-  int _fd_int(
-    ffi.Pointer<ffi.Float> _Px,
-    int _Xexp,
-  ) {
-    return (__fd_int ??=
-        _dylib.lookupFunction<_c__fd_int, _dart__fd_int>('_fd_int'))(
-      _Px,
-      _Xexp,
-    );
-  }
+  // int _fd_int(
+  //   ffi.Pointer<ffi.Float> _Px,
+  //   int _Xexp,
+  // ) {
+  //   return (__fd_int ??=
+  //       _dylib.lookupFunction<_c__fd_int, _dart__fd_int>('_fd_int'))(
+  //     _Px,
+  //     _Xexp,
+  //   );
+  // }
 
-  _dart__fd_int? __fd_int;
+  // _dart__fd_int? __fd_int;
 
-  int _dscale(
-    ffi.Pointer<ffi.Double> _Px,
-    int _Lexp,
-  ) {
-    return (__dscale ??=
-        _dylib.lookupFunction<_c__dscale, _dart__dscale>('_dscale'))(
-      _Px,
-      _Lexp,
-    );
-  }
+  // int _dscale(
+  //   ffi.Pointer<ffi.Double> _Px,
+  //   int _Lexp,
+  // ) {
+  //   return (__dscale ??=
+  //       _dylib.lookupFunction<_c__dscale, _dart__dscale>('_dscale'))(
+  //     _Px,
+  //     _Lexp,
+  //   );
+  // }
 
-  _dart__dscale? __dscale;
+  // _dart__dscale? __dscale;
 
-  int _fdscale(
-    ffi.Pointer<ffi.Float> _Px,
-    int _Lexp,
-  ) {
-    return (__fdscale ??=
-        _dylib.lookupFunction<_c__fdscale, _dart__fdscale>('_fdscale'))(
-      _Px,
-      _Lexp,
-    );
-  }
+  // int _fdscale(
+  //   ffi.Pointer<ffi.Float> _Px,
+  //   int _Lexp,
+  // ) {
+  //   return (__fdscale ??=
+  //       _dylib.lookupFunction<_c__fdscale, _dart__fdscale>('_fdscale'))(
+  //     _Px,
+  //     _Lexp,
+  //   );
+  // }
 
-  _dart__fdscale? __fdscale;
+  // _dart__fdscale? __fdscale;
 
-  int _dunscale(
-    ffi.Pointer<ffi.Int16> _Pex,
-    ffi.Pointer<ffi.Double> _Px,
-  ) {
-    return (__dunscale ??=
-        _dylib.lookupFunction<_c__dunscale, _dart__dunscale>('_dunscale'))(
-      _Pex,
-      _Px,
-    );
-  }
+  // int _dunscale(
+  //   ffi.Pointer<ffi.Int16> _Pex,
+  //   ffi.Pointer<ffi.Double> _Px,
+  // ) {
+  //   return (__dunscale ??=
+  //       _dylib.lookupFunction<_c__dunscale, _dart__dunscale>('_dunscale'))(
+  //     _Pex,
+  //     _Px,
+  //   );
+  // }
 
-  _dart__dunscale? __dunscale;
+  // _dart__dunscale? __dunscale;
 
-  int _fdunscale(
-    ffi.Pointer<ffi.Int16> _Pex,
-    ffi.Pointer<ffi.Float> _Px,
-  ) {
-    return (__fdunscale ??=
-        _dylib.lookupFunction<_c__fdunscale, _dart__fdunscale>('_fdunscale'))(
-      _Pex,
-      _Px,
-    );
-  }
+  // int _fdunscale(
+  //   ffi.Pointer<ffi.Int16> _Pex,
+  //   ffi.Pointer<ffi.Float> _Px,
+  // ) {
+  //   return (__fdunscale ??=
+  //       _dylib.lookupFunction<_c__fdunscale, _dart__fdunscale>('_fdunscale'))(
+  //     _Pex,
+  //     _Px,
+  //   );
+  // }
 
-  _dart__fdunscale? __fdunscale;
+  // _dart__fdunscale? __fdunscale;
 
-  int _dexp(
-    ffi.Pointer<ffi.Double> _Px,
-    double _Y,
-    int _Eoff,
-  ) {
-    return (__dexp ??= _dylib.lookupFunction<_c__dexp, _dart__dexp>('_dexp'))(
-      _Px,
-      _Y,
-      _Eoff,
-    );
-  }
+  // int _dexp(
+  //   ffi.Pointer<ffi.Double> _Px,
+  //   double _Y,
+  //   int _Eoff,
+  // ) {
+  //   return (__dexp ??= _dylib.lookupFunction<_c__dexp, _dart__dexp>('_dexp'))(
+  //     _Px,
+  //     _Y,
+  //     _Eoff,
+  //   );
+  // }
 
-  _dart__dexp? __dexp;
+  // _dart__dexp? __dexp;
 
-  int _fdexp(
-    ffi.Pointer<ffi.Float> _Px,
-    double _Y,
-    int _Eoff,
-  ) {
-    return (__fdexp ??=
-        _dylib.lookupFunction<_c__fdexp, _dart__fdexp>('_fdexp'))(
-      _Px,
-      _Y,
-      _Eoff,
-    );
-  }
+  // int _fdexp(
+  //   ffi.Pointer<ffi.Float> _Px,
+  //   double _Y,
+  //   int _Eoff,
+  // ) {
+  //   return (__fdexp ??=
+  //       _dylib.lookupFunction<_c__fdexp, _dart__fdexp>('_fdexp'))(
+  //     _Px,
+  //     _Y,
+  //     _Eoff,
+  //   );
+  // }
 
-  _dart__fdexp? __fdexp;
+  // _dart__fdexp? __fdexp;
 
-  int _dnorm(
-    ffi.Pointer<ffi.Uint16> _Ps,
-  ) {
-    return (__dnorm ??=
-        _dylib.lookupFunction<_c__dnorm, _dart__dnorm>('_dnorm'))(
-      _Ps,
-    );
-  }
+  // int _dnorm(
+  //   ffi.Pointer<ffi.Uint16> _Ps,
+  // ) {
+  //   return (__dnorm ??=
+  //       _dylib.lookupFunction<_c__dnorm, _dart__dnorm>('_dnorm'))(
+  //     _Ps,
+  //   );
+  // }
 
-  _dart__dnorm? __dnorm;
+  // _dart__dnorm? __dnorm;
 
-  int _fdnorm(
-    ffi.Pointer<ffi.Uint16> _Ps,
-  ) {
-    return (__fdnorm ??=
-        _dylib.lookupFunction<_c__fdnorm, _dart__fdnorm>('_fdnorm'))(
-      _Ps,
-    );
-  }
+  // int _fdnorm(
+  //   ffi.Pointer<ffi.Uint16> _Ps,
+  // ) {
+  //   return (__fdnorm ??=
+  //       _dylib.lookupFunction<_c__fdnorm, _dart__fdnorm>('_fdnorm'))(
+  //     _Ps,
+  //   );
+  // }
 
-  _dart__fdnorm? __fdnorm;
+  // _dart__fdnorm? __fdnorm;
 
-  double _dpoly(
-    double _X,
-    ffi.Pointer<ffi.Double> _Tab,
-    int _N,
-  ) {
-    return (__dpoly ??=
-        _dylib.lookupFunction<_c__dpoly, _dart__dpoly>('_dpoly'))(
-      _X,
-      _Tab,
-      _N,
-    );
-  }
+  // double _dpoly(
+  //   double _X,
+  //   ffi.Pointer<ffi.Double> _Tab,
+  //   int _N,
+  // ) {
+  //   return (__dpoly ??=
+  //       _dylib.lookupFunction<_c__dpoly, _dart__dpoly>('_dpoly'))(
+  //     _X,
+  //     _Tab,
+  //     _N,
+  //   );
+  // }
 
-  _dart__dpoly? __dpoly;
+  // _dart__dpoly? __dpoly;
 
-  double _fdpoly(
-    double _X,
-    ffi.Pointer<ffi.Float> _Tab,
-    int _N,
-  ) {
-    return (__fdpoly ??=
-        _dylib.lookupFunction<_c__fdpoly, _dart__fdpoly>('_fdpoly'))(
-      _X,
-      _Tab,
-      _N,
-    );
-  }
+  // double _fdpoly(
+  //   double _X,
+  //   ffi.Pointer<ffi.Float> _Tab,
+  //   int _N,
+  // ) {
+  //   return (__fdpoly ??=
+  //       _dylib.lookupFunction<_c__fdpoly, _dart__fdpoly>('_fdpoly'))(
+  //     _X,
+  //     _Tab,
+  //     _N,
+  //   );
+  // }
 
-  _dart__fdpoly? __fdpoly;
+  // _dart__fdpoly? __fdpoly;
 
-  double _dlog(
-    double _X,
-    int _Baseflag,
-  ) {
-    return (__dlog ??= _dylib.lookupFunction<_c__dlog, _dart__dlog>('_dlog'))(
-      _X,
-      _Baseflag,
-    );
-  }
+  // double _dlog(
+  //   double _X,
+  //   int _Baseflag,
+  // ) {
+  //   return (__dlog ??= _dylib.lookupFunction<_c__dlog, _dart__dlog>('_dlog'))(
+  //     _X,
+  //     _Baseflag,
+  //   );
+  // }
 
-  _dart__dlog? __dlog;
+  // _dart__dlog? __dlog;
 
-  double _fdlog(
-    double _X,
-    int _Baseflag,
-  ) {
-    return (__fdlog ??=
-        _dylib.lookupFunction<_c__fdlog, _dart__fdlog>('_fdlog'))(
-      _X,
-      _Baseflag,
-    );
-  }
+  // double _fdlog(
+  //   double _X,
+  //   int _Baseflag,
+  // ) {
+  //   return (__fdlog ??=
+  //       _dylib.lookupFunction<_c__fdlog, _dart__fdlog>('_fdlog'))(
+  //     _X,
+  //     _Baseflag,
+  //   );
+  // }
 
-  _dart__fdlog? __fdlog;
+  // _dart__fdlog? __fdlog;
 
-  double _dsin(
-    double _X,
-    int _Qoff,
-  ) {
-    return (__dsin ??= _dylib.lookupFunction<_c__dsin, _dart__dsin>('_dsin'))(
-      _X,
-      _Qoff,
-    );
-  }
+  // double _dsin(
+  //   double _X,
+  //   int _Qoff,
+  // ) {
+  //   return (__dsin ??= _dylib.lookupFunction<_c__dsin, _dart__dsin>('_dsin'))(
+  //     _X,
+  //     _Qoff,
+  //   );
+  // }
 
-  _dart__dsin? __dsin;
+  // _dart__dsin? __dsin;
 
-  double _fdsin(
-    double _X,
-    int _Qoff,
-  ) {
-    return (__fdsin ??=
-        _dylib.lookupFunction<_c__fdsin, _dart__fdsin>('_fdsin'))(
-      _X,
-      _Qoff,
-    );
-  }
+  // double _fdsin(
+  //   double _X,
+  //   int _Qoff,
+  // ) {
+  //   return (__fdsin ??=
+  //       _dylib.lookupFunction<_c__fdsin, _dart__fdsin>('_fdsin'))(
+  //     _X,
+  //     _Qoff,
+  //   );
+  // }
 
-  _dart__fdsin? __fdsin;
+  // _dart__fdsin? __fdsin;
 
   int abs(
     int _X,
@@ -50784,18 +50784,18 @@ class LibEGL {
 
   _dart_atof? _atof;
 
-  double _atof_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__atof_l ??=
-        _dylib.lookupFunction<_c__atof_l, _dart__atof_l>('_atof_l'))(
-      _String,
-      _Locale,
-    );
-  }
+  // double _atof_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__atof_l ??=
+  //       _dylib.lookupFunction<_c__atof_l, _dart__atof_l>('_atof_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__atof_l? __atof_l;
+  // _dart__atof_l? __atof_l;
 
   double cbrt(
     double _X,
@@ -50817,16 +50817,16 @@ class LibEGL {
 
   _dart_ceil? _ceil;
 
-  double _chgsign(
-    double _X,
-  ) {
-    return (__chgsign ??=
-        _dylib.lookupFunction<_c__chgsign, _dart__chgsign>('_chgsign'))(
-      _X,
-    );
-  }
+  // double _chgsign(
+  //   double _X,
+  // ) {
+  //   return (__chgsign ??=
+  //       _dylib.lookupFunction<_c__chgsign, _dart__chgsign>('_chgsign'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__chgsign? __chgsign;
+  // _dart__chgsign? __chgsign;
 
   double copysign(
     double _Number,
@@ -50841,18 +50841,18 @@ class LibEGL {
 
   _dart_copysign? _copysign_1;
 
-  double _copysign(
-    double _Number,
-    double _Sign,
-  ) {
-    return (__copysign ??=
-        _dylib.lookupFunction<_c__copysign, _dart__copysign>('_copysign'))(
-      _Number,
-      _Sign,
-    );
-  }
+  // double _copysign(
+  //   double _Number,
+  //   double _Sign,
+  // ) {
+  //   return (__copysign ??=
+  //       _dylib.lookupFunction<_c__copysign, _dart__copysign>('_copysign'))(
+  //     _Number,
+  //     _Sign,
+  //   );
+  // }
 
-  _dart__copysign? __copysign;
+  // _dart__copysign? __copysign;
 
   double erf(
     double _X,
@@ -50978,18 +50978,18 @@ class LibEGL {
 
   _dart_hypot? _hypot_1;
 
-  double _hypot(
-    double _X,
-    double _Y,
-  ) {
-    return (__hypot ??=
-        _dylib.lookupFunction<_c__hypot, _dart__hypot>('_hypot'))(
-      _X,
-      _Y,
-    );
-  }
+  // double _hypot(
+  //   double _X,
+  //   double _Y,
+  // ) {
+  //   return (__hypot ??=
+  //       _dylib.lookupFunction<_c__hypot, _dart__hypot>('_hypot'))(
+  //     _X,
+  //     _Y,
+  //   );
+  // }
 
-  _dart__hypot? __hypot;
+  // _dart__hypot? __hypot;
 
   int ilogb(
     double _X,
@@ -51097,16 +51097,16 @@ class LibEGL {
 
   _dart_lround? _lround;
 
-  int _matherr(
-    ffi.Pointer<_exception> _Except,
-  ) {
-    return (__matherr ??=
-        _dylib.lookupFunction<_c__matherr, _dart__matherr>('_matherr'))(
-      _Except,
-    );
-  }
+  // int _matherr(
+  //   ffi.Pointer<_exception> _Except,
+  // ) {
+  //   return (__matherr ??=
+  //       _dylib.lookupFunction<_c__matherr, _dart__matherr>('_matherr'))(
+  //     _Except,
+  //   );
+  // }
 
-  _dart__matherr? __matherr;
+  // _dart__matherr? __matherr;
 
   double modf(
     double _X,
@@ -51249,69 +51249,69 @@ class LibEGL {
 
   _dart_trunc? _trunc;
 
-  double _j0(
-    double _X,
-  ) {
-    return (__j0 ??= _dylib.lookupFunction<_c__j0, _dart__j0>('_j0'))(
-      _X,
-    );
-  }
+  // double _j0(
+  //   double _X,
+  // ) {
+  //   return (__j0 ??= _dylib.lookupFunction<_c__j0, _dart__j0>('_j0'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__j0? __j0;
+  // _dart__j0? __j0;
 
-  double _j1(
-    double _X,
-  ) {
-    return (__j1 ??= _dylib.lookupFunction<_c__j1, _dart__j1>('_j1'))(
-      _X,
-    );
-  }
+  // double _j1(
+  //   double _X,
+  // ) {
+  //   return (__j1 ??= _dylib.lookupFunction<_c__j1, _dart__j1>('_j1'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__j1? __j1;
+  // _dart__j1? __j1;
 
-  double _jn(
-    int _X,
-    double _Y,
-  ) {
-    return (__jn ??= _dylib.lookupFunction<_c__jn, _dart__jn>('_jn'))(
-      _X,
-      _Y,
-    );
-  }
+  // double _jn(
+  //   int _X,
+  //   double _Y,
+  // ) {
+  //   return (__jn ??= _dylib.lookupFunction<_c__jn, _dart__jn>('_jn'))(
+  //     _X,
+  //     _Y,
+  //   );
+  // }
 
-  _dart__jn? __jn;
+  // _dart__jn? __jn;
 
-  double _y0(
-    double _X,
-  ) {
-    return (__y0 ??= _dylib.lookupFunction<_c__y0, _dart__y0>('_y0'))(
-      _X,
-    );
-  }
+  // double _y0(
+  //   double _X,
+  // ) {
+  //   return (__y0 ??= _dylib.lookupFunction<_c__y0, _dart__y0>('_y0'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__y0? __y0;
+  // _dart__y0? __y0;
 
-  double _y1(
-    double _X,
-  ) {
-    return (__y1 ??= _dylib.lookupFunction<_c__y1, _dart__y1>('_y1'))(
-      _X,
-    );
-  }
+  // double _y1(
+  //   double _X,
+  // ) {
+  //   return (__y1 ??= _dylib.lookupFunction<_c__y1, _dart__y1>('_y1'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__y1? __y1;
+  // _dart__y1? __y1;
 
-  double _yn(
-    int _X,
-    double _Y,
-  ) {
-    return (__yn ??= _dylib.lookupFunction<_c__yn, _dart__yn>('_yn'))(
-      _X,
-      _Y,
-    );
-  }
+  // double _yn(
+  //   int _X,
+  //   double _Y,
+  // ) {
+  //   return (__yn ??= _dylib.lookupFunction<_c__yn, _dart__yn>('_yn'))(
+  //     _X,
+  //     _Y,
+  //   );
+  // }
 
-  _dart__yn? __yn;
+  // _dart__yn? __yn;
 
   double acoshf(
     double _X,
@@ -51356,16 +51356,16 @@ class LibEGL {
 
   _dart_cbrtf? _cbrtf;
 
-  double _chgsignf(
-    double _X,
-  ) {
-    return (__chgsignf ??=
-        _dylib.lookupFunction<_c__chgsignf, _dart__chgsignf>('_chgsignf'))(
-      _X,
-    );
-  }
+  // double _chgsignf(
+  //   double _X,
+  // ) {
+  //   return (__chgsignf ??=
+  //       _dylib.lookupFunction<_c__chgsignf, _dart__chgsignf>('_chgsignf'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__chgsignf? __chgsignf;
+  // _dart__chgsignf? __chgsignf;
 
   double copysignf(
     double _Number,
@@ -51380,18 +51380,18 @@ class LibEGL {
 
   _dart_copysignf? _copysignf_1;
 
-  double _copysignf(
-    double _Number,
-    double _Sign,
-  ) {
-    return (__copysignf ??=
-        _dylib.lookupFunction<_c__copysignf, _dart__copysignf>('_copysignf'))(
-      _Number,
-      _Sign,
-    );
-  }
+  // double _copysignf(
+  //   double _Number,
+  //   double _Sign,
+  // ) {
+  //   return (__copysignf ??=
+  //       _dylib.lookupFunction<_c__copysignf, _dart__copysignf>('_copysignf'))(
+  //     _Number,
+  //     _Sign,
+  //   );
+  // }
 
-  _dart__copysignf? __copysignf;
+  // _dart__copysignf? __copysignf;
 
   double erff(
     double _X,
@@ -51484,18 +51484,18 @@ class LibEGL {
 
   _dart_fminf? _fminf;
 
-  double _hypotf(
-    double _X,
-    double _Y,
-  ) {
-    return (__hypotf ??=
-        _dylib.lookupFunction<_c__hypotf, _dart__hypotf>('_hypotf'))(
-      _X,
-      _Y,
-    );
-  }
+  // double _hypotf(
+  //   double _X,
+  //   double _Y,
+  // ) {
+  //   return (__hypotf ??=
+  //       _dylib.lookupFunction<_c__hypotf, _dart__hypotf>('_hypotf'))(
+  //     _X,
+  //     _Y,
+  //   );
+  // }
 
-  _dart__hypotf? __hypotf;
+  // _dart__hypotf? __hypotf;
 
   int ilogbf(
     double _X,
@@ -51725,82 +51725,82 @@ class LibEGL {
 
   _dart_truncf? _truncf;
 
-  double _logbf(
-    double _X,
-  ) {
-    return (__logbf ??=
-        _dylib.lookupFunction<_c__logbf, _dart__logbf>('_logbf'))(
-      _X,
-    );
-  }
+  // double _logbf(
+  //   double _X,
+  // ) {
+  //   return (__logbf ??=
+  //       _dylib.lookupFunction<_c__logbf, _dart__logbf>('_logbf'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__logbf? __logbf;
+  // _dart__logbf? __logbf;
 
-  double _nextafterf(
-    double _X,
-    double _Y,
-  ) {
-    return (__nextafterf ??= _dylib
-        .lookupFunction<_c__nextafterf, _dart__nextafterf>('_nextafterf'))(
-      _X,
-      _Y,
-    );
-  }
+  // double _nextafterf(
+  //   double _X,
+  //   double _Y,
+  // ) {
+  //   return (__nextafterf ??= _dylib
+  //       .lookupFunction<_c__nextafterf, _dart__nextafterf>('_nextafterf'))(
+  //     _X,
+  //     _Y,
+  //   );
+  // }
 
-  _dart__nextafterf? __nextafterf;
+  // _dart__nextafterf? __nextafterf;
 
-  int _finitef(
-    double _X,
-  ) {
-    return (__finitef ??=
-        _dylib.lookupFunction<_c__finitef, _dart__finitef>('_finitef'))(
-      _X,
-    );
-  }
+  // int _finitef(
+  //   double _X,
+  // ) {
+  //   return (__finitef ??=
+  //       _dylib.lookupFunction<_c__finitef, _dart__finitef>('_finitef'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__finitef? __finitef;
+  // _dart__finitef? __finitef;
 
-  int _isnanf(
-    double _X,
-  ) {
-    return (__isnanf ??=
-        _dylib.lookupFunction<_c__isnanf, _dart__isnanf>('_isnanf'))(
-      _X,
-    );
-  }
+  // int _isnanf(
+  //   double _X,
+  // ) {
+  //   return (__isnanf ??=
+  //       _dylib.lookupFunction<_c__isnanf, _dart__isnanf>('_isnanf'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__isnanf? __isnanf;
+  // _dart__isnanf? __isnanf;
 
-  int _fpclassf(
-    double _X,
-  ) {
-    return (__fpclassf ??=
-        _dylib.lookupFunction<_c__fpclassf, _dart__fpclassf>('_fpclassf'))(
-      _X,
-    );
-  }
+  // int _fpclassf(
+  //   double _X,
+  // ) {
+  //   return (__fpclassf ??=
+  //       _dylib.lookupFunction<_c__fpclassf, _dart__fpclassf>('_fpclassf'))(
+  //     _X,
+  //   );
+  // }
 
-  _dart__fpclassf? __fpclassf;
+  // _dart__fpclassf? __fpclassf;
 
-  int _set_FMA3_enable(
-    int _Flag,
-  ) {
-    return (__set_FMA3_enable ??=
-        _dylib.lookupFunction<_c__set_FMA3_enable, _dart__set_FMA3_enable>(
-            '_set_FMA3_enable'))(
-      _Flag,
-    );
-  }
+  // int _set_FMA3_enable(
+  //   int _Flag,
+  // ) {
+  //   return (__set_FMA3_enable ??=
+  //       _dylib.lookupFunction<_c__set_FMA3_enable, _dart__set_FMA3_enable>(
+  //           '_set_FMA3_enable'))(
+  //     _Flag,
+  //   );
+  // }
 
-  _dart__set_FMA3_enable? __set_FMA3_enable;
+  // _dart__set_FMA3_enable? __set_FMA3_enable;
 
-  int _get_FMA3_enable() {
-    return (__get_FMA3_enable ??=
-        _dylib.lookupFunction<_c__get_FMA3_enable, _dart__get_FMA3_enable>(
-            '_get_FMA3_enable'))();
-  }
+  // int _get_FMA3_enable() {
+  //   return (__get_FMA3_enable ??=
+  //       _dylib.lookupFunction<_c__get_FMA3_enable, _dart__get_FMA3_enable>(
+  //           '_get_FMA3_enable'))();
+  // }
 
-  _dart__get_FMA3_enable? __get_FMA3_enable;
+  // _dart__get_FMA3_enable? __get_FMA3_enable;
 
   double acosf(
     double _X,
@@ -52116,18 +52116,18 @@ class LibEGL {
 
   _dart_yn? _yn_1;
 
-  ffi.Pointer<ffi.Void> _calloc_base(
-    int _Count,
-    int _Size,
-  ) {
-    return (__calloc_base ??= _dylib
-        .lookupFunction<_c__calloc_base, _dart__calloc_base>('_calloc_base'))(
-      _Count,
-      _Size,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _calloc_base(
+  //   int _Count,
+  //   int _Size,
+  // ) {
+  //   return (__calloc_base ??= _dylib
+  //       .lookupFunction<_c__calloc_base, _dart__calloc_base>('_calloc_base'))(
+  //     _Count,
+  //     _Size,
+  //   );
+  // }
 
-  _dart__calloc_base? __calloc_base;
+  // _dart__calloc_base? __calloc_base;
 
   ffi.Pointer<ffi.Void> calloc(
     int _Count,
@@ -52142,40 +52142,40 @@ class LibEGL {
 
   _dart_calloc? _calloc;
 
-  int _callnewh(
-    int _Size,
-  ) {
-    return (__callnewh ??=
-        _dylib.lookupFunction<_c__callnewh, _dart__callnewh>('_callnewh'))(
-      _Size,
-    );
-  }
+  // int _callnewh(
+  //   int _Size,
+  // ) {
+  //   return (__callnewh ??=
+  //       _dylib.lookupFunction<_c__callnewh, _dart__callnewh>('_callnewh'))(
+  //     _Size,
+  //   );
+  // }
 
-  _dart__callnewh? __callnewh;
+  // _dart__callnewh? __callnewh;
 
-  ffi.Pointer<ffi.Void> _expand(
-    ffi.Pointer<ffi.Void> _Block,
-    int _Size,
-  ) {
-    return (__expand ??=
-        _dylib.lookupFunction<_c__expand, _dart__expand>('_expand'))(
-      _Block,
-      _Size,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _expand(
+  //   ffi.Pointer<ffi.Void> _Block,
+  //   int _Size,
+  // ) {
+  //   return (__expand ??=
+  //       _dylib.lookupFunction<_c__expand, _dart__expand>('_expand'))(
+  //     _Block,
+  //     _Size,
+  //   );
+  // }
 
-  _dart__expand? __expand;
+  // _dart__expand? __expand;
 
-  void _free_base(
-    ffi.Pointer<ffi.Void> _Block,
-  ) {
-    return (__free_base ??=
-        _dylib.lookupFunction<_c__free_base, _dart__free_base>('_free_base'))(
-      _Block,
-    );
-  }
+  // void _free_base(
+  //   ffi.Pointer<ffi.Void> _Block,
+  // ) {
+  //   return (__free_base ??=
+  //       _dylib.lookupFunction<_c__free_base, _dart__free_base>('_free_base'))(
+  //     _Block,
+  //   );
+  // }
 
-  _dart__free_base? __free_base;
+  // _dart__free_base? __free_base;
 
   void free(
     ffi.Pointer<ffi.Void> _Block,
@@ -52187,16 +52187,16 @@ class LibEGL {
 
   _dart_free? _free;
 
-  ffi.Pointer<ffi.Void> _malloc_base(
-    int _Size,
-  ) {
-    return (__malloc_base ??= _dylib
-        .lookupFunction<_c__malloc_base, _dart__malloc_base>('_malloc_base'))(
-      _Size,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _malloc_base(
+  //   int _Size,
+  // ) {
+  //   return (__malloc_base ??= _dylib
+  //       .lookupFunction<_c__malloc_base, _dart__malloc_base>('_malloc_base'))(
+  //     _Size,
+  //   );
+  // }
 
-  _dart__malloc_base? __malloc_base;
+  // _dart__malloc_base? __malloc_base;
 
   ffi.Pointer<ffi.Void> malloc(
     int _Size,
@@ -52209,41 +52209,41 @@ class LibEGL {
 
   _dart_malloc? _malloc;
 
-  int _msize_base(
-    ffi.Pointer<ffi.Void> _Block,
-  ) {
-    return (__msize_base ??= _dylib
-        .lookupFunction<_c__msize_base, _dart__msize_base>('_msize_base'))(
-      _Block,
-    );
-  }
+  // int _msize_base(
+  //   ffi.Pointer<ffi.Void> _Block,
+  // ) {
+  //   return (__msize_base ??= _dylib
+  //       .lookupFunction<_c__msize_base, _dart__msize_base>('_msize_base'))(
+  //     _Block,
+  //   );
+  // }
 
-  _dart__msize_base? __msize_base;
+  // _dart__msize_base? __msize_base;
 
-  int _msize(
-    ffi.Pointer<ffi.Void> _Block,
-  ) {
-    return (__msize ??=
-        _dylib.lookupFunction<_c__msize, _dart__msize>('_msize'))(
-      _Block,
-    );
-  }
+  // int _msize(
+  //   ffi.Pointer<ffi.Void> _Block,
+  // ) {
+  //   return (__msize ??=
+  //       _dylib.lookupFunction<_c__msize, _dart__msize>('_msize'))(
+  //     _Block,
+  //   );
+  // }
 
-  _dart__msize? __msize;
+  // _dart__msize? __msize;
 
-  ffi.Pointer<ffi.Void> _realloc_base(
-    ffi.Pointer<ffi.Void> _Block,
-    int _Size,
-  ) {
-    return (__realloc_base ??=
-        _dylib.lookupFunction<_c__realloc_base, _dart__realloc_base>(
-            '_realloc_base'))(
-      _Block,
-      _Size,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _realloc_base(
+  //   ffi.Pointer<ffi.Void> _Block,
+  //   int _Size,
+  // ) {
+  //   return (__realloc_base ??=
+  //       _dylib.lookupFunction<_c__realloc_base, _dart__realloc_base>(
+  //           '_realloc_base'))(
+  //     _Block,
+  //     _Size,
+  //   );
+  // }
 
-  _dart__realloc_base? __realloc_base;
+  // _dart__realloc_base? __realloc_base;
 
   ffi.Pointer<ffi.Void> realloc(
     ffi.Pointer<ffi.Void> _Block,
@@ -52258,181 +52258,181 @@ class LibEGL {
 
   _dart_realloc? _realloc;
 
-  ffi.Pointer<ffi.Void> _recalloc_base(
-    ffi.Pointer<ffi.Void> _Block,
-    int _Count,
-    int _Size,
-  ) {
-    return (__recalloc_base ??=
-        _dylib.lookupFunction<_c__recalloc_base, _dart__recalloc_base>(
-            '_recalloc_base'))(
-      _Block,
-      _Count,
-      _Size,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _recalloc_base(
+  //   ffi.Pointer<ffi.Void> _Block,
+  //   int _Count,
+  //   int _Size,
+  // ) {
+  //   return (__recalloc_base ??=
+  //       _dylib.lookupFunction<_c__recalloc_base, _dart__recalloc_base>(
+  //           '_recalloc_base'))(
+  //     _Block,
+  //     _Count,
+  //     _Size,
+  //   );
+  // }
 
-  _dart__recalloc_base? __recalloc_base;
+  // _dart__recalloc_base? __recalloc_base;
 
-  ffi.Pointer<ffi.Void> _recalloc(
-    ffi.Pointer<ffi.Void> _Block,
-    int _Count,
-    int _Size,
-  ) {
-    return (__recalloc ??=
-        _dylib.lookupFunction<_c__recalloc, _dart__recalloc>('_recalloc'))(
-      _Block,
-      _Count,
-      _Size,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _recalloc(
+  //   ffi.Pointer<ffi.Void> _Block,
+  //   int _Count,
+  //   int _Size,
+  // ) {
+  //   return (__recalloc ??=
+  //       _dylib.lookupFunction<_c__recalloc, _dart__recalloc>('_recalloc'))(
+  //     _Block,
+  //     _Count,
+  //     _Size,
+  //   );
+  // }
 
-  _dart__recalloc? __recalloc;
+  // _dart__recalloc? __recalloc;
 
-  void _aligned_free(
-    ffi.Pointer<ffi.Void> _Block,
-  ) {
-    return (__aligned_free ??=
-        _dylib.lookupFunction<_c__aligned_free, _dart__aligned_free>(
-            '_aligned_free'))(
-      _Block,
-    );
-  }
+  // void _aligned_free(
+  //   ffi.Pointer<ffi.Void> _Block,
+  // ) {
+  //   return (__aligned_free ??=
+  //       _dylib.lookupFunction<_c__aligned_free, _dart__aligned_free>(
+  //           '_aligned_free'))(
+  //     _Block,
+  //   );
+  // }
 
-  _dart__aligned_free? __aligned_free;
+  // _dart__aligned_free? __aligned_free;
 
-  ffi.Pointer<ffi.Void> _aligned_malloc(
-    int _Size,
-    int _Alignment,
-  ) {
-    return (__aligned_malloc ??=
-        _dylib.lookupFunction<_c__aligned_malloc, _dart__aligned_malloc>(
-            '_aligned_malloc'))(
-      _Size,
-      _Alignment,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _aligned_malloc(
+  //   int _Size,
+  //   int _Alignment,
+  // ) {
+  //   return (__aligned_malloc ??=
+  //       _dylib.lookupFunction<_c__aligned_malloc, _dart__aligned_malloc>(
+  //           '_aligned_malloc'))(
+  //     _Size,
+  //     _Alignment,
+  //   );
+  // }
 
-  _dart__aligned_malloc? __aligned_malloc;
+  // _dart__aligned_malloc? __aligned_malloc;
 
-  ffi.Pointer<ffi.Void> _aligned_offset_malloc(
-    int _Size,
-    int _Alignment,
-    int _Offset,
-  ) {
-    return (__aligned_offset_malloc ??= _dylib.lookupFunction<
-        _c__aligned_offset_malloc,
-        _dart__aligned_offset_malloc>('_aligned_offset_malloc'))(
-      _Size,
-      _Alignment,
-      _Offset,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _aligned_offset_malloc(
+  //   int _Size,
+  //   int _Alignment,
+  //   int _Offset,
+  // ) {
+  //   return (__aligned_offset_malloc ??= _dylib.lookupFunction<
+  //       _c__aligned_offset_malloc,
+  //       _dart__aligned_offset_malloc>('_aligned_offset_malloc'))(
+  //     _Size,
+  //     _Alignment,
+  //     _Offset,
+  //   );
+  // }
 
-  _dart__aligned_offset_malloc? __aligned_offset_malloc;
+  // _dart__aligned_offset_malloc? __aligned_offset_malloc;
 
-  int _aligned_msize(
-    ffi.Pointer<ffi.Void> _Block,
-    int _Alignment,
-    int _Offset,
-  ) {
-    return (__aligned_msize ??=
-        _dylib.lookupFunction<_c__aligned_msize, _dart__aligned_msize>(
-            '_aligned_msize'))(
-      _Block,
-      _Alignment,
-      _Offset,
-    );
-  }
+  // int _aligned_msize(
+  //   ffi.Pointer<ffi.Void> _Block,
+  //   int _Alignment,
+  //   int _Offset,
+  // ) {
+  //   return (__aligned_msize ??=
+  //       _dylib.lookupFunction<_c__aligned_msize, _dart__aligned_msize>(
+  //           '_aligned_msize'))(
+  //     _Block,
+  //     _Alignment,
+  //     _Offset,
+  //   );
+  // }
 
-  _dart__aligned_msize? __aligned_msize;
+  // _dart__aligned_msize? __aligned_msize;
 
-  ffi.Pointer<ffi.Void> _aligned_offset_realloc(
-    ffi.Pointer<ffi.Void> _Block,
-    int _Size,
-    int _Alignment,
-    int _Offset,
-  ) {
-    return (__aligned_offset_realloc ??= _dylib.lookupFunction<
-        _c__aligned_offset_realloc,
-        _dart__aligned_offset_realloc>('_aligned_offset_realloc'))(
-      _Block,
-      _Size,
-      _Alignment,
-      _Offset,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _aligned_offset_realloc(
+  //   ffi.Pointer<ffi.Void> _Block,
+  //   int _Size,
+  //   int _Alignment,
+  //   int _Offset,
+  // ) {
+  //   return (__aligned_offset_realloc ??= _dylib.lookupFunction<
+  //       _c__aligned_offset_realloc,
+  //       _dart__aligned_offset_realloc>('_aligned_offset_realloc'))(
+  //     _Block,
+  //     _Size,
+  //     _Alignment,
+  //     _Offset,
+  //   );
+  // }
 
-  _dart__aligned_offset_realloc? __aligned_offset_realloc;
+  // _dart__aligned_offset_realloc? __aligned_offset_realloc;
 
-  ffi.Pointer<ffi.Void> _aligned_offset_recalloc(
-    ffi.Pointer<ffi.Void> _Block,
-    int _Count,
-    int _Size,
-    int _Alignment,
-    int _Offset,
-  ) {
-    return (__aligned_offset_recalloc ??= _dylib.lookupFunction<
-        _c__aligned_offset_recalloc,
-        _dart__aligned_offset_recalloc>('_aligned_offset_recalloc'))(
-      _Block,
-      _Count,
-      _Size,
-      _Alignment,
-      _Offset,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _aligned_offset_recalloc(
+  //   ffi.Pointer<ffi.Void> _Block,
+  //   int _Count,
+  //   int _Size,
+  //   int _Alignment,
+  //   int _Offset,
+  // ) {
+  //   return (__aligned_offset_recalloc ??= _dylib.lookupFunction<
+  //       _c__aligned_offset_recalloc,
+  //       _dart__aligned_offset_recalloc>('_aligned_offset_recalloc'))(
+  //     _Block,
+  //     _Count,
+  //     _Size,
+  //     _Alignment,
+  //     _Offset,
+  //   );
+  // }
 
-  _dart__aligned_offset_recalloc? __aligned_offset_recalloc;
+  // _dart__aligned_offset_recalloc? __aligned_offset_recalloc;
 
-  ffi.Pointer<ffi.Void> _aligned_realloc(
-    ffi.Pointer<ffi.Void> _Block,
-    int _Size,
-    int _Alignment,
-  ) {
-    return (__aligned_realloc ??=
-        _dylib.lookupFunction<_c__aligned_realloc, _dart__aligned_realloc>(
-            '_aligned_realloc'))(
-      _Block,
-      _Size,
-      _Alignment,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _aligned_realloc(
+  //   ffi.Pointer<ffi.Void> _Block,
+  //   int _Size,
+  //   int _Alignment,
+  // ) {
+  //   return (__aligned_realloc ??=
+  //       _dylib.lookupFunction<_c__aligned_realloc, _dart__aligned_realloc>(
+  //           '_aligned_realloc'))(
+  //     _Block,
+  //     _Size,
+  //     _Alignment,
+  //   );
+  // }
 
-  _dart__aligned_realloc? __aligned_realloc;
+  // _dart__aligned_realloc? __aligned_realloc;
 
-  ffi.Pointer<ffi.Void> _aligned_recalloc(
-    ffi.Pointer<ffi.Void> _Block,
-    int _Count,
-    int _Size,
-    int _Alignment,
-  ) {
-    return (__aligned_recalloc ??=
-        _dylib.lookupFunction<_c__aligned_recalloc, _dart__aligned_recalloc>(
-            '_aligned_recalloc'))(
-      _Block,
-      _Count,
-      _Size,
-      _Alignment,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _aligned_recalloc(
+  //   ffi.Pointer<ffi.Void> _Block,
+  //   int _Count,
+  //   int _Size,
+  //   int _Alignment,
+  // ) {
+  //   return (__aligned_recalloc ??=
+  //       _dylib.lookupFunction<_c__aligned_recalloc, _dart__aligned_recalloc>(
+  //           '_aligned_recalloc'))(
+  //     _Block,
+  //     _Count,
+  //     _Size,
+  //     _Alignment,
+  //   );
+  // }
 
-  _dart__aligned_recalloc? __aligned_recalloc;
+  // _dart__aligned_recalloc? __aligned_recalloc;
 
-  int __threadid() {
-    return (___threadid ??=
-        _dylib.lookupFunction<_c___threadid, _dart___threadid>('__threadid'))();
-  }
+  // int __threadid() {
+  //   return (___threadid ??=
+  //       _dylib.lookupFunction<_c___threadid, _dart___threadid>('__threadid'))();
+  // }
 
-  _dart___threadid? ___threadid;
+  // _dart___threadid? ___threadid;
 
-  int __threadhandle() {
-    return (___threadhandle ??=
-        _dylib.lookupFunction<_c___threadhandle, _dart___threadhandle>(
-            '__threadhandle'))();
-  }
+  // int __threadhandle() {
+  //   return (___threadhandle ??=
+  //       _dylib.lookupFunction<_c___threadhandle, _dart___threadhandle>(
+  //           '__threadhandle'))();
+  // }
 
-  _dart___threadhandle? ___threadhandle;
+  // _dart___threadhandle? ___threadhandle;
 
   ffi.Pointer<ffi.Void> bsearch_s(
     ffi.Pointer<ffi.Void> _Key,
@@ -52513,89 +52513,89 @@ class LibEGL {
 
   _dart_qsort? _qsort;
 
-  ffi.Pointer<ffi.Void> _lfind_s(
-    ffi.Pointer<ffi.Void> _Key,
-    ffi.Pointer<ffi.Void> _Base,
-    ffi.Pointer<ffi.Uint32> _NumOfElements,
-    int _SizeOfElements,
-    ffi.Pointer<ffi.NativeFunction<_CoreCrtSecureSearchSortCompareFunction>>
-        _CompareFunction,
-    ffi.Pointer<ffi.Void> _Context,
-  ) {
-    return (__lfind_s ??=
-        _dylib.lookupFunction<_c__lfind_s, _dart__lfind_s>('_lfind_s'))(
-      _Key,
-      _Base,
-      _NumOfElements,
-      _SizeOfElements,
-      _CompareFunction,
-      _Context,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _lfind_s(
+  //   ffi.Pointer<ffi.Void> _Key,
+  //   ffi.Pointer<ffi.Void> _Base,
+  //   ffi.Pointer<ffi.Uint32> _NumOfElements,
+  //   int _SizeOfElements,
+  //   ffi.Pointer<ffi.NativeFunction<_CoreCrtSecureSearchSortCompareFunction>>
+  //       _CompareFunction,
+  //   ffi.Pointer<ffi.Void> _Context,
+  // ) {
+  //   return (__lfind_s ??=
+  //       _dylib.lookupFunction<_c__lfind_s, _dart__lfind_s>('_lfind_s'))(
+  //     _Key,
+  //     _Base,
+  //     _NumOfElements,
+  //     _SizeOfElements,
+  //     _CompareFunction,
+  //     _Context,
+  //   );
+  // }
 
-  _dart__lfind_s? __lfind_s;
+  // _dart__lfind_s? __lfind_s;
 
-  ffi.Pointer<ffi.Void> _lfind(
-    ffi.Pointer<ffi.Void> _Key,
-    ffi.Pointer<ffi.Void> _Base,
-    ffi.Pointer<ffi.Uint32> _NumOfElements,
-    int _SizeOfElements,
-    ffi.Pointer<ffi.NativeFunction<_CoreCrtNonSecureSearchSortCompareFunction>>
-        _CompareFunction,
-  ) {
-    return (__lfind ??=
-        _dylib.lookupFunction<_c__lfind, _dart__lfind>('_lfind'))(
-      _Key,
-      _Base,
-      _NumOfElements,
-      _SizeOfElements,
-      _CompareFunction,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _lfind(
+  //   ffi.Pointer<ffi.Void> _Key,
+  //   ffi.Pointer<ffi.Void> _Base,
+  //   ffi.Pointer<ffi.Uint32> _NumOfElements,
+  //   int _SizeOfElements,
+  //   ffi.Pointer<ffi.NativeFunction<_CoreCrtNonSecureSearchSortCompareFunction>>
+  //       _CompareFunction,
+  // ) {
+  //   return (__lfind ??=
+  //       _dylib.lookupFunction<_c__lfind, _dart__lfind>('_lfind'))(
+  //     _Key,
+  //     _Base,
+  //     _NumOfElements,
+  //     _SizeOfElements,
+  //     _CompareFunction,
+  //   );
+  // }
 
-  _dart__lfind? __lfind;
+  // _dart__lfind? __lfind;
 
-  ffi.Pointer<ffi.Void> _lsearch_s(
-    ffi.Pointer<ffi.Void> _Key,
-    ffi.Pointer<ffi.Void> _Base,
-    ffi.Pointer<ffi.Uint32> _NumOfElements,
-    int _SizeOfElements,
-    ffi.Pointer<ffi.NativeFunction<_CoreCrtSecureSearchSortCompareFunction>>
-        _CompareFunction,
-    ffi.Pointer<ffi.Void> _Context,
-  ) {
-    return (__lsearch_s ??=
-        _dylib.lookupFunction<_c__lsearch_s, _dart__lsearch_s>('_lsearch_s'))(
-      _Key,
-      _Base,
-      _NumOfElements,
-      _SizeOfElements,
-      _CompareFunction,
-      _Context,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _lsearch_s(
+  //   ffi.Pointer<ffi.Void> _Key,
+  //   ffi.Pointer<ffi.Void> _Base,
+  //   ffi.Pointer<ffi.Uint32> _NumOfElements,
+  //   int _SizeOfElements,
+  //   ffi.Pointer<ffi.NativeFunction<_CoreCrtSecureSearchSortCompareFunction>>
+  //       _CompareFunction,
+  //   ffi.Pointer<ffi.Void> _Context,
+  // ) {
+  //   return (__lsearch_s ??=
+  //       _dylib.lookupFunction<_c__lsearch_s, _dart__lsearch_s>('_lsearch_s'))(
+  //     _Key,
+  //     _Base,
+  //     _NumOfElements,
+  //     _SizeOfElements,
+  //     _CompareFunction,
+  //     _Context,
+  //   );
+  // }
 
-  _dart__lsearch_s? __lsearch_s;
+  // _dart__lsearch_s? __lsearch_s;
 
-  ffi.Pointer<ffi.Void> _lsearch(
-    ffi.Pointer<ffi.Void> _Key,
-    ffi.Pointer<ffi.Void> _Base,
-    ffi.Pointer<ffi.Uint32> _NumOfElements,
-    int _SizeOfElements,
-    ffi.Pointer<ffi.NativeFunction<_CoreCrtNonSecureSearchSortCompareFunction>>
-        _CompareFunction,
-  ) {
-    return (__lsearch ??=
-        _dylib.lookupFunction<_c__lsearch, _dart__lsearch>('_lsearch'))(
-      _Key,
-      _Base,
-      _NumOfElements,
-      _SizeOfElements,
-      _CompareFunction,
-    );
-  }
+  // ffi.Pointer<ffi.Void> _lsearch(
+  //   ffi.Pointer<ffi.Void> _Key,
+  //   ffi.Pointer<ffi.Void> _Base,
+  //   ffi.Pointer<ffi.Uint32> _NumOfElements,
+  //   int _SizeOfElements,
+  //   ffi.Pointer<ffi.NativeFunction<_CoreCrtNonSecureSearchSortCompareFunction>>
+  //       _CompareFunction,
+  // ) {
+  //   return (__lsearch ??=
+  //       _dylib.lookupFunction<_c__lsearch, _dart__lsearch>('_lsearch'))(
+  //     _Key,
+  //     _Base,
+  //     _NumOfElements,
+  //     _SizeOfElements,
+  //     _CompareFunction,
+  //   );
+  // }
 
-  _dart__lsearch? __lsearch;
+  // _dart__lsearch? __lsearch;
 
   ffi.Pointer<ffi.Void> lfind(
     ffi.Pointer<ffi.Void> _Key,
@@ -52636,99 +52636,99 @@ class LibEGL {
 
   _dart_lsearch? _lsearch_1;
 
-  int _itow_s(
-    int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _BufferCount,
-    int _Radix,
-  ) {
-    return (__itow_s ??=
-        _dylib.lookupFunction<_c__itow_s, _dart__itow_s>('_itow_s'))(
-      _Value,
-      _Buffer,
-      _BufferCount,
-      _Radix,
-    );
-  }
+  // int _itow_s(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _BufferCount,
+  //   int _Radix,
+  // ) {
+  //   return (__itow_s ??=
+  //       _dylib.lookupFunction<_c__itow_s, _dart__itow_s>('_itow_s'))(
+  //     _Value,
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__itow_s? __itow_s;
+  // _dart__itow_s? __itow_s;
 
-  ffi.Pointer<ffi.Uint16> _itow(
-    int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _Radix,
-  ) {
-    return (__itow ??= _dylib.lookupFunction<_c__itow, _dart__itow>('_itow'))(
-      _Value,
-      _Buffer,
-      _Radix,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> _itow(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _Radix,
+  // ) {
+  //   return (__itow ??= _dylib.lookupFunction<_c__itow, _dart__itow>('_itow'))(
+  //     _Value,
+  //     _Buffer,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__itow? __itow;
+  // _dart__itow? __itow;
 
-  int _ltow_s(
-    int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _BufferCount,
-    int _Radix,
-  ) {
-    return (__ltow_s ??=
-        _dylib.lookupFunction<_c__ltow_s, _dart__ltow_s>('_ltow_s'))(
-      _Value,
-      _Buffer,
-      _BufferCount,
-      _Radix,
-    );
-  }
+  // int _ltow_s(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _BufferCount,
+  //   int _Radix,
+  // ) {
+  //   return (__ltow_s ??=
+  //       _dylib.lookupFunction<_c__ltow_s, _dart__ltow_s>('_ltow_s'))(
+  //     _Value,
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__ltow_s? __ltow_s;
+  // _dart__ltow_s? __ltow_s;
 
-  ffi.Pointer<ffi.Uint16> _ltow(
-    int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _Radix,
-  ) {
-    return (__ltow ??= _dylib.lookupFunction<_c__ltow, _dart__ltow>('_ltow'))(
-      _Value,
-      _Buffer,
-      _Radix,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> _ltow(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _Radix,
+  // ) {
+  //   return (__ltow ??= _dylib.lookupFunction<_c__ltow, _dart__ltow>('_ltow'))(
+  //     _Value,
+  //     _Buffer,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__ltow? __ltow;
+  // _dart__ltow? __ltow;
 
-  int _ultow_s(
-    int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _BufferCount,
-    int _Radix,
-  ) {
-    return (__ultow_s ??=
-        _dylib.lookupFunction<_c__ultow_s, _dart__ultow_s>('_ultow_s'))(
-      _Value,
-      _Buffer,
-      _BufferCount,
-      _Radix,
-    );
-  }
+  // int _ultow_s(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _BufferCount,
+  //   int _Radix,
+  // ) {
+  //   return (__ultow_s ??=
+  //       _dylib.lookupFunction<_c__ultow_s, _dart__ultow_s>('_ultow_s'))(
+  //     _Value,
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__ultow_s? __ultow_s;
+  // _dart__ultow_s? __ultow_s;
 
-  ffi.Pointer<ffi.Uint16> _ultow(
-    int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _Radix,
-  ) {
-    return (__ultow ??=
-        _dylib.lookupFunction<_c__ultow, _dart__ultow>('_ultow'))(
-      _Value,
-      _Buffer,
-      _Radix,
-    );
-  }
+  // ffi.Pointer<ffi.Uint16> _ultow(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _Radix,
+  // ) {
+  //   return (__ultow ??=
+  //       _dylib.lookupFunction<_c__ultow, _dart__ultow>('_ultow'))(
+  //     _Value,
+  //     _Buffer,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__ultow? __ultow;
+  // _dart__ultow? __ultow;
 
   double wcstod(
     ffi.Pointer<ffi.Uint16> _String,
@@ -52743,20 +52743,20 @@ class LibEGL {
 
   _dart_wcstod? _wcstod;
 
-  double _wcstod_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcstod_l ??=
-        _dylib.lookupFunction<_c__wcstod_l, _dart__wcstod_l>('_wcstod_l'))(
-      _String,
-      _EndPtr,
-      _Locale,
-    );
-  }
+  // double _wcstod_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcstod_l ??=
+  //       _dylib.lookupFunction<_c__wcstod_l, _dart__wcstod_l>('_wcstod_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcstod_l? __wcstod_l;
+  // _dart__wcstod_l? __wcstod_l;
 
   int wcstol(
     ffi.Pointer<ffi.Uint16> _String,
@@ -52773,22 +52773,22 @@ class LibEGL {
 
   _dart_wcstol? _wcstol;
 
-  int _wcstol_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-    int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcstol_l ??=
-        _dylib.lookupFunction<_c__wcstol_l, _dart__wcstol_l>('_wcstol_l'))(
-      _String,
-      _EndPtr,
-      _Radix,
-      _Locale,
-    );
-  }
+  // int _wcstol_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+  //   int _Radix,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcstol_l ??=
+  //       _dylib.lookupFunction<_c__wcstol_l, _dart__wcstol_l>('_wcstol_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcstol_l? __wcstol_l;
+  // _dart__wcstol_l? __wcstol_l;
 
   int wcstoll(
     ffi.Pointer<ffi.Uint16> _String,
@@ -52805,22 +52805,22 @@ class LibEGL {
 
   _dart_wcstoll? _wcstoll;
 
-  int _wcstoll_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-    int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcstoll_l ??=
-        _dylib.lookupFunction<_c__wcstoll_l, _dart__wcstoll_l>('_wcstoll_l'))(
-      _String,
-      _EndPtr,
-      _Radix,
-      _Locale,
-    );
-  }
+  // int _wcstoll_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+  //   int _Radix,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcstoll_l ??=
+  //       _dylib.lookupFunction<_c__wcstoll_l, _dart__wcstoll_l>('_wcstoll_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcstoll_l? __wcstoll_l;
+  // _dart__wcstoll_l? __wcstoll_l;
 
   int wcstoul(
     ffi.Pointer<ffi.Uint16> _String,
@@ -52837,22 +52837,22 @@ class LibEGL {
 
   _dart_wcstoul? _wcstoul;
 
-  int _wcstoul_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-    int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcstoul_l ??=
-        _dylib.lookupFunction<_c__wcstoul_l, _dart__wcstoul_l>('_wcstoul_l'))(
-      _String,
-      _EndPtr,
-      _Radix,
-      _Locale,
-    );
-  }
+  // int _wcstoul_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+  //   int _Radix,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcstoul_l ??=
+  //       _dylib.lookupFunction<_c__wcstoul_l, _dart__wcstoul_l>('_wcstoul_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcstoul_l? __wcstoul_l;
+  // _dart__wcstoul_l? __wcstoul_l;
 
   int wcstoull(
     ffi.Pointer<ffi.Uint16> _String,
@@ -52869,22 +52869,22 @@ class LibEGL {
 
   _dart_wcstoull? _wcstoull;
 
-  int _wcstoull_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-    int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcstoull_l ??= _dylib
-        .lookupFunction<_c__wcstoull_l, _dart__wcstoull_l>('_wcstoull_l'))(
-      _String,
-      _EndPtr,
-      _Radix,
-      _Locale,
-    );
-  }
+  // int _wcstoull_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+  //   int _Radix,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcstoull_l ??= _dylib
+  //       .lookupFunction<_c__wcstoull_l, _dart__wcstoull_l>('_wcstoull_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcstoull_l? __wcstoull_l;
+  // _dart__wcstoull_l? __wcstoull_l;
 
   double wcstof(
     ffi.Pointer<ffi.Uint16> _String,
@@ -52899,586 +52899,586 @@ class LibEGL {
 
   _dart_wcstof? _wcstof;
 
-  double _wcstof_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcstof_l ??=
-        _dylib.lookupFunction<_c__wcstof_l, _dart__wcstof_l>('_wcstof_l'))(
-      _String,
-      _EndPtr,
-      _Locale,
-    );
-  }
-
-  _dart__wcstof_l? __wcstof_l;
-
-  double _wtof(
-    ffi.Pointer<ffi.Uint16> _String,
-  ) {
-    return (__wtof ??= _dylib.lookupFunction<_c__wtof, _dart__wtof>('_wtof'))(
-      _String,
-    );
-  }
-
-  _dart__wtof? __wtof;
-
-  double _wtof_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wtof_l ??=
-        _dylib.lookupFunction<_c__wtof_l, _dart__wtof_l>('_wtof_l'))(
-      _String,
-      _Locale,
-    );
-  }
-
-  _dart__wtof_l? __wtof_l;
-
-  int _wtoi(
-    ffi.Pointer<ffi.Uint16> _String,
-  ) {
-    return (__wtoi ??= _dylib.lookupFunction<_c__wtoi, _dart__wtoi>('_wtoi'))(
-      _String,
-    );
-  }
-
-  _dart__wtoi? __wtoi;
-
-  int _wtoi_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wtoi_l ??=
-        _dylib.lookupFunction<_c__wtoi_l, _dart__wtoi_l>('_wtoi_l'))(
-      _String,
-      _Locale,
-    );
-  }
-
-  _dart__wtoi_l? __wtoi_l;
-
-  int _wtol(
-    ffi.Pointer<ffi.Uint16> _String,
-  ) {
-    return (__wtol ??= _dylib.lookupFunction<_c__wtol, _dart__wtol>('_wtol'))(
-      _String,
-    );
-  }
-
-  _dart__wtol? __wtol;
-
-  int _wtol_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wtol_l ??=
-        _dylib.lookupFunction<_c__wtol_l, _dart__wtol_l>('_wtol_l'))(
-      _String,
-      _Locale,
-    );
-  }
-
-  _dart__wtol_l? __wtol_l;
-
-  int _wtoll(
-    ffi.Pointer<ffi.Uint16> _String,
-  ) {
-    return (__wtoll ??=
-        _dylib.lookupFunction<_c__wtoll, _dart__wtoll>('_wtoll'))(
-      _String,
-    );
-  }
-
-  _dart__wtoll? __wtoll;
-
-  int _wtoll_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wtoll_l ??=
-        _dylib.lookupFunction<_c__wtoll_l, _dart__wtoll_l>('_wtoll_l'))(
-      _String,
-      _Locale,
-    );
-  }
-
-  _dart__wtoll_l? __wtoll_l;
-
-  int _i64tow_s(
-    int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _BufferCount,
-    int _Radix,
-  ) {
-    return (__i64tow_s ??=
-        _dylib.lookupFunction<_c__i64tow_s, _dart__i64tow_s>('_i64tow_s'))(
-      _Value,
-      _Buffer,
-      _BufferCount,
-      _Radix,
-    );
-  }
-
-  _dart__i64tow_s? __i64tow_s;
-
-  ffi.Pointer<ffi.Uint16> _i64tow(
-    int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _Radix,
-  ) {
-    return (__i64tow ??=
-        _dylib.lookupFunction<_c__i64tow, _dart__i64tow>('_i64tow'))(
-      _Value,
-      _Buffer,
-      _Radix,
-    );
-  }
-
-  _dart__i64tow? __i64tow;
-
-  int _ui64tow_s(
-    int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _BufferCount,
-    int _Radix,
-  ) {
-    return (__ui64tow_s ??=
-        _dylib.lookupFunction<_c__ui64tow_s, _dart__ui64tow_s>('_ui64tow_s'))(
-      _Value,
-      _Buffer,
-      _BufferCount,
-      _Radix,
-    );
-  }
-
-  _dart__ui64tow_s? __ui64tow_s;
-
-  ffi.Pointer<ffi.Uint16> _ui64tow(
-    int _Value,
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _Radix,
-  ) {
-    return (__ui64tow ??=
-        _dylib.lookupFunction<_c__ui64tow, _dart__ui64tow>('_ui64tow'))(
-      _Value,
-      _Buffer,
-      _Radix,
-    );
-  }
-
-  _dart__ui64tow? __ui64tow;
-
-  int _wtoi64(
-    ffi.Pointer<ffi.Uint16> _String,
-  ) {
-    return (__wtoi64 ??=
-        _dylib.lookupFunction<_c__wtoi64, _dart__wtoi64>('_wtoi64'))(
-      _String,
-    );
-  }
-
-  _dart__wtoi64? __wtoi64;
-
-  int _wtoi64_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wtoi64_l ??=
-        _dylib.lookupFunction<_c__wtoi64_l, _dart__wtoi64_l>('_wtoi64_l'))(
-      _String,
-      _Locale,
-    );
-  }
-
-  _dart__wtoi64_l? __wtoi64_l;
-
-  int _wcstoi64(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-    int _Radix,
-  ) {
-    return (__wcstoi64 ??=
-        _dylib.lookupFunction<_c__wcstoi64, _dart__wcstoi64>('_wcstoi64'))(
-      _String,
-      _EndPtr,
-      _Radix,
-    );
-  }
-
-  _dart__wcstoi64? __wcstoi64;
-
-  int _wcstoi64_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-    int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcstoi64_l ??= _dylib
-        .lookupFunction<_c__wcstoi64_l, _dart__wcstoi64_l>('_wcstoi64_l'))(
-      _String,
-      _EndPtr,
-      _Radix,
-      _Locale,
-    );
-  }
-
-  _dart__wcstoi64_l? __wcstoi64_l;
-
-  int _wcstoui64(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-    int _Radix,
-  ) {
-    return (__wcstoui64 ??=
-        _dylib.lookupFunction<_c__wcstoui64, _dart__wcstoui64>('_wcstoui64'))(
-      _String,
-      _EndPtr,
-      _Radix,
-    );
-  }
-
-  _dart__wcstoui64? __wcstoui64;
-
-  int _wcstoui64_l(
-    ffi.Pointer<ffi.Uint16> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-    int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcstoui64_l ??= _dylib
-        .lookupFunction<_c__wcstoui64_l, _dart__wcstoui64_l>('_wcstoui64_l'))(
-      _String,
-      _EndPtr,
-      _Radix,
-      _Locale,
-    );
-  }
-
-  _dart__wcstoui64_l? __wcstoui64_l;
-
-  ffi.Pointer<ffi.Uint16> _wfullpath(
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    ffi.Pointer<ffi.Uint16> _Path,
-    int _BufferCount,
-  ) {
-    return (__wfullpath ??=
-        _dylib.lookupFunction<_c__wfullpath, _dart__wfullpath>('_wfullpath'))(
-      _Buffer,
-      _Path,
-      _BufferCount,
-    );
-  }
-
-  _dart__wfullpath? __wfullpath;
-
-  int _wmakepath_s(
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _BufferCount,
-    ffi.Pointer<ffi.Uint16> _Drive,
-    ffi.Pointer<ffi.Uint16> _Dir,
-    ffi.Pointer<ffi.Uint16> _Filename,
-    ffi.Pointer<ffi.Uint16> _Ext,
-  ) {
-    return (__wmakepath_s ??= _dylib
-        .lookupFunction<_c__wmakepath_s, _dart__wmakepath_s>('_wmakepath_s'))(
-      _Buffer,
-      _BufferCount,
-      _Drive,
-      _Dir,
-      _Filename,
-      _Ext,
-    );
-  }
-
-  _dart__wmakepath_s? __wmakepath_s;
-
-  void _wmakepath(
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    ffi.Pointer<ffi.Uint16> _Drive,
-    ffi.Pointer<ffi.Uint16> _Dir,
-    ffi.Pointer<ffi.Uint16> _Filename,
-    ffi.Pointer<ffi.Uint16> _Ext,
-  ) {
-    return (__wmakepath ??=
-        _dylib.lookupFunction<_c__wmakepath, _dart__wmakepath>('_wmakepath'))(
-      _Buffer,
-      _Drive,
-      _Dir,
-      _Filename,
-      _Ext,
-    );
-  }
-
-  _dart__wmakepath? __wmakepath;
-
-  void _wperror(
-    ffi.Pointer<ffi.Uint16> _ErrorMessage,
-  ) {
-    return (__wperror ??=
-        _dylib.lookupFunction<_c__wperror, _dart__wperror>('_wperror'))(
-      _ErrorMessage,
-    );
-  }
-
-  _dart__wperror? __wperror;
-
-  void _wsplitpath(
-    ffi.Pointer<ffi.Uint16> _FullPath,
-    ffi.Pointer<ffi.Uint16> _Drive,
-    ffi.Pointer<ffi.Uint16> _Dir,
-    ffi.Pointer<ffi.Uint16> _Filename,
-    ffi.Pointer<ffi.Uint16> _Ext,
-  ) {
-    return (__wsplitpath ??= _dylib
-        .lookupFunction<_c__wsplitpath, _dart__wsplitpath>('_wsplitpath'))(
-      _FullPath,
-      _Drive,
-      _Dir,
-      _Filename,
-      _Ext,
-    );
-  }
-
-  _dart__wsplitpath? __wsplitpath;
-
-  int _wsplitpath_s(
-    ffi.Pointer<ffi.Uint16> _FullPath,
-    ffi.Pointer<ffi.Uint16> _Drive,
-    int _DriveCount,
-    ffi.Pointer<ffi.Uint16> _Dir,
-    int _DirCount,
-    ffi.Pointer<ffi.Uint16> _Filename,
-    int _FilenameCount,
-    ffi.Pointer<ffi.Uint16> _Ext,
-    int _ExtCount,
-  ) {
-    return (__wsplitpath_s ??=
-        _dylib.lookupFunction<_c__wsplitpath_s, _dart__wsplitpath_s>(
-            '_wsplitpath_s'))(
-      _FullPath,
-      _Drive,
-      _DriveCount,
-      _Dir,
-      _DirCount,
-      _Filename,
-      _FilenameCount,
-      _Ext,
-      _ExtCount,
-    );
-  }
-
-  _dart__wsplitpath_s? __wsplitpath_s;
-
-  int _wdupenv_s(
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Buffer,
-    ffi.Pointer<ffi.Uint64> _BufferCount,
-    ffi.Pointer<ffi.Uint16> _VarName,
-  ) {
-    return (__wdupenv_s ??=
-        _dylib.lookupFunction<_c__wdupenv_s, _dart__wdupenv_s>('_wdupenv_s'))(
-      _Buffer,
-      _BufferCount,
-      _VarName,
-    );
-  }
-
-  _dart__wdupenv_s? __wdupenv_s;
-
-  ffi.Pointer<ffi.Uint16> _wgetenv(
-    ffi.Pointer<ffi.Uint16> _VarName,
-  ) {
-    return (__wgetenv ??=
-        _dylib.lookupFunction<_c__wgetenv, _dart__wgetenv>('_wgetenv'))(
-      _VarName,
-    );
-  }
-
-  _dart__wgetenv? __wgetenv;
-
-  int _wgetenv_s(
-    ffi.Pointer<ffi.Uint64> _RequiredCount,
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _BufferCount,
-    ffi.Pointer<ffi.Uint16> _VarName,
-  ) {
-    return (__wgetenv_s ??=
-        _dylib.lookupFunction<_c__wgetenv_s, _dart__wgetenv_s>('_wgetenv_s'))(
-      _RequiredCount,
-      _Buffer,
-      _BufferCount,
-      _VarName,
-    );
-  }
-
-  _dart__wgetenv_s? __wgetenv_s;
-
-  int _wputenv(
-    ffi.Pointer<ffi.Uint16> _EnvString,
-  ) {
-    return (__wputenv ??=
-        _dylib.lookupFunction<_c__wputenv, _dart__wputenv>('_wputenv'))(
-      _EnvString,
-    );
-  }
-
-  _dart__wputenv? __wputenv;
-
-  int _wputenv_s(
-    ffi.Pointer<ffi.Uint16> _Name,
-    ffi.Pointer<ffi.Uint16> _Value,
-  ) {
-    return (__wputenv_s ??=
-        _dylib.lookupFunction<_c__wputenv_s, _dart__wputenv_s>('_wputenv_s'))(
-      _Name,
-      _Value,
-    );
-  }
-
-  _dart__wputenv_s? __wputenv_s;
-
-  int _wsearchenv_s(
-    ffi.Pointer<ffi.Uint16> _Filename,
-    ffi.Pointer<ffi.Uint16> _VarName,
-    ffi.Pointer<ffi.Uint16> _Buffer,
-    int _BufferCount,
-  ) {
-    return (__wsearchenv_s ??=
-        _dylib.lookupFunction<_c__wsearchenv_s, _dart__wsearchenv_s>(
-            '_wsearchenv_s'))(
-      _Filename,
-      _VarName,
-      _Buffer,
-      _BufferCount,
-    );
-  }
-
-  _dart__wsearchenv_s? __wsearchenv_s;
-
-  void _wsearchenv(
-    ffi.Pointer<ffi.Uint16> _Filename,
-    ffi.Pointer<ffi.Uint16> _VarName,
-    ffi.Pointer<ffi.Uint16> _ResultPath,
-  ) {
-    return (__wsearchenv ??= _dylib
-        .lookupFunction<_c__wsearchenv, _dart__wsearchenv>('_wsearchenv'))(
-      _Filename,
-      _VarName,
-      _ResultPath,
-    );
-  }
-
-  _dart__wsearchenv? __wsearchenv;
-
-  int _wsystem(
-    ffi.Pointer<ffi.Uint16> _Command,
-  ) {
-    return (__wsystem ??=
-        _dylib.lookupFunction<_c__wsystem, _dart__wsystem>('_wsystem'))(
-      _Command,
-    );
-  }
-
-  _dart__wsystem? __wsystem;
-
-  void _swab(
-    ffi.Pointer<ffi.Int8> _Buf1,
-    ffi.Pointer<ffi.Int8> _Buf2,
-    int _SizeInBytes,
-  ) {
-    return (__swab ??= _dylib.lookupFunction<_c__swab, _dart__swab>('_swab'))(
-      _Buf1,
-      _Buf2,
-      _SizeInBytes,
-    );
-  }
-
-  _dart__swab? __swab;
-
-  void exit(
-    int _Code,
-  ) {
-    return (_exit_1 ??= _dylib.lookupFunction<_c_exit, _dart_exit>('exit'))(
-      _Code,
-    );
-  }
-
-  _dart_exit? _exit_1;
-
-  void _exit(
-    int _Code,
-  ) {
-    return (__exit ??= _dylib.lookupFunction<_c__exit, _dart__exit>('_exit'))(
-      _Code,
-    );
-  }
-
-  _dart__exit? __exit;
-
-  void _Exit(
-    int _Code,
-  ) {
-    return (__Exit ??= _dylib.lookupFunction<_c__Exit, _dart__Exit>('_Exit'))(
-      _Code,
-    );
-  }
-
-  _dart__Exit? __Exit;
-
-  void quick_exit(
-    int _Code,
-  ) {
-    return (_quick_exit ??=
-        _dylib.lookupFunction<_c_quick_exit, _dart_quick_exit>('quick_exit'))(
-      _Code,
-    );
-  }
-
-  _dart_quick_exit? _quick_exit;
-
-  void abort() {
-    return (_abort ??= _dylib.lookupFunction<_c_abort, _dart_abort>('abort'))();
-  }
-
-  _dart_abort? _abort;
-
-  int _set_abort_behavior(
-    int _Flags,
-    int _Mask,
-  ) {
-    return (__set_abort_behavior ??= _dylib.lookupFunction<
-        _c__set_abort_behavior,
-        _dart__set_abort_behavior>('_set_abort_behavior'))(
-      _Flags,
-      _Mask,
-    );
-  }
-
-  _dart__set_abort_behavior? __set_abort_behavior;
-
-  int atexit(
-    ffi.Pointer<ffi.NativeFunction<_typedefC_1>> arg0,
-  ) {
-    return (_atexit ??=
-        _dylib.lookupFunction<_c_atexit, _dart_atexit>('atexit'))(
-      arg0,
-    );
-  }
-
-  _dart_atexit? _atexit;
-
-  ffi.Pointer<ffi.NativeFunction<_onexit_t>> _onexit(
-    ffi.Pointer<ffi.NativeFunction<_onexit_t>> _Func,
-  ) {
-    return (__onexit ??=
-        _dylib.lookupFunction<_c__onexit, _dart__onexit>('_onexit'))(
-      _Func,
-    );
-  }
-
-  _dart__onexit? __onexit;
+  // double _wcstof_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcstof_l ??=
+  //       _dylib.lookupFunction<_c__wcstof_l, _dart__wcstof_l>('_wcstof_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Locale,
+  //   );
+  // }
+
+  // _dart__wcstof_l? __wcstof_l;
+
+  // double _wtof(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  // ) {
+  //   return (__wtof ??= _dylib.lookupFunction<_c__wtof, _dart__wtof>('_wtof'))(
+  //     _String,
+  //   );
+  // }
+
+  // _dart__wtof? __wtof;
+
+  // double _wtof_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wtof_l ??=
+  //       _dylib.lookupFunction<_c__wtof_l, _dart__wtof_l>('_wtof_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
+
+  // _dart__wtof_l? __wtof_l;
+
+  // int _wtoi(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  // ) {
+  //   return (__wtoi ??= _dylib.lookupFunction<_c__wtoi, _dart__wtoi>('_wtoi'))(
+  //     _String,
+  //   );
+  // }
+
+  // _dart__wtoi? __wtoi;
+
+  // int _wtoi_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wtoi_l ??=
+  //       _dylib.lookupFunction<_c__wtoi_l, _dart__wtoi_l>('_wtoi_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
+
+  // _dart__wtoi_l? __wtoi_l;
+
+  // int _wtol(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  // ) {
+  //   return (__wtol ??= _dylib.lookupFunction<_c__wtol, _dart__wtol>('_wtol'))(
+  //     _String,
+  //   );
+  // }
+
+  // _dart__wtol? __wtol;
+
+  // int _wtol_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wtol_l ??=
+  //       _dylib.lookupFunction<_c__wtol_l, _dart__wtol_l>('_wtol_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
+
+  // _dart__wtol_l? __wtol_l;
+
+  // int _wtoll(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  // ) {
+  //   return (__wtoll ??=
+  //       _dylib.lookupFunction<_c__wtoll, _dart__wtoll>('_wtoll'))(
+  //     _String,
+  //   );
+  // }
+
+  // _dart__wtoll? __wtoll;
+
+  // int _wtoll_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wtoll_l ??=
+  //       _dylib.lookupFunction<_c__wtoll_l, _dart__wtoll_l>('_wtoll_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
+
+  // _dart__wtoll_l? __wtoll_l;
+
+  // int _i64tow_s(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _BufferCount,
+  //   int _Radix,
+  // ) {
+  //   return (__i64tow_s ??=
+  //       _dylib.lookupFunction<_c__i64tow_s, _dart__i64tow_s>('_i64tow_s'))(
+  //     _Value,
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Radix,
+  //   );
+  // }
+
+  // _dart__i64tow_s? __i64tow_s;
+
+  // ffi.Pointer<ffi.Uint16> _i64tow(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _Radix,
+  // ) {
+  //   return (__i64tow ??=
+  //       _dylib.lookupFunction<_c__i64tow, _dart__i64tow>('_i64tow'))(
+  //     _Value,
+  //     _Buffer,
+  //     _Radix,
+  //   );
+  // }
+
+  // _dart__i64tow? __i64tow;
+
+  // int _ui64tow_s(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _BufferCount,
+  //   int _Radix,
+  // ) {
+  //   return (__ui64tow_s ??=
+  //       _dylib.lookupFunction<_c__ui64tow_s, _dart__ui64tow_s>('_ui64tow_s'))(
+  //     _Value,
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Radix,
+  //   );
+  // }
+
+  // _dart__ui64tow_s? __ui64tow_s;
+
+  // ffi.Pointer<ffi.Uint16> _ui64tow(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _Radix,
+  // ) {
+  //   return (__ui64tow ??=
+  //       _dylib.lookupFunction<_c__ui64tow, _dart__ui64tow>('_ui64tow'))(
+  //     _Value,
+  //     _Buffer,
+  //     _Radix,
+  //   );
+  // }
+
+  // _dart__ui64tow? __ui64tow;
+
+  // int _wtoi64(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  // ) {
+  //   return (__wtoi64 ??=
+  //       _dylib.lookupFunction<_c__wtoi64, _dart__wtoi64>('_wtoi64'))(
+  //     _String,
+  //   );
+  // }
+
+  // _dart__wtoi64? __wtoi64;
+
+  // int _wtoi64_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wtoi64_l ??=
+  //       _dylib.lookupFunction<_c__wtoi64_l, _dart__wtoi64_l>('_wtoi64_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
+
+  // _dart__wtoi64_l? __wtoi64_l;
+
+  // int _wcstoi64(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+  //   int _Radix,
+  // ) {
+  //   return (__wcstoi64 ??=
+  //       _dylib.lookupFunction<_c__wcstoi64, _dart__wcstoi64>('_wcstoi64'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //   );
+  // }
+
+  // _dart__wcstoi64? __wcstoi64;
+
+  // int _wcstoi64_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+  //   int _Radix,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcstoi64_l ??= _dylib
+  //       .lookupFunction<_c__wcstoi64_l, _dart__wcstoi64_l>('_wcstoi64_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //     _Locale,
+  //   );
+  // }
+
+  // _dart__wcstoi64_l? __wcstoi64_l;
+
+  // int _wcstoui64(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+  //   int _Radix,
+  // ) {
+  //   return (__wcstoui64 ??=
+  //       _dylib.lookupFunction<_c__wcstoui64, _dart__wcstoui64>('_wcstoui64'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //   );
+  // }
+
+  // _dart__wcstoui64? __wcstoui64;
+
+  // int _wcstoui64_l(
+  //   ffi.Pointer<ffi.Uint16> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+  //   int _Radix,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcstoui64_l ??= _dylib
+  //       .lookupFunction<_c__wcstoui64_l, _dart__wcstoui64_l>('_wcstoui64_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //     _Locale,
+  //   );
+  // }
+
+  // _dart__wcstoui64_l? __wcstoui64_l;
+
+  // ffi.Pointer<ffi.Uint16> _wfullpath(
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   ffi.Pointer<ffi.Uint16> _Path,
+  //   int _BufferCount,
+  // ) {
+  //   return (__wfullpath ??=
+  //       _dylib.lookupFunction<_c__wfullpath, _dart__wfullpath>('_wfullpath'))(
+  //     _Buffer,
+  //     _Path,
+  //     _BufferCount,
+  //   );
+  // }
+
+  // _dart__wfullpath? __wfullpath;
+
+  // int _wmakepath_s(
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _BufferCount,
+  //   ffi.Pointer<ffi.Uint16> _Drive,
+  //   ffi.Pointer<ffi.Uint16> _Dir,
+  //   ffi.Pointer<ffi.Uint16> _Filename,
+  //   ffi.Pointer<ffi.Uint16> _Ext,
+  // ) {
+  //   return (__wmakepath_s ??= _dylib
+  //       .lookupFunction<_c__wmakepath_s, _dart__wmakepath_s>('_wmakepath_s'))(
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Drive,
+  //     _Dir,
+  //     _Filename,
+  //     _Ext,
+  //   );
+  // }
+
+  // _dart__wmakepath_s? __wmakepath_s;
+
+  // void _wmakepath(
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   ffi.Pointer<ffi.Uint16> _Drive,
+  //   ffi.Pointer<ffi.Uint16> _Dir,
+  //   ffi.Pointer<ffi.Uint16> _Filename,
+  //   ffi.Pointer<ffi.Uint16> _Ext,
+  // ) {
+  //   return (__wmakepath ??=
+  //       _dylib.lookupFunction<_c__wmakepath, _dart__wmakepath>('_wmakepath'))(
+  //     _Buffer,
+  //     _Drive,
+  //     _Dir,
+  //     _Filename,
+  //     _Ext,
+  //   );
+  // }
+
+  // _dart__wmakepath? __wmakepath;
+
+  // void _wperror(
+  //   ffi.Pointer<ffi.Uint16> _ErrorMessage,
+  // ) {
+  //   return (__wperror ??=
+  //       _dylib.lookupFunction<_c__wperror, _dart__wperror>('_wperror'))(
+  //     _ErrorMessage,
+  //   );
+  // }
+
+  // _dart__wperror? __wperror;
+
+  // void _wsplitpath(
+  //   ffi.Pointer<ffi.Uint16> _FullPath,
+  //   ffi.Pointer<ffi.Uint16> _Drive,
+  //   ffi.Pointer<ffi.Uint16> _Dir,
+  //   ffi.Pointer<ffi.Uint16> _Filename,
+  //   ffi.Pointer<ffi.Uint16> _Ext,
+  // ) {
+  //   return (__wsplitpath ??= _dylib
+  //       .lookupFunction<_c__wsplitpath, _dart__wsplitpath>('_wsplitpath'))(
+  //     _FullPath,
+  //     _Drive,
+  //     _Dir,
+  //     _Filename,
+  //     _Ext,
+  //   );
+  // }
+
+  // _dart__wsplitpath? __wsplitpath;
+
+  // int _wsplitpath_s(
+  //   ffi.Pointer<ffi.Uint16> _FullPath,
+  //   ffi.Pointer<ffi.Uint16> _Drive,
+  //   int _DriveCount,
+  //   ffi.Pointer<ffi.Uint16> _Dir,
+  //   int _DirCount,
+  //   ffi.Pointer<ffi.Uint16> _Filename,
+  //   int _FilenameCount,
+  //   ffi.Pointer<ffi.Uint16> _Ext,
+  //   int _ExtCount,
+  // ) {
+  //   return (__wsplitpath_s ??=
+  //       _dylib.lookupFunction<_c__wsplitpath_s, _dart__wsplitpath_s>(
+  //           '_wsplitpath_s'))(
+  //     _FullPath,
+  //     _Drive,
+  //     _DriveCount,
+  //     _Dir,
+  //     _DirCount,
+  //     _Filename,
+  //     _FilenameCount,
+  //     _Ext,
+  //     _ExtCount,
+  //   );
+  // }
+
+  // _dart__wsplitpath_s? __wsplitpath_s;
+
+  // int _wdupenv_s(
+  //   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Buffer,
+  //   ffi.Pointer<ffi.Uint64> _BufferCount,
+  //   ffi.Pointer<ffi.Uint16> _VarName,
+  // ) {
+  //   return (__wdupenv_s ??=
+  //       _dylib.lookupFunction<_c__wdupenv_s, _dart__wdupenv_s>('_wdupenv_s'))(
+  //     _Buffer,
+  //     _BufferCount,
+  //     _VarName,
+  //   );
+  // }
+
+  // _dart__wdupenv_s? __wdupenv_s;
+
+  // ffi.Pointer<ffi.Uint16> _wgetenv(
+  //   ffi.Pointer<ffi.Uint16> _VarName,
+  // ) {
+  //   return (__wgetenv ??=
+  //       _dylib.lookupFunction<_c__wgetenv, _dart__wgetenv>('_wgetenv'))(
+  //     _VarName,
+  //   );
+  // }
+
+  // _dart__wgetenv? __wgetenv;
+
+  // int _wgetenv_s(
+  //   ffi.Pointer<ffi.Uint64> _RequiredCount,
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _BufferCount,
+  //   ffi.Pointer<ffi.Uint16> _VarName,
+  // ) {
+  //   return (__wgetenv_s ??=
+  //       _dylib.lookupFunction<_c__wgetenv_s, _dart__wgetenv_s>('_wgetenv_s'))(
+  //     _RequiredCount,
+  //     _Buffer,
+  //     _BufferCount,
+  //     _VarName,
+  //   );
+  // }
+
+  // _dart__wgetenv_s? __wgetenv_s;
+
+  // int _wputenv(
+  //   ffi.Pointer<ffi.Uint16> _EnvString,
+  // ) {
+  //   return (__wputenv ??=
+  //       _dylib.lookupFunction<_c__wputenv, _dart__wputenv>('_wputenv'))(
+  //     _EnvString,
+  //   );
+  // }
+
+  // _dart__wputenv? __wputenv;
+
+  // int _wputenv_s(
+  //   ffi.Pointer<ffi.Uint16> _Name,
+  //   ffi.Pointer<ffi.Uint16> _Value,
+  // ) {
+  //   return (__wputenv_s ??=
+  //       _dylib.lookupFunction<_c__wputenv_s, _dart__wputenv_s>('_wputenv_s'))(
+  //     _Name,
+  //     _Value,
+  //   );
+  // }
+
+  // _dart__wputenv_s? __wputenv_s;
+
+  // int _wsearchenv_s(
+  //   ffi.Pointer<ffi.Uint16> _Filename,
+  //   ffi.Pointer<ffi.Uint16> _VarName,
+  //   ffi.Pointer<ffi.Uint16> _Buffer,
+  //   int _BufferCount,
+  // ) {
+  //   return (__wsearchenv_s ??=
+  //       _dylib.lookupFunction<_c__wsearchenv_s, _dart__wsearchenv_s>(
+  //           '_wsearchenv_s'))(
+  //     _Filename,
+  //     _VarName,
+  //     _Buffer,
+  //     _BufferCount,
+  //   );
+  // }
+
+  // _dart__wsearchenv_s? __wsearchenv_s;
+
+  // void _wsearchenv(
+  //   ffi.Pointer<ffi.Uint16> _Filename,
+  //   ffi.Pointer<ffi.Uint16> _VarName,
+  //   ffi.Pointer<ffi.Uint16> _ResultPath,
+  // ) {
+  //   return (__wsearchenv ??= _dylib
+  //       .lookupFunction<_c__wsearchenv, _dart__wsearchenv>('_wsearchenv'))(
+  //     _Filename,
+  //     _VarName,
+  //     _ResultPath,
+  //   );
+  // }
+
+  // _dart__wsearchenv? __wsearchenv;
+
+  // int _wsystem(
+  //   ffi.Pointer<ffi.Uint16> _Command,
+  // ) {
+  //   return (__wsystem ??=
+  //       _dylib.lookupFunction<_c__wsystem, _dart__wsystem>('_wsystem'))(
+  //     _Command,
+  //   );
+  // }
+
+  // _dart__wsystem? __wsystem;
+
+  // void _swab(
+  //   ffi.Pointer<ffi.Int8> _Buf1,
+  //   ffi.Pointer<ffi.Int8> _Buf2,
+  //   int _SizeInBytes,
+  // ) {
+  //   return (__swab ??= _dylib.lookupFunction<_c__swab, _dart__swab>('_swab'))(
+  //     _Buf1,
+  //     _Buf2,
+  //     _SizeInBytes,
+  //   );
+  // }
+
+  // _dart__swab? __swab;
+
+  // void exit(
+  //   int _Code,
+  // ) {
+  //   return (_exit_1 ??= _dylib.lookupFunction<_c_exit, _dart_exit>('exit'))(
+  //     _Code,
+  //   );
+  // }
+
+  // _dart_exit? _exit_1;
+
+  // void _exit(
+  //   int _Code,
+  // ) {
+  //   return (__exit ??= _dylib.lookupFunction<_c__exit, _dart__exit>('_exit'))(
+  //     _Code,
+  //   );
+  // }
+
+  // _dart__exit? __exit;
+
+  // void _Exit(
+  //   int _Code,
+  // ) {
+  //   return (__Exit ??= _dylib.lookupFunction<_c__Exit, _dart__Exit>('_Exit'))(
+  //     _Code,
+  //   );
+  // }
+
+  // _dart__Exit? __Exit;
+
+  // void quick_exit(
+  //   int _Code,
+  // ) {
+  //   return (_quick_exit ??=
+  //       _dylib.lookupFunction<_c_quick_exit, _dart_quick_exit>('quick_exit'))(
+  //     _Code,
+  //   );
+  // }
+
+  // _dart_quick_exit? _quick_exit;
+
+  // void abort() {
+  //   return (_abort ??= _dylib.lookupFunction<_c_abort, _dart_abort>('abort'))();
+  // }
+
+  // _dart_abort? _abort;
+
+  // int _set_abort_behavior(
+  //   int _Flags,
+  //   int _Mask,
+  // ) {
+  //   return (__set_abort_behavior ??= _dylib.lookupFunction<
+  //       _c__set_abort_behavior,
+  //       _dart__set_abort_behavior>('_set_abort_behavior'))(
+  //     _Flags,
+  //     _Mask,
+  //   );
+  // }
+
+  // _dart__set_abort_behavior? __set_abort_behavior;
+
+  // int atexit(
+  //   ffi.Pointer<ffi.NativeFunction<_typedefC_1>> arg0,
+  // ) {
+  //   return (_atexit ??=
+  //       _dylib.lookupFunction<_c_atexit, _dart_atexit>('atexit'))(
+  //     arg0,
+  //   );
+  // }
+
+  // _dart_atexit? _atexit;
+
+  // ffi.Pointer<ffi.NativeFunction<_onexit_t>> _onexit(
+  //   ffi.Pointer<ffi.NativeFunction<_onexit_t>> _Func,
+  // ) {
+  //   return (__onexit ??=
+  //       _dylib.lookupFunction<_c__onexit, _dart__onexit>('_onexit'))(
+  //     _Func,
+  //   );
+  // }
+
+  // _dart__onexit? __onexit;
 
   int at_quick_exit(
     ffi.Pointer<ffi.NativeFunction<_typedefC_2>> arg0,
@@ -53492,102 +53492,102 @@ class LibEGL {
 
   _dart_at_quick_exit? _at_quick_exit;
 
-  ffi.Pointer<ffi.NativeFunction<_purecall_handler>> _set_purecall_handler(
-    ffi.Pointer<ffi.NativeFunction<_purecall_handler>> _Handler,
-  ) {
-    return (__set_purecall_handler ??= _dylib.lookupFunction<
-        _c__set_purecall_handler,
-        _dart__set_purecall_handler>('_set_purecall_handler'))(
-      _Handler,
-    );
-  }
+  // ffi.Pointer<ffi.NativeFunction<_purecall_handler>> _set_purecall_handler(
+  //   ffi.Pointer<ffi.NativeFunction<_purecall_handler>> _Handler,
+  // ) {
+  //   return (__set_purecall_handler ??= _dylib.lookupFunction<
+  //       _c__set_purecall_handler,
+  //       _dart__set_purecall_handler>('_set_purecall_handler'))(
+  //     _Handler,
+  //   );
+  // }
 
-  _dart__set_purecall_handler? __set_purecall_handler;
+  // _dart__set_purecall_handler? __set_purecall_handler;
 
-  ffi.Pointer<ffi.NativeFunction<_purecall_handler>> _get_purecall_handler() {
-    return (__get_purecall_handler ??= _dylib.lookupFunction<
-        _c__get_purecall_handler,
-        _dart__get_purecall_handler>('_get_purecall_handler'))();
-  }
+  // ffi.Pointer<ffi.NativeFunction<_purecall_handler>> _get_purecall_handler() {
+  //   return (__get_purecall_handler ??= _dylib.lookupFunction<
+  //       _c__get_purecall_handler,
+  //       _dart__get_purecall_handler>('_get_purecall_handler'))();
+  // }
 
-  _dart__get_purecall_handler? __get_purecall_handler;
+  // _dart__get_purecall_handler? __get_purecall_handler;
 
-  ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>>
-      _set_invalid_parameter_handler(
-    ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> _Handler,
-  ) {
-    return (__set_invalid_parameter_handler ??= _dylib.lookupFunction<
-            _c__set_invalid_parameter_handler,
-            _dart__set_invalid_parameter_handler>(
-        '_set_invalid_parameter_handler'))(
-      _Handler,
-    );
-  }
+  // ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>>
+  //     _set_invalid_parameter_handler(
+  //   ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> _Handler,
+  // ) {
+  //   return (__set_invalid_parameter_handler ??= _dylib.lookupFunction<
+  //           _c__set_invalid_parameter_handler,
+  //           _dart__set_invalid_parameter_handler>(
+  //       '_set_invalid_parameter_handler'))(
+  //     _Handler,
+  //   );
+  // }
 
-  _dart__set_invalid_parameter_handler? __set_invalid_parameter_handler;
+  // _dart__set_invalid_parameter_handler? __set_invalid_parameter_handler;
 
-  ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>>
-      _get_invalid_parameter_handler() {
-    return (__get_invalid_parameter_handler ??= _dylib.lookupFunction<
-            _c__get_invalid_parameter_handler,
-            _dart__get_invalid_parameter_handler>(
-        '_get_invalid_parameter_handler'))();
-  }
+  // ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>>
+  //     _get_invalid_parameter_handler() {
+  //   return (__get_invalid_parameter_handler ??= _dylib.lookupFunction<
+  //           _c__get_invalid_parameter_handler,
+  //           _dart__get_invalid_parameter_handler>(
+  //       '_get_invalid_parameter_handler'))();
+  // }
 
-  _dart__get_invalid_parameter_handler? __get_invalid_parameter_handler;
+  // _dart__get_invalid_parameter_handler? __get_invalid_parameter_handler;
 
-  ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>>
-      _set_thread_local_invalid_parameter_handler(
-    ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> _Handler,
-  ) {
-    return (__set_thread_local_invalid_parameter_handler ??=
-        _dylib.lookupFunction<_c__set_thread_local_invalid_parameter_handler,
-                _dart__set_thread_local_invalid_parameter_handler>(
-            '_set_thread_local_invalid_parameter_handler'))(
-      _Handler,
-    );
-  }
+  // ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>>
+  //     _set_thread_local_invalid_parameter_handler(
+  //   ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> _Handler,
+  // ) {
+  //   return (__set_thread_local_invalid_parameter_handler ??=
+  //       _dylib.lookupFunction<_c__set_thread_local_invalid_parameter_handler,
+  //               _dart__set_thread_local_invalid_parameter_handler>(
+  //           '_set_thread_local_invalid_parameter_handler'))(
+  //     _Handler,
+  //   );
+  // }
 
-  _dart__set_thread_local_invalid_parameter_handler?
-      __set_thread_local_invalid_parameter_handler;
+  // _dart__set_thread_local_invalid_parameter_handler?
+  //     __set_thread_local_invalid_parameter_handler;
 
-  ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>>
-      _get_thread_local_invalid_parameter_handler() {
-    return (__get_thread_local_invalid_parameter_handler ??=
-        _dylib.lookupFunction<_c__get_thread_local_invalid_parameter_handler,
-                _dart__get_thread_local_invalid_parameter_handler>(
-            '_get_thread_local_invalid_parameter_handler'))();
-  }
+  // ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>>
+  //     _get_thread_local_invalid_parameter_handler() {
+  //   return (__get_thread_local_invalid_parameter_handler ??=
+  //       _dylib.lookupFunction<_c__get_thread_local_invalid_parameter_handler,
+  //               _dart__get_thread_local_invalid_parameter_handler>(
+  //           '_get_thread_local_invalid_parameter_handler'))();
+  // }
 
-  _dart__get_thread_local_invalid_parameter_handler?
-      __get_thread_local_invalid_parameter_handler;
+  // _dart__get_thread_local_invalid_parameter_handler?
+  //     __get_thread_local_invalid_parameter_handler;
 
-  int _set_error_mode(
-    int _Mode,
-  ) {
-    return (__set_error_mode ??=
-        _dylib.lookupFunction<_c__set_error_mode, _dart__set_error_mode>(
-            '_set_error_mode'))(
-      _Mode,
-    );
-  }
+  // int _set_error_mode(
+  //   int _Mode,
+  // ) {
+  //   return (__set_error_mode ??=
+  //       _dylib.lookupFunction<_c__set_error_mode, _dart__set_error_mode>(
+  //           '_set_error_mode'))(
+  //     _Mode,
+  //   );
+  // }
 
-  _dart__set_error_mode? __set_error_mode;
+  // _dart__set_error_mode? __set_error_mode;
 
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> __sys_errlist() {
-    return (___sys_errlist ??=
-        _dylib.lookupFunction<_c___sys_errlist, _dart___sys_errlist>(
-            '__sys_errlist'))();
-  }
+  // ffi.Pointer<ffi.Pointer<ffi.Int8>> __sys_errlist() {
+  //   return (___sys_errlist ??=
+  //       _dylib.lookupFunction<_c___sys_errlist, _dart___sys_errlist>(
+  //           '__sys_errlist'))();
+  // }
 
-  _dart___sys_errlist? ___sys_errlist;
+  // _dart___sys_errlist? ___sys_errlist;
 
-  ffi.Pointer<ffi.Int32> __sys_nerr() {
-    return (___sys_nerr ??=
-        _dylib.lookupFunction<_c___sys_nerr, _dart___sys_nerr>('__sys_nerr'))();
-  }
+  // ffi.Pointer<ffi.Int32> __sys_nerr() {
+  //   return (___sys_nerr ??=
+  //       _dylib.lookupFunction<_c___sys_nerr, _dart___sys_nerr>('__sys_nerr'))();
+  // }
 
-  _dart___sys_nerr? ___sys_nerr;
+  // _dart___sys_nerr? ___sys_nerr;
 
   void perror(
     ffi.Pointer<ffi.Int8> _ErrMsg,
@@ -53600,143 +53600,143 @@ class LibEGL {
 
   _dart_perror? _perror;
 
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> __p__pgmptr() {
-    return (___p__pgmptr ??= _dylib
-        .lookupFunction<_c___p__pgmptr, _dart___p__pgmptr>('__p__pgmptr'))();
-  }
+  // ffi.Pointer<ffi.Pointer<ffi.Int8>> __p__pgmptr() {
+  //   return (___p__pgmptr ??= _dylib
+  //       .lookupFunction<_c___p__pgmptr, _dart___p__pgmptr>('__p__pgmptr'))();
+  // }
 
-  _dart___p__pgmptr? ___p__pgmptr;
+  // _dart___p__pgmptr? ___p__pgmptr;
 
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> __p__wpgmptr() {
-    return (___p__wpgmptr ??= _dylib
-        .lookupFunction<_c___p__wpgmptr, _dart___p__wpgmptr>('__p__wpgmptr'))();
-  }
+  // ffi.Pointer<ffi.Pointer<ffi.Uint16>> __p__wpgmptr() {
+  //   return (___p__wpgmptr ??= _dylib
+  //       .lookupFunction<_c___p__wpgmptr, _dart___p__wpgmptr>('__p__wpgmptr'))();
+  // }
 
-  _dart___p__wpgmptr? ___p__wpgmptr;
+  // _dart___p__wpgmptr? ___p__wpgmptr;
 
-  ffi.Pointer<ffi.Int32> __p__fmode() {
-    return (___p__fmode ??=
-        _dylib.lookupFunction<_c___p__fmode, _dart___p__fmode>('__p__fmode'))();
-  }
+  // ffi.Pointer<ffi.Int32> __p__fmode() {
+  //   return (___p__fmode ??=
+  //       _dylib.lookupFunction<_c___p__fmode, _dart___p__fmode>('__p__fmode'))();
+  // }
 
-  _dart___p__fmode? ___p__fmode;
+  // _dart___p__fmode? ___p__fmode;
 
-  int _get_pgmptr(
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> _Value,
-  ) {
-    return (__get_pgmptr ??= _dylib
-        .lookupFunction<_c__get_pgmptr, _dart__get_pgmptr>('_get_pgmptr'))(
-      _Value,
-    );
-  }
+  // int _get_pgmptr(
+  //   ffi.Pointer<ffi.Pointer<ffi.Int8>> _Value,
+  // ) {
+  //   return (__get_pgmptr ??= _dylib
+  //       .lookupFunction<_c__get_pgmptr, _dart__get_pgmptr>('_get_pgmptr'))(
+  //     _Value,
+  //   );
+  // }
 
-  _dart__get_pgmptr? __get_pgmptr;
+  // _dart__get_pgmptr? __get_pgmptr;
 
-  int _get_wpgmptr(
-    ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Value,
-  ) {
-    return (__get_wpgmptr ??= _dylib
-        .lookupFunction<_c__get_wpgmptr, _dart__get_wpgmptr>('_get_wpgmptr'))(
-      _Value,
-    );
-  }
+  // int _get_wpgmptr(
+  //   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Value,
+  // ) {
+  //   return (__get_wpgmptr ??= _dylib
+  //       .lookupFunction<_c__get_wpgmptr, _dart__get_wpgmptr>('_get_wpgmptr'))(
+  //     _Value,
+  //   );
+  // }
 
-  _dart__get_wpgmptr? __get_wpgmptr;
+  // _dart__get_wpgmptr? __get_wpgmptr;
 
-  int _set_fmode(
-    int _Mode,
-  ) {
-    return (__set_fmode ??=
-        _dylib.lookupFunction<_c__set_fmode, _dart__set_fmode>('_set_fmode'))(
-      _Mode,
-    );
-  }
+  // int _set_fmode(
+  //   int _Mode,
+  // ) {
+  //   return (__set_fmode ??=
+  //       _dylib.lookupFunction<_c__set_fmode, _dart__set_fmode>('_set_fmode'))(
+  //     _Mode,
+  //   );
+  // }
 
-  _dart__set_fmode? __set_fmode;
+  // _dart__set_fmode? __set_fmode;
 
-  int _get_fmode(
-    ffi.Pointer<ffi.Int32> _PMode,
-  ) {
-    return (__get_fmode ??=
-        _dylib.lookupFunction<_c__get_fmode, _dart__get_fmode>('_get_fmode'))(
-      _PMode,
-    );
-  }
+  // int _get_fmode(
+  //   ffi.Pointer<ffi.Int32> _PMode,
+  // ) {
+  //   return (__get_fmode ??=
+  //       _dylib.lookupFunction<_c__get_fmode, _dart__get_fmode>('_get_fmode'))(
+  //     _PMode,
+  //   );
+  // }
 
-  _dart__get_fmode? __get_fmode;
+  // _dart__get_fmode? __get_fmode;
 
-  int _abs64(
-    int _Number,
-  ) {
-    return (__abs64 ??=
-        _dylib.lookupFunction<_c__abs64, _dart__abs64>('_abs64'))(
-      _Number,
-    );
-  }
+  // int _abs64(
+  //   int _Number,
+  // ) {
+  //   return (__abs64 ??=
+  //       _dylib.lookupFunction<_c__abs64, _dart__abs64>('_abs64'))(
+  //     _Number,
+  //   );
+  // }
 
-  _dart__abs64? __abs64;
+  // _dart__abs64? __abs64;
 
-  int _byteswap_ushort(
-    int _Number,
-  ) {
-    return (__byteswap_ushort ??=
-        _dylib.lookupFunction<_c__byteswap_ushort, _dart__byteswap_ushort>(
-            '_byteswap_ushort'))(
-      _Number,
-    );
-  }
+  // int _byteswap_ushort(
+  //   int _Number,
+  // ) {
+  //   return (__byteswap_ushort ??=
+  //       _dylib.lookupFunction<_c__byteswap_ushort, _dart__byteswap_ushort>(
+  //           '_byteswap_ushort'))(
+  //     _Number,
+  //   );
+  // }
 
-  _dart__byteswap_ushort? __byteswap_ushort;
+  // _dart__byteswap_ushort? __byteswap_ushort;
 
-  int _byteswap_ulong(
-    int _Number,
-  ) {
-    return (__byteswap_ulong ??=
-        _dylib.lookupFunction<_c__byteswap_ulong, _dart__byteswap_ulong>(
-            '_byteswap_ulong'))(
-      _Number,
-    );
-  }
+  // int _byteswap_ulong(
+  //   int _Number,
+  // ) {
+  //   return (__byteswap_ulong ??=
+  //       _dylib.lookupFunction<_c__byteswap_ulong, _dart__byteswap_ulong>(
+  //           '_byteswap_ulong'))(
+  //     _Number,
+  //   );
+  // }
 
-  _dart__byteswap_ulong? __byteswap_ulong;
+  // _dart__byteswap_ulong? __byteswap_ulong;
 
-  int _byteswap_uint64(
-    int _Number,
-  ) {
-    return (__byteswap_uint64 ??=
-        _dylib.lookupFunction<_c__byteswap_uint64, _dart__byteswap_uint64>(
-            '_byteswap_uint64'))(
-      _Number,
-    );
-  }
+  // int _byteswap_uint64(
+  //   int _Number,
+  // ) {
+  //   return (__byteswap_uint64 ??=
+  //       _dylib.lookupFunction<_c__byteswap_uint64, _dart__byteswap_uint64>(
+  //           '_byteswap_uint64'))(
+  //     _Number,
+  //   );
+  // }
 
-  _dart__byteswap_uint64? __byteswap_uint64;
+  // _dart__byteswap_uint64? __byteswap_uint64;
 
-  int _lrotl(
-    int _Value,
-    int _Shift,
-  ) {
-    return (__lrotl ??=
-        _dylib.lookupFunction<_c__lrotl, _dart__lrotl>('_lrotl'))(
-      _Value,
-      _Shift,
-    );
-  }
+  // int _lrotl(
+  //   int _Value,
+  //   int _Shift,
+  // ) {
+  //   return (__lrotl ??=
+  //       _dylib.lookupFunction<_c__lrotl, _dart__lrotl>('_lrotl'))(
+  //     _Value,
+  //     _Shift,
+  //   );
+  // }
 
-  _dart__lrotl? __lrotl;
+  // _dart__lrotl? __lrotl;
 
-  int _lrotr(
-    int _Value,
-    int _Shift,
-  ) {
-    return (__lrotr ??=
-        _dylib.lookupFunction<_c__lrotr, _dart__lrotr>('_lrotr'))(
-      _Value,
-      _Shift,
-    );
-  }
+  // int _lrotr(
+  //   int _Value,
+  //   int _Shift,
+  // ) {
+  //   return (__lrotr ??=
+  //       _dylib.lookupFunction<_c__lrotr, _dart__lrotr>('_lrotr'))(
+  //     _Value,
+  //     _Shift,
+  //   );
+  // }
 
-  _dart__lrotr? __lrotr;
+  // _dart__lrotr? __lrotr;
 
   void srand(
     int _Seed,
@@ -53784,152 +53784,152 @@ class LibEGL {
 
   _dart_atoll? _atoll;
 
-  int _atoi64(
-    ffi.Pointer<ffi.Int8> _String,
-  ) {
-    return (__atoi64 ??=
-        _dylib.lookupFunction<_c__atoi64, _dart__atoi64>('_atoi64'))(
-      _String,
-    );
-  }
+  // int _atoi64(
+  //   ffi.Pointer<ffi.Int8> _String,
+  // ) {
+  //   return (__atoi64 ??=
+  //       _dylib.lookupFunction<_c__atoi64, _dart__atoi64>('_atoi64'))(
+  //     _String,
+  //   );
+  // }
 
-  _dart__atoi64? __atoi64;
+  // _dart__atoi64? __atoi64;
 
-  int _atoi_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__atoi_l ??=
-        _dylib.lookupFunction<_c__atoi_l, _dart__atoi_l>('_atoi_l'))(
-      _String,
-      _Locale,
-    );
-  }
+  // int _atoi_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__atoi_l ??=
+  //       _dylib.lookupFunction<_c__atoi_l, _dart__atoi_l>('_atoi_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__atoi_l? __atoi_l;
+  // _dart__atoi_l? __atoi_l;
 
-  int _atol_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__atol_l ??=
-        _dylib.lookupFunction<_c__atol_l, _dart__atol_l>('_atol_l'))(
-      _String,
-      _Locale,
-    );
-  }
+  // int _atol_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__atol_l ??=
+  //       _dylib.lookupFunction<_c__atol_l, _dart__atol_l>('_atol_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__atol_l? __atol_l;
+  // _dart__atol_l? __atol_l;
 
-  int _atoll_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__atoll_l ??=
-        _dylib.lookupFunction<_c__atoll_l, _dart__atoll_l>('_atoll_l'))(
-      _String,
-      _Locale,
-    );
-  }
+  // int _atoll_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__atoll_l ??=
+  //       _dylib.lookupFunction<_c__atoll_l, _dart__atoll_l>('_atoll_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__atoll_l? __atoll_l;
+  // _dart__atoll_l? __atoll_l;
 
-  int _atoi64_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__atoi64_l ??=
-        _dylib.lookupFunction<_c__atoi64_l, _dart__atoi64_l>('_atoi64_l'))(
-      _String,
-      _Locale,
-    );
-  }
+  // int _atoi64_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__atoi64_l ??=
+  //       _dylib.lookupFunction<_c__atoi64_l, _dart__atoi64_l>('_atoi64_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__atoi64_l? __atoi64_l;
+  // _dart__atoi64_l? __atoi64_l;
 
-  int _atoflt(
-    ffi.Pointer<_CRT_FLOAT> _Result,
-    ffi.Pointer<ffi.Int8> _String,
-  ) {
-    return (__atoflt ??=
-        _dylib.lookupFunction<_c__atoflt, _dart__atoflt>('_atoflt'))(
-      _Result,
-      _String,
-    );
-  }
+  // int _atoflt(
+  //   ffi.Pointer<_CRT_FLOAT> _Result,
+  //   ffi.Pointer<ffi.Int8> _String,
+  // ) {
+  //   return (__atoflt ??=
+  //       _dylib.lookupFunction<_c__atoflt, _dart__atoflt>('_atoflt'))(
+  //     _Result,
+  //     _String,
+  //   );
+  // }
 
-  _dart__atoflt? __atoflt;
+  // _dart__atoflt? __atoflt;
 
-  int _atodbl(
-    ffi.Pointer<_CRT_DOUBLE> _Result,
-    ffi.Pointer<ffi.Int8> _String,
-  ) {
-    return (__atodbl ??=
-        _dylib.lookupFunction<_c__atodbl, _dart__atodbl>('_atodbl'))(
-      _Result,
-      _String,
-    );
-  }
+  // int _atodbl(
+  //   ffi.Pointer<_CRT_DOUBLE> _Result,
+  //   ffi.Pointer<ffi.Int8> _String,
+  // ) {
+  //   return (__atodbl ??=
+  //       _dylib.lookupFunction<_c__atodbl, _dart__atodbl>('_atodbl'))(
+  //     _Result,
+  //     _String,
+  //   );
+  // }
 
-  _dart__atodbl? __atodbl;
+  // _dart__atodbl? __atodbl;
 
-  int _atoldbl(
-    ffi.Pointer<_LDOUBLE> _Result,
-    ffi.Pointer<ffi.Int8> _String,
-  ) {
-    return (__atoldbl ??=
-        _dylib.lookupFunction<_c__atoldbl, _dart__atoldbl>('_atoldbl'))(
-      _Result,
-      _String,
-    );
-  }
+  // int _atoldbl(
+  //   ffi.Pointer<_LDOUBLE> _Result,
+  //   ffi.Pointer<ffi.Int8> _String,
+  // ) {
+  //   return (__atoldbl ??=
+  //       _dylib.lookupFunction<_c__atoldbl, _dart__atoldbl>('_atoldbl'))(
+  //     _Result,
+  //     _String,
+  //   );
+  // }
 
-  _dart__atoldbl? __atoldbl;
+  // _dart__atoldbl? __atoldbl;
 
-  int _atoflt_l(
-    ffi.Pointer<_CRT_FLOAT> _Result,
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__atoflt_l ??=
-        _dylib.lookupFunction<_c__atoflt_l, _dart__atoflt_l>('_atoflt_l'))(
-      _Result,
-      _String,
-      _Locale,
-    );
-  }
+  // int _atoflt_l(
+  //   ffi.Pointer<_CRT_FLOAT> _Result,
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__atoflt_l ??=
+  //       _dylib.lookupFunction<_c__atoflt_l, _dart__atoflt_l>('_atoflt_l'))(
+  //     _Result,
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__atoflt_l? __atoflt_l;
+  // _dart__atoflt_l? __atoflt_l;
 
-  int _atodbl_l(
-    ffi.Pointer<_CRT_DOUBLE> _Result,
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__atodbl_l ??=
-        _dylib.lookupFunction<_c__atodbl_l, _dart__atodbl_l>('_atodbl_l'))(
-      _Result,
-      _String,
-      _Locale,
-    );
-  }
+  // int _atodbl_l(
+  //   ffi.Pointer<_CRT_DOUBLE> _Result,
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__atodbl_l ??=
+  //       _dylib.lookupFunction<_c__atodbl_l, _dart__atodbl_l>('_atodbl_l'))(
+  //     _Result,
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__atodbl_l? __atodbl_l;
+  // _dart__atodbl_l? __atodbl_l;
 
-  int _atoldbl_l(
-    ffi.Pointer<_LDOUBLE> _Result,
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__atoldbl_l ??=
-        _dylib.lookupFunction<_c__atoldbl_l, _dart__atoldbl_l>('_atoldbl_l'))(
-      _Result,
-      _String,
-      _Locale,
-    );
-  }
+  // int _atoldbl_l(
+  //   ffi.Pointer<_LDOUBLE> _Result,
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__atoldbl_l ??=
+  //       _dylib.lookupFunction<_c__atoldbl_l, _dart__atoldbl_l>('_atoldbl_l'))(
+  //     _Result,
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__atoldbl_l? __atoldbl_l;
+  // _dart__atoldbl_l? __atoldbl_l;
 
   double strtof(
     ffi.Pointer<ffi.Int8> _String,
@@ -53944,20 +53944,20 @@ class LibEGL {
 
   _dart_strtof? _strtof;
 
-  double _strtof_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strtof_l ??=
-        _dylib.lookupFunction<_c__strtof_l, _dart__strtof_l>('_strtof_l'))(
-      _String,
-      _EndPtr,
-      _Locale,
-    );
-  }
+  // double _strtof_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strtof_l ??=
+  //       _dylib.lookupFunction<_c__strtof_l, _dart__strtof_l>('_strtof_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strtof_l? __strtof_l;
+  // _dart__strtof_l? __strtof_l;
 
   double strtod(
     ffi.Pointer<ffi.Int8> _String,
@@ -53972,20 +53972,20 @@ class LibEGL {
 
   _dart_strtod? _strtod;
 
-  double _strtod_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strtod_l ??=
-        _dylib.lookupFunction<_c__strtod_l, _dart__strtod_l>('_strtod_l'))(
-      _String,
-      _EndPtr,
-      _Locale,
-    );
-  }
+  // double _strtod_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strtod_l ??=
+  //       _dylib.lookupFunction<_c__strtod_l, _dart__strtod_l>('_strtod_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strtod_l? __strtod_l;
+  // _dart__strtod_l? __strtod_l;
 
   int strtol(
     ffi.Pointer<ffi.Int8> _String,
@@ -54002,22 +54002,22 @@ class LibEGL {
 
   _dart_strtol? _strtol;
 
-  int _strtol_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-    int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strtol_l ??=
-        _dylib.lookupFunction<_c__strtol_l, _dart__strtol_l>('_strtol_l'))(
-      _String,
-      _EndPtr,
-      _Radix,
-      _Locale,
-    );
-  }
+  // int _strtol_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+  //   int _Radix,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strtol_l ??=
+  //       _dylib.lookupFunction<_c__strtol_l, _dart__strtol_l>('_strtol_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strtol_l? __strtol_l;
+  // _dart__strtol_l? __strtol_l;
 
   int strtoll(
     ffi.Pointer<ffi.Int8> _String,
@@ -54034,22 +54034,22 @@ class LibEGL {
 
   _dart_strtoll? _strtoll;
 
-  int _strtoll_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-    int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strtoll_l ??=
-        _dylib.lookupFunction<_c__strtoll_l, _dart__strtoll_l>('_strtoll_l'))(
-      _String,
-      _EndPtr,
-      _Radix,
-      _Locale,
-    );
-  }
+  // int _strtoll_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+  //   int _Radix,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strtoll_l ??=
+  //       _dylib.lookupFunction<_c__strtoll_l, _dart__strtoll_l>('_strtoll_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strtoll_l? __strtoll_l;
+  // _dart__strtoll_l? __strtoll_l;
 
   int strtoul(
     ffi.Pointer<ffi.Int8> _String,
@@ -54066,22 +54066,22 @@ class LibEGL {
 
   _dart_strtoul? _strtoul;
 
-  int _strtoul_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-    int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strtoul_l ??=
-        _dylib.lookupFunction<_c__strtoul_l, _dart__strtoul_l>('_strtoul_l'))(
-      _String,
-      _EndPtr,
-      _Radix,
-      _Locale,
-    );
-  }
+  // int _strtoul_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+  //   int _Radix,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strtoul_l ??=
+  //       _dylib.lookupFunction<_c__strtoul_l, _dart__strtoul_l>('_strtoul_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strtoul_l? __strtoul_l;
+  // _dart__strtoul_l? __strtoul_l;
 
   int strtoull(
     ffi.Pointer<ffi.Int8> _String,
@@ -54098,349 +54098,349 @@ class LibEGL {
 
   _dart_strtoull? _strtoull;
 
-  int _strtoull_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-    int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strtoull_l ??= _dylib
-        .lookupFunction<_c__strtoull_l, _dart__strtoull_l>('_strtoull_l'))(
-      _String,
-      _EndPtr,
-      _Radix,
-      _Locale,
-    );
-  }
+  // int _strtoull_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+  //   int _Radix,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strtoull_l ??= _dylib
+  //       .lookupFunction<_c__strtoull_l, _dart__strtoull_l>('_strtoull_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strtoull_l? __strtoull_l;
+  // _dart__strtoull_l? __strtoull_l;
 
-  int _strtoi64(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-    int _Radix,
-  ) {
-    return (__strtoi64 ??=
-        _dylib.lookupFunction<_c__strtoi64, _dart__strtoi64>('_strtoi64'))(
-      _String,
-      _EndPtr,
-      _Radix,
-    );
-  }
+  // int _strtoi64(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+  //   int _Radix,
+  // ) {
+  //   return (__strtoi64 ??=
+  //       _dylib.lookupFunction<_c__strtoi64, _dart__strtoi64>('_strtoi64'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__strtoi64? __strtoi64;
+  // _dart__strtoi64? __strtoi64;
 
-  int _strtoi64_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-    int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strtoi64_l ??= _dylib
-        .lookupFunction<_c__strtoi64_l, _dart__strtoi64_l>('_strtoi64_l'))(
-      _String,
-      _EndPtr,
-      _Radix,
-      _Locale,
-    );
-  }
+  // int _strtoi64_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+  //   int _Radix,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strtoi64_l ??= _dylib
+  //       .lookupFunction<_c__strtoi64_l, _dart__strtoi64_l>('_strtoi64_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strtoi64_l? __strtoi64_l;
+  // _dart__strtoi64_l? __strtoi64_l;
 
-  int _strtoui64(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-    int _Radix,
-  ) {
-    return (__strtoui64 ??=
-        _dylib.lookupFunction<_c__strtoui64, _dart__strtoui64>('_strtoui64'))(
-      _String,
-      _EndPtr,
-      _Radix,
-    );
-  }
+  // int _strtoui64(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+  //   int _Radix,
+  // ) {
+  //   return (__strtoui64 ??=
+  //       _dylib.lookupFunction<_c__strtoui64, _dart__strtoui64>('_strtoui64'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__strtoui64? __strtoui64;
+  // _dart__strtoui64? __strtoui64;
 
-  int _strtoui64_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-    int _Radix,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__strtoui64_l ??= _dylib
-        .lookupFunction<_c__strtoui64_l, _dart__strtoui64_l>('_strtoui64_l'))(
-      _String,
-      _EndPtr,
-      _Radix,
-      _Locale,
-    );
-  }
+  // int _strtoui64_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+  //   int _Radix,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__strtoui64_l ??= _dylib
+  //       .lookupFunction<_c__strtoui64_l, _dart__strtoui64_l>('_strtoui64_l'))(
+  //     _String,
+  //     _EndPtr,
+  //     _Radix,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__strtoui64_l? __strtoui64_l;
+  // _dart__strtoui64_l? __strtoui64_l;
 
-  int _itoa_s(
-    int _Value,
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _BufferCount,
-    int _Radix,
-  ) {
-    return (__itoa_s ??=
-        _dylib.lookupFunction<_c__itoa_s, _dart__itoa_s>('_itoa_s'))(
-      _Value,
-      _Buffer,
-      _BufferCount,
-      _Radix,
-    );
-  }
+  // int _itoa_s(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _BufferCount,
+  //   int _Radix,
+  // ) {
+  //   return (__itoa_s ??=
+  //       _dylib.lookupFunction<_c__itoa_s, _dart__itoa_s>('_itoa_s'))(
+  //     _Value,
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__itoa_s? __itoa_s;
+  // _dart__itoa_s? __itoa_s;
 
-  ffi.Pointer<ffi.Int8> _itoa(
-    int _Value,
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _Radix,
-  ) {
-    return (__itoa ??= _dylib.lookupFunction<_c__itoa, _dart__itoa>('_itoa'))(
-      _Value,
-      _Buffer,
-      _Radix,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _itoa(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _Radix,
+  // ) {
+  //   return (__itoa ??= _dylib.lookupFunction<_c__itoa, _dart__itoa>('_itoa'))(
+  //     _Value,
+  //     _Buffer,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__itoa? __itoa;
+  // _dart__itoa? __itoa;
 
-  int _ltoa_s(
-    int _Value,
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _BufferCount,
-    int _Radix,
-  ) {
-    return (__ltoa_s ??=
-        _dylib.lookupFunction<_c__ltoa_s, _dart__ltoa_s>('_ltoa_s'))(
-      _Value,
-      _Buffer,
-      _BufferCount,
-      _Radix,
-    );
-  }
+  // int _ltoa_s(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _BufferCount,
+  //   int _Radix,
+  // ) {
+  //   return (__ltoa_s ??=
+  //       _dylib.lookupFunction<_c__ltoa_s, _dart__ltoa_s>('_ltoa_s'))(
+  //     _Value,
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__ltoa_s? __ltoa_s;
+  // _dart__ltoa_s? __ltoa_s;
 
-  ffi.Pointer<ffi.Int8> _ltoa(
-    int _Value,
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _Radix,
-  ) {
-    return (__ltoa ??= _dylib.lookupFunction<_c__ltoa, _dart__ltoa>('_ltoa'))(
-      _Value,
-      _Buffer,
-      _Radix,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _ltoa(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _Radix,
+  // ) {
+  //   return (__ltoa ??= _dylib.lookupFunction<_c__ltoa, _dart__ltoa>('_ltoa'))(
+  //     _Value,
+  //     _Buffer,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__ltoa? __ltoa;
+  // _dart__ltoa? __ltoa;
 
-  int _ultoa_s(
-    int _Value,
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _BufferCount,
-    int _Radix,
-  ) {
-    return (__ultoa_s ??=
-        _dylib.lookupFunction<_c__ultoa_s, _dart__ultoa_s>('_ultoa_s'))(
-      _Value,
-      _Buffer,
-      _BufferCount,
-      _Radix,
-    );
-  }
+  // int _ultoa_s(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _BufferCount,
+  //   int _Radix,
+  // ) {
+  //   return (__ultoa_s ??=
+  //       _dylib.lookupFunction<_c__ultoa_s, _dart__ultoa_s>('_ultoa_s'))(
+  //     _Value,
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__ultoa_s? __ultoa_s;
+  // _dart__ultoa_s? __ultoa_s;
 
-  ffi.Pointer<ffi.Int8> _ultoa(
-    int _Value,
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _Radix,
-  ) {
-    return (__ultoa ??=
-        _dylib.lookupFunction<_c__ultoa, _dart__ultoa>('_ultoa'))(
-      _Value,
-      _Buffer,
-      _Radix,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _ultoa(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _Radix,
+  // ) {
+  //   return (__ultoa ??=
+  //       _dylib.lookupFunction<_c__ultoa, _dart__ultoa>('_ultoa'))(
+  //     _Value,
+  //     _Buffer,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__ultoa? __ultoa;
+  // _dart__ultoa? __ultoa;
 
-  int _i64toa_s(
-    int _Value,
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _BufferCount,
-    int _Radix,
-  ) {
-    return (__i64toa_s ??=
-        _dylib.lookupFunction<_c__i64toa_s, _dart__i64toa_s>('_i64toa_s'))(
-      _Value,
-      _Buffer,
-      _BufferCount,
-      _Radix,
-    );
-  }
+  // int _i64toa_s(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _BufferCount,
+  //   int _Radix,
+  // ) {
+  //   return (__i64toa_s ??=
+  //       _dylib.lookupFunction<_c__i64toa_s, _dart__i64toa_s>('_i64toa_s'))(
+  //     _Value,
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__i64toa_s? __i64toa_s;
+  // _dart__i64toa_s? __i64toa_s;
 
-  ffi.Pointer<ffi.Int8> _i64toa(
-    int _Value,
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _Radix,
-  ) {
-    return (__i64toa ??=
-        _dylib.lookupFunction<_c__i64toa, _dart__i64toa>('_i64toa'))(
-      _Value,
-      _Buffer,
-      _Radix,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _i64toa(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _Radix,
+  // ) {
+  //   return (__i64toa ??=
+  //       _dylib.lookupFunction<_c__i64toa, _dart__i64toa>('_i64toa'))(
+  //     _Value,
+  //     _Buffer,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__i64toa? __i64toa;
+  // _dart__i64toa? __i64toa;
 
-  int _ui64toa_s(
-    int _Value,
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _BufferCount,
-    int _Radix,
-  ) {
-    return (__ui64toa_s ??=
-        _dylib.lookupFunction<_c__ui64toa_s, _dart__ui64toa_s>('_ui64toa_s'))(
-      _Value,
-      _Buffer,
-      _BufferCount,
-      _Radix,
-    );
-  }
+  // int _ui64toa_s(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _BufferCount,
+  //   int _Radix,
+  // ) {
+  //   return (__ui64toa_s ??=
+  //       _dylib.lookupFunction<_c__ui64toa_s, _dart__ui64toa_s>('_ui64toa_s'))(
+  //     _Value,
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__ui64toa_s? __ui64toa_s;
+  // _dart__ui64toa_s? __ui64toa_s;
 
-  ffi.Pointer<ffi.Int8> _ui64toa(
-    int _Value,
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _Radix,
-  ) {
-    return (__ui64toa ??=
-        _dylib.lookupFunction<_c__ui64toa, _dart__ui64toa>('_ui64toa'))(
-      _Value,
-      _Buffer,
-      _Radix,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _ui64toa(
+  //   int _Value,
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _Radix,
+  // ) {
+  //   return (__ui64toa ??=
+  //       _dylib.lookupFunction<_c__ui64toa, _dart__ui64toa>('_ui64toa'))(
+  //     _Value,
+  //     _Buffer,
+  //     _Radix,
+  //   );
+  // }
 
-  _dart__ui64toa? __ui64toa;
+  // _dart__ui64toa? __ui64toa;
 
-  int _ecvt_s(
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _BufferCount,
-    double _Value,
-    int _DigitCount,
-    ffi.Pointer<ffi.Int32> _PtDec,
-    ffi.Pointer<ffi.Int32> _PtSign,
-  ) {
-    return (__ecvt_s ??=
-        _dylib.lookupFunction<_c__ecvt_s, _dart__ecvt_s>('_ecvt_s'))(
-      _Buffer,
-      _BufferCount,
-      _Value,
-      _DigitCount,
-      _PtDec,
-      _PtSign,
-    );
-  }
+  // int _ecvt_s(
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _BufferCount,
+  //   double _Value,
+  //   int _DigitCount,
+  //   ffi.Pointer<ffi.Int32> _PtDec,
+  //   ffi.Pointer<ffi.Int32> _PtSign,
+  // ) {
+  //   return (__ecvt_s ??=
+  //       _dylib.lookupFunction<_c__ecvt_s, _dart__ecvt_s>('_ecvt_s'))(
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Value,
+  //     _DigitCount,
+  //     _PtDec,
+  //     _PtSign,
+  //   );
+  // }
 
-  _dart__ecvt_s? __ecvt_s;
+  // _dart__ecvt_s? __ecvt_s;
 
-  ffi.Pointer<ffi.Int8> _ecvt(
-    double _Value,
-    int _DigitCount,
-    ffi.Pointer<ffi.Int32> _PtDec,
-    ffi.Pointer<ffi.Int32> _PtSign,
-  ) {
-    return (__ecvt ??= _dylib.lookupFunction<_c__ecvt, _dart__ecvt>('_ecvt'))(
-      _Value,
-      _DigitCount,
-      _PtDec,
-      _PtSign,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _ecvt(
+  //   double _Value,
+  //   int _DigitCount,
+  //   ffi.Pointer<ffi.Int32> _PtDec,
+  //   ffi.Pointer<ffi.Int32> _PtSign,
+  // ) {
+  //   return (__ecvt ??= _dylib.lookupFunction<_c__ecvt, _dart__ecvt>('_ecvt'))(
+  //     _Value,
+  //     _DigitCount,
+  //     _PtDec,
+  //     _PtSign,
+  //   );
+  // }
 
-  _dart__ecvt? __ecvt;
+  // _dart__ecvt? __ecvt;
 
-  int _fcvt_s(
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _BufferCount,
-    double _Value,
-    int _FractionalDigitCount,
-    ffi.Pointer<ffi.Int32> _PtDec,
-    ffi.Pointer<ffi.Int32> _PtSign,
-  ) {
-    return (__fcvt_s ??=
-        _dylib.lookupFunction<_c__fcvt_s, _dart__fcvt_s>('_fcvt_s'))(
-      _Buffer,
-      _BufferCount,
-      _Value,
-      _FractionalDigitCount,
-      _PtDec,
-      _PtSign,
-    );
-  }
+  // int _fcvt_s(
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _BufferCount,
+  //   double _Value,
+  //   int _FractionalDigitCount,
+  //   ffi.Pointer<ffi.Int32> _PtDec,
+  //   ffi.Pointer<ffi.Int32> _PtSign,
+  // ) {
+  //   return (__fcvt_s ??=
+  //       _dylib.lookupFunction<_c__fcvt_s, _dart__fcvt_s>('_fcvt_s'))(
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Value,
+  //     _FractionalDigitCount,
+  //     _PtDec,
+  //     _PtSign,
+  //   );
+  // }
 
-  _dart__fcvt_s? __fcvt_s;
+  // _dart__fcvt_s? __fcvt_s;
 
-  ffi.Pointer<ffi.Int8> _fcvt(
-    double _Value,
-    int _FractionalDigitCount,
-    ffi.Pointer<ffi.Int32> _PtDec,
-    ffi.Pointer<ffi.Int32> _PtSign,
-  ) {
-    return (__fcvt ??= _dylib.lookupFunction<_c__fcvt, _dart__fcvt>('_fcvt'))(
-      _Value,
-      _FractionalDigitCount,
-      _PtDec,
-      _PtSign,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _fcvt(
+  //   double _Value,
+  //   int _FractionalDigitCount,
+  //   ffi.Pointer<ffi.Int32> _PtDec,
+  //   ffi.Pointer<ffi.Int32> _PtSign,
+  // ) {
+  //   return (__fcvt ??= _dylib.lookupFunction<_c__fcvt, _dart__fcvt>('_fcvt'))(
+  //     _Value,
+  //     _FractionalDigitCount,
+  //     _PtDec,
+  //     _PtSign,
+  //   );
+  // }
 
-  _dart__fcvt? __fcvt;
+  // _dart__fcvt? __fcvt;
 
-  int _gcvt_s(
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _BufferCount,
-    double _Value,
-    int _DigitCount,
-  ) {
-    return (__gcvt_s ??=
-        _dylib.lookupFunction<_c__gcvt_s, _dart__gcvt_s>('_gcvt_s'))(
-      _Buffer,
-      _BufferCount,
-      _Value,
-      _DigitCount,
-    );
-  }
+  // int _gcvt_s(
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _BufferCount,
+  //   double _Value,
+  //   int _DigitCount,
+  // ) {
+  //   return (__gcvt_s ??=
+  //       _dylib.lookupFunction<_c__gcvt_s, _dart__gcvt_s>('_gcvt_s'))(
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Value,
+  //     _DigitCount,
+  //   );
+  // }
 
-  _dart__gcvt_s? __gcvt_s;
+  // _dart__gcvt_s? __gcvt_s;
 
-  ffi.Pointer<ffi.Int8> _gcvt(
-    double _Value,
-    int _DigitCount,
-    ffi.Pointer<ffi.Int8> _Buffer,
-  ) {
-    return (__gcvt ??= _dylib.lookupFunction<_c__gcvt, _dart__gcvt>('_gcvt'))(
-      _Value,
-      _DigitCount,
-      _Buffer,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _gcvt(
+  //   double _Value,
+  //   int _DigitCount,
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  // ) {
+  //   return (__gcvt ??= _dylib.lookupFunction<_c__gcvt, _dart__gcvt>('_gcvt'))(
+  //     _Value,
+  //     _DigitCount,
+  //     _Buffer,
+  //   );
+  // }
 
-  _dart__gcvt? __gcvt;
+  // _dart__gcvt? __gcvt;
 
   int mblen(
     ffi.Pointer<ffi.Int8> _Ch,
@@ -54454,72 +54454,72 @@ class LibEGL {
 
   _dart_mblen? _mblen;
 
-  int _mblen_l(
-    ffi.Pointer<ffi.Int8> _Ch,
-    int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__mblen_l ??=
-        _dylib.lookupFunction<_c__mblen_l, _dart__mblen_l>('_mblen_l'))(
-      _Ch,
-      _MaxCount,
-      _Locale,
-    );
-  }
+  // int _mblen_l(
+  //   ffi.Pointer<ffi.Int8> _Ch,
+  //   int _MaxCount,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__mblen_l ??=
+  //       _dylib.lookupFunction<_c__mblen_l, _dart__mblen_l>('_mblen_l'))(
+  //     _Ch,
+  //     _MaxCount,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__mblen_l? __mblen_l;
+  // _dart__mblen_l? __mblen_l;
 
-  int _mbstrlen(
-    ffi.Pointer<ffi.Int8> _String,
-  ) {
-    return (__mbstrlen ??=
-        _dylib.lookupFunction<_c__mbstrlen, _dart__mbstrlen>('_mbstrlen'))(
-      _String,
-    );
-  }
+  // int _mbstrlen(
+  //   ffi.Pointer<ffi.Int8> _String,
+  // ) {
+  //   return (__mbstrlen ??=
+  //       _dylib.lookupFunction<_c__mbstrlen, _dart__mbstrlen>('_mbstrlen'))(
+  //     _String,
+  //   );
+  // }
 
-  _dart__mbstrlen? __mbstrlen;
+  // _dart__mbstrlen? __mbstrlen;
 
-  int _mbstrlen_l(
-    ffi.Pointer<ffi.Int8> _String,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__mbstrlen_l ??= _dylib
-        .lookupFunction<_c__mbstrlen_l, _dart__mbstrlen_l>('_mbstrlen_l'))(
-      _String,
-      _Locale,
-    );
-  }
+  // int _mbstrlen_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__mbstrlen_l ??= _dylib
+  //       .lookupFunction<_c__mbstrlen_l, _dart__mbstrlen_l>('_mbstrlen_l'))(
+  //     _String,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__mbstrlen_l? __mbstrlen_l;
+  // _dart__mbstrlen_l? __mbstrlen_l;
 
-  int _mbstrnlen(
-    ffi.Pointer<ffi.Int8> _String,
-    int _MaxCount,
-  ) {
-    return (__mbstrnlen ??=
-        _dylib.lookupFunction<_c__mbstrnlen, _dart__mbstrnlen>('_mbstrnlen'))(
-      _String,
-      _MaxCount,
-    );
-  }
+  // int _mbstrnlen(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   int _MaxCount,
+  // ) {
+  //   return (__mbstrnlen ??=
+  //       _dylib.lookupFunction<_c__mbstrnlen, _dart__mbstrnlen>('_mbstrnlen'))(
+  //     _String,
+  //     _MaxCount,
+  //   );
+  // }
 
-  _dart__mbstrnlen? __mbstrnlen;
+  // _dart__mbstrnlen? __mbstrnlen;
 
-  int _mbstrnlen_l(
-    ffi.Pointer<ffi.Int8> _String,
-    int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__mbstrnlen_l ??= _dylib
-        .lookupFunction<_c__mbstrnlen_l, _dart__mbstrnlen_l>('_mbstrnlen_l'))(
-      _String,
-      _MaxCount,
-      _Locale,
-    );
-  }
+  // int _mbstrnlen_l(
+  //   ffi.Pointer<ffi.Int8> _String,
+  //   int _MaxCount,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__mbstrnlen_l ??= _dylib
+  //       .lookupFunction<_c__mbstrnlen_l, _dart__mbstrnlen_l>('_mbstrnlen_l'))(
+  //     _String,
+  //     _MaxCount,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__mbstrnlen_l? __mbstrnlen_l;
+  // _dart__mbstrnlen_l? __mbstrnlen_l;
 
   int mbtowc(
     ffi.Pointer<ffi.Uint16> _DstCh,
@@ -54536,22 +54536,22 @@ class LibEGL {
 
   _dart_mbtowc? _mbtowc;
 
-  int _mbtowc_l(
-    ffi.Pointer<ffi.Uint16> _DstCh,
-    ffi.Pointer<ffi.Int8> _SrcCh,
-    int _SrcSizeInBytes,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__mbtowc_l ??=
-        _dylib.lookupFunction<_c__mbtowc_l, _dart__mbtowc_l>('_mbtowc_l'))(
-      _DstCh,
-      _SrcCh,
-      _SrcSizeInBytes,
-      _Locale,
-    );
-  }
+  // int _mbtowc_l(
+  //   ffi.Pointer<ffi.Uint16> _DstCh,
+  //   ffi.Pointer<ffi.Int8> _SrcCh,
+  //   int _SrcSizeInBytes,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__mbtowc_l ??=
+  //       _dylib.lookupFunction<_c__mbtowc_l, _dart__mbtowc_l>('_mbtowc_l'))(
+  //     _DstCh,
+  //     _SrcCh,
+  //     _SrcSizeInBytes,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__mbtowc_l? __mbtowc_l;
+  // _dart__mbtowc_l? __mbtowc_l;
 
   int mbstowcs_s(
     ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
@@ -54587,44 +54587,44 @@ class LibEGL {
 
   _dart_mbstowcs? _mbstowcs;
 
-  int _mbstowcs_s_l(
-    ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
-    ffi.Pointer<ffi.Uint16> _DstBuf,
-    int _SizeInWords,
-    ffi.Pointer<ffi.Int8> _SrcBuf,
-    int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__mbstowcs_s_l ??=
-        _dylib.lookupFunction<_c__mbstowcs_s_l, _dart__mbstowcs_s_l>(
-            '_mbstowcs_s_l'))(
-      _PtNumOfCharConverted,
-      _DstBuf,
-      _SizeInWords,
-      _SrcBuf,
-      _MaxCount,
-      _Locale,
-    );
-  }
+  // int _mbstowcs_s_l(
+  //   ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
+  //   ffi.Pointer<ffi.Uint16> _DstBuf,
+  //   int _SizeInWords,
+  //   ffi.Pointer<ffi.Int8> _SrcBuf,
+  //   int _MaxCount,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__mbstowcs_s_l ??=
+  //       _dylib.lookupFunction<_c__mbstowcs_s_l, _dart__mbstowcs_s_l>(
+  //           '_mbstowcs_s_l'))(
+  //     _PtNumOfCharConverted,
+  //     _DstBuf,
+  //     _SizeInWords,
+  //     _SrcBuf,
+  //     _MaxCount,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__mbstowcs_s_l? __mbstowcs_s_l;
+  // _dart__mbstowcs_s_l? __mbstowcs_s_l;
 
-  int _mbstowcs_l(
-    ffi.Pointer<ffi.Uint16> _Dest,
-    ffi.Pointer<ffi.Int8> _Source,
-    int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__mbstowcs_l ??= _dylib
-        .lookupFunction<_c__mbstowcs_l, _dart__mbstowcs_l>('_mbstowcs_l'))(
-      _Dest,
-      _Source,
-      _MaxCount,
-      _Locale,
-    );
-  }
+  // int _mbstowcs_l(
+  //   ffi.Pointer<ffi.Uint16> _Dest,
+  //   ffi.Pointer<ffi.Int8> _Source,
+  //   int _MaxCount,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__mbstowcs_l ??= _dylib
+  //       .lookupFunction<_c__mbstowcs_l, _dart__mbstowcs_l>('_mbstowcs_l'))(
+  //     _Dest,
+  //     _Source,
+  //     _MaxCount,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__mbstowcs_l? __mbstowcs_l;
+  // _dart__mbstowcs_l? __mbstowcs_l;
 
   int wctomb(
     ffi.Pointer<ffi.Int8> _MbCh,
@@ -54639,20 +54639,20 @@ class LibEGL {
 
   _dart_wctomb? _wctomb;
 
-  int _wctomb_l(
-    ffi.Pointer<ffi.Int8> _MbCh,
-    int _WCh,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wctomb_l ??=
-        _dylib.lookupFunction<_c__wctomb_l, _dart__wctomb_l>('_wctomb_l'))(
-      _MbCh,
-      _WCh,
-      _Locale,
-    );
-  }
+  // int _wctomb_l(
+  //   ffi.Pointer<ffi.Int8> _MbCh,
+  //   int _WCh,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wctomb_l ??=
+  //       _dylib.lookupFunction<_c__wctomb_l, _dart__wctomb_l>('_wctomb_l'))(
+  //     _MbCh,
+  //     _WCh,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wctomb_l? __wctomb_l;
+  // _dart__wctomb_l? __wctomb_l;
 
   int wctomb_s(
     ffi.Pointer<ffi.Int32> _SizeConverted,
@@ -54671,24 +54671,24 @@ class LibEGL {
 
   _dart_wctomb_s? _wctomb_s;
 
-  int _wctomb_s_l(
-    ffi.Pointer<ffi.Int32> _SizeConverted,
-    ffi.Pointer<ffi.Int8> _MbCh,
-    int _SizeInBytes,
-    int _WCh,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wctomb_s_l ??= _dylib
-        .lookupFunction<_c__wctomb_s_l, _dart__wctomb_s_l>('_wctomb_s_l'))(
-      _SizeConverted,
-      _MbCh,
-      _SizeInBytes,
-      _WCh,
-      _Locale,
-    );
-  }
+  // int _wctomb_s_l(
+  //   ffi.Pointer<ffi.Int32> _SizeConverted,
+  //   ffi.Pointer<ffi.Int8> _MbCh,
+  //   int _SizeInBytes,
+  //   int _WCh,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wctomb_s_l ??= _dylib
+  //       .lookupFunction<_c__wctomb_s_l, _dart__wctomb_s_l>('_wctomb_s_l'))(
+  //     _SizeConverted,
+  //     _MbCh,
+  //     _SizeInBytes,
+  //     _WCh,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wctomb_s_l? __wctomb_s_l;
+  // _dart__wctomb_s_l? __wctomb_s_l;
 
   int wcstombs_s(
     ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
@@ -54724,145 +54724,145 @@ class LibEGL {
 
   _dart_wcstombs? _wcstombs;
 
-  int _wcstombs_s_l(
-    ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
-    ffi.Pointer<ffi.Int8> _Dst,
-    int _DstSizeInBytes,
-    ffi.Pointer<ffi.Uint16> _Src,
-    int _MaxCountInBytes,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcstombs_s_l ??=
-        _dylib.lookupFunction<_c__wcstombs_s_l, _dart__wcstombs_s_l>(
-            '_wcstombs_s_l'))(
-      _PtNumOfCharConverted,
-      _Dst,
-      _DstSizeInBytes,
-      _Src,
-      _MaxCountInBytes,
-      _Locale,
-    );
-  }
+  // int _wcstombs_s_l(
+  //   ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
+  //   ffi.Pointer<ffi.Int8> _Dst,
+  //   int _DstSizeInBytes,
+  //   ffi.Pointer<ffi.Uint16> _Src,
+  //   int _MaxCountInBytes,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcstombs_s_l ??=
+  //       _dylib.lookupFunction<_c__wcstombs_s_l, _dart__wcstombs_s_l>(
+  //           '_wcstombs_s_l'))(
+  //     _PtNumOfCharConverted,
+  //     _Dst,
+  //     _DstSizeInBytes,
+  //     _Src,
+  //     _MaxCountInBytes,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcstombs_s_l? __wcstombs_s_l;
+  // _dart__wcstombs_s_l? __wcstombs_s_l;
 
-  int _wcstombs_l(
-    ffi.Pointer<ffi.Int8> _Dest,
-    ffi.Pointer<ffi.Uint16> _Source,
-    int _MaxCount,
-    ffi.Pointer<__crt_locale_pointers> _Locale,
-  ) {
-    return (__wcstombs_l ??= _dylib
-        .lookupFunction<_c__wcstombs_l, _dart__wcstombs_l>('_wcstombs_l'))(
-      _Dest,
-      _Source,
-      _MaxCount,
-      _Locale,
-    );
-  }
+  // int _wcstombs_l(
+  //   ffi.Pointer<ffi.Int8> _Dest,
+  //   ffi.Pointer<ffi.Uint16> _Source,
+  //   int _MaxCount,
+  //   ffi.Pointer<__crt_locale_pointers> _Locale,
+  // ) {
+  //   return (__wcstombs_l ??= _dylib
+  //       .lookupFunction<_c__wcstombs_l, _dart__wcstombs_l>('_wcstombs_l'))(
+  //     _Dest,
+  //     _Source,
+  //     _MaxCount,
+  //     _Locale,
+  //   );
+  // }
 
-  _dart__wcstombs_l? __wcstombs_l;
+  // _dart__wcstombs_l? __wcstombs_l;
 
-  ffi.Pointer<ffi.Int8> _fullpath(
-    ffi.Pointer<ffi.Int8> _Buffer,
-    ffi.Pointer<ffi.Int8> _Path,
-    int _BufferCount,
-  ) {
-    return (__fullpath ??=
-        _dylib.lookupFunction<_c__fullpath, _dart__fullpath>('_fullpath'))(
-      _Buffer,
-      _Path,
-      _BufferCount,
-    );
-  }
+  // ffi.Pointer<ffi.Int8> _fullpath(
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   ffi.Pointer<ffi.Int8> _Path,
+  //   int _BufferCount,
+  // ) {
+  //   return (__fullpath ??=
+  //       _dylib.lookupFunction<_c__fullpath, _dart__fullpath>('_fullpath'))(
+  //     _Buffer,
+  //     _Path,
+  //     _BufferCount,
+  //   );
+  // }
 
-  _dart__fullpath? __fullpath;
+  // _dart__fullpath? __fullpath;
 
-  int _makepath_s(
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _BufferCount,
-    ffi.Pointer<ffi.Int8> _Drive,
-    ffi.Pointer<ffi.Int8> _Dir,
-    ffi.Pointer<ffi.Int8> _Filename,
-    ffi.Pointer<ffi.Int8> _Ext,
-  ) {
-    return (__makepath_s ??= _dylib
-        .lookupFunction<_c__makepath_s, _dart__makepath_s>('_makepath_s'))(
-      _Buffer,
-      _BufferCount,
-      _Drive,
-      _Dir,
-      _Filename,
-      _Ext,
-    );
-  }
+  // int _makepath_s(
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _BufferCount,
+  //   ffi.Pointer<ffi.Int8> _Drive,
+  //   ffi.Pointer<ffi.Int8> _Dir,
+  //   ffi.Pointer<ffi.Int8> _Filename,
+  //   ffi.Pointer<ffi.Int8> _Ext,
+  // ) {
+  //   return (__makepath_s ??= _dylib
+  //       .lookupFunction<_c__makepath_s, _dart__makepath_s>('_makepath_s'))(
+  //     _Buffer,
+  //     _BufferCount,
+  //     _Drive,
+  //     _Dir,
+  //     _Filename,
+  //     _Ext,
+  //   );
+  // }
 
-  _dart__makepath_s? __makepath_s;
+  // _dart__makepath_s? __makepath_s;
 
-  void _makepath(
-    ffi.Pointer<ffi.Int8> _Buffer,
-    ffi.Pointer<ffi.Int8> _Drive,
-    ffi.Pointer<ffi.Int8> _Dir,
-    ffi.Pointer<ffi.Int8> _Filename,
-    ffi.Pointer<ffi.Int8> _Ext,
-  ) {
-    return (__makepath ??=
-        _dylib.lookupFunction<_c__makepath, _dart__makepath>('_makepath'))(
-      _Buffer,
-      _Drive,
-      _Dir,
-      _Filename,
-      _Ext,
-    );
-  }
+  // void _makepath(
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   ffi.Pointer<ffi.Int8> _Drive,
+  //   ffi.Pointer<ffi.Int8> _Dir,
+  //   ffi.Pointer<ffi.Int8> _Filename,
+  //   ffi.Pointer<ffi.Int8> _Ext,
+  // ) {
+  //   return (__makepath ??=
+  //       _dylib.lookupFunction<_c__makepath, _dart__makepath>('_makepath'))(
+  //     _Buffer,
+  //     _Drive,
+  //     _Dir,
+  //     _Filename,
+  //     _Ext,
+  //   );
+  // }
 
-  _dart__makepath? __makepath;
+  // _dart__makepath? __makepath;
 
-  void _splitpath(
-    ffi.Pointer<ffi.Int8> _FullPath,
-    ffi.Pointer<ffi.Int8> _Drive,
-    ffi.Pointer<ffi.Int8> _Dir,
-    ffi.Pointer<ffi.Int8> _Filename,
-    ffi.Pointer<ffi.Int8> _Ext,
-  ) {
-    return (__splitpath ??=
-        _dylib.lookupFunction<_c__splitpath, _dart__splitpath>('_splitpath'))(
-      _FullPath,
-      _Drive,
-      _Dir,
-      _Filename,
-      _Ext,
-    );
-  }
+  // void _splitpath(
+  //   ffi.Pointer<ffi.Int8> _FullPath,
+  //   ffi.Pointer<ffi.Int8> _Drive,
+  //   ffi.Pointer<ffi.Int8> _Dir,
+  //   ffi.Pointer<ffi.Int8> _Filename,
+  //   ffi.Pointer<ffi.Int8> _Ext,
+  // ) {
+  //   return (__splitpath ??=
+  //       _dylib.lookupFunction<_c__splitpath, _dart__splitpath>('_splitpath'))(
+  //     _FullPath,
+  //     _Drive,
+  //     _Dir,
+  //     _Filename,
+  //     _Ext,
+  //   );
+  // }
 
-  _dart__splitpath? __splitpath;
+  // _dart__splitpath? __splitpath;
 
-  int _splitpath_s(
-    ffi.Pointer<ffi.Int8> _FullPath,
-    ffi.Pointer<ffi.Int8> _Drive,
-    int _DriveCount,
-    ffi.Pointer<ffi.Int8> _Dir,
-    int _DirCount,
-    ffi.Pointer<ffi.Int8> _Filename,
-    int _FilenameCount,
-    ffi.Pointer<ffi.Int8> _Ext,
-    int _ExtCount,
-  ) {
-    return (__splitpath_s ??= _dylib
-        .lookupFunction<_c__splitpath_s, _dart__splitpath_s>('_splitpath_s'))(
-      _FullPath,
-      _Drive,
-      _DriveCount,
-      _Dir,
-      _DirCount,
-      _Filename,
-      _FilenameCount,
-      _Ext,
-      _ExtCount,
-    );
-  }
+  // int _splitpath_s(
+  //   ffi.Pointer<ffi.Int8> _FullPath,
+  //   ffi.Pointer<ffi.Int8> _Drive,
+  //   int _DriveCount,
+  //   ffi.Pointer<ffi.Int8> _Dir,
+  //   int _DirCount,
+  //   ffi.Pointer<ffi.Int8> _Filename,
+  //   int _FilenameCount,
+  //   ffi.Pointer<ffi.Int8> _Ext,
+  //   int _ExtCount,
+  // ) {
+  //   return (__splitpath_s ??= _dylib
+  //       .lookupFunction<_c__splitpath_s, _dart__splitpath_s>('_splitpath_s'))(
+  //     _FullPath,
+  //     _Drive,
+  //     _DriveCount,
+  //     _Dir,
+  //     _DirCount,
+  //     _Filename,
+  //     _FilenameCount,
+  //     _Ext,
+  //     _ExtCount,
+  //   );
+  // }
 
-  _dart__splitpath_s? __splitpath_s;
+  // _dart__splitpath_s? __splitpath_s;
 
   int getenv_s(
     ffi.Pointer<ffi.Uint64> _RequiredCount,
@@ -54881,41 +54881,41 @@ class LibEGL {
 
   _dart_getenv_s? _getenv_s;
 
-  ffi.Pointer<ffi.Int32> __p___argc() {
-    return (___p___argc ??=
-        _dylib.lookupFunction<_c___p___argc, _dart___p___argc>('__p___argc'))();
-  }
+  // ffi.Pointer<ffi.Int32> __p___argc() {
+  //   return (___p___argc ??=
+  //       _dylib.lookupFunction<_c___p___argc, _dart___p___argc>('__p___argc'))();
+  // }
 
-  _dart___p___argc? ___p___argc;
+  // _dart___p___argc? ___p___argc;
 
-  ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> __p___argv() {
-    return (___p___argv ??=
-        _dylib.lookupFunction<_c___p___argv, _dart___p___argv>('__p___argv'))();
-  }
+  // ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> __p___argv() {
+  //   return (___p___argv ??=
+  //       _dylib.lookupFunction<_c___p___argv, _dart___p___argv>('__p___argv'))();
+  // }
 
-  _dart___p___argv? ___p___argv;
+  // _dart___p___argv? ___p___argv;
 
-  ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint16>>> __p___wargv() {
-    return (___p___wargv ??= _dylib
-        .lookupFunction<_c___p___wargv, _dart___p___wargv>('__p___wargv'))();
-  }
+  // ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint16>>> __p___wargv() {
+  //   return (___p___wargv ??= _dylib
+  //       .lookupFunction<_c___p___wargv, _dart___p___wargv>('__p___wargv'))();
+  // }
 
-  _dart___p___wargv? ___p___wargv;
+  // _dart___p___wargv? ___p___wargv;
 
-  ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> __p__environ() {
-    return (___p__environ ??= _dylib
-        .lookupFunction<_c___p__environ, _dart___p__environ>('__p__environ'))();
-  }
+  // ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>> __p__environ() {
+  //   return (___p__environ ??= _dylib
+  //       .lookupFunction<_c___p__environ, _dart___p__environ>('__p__environ'))();
+  // }
 
-  _dart___p__environ? ___p__environ;
+  // _dart___p__environ? ___p__environ;
 
-  ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint16>>> __p__wenviron() {
-    return (___p__wenviron ??=
-        _dylib.lookupFunction<_c___p__wenviron, _dart___p__wenviron>(
-            '__p__wenviron'))();
-  }
+  // ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint16>>> __p__wenviron() {
+  //   return (___p__wenviron ??=
+  //       _dylib.lookupFunction<_c___p__wenviron, _dart___p__wenviron>(
+  //           '__p__wenviron'))();
+  // }
 
-  _dart___p__wenviron? ___p__wenviron;
+  // _dart___p__wenviron? ___p__wenviron;
 
   ffi.Pointer<ffi.Int8> getenv(
     ffi.Pointer<ffi.Int8> _VarName,
@@ -54928,20 +54928,20 @@ class LibEGL {
 
   _dart_getenv? _getenv;
 
-  int _dupenv_s(
-    ffi.Pointer<ffi.Pointer<ffi.Int8>> _Buffer,
-    ffi.Pointer<ffi.Uint64> _BufferCount,
-    ffi.Pointer<ffi.Int8> _VarName,
-  ) {
-    return (__dupenv_s ??=
-        _dylib.lookupFunction<_c__dupenv_s, _dart__dupenv_s>('_dupenv_s'))(
-      _Buffer,
-      _BufferCount,
-      _VarName,
-    );
-  }
+  // int _dupenv_s(
+  //   ffi.Pointer<ffi.Pointer<ffi.Int8>> _Buffer,
+  //   ffi.Pointer<ffi.Uint64> _BufferCount,
+  //   ffi.Pointer<ffi.Int8> _VarName,
+  // ) {
+  //   return (__dupenv_s ??=
+  //       _dylib.lookupFunction<_c__dupenv_s, _dart__dupenv_s>('_dupenv_s'))(
+  //     _Buffer,
+  //     _BufferCount,
+  //     _VarName,
+  //   );
+  // }
 
-  _dart__dupenv_s? __dupenv_s;
+  // _dart__dupenv_s? __dupenv_s;
 
   int system(
     ffi.Pointer<ffi.Int8> _Command,
@@ -54954,96 +54954,96 @@ class LibEGL {
 
   _dart_system? _system;
 
-  int _putenv(
-    ffi.Pointer<ffi.Int8> _EnvString,
-  ) {
-    return (__putenv ??=
-        _dylib.lookupFunction<_c__putenv, _dart__putenv>('_putenv'))(
-      _EnvString,
-    );
-  }
+  // int _putenv(
+  //   ffi.Pointer<ffi.Int8> _EnvString,
+  // ) {
+  //   return (__putenv ??=
+  //       _dylib.lookupFunction<_c__putenv, _dart__putenv>('_putenv'))(
+  //     _EnvString,
+  //   );
+  // }
 
-  _dart__putenv? __putenv;
+  // _dart__putenv? __putenv;
 
-  int _putenv_s(
-    ffi.Pointer<ffi.Int8> _Name,
-    ffi.Pointer<ffi.Int8> _Value,
-  ) {
-    return (__putenv_s ??=
-        _dylib.lookupFunction<_c__putenv_s, _dart__putenv_s>('_putenv_s'))(
-      _Name,
-      _Value,
-    );
-  }
+  // int _putenv_s(
+  //   ffi.Pointer<ffi.Int8> _Name,
+  //   ffi.Pointer<ffi.Int8> _Value,
+  // ) {
+  //   return (__putenv_s ??=
+  //       _dylib.lookupFunction<_c__putenv_s, _dart__putenv_s>('_putenv_s'))(
+  //     _Name,
+  //     _Value,
+  //   );
+  // }
 
-  _dart__putenv_s? __putenv_s;
+  // _dart__putenv_s? __putenv_s;
 
-  int _searchenv_s(
-    ffi.Pointer<ffi.Int8> _Filename,
-    ffi.Pointer<ffi.Int8> _VarName,
-    ffi.Pointer<ffi.Int8> _Buffer,
-    int _BufferCount,
-  ) {
-    return (__searchenv_s ??= _dylib
-        .lookupFunction<_c__searchenv_s, _dart__searchenv_s>('_searchenv_s'))(
-      _Filename,
-      _VarName,
-      _Buffer,
-      _BufferCount,
-    );
-  }
+  // int _searchenv_s(
+  //   ffi.Pointer<ffi.Int8> _Filename,
+  //   ffi.Pointer<ffi.Int8> _VarName,
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  //   int _BufferCount,
+  // ) {
+  //   return (__searchenv_s ??= _dylib
+  //       .lookupFunction<_c__searchenv_s, _dart__searchenv_s>('_searchenv_s'))(
+  //     _Filename,
+  //     _VarName,
+  //     _Buffer,
+  //     _BufferCount,
+  //   );
+  // }
 
-  _dart__searchenv_s? __searchenv_s;
+  // _dart__searchenv_s? __searchenv_s;
 
-  void _searchenv(
-    ffi.Pointer<ffi.Int8> _Filename,
-    ffi.Pointer<ffi.Int8> _VarName,
-    ffi.Pointer<ffi.Int8> _Buffer,
-  ) {
-    return (__searchenv ??=
-        _dylib.lookupFunction<_c__searchenv, _dart__searchenv>('_searchenv'))(
-      _Filename,
-      _VarName,
-      _Buffer,
-    );
-  }
+  // void _searchenv(
+  //   ffi.Pointer<ffi.Int8> _Filename,
+  //   ffi.Pointer<ffi.Int8> _VarName,
+  //   ffi.Pointer<ffi.Int8> _Buffer,
+  // ) {
+  //   return (__searchenv ??=
+  //       _dylib.lookupFunction<_c__searchenv, _dart__searchenv>('_searchenv'))(
+  //     _Filename,
+  //     _VarName,
+  //     _Buffer,
+  //   );
+  // }
 
-  _dart__searchenv? __searchenv;
+  // _dart__searchenv? __searchenv;
 
-  void _seterrormode(
-    int _Mode,
-  ) {
-    return (__seterrormode ??=
-        _dylib.lookupFunction<_c__seterrormode, _dart__seterrormode>(
-            '_seterrormode'))(
-      _Mode,
-    );
-  }
+  // void _seterrormode(
+  //   int _Mode,
+  // ) {
+  //   return (__seterrormode ??=
+  //       _dylib.lookupFunction<_c__seterrormode, _dart__seterrormode>(
+  //           '_seterrormode'))(
+  //     _Mode,
+  //   );
+  // }
 
-  _dart__seterrormode? __seterrormode;
+  // _dart__seterrormode? __seterrormode;
 
-  void _beep(
-    int _Frequency,
-    int _Duration,
-  ) {
-    return (__beep ??= _dylib.lookupFunction<_c__beep, _dart__beep>('_beep'))(
-      _Frequency,
-      _Duration,
-    );
-  }
+  // void _beep(
+  //   int _Frequency,
+  //   int _Duration,
+  // ) {
+  //   return (__beep ??= _dylib.lookupFunction<_c__beep, _dart__beep>('_beep'))(
+  //     _Frequency,
+  //     _Duration,
+  //   );
+  // }
 
-  _dart__beep? __beep;
+  // _dart__beep? __beep;
 
-  void _sleep(
-    int _Duration,
-  ) {
-    return (__sleep ??=
-        _dylib.lookupFunction<_c__sleep, _dart__sleep>('_sleep'))(
-      _Duration,
-    );
-  }
+  // void _sleep(
+  //   int _Duration,
+  // ) {
+  //   return (__sleep ??=
+  //       _dylib.lookupFunction<_c__sleep, _dart__sleep>('_sleep'))(
+  //     _Duration,
+  //   );
+  // }
 
-  _dart__sleep? __sleep;
+  // _dart__sleep? __sleep;
 
   ffi.Pointer<ffi.Int8> ecvt(
     double _Value,
@@ -55170,10 +55170,10 @@ class LibEGL {
   _dart_onexit? _onexit_1;
 }
 
-class AHardwareBuffer extends ffi.Opaque {}
+final class AHardwareBuffer extends ffi.Opaque {}
 
-class EGLClientPixmapHI extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> pData;
+final class EGLClientPixmapHI extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> pData;
 
   @ffi.Int32()
   external int iWidth;
@@ -55192,44 +55192,44 @@ abstract class EXCEPTION_DISPOSITION {
   static const int ExceptionCollidedUnwind = 3;
 }
 
-class EXCEPTION_RECORD extends ffi.Opaque {}
+final class EXCEPTION_RECORD extends ffi.Opaque {}
 
-class PCONTEXT extends ffi.Opaque {}
+final class PCONTEXT extends ffi.Opaque {}
 
-class PDISPATCHER_CONTEXT extends ffi.Opaque {}
+final class PDISPATCHER_CONTEXT extends ffi.Opaque {}
 
-class __crt_locale_data_public extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint16> _locale_pctype;
+// class __crt_locale_data_public extends ffi.Struct {
+//   external ffi.Pointer<ffi.Uint16> _locale_pctype;
 
-  @ffi.Int32()
-  external int _locale_mb_cur_max;
+//   @ffi.Int32()
+//   external int _locale_mb_cur_max;
 
-  @ffi.Uint32()
-  external int _locale_lc_codepage;
-}
+//   @ffi.Uint32()
+//   external int _locale_lc_codepage;
+// }
 
-class __crt_locale_data extends ffi.Opaque {}
+// final class __crt_locale_data extends ffi.Opaque {}
 
-class __crt_multibyte_data extends ffi.Opaque {}
+// final class __crt_multibyte_data extends ffi.Opaque {}
 
-class __crt_locale_pointers extends ffi.Struct {
-  external ffi.Pointer<__crt_locale_data> locinfo;
+// final class __crt_locale_pointers extends ffi.Struct {
+//   external final ffi.Pointer<__crt_locale_data> locinfo;
 
-  external ffi.Pointer<__crt_multibyte_data> mbcinfo;
-}
+//   external ffi.Pointer<__crt_multibyte_data> mbcinfo;
+// }
 
-class _Mbstatet extends ffi.Struct {
-  @ffi.Uint64()
-  external int _Wchar;
+// class _Mbstatet extends ffi.Struct {
+//   @ffi.Uint64()
+//   external int _Wchar;
 
-  @ffi.Uint16()
-  external int _Byte;
+//   @ffi.Uint16()
+//   external int _Byte;
 
-  @ffi.Uint16()
-  external int _State;
-}
+//   @ffi.Uint16()
+//   external int _State;
+// }
 
-class PPROCESSOR_NUMBER extends ffi.Struct {
+final class PPROCESSOR_NUMBER extends ffi.Struct {
   @ffi.Uint16()
   external int Group;
 
@@ -55240,14 +55240,14 @@ class PPROCESSOR_NUMBER extends ffi.Struct {
   external int Reserved;
 }
 
-class PGROUP_AFFINITY extends ffi.Opaque {}
+final class PGROUP_AFFINITY extends ffi.Opaque {}
 
 abstract class PCOMPARTMENT_ID {
   static const int UNSPECIFIED_COMPARTMENT_ID = 0;
   static const int DEFAULT_COMPARTMENT_ID = 1;
 }
 
-class FLOAT128 extends ffi.Struct {
+final class FLOAT128 extends ffi.Struct {
   @ffi.Int64()
   external int LowPart;
 
@@ -55255,7 +55255,7 @@ class FLOAT128 extends ffi.Struct {
   external int HighPart;
 }
 
-class PLUID extends ffi.Struct {
+final class PLUID extends ffi.Struct {
   @ffi.Uint64()
   external int LowPart;
 
@@ -55263,17 +55263,17 @@ class PLUID extends ffi.Struct {
   external int HighPart;
 }
 
-class PRLIST_ENTRY extends ffi.Struct {
-  external ffi.Pointer<PRLIST_ENTRY> Flink;
+final class PRLIST_ENTRY extends ffi.Struct {
+  external final ffi.Pointer<PRLIST_ENTRY> Flink;
 
   external ffi.Pointer<PRLIST_ENTRY> Blink;
 }
 
-class PSINGLE_LIST_ENTRY extends ffi.Struct {
-  external ffi.Pointer<PSINGLE_LIST_ENTRY> Next;
+final class PSINGLE_LIST_ENTRY extends ffi.Struct {
+  external final ffi.Pointer<PSINGLE_LIST_ENTRY> Next;
 }
 
-class LIST_ENTRY32 extends ffi.Struct {
+final class LIST_ENTRY32 extends ffi.Struct {
   @ffi.Uint64()
   external int Flink;
 
@@ -55281,7 +55281,7 @@ class LIST_ENTRY32 extends ffi.Struct {
   external int Blink;
 }
 
-class LIST_ENTRY64 extends ffi.Struct {
+final class LIST_ENTRY64 extends ffi.Struct {
   @ffi.Uint64()
   external int Flink;
 
@@ -55289,11 +55289,11 @@ class LIST_ENTRY64 extends ffi.Struct {
   external int Blink;
 }
 
-class GUID extends ffi.Opaque {}
+final class GUID extends ffi.Opaque {}
 
-class OBJECTID extends ffi.Opaque {}
+final class OBJECTID extends ffi.Opaque {}
 
-class PM128A extends ffi.Struct {
+final class PM128A extends ffi.Struct {
   @ffi.Uint64()
   external int Low;
 
@@ -55301,9 +55301,9 @@ class PM128A extends ffi.Struct {
   external int High;
 }
 
-class PXSAVE_FORMAT extends ffi.Opaque {}
+final class PXSAVE_FORMAT extends ffi.Opaque {}
 
-class PXSAVE_CET_U_FORMAT extends ffi.Struct {
+final class PXSAVE_CET_U_FORMAT extends ffi.Struct {
   @ffi.Uint64()
   external int Ia32CetUMsr;
 
@@ -55311,11 +55311,11 @@ class PXSAVE_CET_U_FORMAT extends ffi.Struct {
   external int Ia32Pl3SspMsr;
 }
 
-class PXSAVE_AREA_HEADER extends ffi.Opaque {}
+final class PXSAVE_AREA_HEADER extends ffi.Opaque {}
 
-class PXSAVE_AREA extends ffi.Opaque {}
+final class PXSAVE_AREA extends ffi.Opaque {}
 
-class PXSTATE_CONTEXT extends ffi.Struct {
+final class PXSTATE_CONTEXT extends ffi.Struct {
   @ffi.Uint64()
   external int Mask;
 
@@ -55330,29 +55330,29 @@ class PXSTATE_CONTEXT extends ffi.Struct {
   external ffi.Pointer<ffi.Void> Buffer;
 }
 
-class PSCOPE_TABLE_AMD64 extends ffi.Opaque {}
+final class PSCOPE_TABLE_AMD64 extends ffi.Opaque {}
 
-class _PIMAGE_RUNTIME_FUNCTION_ENTRY extends ffi.Opaque {}
+final class _PIMAGE_RUNTIME_FUNCTION_ENTRY extends ffi.Opaque {}
 
-class PUNWIND_HISTORY_TABLE_ENTRY extends ffi.Struct {
+final class PUNWIND_HISTORY_TABLE_ENTRY extends ffi.Struct {
   @ffi.Uint64()
   external int ImageBase;
 
   external ffi.Pointer<_PIMAGE_RUNTIME_FUNCTION_ENTRY> FunctionEntry;
 }
 
-class PUNWIND_HISTORY_TABLE extends ffi.Opaque {}
+final class PUNWIND_HISTORY_TABLE extends ffi.Opaque {}
 
-class PEXCEPTION_POINTERS extends ffi.Opaque {}
+final class PEXCEPTION_POINTERS extends ffi.Opaque {}
 
-class PKNONVOLATILE_CONTEXT_POINTERS extends ffi.Opaque {}
+final class PKNONVOLATILE_CONTEXT_POINTERS extends ffi.Opaque {}
 
-class PSCOPE_TABLE_ARM extends ffi.Opaque {}
+final class PSCOPE_TABLE_ARM extends ffi.Opaque {}
 
-class PSCOPE_TABLE_ARM64 extends ffi.Opaque {}
+final class PSCOPE_TABLE_ARM64 extends ffi.Opaque {}
 
-class PKNONVOLATILE_CONTEXT_POINTERS_ARM64 extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint64> X19;
+final class PKNONVOLATILE_CONTEXT_POINTERS_ARM64 extends ffi.Struct {
+  external final ffi.Pointer<ffi.Uint64> X19;
 
   external ffi.Pointer<ffi.Uint64> X20;
 
@@ -55393,21 +55393,21 @@ class PKNONVOLATILE_CONTEXT_POINTERS_ARM64 extends ffi.Struct {
   external ffi.Pointer<ffi.Uint64> D15;
 }
 
-class PLDT_ENTRY extends ffi.Opaque {}
+final class PLDT_ENTRY extends ffi.Opaque {}
 
-class WOW64_FLOATING_SAVE_AREA extends ffi.Opaque {}
+final class WOW64_FLOATING_SAVE_AREA extends ffi.Opaque {}
 
-class WOW64_CONTEXT extends ffi.Opaque {}
+final class WOW64_CONTEXT extends ffi.Opaque {}
 
-class PWOW64_LDT_ENTRY extends ffi.Opaque {}
+final class PWOW64_LDT_ENTRY extends ffi.Opaque {}
 
-class PWOW64_DESCRIPTOR_TABLE_ENTRY extends ffi.Opaque {}
+final class PWOW64_DESCRIPTOR_TABLE_ENTRY extends ffi.Opaque {}
 
-class PEXCEPTION_RECORD32 extends ffi.Opaque {}
+final class PEXCEPTION_RECORD32 extends ffi.Opaque {}
 
-class PEXCEPTION_RECORD64 extends ffi.Opaque {}
+final class PEXCEPTION_RECORD64 extends ffi.Opaque {}
 
-class GENERIC_MAPPING extends ffi.Struct {
+final class GENERIC_MAPPING extends ffi.Struct {
   @ffi.Uint64()
   external int GenericRead;
 
@@ -55421,11 +55421,11 @@ class GENERIC_MAPPING extends ffi.Struct {
   external int GenericAll;
 }
 
-class PLUID_AND_ATTRIBUTES extends ffi.Opaque {}
+final class PLUID_AND_ATTRIBUTES extends ffi.Opaque {}
 
-class PSID_IDENTIFIER_AUTHORITY extends ffi.Opaque {}
+final class PSID_IDENTIFIER_AUTHORITY extends ffi.Opaque {}
 
-class PISID extends ffi.Opaque {}
+final class PISID extends ffi.Opaque {}
 
 abstract class PSID_NAME_USE {
   static const int SidTypeUser = 1;
@@ -55441,14 +55441,14 @@ abstract class PSID_NAME_USE {
   static const int SidTypeLogonSession = 11;
 }
 
-class PSID_AND_ATTRIBUTES extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> Sid;
+final class PSID_AND_ATTRIBUTES extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> Sid;
 
   @ffi.Uint64()
   external int Attributes;
 }
 
-class PSID_AND_ATTRIBUTES_HASH extends ffi.Opaque {}
+final class PSID_AND_ATTRIBUTES_HASH extends ffi.Opaque {}
 
 abstract class WELL_KNOWN_SID_TYPE {
   static const int WinNullSid = 0;
@@ -55573,7 +55573,7 @@ abstract class WELL_KNOWN_SID_TYPE {
   static const int WinBuiltinDeviceOwnersSid = 119;
 }
 
-class ACL extends ffi.Struct {
+final class ACL extends ffi.Struct {
   @ffi.Uint8()
   external int AclRevision;
 
@@ -55590,7 +55590,7 @@ class ACL extends ffi.Struct {
   external int Sbz2;
 }
 
-class ACE_HEADER extends ffi.Struct {
+final class ACE_HEADER extends ffi.Struct {
   @ffi.Uint8()
   external int AceType;
 
@@ -55601,59 +55601,59 @@ class ACE_HEADER extends ffi.Struct {
   external int AceSize;
 }
 
-class ACCESS_ALLOWED_ACE extends ffi.Opaque {}
+final class ACCESS_ALLOWED_ACE extends ffi.Opaque {}
 
-class ACCESS_DENIED_ACE extends ffi.Opaque {}
+final class ACCESS_DENIED_ACE extends ffi.Opaque {}
 
-class SYSTEM_AUDIT_ACE extends ffi.Opaque {}
+final class SYSTEM_AUDIT_ACE extends ffi.Opaque {}
 
-class SYSTEM_ALARM_ACE extends ffi.Opaque {}
+final class SYSTEM_ALARM_ACE extends ffi.Opaque {}
 
-class PSYSTEM_RESOURCE_ATTRIBUTE_ACE extends ffi.Opaque {}
+final class PSYSTEM_RESOURCE_ATTRIBUTE_ACE extends ffi.Opaque {}
 
-class PSYSTEM_SCOPED_POLICY_ID_ACE extends ffi.Opaque {}
+final class PSYSTEM_SCOPED_POLICY_ID_ACE extends ffi.Opaque {}
 
-class PSYSTEM_MANDATORY_LABEL_ACE extends ffi.Opaque {}
+final class PSYSTEM_MANDATORY_LABEL_ACE extends ffi.Opaque {}
 
-class PSYSTEM_PROCESS_TRUST_LABEL_ACE extends ffi.Opaque {}
+final class PSYSTEM_PROCESS_TRUST_LABEL_ACE extends ffi.Opaque {}
 
-class PSYSTEM_ACCESS_FILTER_ACE extends ffi.Opaque {}
+final class PSYSTEM_ACCESS_FILTER_ACE extends ffi.Opaque {}
 
-class PACCESS_ALLOWED_OBJECT_ACE extends ffi.Opaque {}
+final class PACCESS_ALLOWED_OBJECT_ACE extends ffi.Opaque {}
 
-class PACCESS_DENIED_OBJECT_ACE extends ffi.Opaque {}
+final class PACCESS_DENIED_OBJECT_ACE extends ffi.Opaque {}
 
-class PSYSTEM_AUDIT_OBJECT_ACE extends ffi.Opaque {}
+final class PSYSTEM_AUDIT_OBJECT_ACE extends ffi.Opaque {}
 
-class PSYSTEM_ALARM_OBJECT_ACE extends ffi.Opaque {}
+final class PSYSTEM_ALARM_OBJECT_ACE extends ffi.Opaque {}
 
-class PACCESS_ALLOWED_CALLBACK_ACE extends ffi.Opaque {}
+final class PACCESS_ALLOWED_CALLBACK_ACE extends ffi.Opaque {}
 
-class PACCESS_DENIED_CALLBACK_ACE extends ffi.Opaque {}
+final class PACCESS_DENIED_CALLBACK_ACE extends ffi.Opaque {}
 
-class PSYSTEM_AUDIT_CALLBACK_ACE extends ffi.Opaque {}
+final class PSYSTEM_AUDIT_CALLBACK_ACE extends ffi.Opaque {}
 
-class PSYSTEM_ALARM_CALLBACK_ACE extends ffi.Opaque {}
+final class PSYSTEM_ALARM_CALLBACK_ACE extends ffi.Opaque {}
 
-class PACCESS_ALLOWED_CALLBACK_OBJECT_ACE extends ffi.Opaque {}
+final class PACCESS_ALLOWED_CALLBACK_OBJECT_ACE extends ffi.Opaque {}
 
-class PACCESS_DENIED_CALLBACK_OBJECT_ACE extends ffi.Opaque {}
+final class PACCESS_DENIED_CALLBACK_OBJECT_ACE extends ffi.Opaque {}
 
-class PSYSTEM_AUDIT_CALLBACK_OBJECT_ACE extends ffi.Opaque {}
+final class PSYSTEM_AUDIT_CALLBACK_OBJECT_ACE extends ffi.Opaque {}
 
-class PSYSTEM_ALARM_CALLBACK_OBJECT_ACE extends ffi.Opaque {}
+final class PSYSTEM_ALARM_CALLBACK_OBJECT_ACE extends ffi.Opaque {}
 
 abstract class ACL_INFORMATION_CLASS {
   static const int AclRevisionInformation = 1;
   static const int AclSizeInformation = 2;
 }
 
-class ACL_REVISION_INFORMATION extends ffi.Struct {
+final class ACL_REVISION_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int AclRevision;
 }
 
-class ACL_SIZE_INFORMATION extends ffi.Struct {
+final class ACL_SIZE_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int AceCount;
 
@@ -55664,7 +55664,7 @@ class ACL_SIZE_INFORMATION extends ffi.Struct {
   external int AclBytesFree;
 }
 
-class PISECURITY_DESCRIPTOR_RELATIVE extends ffi.Struct {
+final class PISECURITY_DESCRIPTOR_RELATIVE extends ffi.Struct {
   @ffi.Uint8()
   external int Revision;
 
@@ -55687,7 +55687,7 @@ class PISECURITY_DESCRIPTOR_RELATIVE extends ffi.Struct {
   external int Dacl;
 }
 
-class PISECURITY_DESCRIPTOR extends ffi.Struct {
+final class PISECURITY_DESCRIPTOR extends ffi.Struct {
   @ffi.Uint8()
   external int Revision;
 
@@ -55706,7 +55706,7 @@ class PISECURITY_DESCRIPTOR extends ffi.Struct {
   external ffi.Pointer<ACL> Dacl;
 }
 
-class PSECURITY_OBJECT_AI_PARAMS extends ffi.Struct {
+final class PSECURITY_OBJECT_AI_PARAMS extends ffi.Struct {
   @ffi.Uint64()
   external int Size;
 
@@ -55714,7 +55714,7 @@ class PSECURITY_OBJECT_AI_PARAMS extends ffi.Struct {
   external int ConstraintMask;
 }
 
-class POBJECT_TYPE_LIST extends ffi.Struct {
+final class POBJECT_TYPE_LIST extends ffi.Struct {
   @ffi.Uint16()
   external int Level;
 
@@ -55729,7 +55729,7 @@ abstract class PAUDIT_EVENT_TYPE {
   static const int AuditEventDirectoryServiceAccess = 1;
 }
 
-class PPRIVILEGE_SET extends ffi.Opaque {}
+final class PPRIVILEGE_SET extends ffi.Opaque {}
 
 abstract class ACCESS_REASON_TYPE {
   static const int AccessReasonNone = 0;
@@ -55752,9 +55752,9 @@ abstract class ACCESS_REASON_TYPE {
   static const int AccessReasonFilterAce = 10485760;
 }
 
-class PACCESS_REASONS extends ffi.Opaque {}
+final class PACCESS_REASONS extends ffi.Opaque {}
 
-class PSE_SECURITY_DESCRIPTOR extends ffi.Struct {
+final class PSE_SECURITY_DESCRIPTOR extends ffi.Struct {
   @ffi.Uint64()
   external int Size;
 
@@ -55764,7 +55764,7 @@ class PSE_SECURITY_DESCRIPTOR extends ffi.Struct {
   external ffi.Pointer<ffi.Void> SecurityDescriptor;
 }
 
-class PSE_ACCESS_REQUEST extends ffi.Struct {
+final class PSE_ACCESS_REQUEST extends ffi.Struct {
   @ffi.Uint64()
   external int Size;
 
@@ -55786,7 +55786,7 @@ class PSE_ACCESS_REQUEST extends ffi.Struct {
   external ffi.Pointer<POBJECT_TYPE_LIST> ObjectTypeList;
 }
 
-class PSE_ACCESS_REPLY extends ffi.Struct {
+final class PSE_ACCESS_REPLY extends ffi.Struct {
   @ffi.Uint64()
   external int Size;
 
@@ -55872,63 +55872,63 @@ abstract class PTOKEN_INFORMATION_CLASS {
   static const int MaxTokenInfoClass = 49;
 }
 
-class PTOKEN_USER extends ffi.Opaque {}
+final class PTOKEN_USER extends ffi.Opaque {}
 
-class PSE_TOKEN_USER extends ffi.Opaque {}
+final class PSE_TOKEN_USER extends ffi.Opaque {}
 
-class PTOKEN_GROUPS extends ffi.Opaque {}
+final class PTOKEN_GROUPS extends ffi.Opaque {}
 
-class PTOKEN_PRIVILEGES extends ffi.Opaque {}
+final class PTOKEN_PRIVILEGES extends ffi.Opaque {}
 
-class PTOKEN_OWNER extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> Owner;
+final class PTOKEN_OWNER extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> Owner;
 }
 
-class PTOKEN_PRIMARY_GROUP extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> PrimaryGroup;
+final class PTOKEN_PRIMARY_GROUP extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> PrimaryGroup;
 }
 
-class PTOKEN_DEFAULT_DACL extends ffi.Struct {
-  external ffi.Pointer<ACL> DefaultDacl;
+final class PTOKEN_DEFAULT_DACL extends ffi.Struct {
+  external final ffi.Pointer<ACL> DefaultDacl;
 }
 
-class PTOKEN_USER_CLAIMS extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> UserClaims;
+final class PTOKEN_USER_CLAIMS extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> UserClaims;
 }
 
-class PTOKEN_DEVICE_CLAIMS extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> DeviceClaims;
+final class PTOKEN_DEVICE_CLAIMS extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> DeviceClaims;
 }
 
-class PTOKEN_GROUPS_AND_PRIVILEGES extends ffi.Opaque {}
+final class PTOKEN_GROUPS_AND_PRIVILEGES extends ffi.Opaque {}
 
-class PTOKEN_LINKED_TOKEN extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> LinkedToken;
+final class PTOKEN_LINKED_TOKEN extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> LinkedToken;
 }
 
-class PTOKEN_ELEVATION extends ffi.Struct {
+final class PTOKEN_ELEVATION extends ffi.Struct {
   @ffi.Uint64()
   external int TokenIsElevated;
 }
 
-class PTOKEN_MANDATORY_LABEL extends ffi.Opaque {}
+final class PTOKEN_MANDATORY_LABEL extends ffi.Opaque {}
 
-class PTOKEN_MANDATORY_POLICY extends ffi.Struct {
+final class PTOKEN_MANDATORY_POLICY extends ffi.Struct {
   @ffi.Uint64()
   external int Policy;
 }
 
-class PTOKEN_ACCESS_INFORMATION extends ffi.Opaque {}
+final class PTOKEN_ACCESS_INFORMATION extends ffi.Opaque {}
 
-class PTOKEN_AUDIT_POLICY extends ffi.Opaque {}
+final class PTOKEN_AUDIT_POLICY extends ffi.Opaque {}
 
-class PTOKEN_SOURCE extends ffi.Opaque {}
+final class PTOKEN_SOURCE extends ffi.Opaque {}
 
-class PTOKEN_STATISTICS extends ffi.Opaque {}
+final class PTOKEN_STATISTICS extends ffi.Opaque {}
 
-class PTOKEN_CONTROL extends ffi.Opaque {}
+final class PTOKEN_CONTROL extends ffi.Opaque {}
 
-class PTOKEN_ORIGIN extends ffi.Opaque {}
+final class PTOKEN_ORIGIN extends ffi.Opaque {}
 
 abstract class PMANDATORY_LEVEL {
   static const int MandatoryLevelUntrusted = 0;
@@ -55940,42 +55940,42 @@ abstract class PMANDATORY_LEVEL {
   static const int MandatoryLevelCount = 6;
 }
 
-class PTOKEN_APPCONTAINER_INFORMATION extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> TokenAppContainer;
+final class PTOKEN_APPCONTAINER_INFORMATION extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> TokenAppContainer;
 }
 
-class PTOKEN_SID_INFORMATION extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> Sid;
+final class PTOKEN_SID_INFORMATION extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> Sid;
 }
 
-class PTOKEN_BNO_ISOLATION_INFORMATION extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint16> IsolationPrefix;
+final class PTOKEN_BNO_ISOLATION_INFORMATION extends ffi.Struct {
+  external final ffi.Pointer<ffi.Uint16> IsolationPrefix;
 
   @ffi.Uint8()
   external int IsolationEnabled;
 }
 
-class PCLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE extends ffi.Struct {
+final class PCLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE extends ffi.Struct {
   @ffi.Uint64()
   external int Version;
 
   external ffi.Pointer<ffi.Uint16> Name;
 }
 
-class PCLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> pValue;
+final class PCLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> pValue;
 
   @ffi.Uint64()
   external int ValueLength;
 }
 
-class PCLAIM_SECURITY_ATTRIBUTE_V1 extends ffi.Opaque {}
+final class PCLAIM_SECURITY_ATTRIBUTE_V1 extends ffi.Opaque {}
 
-class PCLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 extends ffi.Opaque {}
+final class PCLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 extends ffi.Opaque {}
 
-class PCLAIM_SECURITY_ATTRIBUTES_INFORMATION extends ffi.Opaque {}
+final class PCLAIM_SECURITY_ATTRIBUTES_INFORMATION extends ffi.Opaque {}
 
-class PSECURITY_QUALITY_OF_SERVICE extends ffi.Struct {
+final class PSECURITY_QUALITY_OF_SERVICE extends ffi.Struct {
   @ffi.Uint64()
   external int Length;
 
@@ -55989,8 +55989,8 @@ class PSECURITY_QUALITY_OF_SERVICE extends ffi.Struct {
   external int EffectiveOnly;
 }
 
-class PSE_IMPERSONATION_STATE extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> Token;
+final class PSE_IMPERSONATION_STATE extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> Token;
 
   @ffi.Uint8()
   external int CopyOnOpen;
@@ -56018,8 +56018,8 @@ abstract class SE_LEARNING_MODE_DATA_TYPE {
   static const int SeLearningModeMax = 2;
 }
 
-class LPSECURITY_CAPABILITIES extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> AppContainerSid;
+final class LPSECURITY_CAPABILITIES extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> AppContainerSid;
 
   external ffi.Pointer<PSID_AND_ATTRIBUTES> Capabilities;
 
@@ -56030,7 +56030,7 @@ class LPSECURITY_CAPABILITIES extends ffi.Struct {
   external int Reserved;
 }
 
-class PJOB_SET_ARRAY extends ffi.Struct {
+final class PJOB_SET_ARRAY extends ffi.Struct {
   external ffi.Pointer<ffi.Void> JobHandle;
 
   @ffi.Uint64()
@@ -56040,13 +56040,13 @@ class PJOB_SET_ARRAY extends ffi.Struct {
   external int Flags;
 }
 
-class EXCEPTION_REGISTRATION_RECORD extends ffi.Struct {
-  external ffi.Pointer<EXCEPTION_REGISTRATION_RECORD> Next;
+final class EXCEPTION_REGISTRATION_RECORD extends ffi.Struct {
+  external final ffi.Pointer<EXCEPTION_REGISTRATION_RECORD> Next;
 
   external ffi.Pointer<ffi.NativeFunction<PEXCEPTION_ROUTINE>> Handler;
 }
 
-class NT_TIB extends ffi.Struct {
+final class NT_TIB extends ffi.Struct {
   external ffi.Pointer<EXCEPTION_REGISTRATION_RECORD> ExceptionList;
 
   external ffi.Pointer<ffi.Void> StackBase;
@@ -56060,7 +56060,7 @@ class NT_TIB extends ffi.Struct {
   external ffi.Pointer<NT_TIB> Self;
 }
 
-class PNT_TIB32 extends ffi.Struct {
+final class PNT_TIB32 extends ffi.Struct {
   @ffi.Uint64()
   external int ExceptionList;
 
@@ -56080,7 +56080,7 @@ class PNT_TIB32 extends ffi.Struct {
   external int Self;
 }
 
-class PNT_TIB64 extends ffi.Struct {
+final class PNT_TIB64 extends ffi.Struct {
   @ffi.Uint64()
   external int ExceptionList;
 
@@ -56100,7 +56100,7 @@ class PNT_TIB64 extends ffi.Struct {
   external int Self;
 }
 
-class PUMS_CREATE_THREAD_ATTRIBUTES extends ffi.Struct {
+final class PUMS_CREATE_THREAD_ATTRIBUTES extends ffi.Struct {
   @ffi.Uint64()
   external int UmsVersion;
 
@@ -56109,9 +56109,9 @@ class PUMS_CREATE_THREAD_ATTRIBUTES extends ffi.Struct {
   external ffi.Pointer<ffi.Void> UmsCompletionList;
 }
 
-class WOW64_ARCHITECTURE_INFORMATION extends ffi.Opaque {}
+final class WOW64_ARCHITECTURE_INFORMATION extends ffi.Opaque {}
 
-class PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET extends ffi.Struct {
+final class PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET extends ffi.Struct {
   @ffi.Uint64()
   external int TargetAddress;
 
@@ -56119,7 +56119,7 @@ class PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET extends ffi.Struct {
   external int Flags;
 }
 
-class PPROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION extends ffi.Struct {
+final class PPROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION extends ffi.Struct {
   @ffi.Uint16()
   external int NumberOfTargets;
 
@@ -56132,7 +56132,7 @@ class PPROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION extends ffi.Struct {
   external ffi.Pointer<PPROCESS_DYNAMIC_EH_CONTINUATION_TARGET> Targets;
 }
 
-class PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE extends ffi.Struct {
+final class PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE extends ffi.Struct {
   @ffi.Uint64()
   external int BaseAddress;
 
@@ -56143,7 +56143,7 @@ class PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE extends ffi.Struct {
   external int Flags;
 }
 
-class PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION extends ffi.Struct {
+final class PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION extends ffi.Struct {
   @ffi.Uint16()
   external int NumberOfRanges;
 
@@ -56156,11 +56156,11 @@ class PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION extends ffi.Struct {
   external ffi.Pointer<PPROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE> Ranges;
 }
 
-class PQUOTA_LIMITS extends ffi.Opaque {}
+final class PQUOTA_LIMITS extends ffi.Opaque {}
 
-class PQUOTA_LIMITS_EX extends ffi.Opaque {}
+final class PQUOTA_LIMITS_EX extends ffi.Opaque {}
 
-class IO_COUNTERS extends ffi.Struct {
+final class IO_COUNTERS extends ffi.Struct {
   @ffi.Uint64()
   external int ReadOperationCount;
 
@@ -56205,53 +56205,53 @@ abstract class PPROCESS_MITIGATION_POLICY {
   static const int MaxProcessMitigationPolicy = 16;
 }
 
-class PPROCESS_MITIGATION_ASLR_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_ASLR_POLICY extends ffi.Opaque {}
 
-class PPROCESS_MITIGATION_DEP_POLICY extends ffi.Struct {
+final class PPROCESS_MITIGATION_DEP_POLICY extends ffi.Struct {
   @ffi.Uint8()
   external int Permanent;
 }
 
-class PPROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_STRICT_HANDLE_CHECK_POLICY extends ffi.Opaque {}
 
-class PPROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_SYSTEM_CALL_DISABLE_POLICY extends ffi.Opaque {}
 
-class PPROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_EXTENSION_POINT_DISABLE_POLICY extends ffi.Opaque {}
 
-class PPROCESS_MITIGATION_DYNAMIC_CODE_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_DYNAMIC_CODE_POLICY extends ffi.Opaque {}
 
-class PPROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_CONTROL_FLOW_GUARD_POLICY extends ffi.Opaque {}
 
-class PPROCESS_MITIGATION_BINARY_SIGNATURE_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_BINARY_SIGNATURE_POLICY extends ffi.Opaque {}
 
-class PPROCESS_MITIGATION_FONT_DISABLE_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_FONT_DISABLE_POLICY extends ffi.Opaque {}
 
-class PPROCESS_MITIGATION_IMAGE_LOAD_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_IMAGE_LOAD_POLICY extends ffi.Opaque {}
 
-class PPROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_SYSTEM_CALL_FILTER_POLICY extends ffi.Opaque {}
 
-class PPROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_PAYLOAD_RESTRICTION_POLICY extends ffi.Opaque {}
 
-class PPROCESS_MITIGATION_CHILD_PROCESS_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_CHILD_PROCESS_POLICY extends ffi.Opaque {}
 
-class PPROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_SIDE_CHANNEL_ISOLATION_POLICY extends ffi.Opaque {}
 
-class PPROCESS_MITIGATION_USER_SHADOW_STACK_POLICY extends ffi.Opaque {}
+final class PPROCESS_MITIGATION_USER_SHADOW_STACK_POLICY extends ffi.Opaque {}
 
-class PJOBOBJECT_BASIC_ACCOUNTING_INFORMATION extends ffi.Opaque {}
+final class PJOBOBJECT_BASIC_ACCOUNTING_INFORMATION extends ffi.Opaque {}
 
-class PJOBOBJECT_BASIC_LIMIT_INFORMATION extends ffi.Opaque {}
+final class PJOBOBJECT_BASIC_LIMIT_INFORMATION extends ffi.Opaque {}
 
-class PJOBOBJECT_EXTENDED_LIMIT_INFORMATION extends ffi.Opaque {}
+final class PJOBOBJECT_EXTENDED_LIMIT_INFORMATION extends ffi.Opaque {}
 
-class PJOBOBJECT_BASIC_PROCESS_ID_LIST extends ffi.Opaque {}
+final class PJOBOBJECT_BASIC_PROCESS_ID_LIST extends ffi.Opaque {}
 
-class PJOBOBJECT_BASIC_UI_RESTRICTIONS extends ffi.Struct {
+final class PJOBOBJECT_BASIC_UI_RESTRICTIONS extends ffi.Struct {
   @ffi.Uint64()
   external int UIRestrictionsClass;
 }
 
-class PJOBOBJECT_SECURITY_LIMIT_INFORMATION extends ffi.Struct {
+final class PJOBOBJECT_SECURITY_LIMIT_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int SecurityLimitFlags;
 
@@ -56264,20 +56264,20 @@ class PJOBOBJECT_SECURITY_LIMIT_INFORMATION extends ffi.Struct {
   external ffi.Pointer<PTOKEN_GROUPS> RestrictedSids;
 }
 
-class PJOBOBJECT_END_OF_JOB_TIME_INFORMATION extends ffi.Struct {
+final class PJOBOBJECT_END_OF_JOB_TIME_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int EndOfJobTimeAction;
 }
 
-class PJOBOBJECT_ASSOCIATE_COMPLETION_PORT extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> CompletionKey;
+final class PJOBOBJECT_ASSOCIATE_COMPLETION_PORT extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> CompletionKey;
 
   external ffi.Pointer<ffi.Void> CompletionPort;
 }
 
-class PJOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION extends ffi.Opaque {}
+final class PJOBOBJECT_BASIC_AND_IO_ACCOUNTING_INFORMATION extends ffi.Opaque {}
 
-class PJOBOBJECT_JOBSET_INFORMATION extends ffi.Struct {
+final class PJOBOBJECT_JOBSET_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int MemberLevel;
 }
@@ -56294,15 +56294,15 @@ abstract class PJOBOBJECT_RATE_CONTROL_TOLERANCE_INTERVAL {
   static const int ToleranceIntervalLong = 3;
 }
 
-class PJOBOBJECT_NOTIFICATION_LIMIT_INFORMATION extends ffi.Opaque {}
+final class PJOBOBJECT_NOTIFICATION_LIMIT_INFORMATION extends ffi.Opaque {}
 
-class JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 extends ffi.Opaque {}
+final class JOBOBJECT_NOTIFICATION_LIMIT_INFORMATION_2 extends ffi.Opaque {}
 
-class PJOBOBJECT_LIMIT_VIOLATION_INFORMATION extends ffi.Opaque {}
+final class PJOBOBJECT_LIMIT_VIOLATION_INFORMATION extends ffi.Opaque {}
 
-class JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 extends ffi.Opaque {}
+final class JOBOBJECT_LIMIT_VIOLATION_INFORMATION_2 extends ffi.Opaque {}
 
-class PJOBOBJECT_CPU_RATE_CONTROL_INFORMATION extends ffi.Struct {
+final class PJOBOBJECT_CPU_RATE_CONTROL_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int ControlFlags;
 }
@@ -56314,7 +56314,7 @@ abstract class JOB_OBJECT_NET_RATE_CONTROL_FLAGS {
   static const int JOB_OBJECT_NET_RATE_CONTROL_VALID_FLAGS = 7;
 }
 
-class JOBOBJECT_NET_RATE_CONTROL_INFORMATION extends ffi.Struct {
+final class JOBOBJECT_NET_RATE_CONTROL_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int MaxBandwidth;
 
@@ -56333,7 +56333,7 @@ abstract class JOB_OBJECT_IO_RATE_CONTROL_FLAGS {
   static const int JOB_OBJECT_IO_RATE_CONTROL_VALID_FLAGS = 15;
 }
 
-class JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE extends ffi.Struct {
+final class JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE extends ffi.Struct {
   @ffi.Int64()
   external int MaxIops;
 
@@ -56355,7 +56355,7 @@ class JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE extends ffi.Struct {
   external int VolumeNameLength;
 }
 
-class JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 extends ffi.Struct {
+final class JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 extends ffi.Struct {
   @ffi.Int64()
   external int MaxIops;
 
@@ -56395,7 +56395,7 @@ class JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V2 extends ffi.Struct {
   external int CriticalReservationTimePercent;
 }
 
-class JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 extends ffi.Struct {
+final class JOBOBJECT_IO_RATE_CONTROL_INFORMATION_NATIVE_V3 extends ffi.Struct {
   @ffi.Int64()
   external int MaxIops;
 
@@ -56459,7 +56459,7 @@ abstract class JOBOBJECT_IO_ATTRIBUTION_CONTROL_FLAGS {
   static const int JOBOBJECT_IO_ATTRIBUTION_CONTROL_VALID_FLAGS = 3;
 }
 
-class PJOBOBJECT_IO_ATTRIBUTION_STATS extends ffi.Struct {
+final class PJOBOBJECT_IO_ATTRIBUTION_STATS extends ffi.Struct {
   @ffi.Uint64()
   external int IoCount;
 
@@ -56473,7 +56473,7 @@ class PJOBOBJECT_IO_ATTRIBUTION_STATS extends ffi.Struct {
   external int TotalSize;
 }
 
-class PJOBOBJECT_IO_ATTRIBUTION_INFORMATION extends ffi.Opaque {}
+final class PJOBOBJECT_IO_ATTRIBUTION_INFORMATION extends ffi.Opaque {}
 
 abstract class JOBOBJECTINFOCLASS {
   static const int JobObjectBasicAccountingInformation = 1;
@@ -56526,7 +56526,7 @@ abstract class JOBOBJECTINFOCLASS {
   static const int MaxJobObjectInfoClass = 48;
 }
 
-class PSILOOBJECT_BASIC_INFORMATION extends ffi.Opaque {}
+final class PSILOOBJECT_BASIC_INFORMATION extends ffi.Opaque {}
 
 abstract class PSERVERSILO_STATE {
   static const int SERVERSILO_INITING = 0;
@@ -56536,7 +56536,7 @@ abstract class PSERVERSILO_STATE {
   static const int SERVERSILO_TERMINATED = 4;
 }
 
-class PSERVERSILO_BASIC_INFORMATION extends ffi.Struct {
+final class PSERVERSILO_BASIC_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int ServiceSessionId;
 
@@ -56577,7 +56577,7 @@ abstract class PROCESSOR_CACHE_TYPE {
   static const int CacheTrace = 3;
 }
 
-class PCACHE_DESCRIPTOR extends ffi.Struct {
+final class PCACHE_DESCRIPTOR extends ffi.Struct {
   @ffi.Uint8()
   external int Level;
 
@@ -56594,7 +56594,7 @@ class PCACHE_DESCRIPTOR extends ffi.Struct {
   external int Type;
 }
 
-class PSYSTEM_LOGICAL_PROCESSOR_INFORMATION extends ffi.Struct {
+final class PSYSTEM_LOGICAL_PROCESSOR_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int ProcessorMask;
 
@@ -56602,17 +56602,17 @@ class PSYSTEM_LOGICAL_PROCESSOR_INFORMATION extends ffi.Struct {
   external int Relationship;
 }
 
-class PPROCESSOR_RELATIONSHIP extends ffi.Opaque {}
+final class PPROCESSOR_RELATIONSHIP extends ffi.Opaque {}
 
-class PNUMA_NODE_RELATIONSHIP extends ffi.Opaque {}
+final class PNUMA_NODE_RELATIONSHIP extends ffi.Opaque {}
 
-class PCACHE_RELATIONSHIP extends ffi.Opaque {}
+final class PCACHE_RELATIONSHIP extends ffi.Opaque {}
 
-class PPROCESSOR_GROUP_INFO extends ffi.Opaque {}
+final class PPROCESSOR_GROUP_INFO extends ffi.Opaque {}
 
-class PGROUP_RELATIONSHIP extends ffi.Opaque {}
+final class PGROUP_RELATIONSHIP extends ffi.Opaque {}
 
-class _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX extends ffi.Struct {
+final class _SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX extends ffi.Struct {
   @ffi.Int32()
   external int Relationship;
 
@@ -56624,7 +56624,7 @@ abstract class PCPU_SET_INFORMATION_TYPE {
   static const int CpuSetInformation = 0;
 }
 
-class _SYSTEM_CPU_SET_INFORMATION extends ffi.Struct {
+final class _SYSTEM_CPU_SET_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int Size;
 
@@ -56632,17 +56632,17 @@ class _SYSTEM_CPU_SET_INFORMATION extends ffi.Struct {
   external int Type;
 }
 
-class PSYSTEM_POOL_ZEROING_INFORMATION extends ffi.Struct {
+final class PSYSTEM_POOL_ZEROING_INFORMATION extends ffi.Struct {
   @ffi.Uint8()
   external int PoolZeroingSupportPresent;
 }
 
-class PSYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION extends ffi.Struct {
+final class PSYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int CycleTime;
 }
 
-class PXSTATE_FEATURE extends ffi.Struct {
+final class PXSTATE_FEATURE extends ffi.Struct {
   @ffi.Uint64()
   external int Offset;
 
@@ -56650,10 +56650,10 @@ class PXSTATE_FEATURE extends ffi.Struct {
   external int Size;
 }
 
-class PXSTATE_CONFIGURATION extends ffi.Opaque {}
+final class PXSTATE_CONFIGURATION extends ffi.Opaque {}
 
-class PMEMORY_BASIC_INFORMATION extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> BaseAddress;
+final class PMEMORY_BASIC_INFORMATION extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> BaseAddress;
 
   external ffi.Pointer<ffi.Void> AllocationBase;
 
@@ -56676,7 +56676,7 @@ class PMEMORY_BASIC_INFORMATION extends ffi.Struct {
   external int Type;
 }
 
-class PMEMORY_BASIC_INFORMATION32 extends ffi.Struct {
+final class PMEMORY_BASIC_INFORMATION32 extends ffi.Struct {
   @ffi.Uint64()
   external int BaseAddress;
 
@@ -56699,7 +56699,7 @@ class PMEMORY_BASIC_INFORMATION32 extends ffi.Struct {
   external int Type;
 }
 
-class PMEMORY_BASIC_INFORMATION64 extends ffi.Struct {
+final class PMEMORY_BASIC_INFORMATION64 extends ffi.Struct {
   @ffi.Uint64()
   external int BaseAddress;
 
@@ -56709,8 +56709,8 @@ class PMEMORY_BASIC_INFORMATION64 extends ffi.Struct {
   @ffi.Uint64()
   external int AllocationProtect;
 
-  @ffi.Uint64()
-  external int __alignment1;
+  // @ffi.Uint64()
+  // external int __alignment1;
 
   @ffi.Uint64()
   external int RegionSize;
@@ -56724,11 +56724,11 @@ class PMEMORY_BASIC_INFORMATION64 extends ffi.Struct {
   @ffi.Uint64()
   external int Type;
 
-  @ffi.Uint64()
-  external int __alignment2;
+  // @ffi.Uint64()
+  // external int __alignment2;
 }
 
-class PCFG_CALL_TARGET_INFO extends ffi.Struct {
+final class PCFG_CALL_TARGET_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int Offset;
 
@@ -56736,8 +56736,8 @@ class PCFG_CALL_TARGET_INFO extends ffi.Struct {
   external int Flags;
 }
 
-class PMEM_ADDRESS_REQUIREMENTS extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> LowestStartingAddress;
+final class PMEM_ADDRESS_REQUIREMENTS extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> LowestStartingAddress;
 
   external ffi.Pointer<ffi.Void> HighestEndingAddress;
 
@@ -56755,7 +56755,7 @@ abstract class PMEM_EXTENDED_PARAMETER_TYPE {
   static const int MemExtendedParameterMax = 6;
 }
 
-class PMEM_EXTENDED_PARAMETER extends ffi.Opaque {}
+final class PMEM_EXTENDED_PARAMETER extends ffi.Opaque {}
 
 abstract class PMEM_SECTION_EXTENDED_PARAMETER_TYPE {
   static const int MemSectionExtendedParameterInvalidType = 0;
@@ -56764,22 +56764,22 @@ abstract class PMEM_SECTION_EXTENDED_PARAMETER_TYPE {
   static const int MemSectionExtendedParameterMax = 3;
 }
 
-class PENCLAVE_CREATE_INFO_SGX extends ffi.Opaque {}
+final class PENCLAVE_CREATE_INFO_SGX extends ffi.Opaque {}
 
-class PENCLAVE_INIT_INFO_SGX extends ffi.Opaque {}
+final class PENCLAVE_INIT_INFO_SGX extends ffi.Opaque {}
 
-class PENCLAVE_CREATE_INFO_VBS extends ffi.Opaque {}
+final class PENCLAVE_CREATE_INFO_VBS extends ffi.Opaque {}
 
-class PENCLAVE_CREATE_INFO_VBS_BASIC extends ffi.Opaque {}
+final class PENCLAVE_CREATE_INFO_VBS_BASIC extends ffi.Opaque {}
 
-class PENCLAVE_LOAD_DATA_VBS_BASIC extends ffi.Struct {
+final class PENCLAVE_LOAD_DATA_VBS_BASIC extends ffi.Struct {
   @ffi.Uint64()
   external int PageType;
 }
 
-class PENCLAVE_INIT_INFO_VBS_BASIC extends ffi.Opaque {}
+final class PENCLAVE_INIT_INFO_VBS_BASIC extends ffi.Opaque {}
 
-class PENCLAVE_INIT_INFO_VBS extends ffi.Struct {
+final class PENCLAVE_INIT_INFO_VBS extends ffi.Struct {
   @ffi.Uint64()
   external int Length;
 
@@ -56787,17 +56787,17 @@ class PENCLAVE_INIT_INFO_VBS extends ffi.Struct {
   external int ThreadCount;
 }
 
-class PFILE_ID_128 extends ffi.Opaque {}
+final class PFILE_ID_128 extends ffi.Opaque {}
 
-class PFILE_NOTIFY_INFORMATION extends ffi.Opaque {}
+final class PFILE_NOTIFY_INFORMATION extends ffi.Opaque {}
 
-class PFILE_NOTIFY_EXTENDED_INFORMATION extends ffi.Opaque {}
+final class PFILE_NOTIFY_EXTENDED_INFORMATION extends ffi.Opaque {}
 
-class PREPARSE_GUID_DATA_BUFFER extends ffi.Opaque {}
+final class PREPARSE_GUID_DATA_BUFFER extends ffi.Opaque {}
 
-class PSCRUB_DATA_INPUT extends ffi.Opaque {}
+final class PSCRUB_DATA_INPUT extends ffi.Opaque {}
 
-class PSCRUB_PARITY_EXTENT extends ffi.Struct {
+final class PSCRUB_PARITY_EXTENT extends ffi.Struct {
   @ffi.Int64()
   external int Offset;
 
@@ -56805,9 +56805,9 @@ class PSCRUB_PARITY_EXTENT extends ffi.Struct {
   external int Length;
 }
 
-class PSCRUB_PARITY_EXTENT_DATA extends ffi.Opaque {}
+final class PSCRUB_PARITY_EXTENT_DATA extends ffi.Opaque {}
 
-class PSCRUB_DATA_OUTPUT extends ffi.Opaque {}
+final class PSCRUB_DATA_OUTPUT extends ffi.Opaque {}
 
 abstract class SharedVirtualDiskSupportType {
   static const int SharedVirtualDisksUnsupported = 0;
@@ -56822,7 +56822,7 @@ abstract class SharedVirtualDiskHandleState {
   static const int SharedVirtualDiskHandleStateHandleShared = 3;
 }
 
-class PSHARED_VIRTUAL_DISK_SUPPORT extends ffi.Struct {
+final class PSHARED_VIRTUAL_DISK_SUPPORT extends ffi.Struct {
   @ffi.Int32()
   external int SharedVirtualDiskSupport;
 
@@ -56830,7 +56830,7 @@ class PSHARED_VIRTUAL_DISK_SUPPORT extends ffi.Struct {
   external int HandleState;
 }
 
-class PREARRANGE_FILE_DATA extends ffi.Struct {
+final class PREARRANGE_FILE_DATA extends ffi.Struct {
   @ffi.Uint64()
   external int SourceStartingOffset;
 
@@ -56846,7 +56846,7 @@ class PREARRANGE_FILE_DATA extends ffi.Struct {
   external int Flags;
 }
 
-class PREARRANGE_FILE_DATA32 extends ffi.Struct {
+final class PREARRANGE_FILE_DATA32 extends ffi.Struct {
   @ffi.Uint64()
   external int SourceStartingOffset;
 
@@ -56863,7 +56863,7 @@ class PREARRANGE_FILE_DATA32 extends ffi.Struct {
   external int Flags;
 }
 
-class PSHUFFLE_FILE_DATA extends ffi.Struct {
+final class PSHUFFLE_FILE_DATA extends ffi.Struct {
   @ffi.Int64()
   external int StartingOffset;
 
@@ -56874,7 +56874,7 @@ class PSHUFFLE_FILE_DATA extends ffi.Struct {
   external int Flags;
 }
 
-class PNETWORK_APP_INSTANCE_EA extends ffi.Opaque {}
+final class PNETWORK_APP_INSTANCE_EA extends ffi.Opaque {}
 
 abstract class PSYSTEM_POWER_STATE {
   static const int PowerSystemUnspecified = 0;
@@ -56934,7 +56934,7 @@ abstract class PPOWER_REQUEST_TYPE {
   static const int PowerRequestExecutionRequired = 3;
 }
 
-class PCM_POWER_DATA extends ffi.Opaque {}
+final class PCM_POWER_DATA extends ffi.Opaque {}
 
 abstract class POWER_INFORMATION_LEVEL {
   static const int SystemPowerPolicyAc = 0;
@@ -57042,12 +57042,12 @@ abstract class PPOWER_USER_PRESENCE_TYPE {
   static const int UserUnknown = 255;
 }
 
-class PPOWER_USER_PRESENCE extends ffi.Struct {
+final class PPOWER_USER_PRESENCE extends ffi.Struct {
   @ffi.Int32()
   external int UserPresence;
 }
 
-class PPOWER_SESSION_CONNECT extends ffi.Struct {
+final class PPOWER_SESSION_CONNECT extends ffi.Struct {
   @ffi.Uint8()
   external int Connected;
 
@@ -57055,7 +57055,7 @@ class PPOWER_SESSION_CONNECT extends ffi.Struct {
   external int Console;
 }
 
-class PPOWER_SESSION_TIMEOUTS extends ffi.Struct {
+final class PPOWER_SESSION_TIMEOUTS extends ffi.Struct {
   @ffi.Uint64()
   external int InputTimeout;
 
@@ -57063,7 +57063,7 @@ class PPOWER_SESSION_TIMEOUTS extends ffi.Struct {
   external int DisplayTimeout;
 }
 
-class PPOWER_SESSION_RIT_STATE extends ffi.Struct {
+final class PPOWER_SESSION_RIT_STATE extends ffi.Struct {
   @ffi.Uint8()
   external int Active;
 
@@ -57071,7 +57071,7 @@ class PPOWER_SESSION_RIT_STATE extends ffi.Struct {
   external int LastInputTime;
 }
 
-class PPOWER_SESSION_WINLOGON extends ffi.Struct {
+final class PPOWER_SESSION_WINLOGON extends ffi.Struct {
   @ffi.Uint64()
   external int SessionId;
 
@@ -57082,12 +57082,12 @@ class PPOWER_SESSION_WINLOGON extends ffi.Struct {
   external int Locked;
 }
 
-class PPOWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES extends ffi.Struct {
+final class PPOWER_SESSION_ALLOW_EXTERNAL_DMA_DEVICES extends ffi.Struct {
   @ffi.Uint8()
   external int IsAllowed;
 }
 
-class PPOWER_IDLE_RESILIENCY extends ffi.Struct {
+final class PPOWER_IDLE_RESILIENCY extends ffi.Struct {
   @ffi.Uint64()
   external int CoalescingTimeout;
 
@@ -57156,7 +57156,7 @@ abstract class POWER_MONITOR_REQUEST_TYPE {
   static const int MonitorRequestTypeToggleOn = 2;
 }
 
-class PPOWER_MONITOR_INVOCATION extends ffi.Struct {
+final class PPOWER_MONITOR_INVOCATION extends ffi.Struct {
   @ffi.Uint8()
   external int Console;
 
@@ -57164,7 +57164,7 @@ class PPOWER_MONITOR_INVOCATION extends ffi.Struct {
   external int RequestReason;
 }
 
-class PRESUME_PERFORMANCE extends ffi.Struct {
+final class PRESUME_PERFORMANCE extends ffi.Struct {
   @ffi.Uint64()
   external int PostTimeMs;
 
@@ -57182,11 +57182,11 @@ abstract class SYSTEM_POWER_CONDITION {
   static const int PoConditionMaximum = 3;
 }
 
-class PSET_POWER_SETTING_VALUE extends ffi.Opaque {}
+final class PSET_POWER_SETTING_VALUE extends ffi.Opaque {}
 
-class PNOTIFY_USER_POWER_SETTING extends ffi.Opaque {}
+final class PNOTIFY_USER_POWER_SETTING extends ffi.Opaque {}
 
-class PAPPLICATIONLAUNCH_SETTING_VALUE extends ffi.Opaque {}
+final class PAPPLICATIONLAUNCH_SETTING_VALUE extends ffi.Opaque {}
 
 abstract class PPOWER_PLATFORM_ROLE {
   static const int PlatformRoleUnspecified = 0;
@@ -57201,12 +57201,12 @@ abstract class PPOWER_PLATFORM_ROLE {
   static const int PlatformRoleMaximum = 9;
 }
 
-class PPOWER_PLATFORM_INFORMATION extends ffi.Struct {
+final class PPOWER_PLATFORM_INFORMATION extends ffi.Struct {
   @ffi.Uint8()
   external int AoAc;
 }
 
-class PBATTERY_REPORTING_SCALE extends ffi.Struct {
+final class PBATTERY_REPORTING_SCALE extends ffi.Struct {
   @ffi.Uint64()
   external int Granularity;
 
@@ -57214,7 +57214,7 @@ class PBATTERY_REPORTING_SCALE extends ffi.Struct {
   external int Capacity;
 }
 
-class PPPM_WMI_LEGACY_PERFSTATE extends ffi.Struct {
+final class PPPM_WMI_LEGACY_PERFSTATE extends ffi.Struct {
   @ffi.Uint64()
   external int Frequency;
 
@@ -57225,7 +57225,7 @@ class PPPM_WMI_LEGACY_PERFSTATE extends ffi.Struct {
   external int PercentFrequency;
 }
 
-class PPPM_WMI_IDLE_STATE extends ffi.Struct {
+final class PPPM_WMI_IDLE_STATE extends ffi.Struct {
   @ffi.Uint64()
   external int Latency;
 
@@ -57260,11 +57260,11 @@ class PPPM_WMI_IDLE_STATE extends ffi.Struct {
   external int Reserved1;
 }
 
-class PPPM_WMI_IDLE_STATES extends ffi.Opaque {}
+final class PPPM_WMI_IDLE_STATES extends ffi.Opaque {}
 
-class PPPM_WMI_IDLE_STATES_EX extends ffi.Opaque {}
+final class PPPM_WMI_IDLE_STATES_EX extends ffi.Opaque {}
 
-class PPPM_WMI_PERF_STATE extends ffi.Struct {
+final class PPPM_WMI_PERF_STATE extends ffi.Struct {
   @ffi.Uint64()
   external int Frequency;
 
@@ -57308,15 +57308,15 @@ class PPPM_WMI_PERF_STATE extends ffi.Struct {
   external int Reserved3;
 }
 
-class PPPM_WMI_PERF_STATES extends ffi.Opaque {}
+final class PPPM_WMI_PERF_STATES extends ffi.Opaque {}
 
-class PPPM_WMI_PERF_STATES_EX extends ffi.Opaque {}
+final class PPPM_WMI_PERF_STATES_EX extends ffi.Opaque {}
 
-class PPPM_IDLE_STATE_ACCOUNTING extends ffi.Opaque {}
+final class PPPM_IDLE_STATE_ACCOUNTING extends ffi.Opaque {}
 
-class PPPM_IDLE_ACCOUNTING extends ffi.Opaque {}
+final class PPPM_IDLE_ACCOUNTING extends ffi.Opaque {}
 
-class PPPM_IDLE_STATE_BUCKET_EX extends ffi.Struct {
+final class PPPM_IDLE_STATE_BUCKET_EX extends ffi.Struct {
   @ffi.Uint64()
   external int TotalTimeUs;
 
@@ -57330,11 +57330,11 @@ class PPPM_IDLE_STATE_BUCKET_EX extends ffi.Struct {
   external int Count;
 }
 
-class PPPM_IDLE_STATE_ACCOUNTING_EX extends ffi.Opaque {}
+final class PPPM_IDLE_STATE_ACCOUNTING_EX extends ffi.Opaque {}
 
-class PPPM_IDLE_ACCOUNTING_EX extends ffi.Opaque {}
+final class PPPM_IDLE_ACCOUNTING_EX extends ffi.Opaque {}
 
-class PPPM_PERFSTATE_EVENT extends ffi.Struct {
+final class PPPM_PERFSTATE_EVENT extends ffi.Struct {
   @ffi.Uint64()
   external int State;
 
@@ -57351,7 +57351,7 @@ class PPPM_PERFSTATE_EVENT extends ffi.Struct {
   external int Processor;
 }
 
-class PPPM_PERFSTATE_DOMAIN_EVENT extends ffi.Struct {
+final class PPPM_PERFSTATE_DOMAIN_EVENT extends ffi.Struct {
   @ffi.Uint64()
   external int State;
 
@@ -57365,7 +57365,7 @@ class PPPM_PERFSTATE_DOMAIN_EVENT extends ffi.Struct {
   external int Processors;
 }
 
-class PPPM_IDLESTATE_EVENT extends ffi.Struct {
+final class PPPM_IDLESTATE_EVENT extends ffi.Struct {
   @ffi.Uint64()
   external int NewState;
 
@@ -57376,7 +57376,7 @@ class PPPM_IDLESTATE_EVENT extends ffi.Struct {
   external int Processors;
 }
 
-class PPPM_THERMALCHANGE_EVENT extends ffi.Struct {
+final class PPPM_THERMALCHANGE_EVENT extends ffi.Struct {
   @ffi.Uint64()
   external int ThermalConstraint;
 
@@ -57384,7 +57384,7 @@ class PPPM_THERMALCHANGE_EVENT extends ffi.Struct {
   external int Processors;
 }
 
-class PPPM_THERMAL_POLICY_EVENT extends ffi.Struct {
+final class PPPM_THERMAL_POLICY_EVENT extends ffi.Struct {
   @ffi.Uint8()
   external int Mode;
 
@@ -57392,7 +57392,7 @@ class PPPM_THERMAL_POLICY_EVENT extends ffi.Struct {
   external int Processors;
 }
 
-class PPOWER_ACTION_POLICY extends ffi.Struct {
+final class PPOWER_ACTION_POLICY extends ffi.Struct {
   @ffi.Int32()
   external int Action;
 
@@ -57403,19 +57403,19 @@ class PPOWER_ACTION_POLICY extends ffi.Struct {
   external int EventCode;
 }
 
-class PSYSTEM_POWER_LEVEL extends ffi.Opaque {}
+final class PSYSTEM_POWER_LEVEL extends ffi.Opaque {}
 
-class PSYSTEM_POWER_POLICY extends ffi.Opaque {}
+final class PSYSTEM_POWER_POLICY extends ffi.Opaque {}
 
-class PPROCESSOR_IDLESTATE_INFO extends ffi.Opaque {}
+final class PPROCESSOR_IDLESTATE_INFO extends ffi.Opaque {}
 
-class PPROCESSOR_IDLESTATE_POLICY extends ffi.Opaque {}
+final class PPROCESSOR_IDLESTATE_POLICY extends ffi.Opaque {}
 
-class PPROCESSOR_POWER_POLICY_INFO extends ffi.Opaque {}
+final class PPROCESSOR_POWER_POLICY_INFO extends ffi.Opaque {}
 
-class PPROCESSOR_POWER_POLICY extends ffi.Opaque {}
+final class PPROCESSOR_POWER_POLICY extends ffi.Opaque {}
 
-class PPROCESSOR_PERFSTATE_POLICY extends ffi.Struct {
+final class PPROCESSOR_PERFSTATE_POLICY extends ffi.Struct {
   @ffi.Uint64()
   external int Revision;
 
@@ -57444,7 +57444,7 @@ class PPROCESSOR_PERFSTATE_POLICY extends ffi.Struct {
   external int DecreasePercent;
 }
 
-class PADMINISTRATOR_POWER_POLICY extends ffi.Struct {
+final class PADMINISTRATOR_POWER_POLICY extends ffi.Struct {
   @ffi.Int32()
   external int MinSleep;
 
@@ -57475,15 +57475,15 @@ abstract class PHIBERFILE_BUCKET_SIZE {
   static const int HiberFileBucketMax = 7;
 }
 
-class PHIBERFILE_BUCKET extends ffi.Opaque {}
+final class PHIBERFILE_BUCKET extends ffi.Opaque {}
 
-class PSYSTEM_POWER_CAPABILITIES extends ffi.Opaque {}
+final class PSYSTEM_POWER_CAPABILITIES extends ffi.Opaque {}
 
-class PSYSTEM_BATTERY_STATE extends ffi.Opaque {}
+final class PSYSTEM_BATTERY_STATE extends ffi.Opaque {}
 
-class PIMAGE_DOS_HEADER extends ffi.Opaque {}
+final class PIMAGE_DOS_HEADER extends ffi.Opaque {}
 
-class PIMAGE_OS2_HEADER extends ffi.Struct {
+final class PIMAGE_OS2_HEADER extends ffi.Struct {
   @ffi.Uint16()
   external int ne_magic;
 
@@ -57575,9 +57575,9 @@ class PIMAGE_OS2_HEADER extends ffi.Struct {
   external int ne_expver;
 }
 
-class PIMAGE_VXD_HEADER extends ffi.Opaque {}
+final class PIMAGE_VXD_HEADER extends ffi.Opaque {}
 
-class PIMAGE_FILE_HEADER extends ffi.Struct {
+final class PIMAGE_FILE_HEADER extends ffi.Struct {
   @ffi.Uint16()
   external int Machine;
 
@@ -57600,7 +57600,7 @@ class PIMAGE_FILE_HEADER extends ffi.Struct {
   external int Characteristics;
 }
 
-class PIMAGE_DATA_DIRECTORY extends ffi.Struct {
+final class PIMAGE_DATA_DIRECTORY extends ffi.Struct {
   @ffi.Uint64()
   external int VirtualAddress;
 
@@ -57608,37 +57608,37 @@ class PIMAGE_DATA_DIRECTORY extends ffi.Struct {
   external int Size;
 }
 
-class PIMAGE_OPTIONAL_HEADER32 extends ffi.Opaque {}
+final class PIMAGE_OPTIONAL_HEADER32 extends ffi.Opaque {}
 
-class PIMAGE_ROM_OPTIONAL_HEADER extends ffi.Opaque {}
+final class PIMAGE_ROM_OPTIONAL_HEADER extends ffi.Opaque {}
 
-class PIMAGE_OPTIONAL_HEADER64 extends ffi.Opaque {}
+final class PIMAGE_OPTIONAL_HEADER64 extends ffi.Opaque {}
 
-class PIMAGE_NT_HEADERS64 extends ffi.Opaque {}
+final class PIMAGE_NT_HEADERS64 extends ffi.Opaque {}
 
-class PIMAGE_NT_HEADERS32 extends ffi.Opaque {}
+final class PIMAGE_NT_HEADERS32 extends ffi.Opaque {}
 
-class PIMAGE_ROM_HEADERS extends ffi.Opaque {}
+final class PIMAGE_ROM_HEADERS extends ffi.Opaque {}
 
-class ANON_OBJECT_HEADER extends ffi.Opaque {}
+final class ANON_OBJECT_HEADER extends ffi.Opaque {}
 
-class ANON_OBJECT_HEADER_V2 extends ffi.Opaque {}
+final class ANON_OBJECT_HEADER_V2 extends ffi.Opaque {}
 
-class ANON_OBJECT_HEADER_BIGOBJ extends ffi.Opaque {}
+final class ANON_OBJECT_HEADER_BIGOBJ extends ffi.Opaque {}
 
-class PIMAGE_SECTION_HEADER extends ffi.Opaque {}
+final class PIMAGE_SECTION_HEADER extends ffi.Opaque {}
 
-class IMAGE_SYMBOL extends ffi.Opaque {}
+final class IMAGE_SYMBOL extends ffi.Opaque {}
 
-class IMAGE_SYMBOL_EX extends ffi.Opaque {}
+final class IMAGE_SYMBOL_EX extends ffi.Opaque {}
 
-class IMAGE_AUX_SYMBOL_TOKEN_DEF extends ffi.Opaque {}
+final class IMAGE_AUX_SYMBOL_TOKEN_DEF extends ffi.Opaque {}
 
 abstract class IMAGE_AUX_SYMBOL_TYPE {
   static const int IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF = 1;
 }
 
-class IMAGE_RELOCATION extends ffi.Struct {
+final class IMAGE_RELOCATION extends ffi.Struct {
   @ffi.Uint64()
   external int SymbolTableIndex;
 
@@ -57646,9 +57646,9 @@ class IMAGE_RELOCATION extends ffi.Struct {
   external int Type;
 }
 
-class IMAGE_LINENUMBER extends ffi.Opaque {}
+final class IMAGE_LINENUMBER extends ffi.Opaque {}
 
-class IMAGE_BASE_RELOCATION extends ffi.Struct {
+final class IMAGE_BASE_RELOCATION extends ffi.Struct {
   @ffi.Uint64()
   external int VirtualAddress;
 
@@ -57656,9 +57656,9 @@ class IMAGE_BASE_RELOCATION extends ffi.Struct {
   external int SizeOfBlock;
 }
 
-class PIMAGE_ARCHIVE_MEMBER_HEADER extends ffi.Opaque {}
+final class PIMAGE_ARCHIVE_MEMBER_HEADER extends ffi.Opaque {}
 
-class PIMAGE_EXPORT_DIRECTORY extends ffi.Struct {
+final class PIMAGE_EXPORT_DIRECTORY extends ffi.Struct {
   @ffi.Uint64()
   external int Characteristics;
 
@@ -57693,13 +57693,13 @@ class PIMAGE_EXPORT_DIRECTORY extends ffi.Struct {
   external int AddressOfNameOrdinals;
 }
 
-class PIMAGE_IMPORT_BY_NAME extends ffi.Opaque {}
+final class PIMAGE_IMPORT_BY_NAME extends ffi.Opaque {}
 
-class IMAGE_THUNK_DATA64 extends ffi.Opaque {}
+final class IMAGE_THUNK_DATA64 extends ffi.Opaque {}
 
-class IMAGE_THUNK_DATA32 extends ffi.Opaque {}
+final class IMAGE_THUNK_DATA32 extends ffi.Opaque {}
 
-class IMAGE_TLS_DIRECTORY64 extends ffi.Struct {
+final class IMAGE_TLS_DIRECTORY64 extends ffi.Struct {
   @ffi.Uint64()
   external int StartAddressOfRawData;
 
@@ -57716,7 +57716,7 @@ class IMAGE_TLS_DIRECTORY64 extends ffi.Struct {
   external int SizeOfZeroFill;
 }
 
-class IMAGE_TLS_DIRECTORY32 extends ffi.Struct {
+final class IMAGE_TLS_DIRECTORY32 extends ffi.Struct {
   @ffi.Uint64()
   external int StartAddressOfRawData;
 
@@ -57733,7 +57733,7 @@ class IMAGE_TLS_DIRECTORY32 extends ffi.Struct {
   external int SizeOfZeroFill;
 }
 
-class IMAGE_IMPORT_DESCRIPTOR extends ffi.Struct {
+final class IMAGE_IMPORT_DESCRIPTOR extends ffi.Struct {
   @ffi.Uint64()
   external int TimeDateStamp;
 
@@ -57747,7 +57747,7 @@ class IMAGE_IMPORT_DESCRIPTOR extends ffi.Struct {
   external int FirstThunk;
 }
 
-class PIMAGE_BOUND_IMPORT_DESCRIPTOR extends ffi.Struct {
+final class PIMAGE_BOUND_IMPORT_DESCRIPTOR extends ffi.Struct {
   @ffi.Uint64()
   external int TimeDateStamp;
 
@@ -57758,7 +57758,7 @@ class PIMAGE_BOUND_IMPORT_DESCRIPTOR extends ffi.Struct {
   external int NumberOfModuleForwarderRefs;
 }
 
-class PIMAGE_BOUND_FORWARDER_REF extends ffi.Struct {
+final class PIMAGE_BOUND_FORWARDER_REF extends ffi.Struct {
   @ffi.Uint64()
   external int TimeDateStamp;
 
@@ -57769,9 +57769,9 @@ class PIMAGE_BOUND_FORWARDER_REF extends ffi.Struct {
   external int Reserved;
 }
 
-class PIMAGE_DELAYLOAD_DESCRIPTOR extends ffi.Opaque {}
+final class PIMAGE_DELAYLOAD_DESCRIPTOR extends ffi.Opaque {}
 
-class PIMAGE_RESOURCE_DIRECTORY extends ffi.Struct {
+final class PIMAGE_RESOURCE_DIRECTORY extends ffi.Struct {
   @ffi.Uint64()
   external int Characteristics;
 
@@ -57791,13 +57791,13 @@ class PIMAGE_RESOURCE_DIRECTORY extends ffi.Struct {
   external int NumberOfIdEntries;
 }
 
-class PIMAGE_RESOURCE_DIRECTORY_ENTRY extends ffi.Opaque {}
+final class PIMAGE_RESOURCE_DIRECTORY_ENTRY extends ffi.Opaque {}
 
-class PIMAGE_RESOURCE_DIRECTORY_STRING extends ffi.Opaque {}
+final class PIMAGE_RESOURCE_DIRECTORY_STRING extends ffi.Opaque {}
 
-class PIMAGE_RESOURCE_DIR_STRING_U extends ffi.Opaque {}
+final class PIMAGE_RESOURCE_DIR_STRING_U extends ffi.Opaque {}
 
-class PIMAGE_RESOURCE_DATA_ENTRY extends ffi.Struct {
+final class PIMAGE_RESOURCE_DATA_ENTRY extends ffi.Struct {
   @ffi.Uint64()
   external int OffsetToData;
 
@@ -57811,7 +57811,7 @@ class PIMAGE_RESOURCE_DATA_ENTRY extends ffi.Struct {
   external int Reserved;
 }
 
-class PIMAGE_LOAD_CONFIG_CODE_INTEGRITY extends ffi.Struct {
+final class PIMAGE_LOAD_CONFIG_CODE_INTEGRITY extends ffi.Struct {
   @ffi.Uint16()
   external int Flags;
 
@@ -57825,7 +57825,7 @@ class PIMAGE_LOAD_CONFIG_CODE_INTEGRITY extends ffi.Struct {
   external int Reserved;
 }
 
-class PIMAGE_DYNAMIC_RELOCATION_TABLE extends ffi.Struct {
+final class PIMAGE_DYNAMIC_RELOCATION_TABLE extends ffi.Struct {
   @ffi.Uint64()
   external int Version;
 
@@ -57833,7 +57833,7 @@ class PIMAGE_DYNAMIC_RELOCATION_TABLE extends ffi.Struct {
   external int Size;
 }
 
-class PIMAGE_DYNAMIC_RELOCATION32 extends ffi.Struct {
+final class PIMAGE_DYNAMIC_RELOCATION32 extends ffi.Struct {
   @ffi.Uint64()
   external int Symbol;
 
@@ -57841,7 +57841,7 @@ class PIMAGE_DYNAMIC_RELOCATION32 extends ffi.Struct {
   external int BaseRelocSize;
 }
 
-class PIMAGE_DYNAMIC_RELOCATION64 extends ffi.Struct {
+final class PIMAGE_DYNAMIC_RELOCATION64 extends ffi.Struct {
   @ffi.Uint64()
   external int Symbol;
 
@@ -57849,7 +57849,7 @@ class PIMAGE_DYNAMIC_RELOCATION64 extends ffi.Struct {
   external int BaseRelocSize;
 }
 
-class PIMAGE_DYNAMIC_RELOCATION32_V2 extends ffi.Struct {
+final class PIMAGE_DYNAMIC_RELOCATION32_V2 extends ffi.Struct {
   @ffi.Uint64()
   external int HeaderSize;
 
@@ -57866,7 +57866,7 @@ class PIMAGE_DYNAMIC_RELOCATION32_V2 extends ffi.Struct {
   external int Flags;
 }
 
-class PIMAGE_DYNAMIC_RELOCATION64_V2 extends ffi.Struct {
+final class PIMAGE_DYNAMIC_RELOCATION64_V2 extends ffi.Struct {
   @ffi.Uint64()
   external int HeaderSize;
 
@@ -57883,12 +57883,12 @@ class PIMAGE_DYNAMIC_RELOCATION64_V2 extends ffi.Struct {
   external int Flags;
 }
 
-class IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER extends ffi.Struct {
+final class IMAGE_PROLOGUE_DYNAMIC_RELOCATION_HEADER extends ffi.Struct {
   @ffi.Uint8()
   external int PrologueByteCount;
 }
 
-class IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER extends ffi.Struct {
+final class IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER extends ffi.Struct {
   @ffi.Uint64()
   external int EpilogueCount;
 
@@ -57902,17 +57902,17 @@ class IMAGE_EPILOGUE_DYNAMIC_RELOCATION_HEADER extends ffi.Struct {
   external int BranchDescriptorCount;
 }
 
-class IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION extends ffi.Opaque {}
+final class IMAGE_IMPORT_CONTROL_TRANSFER_DYNAMIC_RELOCATION extends ffi.Opaque {}
 
-class IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION extends ffi.Opaque {}
+final class IMAGE_INDIR_CONTROL_TRANSFER_DYNAMIC_RELOCATION extends ffi.Opaque {}
 
-class IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION extends ffi.Opaque {}
+final class IMAGE_SWITCHTABLE_BRANCH_DYNAMIC_RELOCATION extends ffi.Opaque {}
 
-class PIMAGE_LOAD_CONFIG_DIRECTORY32 extends ffi.Opaque {}
+final class PIMAGE_LOAD_CONFIG_DIRECTORY32 extends ffi.Opaque {}
 
-class PIMAGE_LOAD_CONFIG_DIRECTORY64 extends ffi.Opaque {}
+final class PIMAGE_LOAD_CONFIG_DIRECTORY64 extends ffi.Opaque {}
 
-class PIMAGE_HOT_PATCH_INFO extends ffi.Struct {
+final class PIMAGE_HOT_PATCH_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int Version;
 
@@ -57935,7 +57935,7 @@ class PIMAGE_HOT_PATCH_INFO extends ffi.Struct {
   external int ExtraPatchSize;
 }
 
-class PIMAGE_HOT_PATCH_BASE extends ffi.Struct {
+final class PIMAGE_HOT_PATCH_BASE extends ffi.Struct {
   @ffi.Uint64()
   external int SequenceNumber;
 
@@ -57961,11 +57961,11 @@ class PIMAGE_HOT_PATCH_BASE extends ffi.Struct {
   external int BufferOffset;
 }
 
-class PIMAGE_HOT_PATCH_HASHES extends ffi.Opaque {}
+final class PIMAGE_HOT_PATCH_HASHES extends ffi.Opaque {}
 
-class PIMAGE_CE_RUNTIME_FUNCTION_ENTRY extends ffi.Opaque {}
+final class PIMAGE_CE_RUNTIME_FUNCTION_ENTRY extends ffi.Opaque {}
 
-class PIMAGE_ARM_RUNTIME_FUNCTION_ENTRY extends ffi.Struct {
+final class PIMAGE_ARM_RUNTIME_FUNCTION_ENTRY extends ffi.Struct {
   @ffi.Uint64()
   external int BeginAddress;
 }
@@ -57983,29 +57983,12 @@ abstract class ARM64_FNPDATA_CR {
   static const int PdataCrChained = 3;
 }
 
-class PIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY extends ffi.Struct {
+final class PIMAGE_ARM64_RUNTIME_FUNCTION_ENTRY extends ffi.Struct {
   @ffi.Uint64()
   external int BeginAddress;
 }
 
-class PIMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY extends ffi.Struct {
-  @ffi.Uint64()
-  external int BeginAddress;
-
-  @ffi.Uint64()
-  external int EndAddress;
-
-  @ffi.Uint64()
-  external int ExceptionHandler;
-
-  @ffi.Uint64()
-  external int HandlerData;
-
-  @ffi.Uint64()
-  external int PrologEndAddress;
-}
-
-class PIMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY extends ffi.Struct {
+final class PIMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY extends ffi.Struct {
   @ffi.Uint64()
   external int BeginAddress;
 
@@ -58022,13 +58005,30 @@ class PIMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY extends ffi.Struct {
   external int PrologEndAddress;
 }
 
-class PIMAGE_ENCLAVE_CONFIG32 extends ffi.Opaque {}
+final class PIMAGE_ALPHA_RUNTIME_FUNCTION_ENTRY extends ffi.Struct {
+  @ffi.Uint64()
+  external int BeginAddress;
 
-class PIMAGE_ENCLAVE_CONFIG64 extends ffi.Opaque {}
+  @ffi.Uint64()
+  external int EndAddress;
 
-class PIMAGE_ENCLAVE_IMPORT extends ffi.Opaque {}
+  @ffi.Uint64()
+  external int ExceptionHandler;
 
-class PIMAGE_DEBUG_DIRECTORY extends ffi.Struct {
+  @ffi.Uint64()
+  external int HandlerData;
+
+  @ffi.Uint64()
+  external int PrologEndAddress;
+}
+
+final class PIMAGE_ENCLAVE_CONFIG32 extends ffi.Opaque {}
+
+final class PIMAGE_ENCLAVE_CONFIG64 extends ffi.Opaque {}
+
+final class PIMAGE_ENCLAVE_IMPORT extends ffi.Opaque {}
+
+final class PIMAGE_DEBUG_DIRECTORY extends ffi.Struct {
   @ffi.Uint64()
   external int Characteristics;
 
@@ -58054,7 +58054,7 @@ class PIMAGE_DEBUG_DIRECTORY extends ffi.Struct {
   external int PointerToRawData;
 }
 
-class PIMAGE_COFF_SYMBOLS_HEADER extends ffi.Struct {
+final class PIMAGE_COFF_SYMBOLS_HEADER extends ffi.Struct {
   @ffi.Uint64()
   external int NumberOfSymbols;
 
@@ -58080,11 +58080,11 @@ class PIMAGE_COFF_SYMBOLS_HEADER extends ffi.Struct {
   external int RvaToLastByteOfData;
 }
 
-class PFPO_DATA extends ffi.Opaque {}
+final class PFPO_DATA extends ffi.Opaque {}
 
-class PIMAGE_DEBUG_MISC extends ffi.Opaque {}
+final class PIMAGE_DEBUG_MISC extends ffi.Opaque {}
 
-class PIMAGE_FUNCTION_ENTRY extends ffi.Struct {
+final class PIMAGE_FUNCTION_ENTRY extends ffi.Struct {
   @ffi.Uint64()
   external int StartingAddress;
 
@@ -58095,7 +58095,7 @@ class PIMAGE_FUNCTION_ENTRY extends ffi.Struct {
   external int EndOfPrologue;
 }
 
-class PIMAGE_FUNCTION_ENTRY64 extends ffi.Struct {
+final class PIMAGE_FUNCTION_ENTRY64 extends ffi.Struct {
   @ffi.Uint64()
   external int StartingAddress;
 
@@ -58103,9 +58103,9 @@ class PIMAGE_FUNCTION_ENTRY64 extends ffi.Struct {
   external int EndingAddress;
 }
 
-class PIMAGE_SEPARATE_DEBUG_HEADER extends ffi.Opaque {}
+final class PIMAGE_SEPARATE_DEBUG_HEADER extends ffi.Opaque {}
 
-class PNON_PAGED_DEBUG_INFO extends ffi.Struct {
+final class PNON_PAGED_DEBUG_INFO extends ffi.Struct {
   @ffi.Uint16()
   external int Signature;
 
@@ -58134,9 +58134,9 @@ class PNON_PAGED_DEBUG_INFO extends ffi.Struct {
   external int ImageBase;
 }
 
-class PIMAGE_ARCHITECTURE_HEADER extends ffi.Opaque {}
+final class PIMAGE_ARCHITECTURE_HEADER extends ffi.Opaque {}
 
-class PIMAGE_ARCHITECTURE_ENTRY extends ffi.Struct {
+final class PIMAGE_ARCHITECTURE_ENTRY extends ffi.Struct {
   @ffi.Uint64()
   external int FixupInstRVA;
 
@@ -58144,7 +58144,7 @@ class PIMAGE_ARCHITECTURE_ENTRY extends ffi.Struct {
   external int NewInst;
 }
 
-class IMPORT_OBJECT_HEADER extends ffi.Opaque {}
+final class IMPORT_OBJECT_HEADER extends ffi.Opaque {}
 
 abstract class IMPORT_OBJECT_TYPE {
   static const int IMPORT_OBJECT_CODE = 0;
@@ -58188,17 +58188,17 @@ abstract class ReplacesCorHdrNumericDefines {
   static const int MAX_PACKAGE_NAME = 1024;
 }
 
-class PIMAGE_COR20_HEADER extends ffi.Opaque {}
+final class PIMAGE_COR20_HEADER extends ffi.Opaque {}
 
-class PSLIST_ENTRY extends ffi.Struct {
-  external ffi.Pointer<PSLIST_ENTRY> Next;
+final class PSLIST_ENTRY extends ffi.Struct {
+  external final ffi.Pointer<PSLIST_ENTRY> Next;
 }
 
-class PRTL_BARRIER extends ffi.Opaque {}
+final class PRTL_BARRIER extends ffi.Opaque {}
 
-class PMESSAGE_RESOURCE_ENTRY extends ffi.Opaque {}
+final class PMESSAGE_RESOURCE_ENTRY extends ffi.Opaque {}
 
-class PMESSAGE_RESOURCE_BLOCK extends ffi.Struct {
+final class PMESSAGE_RESOURCE_BLOCK extends ffi.Struct {
   @ffi.Uint64()
   external int LowId;
 
@@ -58209,15 +58209,15 @@ class PMESSAGE_RESOURCE_BLOCK extends ffi.Struct {
   external int OffsetToEntries;
 }
 
-class PMESSAGE_RESOURCE_DATA extends ffi.Opaque {}
+final class PMESSAGE_RESOURCE_DATA extends ffi.Opaque {}
 
-class LPOSVERSIONINFOA extends ffi.Opaque {}
+final class LPOSVERSIONINFOA extends ffi.Opaque {}
 
-class PRTL_OSVERSIONINFOW extends ffi.Opaque {}
+final class PRTL_OSVERSIONINFOW extends ffi.Opaque {}
 
-class LPOSVERSIONINFOEXA extends ffi.Opaque {}
+final class LPOSVERSIONINFOEXA extends ffi.Opaque {}
 
-class PRTL_OSVERSIONINFOEXW extends ffi.Opaque {}
+final class PRTL_OSVERSIONINFOEXW extends ffi.Opaque {}
 
 abstract class PRTL_UMS_THREAD_INFO_CLASS {
   static const int UmsThreadInvalidInfoClass = 0;
@@ -58241,16 +58241,16 @@ abstract class OS_DEPLOYEMENT_STATE_VALUES {
   static const int OS_DEPLOYMENT_COMPACT = 2;
 }
 
-class PNV_MEMORY_RANGE extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> BaseAddress;
+final class PNV_MEMORY_RANGE extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> BaseAddress;
 
   @ffi.Uint64()
   external int Length;
 }
 
-class CORRELATION_VECTOR extends ffi.Opaque {}
+final class CORRELATION_VECTOR extends ffi.Opaque {}
 
-class PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG extends ffi.Struct {
+final class PCUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG extends ffi.Struct {
   @ffi.Uint64()
   external int Size;
 
@@ -58290,12 +58290,12 @@ abstract class IMAGE_POLICY_ID {
   static const int ImagePolicyIdMaximum = 12;
 }
 
-class IMAGE_POLICY_ENTRY extends ffi.Opaque {}
+final class IMAGE_POLICY_ENTRY extends ffi.Opaque {}
 
-class IMAGE_POLICY_METADATA extends ffi.Opaque {}
+final class IMAGE_POLICY_METADATA extends ffi.Opaque {}
 
-class PRTL_CRITICAL_SECTION extends ffi.Struct {
-  external ffi.Pointer<PRTL_RESOURCE_DEBUG> DebugInfo;
+final class PRTL_CRITICAL_SECTION extends ffi.Struct {
+  external final ffi.Pointer<PRTL_RESOURCE_DEBUG> DebugInfo;
 
   @ffi.Int64()
   external int LockCount;
@@ -58311,14 +58311,14 @@ class PRTL_CRITICAL_SECTION extends ffi.Struct {
   external int SpinCount;
 }
 
-class PRTL_RESOURCE_DEBUG extends ffi.Opaque {}
+final class PRTL_RESOURCE_DEBUG extends ffi.Opaque {}
 
-class PRTL_SRWLOCK extends ffi.Struct {
+final class PRTL_SRWLOCK extends ffi.Struct {
   external ffi.Pointer<ffi.Void> Ptr;
 }
 
-class PRTL_CONDITION_VARIABLE extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> Ptr;
+final class PRTL_CONDITION_VARIABLE extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> Ptr;
 }
 
 abstract class HEAP_INFORMATION_CLASS {
@@ -58327,7 +58327,7 @@ abstract class HEAP_INFORMATION_CLASS {
   static const int HeapOptimizeResources = 3;
 }
 
-class PHEAP_OPTIMIZE_RESOURCES_INFORMATION extends ffi.Struct {
+final class PHEAP_OPTIMIZE_RESOURCES_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int Version;
 
@@ -58348,7 +58348,7 @@ abstract class ACTIVATION_CONTEXT_INFO_CLASS {
   static const int FileInformationInAssemblyOfAssemblyInActivationContxt = 4;
 }
 
-class PACTIVATION_CONTEXT_QUERY_INDEX extends ffi.Struct {
+final class PACTIVATION_CONTEXT_QUERY_INDEX extends ffi.Struct {
   @ffi.Uint64()
   external int ulAssemblyIndex;
 
@@ -58356,7 +58356,7 @@ class PACTIVATION_CONTEXT_QUERY_INDEX extends ffi.Struct {
   external int ulFileIndexInAssembly;
 }
 
-class PASSEMBLY_FILE_DETAILED_INFORMATION extends ffi.Struct {
+final class PASSEMBLY_FILE_DETAILED_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int ulFlags;
 
@@ -58371,7 +58371,7 @@ class PASSEMBLY_FILE_DETAILED_INFORMATION extends ffi.Struct {
   external ffi.Pointer<ffi.Uint16> lpFilePath;
 }
 
-class PACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION extends ffi.Opaque {}
+final class PACTIVATION_CONTEXT_ASSEMBLY_DETAILED_INFORMATION extends ffi.Opaque {}
 
 abstract class ACTCTX_REQUESTED_RUN_LEVEL {
   static const int ACTCTX_RUN_LEVEL_UNSPECIFIED = 0;
@@ -58381,7 +58381,7 @@ abstract class ACTCTX_REQUESTED_RUN_LEVEL {
   static const int ACTCTX_RUN_LEVEL_NUMBERS = 4;
 }
 
-class PACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION extends ffi.Struct {
+final class PACTIVATION_CONTEXT_RUN_LEVEL_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int ulFlags;
 
@@ -58399,11 +58399,11 @@ abstract class ACTCTX_COMPATIBILITY_ELEMENT_TYPE {
   static const int ACTCTX_COMPATIBILITY_ELEMENT_TYPE_MAXVERSIONTESTED = 3;
 }
 
-class PCOMPATIBILITY_CONTEXT_ELEMENT extends ffi.Opaque {}
+final class PCOMPATIBILITY_CONTEXT_ELEMENT extends ffi.Opaque {}
 
-class PACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION extends ffi.Opaque {}
+final class PACTIVATION_CONTEXT_COMPATIBILITY_INFORMATION extends ffi.Opaque {}
 
-class PSUPPORTED_OS_INFO extends ffi.Struct {
+final class PSUPPORTED_OS_INFO extends ffi.Struct {
   @ffi.Uint16()
   external int MajorVersion;
 
@@ -58411,12 +58411,12 @@ class PSUPPORTED_OS_INFO extends ffi.Struct {
   external int MinorVersion;
 }
 
-class PMAXVERSIONTESTED_INFO extends ffi.Struct {
+final class PMAXVERSIONTESTED_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int MaxVersionTested;
 }
 
-class PACTIVATION_CONTEXT_DETAILED_INFORMATION extends ffi.Struct {
+final class PACTIVATION_CONTEXT_DETAILED_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int dwFlags;
 
@@ -58451,7 +58451,7 @@ class PACTIVATION_CONTEXT_DETAILED_INFORMATION extends ffi.Struct {
   external ffi.Pointer<ffi.Uint16> lpAppDirPath;
 }
 
-class PHARDWARE_COUNTER_DATA extends ffi.Struct {
+final class PHARDWARE_COUNTER_DATA extends ffi.Struct {
   @ffi.Int32()
   external int Type;
 
@@ -58462,9 +58462,9 @@ class PHARDWARE_COUNTER_DATA extends ffi.Struct {
   external int Value;
 }
 
-class PPERFORMANCE_DATA extends ffi.Opaque {}
+final class PPERFORMANCE_DATA extends ffi.Opaque {}
 
-class PEVENTLOGRECORD extends ffi.Struct {
+final class PEVENTLOGRECORD extends ffi.Struct {
   @ffi.Uint64()
   external int Length;
 
@@ -58514,9 +58514,9 @@ class PEVENTLOGRECORD extends ffi.Struct {
   external int DataOffset;
 }
 
-class _EVENTSFORLOGFILE extends ffi.Opaque {}
+// class _EVENTSFORLOGFILE extends ffi.Opaque {}
 
-class _PACKEDEVENTINFO extends ffi.Opaque {}
+// class _PACKEDEVENTINFO extends ffi.Opaque {}
 
 abstract class SERVICE_NODE_TYPE {
   static const int DriverType = 1;
@@ -58542,7 +58542,7 @@ abstract class SERVICE_ERROR_TYPE {
   static const int CriticalError = 3;
 }
 
-class PTAPE_ERASE extends ffi.Struct {
+final class PTAPE_ERASE extends ffi.Struct {
   @ffi.Uint64()
   external int Type;
 
@@ -58550,7 +58550,7 @@ class PTAPE_ERASE extends ffi.Struct {
   external int Immediate;
 }
 
-class PTAPE_PREPARE extends ffi.Struct {
+final class PTAPE_PREPARE extends ffi.Struct {
   @ffi.Uint64()
   external int Operation;
 
@@ -58558,7 +58558,7 @@ class PTAPE_PREPARE extends ffi.Struct {
   external int Immediate;
 }
 
-class PTAPE_WRITE_MARKS extends ffi.Struct {
+final class PTAPE_WRITE_MARKS extends ffi.Struct {
   @ffi.Uint64()
   external int Type;
 
@@ -58569,11 +58569,11 @@ class PTAPE_WRITE_MARKS extends ffi.Struct {
   external int Immediate;
 }
 
-class PTAPE_GET_POSITION extends ffi.Opaque {}
+final class PTAPE_GET_POSITION extends ffi.Opaque {}
 
-class PTAPE_SET_POSITION extends ffi.Opaque {}
+final class PTAPE_SET_POSITION extends ffi.Opaque {}
 
-class PTAPE_GET_DRIVE_PARAMETERS extends ffi.Struct {
+final class PTAPE_GET_DRIVE_PARAMETERS extends ffi.Struct {
   @ffi.Uint8()
   external int ECC;
 
@@ -58608,7 +58608,7 @@ class PTAPE_GET_DRIVE_PARAMETERS extends ffi.Struct {
   external int EOTWarningZoneSize;
 }
 
-class PTAPE_SET_DRIVE_PARAMETERS extends ffi.Struct {
+final class PTAPE_SET_DRIVE_PARAMETERS extends ffi.Struct {
   @ffi.Uint8()
   external int ECC;
 
@@ -58625,14 +58625,14 @@ class PTAPE_SET_DRIVE_PARAMETERS extends ffi.Struct {
   external int EOTWarningZoneSize;
 }
 
-class PTAPE_GET_MEDIA_PARAMETERS extends ffi.Opaque {}
+final class PTAPE_GET_MEDIA_PARAMETERS extends ffi.Opaque {}
 
-class PTAPE_SET_MEDIA_PARAMETERS extends ffi.Struct {
+final class PTAPE_SET_MEDIA_PARAMETERS extends ffi.Struct {
   @ffi.Uint64()
   external int BlockSize;
 }
 
-class PTAPE_CREATE_PARTITION extends ffi.Struct {
+final class PTAPE_CREATE_PARTITION extends ffi.Struct {
   @ffi.Uint64()
   external int Method;
 
@@ -58643,7 +58643,7 @@ class PTAPE_CREATE_PARTITION extends ffi.Struct {
   external int Size;
 }
 
-class PTAPE_WMI_OPERATIONS extends ffi.Struct {
+final class PTAPE_WMI_OPERATIONS extends ffi.Struct {
   @ffi.Uint64()
   external int Method;
 
@@ -58670,22 +58670,22 @@ abstract class TAPE_DRIVE_PROBLEM_TYPE {
   static const int TapeDriveSnappedTape = 13;
 }
 
-class PTRANSACTION_NOTIFICATION extends ffi.Opaque {}
+final class PTRANSACTION_NOTIFICATION extends ffi.Opaque {}
 
-class PTRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT extends ffi.Opaque {}
+final class PTRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT extends ffi.Opaque {}
 
-class PTRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT extends ffi.Opaque {}
+final class PTRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT extends ffi.Opaque {}
 
-class PTRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT extends ffi.Struct {
+final class PTRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT extends ffi.Struct {
   @ffi.Uint64()
   external int SavepointId;
 }
 
-class PTRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT extends ffi.Opaque {}
+final class PTRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT extends ffi.Opaque {}
 
-class PTRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT extends ffi.Opaque {}
+final class PTRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT extends ffi.Opaque {}
 
-class PRKCRM_MARSHAL_HEADER extends ffi.Struct {
+final class PRKCRM_MARSHAL_HEADER extends ffi.Struct {
   @ffi.Uint64()
   external int VersionMajor;
 
@@ -58699,9 +58699,9 @@ class PRKCRM_MARSHAL_HEADER extends ffi.Struct {
   external int Unused;
 }
 
-class PRKCRM_TRANSACTION_BLOB extends ffi.Opaque {}
+final class PRKCRM_TRANSACTION_BLOB extends ffi.Opaque {}
 
-class PRKCRM_PROTOCOL_BLOB extends ffi.Opaque {}
+final class PRKCRM_PROTOCOL_BLOB extends ffi.Opaque {}
 
 abstract class TRANSACTION_OUTCOME {
   static const int TransactionOutcomeUndetermined = 1;
@@ -58715,37 +58715,37 @@ abstract class TRANSACTION_STATE {
   static const int TransactionStateCommittedNotify = 3;
 }
 
-class PTRANSACTION_BASIC_INFORMATION extends ffi.Opaque {}
+final class PTRANSACTION_BASIC_INFORMATION extends ffi.Opaque {}
 
-class PTRANSACTIONMANAGER_BASIC_INFORMATION extends ffi.Opaque {}
+final class PTRANSACTIONMANAGER_BASIC_INFORMATION extends ffi.Opaque {}
 
-class PTRANSACTIONMANAGER_LOG_INFORMATION extends ffi.Opaque {}
+final class PTRANSACTIONMANAGER_LOG_INFORMATION extends ffi.Opaque {}
 
-class PTRANSACTIONMANAGER_LOGPATH_INFORMATION extends ffi.Opaque {}
+final class PTRANSACTIONMANAGER_LOGPATH_INFORMATION extends ffi.Opaque {}
 
-class PTRANSACTIONMANAGER_RECOVERY_INFORMATION extends ffi.Struct {
+final class PTRANSACTIONMANAGER_RECOVERY_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int LastRecoveredLsn;
 }
 
-class PTRANSACTIONMANAGER_OLDEST_INFORMATION extends ffi.Opaque {}
+final class PTRANSACTIONMANAGER_OLDEST_INFORMATION extends ffi.Opaque {}
 
-class PTRANSACTION_PROPERTIES_INFORMATION extends ffi.Opaque {}
+final class PTRANSACTION_PROPERTIES_INFORMATION extends ffi.Opaque {}
 
-class PTRANSACTION_BIND_INFORMATION extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> TmHandle;
+final class PTRANSACTION_BIND_INFORMATION extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> TmHandle;
 }
 
-class PTRANSACTION_ENLISTMENT_PAIR extends ffi.Opaque {}
+final class PTRANSACTION_ENLISTMENT_PAIR extends ffi.Opaque {}
 
-class PTRANSACTION_ENLISTMENTS_INFORMATION extends ffi.Opaque {}
+final class PTRANSACTION_ENLISTMENTS_INFORMATION extends ffi.Opaque {}
 
-class PTRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION extends ffi.Opaque {}
+final class PTRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION extends ffi.Opaque {}
 
-class PRESOURCEMANAGER_BASIC_INFORMATION extends ffi.Opaque {}
+final class PRESOURCEMANAGER_BASIC_INFORMATION extends ffi.Opaque {}
 
-class PRESOURCEMANAGER_COMPLETION_INFORMATION extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> IoCompletionPortHandle;
+final class PRESOURCEMANAGER_COMPLETION_INFORMATION extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> IoCompletionPortHandle;
 
   @ffi.Uint64()
   external int CompletionKey;
@@ -58774,9 +58774,9 @@ abstract class RESOURCEMANAGER_INFORMATION_CLASS {
   static const int ResourceManagerCompletionInformation = 1;
 }
 
-class PENLISTMENT_BASIC_INFORMATION extends ffi.Opaque {}
+final class PENLISTMENT_BASIC_INFORMATION extends ffi.Opaque {}
 
-class PENLISTMENT_CRM_INFORMATION extends ffi.Opaque {}
+final class PENLISTMENT_CRM_INFORMATION extends ffi.Opaque {}
 
 abstract class ENLISTMENT_INFORMATION_CLASS {
   static const int EnlistmentBasicInformation = 0;
@@ -58784,9 +58784,9 @@ abstract class ENLISTMENT_INFORMATION_CLASS {
   static const int EnlistmentCrmInformation = 2;
 }
 
-class PTRANSACTION_LIST_ENTRY extends ffi.Opaque {}
+final class PTRANSACTION_LIST_ENTRY extends ffi.Opaque {}
 
-class PTRANSACTION_LIST_INFORMATION extends ffi.Opaque {}
+final class PTRANSACTION_LIST_INFORMATION extends ffi.Opaque {}
 
 abstract class PKTMOBJECT_TYPE {
   static const int KTMOBJECT_TRANSACTION = 0;
@@ -58796,11 +58796,11 @@ abstract class PKTMOBJECT_TYPE {
   static const int KTMOBJECT_INVALID = 4;
 }
 
-class PKTMOBJECT_CURSOR extends ffi.Opaque {}
+final class PKTMOBJECT_CURSOR extends ffi.Opaque {}
 
-class _TP_CALLBACK_INSTANCE extends ffi.Opaque {}
+final class _TP_CALLBACK_INSTANCE extends ffi.Opaque {}
 
-class _TP_POOL extends ffi.Opaque {}
+final class _TP_POOL extends ffi.Opaque {}
 
 abstract class TP_CALLBACK_PRIORITY {
   static const int TP_CALLBACK_PRIORITY_HIGH = 0;
@@ -58810,7 +58810,7 @@ abstract class TP_CALLBACK_PRIORITY {
   static const int TP_CALLBACK_PRIORITY_COUNT = 3;
 }
 
-class PTP_POOL_STACK_INFORMATION extends ffi.Struct {
+final class PTP_POOL_STACK_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int StackReserve;
 
@@ -58818,78 +58818,78 @@ class PTP_POOL_STACK_INFORMATION extends ffi.Struct {
   external int StackCommit;
 }
 
-class _TP_CLEANUP_GROUP extends ffi.Opaque {}
+final class _TP_CLEANUP_GROUP extends ffi.Opaque {}
 
-class _ACTIVATION_CONTEXT extends ffi.Opaque {}
+final class _ACTIVATION_CONTEXT extends ffi.Opaque {}
 
-class TP_CALLBACK_ENVIRON_V3 extends ffi.Opaque {}
+final class TP_CALLBACK_ENVIRON_V3 extends ffi.Opaque {}
 
-class _TP_WORK extends ffi.Opaque {}
+final class _TP_WORK extends ffi.Opaque {}
 
-class _TP_TIMER extends ffi.Opaque {}
+final class _TP_TIMER extends ffi.Opaque {}
 
-class _TP_WAIT extends ffi.Opaque {}
+final class _TP_WAIT extends ffi.Opaque {}
 
-class _TP_IO extends ffi.Opaque {}
+final class _TP_IO extends ffi.Opaque {}
 
-class _TEB extends ffi.Opaque {}
+final class _TEB extends ffi.Opaque {}
 
-class HKEY__ extends ffi.Struct {
+final class HKEY__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HMETAFILE__ extends ffi.Struct {
+final class HMETAFILE__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HINSTANCE__ extends ffi.Struct {
+final class HINSTANCE__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HRGN__ extends ffi.Struct {
+final class HRGN__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HRSRC__ extends ffi.Struct {
+final class HRSRC__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HSPRITE__ extends ffi.Struct {
+final class HSPRITE__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HLSURF__ extends ffi.Struct {
+final class HLSURF__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HSTR__ extends ffi.Struct {
+final class HSTR__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HTASK__ extends ffi.Struct {
+final class HTASK__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HWINSTA__ extends ffi.Struct {
+final class HWINSTA__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HKL__ extends ffi.Struct {
+final class HKL__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class LPFILETIME extends ffi.Struct {
+final class LPFILETIME extends ffi.Struct {
   @ffi.Uint64()
   external int dwLowDateTime;
 
@@ -58897,97 +58897,97 @@ class LPFILETIME extends ffi.Struct {
   external int dwHighDateTime;
 }
 
-class HWND__ extends ffi.Struct {
+final class HWND__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HHOOK__ extends ffi.Struct {
+final class HHOOK__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HACCEL__ extends ffi.Struct {
+final class HACCEL__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HBITMAP__ extends ffi.Struct {
+final class HBITMAP__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HBRUSH__ extends ffi.Struct {
+final class HBRUSH__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HCOLORSPACE__ extends ffi.Struct {
+final class HCOLORSPACE__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HDC__ extends ffi.Struct {
+final class HDC__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HGLRC__ extends ffi.Struct {
+final class HGLRC__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HDESK__ extends ffi.Struct {
+final class HDESK__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HENHMETAFILE__ extends ffi.Struct {
+final class HENHMETAFILE__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HFONT__ extends ffi.Struct {
+final class HFONT__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HICON__ extends ffi.Struct {
+final class HICON__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HMENU__ extends ffi.Struct {
+final class HMENU__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HPALETTE__ extends ffi.Struct {
+final class HPALETTE__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HPEN__ extends ffi.Struct {
+final class HPEN__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HWINEVENTHOOK__ extends ffi.Struct {
+final class HWINEVENTHOOK__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HMONITOR__ extends ffi.Struct {
+final class HMONITOR__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HUMPD__ extends ffi.Struct {
+final class HUMPD__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class LPRECT extends ffi.Struct {
+final class LPRECT extends ffi.Struct {
   @ffi.Int64()
   external int left;
 
@@ -59001,7 +59001,7 @@ class LPRECT extends ffi.Struct {
   external int bottom;
 }
 
-class LPRECTL extends ffi.Struct {
+final class LPRECTL extends ffi.Struct {
   @ffi.Int64()
   external int left;
 
@@ -59015,7 +59015,7 @@ class LPRECTL extends ffi.Struct {
   external int bottom;
 }
 
-class LPPOINT extends ffi.Struct {
+final class LPPOINT extends ffi.Struct {
   @ffi.Int64()
   external int x;
 
@@ -59023,7 +59023,7 @@ class LPPOINT extends ffi.Struct {
   external int y;
 }
 
-class PPOINTL extends ffi.Struct {
+final class PPOINTL extends ffi.Struct {
   @ffi.Int64()
   external int x;
 
@@ -59031,7 +59031,7 @@ class PPOINTL extends ffi.Struct {
   external int y;
 }
 
-class LPSIZE extends ffi.Struct {
+final class LPSIZE extends ffi.Struct {
   @ffi.Int64()
   external int cx;
 
@@ -59039,7 +59039,7 @@ class LPSIZE extends ffi.Struct {
   external int cy;
 }
 
-class LPPOINTS extends ffi.Struct {
+final class LPPOINTS extends ffi.Struct {
   @ffi.Int16()
   external int x;
 
@@ -59047,9 +59047,9 @@ class LPPOINTS extends ffi.Struct {
   external int y;
 }
 
-class APP_LOCAL_DEVICE_ID extends ffi.Opaque {}
+final class APP_LOCAL_DEVICE_ID extends ffi.Opaque {}
 
-class DPI_AWARENESS_CONTEXT__ extends ffi.Struct {
+final class DPI_AWARENESS_CONTEXT__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
@@ -59067,7 +59067,7 @@ abstract class DPI_HOSTING_BEHAVIOR {
   static const int DPI_HOSTING_BEHAVIOR_MIXED = 1;
 }
 
-class LPSECURITY_ATTRIBUTES extends ffi.Struct {
+final class LPSECURITY_ATTRIBUTES extends ffi.Struct {
   @ffi.Uint64()
   external int nLength;
 
@@ -59077,7 +59077,7 @@ class LPSECURITY_ATTRIBUTES extends ffi.Struct {
   external int bInheritHandle;
 }
 
-class LPOVERLAPPED extends ffi.Struct {
+final class LPOVERLAPPED extends ffi.Struct {
   @ffi.Uint64()
   external int Internal;
 
@@ -59087,7 +59087,7 @@ class LPOVERLAPPED extends ffi.Struct {
   external ffi.Pointer<ffi.Void> hEvent;
 }
 
-class LPOVERLAPPED_ENTRY extends ffi.Struct {
+final class LPOVERLAPPED_ENTRY extends ffi.Struct {
   @ffi.Uint64()
   external int lpCompletionKey;
 
@@ -59100,7 +59100,7 @@ class LPOVERLAPPED_ENTRY extends ffi.Struct {
   external int dwNumberOfBytesTransferred;
 }
 
-class LPSYSTEMTIME extends ffi.Struct {
+final class LPSYSTEMTIME extends ffi.Struct {
   @ffi.Uint16()
   external int wYear;
 
@@ -59126,9 +59126,9 @@ class LPSYSTEMTIME extends ffi.Struct {
   external int wMilliseconds;
 }
 
-class LPWIN32_FIND_DATAA extends ffi.Opaque {}
+final class LPWIN32_FIND_DATAA extends ffi.Opaque {}
 
-class LPWIN32_FIND_DATAW extends ffi.Opaque {}
+final class LPWIN32_FIND_DATAW extends ffi.Opaque {}
 
 abstract class FINDEX_INFO_LEVELS {
   static const int FindExInfoStandard = 0;
@@ -59182,8 +59182,8 @@ abstract class PFILE_INFO_BY_HANDLE_CLASS {
   static const int MaximumFileInfoByHandleClass = 25;
 }
 
-class PPROCESS_HEAP_ENTRY extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> lpData;
+final class PPROCESS_HEAP_ENTRY extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> lpData;
 
   @ffi.Uint64()
   external int cbData;
@@ -59198,12 +59198,12 @@ class PPROCESS_HEAP_ENTRY extends ffi.Struct {
   external int wFlags;
 }
 
-class PREASON_CONTEXT extends ffi.Opaque {}
+final class PREASON_CONTEXT extends ffi.Opaque {}
 
-class LPEXCEPTION_DEBUG_INFO extends ffi.Opaque {}
+final class LPEXCEPTION_DEBUG_INFO extends ffi.Opaque {}
 
-class LPCREATE_THREAD_DEBUG_INFO extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> hThread;
+final class LPCREATE_THREAD_DEBUG_INFO extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> hThread;
 
   external ffi.Pointer<ffi.Void> lpThreadLocalBase;
 
@@ -59211,8 +59211,8 @@ class LPCREATE_THREAD_DEBUG_INFO extends ffi.Struct {
       lpStartAddress;
 }
 
-class LPCREATE_PROCESS_DEBUG_INFO extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> hFile;
+final class LPCREATE_PROCESS_DEBUG_INFO extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> hFile;
 
   external ffi.Pointer<ffi.Void> hProcess;
 
@@ -59237,18 +59237,18 @@ class LPCREATE_PROCESS_DEBUG_INFO extends ffi.Struct {
   external int fUnicode;
 }
 
-class LPEXIT_THREAD_DEBUG_INFO extends ffi.Struct {
+final class LPEXIT_THREAD_DEBUG_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int dwExitCode;
 }
 
-class LPEXIT_PROCESS_DEBUG_INFO extends ffi.Struct {
+final class LPEXIT_PROCESS_DEBUG_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int dwExitCode;
 }
 
-class LPLOAD_DLL_DEBUG_INFO extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> hFile;
+final class LPLOAD_DLL_DEBUG_INFO extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> hFile;
 
   external ffi.Pointer<ffi.Void> lpBaseOfDll;
 
@@ -59264,12 +59264,12 @@ class LPLOAD_DLL_DEBUG_INFO extends ffi.Struct {
   external int fUnicode;
 }
 
-class LPUNLOAD_DLL_DEBUG_INFO extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> lpBaseOfDll;
+final class LPUNLOAD_DLL_DEBUG_INFO extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> lpBaseOfDll;
 }
 
-class LPOUTPUT_DEBUG_STRING_INFO extends ffi.Struct {
-  external ffi.Pointer<ffi.Int8> lpDebugStringData;
+final class LPOUTPUT_DEBUG_STRING_INFO extends ffi.Struct {
+  external final ffi.Pointer<ffi.Int8> lpDebugStringData;
 
   @ffi.Uint16()
   external int fUnicode;
@@ -59278,7 +59278,7 @@ class LPOUTPUT_DEBUG_STRING_INFO extends ffi.Struct {
   external int nDebugStringLength;
 }
 
-class LPRIP_INFO extends ffi.Struct {
+final class LPRIP_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int dwError;
 
@@ -59286,9 +59286,9 @@ class LPRIP_INFO extends ffi.Struct {
   external int dwType;
 }
 
-class LPDEBUG_EVENT extends ffi.Opaque {}
+final class LPDEBUG_EVENT extends ffi.Opaque {}
 
-class DISK_SPACE_INFORMATION extends ffi.Struct {
+final class DISK_SPACE_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int ActualTotalAllocationUnits;
 
@@ -59329,11 +59329,11 @@ class DISK_SPACE_INFORMATION extends ffi.Struct {
   external int BytesPerSector;
 }
 
-class LPWIN32_FILE_ATTRIBUTE_DATA extends ffi.Opaque {}
+final class LPWIN32_FILE_ATTRIBUTE_DATA extends ffi.Opaque {}
 
-class LPBY_HANDLE_FILE_INFORMATION extends ffi.Opaque {}
+final class LPBY_HANDLE_FILE_INFORMATION extends ffi.Opaque {}
 
-class LPCREATEFILE2_EXTENDED_PARAMETERS extends ffi.Struct {
+final class LPCREATEFILE2_EXTENDED_PARAMETERS extends ffi.Struct {
   @ffi.Uint64()
   external int dwSize;
 
@@ -59356,9 +59356,9 @@ abstract class STREAM_INFO_LEVELS {
   static const int FindStreamInfoMaxInfoLevel = 1;
 }
 
-class PWIN32_FIND_STREAM_DATA extends ffi.Opaque {}
+final class PWIN32_FIND_STREAM_DATA extends ffi.Opaque {}
 
-class PHEAP_SUMMARY extends ffi.Struct {
+final class PHEAP_SUMMARY extends ffi.Struct {
   @ffi.Uint64()
   external int cb;
 
@@ -59375,8 +59375,8 @@ class PHEAP_SUMMARY extends ffi.Struct {
   external int cbMaxReserve;
 }
 
-class LPPROCESS_INFORMATION extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> hProcess;
+final class LPPROCESS_INFORMATION extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> hProcess;
 
   external ffi.Pointer<ffi.Void> hThread;
 
@@ -59387,7 +59387,7 @@ class LPPROCESS_INFORMATION extends ffi.Struct {
   external int dwThreadId;
 }
 
-class LPSTARTUPINFOA extends ffi.Struct {
+final class LPSTARTUPINFOA extends ffi.Struct {
   @ffi.Uint64()
   external int cb;
 
@@ -59436,7 +59436,7 @@ class LPSTARTUPINFOA extends ffi.Struct {
   external ffi.Pointer<ffi.Void> hStdError;
 }
 
-class LPSTARTUPINFOW extends ffi.Struct {
+final class LPSTARTUPINFOW extends ffi.Struct {
   @ffi.Uint64()
   external int cb;
 
@@ -59485,7 +59485,7 @@ class LPSTARTUPINFOW extends ffi.Struct {
   external ffi.Pointer<ffi.Void> hStdError;
 }
 
-class _PROC_THREAD_ATTRIBUTE_LIST extends ffi.Opaque {}
+final class _PROC_THREAD_ATTRIBUTE_LIST extends ffi.Opaque {}
 
 abstract class THREAD_INFORMATION_CLASS {
   static const int ThreadMemoryPriority = 0;
@@ -59495,12 +59495,12 @@ abstract class THREAD_INFORMATION_CLASS {
   static const int ThreadInformationClassMax = 4;
 }
 
-class PMEMORY_PRIORITY_INFORMATION extends ffi.Struct {
+final class PMEMORY_PRIORITY_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int MemoryPriority;
 }
 
-class THREAD_POWER_THROTTLING_STATE extends ffi.Struct {
+final class THREAD_POWER_THROTTLING_STATE extends ffi.Struct {
   @ffi.Uint64()
   external int Version;
 
@@ -59524,7 +59524,7 @@ abstract class PROCESS_INFORMATION_CLASS {
   static const int ProcessInformationClassMax = 9;
 }
 
-class PAPP_MEMORY_INFORMATION extends ffi.Struct {
+final class PAPP_MEMORY_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int AvailableCommit;
 
@@ -59543,7 +59543,7 @@ abstract class PPROCESS_MEMORY_EXHAUSTION_TYPE {
   static const int PMETypeMax = 1;
 }
 
-class PPROCESS_MEMORY_EXHAUSTION_INFO extends ffi.Struct {
+final class PPROCESS_MEMORY_EXHAUSTION_INFO extends ffi.Struct {
   @ffi.Uint16()
   external int Version;
 
@@ -59557,7 +59557,7 @@ class PPROCESS_MEMORY_EXHAUSTION_INFO extends ffi.Struct {
   external int Value;
 }
 
-class PPROCESS_POWER_THROTTLING_STATE extends ffi.Struct {
+final class PPROCESS_POWER_THROTTLING_STATE extends ffi.Struct {
   @ffi.Uint64()
   external int Version;
 
@@ -59568,12 +59568,12 @@ class PPROCESS_POWER_THROTTLING_STATE extends ffi.Struct {
   external int StateMask;
 }
 
-class PROCESS_PROTECTION_LEVEL_INFORMATION extends ffi.Struct {
+final class PROCESS_PROTECTION_LEVEL_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int ProtectionLevel;
 }
 
-class PPROCESS_LEAP_SECOND_INFO extends ffi.Struct {
+final class PPROCESS_LEAP_SECOND_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int Flags;
 
@@ -59581,7 +59581,7 @@ class PPROCESS_LEAP_SECOND_INFO extends ffi.Struct {
   external int Reserved;
 }
 
-class LPSYSTEM_INFO extends ffi.Struct {
+final class LPSYSTEM_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int dwPageSize;
 
@@ -59608,7 +59608,7 @@ class LPSYSTEM_INFO extends ffi.Struct {
   external int wProcessorRevision;
 }
 
-class LPMEMORYSTATUSEX extends ffi.Struct {
+final class LPMEMORYSTATUSEX extends ffi.Struct {
   @ffi.Uint64()
   external int dwLength;
 
@@ -59654,8 +59654,8 @@ abstract class MEMORY_RESOURCE_NOTIFICATION_TYPE {
   static const int HighMemoryResourceNotification = 1;
 }
 
-class PWIN32_MEMORY_RANGE_ENTRY extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> VirtualAddress;
+final class PWIN32_MEMORY_RANGE_ENTRY extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> VirtualAddress;
 
   @ffi.Uint64()
   external int NumberOfBytes;
@@ -59672,8 +59672,8 @@ abstract class WIN32_MEMORY_INFORMATION_CLASS {
   static const int MemoryRegionInfo = 0;
 }
 
-class WIN32_MEMORY_REGION_INFORMATION extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> AllocationBase;
+final class WIN32_MEMORY_REGION_INFORMATION extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> AllocationBase;
 
   @ffi.Uint64()
   external int AllocationProtect;
@@ -59685,7 +59685,7 @@ class WIN32_MEMORY_REGION_INFORMATION extends ffi.Struct {
   external int CommitSize;
 }
 
-class JOBOBJECT_IO_RATE_CONTROL_INFORMATION extends ffi.Struct {
+final class JOBOBJECT_IO_RATE_CONTROL_INFORMATION extends ffi.Struct {
   @ffi.Int64()
   external int MaxIops;
 
@@ -59704,7 +59704,7 @@ class JOBOBJECT_IO_RATE_CONTROL_INFORMATION extends ffi.Struct {
   external int ControlFlags;
 }
 
-class PENUMUILANG extends ffi.Struct {
+final class PENUMUILANG extends ffi.Struct {
   @ffi.Uint64()
   external int NumOfEnumUILang;
 
@@ -59714,15 +59714,15 @@ class PENUMUILANG extends ffi.Struct {
   external ffi.Pointer<ffi.Uint16> pEnumUIBuffer;
 }
 
-class PREDIRECTION_FUNCTION_DESCRIPTOR extends ffi.Struct {
-  external ffi.Pointer<ffi.Int8> DllName;
+final class PREDIRECTION_FUNCTION_DESCRIPTOR extends ffi.Struct {
+  external final ffi.Pointer<ffi.Int8> DllName;
 
   external ffi.Pointer<ffi.Int8> FunctionName;
 
   external ffi.Pointer<ffi.Void> RedirectionTarget;
 }
 
-class PREDIRECTION_DESCRIPTOR extends ffi.Struct {
+final class PREDIRECTION_DESCRIPTOR extends ffi.Struct {
   @ffi.Uint64()
   external int Version;
 
@@ -59732,13 +59732,13 @@ class PREDIRECTION_DESCRIPTOR extends ffi.Struct {
   external ffi.Pointer<PREDIRECTION_FUNCTION_DESCRIPTOR> Redirections;
 }
 
-class LPCOMMPROP extends ffi.Opaque {}
+final class LPCOMMPROP extends ffi.Opaque {}
 
-class LPCOMSTAT extends ffi.Opaque {}
+final class LPCOMSTAT extends ffi.Opaque {}
 
-class LPDCB extends ffi.Opaque {}
+final class LPDCB extends ffi.Opaque {}
 
-class LPCOMMTIMEOUTS extends ffi.Struct {
+final class LPCOMMTIMEOUTS extends ffi.Struct {
   @ffi.Uint64()
   external int ReadIntervalTimeout;
 
@@ -59755,9 +59755,9 @@ class LPCOMMTIMEOUTS extends ffi.Struct {
   external int WriteTotalTimeoutConstant;
 }
 
-class LPCOMMCONFIG extends ffi.Opaque {}
+final class LPCOMMCONFIG extends ffi.Opaque {}
 
-class LPMEMORYSTATUS extends ffi.Struct {
+final class LPMEMORYSTATUS extends ffi.Struct {
   @ffi.Uint64()
   external int dwLength;
 
@@ -59783,7 +59783,7 @@ class LPMEMORYSTATUS extends ffi.Struct {
   external int dwAvailVirtual;
 }
 
-class LPJIT_DEBUG_INFO extends ffi.Struct {
+final class LPJIT_DEBUG_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int dwSize;
 
@@ -59806,9 +59806,9 @@ class LPJIT_DEBUG_INFO extends ffi.Struct {
   external int lpContextRecord;
 }
 
-class POFSTRUCT extends ffi.Opaque {}
+final class POFSTRUCT extends ffi.Opaque {}
 
-class PUMS_SCHEDULER_STARTUP_INFO extends ffi.Struct {
+final class PUMS_SCHEDULER_STARTUP_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int UmsVersion;
 
@@ -59820,7 +59820,7 @@ class PUMS_SCHEDULER_STARTUP_INFO extends ffi.Struct {
   external ffi.Pointer<ffi.Void> SchedulerParam;
 }
 
-class PUMS_SYSTEM_THREAD_INFORMATION extends ffi.Struct {
+final class PUMS_SYSTEM_THREAD_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int UmsVersion;
 }
@@ -59833,11 +59833,11 @@ abstract class DEP_SYSTEM_POLICY_TYPE {
   static const int DEPTotalPolicyCount = 4;
 }
 
-class LPWIN32_STREAM_ID extends ffi.Opaque {}
+final class LPWIN32_STREAM_ID extends ffi.Opaque {}
 
-class LPSTARTUPINFOEXA extends ffi.Opaque {}
+final class LPSTARTUPINFOEXA extends ffi.Opaque {}
 
-class LPSTARTUPINFOEXW extends ffi.Opaque {}
+final class LPSTARTUPINFOEXW extends ffi.Opaque {}
 
 abstract class PROC_THREAD_ATTRIBUTE_NUM {
   static const int ProcThreadAttributeParentProcess = 0;
@@ -59889,9 +59889,9 @@ abstract class COPYFILE2_COPY_PHASE {
   static const int COPYFILE2_PHASE_MAX = 7;
 }
 
-class COPYFILE2_MESSAGE extends ffi.Opaque {}
+final class COPYFILE2_MESSAGE extends ffi.Opaque {}
 
-class COPYFILE2_EXTENDED_PARAMETERS extends ffi.Struct {
+final class COPYFILE2_EXTENDED_PARAMETERS extends ffi.Struct {
   @ffi.Uint64()
   external int dwSize;
 
@@ -59906,12 +59906,12 @@ class COPYFILE2_EXTENDED_PARAMETERS extends ffi.Struct {
   external ffi.Pointer<ffi.Void> pvCallbackContext;
 }
 
-class LPEVENTLOG_FULL_INFORMATION extends ffi.Struct {
+final class LPEVENTLOG_FULL_INFORMATION extends ffi.Struct {
   @ffi.Uint64()
   external int dwFull;
 }
 
-class POPERATION_START_PARAMETERS extends ffi.Struct {
+final class POPERATION_START_PARAMETERS extends ffi.Struct {
   @ffi.Uint64()
   external int Version;
 
@@ -59922,7 +59922,7 @@ class POPERATION_START_PARAMETERS extends ffi.Struct {
   external int Flags;
 }
 
-class POPERATION_END_PARAMETERS extends ffi.Struct {
+final class POPERATION_END_PARAMETERS extends ffi.Struct {
   @ffi.Uint64()
   external int Version;
 
@@ -59933,15 +59933,15 @@ class POPERATION_END_PARAMETERS extends ffi.Struct {
   external int Flags;
 }
 
-class LPHW_PROFILE_INFOA extends ffi.Opaque {}
+final class LPHW_PROFILE_INFOA extends ffi.Opaque {}
 
-class LPHW_PROFILE_INFOW extends ffi.Opaque {}
+final class LPHW_PROFILE_INFOW extends ffi.Opaque {}
 
-class LPTIME_ZONE_INFORMATION extends ffi.Opaque {}
+final class LPTIME_ZONE_INFORMATION extends ffi.Opaque {}
 
-class PDYNAMIC_TIME_ZONE_INFORMATION extends ffi.Opaque {}
+final class PDYNAMIC_TIME_ZONE_INFORMATION extends ffi.Opaque {}
 
-class LPSYSTEM_POWER_STATUS extends ffi.Struct {
+final class LPSYSTEM_POWER_STATUS extends ffi.Struct {
   @ffi.Uint8()
   external int ACLineStatus;
 
@@ -59961,7 +59961,7 @@ class LPSYSTEM_POWER_STATUS extends ffi.Struct {
   external int BatteryFullLifeTime;
 }
 
-class PACTCTXA extends ffi.Struct {
+final class PACTCTXA extends ffi.Struct {
   @ffi.Uint64()
   external int cbSize;
 
@@ -59985,7 +59985,7 @@ class PACTCTXA extends ffi.Struct {
   external ffi.Pointer<HINSTANCE__> hModule;
 }
 
-class PACTCTXW extends ffi.Struct {
+final class PACTCTXW extends ffi.Struct {
   @ffi.Uint64()
   external int cbSize;
 
@@ -60009,7 +60009,7 @@ class PACTCTXW extends ffi.Struct {
   external ffi.Pointer<HINSTANCE__> hModule;
 }
 
-class PACTCTX_SECTION_KEYED_DATA_2600 extends ffi.Struct {
+final class PACTCTX_SECTION_KEYED_DATA_2600 extends ffi.Struct {
   @ffi.Uint64()
   external int cbSize;
 
@@ -60037,8 +60037,8 @@ class PACTCTX_SECTION_KEYED_DATA_2600 extends ffi.Struct {
   external int ulAssemblyRosterIndex;
 }
 
-class PACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> lpInformation;
+final class PACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> lpInformation;
 
   external ffi.Pointer<ffi.Void> lpSectionBase;
 
@@ -60051,37 +60051,37 @@ class PACTCTX_SECTION_KEYED_DATA_ASSEMBLY_METADATA extends ffi.Struct {
   external int ulSectionGlobalDataLength;
 }
 
-class PACTCTX_SECTION_KEYED_DATA extends ffi.Opaque {}
+final class PACTCTX_SECTION_KEYED_DATA extends ffi.Opaque {}
 
-class PACTIVATION_CONTEXT_BASIC_INFORMATION extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> hActCtx;
+final class PACTIVATION_CONTEXT_BASIC_INFORMATION extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> hActCtx;
 
   @ffi.Uint64()
   external int dwFlags;
 }
 
-class PFILE_BASIC_INFO extends ffi.Opaque {}
+final class PFILE_BASIC_INFO extends ffi.Opaque {}
 
-class PFILE_STANDARD_INFO extends ffi.Opaque {}
+final class PFILE_STANDARD_INFO extends ffi.Opaque {}
 
-class PFILE_NAME_INFO extends ffi.Opaque {}
+final class PFILE_NAME_INFO extends ffi.Opaque {}
 
-class PFILE_CASE_SENSITIVE_INFO extends ffi.Struct {
+final class PFILE_CASE_SENSITIVE_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int Flags;
 }
 
-class PFILE_RENAME_INFO extends ffi.Opaque {}
+final class PFILE_RENAME_INFO extends ffi.Opaque {}
 
-class PFILE_ALLOCATION_INFO extends ffi.Opaque {}
+final class PFILE_ALLOCATION_INFO extends ffi.Opaque {}
 
-class PFILE_END_OF_FILE_INFO extends ffi.Opaque {}
+final class PFILE_END_OF_FILE_INFO extends ffi.Opaque {}
 
-class PFILE_STREAM_INFO extends ffi.Opaque {}
+final class PFILE_STREAM_INFO extends ffi.Opaque {}
 
-class PFILE_COMPRESSION_INFO extends ffi.Opaque {}
+final class PFILE_COMPRESSION_INFO extends ffi.Opaque {}
 
-class PFILE_ATTRIBUTE_TAG_INFO extends ffi.Struct {
+final class PFILE_ATTRIBUTE_TAG_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int FileAttributes;
 
@@ -60089,19 +60089,19 @@ class PFILE_ATTRIBUTE_TAG_INFO extends ffi.Struct {
   external int ReparseTag;
 }
 
-class PFILE_DISPOSITION_INFO extends ffi.Struct {
+final class PFILE_DISPOSITION_INFO extends ffi.Struct {
   @ffi.Uint8()
   external int DeleteFileA;
 }
 
-class PFILE_DISPOSITION_INFO_EX extends ffi.Struct {
+final class PFILE_DISPOSITION_INFO_EX extends ffi.Struct {
   @ffi.Uint64()
   external int Flags;
 }
 
-class PFILE_ID_BOTH_DIR_INFO extends ffi.Opaque {}
+final class PFILE_ID_BOTH_DIR_INFO extends ffi.Opaque {}
 
-class PFILE_FULL_DIR_INFO extends ffi.Opaque {}
+final class PFILE_FULL_DIR_INFO extends ffi.Opaque {}
 
 abstract class PRIORITY_HINT {
   static const int IoPriorityHintVeryLow = 0;
@@ -60110,17 +60110,17 @@ abstract class PRIORITY_HINT {
   static const int MaximumIoPriorityHintType = 3;
 }
 
-class PFILE_IO_PRIORITY_HINT_INFO extends ffi.Struct {
+final class PFILE_IO_PRIORITY_HINT_INFO extends ffi.Struct {
   @ffi.Int32()
   external int PriorityHint;
 }
 
-class PFILE_ALIGNMENT_INFO extends ffi.Struct {
+final class PFILE_ALIGNMENT_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int AlignmentRequirement;
 }
 
-class PFILE_STORAGE_INFO extends ffi.Struct {
+final class PFILE_STORAGE_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int LogicalBytesPerSector;
 
@@ -60143,11 +60143,11 @@ class PFILE_STORAGE_INFO extends ffi.Struct {
   external int ByteOffsetForPartitionAlignment;
 }
 
-class PFILE_ID_INFO extends ffi.Opaque {}
+final class PFILE_ID_INFO extends ffi.Opaque {}
 
-class PFILE_ID_EXTD_DIR_INFO extends ffi.Opaque {}
+final class PFILE_ID_EXTD_DIR_INFO extends ffi.Opaque {}
 
-class PFILE_REMOTE_PROTOCOL_INFO extends ffi.Opaque {}
+final class PFILE_REMOTE_PROTOCOL_INFO extends ffi.Opaque {}
 
 abstract class PFILE_ID_TYPE {
   static const int FileIdType = 0;
@@ -60156,7 +60156,7 @@ abstract class PFILE_ID_TYPE {
   static const int MaximumFileIdType = 3;
 }
 
-class LPFILE_ID_DESCRIPTOR extends ffi.Struct {
+final class LPFILE_ID_DESCRIPTOR extends ffi.Struct {
   @ffi.Uint64()
   external int dwSize;
 
@@ -60164,9 +60164,9 @@ class LPFILE_ID_DESCRIPTOR extends ffi.Struct {
   external int Type;
 }
 
-class PDRAWPATRECT extends ffi.Opaque {}
+final class PDRAWPATRECT extends ffi.Opaque {}
 
-class PPSINJECTDATA extends ffi.Struct {
+final class PPSINJECTDATA extends ffi.Struct {
   @ffi.Uint64()
   external int DataBytes;
 
@@ -60177,7 +60177,7 @@ class PPSINJECTDATA extends ffi.Struct {
   external int PageNumber;
 }
 
-class PPSFEATURE_OUTPUT extends ffi.Struct {
+final class PPSFEATURE_OUTPUT extends ffi.Struct {
   @ffi.Int32()
   external int bPageIndependent;
 
@@ -60185,7 +60185,7 @@ class PPSFEATURE_OUTPUT extends ffi.Struct {
   external int bSetPageDevice;
 }
 
-class PPSFEATURE_CUSTPAPER extends ffi.Struct {
+final class PPSFEATURE_CUSTPAPER extends ffi.Struct {
   @ffi.Int64()
   external int lOrientation;
 
@@ -60202,7 +60202,7 @@ class PPSFEATURE_CUSTPAPER extends ffi.Struct {
   external int lHeightOffset;
 }
 
-class LPXFORM extends ffi.Struct {
+final class LPXFORM extends ffi.Struct {
   @ffi.Float()
   external double eM11;
 
@@ -60222,7 +60222,7 @@ class LPXFORM extends ffi.Struct {
   external double eDy;
 }
 
-class LPBITMAP extends ffi.Struct {
+final class LPBITMAP extends ffi.Struct {
   @ffi.Int64()
   external int bmType;
 
@@ -60244,7 +60244,7 @@ class LPBITMAP extends ffi.Struct {
   external ffi.Pointer<ffi.Void> bmBits;
 }
 
-class LPRGBTRIPLE extends ffi.Struct {
+final class LPRGBTRIPLE extends ffi.Struct {
   @ffi.Uint8()
   external int rgbtBlue;
 
@@ -60255,7 +60255,7 @@ class LPRGBTRIPLE extends ffi.Struct {
   external int rgbtRed;
 }
 
-class RGBQUAD extends ffi.Struct {
+final class RGBQUAD extends ffi.Struct {
   @ffi.Uint8()
   external int rgbBlue;
 
@@ -60269,7 +60269,7 @@ class RGBQUAD extends ffi.Struct {
   external int rgbReserved;
 }
 
-class CIEXYZ extends ffi.Struct {
+final class CIEXYZ extends ffi.Struct {
   @ffi.Int64()
   external int ciexyzX;
 
@@ -60280,13 +60280,13 @@ class CIEXYZ extends ffi.Struct {
   external int ciexyzZ;
 }
 
-class CIEXYZTRIPLE extends ffi.Opaque {}
+final class CIEXYZTRIPLE extends ffi.Opaque {}
 
-class LPLOGCOLORSPACEA extends ffi.Opaque {}
+final class LPLOGCOLORSPACEA extends ffi.Opaque {}
 
-class LPLOGCOLORSPACEW extends ffi.Opaque {}
+final class LPLOGCOLORSPACEW extends ffi.Opaque {}
 
-class PBITMAPCOREHEADER extends ffi.Struct {
+final class PBITMAPCOREHEADER extends ffi.Struct {
   @ffi.Uint64()
   external int bcSize;
 
@@ -60303,7 +60303,7 @@ class PBITMAPCOREHEADER extends ffi.Struct {
   external int bcBitCount;
 }
 
-class PBITMAPINFOHEADER extends ffi.Struct {
+final class PBITMAPINFOHEADER extends ffi.Struct {
   @ffi.Uint64()
   external int biSize;
 
@@ -60338,15 +60338,15 @@ class PBITMAPINFOHEADER extends ffi.Struct {
   external int biClrImportant;
 }
 
-class PBITMAPV4HEADER extends ffi.Opaque {}
+final class PBITMAPV4HEADER extends ffi.Opaque {}
 
-class PBITMAPV5HEADER extends ffi.Opaque {}
+final class PBITMAPV5HEADER extends ffi.Opaque {}
 
-class PBITMAPINFO extends ffi.Opaque {}
+final class PBITMAPINFO extends ffi.Opaque {}
 
-class PBITMAPCOREINFO extends ffi.Opaque {}
+final class PBITMAPCOREINFO extends ffi.Opaque {}
 
-class PBITMAPFILEHEADER extends ffi.Struct {
+final class PBITMAPFILEHEADER extends ffi.Struct {
   @ffi.Uint16()
   external int bfType;
 
@@ -60363,17 +60363,17 @@ class PBITMAPFILEHEADER extends ffi.Struct {
   external int bfOffBits;
 }
 
-class LPFONTSIGNATURE extends ffi.Opaque {}
+final class LPFONTSIGNATURE extends ffi.Opaque {}
 
-class LPCHARSETINFO extends ffi.Opaque {}
+final class LPCHARSETINFO extends ffi.Opaque {}
 
-class LPLOCALESIGNATURE extends ffi.Opaque {}
+final class LPLOCALESIGNATURE extends ffi.Opaque {}
 
-class LPHANDLETABLE extends ffi.Opaque {}
+final class LPHANDLETABLE extends ffi.Opaque {}
 
-class METARECORD extends ffi.Opaque {}
+final class METARECORD extends ffi.Opaque {}
 
-class LPMETAFILEPICT extends ffi.Struct {
+final class LPMETAFILEPICT extends ffi.Struct {
   @ffi.Int64()
   external int mm;
 
@@ -60386,7 +60386,7 @@ class LPMETAFILEPICT extends ffi.Struct {
   external ffi.Pointer<HMETAFILE__> hMF;
 }
 
-class METAHEADER extends ffi.Struct {
+final class METAHEADER extends ffi.Struct {
   @ffi.Uint16()
   external int mtType;
 
@@ -60409,11 +60409,11 @@ class METAHEADER extends ffi.Struct {
   external int mtNoParameters;
 }
 
-class LPENHMETARECORD extends ffi.Opaque {}
+final class LPENHMETARECORD extends ffi.Opaque {}
 
-class LPENHMETAHEADER extends ffi.Opaque {}
+final class LPENHMETAHEADER extends ffi.Opaque {}
 
-class LPTEXTMETRICA extends ffi.Struct {
+final class LPTEXTMETRICA extends ffi.Struct {
   @ffi.Int64()
   external int tmHeight;
 
@@ -60475,7 +60475,7 @@ class LPTEXTMETRICA extends ffi.Struct {
   external int tmCharSet;
 }
 
-class LPTEXTMETRICW extends ffi.Struct {
+final class LPTEXTMETRICW extends ffi.Struct {
   @ffi.Int64()
   external int tmHeight;
 
@@ -60537,7 +60537,7 @@ class LPTEXTMETRICW extends ffi.Struct {
   external int tmCharSet;
 }
 
-class LPNEWTEXTMETRICA extends ffi.Struct {
+final class LPNEWTEXTMETRICA extends ffi.Struct {
   @ffi.Int64()
   external int tmHeight;
 
@@ -60611,7 +60611,7 @@ class LPNEWTEXTMETRICA extends ffi.Struct {
   external int ntmAvgWidth;
 }
 
-class LPNEWTEXTMETRICW extends ffi.Struct {
+final class LPNEWTEXTMETRICW extends ffi.Struct {
   @ffi.Int64()
   external int tmHeight;
 
@@ -60685,11 +60685,11 @@ class LPNEWTEXTMETRICW extends ffi.Struct {
   external int ntmAvgWidth;
 }
 
-class NEWTEXTMETRICEXA extends ffi.Opaque {}
+final class NEWTEXTMETRICEXA extends ffi.Opaque {}
 
-class NEWTEXTMETRICEXW extends ffi.Opaque {}
+final class NEWTEXTMETRICEXW extends ffi.Opaque {}
 
-class LPPELARRAY extends ffi.Struct {
+final class LPPELARRAY extends ffi.Struct {
   @ffi.Int64()
   external int paXCount;
 
@@ -60706,7 +60706,7 @@ class LPPELARRAY extends ffi.Struct {
   external int paRGBs;
 }
 
-class LPLOGBRUSH extends ffi.Struct {
+final class LPLOGBRUSH extends ffi.Struct {
   @ffi.Uint32()
   external int lbStyle;
 
@@ -60717,7 +60717,7 @@ class LPLOGBRUSH extends ffi.Struct {
   external int lbHatch;
 }
 
-class LPLOGBRUSH32 extends ffi.Struct {
+final class LPLOGBRUSH32 extends ffi.Struct {
   @ffi.Uint32()
   external int lbStyle;
 
@@ -60728,13 +60728,13 @@ class LPLOGBRUSH32 extends ffi.Struct {
   external int lbHatch;
 }
 
-class LPLOGPEN extends ffi.Opaque {}
+final class LPLOGPEN extends ffi.Opaque {}
 
-class LPEXTLOGPEN extends ffi.Opaque {}
+final class LPEXTLOGPEN extends ffi.Opaque {}
 
-class LPEXTLOGPEN32 extends ffi.Opaque {}
+final class LPEXTLOGPEN32 extends ffi.Opaque {}
 
-class LPPALETTEENTRY extends ffi.Struct {
+final class LPPALETTEENTRY extends ffi.Struct {
   @ffi.Uint8()
   external int peRed;
 
@@ -60748,21 +60748,21 @@ class LPPALETTEENTRY extends ffi.Struct {
   external int peFlags;
 }
 
-class LPLOGPALETTE extends ffi.Opaque {}
+final class LPLOGPALETTE extends ffi.Opaque {}
 
-class LPLOGFONTA extends ffi.Opaque {}
+final class LPLOGFONTA extends ffi.Opaque {}
 
-class LPLOGFONTW extends ffi.Opaque {}
+final class LPLOGFONTW extends ffi.Opaque {}
 
-class LPENUMLOGFONTA extends ffi.Opaque {}
+final class LPENUMLOGFONTA extends ffi.Opaque {}
 
-class LPENUMLOGFONTW extends ffi.Opaque {}
+final class LPENUMLOGFONTW extends ffi.Opaque {}
 
-class LPENUMLOGFONTEXA extends ffi.Opaque {}
+final class LPENUMLOGFONTEXA extends ffi.Opaque {}
 
-class LPENUMLOGFONTEXW extends ffi.Opaque {}
+final class LPENUMLOGFONTEXW extends ffi.Opaque {}
 
-class LPPANOSE extends ffi.Struct {
+final class LPPANOSE extends ffi.Struct {
   @ffi.Uint8()
   external int bFamilyType;
 
@@ -60794,19 +60794,19 @@ class LPPANOSE extends ffi.Struct {
   external int bXHeight;
 }
 
-class LPEXTLOGFONTA extends ffi.Opaque {}
+final class LPEXTLOGFONTA extends ffi.Opaque {}
 
-class LPEXTLOGFONTW extends ffi.Opaque {}
+final class LPEXTLOGFONTW extends ffi.Opaque {}
 
-class LPDEVMODEA extends ffi.Opaque {}
+final class LPDEVMODEA extends ffi.Opaque {}
 
-class LPDEVMODEW extends ffi.Opaque {}
+final class LPDEVMODEW extends ffi.Opaque {}
 
-class LPDISPLAY_DEVICEA extends ffi.Opaque {}
+final class LPDISPLAY_DEVICEA extends ffi.Opaque {}
 
-class LPDISPLAY_DEVICEW extends ffi.Opaque {}
+final class LPDISPLAY_DEVICEW extends ffi.Opaque {}
 
-class DISPLAYCONFIG_RATIONAL extends ffi.Struct {
+final class DISPLAYCONFIG_RATIONAL extends ffi.Struct {
   @ffi.Uint32()
   external int Numerator;
 
@@ -60848,7 +60848,7 @@ abstract class DISPLAYCONFIG_SCANLINE_ORDERING {
   static const int DISPLAYCONFIG_SCANLINE_ORDERING_FORCE_UINT32 = -1;
 }
 
-class DISPLAYCONFIG_2DREGION extends ffi.Struct {
+final class DISPLAYCONFIG_2DREGION extends ffi.Struct {
   @ffi.Uint32()
   external int cx;
 
@@ -60856,7 +60856,7 @@ class DISPLAYCONFIG_2DREGION extends ffi.Struct {
   external int cy;
 }
 
-class DISPLAYCONFIG_VIDEO_SIGNAL_INFO extends ffi.Opaque {}
+final class DISPLAYCONFIG_VIDEO_SIGNAL_INFO extends ffi.Opaque {}
 
 abstract class DISPLAYCONFIG_SCALING {
   static const int DISPLAYCONFIG_SCALING_IDENTITY = 1;
@@ -60892,19 +60892,19 @@ abstract class DISPLAYCONFIG_PIXELFORMAT {
   static const int DISPLAYCONFIG_PIXELFORMAT_FORCE_UINT32 = -1;
 }
 
-class DISPLAYCONFIG_SOURCE_MODE extends ffi.Opaque {}
+final class DISPLAYCONFIG_SOURCE_MODE extends ffi.Opaque {}
 
-class DISPLAYCONFIG_TARGET_MODE extends ffi.Opaque {}
+final class DISPLAYCONFIG_TARGET_MODE extends ffi.Opaque {}
 
-class DISPLAYCONFIG_DESKTOP_IMAGE_INFO extends ffi.Opaque {}
+final class DISPLAYCONFIG_DESKTOP_IMAGE_INFO extends ffi.Opaque {}
 
-class DISPLAYCONFIG_MODE_INFO extends ffi.Opaque {}
+final class DISPLAYCONFIG_MODE_INFO extends ffi.Opaque {}
 
-class DISPLAYCONFIG_PATH_SOURCE_INFO extends ffi.Opaque {}
+final class DISPLAYCONFIG_PATH_SOURCE_INFO extends ffi.Opaque {}
 
-class DISPLAYCONFIG_PATH_TARGET_INFO extends ffi.Opaque {}
+final class DISPLAYCONFIG_PATH_TARGET_INFO extends ffi.Opaque {}
 
-class DISPLAYCONFIG_PATH_INFO extends ffi.Opaque {}
+final class DISPLAYCONFIG_PATH_INFO extends ffi.Opaque {}
 
 abstract class DISPLAYCONFIG_TOPOLOGY_ID {
   static const int DISPLAYCONFIG_TOPOLOGY_INTERNAL = 1;
@@ -60929,23 +60929,23 @@ abstract class DISPLAYCONFIG_DEVICE_INFO_TYPE {
   static const int DISPLAYCONFIG_DEVICE_INFO_FORCE_UINT32 = -1;
 }
 
-class DISPLAYCONFIG_DEVICE_INFO_HEADER extends ffi.Opaque {}
+final class DISPLAYCONFIG_DEVICE_INFO_HEADER extends ffi.Opaque {}
 
-class DISPLAYCONFIG_SOURCE_DEVICE_NAME extends ffi.Opaque {}
+final class DISPLAYCONFIG_SOURCE_DEVICE_NAME extends ffi.Opaque {}
 
-class DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS extends ffi.Opaque {}
+final class DISPLAYCONFIG_TARGET_DEVICE_NAME_FLAGS extends ffi.Opaque {}
 
-class DISPLAYCONFIG_TARGET_DEVICE_NAME extends ffi.Opaque {}
+final class DISPLAYCONFIG_TARGET_DEVICE_NAME extends ffi.Opaque {}
 
-class DISPLAYCONFIG_TARGET_PREFERRED_MODE extends ffi.Opaque {}
+final class DISPLAYCONFIG_TARGET_PREFERRED_MODE extends ffi.Opaque {}
 
-class DISPLAYCONFIG_ADAPTER_NAME extends ffi.Opaque {}
+final class DISPLAYCONFIG_ADAPTER_NAME extends ffi.Opaque {}
 
-class DISPLAYCONFIG_TARGET_BASE_TYPE extends ffi.Opaque {}
+final class DISPLAYCONFIG_TARGET_BASE_TYPE extends ffi.Opaque {}
 
-class DISPLAYCONFIG_SET_TARGET_PERSISTENCE extends ffi.Opaque {}
+final class DISPLAYCONFIG_SET_TARGET_PERSISTENCE extends ffi.Opaque {}
 
-class DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION extends ffi.Opaque {}
+final class DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION extends ffi.Opaque {}
 
 abstract class DISPLAYCONFIG_COLOR_ENCODING {
   static const int DISPLAYCONFIG_COLOR_ENCODING_RGB = 0;
@@ -60956,17 +60956,17 @@ abstract class DISPLAYCONFIG_COLOR_ENCODING {
   static const int DISPLAYCONFIG_COLOR_ENCODING_FORCE_UINT32 = -1;
 }
 
-class DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO extends ffi.Opaque {}
+final class DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO extends ffi.Opaque {}
 
-class DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE extends ffi.Opaque {}
+final class DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE extends ffi.Opaque {}
 
-class DISPLAYCONFIG_SDR_WHITE_LEVEL extends ffi.Opaque {}
+final class DISPLAYCONFIG_SDR_WHITE_LEVEL extends ffi.Opaque {}
 
-class PRGNDATAHEADER extends ffi.Opaque {}
+final class PRGNDATAHEADER extends ffi.Opaque {}
 
-class LPRGNDATA extends ffi.Opaque {}
+final class LPRGNDATA extends ffi.Opaque {}
 
-class LPABC extends ffi.Struct {
+final class LPABC extends ffi.Struct {
   @ffi.Int32()
   external int abcA;
 
@@ -60977,7 +60977,7 @@ class LPABC extends ffi.Struct {
   external int abcC;
 }
 
-class LPABCFLOAT extends ffi.Struct {
+final class LPABCFLOAT extends ffi.Struct {
   @ffi.Float()
   external double abcfA;
 
@@ -60988,15 +60988,15 @@ class LPABCFLOAT extends ffi.Struct {
   external double abcfC;
 }
 
-class LPOUTLINETEXTMETRICA extends ffi.Opaque {}
+final class LPOUTLINETEXTMETRICA extends ffi.Opaque {}
 
-class LPOUTLINETEXTMETRICW extends ffi.Opaque {}
+final class LPOUTLINETEXTMETRICW extends ffi.Opaque {}
 
-class LPPOLYTEXTA extends ffi.Opaque {}
+final class LPPOLYTEXTA extends ffi.Opaque {}
 
-class LPPOLYTEXTW extends ffi.Opaque {}
+final class LPPOLYTEXTW extends ffi.Opaque {}
 
-class FIXED extends ffi.Struct {
+final class FIXED extends ffi.Struct {
   @ffi.Uint16()
   external int fract;
 
@@ -61004,17 +61004,17 @@ class FIXED extends ffi.Struct {
   external int value;
 }
 
-class LPMAT2 extends ffi.Opaque {}
+final class LPMAT2 extends ffi.Opaque {}
 
-class LPGLYPHMETRICS extends ffi.Opaque {}
+final class LPGLYPHMETRICS extends ffi.Opaque {}
 
-class LPPOINTFX extends ffi.Opaque {}
+final class LPPOINTFX extends ffi.Opaque {}
 
-class LPTTPOLYCURVE extends ffi.Opaque {}
+final class LPTTPOLYCURVE extends ffi.Opaque {}
 
-class LPTTPOLYGONHEADER extends ffi.Opaque {}
+final class LPTTPOLYGONHEADER extends ffi.Opaque {}
 
-class LPGCP_RESULTSA extends ffi.Struct {
+final class LPGCP_RESULTSA extends ffi.Struct {
   @ffi.Uint64()
   external int lStructSize;
 
@@ -61037,7 +61037,7 @@ class LPGCP_RESULTSA extends ffi.Struct {
   external int nMaxFit;
 }
 
-class LPGCP_RESULTSW extends ffi.Struct {
+final class LPGCP_RESULTSW extends ffi.Struct {
   @ffi.Uint64()
   external int lStructSize;
 
@@ -61060,7 +61060,7 @@ class LPGCP_RESULTSW extends ffi.Struct {
   external int nMaxFit;
 }
 
-class LPRASTERIZER_STATUS extends ffi.Struct {
+final class LPRASTERIZER_STATUS extends ffi.Struct {
   @ffi.Int16()
   external int nSize;
 
@@ -61071,7 +61071,7 @@ class LPRASTERIZER_STATUS extends ffi.Struct {
   external int nLanguageID;
 }
 
-class LPPIXELFORMATDESCRIPTOR extends ffi.Struct {
+final class LPPIXELFORMATDESCRIPTOR extends ffi.Struct {
   @ffi.Uint16()
   external int nSize;
 
@@ -61151,7 +61151,7 @@ class LPPIXELFORMATDESCRIPTOR extends ffi.Struct {
   external int dwDamageMask;
 }
 
-class LPWCRANGE extends ffi.Struct {
+final class LPWCRANGE extends ffi.Struct {
   @ffi.Uint16()
   external int wcLow;
 
@@ -61159,27 +61159,27 @@ class LPWCRANGE extends ffi.Struct {
   external int cGlyphs;
 }
 
-class LPGLYPHSET extends ffi.Opaque {}
+final class LPGLYPHSET extends ffi.Opaque {}
 
-class LPDESIGNVECTOR extends ffi.Opaque {}
+final class LPDESIGNVECTOR extends ffi.Opaque {}
 
-class LPAXISINFOA extends ffi.Opaque {}
+final class LPAXISINFOA extends ffi.Opaque {}
 
-class LPAXISINFOW extends ffi.Opaque {}
+final class LPAXISINFOW extends ffi.Opaque {}
 
-class LPAXESLISTA extends ffi.Opaque {}
+final class LPAXESLISTA extends ffi.Opaque {}
 
-class LPAXESLISTW extends ffi.Opaque {}
+final class LPAXESLISTW extends ffi.Opaque {}
 
-class LPENUMLOGFONTEXDVA extends ffi.Opaque {}
+final class LPENUMLOGFONTEXDVA extends ffi.Opaque {}
 
-class LPENUMLOGFONTEXDVW extends ffi.Opaque {}
+final class LPENUMLOGFONTEXDVW extends ffi.Opaque {}
 
-class LPENUMTEXTMETRICA extends ffi.Opaque {}
+final class LPENUMTEXTMETRICA extends ffi.Opaque {}
 
-class LPENUMTEXTMETRICW extends ffi.Opaque {}
+final class LPENUMTEXTMETRICW extends ffi.Opaque {}
 
-class LPTRIVERTEX extends ffi.Struct {
+final class LPTRIVERTEX extends ffi.Struct {
   @ffi.Int64()
   external int x;
 
@@ -61199,7 +61199,7 @@ class LPTRIVERTEX extends ffi.Struct {
   external int Alpha;
 }
 
-class LPGRADIENT_TRIANGLE extends ffi.Struct {
+final class LPGRADIENT_TRIANGLE extends ffi.Struct {
   @ffi.Uint64()
   external int Vertex1;
 
@@ -61210,7 +61210,7 @@ class LPGRADIENT_TRIANGLE extends ffi.Struct {
   external int Vertex3;
 }
 
-class LPGRADIENT_RECT extends ffi.Struct {
+final class LPGRADIENT_RECT extends ffi.Struct {
   @ffi.Uint64()
   external int UpperLeft;
 
@@ -61218,7 +61218,7 @@ class LPGRADIENT_RECT extends ffi.Struct {
   external int LowerRight;
 }
 
-class PBLENDFUNCTION extends ffi.Struct {
+final class PBLENDFUNCTION extends ffi.Struct {
   @ffi.Uint8()
   external int BlendOp;
 
@@ -61232,9 +61232,9 @@ class PBLENDFUNCTION extends ffi.Struct {
   external int AlphaFormat;
 }
 
-class PDIBSECTION extends ffi.Opaque {}
+final class PDIBSECTION extends ffi.Opaque {}
 
-class LPCOLORADJUSTMENT extends ffi.Struct {
+final class LPCOLORADJUSTMENT extends ffi.Struct {
   @ffi.Uint16()
   external int caSize;
 
@@ -61272,7 +61272,7 @@ class LPCOLORADJUSTMENT extends ffi.Struct {
   external int caRedGreenTint;
 }
 
-class LPDOCINFOA extends ffi.Struct {
+final class LPDOCINFOA extends ffi.Struct {
   @ffi.Int32()
   external int cbSize;
 
@@ -61286,7 +61286,7 @@ class LPDOCINFOA extends ffi.Struct {
   external int fwType;
 }
 
-class LPDOCINFOW extends ffi.Struct {
+final class LPDOCINFOW extends ffi.Struct {
   @ffi.Int32()
   external int cbSize;
 
@@ -61300,7 +61300,7 @@ class LPDOCINFOW extends ffi.Struct {
   external int fwType;
 }
 
-class LPKERNINGPAIR extends ffi.Struct {
+final class LPKERNINGPAIR extends ffi.Struct {
   @ffi.Uint16()
   external int wFirst;
 
@@ -61311,7 +61311,7 @@ class LPKERNINGPAIR extends ffi.Struct {
   external int iKernAmount;
 }
 
-class PEMR extends ffi.Struct {
+final class PEMR extends ffi.Struct {
   @ffi.Uint64()
   external int iType;
 
@@ -61319,117 +61319,117 @@ class PEMR extends ffi.Struct {
   external int nSize;
 }
 
-class PEMRTEXT extends ffi.Opaque {}
+final class PEMRTEXT extends ffi.Opaque {}
 
-class PEMRREALIZEPALETTE extends ffi.Opaque {}
+final class PEMRREALIZEPALETTE extends ffi.Opaque {}
 
-class PEMRSETTEXTALIGN extends ffi.Opaque {}
+final class PEMRSETTEXTALIGN extends ffi.Opaque {}
 
-class PEMRSETMITERLIMIT extends ffi.Opaque {}
+final class PEMRSETMITERLIMIT extends ffi.Opaque {}
 
-class PEMRRESTOREDC extends ffi.Opaque {}
+final class PEMRRESTOREDC extends ffi.Opaque {}
 
-class PEMRSETARCDIRECTION extends ffi.Opaque {}
+final class PEMRSETARCDIRECTION extends ffi.Opaque {}
 
-class PEMRSETMAPPERFLAGS extends ffi.Opaque {}
+final class PEMRSETMAPPERFLAGS extends ffi.Opaque {}
 
-class PEMRSETTEXTCOLOR extends ffi.Opaque {}
+final class PEMRSETTEXTCOLOR extends ffi.Opaque {}
 
-class PEMRDELETEOBJECT extends ffi.Opaque {}
+final class PEMRDELETEOBJECT extends ffi.Opaque {}
 
-class PEMRSELECTPALETTE extends ffi.Opaque {}
+final class PEMRSELECTPALETTE extends ffi.Opaque {}
 
-class PEMRRESIZEPALETTE extends ffi.Opaque {}
+final class PEMRRESIZEPALETTE extends ffi.Opaque {}
 
-class PEMRSETPALETTEENTRIES extends ffi.Opaque {}
+final class PEMRSETPALETTEENTRIES extends ffi.Opaque {}
 
-class PEMRSETCOLORADJUSTMENT extends ffi.Opaque {}
+final class PEMRSETCOLORADJUSTMENT extends ffi.Opaque {}
 
-class PEMRGDICOMMENT extends ffi.Opaque {}
+final class PEMRGDICOMMENT extends ffi.Opaque {}
 
-class PEMREOF extends ffi.Opaque {}
+final class PEMREOF extends ffi.Opaque {}
 
-class PEMRMOVETOEX extends ffi.Opaque {}
+final class PEMRMOVETOEX extends ffi.Opaque {}
 
-class PEMROFFSETCLIPRGN extends ffi.Opaque {}
+final class PEMROFFSETCLIPRGN extends ffi.Opaque {}
 
-class PEMRSTROKEPATH extends ffi.Opaque {}
+final class PEMRSTROKEPATH extends ffi.Opaque {}
 
-class PEMRINTERSECTCLIPRECT extends ffi.Opaque {}
+final class PEMRINTERSECTCLIPRECT extends ffi.Opaque {}
 
-class PEMRSETBRUSHORGEX extends ffi.Opaque {}
+final class PEMRSETBRUSHORGEX extends ffi.Opaque {}
 
-class PEMRSETWINDOWEXTEX extends ffi.Opaque {}
+final class PEMRSETWINDOWEXTEX extends ffi.Opaque {}
 
-class PEMRSCALEWINDOWEXTEX extends ffi.Opaque {}
+final class PEMRSCALEWINDOWEXTEX extends ffi.Opaque {}
 
-class PEMRSETWORLDTRANSFORM extends ffi.Opaque {}
+final class PEMRSETWORLDTRANSFORM extends ffi.Opaque {}
 
-class PEMRMODIFYWORLDTRANSFORM extends ffi.Opaque {}
+final class PEMRMODIFYWORLDTRANSFORM extends ffi.Opaque {}
 
-class PEMRSETPIXELV extends ffi.Opaque {}
+final class PEMRSETPIXELV extends ffi.Opaque {}
 
-class PEMREXTFLOODFILL extends ffi.Opaque {}
+final class PEMREXTFLOODFILL extends ffi.Opaque {}
 
-class PEMRRECTANGLE extends ffi.Opaque {}
+final class PEMRRECTANGLE extends ffi.Opaque {}
 
-class PEMRROUNDRECT extends ffi.Opaque {}
+final class PEMRROUNDRECT extends ffi.Opaque {}
 
-class PEMRPIE extends ffi.Opaque {}
+final class PEMRPIE extends ffi.Opaque {}
 
-class PEMRANGLEARC extends ffi.Opaque {}
+final class PEMRANGLEARC extends ffi.Opaque {}
 
-class PEMRPOLYLINETO extends ffi.Opaque {}
+final class PEMRPOLYLINETO extends ffi.Opaque {}
 
-class PEMRPOLYLINETO16 extends ffi.Opaque {}
+final class PEMRPOLYLINETO16 extends ffi.Opaque {}
 
-class PEMRPOLYDRAW extends ffi.Opaque {}
+final class PEMRPOLYDRAW extends ffi.Opaque {}
 
-class PEMRPOLYDRAW16 extends ffi.Opaque {}
+final class PEMRPOLYDRAW16 extends ffi.Opaque {}
 
-class PEMRPOLYPOLYGON extends ffi.Opaque {}
+final class PEMRPOLYPOLYGON extends ffi.Opaque {}
 
-class PEMRPOLYPOLYGON16 extends ffi.Opaque {}
+final class PEMRPOLYPOLYGON16 extends ffi.Opaque {}
 
-class PEMRPAINTRGN extends ffi.Opaque {}
+final class PEMRPAINTRGN extends ffi.Opaque {}
 
-class PEMRFILLRGN extends ffi.Opaque {}
+final class PEMRFILLRGN extends ffi.Opaque {}
 
-class PEMRFRAMERGN extends ffi.Opaque {}
+final class PEMRFRAMERGN extends ffi.Opaque {}
 
-class PEMREXTSELECTCLIPRGN extends ffi.Opaque {}
+final class PEMREXTSELECTCLIPRGN extends ffi.Opaque {}
 
-class PEMREXTTEXTOUTW extends ffi.Opaque {}
+final class PEMREXTTEXTOUTW extends ffi.Opaque {}
 
-class PEMRPOLYTEXTOUTW extends ffi.Opaque {}
+final class PEMRPOLYTEXTOUTW extends ffi.Opaque {}
 
-class PEMRBITBLT extends ffi.Opaque {}
+final class PEMRBITBLT extends ffi.Opaque {}
 
-class PEMRSTRETCHBLT extends ffi.Opaque {}
+final class PEMRSTRETCHBLT extends ffi.Opaque {}
 
-class PEMRMASKBLT extends ffi.Opaque {}
+final class PEMRMASKBLT extends ffi.Opaque {}
 
-class PEMRPLGBLT extends ffi.Opaque {}
+final class PEMRPLGBLT extends ffi.Opaque {}
 
-class PEMRSETDIBITSTODEVICE extends ffi.Opaque {}
+final class PEMRSETDIBITSTODEVICE extends ffi.Opaque {}
 
-class PEMRSTRETCHDIBITS extends ffi.Opaque {}
+final class PEMRSTRETCHDIBITS extends ffi.Opaque {}
 
-class PEMREXTCREATEFONTINDIRECTW extends ffi.Opaque {}
+final class PEMREXTCREATEFONTINDIRECTW extends ffi.Opaque {}
 
-class PEMRCREATEPALETTE extends ffi.Opaque {}
+final class PEMRCREATEPALETTE extends ffi.Opaque {}
 
-class PEMRCREATEPEN extends ffi.Opaque {}
+final class PEMRCREATEPEN extends ffi.Opaque {}
 
-class PEMREXTCREATEPEN extends ffi.Opaque {}
+final class PEMREXTCREATEPEN extends ffi.Opaque {}
 
-class PEMRCREATEBRUSHINDIRECT extends ffi.Opaque {}
+final class PEMRCREATEBRUSHINDIRECT extends ffi.Opaque {}
 
-class PEMRCREATEMONOBRUSH extends ffi.Opaque {}
+final class PEMRCREATEMONOBRUSH extends ffi.Opaque {}
 
-class PEMRCREATEDIBPATTERNBRUSHPT extends ffi.Opaque {}
+final class PEMRCREATEDIBPATTERNBRUSHPT extends ffi.Opaque {}
 
-class PEMRFORMAT extends ffi.Struct {
+final class PEMRFORMAT extends ffi.Struct {
   @ffi.Uint64()
   external int dSignature;
 
@@ -61443,35 +61443,35 @@ class PEMRFORMAT extends ffi.Struct {
   external int offData;
 }
 
-class PEMRGLSRECORD extends ffi.Opaque {}
+final class PEMRGLSRECORD extends ffi.Opaque {}
 
-class PEMRGLSBOUNDEDRECORD extends ffi.Opaque {}
+final class PEMRGLSBOUNDEDRECORD extends ffi.Opaque {}
 
-class PEMRPIXELFORMAT extends ffi.Opaque {}
+final class PEMRPIXELFORMAT extends ffi.Opaque {}
 
-class PEMRCREATECOLORSPACE extends ffi.Opaque {}
+final class PEMRCREATECOLORSPACE extends ffi.Opaque {}
 
-class PEMRDELETECOLORSPACE extends ffi.Opaque {}
+final class PEMRDELETECOLORSPACE extends ffi.Opaque {}
 
-class PEMRDRAWESCAPE extends ffi.Opaque {}
+final class PEMRDRAWESCAPE extends ffi.Opaque {}
 
-class PEMRNAMEDESCAPE extends ffi.Opaque {}
+final class PEMRNAMEDESCAPE extends ffi.Opaque {}
 
-class PEMRSETICMPROFILEW extends ffi.Opaque {}
+final class PEMRSETICMPROFILEW extends ffi.Opaque {}
 
-class PEMRCREATECOLORSPACEW extends ffi.Opaque {}
+final class PEMRCREATECOLORSPACEW extends ffi.Opaque {}
 
-class PEMRCOLORMATCHTOTARGET extends ffi.Opaque {}
+final class PEMRCOLORMATCHTOTARGET extends ffi.Opaque {}
 
-class PEMRCOLORCORRECTPALETTE extends ffi.Opaque {}
+final class PEMRCOLORCORRECTPALETTE extends ffi.Opaque {}
 
-class PEMRALPHABLEND extends ffi.Opaque {}
+final class PEMRALPHABLEND extends ffi.Opaque {}
 
-class PEMRGRADIENTFILL extends ffi.Opaque {}
+final class PEMRGRADIENTFILL extends ffi.Opaque {}
 
-class PEMRTRANSPARENTBLT extends ffi.Opaque {}
+final class PEMRTRANSPARENTBLT extends ffi.Opaque {}
 
-class PPOINTFLOAT extends ffi.Struct {
+final class PPOINTFLOAT extends ffi.Struct {
   @ffi.Float()
   external double x;
 
@@ -61479,9 +61479,9 @@ class PPOINTFLOAT extends ffi.Struct {
   external double y;
 }
 
-class LPGLYPHMETRICSFLOAT extends ffi.Opaque {}
+final class LPGLYPHMETRICSFLOAT extends ffi.Opaque {}
 
-class LPLAYERPLANEDESCRIPTOR extends ffi.Struct {
+final class LPLAYERPLANEDESCRIPTOR extends ffi.Struct {
   @ffi.Uint16()
   external int nSize;
 
@@ -61555,15 +61555,15 @@ class LPLAYERPLANEDESCRIPTOR extends ffi.Struct {
   external int crTransparent;
 }
 
-class LPWGLSWAP extends ffi.Struct {
-  external ffi.Pointer<HDC__> hdc;
+final class LPWGLSWAP extends ffi.Struct {
+  external final ffi.Pointer<HDC__> hdc;
 
   @ffi.Uint32()
   external int uiFlags;
 }
 
-class LPCREATESTRUCTA extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> lpCreateParams;
+final class LPCREATESTRUCTA extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> lpCreateParams;
 
   external ffi.Pointer<HINSTANCE__> hInstance;
 
@@ -61594,14 +61594,14 @@ class LPCREATESTRUCTA extends ffi.Struct {
   external int dwExStyle;
 }
 
-class LPCBT_CREATEWNDA extends ffi.Struct {
-  external ffi.Pointer<LPCREATESTRUCTA> lpcs;
+final class LPCBT_CREATEWNDA extends ffi.Struct {
+  external final ffi.Pointer<LPCREATESTRUCTA> lpcs;
 
   external ffi.Pointer<HWND__> hwndInsertAfter;
 }
 
-class LPCREATESTRUCTW extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> lpCreateParams;
+final class LPCREATESTRUCTW extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> lpCreateParams;
 
   external ffi.Pointer<HINSTANCE__> hInstance;
 
@@ -61632,20 +61632,20 @@ class LPCREATESTRUCTW extends ffi.Struct {
   external int dwExStyle;
 }
 
-class LPCBT_CREATEWNDW extends ffi.Struct {
-  external ffi.Pointer<LPCREATESTRUCTW> lpcs;
+final class LPCBT_CREATEWNDW extends ffi.Struct {
+  external final ffi.Pointer<LPCREATESTRUCTW> lpcs;
 
   external ffi.Pointer<HWND__> hwndInsertAfter;
 }
 
-class LPCBTACTIVATESTRUCT extends ffi.Struct {
+final class LPCBTACTIVATESTRUCT extends ffi.Struct {
   @ffi.Int32()
   external int fMouse;
 
   external ffi.Pointer<HWND__> hWndActive;
 }
 
-class PWTSSESSION_NOTIFICATION extends ffi.Struct {
+final class PWTSSESSION_NOTIFICATION extends ffi.Struct {
   @ffi.Uint64()
   external int cbSize;
 
@@ -61653,9 +61653,9 @@ class PWTSSESSION_NOTIFICATION extends ffi.Struct {
   external int dwSessionId;
 }
 
-class LPSHELLHOOKINFO extends ffi.Opaque {}
+final class LPSHELLHOOKINFO extends ffi.Opaque {}
 
-class LPEVENTMSGMSG extends ffi.Struct {
+final class LPEVENTMSGMSG extends ffi.Struct {
   @ffi.Uint32()
   external int message;
 
@@ -61671,7 +61671,7 @@ class LPEVENTMSGMSG extends ffi.Struct {
   external ffi.Pointer<HWND__> hwnd;
 }
 
-class LPCWPSTRUCT extends ffi.Struct {
+final class LPCWPSTRUCT extends ffi.Struct {
   @ffi.Int64()
   external int lParam;
 
@@ -61684,7 +61684,7 @@ class LPCWPSTRUCT extends ffi.Struct {
   external ffi.Pointer<HWND__> hwnd;
 }
 
-class LPCWPRETSTRUCT extends ffi.Struct {
+final class LPCWPRETSTRUCT extends ffi.Struct {
   @ffi.Int64()
   external int lResult;
 
@@ -61700,7 +61700,7 @@ class LPCWPRETSTRUCT extends ffi.Struct {
   external ffi.Pointer<HWND__> hwnd;
 }
 
-class PKBDLLHOOKSTRUCT extends ffi.Struct {
+final class PKBDLLHOOKSTRUCT extends ffi.Struct {
   @ffi.Uint64()
   external int vkCode;
 
@@ -61717,9 +61717,9 @@ class PKBDLLHOOKSTRUCT extends ffi.Struct {
   external int dwExtraInfo;
 }
 
-class PMSLLHOOKSTRUCT extends ffi.Opaque {}
+final class PMSLLHOOKSTRUCT extends ffi.Opaque {}
 
-class LPDEBUGHOOKINFO extends ffi.Struct {
+final class LPDEBUGHOOKINFO extends ffi.Struct {
   @ffi.Uint64()
   external int idThread;
 
@@ -61736,15 +61736,15 @@ class LPDEBUGHOOKINFO extends ffi.Struct {
   external int code;
 }
 
-class PMOUSEHOOKSTRUCT extends ffi.Opaque {}
+final class PMOUSEHOOKSTRUCT extends ffi.Opaque {}
 
-class PMOUSEHOOKSTRUCTEX extends ffi.Struct {
+final class PMOUSEHOOKSTRUCTEX extends ffi.Struct {
   @ffi.Uint64()
   external int mouseData;
 }
 
-class PHARDWAREHOOKSTRUCT extends ffi.Struct {
-  external ffi.Pointer<HWND__> hwnd;
+final class PHARDWAREHOOKSTRUCT extends ffi.Struct {
+  external final ffi.Pointer<HWND__> hwnd;
 
   @ffi.Uint32()
   external int message;
@@ -61756,7 +61756,7 @@ class PHARDWAREHOOKSTRUCT extends ffi.Struct {
   external int lParam;
 }
 
-class LPMOUSEMOVEPOINT extends ffi.Struct {
+final class LPMOUSEMOVEPOINT extends ffi.Struct {
   @ffi.Int32()
   external int x;
 
@@ -61770,7 +61770,7 @@ class LPMOUSEMOVEPOINT extends ffi.Struct {
   external int dwExtraInfo;
 }
 
-class PUSEROBJECTFLAGS extends ffi.Struct {
+final class PUSEROBJECTFLAGS extends ffi.Struct {
   @ffi.Int32()
   external int fInherit;
 
@@ -61781,7 +61781,7 @@ class PUSEROBJECTFLAGS extends ffi.Struct {
   external int dwFlags;
 }
 
-class LPWNDCLASSEXA extends ffi.Struct {
+final class LPWNDCLASSEXA extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -61811,7 +61811,7 @@ class LPWNDCLASSEXA extends ffi.Struct {
   external ffi.Pointer<HICON__> hIconSm;
 }
 
-class LPWNDCLASSEXW extends ffi.Struct {
+final class LPWNDCLASSEXW extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -61841,7 +61841,7 @@ class LPWNDCLASSEXW extends ffi.Struct {
   external ffi.Pointer<HICON__> hIconSm;
 }
 
-class LPWNDCLASSA extends ffi.Struct {
+final class LPWNDCLASSA extends ffi.Struct {
   @ffi.Uint32()
   external int style;
 
@@ -61866,7 +61866,7 @@ class LPWNDCLASSA extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> lpszClassName;
 }
 
-class LPWNDCLASSW extends ffi.Struct {
+final class LPWNDCLASSW extends ffi.Struct {
   @ffi.Uint32()
   external int style;
 
@@ -61891,11 +61891,11 @@ class LPWNDCLASSW extends ffi.Struct {
   external ffi.Pointer<ffi.Uint16> lpszClassName;
 }
 
-class LPMSG extends ffi.Opaque {}
+final class LPMSG extends ffi.Opaque {}
 
-class LPMINMAXINFO extends ffi.Opaque {}
+final class LPMINMAXINFO extends ffi.Opaque {}
 
-class PCOPYDATASTRUCT extends ffi.Struct {
+final class PCOPYDATASTRUCT extends ffi.Struct {
   @ffi.Uint64()
   external int dwData;
 
@@ -61905,18 +61905,18 @@ class PCOPYDATASTRUCT extends ffi.Struct {
   external ffi.Pointer<ffi.Void> lpData;
 }
 
-class LPMDINEXTMENU extends ffi.Struct {
-  external ffi.Pointer<HMENU__> hmenuIn;
+final class LPMDINEXTMENU extends ffi.Struct {
+  external final ffi.Pointer<HMENU__> hmenuIn;
 
   external ffi.Pointer<HMENU__> hmenuNext;
 
   external ffi.Pointer<HWND__> hwndNext;
 }
 
-class PPOWERBROADCAST_SETTING extends ffi.Opaque {}
+final class PPOWERBROADCAST_SETTING extends ffi.Opaque {}
 
-class PWINDOWPOS extends ffi.Struct {
-  external ffi.Pointer<HWND__> hwnd;
+final class PWINDOWPOS extends ffi.Struct {
+  external final ffi.Pointer<HWND__> hwnd;
 
   external ffi.Pointer<HWND__> hwndInsertAfter;
 
@@ -61936,9 +61936,9 @@ class PWINDOWPOS extends ffi.Struct {
   external int flags;
 }
 
-class LPNCCALCSIZE_PARAMS extends ffi.Opaque {}
+final class LPNCCALCSIZE_PARAMS extends ffi.Opaque {}
 
-class LPTRACKMOUSEEVENT extends ffi.Struct {
+final class LPTRACKMOUSEEVENT extends ffi.Struct {
   @ffi.Uint64()
   external int cbSize;
 
@@ -61951,7 +61951,7 @@ class LPTRACKMOUSEEVENT extends ffi.Struct {
   external int dwHoverTime;
 }
 
-class LPACCEL extends ffi.Struct {
+final class LPACCEL extends ffi.Struct {
   @ffi.Uint8()
   external int fVirt;
 
@@ -61962,11 +61962,11 @@ class LPACCEL extends ffi.Struct {
   external int cmd;
 }
 
-class LPPAINTSTRUCT extends ffi.Opaque {}
+final class LPPAINTSTRUCT extends ffi.Opaque {}
 
-class WINDOWPLACEMENT extends ffi.Opaque {}
+final class WINDOWPLACEMENT extends ffi.Opaque {}
 
-class NMHDR extends ffi.Struct {
+final class NMHDR extends ffi.Struct {
   external ffi.Pointer<HWND__> hwndFrom;
 
   @ffi.Uint64()
@@ -61976,7 +61976,7 @@ class NMHDR extends ffi.Struct {
   external int code;
 }
 
-class LPSTYLESTRUCT extends ffi.Struct {
+final class LPSTYLESTRUCT extends ffi.Struct {
   @ffi.Uint64()
   external int styleOld;
 
@@ -61984,7 +61984,7 @@ class LPSTYLESTRUCT extends ffi.Struct {
   external int styleNew;
 }
 
-class LPMEASUREITEMSTRUCT extends ffi.Struct {
+final class LPMEASUREITEMSTRUCT extends ffi.Struct {
   @ffi.Uint32()
   external int CtlType;
 
@@ -62004,9 +62004,9 @@ class LPMEASUREITEMSTRUCT extends ffi.Struct {
   external int itemData;
 }
 
-class LPDRAWITEMSTRUCT extends ffi.Opaque {}
+final class LPDRAWITEMSTRUCT extends ffi.Opaque {}
 
-class LPDELETEITEMSTRUCT extends ffi.Struct {
+final class LPDELETEITEMSTRUCT extends ffi.Struct {
   @ffi.Uint32()
   external int CtlType;
 
@@ -62022,7 +62022,7 @@ class LPDELETEITEMSTRUCT extends ffi.Struct {
   external int itemData;
 }
 
-class LPCOMPAREITEMSTRUCT extends ffi.Struct {
+final class LPCOMPAREITEMSTRUCT extends ffi.Struct {
   @ffi.Uint32()
   external int CtlType;
 
@@ -62047,9 +62047,9 @@ class LPCOMPAREITEMSTRUCT extends ffi.Struct {
   external int dwLocaleId;
 }
 
-class PBSMINFO extends ffi.Opaque {}
+final class PBSMINFO extends ffi.Opaque {}
 
-class PUPDATELAYEREDWINDOWINFO extends ffi.Struct {
+final class PUPDATELAYEREDWINDOWINFO extends ffi.Struct {
   @ffi.Uint64()
   external int cbSize;
 
@@ -62074,7 +62074,7 @@ class PUPDATELAYEREDWINDOWINFO extends ffi.Struct {
   external ffi.Pointer<LPRECT> prcDirty;
 }
 
-class PFLASHWINFO extends ffi.Struct {
+final class PFLASHWINFO extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62090,7 +62090,7 @@ class PFLASHWINFO extends ffi.Struct {
   external int dwTimeout;
 }
 
-class DLGTEMPLATE extends ffi.Struct {
+final class DLGTEMPLATE extends ffi.Struct {
   @ffi.Uint64()
   external int style;
 
@@ -62113,7 +62113,7 @@ class DLGTEMPLATE extends ffi.Struct {
   external int cy;
 }
 
-class DLGITEMTEMPLATE extends ffi.Struct {
+final class DLGITEMTEMPLATE extends ffi.Struct {
   @ffi.Uint64()
   external int style;
 
@@ -62149,7 +62149,7 @@ abstract class DIALOG_DPI_CHANGE_BEHAVIORS {
   static const int DDC_DISABLE_CONTROL_RELAYOUT = 4;
 }
 
-class LPMOUSEINPUT extends ffi.Struct {
+final class LPMOUSEINPUT extends ffi.Struct {
   @ffi.Int64()
   external int dx;
 
@@ -62169,7 +62169,7 @@ class LPMOUSEINPUT extends ffi.Struct {
   external int dwExtraInfo;
 }
 
-class LPKEYBDINPUT extends ffi.Struct {
+final class LPKEYBDINPUT extends ffi.Struct {
   @ffi.Uint16()
   external int wVk;
 
@@ -62186,7 +62186,7 @@ class LPKEYBDINPUT extends ffi.Struct {
   external int dwExtraInfo;
 }
 
-class LPHARDWAREINPUT extends ffi.Struct {
+final class LPHARDWAREINPUT extends ffi.Struct {
   @ffi.Uint64()
   external int uMsg;
 
@@ -62197,17 +62197,17 @@ class LPHARDWAREINPUT extends ffi.Struct {
   external int wParamH;
 }
 
-class LPINPUT extends ffi.Struct {
+final class LPINPUT extends ffi.Struct {
   @ffi.Uint64()
   external int type;
 }
 
-class HTOUCHINPUT__ extends ffi.Struct {
+final class HTOUCHINPUT__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class PTOUCHINPUT extends ffi.Struct {
+final class PTOUCHINPUT extends ffi.Struct {
   @ffi.Int64()
   external int x;
 
@@ -62260,11 +62260,11 @@ abstract class POINTER_BUTTON_CHANGE_TYPE {
   static const int POINTER_CHANGE_FIFTHBUTTON_UP = 10;
 }
 
-class POINTER_INFO extends ffi.Opaque {}
+final class POINTER_INFO extends ffi.Opaque {}
 
-class POINTER_TOUCH_INFO extends ffi.Opaque {}
+final class POINTER_TOUCH_INFO extends ffi.Opaque {}
 
-class POINTER_PEN_INFO extends ffi.Opaque {}
+final class POINTER_PEN_INFO extends ffi.Opaque {}
 
 abstract class POINTER_FEEDBACK_MODE {
   static const int POINTER_FEEDBACK_DEFAULT = 1;
@@ -62272,7 +62272,7 @@ abstract class POINTER_FEEDBACK_MODE {
   static const int POINTER_FEEDBACK_NONE = 3;
 }
 
-class PUSAGE_PROPERTIES extends ffi.Struct {
+final class PUSAGE_PROPERTIES extends ffi.Struct {
   @ffi.Uint16()
   external int level;
 
@@ -62304,12 +62304,12 @@ class PUSAGE_PROPERTIES extends ffi.Struct {
   external int physicalMaximum;
 }
 
-class PPOINTER_TYPE_INFO extends ffi.Struct {
+final class PPOINTER_TYPE_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int type;
 }
 
-class PINPUT_INJECTION_VALUE extends ffi.Struct {
+final class PINPUT_INJECTION_VALUE extends ffi.Struct {
   @ffi.Uint16()
   external int page;
 
@@ -62323,14 +62323,14 @@ class PINPUT_INJECTION_VALUE extends ffi.Struct {
   external int index;
 }
 
-class HSYNTHETICPOINTERDEVICE__ extends ffi.Struct {
+final class HSYNTHETICPOINTERDEVICE__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class PTOUCH_HIT_TESTING_PROXIMITY_EVALUATION extends ffi.Opaque {}
+final class PTOUCH_HIT_TESTING_PROXIMITY_EVALUATION extends ffi.Opaque {}
 
-class PTOUCH_HIT_TESTING_INPUT extends ffi.Opaque {}
+final class PTOUCH_HIT_TESTING_INPUT extends ffi.Opaque {}
 
 abstract class FEEDBACK_TYPE {
   static const int FEEDBACK_TOUCH_CONTACTVISUALIZATION = 1;
@@ -62347,9 +62347,9 @@ abstract class FEEDBACK_TYPE {
   static const int FEEDBACK_MAX = -1;
 }
 
-class INPUT_TRANSFORM extends ffi.Opaque {}
+final class INPUT_TRANSFORM extends ffi.Opaque {}
 
-class PLASTINPUTINFO extends ffi.Struct {
+final class PLASTINPUTINFO extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62357,9 +62357,9 @@ class PLASTINPUTINFO extends ffi.Struct {
   external int dwTime;
 }
 
-class TPMPARAMS extends ffi.Opaque {}
+final class TPMPARAMS extends ffi.Opaque {}
 
-class LPMENUINFO extends ffi.Struct {
+final class LPMENUINFO extends ffi.Struct {
   @ffi.Uint64()
   external int cbSize;
 
@@ -62381,7 +62381,7 @@ class LPMENUINFO extends ffi.Struct {
   external int dwMenuData;
 }
 
-class PMENUGETOBJECTINFO extends ffi.Struct {
+final class PMENUGETOBJECTINFO extends ffi.Struct {
   @ffi.Uint64()
   external int dwFlags;
 
@@ -62395,7 +62395,7 @@ class PMENUGETOBJECTINFO extends ffi.Struct {
   external ffi.Pointer<ffi.Void> pvObj;
 }
 
-class LPMENUITEMINFOA extends ffi.Struct {
+final class LPMENUITEMINFOA extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62428,7 +62428,7 @@ class LPMENUITEMINFOA extends ffi.Struct {
   external ffi.Pointer<HBITMAP__> hbmpItem;
 }
 
-class LPMENUITEMINFOW extends ffi.Struct {
+final class LPMENUITEMINFOW extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62461,9 +62461,9 @@ class LPMENUITEMINFOW extends ffi.Struct {
   external ffi.Pointer<HBITMAP__> hbmpItem;
 }
 
-class LPDROPSTRUCT extends ffi.Opaque {}
+final class LPDROPSTRUCT extends ffi.Opaque {}
 
-class LPDRAWTEXTPARAMS extends ffi.Struct {
+final class LPDRAWTEXTPARAMS extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62480,9 +62480,9 @@ class LPDRAWTEXTPARAMS extends ffi.Struct {
   external int uiLengthDrawn;
 }
 
-class LPHELPINFO extends ffi.Opaque {}
+final class LPHELPINFO extends ffi.Opaque {}
 
-class LPMSGBOXPARAMSA extends ffi.Struct {
+final class LPMSGBOXPARAMSA extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62508,7 +62508,7 @@ class LPMSGBOXPARAMSA extends ffi.Struct {
   external int dwLanguageId;
 }
 
-class LPMSGBOXPARAMSW extends ffi.Struct {
+final class LPMSGBOXPARAMSW extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62534,7 +62534,7 @@ class LPMSGBOXPARAMSW extends ffi.Struct {
   external int dwLanguageId;
 }
 
-class PMENUITEMTEMPLATEHEADER extends ffi.Struct {
+final class PMENUITEMTEMPLATEHEADER extends ffi.Struct {
   @ffi.Uint16()
   external int versionNumber;
 
@@ -62542,9 +62542,9 @@ class PMENUITEMTEMPLATEHEADER extends ffi.Struct {
   external int offset;
 }
 
-class PMENUITEMTEMPLATE extends ffi.Opaque {}
+final class PMENUITEMTEMPLATE extends ffi.Opaque {}
 
-class ICONINFO extends ffi.Struct {
+final class ICONINFO extends ffi.Struct {
   @ffi.Int32()
   external int fIcon;
 
@@ -62559,7 +62559,7 @@ class ICONINFO extends ffi.Struct {
   external ffi.Pointer<HBITMAP__> hbmColor;
 }
 
-class LPCURSORSHAPE extends ffi.Struct {
+final class LPCURSORSHAPE extends ffi.Struct {
   @ffi.Int32()
   external int xHotSpot;
 
@@ -62582,9 +62582,9 @@ class LPCURSORSHAPE extends ffi.Struct {
   external int BitsPixel;
 }
 
-class PICONINFOEXA extends ffi.Opaque {}
+final class PICONINFOEXA extends ffi.Opaque {}
 
-class PICONINFOEXW extends ffi.Opaque {}
+final class PICONINFOEXW extends ffi.Opaque {}
 
 abstract class EDIT_CONTROL_FEATURE {
   static const int
@@ -62592,7 +62592,7 @@ abstract class EDIT_CONTROL_FEATURE {
   static const int EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS = 1;
 }
 
-class LPSCROLLINFO extends ffi.Struct {
+final class LPSCROLLINFO extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62615,8 +62615,8 @@ class LPSCROLLINFO extends ffi.Struct {
   external int nTrackPos;
 }
 
-class LPMDICREATESTRUCTA extends ffi.Struct {
-  external ffi.Pointer<ffi.Int8> szClass;
+final class LPMDICREATESTRUCTA extends ffi.Struct {
+  external final ffi.Pointer<ffi.Int8> szClass;
 
   external ffi.Pointer<ffi.Int8> szTitle;
 
@@ -62641,8 +62641,8 @@ class LPMDICREATESTRUCTA extends ffi.Struct {
   external int lParam;
 }
 
-class LPMDICREATESTRUCTW extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint16> szClass;
+final class LPMDICREATESTRUCTW extends ffi.Struct {
+  external final ffi.Pointer<ffi.Uint16> szClass;
 
   external ffi.Pointer<ffi.Uint16> szTitle;
 
@@ -62667,22 +62667,22 @@ class LPMDICREATESTRUCTW extends ffi.Struct {
   external int lParam;
 }
 
-class LPCLIENTCREATESTRUCT extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> hWindowMenu;
+final class LPCLIENTCREATESTRUCT extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> hWindowMenu;
 
   @ffi.Uint32()
   external int idFirstChild;
 }
 
-class LPMULTIKEYHELPA extends ffi.Opaque {}
+final class LPMULTIKEYHELPA extends ffi.Opaque {}
 
-class LPMULTIKEYHELPW extends ffi.Opaque {}
+final class LPMULTIKEYHELPW extends ffi.Opaque {}
 
-class LPHELPWININFOA extends ffi.Opaque {}
+final class LPHELPWININFOA extends ffi.Opaque {}
 
-class LPHELPWININFOW extends ffi.Opaque {}
+final class LPHELPWININFOW extends ffi.Opaque {}
 
-class PTOUCHPREDICTIONPARAMETERS extends ffi.Struct {
+final class PTOUCHPREDICTIONPARAMETERS extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62701,11 +62701,11 @@ abstract class PHANDEDNESS {
   static const int HANDEDNESS_RIGHT = 1;
 }
 
-class LPNONCLIENTMETRICSA extends ffi.Opaque {}
+final class LPNONCLIENTMETRICSA extends ffi.Opaque {}
 
-class LPNONCLIENTMETRICSW extends ffi.Opaque {}
+final class LPNONCLIENTMETRICSW extends ffi.Opaque {}
 
-class LPMINIMIZEDMETRICS extends ffi.Struct {
+final class LPMINIMIZEDMETRICS extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62722,11 +62722,11 @@ class LPMINIMIZEDMETRICS extends ffi.Struct {
   external int iArrange;
 }
 
-class LPICONMETRICSA extends ffi.Opaque {}
+final class LPICONMETRICSA extends ffi.Opaque {}
 
-class LPICONMETRICSW extends ffi.Opaque {}
+final class LPICONMETRICSW extends ffi.Opaque {}
 
-class LPANIMATIONINFO extends ffi.Struct {
+final class LPANIMATIONINFO extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62734,7 +62734,7 @@ class LPANIMATIONINFO extends ffi.Struct {
   external int iMinAnimate;
 }
 
-class LPSERIALKEYSA extends ffi.Struct {
+final class LPSERIALKEYSA extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62755,7 +62755,7 @@ class LPSERIALKEYSA extends ffi.Struct {
   external int iActive;
 }
 
-class LPSERIALKEYSW extends ffi.Struct {
+final class LPSERIALKEYSW extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62776,7 +62776,7 @@ class LPSERIALKEYSW extends ffi.Struct {
   external int iActive;
 }
 
-class LPHIGHCONTRASTA extends ffi.Struct {
+final class LPHIGHCONTRASTA extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62786,7 +62786,7 @@ class LPHIGHCONTRASTA extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> lpszDefaultScheme;
 }
 
-class LPHIGHCONTRASTW extends ffi.Struct {
+final class LPHIGHCONTRASTW extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62796,9 +62796,9 @@ class LPHIGHCONTRASTW extends ffi.Struct {
   external ffi.Pointer<ffi.Uint16> lpszDefaultScheme;
 }
 
-class LPVIDEOPARAMETERS extends ffi.Opaque {}
+final class LPVIDEOPARAMETERS extends ffi.Opaque {}
 
-class LPFILTERKEYS extends ffi.Struct {
+final class LPFILTERKEYS extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62818,7 +62818,7 @@ class LPFILTERKEYS extends ffi.Struct {
   external int iBounceMSec;
 }
 
-class LPSTICKYKEYS extends ffi.Struct {
+final class LPSTICKYKEYS extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62826,7 +62826,7 @@ class LPSTICKYKEYS extends ffi.Struct {
   external int dwFlags;
 }
 
-class LPMOUSEKEYS extends ffi.Struct {
+final class LPMOUSEKEYS extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62849,7 +62849,7 @@ class LPMOUSEKEYS extends ffi.Struct {
   external int dwReserved2;
 }
 
-class LPACCESSTIMEOUT extends ffi.Struct {
+final class LPACCESSTIMEOUT extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62860,7 +62860,7 @@ class LPACCESSTIMEOUT extends ffi.Struct {
   external int iTimeOutMSec;
 }
 
-class LPSOUNDSENTRYA extends ffi.Struct {
+final class LPSOUNDSENTRYA extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62897,7 +62897,7 @@ class LPSOUNDSENTRYA extends ffi.Struct {
   external int iWindowsEffectOrdinal;
 }
 
-class LPSOUNDSENTRYW extends ffi.Struct {
+final class LPSOUNDSENTRYW extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62934,7 +62934,7 @@ class LPSOUNDSENTRYW extends ffi.Struct {
   external int iWindowsEffectOrdinal;
 }
 
-class LPTOGGLEKEYS extends ffi.Struct {
+final class LPTOGGLEKEYS extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62942,7 +62942,7 @@ class LPTOGGLEKEYS extends ffi.Struct {
   external int dwFlags;
 }
 
-class LPAUDIODESCRIPTION extends ffi.Struct {
+final class LPAUDIODESCRIPTION extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -62953,36 +62953,36 @@ class LPAUDIODESCRIPTION extends ffi.Struct {
   external int Locale;
 }
 
-class LPMONITORINFO extends ffi.Opaque {}
+final class LPMONITORINFO extends ffi.Opaque {}
 
-class LPMONITORINFOEXA extends ffi.Opaque {}
+final class LPMONITORINFOEXA extends ffi.Opaque {}
 
-class LPMONITORINFOEXW extends ffi.Opaque {}
+final class LPMONITORINFOEXW extends ffi.Opaque {}
 
-class LPGUITHREADINFO extends ffi.Opaque {}
+final class LPGUITHREADINFO extends ffi.Opaque {}
 
-class LPCURSORINFO extends ffi.Opaque {}
+final class LPCURSORINFO extends ffi.Opaque {}
 
-class LPWINDOWINFO extends ffi.Opaque {}
+final class LPWINDOWINFO extends ffi.Opaque {}
 
-class LPTITLEBARINFO extends ffi.Opaque {}
+final class LPTITLEBARINFO extends ffi.Opaque {}
 
-class LPTITLEBARINFOEX extends ffi.Opaque {}
+final class LPTITLEBARINFOEX extends ffi.Opaque {}
 
-class LPMENUBARINFO extends ffi.Opaque {}
+final class LPMENUBARINFO extends ffi.Opaque {}
 
-class LPSCROLLBARINFO extends ffi.Opaque {}
+final class LPSCROLLBARINFO extends ffi.Opaque {}
 
-class LPCOMBOBOXINFO extends ffi.Opaque {}
+final class LPCOMBOBOXINFO extends ffi.Opaque {}
 
-class LPALTTABINFO extends ffi.Opaque {}
+final class LPALTTABINFO extends ffi.Opaque {}
 
-class HRAWINPUT__ extends ffi.Struct {
+final class HRAWINPUT__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class LPRAWINPUTHEADER extends ffi.Struct {
+final class LPRAWINPUTHEADER extends ffi.Struct {
   @ffi.Uint64()
   external int dwType;
 
@@ -62995,7 +62995,7 @@ class LPRAWINPUTHEADER extends ffi.Struct {
   external int wParam;
 }
 
-class LPRAWMOUSE extends ffi.Struct {
+final class LPRAWMOUSE extends ffi.Struct {
   @ffi.Uint16()
   external int usFlags;
 
@@ -63012,7 +63012,7 @@ class LPRAWMOUSE extends ffi.Struct {
   external int ulExtraInformation;
 }
 
-class LPRAWKEYBOARD extends ffi.Struct {
+final class LPRAWKEYBOARD extends ffi.Struct {
   @ffi.Uint16()
   external int MakeCode;
 
@@ -63032,11 +63032,11 @@ class LPRAWKEYBOARD extends ffi.Struct {
   external int ExtraInformation;
 }
 
-class LPRAWHID extends ffi.Opaque {}
+final class LPRAWHID extends ffi.Opaque {}
 
-class LPRAWINPUT extends ffi.Opaque {}
+final class LPRAWINPUT extends ffi.Opaque {}
 
-class PRID_DEVICE_INFO_MOUSE extends ffi.Struct {
+final class PRID_DEVICE_INFO_MOUSE extends ffi.Struct {
   @ffi.Uint64()
   external int dwId;
 
@@ -63050,7 +63050,7 @@ class PRID_DEVICE_INFO_MOUSE extends ffi.Struct {
   external int fHasHorizontalWheel;
 }
 
-class PRID_DEVICE_INFO_KEYBOARD extends ffi.Struct {
+final class PRID_DEVICE_INFO_KEYBOARD extends ffi.Struct {
   @ffi.Uint64()
   external int dwType;
 
@@ -63070,7 +63070,7 @@ class PRID_DEVICE_INFO_KEYBOARD extends ffi.Struct {
   external int dwNumberOfKeysTotal;
 }
 
-class PRID_DEVICE_INFO_HID extends ffi.Struct {
+final class PRID_DEVICE_INFO_HID extends ffi.Struct {
   @ffi.Uint64()
   external int dwVendorId;
 
@@ -63087,7 +63087,7 @@ class PRID_DEVICE_INFO_HID extends ffi.Struct {
   external int usUsage;
 }
 
-class LPRID_DEVICE_INFO extends ffi.Struct {
+final class LPRID_DEVICE_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int cbSize;
 
@@ -63095,7 +63095,7 @@ class LPRID_DEVICE_INFO extends ffi.Struct {
   external int dwType;
 }
 
-class LPRAWINPUTDEVICE extends ffi.Struct {
+final class LPRAWINPUTDEVICE extends ffi.Struct {
   @ffi.Uint16()
   external int usUsagePage;
 
@@ -63108,8 +63108,8 @@ class LPRAWINPUTDEVICE extends ffi.Struct {
   external ffi.Pointer<HWND__> hwndTarget;
 }
 
-class PRAWINPUTDEVICELIST extends ffi.Struct {
-  external ffi.Pointer<ffi.Void> hDevice;
+final class PRAWINPUTDEVICELIST extends ffi.Struct {
+  external final ffi.Pointer<ffi.Void> hDevice;
 
   @ffi.Uint64()
   external int dwType;
@@ -63123,9 +63123,9 @@ abstract class POINTER_DEVICE_TYPE {
   static const int POINTER_DEVICE_TYPE_MAX = -1;
 }
 
-class POINTER_DEVICE_INFO extends ffi.Opaque {}
+final class POINTER_DEVICE_INFO extends ffi.Opaque {}
 
-class POINTER_DEVICE_PROPERTY extends ffi.Struct {
+final class POINTER_DEVICE_PROPERTY extends ffi.Struct {
   @ffi.Int32()
   external int logicalMin;
 
@@ -63158,7 +63158,7 @@ abstract class POINTER_DEVICE_CURSOR_TYPE {
   static const int POINTER_DEVICE_CURSOR_TYPE_MAX = -1;
 }
 
-class POINTER_DEVICE_CURSOR_INFO extends ffi.Struct {
+final class POINTER_DEVICE_CURSOR_INFO extends ffi.Struct {
   @ffi.Uint32()
   external int cursorId;
 
@@ -63166,7 +63166,7 @@ class POINTER_DEVICE_CURSOR_INFO extends ffi.Struct {
   external int cursor;
 }
 
-class PCHANGEFILTERSTRUCT extends ffi.Struct {
+final class PCHANGEFILTERSTRUCT extends ffi.Struct {
   @ffi.Uint64()
   external int cbSize;
 
@@ -63174,16 +63174,16 @@ class PCHANGEFILTERSTRUCT extends ffi.Struct {
   external int ExtStatus;
 }
 
-class HGESTUREINFO__ extends ffi.Struct {
+final class HGESTUREINFO__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class PGESTUREINFO extends ffi.Opaque {}
+final class PGESTUREINFO extends ffi.Opaque {}
 
-class PGESTURENOTIFYSTRUCT extends ffi.Opaque {}
+final class PGESTURENOTIFYSTRUCT extends ffi.Opaque {}
 
-class PGESTURECONFIG extends ffi.Struct {
+final class PGESTURECONFIG extends ffi.Struct {
   @ffi.Uint64()
   external int dwID;
 
@@ -63210,7 +63210,7 @@ abstract class INPUT_MESSAGE_ORIGIN_ID {
   static const int IMO_SYSTEM = 4;
 }
 
-class INPUT_MESSAGE_SOURCE extends ffi.Struct {
+final class INPUT_MESSAGE_SOURCE extends ffi.Struct {
   @ffi.Int32()
   external int deviceType;
 
@@ -63238,13 +63238,13 @@ abstract class ORIENTATION_PREFERENCE {
   static const int ORIENTATION_PREFERENCE_PORTRAIT_FLIPPED = 8;
 }
 
-class LPCPINFO extends ffi.Opaque {}
+final class LPCPINFO extends ffi.Opaque {}
 
-class LPCPINFOEXA extends ffi.Opaque {}
+final class LPCPINFOEXA extends ffi.Opaque {}
 
-class LPCPINFOEXW extends ffi.Opaque {}
+final class LPCPINFOEXW extends ffi.Opaque {}
 
-class LPNUMBERFMTA extends ffi.Struct {
+final class LPNUMBERFMTA extends ffi.Struct {
   @ffi.Uint32()
   external int NumDigits;
 
@@ -63262,7 +63262,7 @@ class LPNUMBERFMTA extends ffi.Struct {
   external int NegativeOrder;
 }
 
-class LPNUMBERFMTW extends ffi.Struct {
+final class LPNUMBERFMTW extends ffi.Struct {
   @ffi.Uint32()
   external int NumDigits;
 
@@ -63280,7 +63280,7 @@ class LPNUMBERFMTW extends ffi.Struct {
   external int NegativeOrder;
 }
 
-class LPCURRENCYFMTA extends ffi.Struct {
+final class LPCURRENCYFMTA extends ffi.Struct {
   @ffi.Uint32()
   external int NumDigits;
 
@@ -63303,7 +63303,7 @@ class LPCURRENCYFMTA extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> lpCurrencySymbol;
 }
 
-class LPCURRENCYFMTW extends ffi.Struct {
+final class LPCURRENCYFMTW extends ffi.Struct {
   @ffi.Uint32()
   external int NumDigits;
 
@@ -63330,9 +63330,9 @@ abstract class SYSNLS_FUNCTION {
   static const int COMPARE_STRING = 1;
 }
 
-class LPNLSVERSIONINFO extends ffi.Opaque {}
+final class LPNLSVERSIONINFO extends ffi.Opaque {}
 
-class LPNLSVERSIONINFOEX extends ffi.Opaque {}
+final class LPNLSVERSIONINFOEX extends ffi.Opaque {}
 
 abstract class SYSGEOTYPE {
   static const int GEO_NATION = 1;
@@ -63369,14 +63369,14 @@ abstract class NORM_FORM {
   static const int NormalizationKD = 6;
 }
 
-class PFILEMUIINFO extends ffi.Opaque {}
+final class PFILEMUIINFO extends ffi.Opaque {}
 
-class HSAVEDUILANGUAGES__ extends ffi.Struct {
+final class HSAVEDUILANGUAGES__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class PCOORD extends ffi.Struct {
+final class PCOORD extends ffi.Struct {
   @ffi.Int16()
   external int X;
 
@@ -63384,7 +63384,7 @@ class PCOORD extends ffi.Struct {
   external int Y;
 }
 
-class PSMALL_RECT extends ffi.Struct {
+final class PSMALL_RECT extends ffi.Struct {
   @ffi.Int16()
   external int Left;
 
@@ -63398,29 +63398,29 @@ class PSMALL_RECT extends ffi.Struct {
   external int Bottom;
 }
 
-class PKEY_EVENT_RECORD extends ffi.Opaque {}
+final class PKEY_EVENT_RECORD extends ffi.Opaque {}
 
-class PMOUSE_EVENT_RECORD extends ffi.Opaque {}
+final class PMOUSE_EVENT_RECORD extends ffi.Opaque {}
 
-class PWINDOW_BUFFER_SIZE_RECORD extends ffi.Opaque {}
+final class PWINDOW_BUFFER_SIZE_RECORD extends ffi.Opaque {}
 
-class PMENU_EVENT_RECORD extends ffi.Struct {
+final class PMENU_EVENT_RECORD extends ffi.Struct {
   @ffi.Uint32()
   external int dwCommandId;
 }
 
-class PFOCUS_EVENT_RECORD extends ffi.Struct {
+final class PFOCUS_EVENT_RECORD extends ffi.Struct {
   @ffi.Int32()
   external int bSetFocus;
 }
 
-class PINPUT_RECORD extends ffi.Opaque {}
+final class PINPUT_RECORD extends ffi.Opaque {}
 
-class PCHAR_INFO extends ffi.Opaque {}
+final class PCHAR_INFO extends ffi.Opaque {}
 
-class PCONSOLE_FONT_INFO extends ffi.Opaque {}
+final class PCONSOLE_FONT_INFO extends ffi.Opaque {}
 
-class PCONSOLE_READCONSOLE_CONTROL extends ffi.Struct {
+final class PCONSOLE_READCONSOLE_CONTROL extends ffi.Struct {
   @ffi.Uint64()
   external int nLength;
 
@@ -63434,7 +63434,7 @@ class PCONSOLE_READCONSOLE_CONTROL extends ffi.Struct {
   external int dwControlKeyState;
 }
 
-class PCONSOLE_CURSOR_INFO extends ffi.Struct {
+final class PCONSOLE_CURSOR_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int dwSize;
 
@@ -63442,15 +63442,15 @@ class PCONSOLE_CURSOR_INFO extends ffi.Struct {
   external int bVisible;
 }
 
-class PCONSOLE_SCREEN_BUFFER_INFO extends ffi.Opaque {}
+final class PCONSOLE_SCREEN_BUFFER_INFO extends ffi.Opaque {}
 
-class PCONSOLE_SCREEN_BUFFER_INFOEX extends ffi.Opaque {}
+final class PCONSOLE_SCREEN_BUFFER_INFOEX extends ffi.Opaque {}
 
-class PCONSOLE_FONT_INFOEX extends ffi.Opaque {}
+final class PCONSOLE_FONT_INFOEX extends ffi.Opaque {}
 
-class PCONSOLE_SELECTION_INFO extends ffi.Opaque {}
+final class PCONSOLE_SELECTION_INFO extends ffi.Opaque {}
 
-class PCONSOLE_HISTORY_INFO extends ffi.Struct {
+final class PCONSOLE_HISTORY_INFO extends ffi.Struct {
   @ffi.Uint32()
   external int cbSize;
 
@@ -63464,7 +63464,7 @@ class PCONSOLE_HISTORY_INFO extends ffi.Struct {
   external int dwFlags;
 }
 
-class VS_FIXEDFILEINFO extends ffi.Struct {
+final class VS_FIXEDFILEINFO extends ffi.Struct {
   @ffi.Uint64()
   external int dwSignature;
 
@@ -63505,7 +63505,7 @@ class VS_FIXEDFILEINFO extends ffi.Struct {
   external int dwFileDateLS;
 }
 
-class val_context extends ffi.Struct {
+final class val_context extends ffi.Struct {
   @ffi.Int32()
   external int valuelen;
 
@@ -63514,7 +63514,7 @@ class val_context extends ffi.Struct {
   external ffi.Pointer<ffi.Void> val_buff_ptr;
 }
 
-class PPVALUEA extends ffi.Struct {
+final class PPVALUEA extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> pv_valuename;
 
   @ffi.Int32()
@@ -63526,7 +63526,7 @@ class PPVALUEA extends ffi.Struct {
   external int pv_type;
 }
 
-class PPVALUEW extends ffi.Struct {
+final class PPVALUEW extends ffi.Struct {
   external ffi.Pointer<ffi.Uint16> pv_valuename;
 
   @ffi.Int32()
@@ -63538,7 +63538,7 @@ class PPVALUEW extends ffi.Struct {
   external int pv_type;
 }
 
-class REG_PROVIDER extends ffi.Struct {
+final class REG_PROVIDER extends ffi.Struct {
   external ffi.Pointer<ffi.NativeFunction<PQUERYHANDLER>> pi_R0_1val;
 
   external ffi.Pointer<ffi.NativeFunction<PQUERYHANDLER>> pi_R0_allvals;
@@ -63553,7 +63553,7 @@ class REG_PROVIDER extends ffi.Struct {
   external ffi.Pointer<ffi.Void> pi_key_context;
 }
 
-class PVALENTA extends ffi.Struct {
+final class PVALENTA extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> ve_valuename;
 
   @ffi.Uint64()
@@ -63566,7 +63566,7 @@ class PVALENTA extends ffi.Struct {
   external int ve_type;
 }
 
-class PVALENTW extends ffi.Struct {
+final class PVALENTW extends ffi.Struct {
   external ffi.Pointer<ffi.Uint16> ve_valuename;
 
   @ffi.Uint64()
@@ -63579,7 +63579,7 @@ class PVALENTW extends ffi.Struct {
   external int ve_type;
 }
 
-class LPNETRESOURCEA extends ffi.Struct {
+final class LPNETRESOURCEA extends ffi.Struct {
   @ffi.Uint64()
   external int dwScope;
 
@@ -63601,7 +63601,7 @@ class LPNETRESOURCEA extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> lpProvider;
 }
 
-class LPNETRESOURCEW extends ffi.Struct {
+final class LPNETRESOURCEW extends ffi.Struct {
   @ffi.Uint64()
   external int dwScope;
 
@@ -63623,7 +63623,7 @@ class LPNETRESOURCEW extends ffi.Struct {
   external ffi.Pointer<ffi.Uint16> lpProvider;
 }
 
-class LPCONNECTDLGSTRUCTA extends ffi.Struct {
+final class LPCONNECTDLGSTRUCTA extends ffi.Struct {
   @ffi.Uint64()
   external int cbStructure;
 
@@ -63638,7 +63638,7 @@ class LPCONNECTDLGSTRUCTA extends ffi.Struct {
   external int dwDevNum;
 }
 
-class LPCONNECTDLGSTRUCTW extends ffi.Struct {
+final class LPCONNECTDLGSTRUCTW extends ffi.Struct {
   @ffi.Uint64()
   external int cbStructure;
 
@@ -63653,7 +63653,7 @@ class LPCONNECTDLGSTRUCTW extends ffi.Struct {
   external int dwDevNum;
 }
 
-class LPDISCDLGSTRUCTA extends ffi.Struct {
+final class LPDISCDLGSTRUCTA extends ffi.Struct {
   @ffi.Uint64()
   external int cbStructure;
 
@@ -63667,7 +63667,7 @@ class LPDISCDLGSTRUCTA extends ffi.Struct {
   external int dwFlags;
 }
 
-class LPDISCDLGSTRUCTW extends ffi.Struct {
+final class LPDISCDLGSTRUCTW extends ffi.Struct {
   @ffi.Uint64()
   external int cbStructure;
 
@@ -63681,31 +63681,31 @@ class LPDISCDLGSTRUCTW extends ffi.Struct {
   external int dwFlags;
 }
 
-class LPUNIVERSAL_NAME_INFOA extends ffi.Struct {
-  external ffi.Pointer<ffi.Int8> lpUniversalName;
+final class LPUNIVERSAL_NAME_INFOA extends ffi.Struct {
+  external final ffi.Pointer<ffi.Int8> lpUniversalName;
 }
 
-class LPUNIVERSAL_NAME_INFOW extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint16> lpUniversalName;
+final class LPUNIVERSAL_NAME_INFOW extends ffi.Struct {
+  external final ffi.Pointer<ffi.Uint16> lpUniversalName;
 }
 
-class LPREMOTE_NAME_INFOA extends ffi.Struct {
-  external ffi.Pointer<ffi.Int8> lpUniversalName;
+final class LPREMOTE_NAME_INFOA extends ffi.Struct {
+  external final ffi.Pointer<ffi.Int8> lpUniversalName;
 
   external ffi.Pointer<ffi.Int8> lpConnectionName;
 
   external ffi.Pointer<ffi.Int8> lpRemainingPath;
 }
 
-class LPREMOTE_NAME_INFOW extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint16> lpUniversalName;
+final class LPREMOTE_NAME_INFOW extends ffi.Struct {
+  external final ffi.Pointer<ffi.Uint16> lpUniversalName;
 
   external ffi.Pointer<ffi.Uint16> lpConnectionName;
 
   external ffi.Pointer<ffi.Uint16> lpRemainingPath;
 }
 
-class LPNETINFOSTRUCT extends ffi.Struct {
+final class LPNETINFOSTRUCT extends ffi.Struct {
   @ffi.Uint64()
   external int cbStructure;
 
@@ -63731,7 +63731,7 @@ class LPNETINFOSTRUCT extends ffi.Struct {
   external int dwDrives;
 }
 
-class LPNETCONNECTINFOSTRUCT extends ffi.Struct {
+final class LPNETCONNECTINFOSTRUCT extends ffi.Struct {
   @ffi.Uint64()
   external int cbStructure;
 
@@ -63748,16 +63748,16 @@ class LPNETCONNECTINFOSTRUCT extends ffi.Struct {
   external int dwOptDataSize;
 }
 
-class SERVICE_TRIGGER_CUSTOM_STATE_ID extends ffi.Opaque {}
+final class SERVICE_TRIGGER_CUSTOM_STATE_ID extends ffi.Opaque {}
 
-class LPSERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM extends ffi.Opaque {}
+final class LPSERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM extends ffi.Opaque {}
 
-class LPSERVICE_DESCRIPTIONA extends ffi.Struct {
-  external ffi.Pointer<ffi.Int8> lpDescription;
+final class LPSERVICE_DESCRIPTIONA extends ffi.Struct {
+  external final ffi.Pointer<ffi.Int8> lpDescription;
 }
 
-class LPSERVICE_DESCRIPTIONW extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint16> lpDescription;
+final class LPSERVICE_DESCRIPTIONW extends ffi.Struct {
+  external final ffi.Pointer<ffi.Uint16> lpDescription;
 }
 
 abstract class SC_ACTION_TYPE {
@@ -63768,7 +63768,7 @@ abstract class SC_ACTION_TYPE {
   static const int SC_ACTION_OWN_RESTART = 4;
 }
 
-class LPSC_ACTION extends ffi.Struct {
+final class LPSC_ACTION extends ffi.Struct {
   @ffi.Int32()
   external int Type;
 
@@ -63776,7 +63776,7 @@ class LPSC_ACTION extends ffi.Struct {
   external int Delay;
 }
 
-class LPSERVICE_FAILURE_ACTIONSA extends ffi.Struct {
+final class LPSERVICE_FAILURE_ACTIONSA extends ffi.Struct {
   @ffi.Uint64()
   external int dwResetPeriod;
 
@@ -63790,7 +63790,7 @@ class LPSERVICE_FAILURE_ACTIONSA extends ffi.Struct {
   external ffi.Pointer<LPSC_ACTION> lpsaActions;
 }
 
-class LPSERVICE_FAILURE_ACTIONSW extends ffi.Struct {
+final class LPSERVICE_FAILURE_ACTIONSW extends ffi.Struct {
   @ffi.Uint64()
   external int dwResetPeriod;
 
@@ -63804,35 +63804,35 @@ class LPSERVICE_FAILURE_ACTIONSW extends ffi.Struct {
   external ffi.Pointer<LPSC_ACTION> lpsaActions;
 }
 
-class LPSERVICE_DELAYED_AUTO_START_INFO extends ffi.Struct {
+final class LPSERVICE_DELAYED_AUTO_START_INFO extends ffi.Struct {
   @ffi.Int32()
   external int fDelayedAutostart;
 }
 
-class LPSERVICE_FAILURE_ACTIONS_FLAG extends ffi.Struct {
+final class LPSERVICE_FAILURE_ACTIONS_FLAG extends ffi.Struct {
   @ffi.Int32()
   external int fFailureActionsOnNonCrashFailures;
 }
 
-class LPSERVICE_SID_INFO extends ffi.Struct {
+final class LPSERVICE_SID_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int dwServiceSidType;
 }
 
-class LPSERVICE_REQUIRED_PRIVILEGES_INFOA extends ffi.Struct {
-  external ffi.Pointer<ffi.Int8> pmszRequiredPrivileges;
+final class LPSERVICE_REQUIRED_PRIVILEGES_INFOA extends ffi.Struct {
+  external final ffi.Pointer<ffi.Int8> pmszRequiredPrivileges;
 }
 
-class LPSERVICE_REQUIRED_PRIVILEGES_INFOW extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint16> pmszRequiredPrivileges;
+final class LPSERVICE_REQUIRED_PRIVILEGES_INFOW extends ffi.Struct {
+  external final ffi.Pointer<ffi.Uint16> pmszRequiredPrivileges;
 }
 
-class LPSERVICE_PRESHUTDOWN_INFO extends ffi.Struct {
+final class LPSERVICE_PRESHUTDOWN_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int dwPreshutdownTimeout;
 }
 
-class PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM extends ffi.Struct {
+final class PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM extends ffi.Struct {
   @ffi.Uint64()
   external int dwDataType;
 
@@ -63842,7 +63842,7 @@ class PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM extends ffi.Struct {
   external ffi.Pointer<ffi.Uint8> pData;
 }
 
-class PSERVICE_TRIGGER extends ffi.Struct {
+final class PSERVICE_TRIGGER extends ffi.Struct {
   @ffi.Uint64()
   external int dwTriggerType;
 
@@ -63857,7 +63857,7 @@ class PSERVICE_TRIGGER extends ffi.Struct {
   external ffi.Pointer<PSERVICE_TRIGGER_SPECIFIC_DATA_ITEM> pDataItems;
 }
 
-class PSERVICE_TRIGGER_INFO extends ffi.Struct {
+final class PSERVICE_TRIGGER_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int cTriggers;
 
@@ -63866,7 +63866,7 @@ class PSERVICE_TRIGGER_INFO extends ffi.Struct {
   external ffi.Pointer<ffi.Uint8> pReserved;
 }
 
-class LPSERVICE_PREFERRED_NODE_INFO extends ffi.Struct {
+final class LPSERVICE_PREFERRED_NODE_INFO extends ffi.Struct {
   @ffi.Uint16()
   external int usPreferredNode;
 
@@ -63874,19 +63874,19 @@ class LPSERVICE_PREFERRED_NODE_INFO extends ffi.Struct {
   external int fDelete;
 }
 
-class PSERVICE_TIMECHANGE_INFO extends ffi.Opaque {}
+final class PSERVICE_TIMECHANGE_INFO extends ffi.Opaque {}
 
-class PSERVICE_LAUNCH_PROTECTED_INFO extends ffi.Struct {
+final class PSERVICE_LAUNCH_PROTECTED_INFO extends ffi.Struct {
   @ffi.Uint64()
   external int dwLaunchProtected;
 }
 
-class SC_HANDLE__ extends ffi.Struct {
+final class SC_HANDLE__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class SERVICE_STATUS_HANDLE__ extends ffi.Struct {
+final class SERVICE_STATUS_HANDLE__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
@@ -63899,7 +63899,7 @@ abstract class SC_ENUM_TYPE {
   static const int SC_ENUM_PROCESS_INFO = 0;
 }
 
-class LPSERVICE_STATUS extends ffi.Struct {
+final class LPSERVICE_STATUS extends ffi.Struct {
   @ffi.Uint64()
   external int dwServiceType;
 
@@ -63922,7 +63922,7 @@ class LPSERVICE_STATUS extends ffi.Struct {
   external int dwWaitHint;
 }
 
-class LPSERVICE_STATUS_PROCESS extends ffi.Struct {
+final class LPSERVICE_STATUS_PROCESS extends ffi.Struct {
   @ffi.Uint64()
   external int dwServiceType;
 
@@ -63951,15 +63951,15 @@ class LPSERVICE_STATUS_PROCESS extends ffi.Struct {
   external int dwServiceFlags;
 }
 
-class LPENUM_SERVICE_STATUSA extends ffi.Opaque {}
+final class LPENUM_SERVICE_STATUSA extends ffi.Opaque {}
 
-class LPENUM_SERVICE_STATUSW extends ffi.Opaque {}
+final class LPENUM_SERVICE_STATUSW extends ffi.Opaque {}
 
-class LPENUM_SERVICE_STATUS_PROCESSA extends ffi.Opaque {}
+final class LPENUM_SERVICE_STATUS_PROCESSA extends ffi.Opaque {}
 
-class LPENUM_SERVICE_STATUS_PROCESSW extends ffi.Opaque {}
+final class LPENUM_SERVICE_STATUS_PROCESSW extends ffi.Opaque {}
 
-class LPQUERY_SERVICE_LOCK_STATUSA extends ffi.Struct {
+final class LPQUERY_SERVICE_LOCK_STATUSA extends ffi.Struct {
   @ffi.Uint64()
   external int fIsLocked;
 
@@ -63969,7 +63969,7 @@ class LPQUERY_SERVICE_LOCK_STATUSA extends ffi.Struct {
   external int dwLockDuration;
 }
 
-class LPQUERY_SERVICE_LOCK_STATUSW extends ffi.Struct {
+final class LPQUERY_SERVICE_LOCK_STATUSW extends ffi.Struct {
   @ffi.Uint64()
   external int fIsLocked;
 
@@ -63979,7 +63979,7 @@ class LPQUERY_SERVICE_LOCK_STATUSW extends ffi.Struct {
   external int dwLockDuration;
 }
 
-class LPQUERY_SERVICE_CONFIGA extends ffi.Struct {
+final class LPQUERY_SERVICE_CONFIGA extends ffi.Struct {
   @ffi.Uint64()
   external int dwServiceType;
 
@@ -64003,7 +64003,7 @@ class LPQUERY_SERVICE_CONFIGA extends ffi.Struct {
   external ffi.Pointer<ffi.Int8> lpDisplayName;
 }
 
-class LPQUERY_SERVICE_CONFIGW extends ffi.Struct {
+final class LPQUERY_SERVICE_CONFIGW extends ffi.Struct {
   @ffi.Uint64()
   external int dwServiceType;
 
@@ -64027,31 +64027,31 @@ class LPQUERY_SERVICE_CONFIGW extends ffi.Struct {
   external ffi.Pointer<ffi.Uint16> lpDisplayName;
 }
 
-class LPSERVICE_TABLE_ENTRYA extends ffi.Struct {
-  external ffi.Pointer<ffi.Int8> lpServiceName;
+final class LPSERVICE_TABLE_ENTRYA extends ffi.Struct {
+  external final ffi.Pointer<ffi.Int8> lpServiceName;
 
   external ffi.Pointer<ffi.NativeFunction<LPSERVICE_MAIN_FUNCTIONA>>
       lpServiceProc;
 }
 
-class LPSERVICE_TABLE_ENTRYW extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint16> lpServiceName;
+final class LPSERVICE_TABLE_ENTRYW extends ffi.Struct {
+  external final ffi.Pointer<ffi.Uint16> lpServiceName;
 
   external ffi.Pointer<ffi.NativeFunction<LPSERVICE_MAIN_FUNCTIONW>>
       lpServiceProc;
 }
 
-class PSERVICE_NOTIFY_1 extends ffi.Opaque {}
+final class PSERVICE_NOTIFY_1 extends ffi.Opaque {}
 
-class PSERVICE_NOTIFY_2A extends ffi.Opaque {}
+final class PSERVICE_NOTIFY_2A extends ffi.Opaque {}
 
-class PSERVICE_NOTIFY_2W extends ffi.Opaque {}
+final class PSERVICE_NOTIFY_2W extends ffi.Opaque {}
 
-class PSERVICE_CONTROL_STATUS_REASON_PARAMSA extends ffi.Opaque {}
+final class PSERVICE_CONTROL_STATUS_REASON_PARAMSA extends ffi.Opaque {}
 
-class PSERVICE_CONTROL_STATUS_REASON_PARAMSW extends ffi.Opaque {}
+final class PSERVICE_CONTROL_STATUS_REASON_PARAMSW extends ffi.Opaque {}
 
-class PSERVICE_START_REASON extends ffi.Struct {
+final class PSERVICE_START_REASON extends ffi.Struct {
   @ffi.Uint64()
   external int dwReason;
 }
@@ -64062,7 +64062,7 @@ abstract class PSC_EVENT_TYPE {
   static const int SC_EVENT_STATUS_CHANGE = 2;
 }
 
-class _SC_NOTIFICATION_REGISTRATION extends ffi.Opaque {}
+final class _SC_NOTIFICATION_REGISTRATION extends ffi.Opaque {}
 
 abstract class SERVICE_REGISTRY_STATE_TYPE {
   static const int ServiceRegistryStateParameters = 0;
@@ -64075,39 +64075,39 @@ abstract class SERVICE_DIRECTORY_TYPE {
   static const int ServiceDirectoryTypeMax = 1;
 }
 
-class LPMODEMDEVCAPS extends ffi.Opaque {}
+final class LPMODEMDEVCAPS extends ffi.Opaque {}
 
-class LPMODEMSETTINGS extends ffi.Opaque {}
+final class LPMODEMSETTINGS extends ffi.Opaque {}
 
-class HIMC__ extends ffi.Struct {
+final class HIMC__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class HIMCC__ extends ffi.Struct {
+final class HIMCC__ extends ffi.Struct {
   @ffi.Int32()
   external int unused;
 }
 
-class LPCOMPOSITIONFORM extends ffi.Opaque {}
+final class LPCOMPOSITIONFORM extends ffi.Opaque {}
 
-class LPCANDIDATEFORM extends ffi.Opaque {}
+final class LPCANDIDATEFORM extends ffi.Opaque {}
 
-class LPCANDIDATELIST extends ffi.Opaque {}
+final class LPCANDIDATELIST extends ffi.Opaque {}
 
-class LPREGISTERWORDA extends ffi.Struct {
-  external ffi.Pointer<ffi.Int8> lpReading;
+final class LPREGISTERWORDA extends ffi.Struct {
+  external final ffi.Pointer<ffi.Int8> lpReading;
 
   external ffi.Pointer<ffi.Int8> lpWord;
 }
 
-class LPREGISTERWORDW extends ffi.Struct {
-  external ffi.Pointer<ffi.Uint16> lpReading;
+final class LPREGISTERWORDW extends ffi.Struct {
+  external final ffi.Pointer<ffi.Uint16> lpReading;
 
   external ffi.Pointer<ffi.Uint16> lpWord;
 }
 
-class LPRECONVERTSTRING extends ffi.Struct {
+final class LPRECONVERTSTRING extends ffi.Struct {
   @ffi.Uint64()
   external int dwSize;
 
@@ -64133,45 +64133,45 @@ class LPRECONVERTSTRING extends ffi.Struct {
   external int dwTargetStrOffset;
 }
 
-class LPSTYLEBUFA extends ffi.Opaque {}
+final class LPSTYLEBUFA extends ffi.Opaque {}
 
-class LPSTYLEBUFW extends ffi.Opaque {}
+final class LPSTYLEBUFW extends ffi.Opaque {}
 
-class LPIMEMENUITEMINFOA extends ffi.Opaque {}
+final class LPIMEMENUITEMINFOA extends ffi.Opaque {}
 
-class LPIMEMENUITEMINFOW extends ffi.Opaque {}
+final class LPIMEMENUITEMINFOW extends ffi.Opaque {}
 
-class LPIMECHARPOSITION extends ffi.Opaque {}
+final class LPIMECHARPOSITION extends ffi.Opaque {}
 
-class _CrtMemBlockHeader extends ffi.Opaque {}
+// class _CrtMemBlockHeader extends ffi.Opaque {}
 
-class _CrtMemState extends ffi.Opaque {}
+// class _CrtMemState extends ffi.Opaque {}
 
-class _exception extends ffi.Struct {
-  @ffi.Int32()
-  external int type;
+// class _exception extends ffi.Struct {
+//   @ffi.Int32()
+//   external int type;
 
-  external ffi.Pointer<ffi.Int8> name;
+//   external ffi.Pointer<ffi.Int8> name;
 
-  @ffi.Double()
-  external double arg1;
+//   @ffi.Double()
+//   external double arg1;
 
-  @ffi.Double()
-  external double arg2;
+//   @ffi.Double()
+//   external double arg2;
 
-  @ffi.Double()
-  external double retval;
-}
+//   @ffi.Double()
+//   external double retval;
+// }
 
-class _complex extends ffi.Struct {
-  @ffi.Double()
-  external double x;
+// class _complex extends ffi.Struct {
+//   @ffi.Double()
+//   external double x;
 
-  @ffi.Double()
-  external double y;
-}
+//   @ffi.Double()
+//   external double y;
+// }
 
-class div_t extends ffi.Struct {
+final class div_t extends ffi.Struct {
   @ffi.Int32()
   external int quot;
 
@@ -64179,7 +64179,7 @@ class div_t extends ffi.Struct {
   external int rem;
 }
 
-class ldiv_t extends ffi.Struct {
+final class ldiv_t extends ffi.Struct {
   @ffi.Int64()
   external int quot;
 
@@ -64187,7 +64187,7 @@ class ldiv_t extends ffi.Struct {
   external int rem;
 }
 
-class lldiv_t extends ffi.Struct {
+final class lldiv_t extends ffi.Struct {
   @ffi.Int64()
   external int quot;
 
@@ -64195,23 +64195,23 @@ class lldiv_t extends ffi.Struct {
   external int rem;
 }
 
-class _LDOUBLE extends ffi.Opaque {}
+// class _LDOUBLE extends ffi.Opaque {}
 
-class _CRT_DOUBLE extends ffi.Struct {
-  @ffi.Double()
-  external double x;
-}
+// class _CRT_DOUBLE extends ffi.Struct {
+//   @ffi.Double()
+//   external double x;
+// }
 
-class _CRT_FLOAT extends ffi.Struct {
-  @ffi.Float()
-  external double f;
-}
+// class _CRT_FLOAT extends ffi.Struct {
+//   @ffi.Float()
+//   external double f;
+// }
 
-class _LONGDOUBLE extends ffi.Opaque {}
+// class _LONGDOUBLE extends ffi.Opaque {}
 
-class _LDBL12 extends ffi.Opaque {}
+// class _LDBL12 extends ffi.Opaque {}
 
-const int __egl_h_ = 1;
+// const int __egl_h_ = 1;
 
 const int EGL_VERSION_1_0 = 1;
 
@@ -64539,7 +64539,7 @@ const int EGL_GL_TEXTURE_CUBE_MAP_NEGATIVE_Z = 12472;
 
 const int EGL_IMAGE_PRESERVED = 12498;
 
-const int __eglext_h_ = 1;
+// const int __eglext_h_ = 1;
 
 const int EGL_EGLEXT_VERSION = 20181204;
 
@@ -65685,117 +65685,117 @@ const int WINAPI_PARTITION_SYSTEM = 0;
 
 const int WINAPI_PARTITION_PHONE = 0;
 
-const int _WIN32_WINNT_NT4 = 1024;
+// const int _WIN32_WINNT_NT4 = 1024;
 
-const int _WIN32_WINNT_WIN2K = 1280;
+// const int _WIN32_WINNT_WIN2K = 1280;
 
-const int _WIN32_WINNT_WINXP = 1281;
+// const int _WIN32_WINNT_WINXP = 1281;
 
-const int _WIN32_WINNT_WS03 = 1282;
+// const int _WIN32_WINNT_WS03 = 1282;
 
-const int _WIN32_WINNT_WIN6 = 1536;
+// const int _WIN32_WINNT_WIN6 = 1536;
 
-const int _WIN32_WINNT_VISTA = 1536;
+// const int _WIN32_WINNT_VISTA = 1536;
 
-const int _WIN32_WINNT_WS08 = 1536;
+// const int _WIN32_WINNT_WS08 = 1536;
 
-const int _WIN32_WINNT_LONGHORN = 1536;
+// const int _WIN32_WINNT_LONGHORN = 1536;
 
-const int _WIN32_WINNT_WIN7 = 1537;
+// const int _WIN32_WINNT_WIN7 = 1537;
 
-const int _WIN32_WINNT_WIN8 = 1538;
+// const int _WIN32_WINNT_WIN8 = 1538;
 
-const int _WIN32_WINNT_WINBLUE = 1539;
+// const int _WIN32_WINNT_WINBLUE = 1539;
 
-const int _WIN32_WINNT_WINTHRESHOLD = 2560;
+// const int _WIN32_WINNT_WINTHRESHOLD = 2560;
 
-const int _WIN32_WINNT_WIN10 = 2560;
+// const int _WIN32_WINNT_WIN10 = 2560;
 
-const int _WIN32_IE_IE20 = 512;
+// const int _WIN32_IE_IE20 = 512;
 
-const int _WIN32_IE_IE30 = 768;
+// const int _WIN32_IE_IE30 = 768;
 
-const int _WIN32_IE_IE302 = 770;
+// const int _WIN32_IE_IE302 = 770;
 
-const int _WIN32_IE_IE40 = 1024;
+// const int _WIN32_IE_IE40 = 1024;
 
-const int _WIN32_IE_IE401 = 1025;
+// const int _WIN32_IE_IE401 = 1025;
 
-const int _WIN32_IE_IE50 = 1280;
+// const int _WIN32_IE_IE50 = 1280;
 
-const int _WIN32_IE_IE501 = 1281;
+// const int _WIN32_IE_IE501 = 1281;
 
-const int _WIN32_IE_IE55 = 1360;
+// const int _WIN32_IE_IE55 = 1360;
 
-const int _WIN32_IE_IE60 = 1536;
+// const int _WIN32_IE_IE60 = 1536;
 
-const int _WIN32_IE_IE60SP1 = 1537;
+// const int _WIN32_IE_IE60SP1 = 1537;
 
-const int _WIN32_IE_IE60SP2 = 1539;
+// const int _WIN32_IE_IE60SP2 = 1539;
 
-const int _WIN32_IE_IE70 = 1792;
+// const int _WIN32_IE_IE70 = 1792;
 
-const int _WIN32_IE_IE80 = 2048;
+// const int _WIN32_IE_IE80 = 2048;
 
-const int _WIN32_IE_IE90 = 2304;
+// const int _WIN32_IE_IE90 = 2304;
 
-const int _WIN32_IE_IE100 = 2560;
+// const int _WIN32_IE_IE100 = 2560;
 
-const int _WIN32_IE_IE110 = 2560;
+// const int _WIN32_IE_IE110 = 2560;
 
-const int _WIN32_IE_NT4 = 512;
+// const int _WIN32_IE_NT4 = 512;
 
-const int _WIN32_IE_NT4SP1 = 512;
+// const int _WIN32_IE_NT4SP1 = 512;
 
-const int _WIN32_IE_NT4SP2 = 512;
+// const int _WIN32_IE_NT4SP2 = 512;
 
-const int _WIN32_IE_NT4SP3 = 770;
+// const int _WIN32_IE_NT4SP3 = 770;
 
-const int _WIN32_IE_NT4SP4 = 1025;
+// const int _WIN32_IE_NT4SP4 = 1025;
 
-const int _WIN32_IE_NT4SP5 = 1025;
+// const int _WIN32_IE_NT4SP5 = 1025;
 
-const int _WIN32_IE_NT4SP6 = 1280;
+// const int _WIN32_IE_NT4SP6 = 1280;
 
-const int _WIN32_IE_WIN98 = 1025;
+// const int _WIN32_IE_WIN98 = 1025;
 
-const int _WIN32_IE_WIN98SE = 1280;
+// const int _WIN32_IE_WIN98SE = 1280;
 
-const int _WIN32_IE_WINME = 1360;
+// const int _WIN32_IE_WINME = 1360;
 
-const int _WIN32_IE_WIN2K = 1281;
+// const int _WIN32_IE_WIN2K = 1281;
 
-const int _WIN32_IE_WIN2KSP1 = 1281;
+// const int _WIN32_IE_WIN2KSP1 = 1281;
 
-const int _WIN32_IE_WIN2KSP2 = 1281;
+// const int _WIN32_IE_WIN2KSP2 = 1281;
 
-const int _WIN32_IE_WIN2KSP3 = 1281;
+// const int _WIN32_IE_WIN2KSP3 = 1281;
 
-const int _WIN32_IE_WIN2KSP4 = 1281;
+// const int _WIN32_IE_WIN2KSP4 = 1281;
 
-const int _WIN32_IE_XP = 1536;
+// const int _WIN32_IE_XP = 1536;
 
-const int _WIN32_IE_XPSP1 = 1537;
+// const int _WIN32_IE_XPSP1 = 1537;
 
-const int _WIN32_IE_XPSP2 = 1539;
+// const int _WIN32_IE_XPSP2 = 1539;
 
-const int _WIN32_IE_WS03 = 1538;
+// const int _WIN32_IE_WS03 = 1538;
 
-const int _WIN32_IE_WS03SP1 = 1539;
+// const int _WIN32_IE_WS03SP1 = 1539;
 
-const int _WIN32_IE_WIN6 = 1792;
+// const int _WIN32_IE_WIN6 = 1792;
 
-const int _WIN32_IE_LONGHORN = 1792;
+// const int _WIN32_IE_LONGHORN = 1792;
 
-const int _WIN32_IE_WIN7 = 2048;
+// const int _WIN32_IE_WIN7 = 2048;
 
-const int _WIN32_IE_WIN8 = 2560;
+// const int _WIN32_IE_WIN8 = 2560;
 
-const int _WIN32_IE_WINBLUE = 2560;
+// const int _WIN32_IE_WINBLUE = 2560;
 
-const int _WIN32_IE_WINTHRESHOLD = 2560;
+// const int _WIN32_IE_WINTHRESHOLD = 2560;
 
-const int _WIN32_IE_WIN10 = 2560;
+// const int _WIN32_IE_WIN10 = 2560;
 
 const int NTDDI_WIN2K = 83886080;
 
@@ -65891,39 +65891,39 @@ const int SPVERSION_MASK = 65280;
 
 const int SUBVERSION_MASK = 255;
 
-const int _WIN32_WINNT = 2560;
+// const int _WIN32_WINNT = 2560;
 
 const int NTDDI_VERSION = 167772168;
 
 const int WINVER = 2560;
 
-const int _WIN32_IE = 2560;
+// const int _WIN32_IE = 2560;
 
-const int _VCRT_COMPILER_PREPROCESSOR = 1;
+// const int _VCRT_COMPILER_PREPROCESSOR = 1;
 
-const int _SAL_VERSION = 20;
+// const int _SAL_VERSION = 20;
 
-const int __SAL_H_VERSION = 180000000;
+// const int __SAL_H_VERSION = 180000000;
 
-const int _USE_DECLSPECS_FOR_SAL = 0;
+// const int _USE_DECLSPECS_FOR_SAL = 0;
 
-const int _USE_ATTRIBUTES_FOR_SAL = 0;
+// const int _USE_ATTRIBUTES_FOR_SAL = 0;
 
-const int _CRT_PACKING = 8;
+// const int _CRT_PACKING = 8;
 
-const int _VCRUNTIME_DISABLED_WARNINGS = 4514;
+// const int _VCRUNTIME_DISABLED_WARNINGS = 4514;
 
-const int _HAS_EXCEPTIONS = 1;
+// const int _HAS_EXCEPTIONS = 1;
 
-const int _WCHAR_T_DEFINED = 1;
+// const int _WCHAR_T_DEFINED = 1;
 
 const int NULL = 0;
 
-const int _HAS_CXX17 = 0;
+// const int _HAS_CXX17 = 0;
 
-const int _HAS_CXX20 = 0;
+// const int _HAS_CXX20 = 0;
 
-const int _HAS_NODISCARD = 1;
+// const int _HAS_NODISCARD = 1;
 
 const int EXCEPTION_EXECUTE_HANDLER = 1;
 
@@ -65931,17 +65931,17 @@ const int EXCEPTION_CONTINUE_SEARCH = 0;
 
 const int EXCEPTION_CONTINUE_EXECUTION = -1;
 
-const int __SAL_H_FULL_VER = 140050727;
+// const int __SAL_H_FULL_VER = 140050727;
 
-const int __SPECSTRINGS_STRICT_LEVEL = 1;
+// const int __SPECSTRINGS_STRICT_LEVEL = 1;
 
-const int __drv_typeConst = 0;
+// const int __drv_typeConst = 0;
 
-const int __drv_typeCond = 1;
+// const int __drv_typeCond = 1;
 
-const int __drv_typeBitset = 2;
+// const int __drv_typeBitset = 2;
 
-const int __drv_typeExpr = 3;
+// const int __drv_typeExpr = 3;
 
 const int STRICT = 1;
 
@@ -65951,67 +65951,67 @@ const int FALSE = 0;
 
 const int TRUE = 1;
 
-const int _UCRT_DISABLED_WARNINGS = 4324;
+// const int _UCRT_DISABLED_WARNINGS = 4324;
 
-const int _ARGMAX = 100;
+// const int _ARGMAX = 100;
 
-const int _TRUNCATE = -1;
+// const int _TRUNCATE = -1;
 
-const int _CRT_INT_MAX = 2147483647;
+// const int _CRT_INT_MAX = 2147483647;
 
-const int _CRT_SIZE_MAX = -1;
+// const int _CRT_SIZE_MAX = -1;
 
-const String __FILEW__ = 't';
+// const String __FILEW__ = 't';
 
-const int _CRT_FUNCTIONS_REQUIRED = 1;
+// const int _CRT_FUNCTIONS_REQUIRED = 1;
 
-const int _CRT_HAS_CXX17 = 0;
+// const int _CRT_HAS_CXX17 = 0;
 
-const int _ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE = 1;
+// const int _ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE = 1;
 
-const int _CRT_BUILD_DESKTOP_APP = 1;
+// const int _CRT_BUILD_DESKTOP_APP = 1;
 
-const int _CRT_INTERNAL_NONSTDC_NAMES = 1;
+// const int _CRT_INTERNAL_NONSTDC_NAMES = 1;
 
-const int __STDC_SECURE_LIB__ = 200411;
+// const int __STDC_SECURE_LIB__ = 200411;
 
-const int __GOT_SECURE_LIB__ = 200411;
+// const int __GOT_SECURE_LIB__ = 200411;
 
-const int __STDC_WANT_SECURE_LIB__ = 1;
+// const int __STDC_WANT_SECURE_LIB__ = 1;
 
-const int _SECURECRT_FILL_BUFFER_PATTERN = 254;
+// const int _SECURECRT_FILL_BUFFER_PATTERN = 254;
 
-const int _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES = 0;
+// const int _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES = 0;
 
-const int _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT = 0;
+// const int _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_COUNT = 0;
 
-const int _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES = 1;
+// const int _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES = 1;
 
-const int _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY = 0;
+// const int _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES_MEMORY = 0;
 
-const int _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY = 0;
+// const int _CRT_SECURE_CPP_OVERLOAD_SECURE_NAMES_MEMORY = 0;
 
 const int WEOF = 65535;
 
-const int _UPPER = 1;
+// const int _UPPER = 1;
 
-const int _LOWER = 2;
+// const int _LOWER = 2;
 
-const int _DIGIT = 4;
+// const int _DIGIT = 4;
 
-const int _SPACE = 8;
+// const int _SPACE = 8;
 
-const int _PUNCT = 16;
+// const int _PUNCT = 16;
 
-const int _CONTROL = 32;
+// const int _CONTROL = 32;
 
-const int _BLANK = 64;
+// const int _BLANK = 64;
 
-const int _HEX = 128;
+// const int _HEX = 128;
 
-const int _LEADBYTE = 32768;
+// const int _LEADBYTE = 32768;
 
-const int _ALPHA = 259;
+// const int _ALPHA = 259;
 
 const int ANYSIZE_ARRAY = 1;
 
@@ -66301,7 +66301,7 @@ const int ETXTBSY = 139;
 
 const int EWOULDBLOCK = 140;
 
-const int _NLSCMPERROR = 2147483647;
+// const int _NLSCMPERROR = 2147483647;
 
 const int MINCHAR = 128;
 
@@ -67657,13 +67657,13 @@ const int MAXIMUM_WAIT_OBJECTS = 64;
 
 const int MAXIMUM_SUSPEND_COUNT = 127;
 
-const int _MM_HINT_T0 = 1;
+// const int _MM_HINT_T0 = 1;
 
-const int _MM_HINT_T1 = 2;
+// const int _MM_HINT_T1 = 2;
 
-const int _MM_HINT_T2 = 3;
+// const int _MM_HINT_T2 = 3;
 
-const int _MM_HINT_NTA = 0;
+// const int _MM_HINT_NTA = 0;
 
 const int PF_TEMPORAL_LEVEL_1 = 1;
 
@@ -98876,7 +98876,7 @@ const int WNCON_SLOWLINK = 4;
 
 const int WNCON_DYNAMIC = 8;
 
-const int _STRALIGN_USE_SECURE_CRT = 1;
+// const int _STRALIGN_USE_SECURE_CRT = 1;
 
 const String SERVICES_ACTIVE_DATABASEW = 'S';
 
@@ -100080,256 +100080,256 @@ const int WINT_MIN = 0;
 
 const int WINT_MAX = 65535;
 
-const int _STL_COMPILER_PREPROCESSOR = 1;
+// const int _STL_COMPILER_PREPROCESSOR = 1;
 
-const int _STL_WARNING_LEVEL = 3;
+// const int _STL_WARNING_LEVEL = 3;
 
-const int _HAS_IF_CONSTEXPR = 1;
+// const int _HAS_IF_CONSTEXPR = 1;
 
-const int _HAS_CONDITIONAL_EXPLICIT = 1;
+// const int _HAS_CONDITIONAL_EXPLICIT = 1;
 
-const int _STL_DISABLED_WARNING_C4984 = 4984;
+// const int _STL_DISABLED_WARNING_C4984 = 4984;
 
-const int _STL_DISABLED_WARNING_C5053 = 5053;
+// const int _STL_DISABLED_WARNING_C5053 = 5053;
 
-const int _STL_DISABLED_WARNINGS = 4180;
+// const int _STL_DISABLED_WARNINGS = 4180;
 
-const int _CPPLIB_VER = 650;
+// const int _CPPLIB_VER = 650;
 
-const int _MSVC_STL_VERSION = 142;
+// const int _MSVC_STL_VERSION = 142;
 
-const int _MSVC_STL_UPDATE = 202008;
+// const int _MSVC_STL_UPDATE = 202008;
 
-const int _HAS_STATIC_RTTI = 1;
+// const int _HAS_STATIC_RTTI = 1;
 
-const int _HAS_AUTO_PTR_ETC = 1;
+// const int _HAS_AUTO_PTR_ETC = 1;
 
-const int _HAS_UNEXPECTED = 1;
+// const int _HAS_UNEXPECTED = 1;
 
-const int _HAS_OLD_IOSTREAMS_MEMBERS = 1;
+// const int _HAS_OLD_IOSTREAMS_MEMBERS = 1;
 
-const int _HAS_STD_BYTE = 0;
+// const int _HAS_STD_BYTE = 0;
 
-const int _HAS_FUNCTION_ALLOCATOR_SUPPORT = 1;
+// const int _HAS_FUNCTION_ALLOCATOR_SUPPORT = 1;
 
-const int _HAS_TR1_NAMESPACE = 1;
+// const int _HAS_TR1_NAMESPACE = 1;
 
-const int _ENFORCE_MATCHING_ALLOCATORS = 0;
+// const int _ENFORCE_MATCHING_ALLOCATORS = 0;
 
-const int _ENFORCE_FACET_SPECIALIZATIONS = 0;
+// const int _ENFORCE_FACET_SPECIALIZATIONS = 0;
 
-const String _FACET_SPECIALIZATION_MESSAGE =
-    'Unsupported facet specialization; see N4800 27.3.1.1.1 [locale.category]. Either use a Standard specialization or define _ENFORCE_FACET_SPECIALIZATIONS=0 to suppress this diagnostic.';
+// const String _FACET_SPECIALIZATION_MESSAGE =
+//     'Unsupported facet specialization; see N4800 27.3.1.1.1 [locale.category]. Either use a Standard specialization or define _ENFORCE_FACET_SPECIALIZATIONS=0 to suppress this diagnostic.';
 
-const int _STL_OPTIMIZE_SYSTEM_ERROR_OPERATORS = 1;
+// const int _STL_OPTIMIZE_SYSTEM_ERROR_OPERATORS = 1;
 
-const int _STD_VECTORIZE_WITH_FLOAT_CONTROL = 1;
+// const int _STD_VECTORIZE_WITH_FLOAT_CONTROL = 1;
 
-const int _HAS_FEATURES_REMOVED_IN_CXX20 = 1;
+// const int _HAS_FEATURES_REMOVED_IN_CXX20 = 1;
 
-const int _HAS_DEPRECATED_ADAPTOR_TYPEDEFS = 1;
+// const int _HAS_DEPRECATED_ADAPTOR_TYPEDEFS = 1;
 
-const int _HAS_DEPRECATED_IS_LITERAL_TYPE = 1;
+// const int _HAS_DEPRECATED_IS_LITERAL_TYPE = 1;
 
-const int _HAS_DEPRECATED_NEGATORS = 1;
+// const int _HAS_DEPRECATED_NEGATORS = 1;
 
-const int _HAS_DEPRECATED_RAW_STORAGE_ITERATOR = 1;
+// const int _HAS_DEPRECATED_RAW_STORAGE_ITERATOR = 1;
 
-const int _HAS_DEPRECATED_RESULT_OF = 1;
+// const int _HAS_DEPRECATED_RESULT_OF = 1;
 
-const int _HAS_DEPRECATED_SHARED_PTR_UNIQUE = 1;
+// const int _HAS_DEPRECATED_SHARED_PTR_UNIQUE = 1;
 
-const int _HAS_DEPRECATED_TEMPORARY_BUFFER = 1;
+// const int _HAS_DEPRECATED_TEMPORARY_BUFFER = 1;
 
-const int _HAS_DEPRECATED_UNCAUGHT_EXCEPTION = 1;
+// const int _HAS_DEPRECATED_UNCAUGHT_EXCEPTION = 1;
 
-const int _HAS_STREAM_INSERTION_OPERATORS_DELETED_IN_CXX20 = 1;
+// const int _HAS_STREAM_INSERTION_OPERATORS_DELETED_IN_CXX20 = 1;
 
-const int __cpp_lib_chrono_udls = 201304;
+// const int __cpp_lib_chrono_udls = 201304;
 
-const int __cpp_lib_complex_udls = 201309;
+// const int __cpp_lib_complex_udls = 201309;
 
-const int __cpp_lib_exchange_function = 201304;
+// const int __cpp_lib_exchange_function = 201304;
 
-const int __cpp_lib_generic_associative_lookup = 201304;
+// const int __cpp_lib_generic_associative_lookup = 201304;
 
-const int __cpp_lib_integer_sequence = 201304;
+// const int __cpp_lib_integer_sequence = 201304;
 
-const int __cpp_lib_integral_constant_callable = 201304;
+// const int __cpp_lib_integral_constant_callable = 201304;
 
-const int __cpp_lib_is_final = 201402;
+// const int __cpp_lib_is_final = 201402;
 
-const int __cpp_lib_is_null_pointer = 201309;
+// const int __cpp_lib_is_null_pointer = 201309;
 
-const int __cpp_lib_make_reverse_iterator = 201402;
+// const int __cpp_lib_make_reverse_iterator = 201402;
 
-const int __cpp_lib_make_unique = 201304;
+// const int __cpp_lib_make_unique = 201304;
 
-const int __cpp_lib_null_iterators = 201304;
+// const int __cpp_lib_null_iterators = 201304;
 
-const int __cpp_lib_quoted_string_io = 201304;
+// const int __cpp_lib_quoted_string_io = 201304;
 
-const int __cpp_lib_result_of_sfinae = 201210;
+// const int __cpp_lib_result_of_sfinae = 201210;
 
-const int __cpp_lib_robust_nonmodifying_seq_ops = 201304;
+// const int __cpp_lib_robust_nonmodifying_seq_ops = 201304;
 
-const int __cpp_lib_shared_timed_mutex = 201402;
+// const int __cpp_lib_shared_timed_mutex = 201402;
 
-const int __cpp_lib_string_udls = 201304;
+// const int __cpp_lib_string_udls = 201304;
 
-const int __cpp_lib_transformation_trait_aliases = 201304;
+// const int __cpp_lib_transformation_trait_aliases = 201304;
 
-const int __cpp_lib_tuple_element_t = 201402;
+// const int __cpp_lib_tuple_element_t = 201402;
 
-const int __cpp_lib_tuples_by_type = 201304;
+// const int __cpp_lib_tuples_by_type = 201304;
 
-const int __cpp_lib_addressof_constexpr = 201603;
+// const int __cpp_lib_addressof_constexpr = 201603;
 
-const int __cpp_lib_allocator_traits_is_always_equal = 201411;
+// const int __cpp_lib_allocator_traits_is_always_equal = 201411;
 
-const int __cpp_lib_as_const = 201510;
+// const int __cpp_lib_as_const = 201510;
 
-const int __cpp_lib_bool_constant = 201505;
+// const int __cpp_lib_bool_constant = 201505;
 
-const int __cpp_lib_enable_shared_from_this = 201603;
+// const int __cpp_lib_enable_shared_from_this = 201603;
 
-const int __cpp_lib_incomplete_container_elements = 201505;
+// const int __cpp_lib_incomplete_container_elements = 201505;
 
-const int __cpp_lib_invoke = 201411;
+// const int __cpp_lib_invoke = 201411;
 
-const int __cpp_lib_logical_traits = 201510;
+// const int __cpp_lib_logical_traits = 201510;
 
-const int __cpp_lib_map_try_emplace = 201411;
+// const int __cpp_lib_map_try_emplace = 201411;
 
-const int __cpp_lib_nonmember_container_access = 201411;
+// const int __cpp_lib_nonmember_container_access = 201411;
 
-const int __cpp_lib_shared_mutex = 201505;
+// const int __cpp_lib_shared_mutex = 201505;
 
-const int __cpp_lib_transparent_operators = 201510;
+// const int __cpp_lib_transparent_operators = 201510;
 
-const int __cpp_lib_type_trait_variable_templates = 201510;
+// const int __cpp_lib_type_trait_variable_templates = 201510;
 
-const int __cpp_lib_uncaught_exceptions = 201411;
+// const int __cpp_lib_uncaught_exceptions = 201411;
 
-const int __cpp_lib_unordered_map_try_emplace = 201411;
+// const int __cpp_lib_unordered_map_try_emplace = 201411;
 
-const int __cpp_lib_void_t = 201411;
+// const int __cpp_lib_void_t = 201411;
 
-const int __cpp_lib_chrono = 201510;
+// const int __cpp_lib_chrono = 201510;
 
-const int __cpp_lib_atomic_value_initialization = 201911;
+// const int __cpp_lib_atomic_value_initialization = 201911;
 
-const int __cpp_lib_shared_ptr_arrays = 201611;
+// const int __cpp_lib_shared_ptr_arrays = 201611;
 
-const int __cpp_lib_experimental_erase_if = 201411;
+// const int __cpp_lib_experimental_erase_if = 201411;
 
-const int __cpp_lib_experimental_filesystem = 201406;
+// const int __cpp_lib_experimental_filesystem = 201406;
 
-const int _STL_WIN32_WINNT_WINXP = 1281;
+// const int _STL_WIN32_WINNT_WINXP = 1281;
 
-const int _STL_WIN32_WINNT_VISTA = 1536;
+// const int _STL_WIN32_WINNT_VISTA = 1536;
 
-const int _STL_WIN32_WINNT_WIN8 = 1538;
+// const int _STL_WIN32_WINNT_WIN8 = 1538;
 
-const int _STL_WIN32_WINNT_WINBLUE = 1539;
+// const int _STL_WIN32_WINNT_WINBLUE = 1539;
 
-const int _STL_WIN32_WINNT_WIN10 = 2560;
+// const int _STL_WIN32_WINNT_WIN10 = 2560;
 
-const int _STL_WIN32_WINNT = 1536;
+// const int _STL_WIN32_WINNT = 1536;
 
-const int _CRT_WARN = 0;
+// const int _CRT_WARN = 0;
 
-const int _CRT_ERROR = 1;
+// const int _CRT_ERROR = 1;
 
-const int _CRT_ASSERT = 2;
+// const int _CRT_ASSERT = 2;
 
-const int _CRT_ERRCNT = 3;
+// const int _CRT_ERRCNT = 3;
 
-const int _CRTDBG_MODE_FILE = 1;
+// const int _CRTDBG_MODE_FILE = 1;
 
-const int _CRTDBG_MODE_DEBUG = 2;
+// const int _CRTDBG_MODE_DEBUG = 2;
 
-const int _CRTDBG_MODE_WNDW = 4;
+// const int _CRTDBG_MODE_WNDW = 4;
 
-const int _CRTDBG_REPORT_MODE = -1;
+// const int _CRTDBG_REPORT_MODE = -1;
 
-const int _CRT_RPTHOOK_INSTALL = 0;
+// const int _CRT_RPTHOOK_INSTALL = 0;
 
-const int _CRT_RPTHOOK_REMOVE = 1;
+// const int _CRT_RPTHOOK_REMOVE = 1;
 
-const int _HOOK_ALLOC = 1;
+// const int _HOOK_ALLOC = 1;
 
-const int _HOOK_REALLOC = 2;
+// const int _HOOK_REALLOC = 2;
 
-const int _HOOK_FREE = 3;
+// const int _HOOK_FREE = 3;
 
-const int _CRTDBG_ALLOC_MEM_DF = 1;
+// const int _CRTDBG_ALLOC_MEM_DF = 1;
 
-const int _CRTDBG_DELAY_FREE_MEM_DF = 2;
+// const int _CRTDBG_DELAY_FREE_MEM_DF = 2;
 
-const int _CRTDBG_CHECK_ALWAYS_DF = 4;
+// const int _CRTDBG_CHECK_ALWAYS_DF = 4;
 
-const int _CRTDBG_RESERVED_DF = 8;
+// const int _CRTDBG_RESERVED_DF = 8;
 
-const int _CRTDBG_CHECK_CRT_DF = 16;
+// const int _CRTDBG_CHECK_CRT_DF = 16;
 
-const int _CRTDBG_LEAK_CHECK_DF = 32;
+// const int _CRTDBG_LEAK_CHECK_DF = 32;
 
-const int _CRTDBG_CHECK_EVERY_16_DF = 1048576;
+// const int _CRTDBG_CHECK_EVERY_16_DF = 1048576;
 
-const int _CRTDBG_CHECK_EVERY_128_DF = 8388608;
+// const int _CRTDBG_CHECK_EVERY_128_DF = 8388608;
 
-const int _CRTDBG_CHECK_EVERY_1024_DF = 67108864;
+// const int _CRTDBG_CHECK_EVERY_1024_DF = 67108864;
 
-const int _CRTDBG_CHECK_DEFAULT_DF = 0;
+// const int _CRTDBG_CHECK_DEFAULT_DF = 0;
 
-const int _CRTDBG_REPORT_FLAG = -1;
+// const int _CRTDBG_REPORT_FLAG = -1;
 
-const int _FREE_BLOCK = 0;
+// const int _FREE_BLOCK = 0;
 
-const int _NORMAL_BLOCK = 1;
+// const int _NORMAL_BLOCK = 1;
 
-const int _CRT_BLOCK = 2;
+// const int _CRT_BLOCK = 2;
 
-const int _IGNORE_BLOCK = 3;
+// const int _IGNORE_BLOCK = 3;
 
-const int _CLIENT_BLOCK = 4;
+// const int _CLIENT_BLOCK = 4;
 
-const int _MAX_BLOCKS = 5;
+// const int _MAX_BLOCKS = 5;
 
-const int _UNKNOWN_BLOCK = -1;
+// const int _UNKNOWN_BLOCK = -1;
 
-const String _CRT_MSVCP_CURRENT = 'msvcp140.dll';
+// const String _CRT_MSVCP_CURRENT = 'msvcp140.dll';
 
-const int _HAS_ITERATOR_DEBUGGING = 0;
+// const int _HAS_ITERATOR_DEBUGGING = 0;
 
-const int _SECURE_SCL = 0;
+// const int _SECURE_SCL = 0;
 
-const int _ITERATOR_DEBUG_LEVEL = 0;
+// const int _ITERATOR_DEBUG_LEVEL = 0;
 
-const int _CONTAINER_DEBUG_LEVEL = 0;
+// const int _CONTAINER_DEBUG_LEVEL = 0;
 
-const int _ENABLE_ATOMIC_REF_ALIGNMENT_CHECK = 0;
+// const int _ENABLE_ATOMIC_REF_ALIGNMENT_CHECK = 0;
 
-const int _MAX_EXP_DIG = 8;
+// const int _MAX_EXP_DIG = 8;
 
-const int _MAX_INT_DIG = 32;
+// const int _MAX_INT_DIG = 32;
 
-const int _MAX_SIG_DIG_V1 = 36;
+// const int _MAX_SIG_DIG_V1 = 36;
 
-const int _MAX_SIG_DIG_V2 = 768;
+// const int _MAX_SIG_DIG_V2 = 768;
 
-const int _LOCK_LOCALE = 0;
+// const int _LOCK_LOCALE = 0;
 
-const int _LOCK_MALLOC = 1;
+// const int _LOCK_MALLOC = 1;
 
-const int _LOCK_STREAM = 2;
+// const int _LOCK_STREAM = 2;
 
-const int _LOCK_DEBUG = 3;
+// const int _LOCK_DEBUG = 3;
 
-const int _LOCK_AT_THREAD_EXIT = 4;
+// const int _LOCK_AT_THREAD_EXIT = 4;
 
-const int _STD_ATOMIC_ALWAYS_USE_CMPXCHG16B = 0;
+// const int _STD_ATOMIC_ALWAYS_USE_CMPXCHG16B = 0;
 
 const int CHAR_BIT = 8;
 
@@ -100369,45 +100369,45 @@ const int LLONG_MIN = -9223372036854775808;
 
 const int ULLONG_MAX = -1;
 
-const int _I8_MIN = -128;
+// const int _I8_MIN = -128;
 
-const int _I8_MAX = 127;
+// const int _I8_MAX = 127;
 
-const int _UI8_MAX = 255;
+// const int _UI8_MAX = 255;
 
-const int _I16_MIN = -32768;
+// const int _I16_MIN = -32768;
 
-const int _I16_MAX = 32767;
+// const int _I16_MAX = 32767;
 
-const int _UI16_MAX = 65535;
+// const int _UI16_MAX = 65535;
 
-const int _I32_MIN = -2147483648;
+// const int _I32_MIN = -2147483648;
 
-const int _I32_MAX = 2147483647;
+// const int _I32_MAX = 2147483647;
 
-const int _UI32_MAX = 4294967295;
+// const int _UI32_MAX = 4294967295;
 
-const int _I64_MIN = -9223372036854775808;
+// const int _I64_MIN = -9223372036854775808;
 
-const int _I64_MAX = 9223372036854775807;
+// const int _I64_MAX = 9223372036854775807;
 
-const int _UI64_MAX = -1;
+// const int _UI64_MAX = -1;
 
 const int RSIZE_MAX = 9223372036854775807;
 
-const int _DOMAIN = 1;
+// const int _DOMAIN = 1;
 
-const int _SING = 2;
+// const int _SING = 2;
 
-const int _OVERFLOW = 3;
+// const int _OVERFLOW = 3;
 
-const int _UNDERFLOW = 4;
+// const int _UNDERFLOW = 4;
 
-const int _TLOSS = 5;
+// const int _TLOSS = 5;
 
-const int _PLOSS = 6;
+// const int _PLOSS = 6;
 
-const double _HUGE_ENUF = 1e+300;
+// const double _HUGE_ENUF = 1e+300;
 
 const double INFINITY = double.infinity;
 
@@ -100419,13 +100419,13 @@ const double HUGE_VALL = double.infinity;
 
 const double NAN = double.nan;
 
-const int _DENORM = -2;
+// const int _DENORM = -2;
 
-const int _FINITE = -1;
+// const int _FINITE = -1;
 
-const int _INFCODE = 1;
+// const int _INFCODE = 1;
 
-const int _NANCODE = 2;
+// const int _NANCODE = 2;
 
 const int FP_INFINITE = 1;
 
@@ -100437,7 +100437,7 @@ const int FP_SUBNORMAL = -2;
 
 const int FP_ZERO = 0;
 
-const int _C2 = 1;
+// const int _C2 = 1;
 
 const int FP_ILOGB0 = -2147483648;
 
@@ -100449,85 +100449,85 @@ const int MATH_ERREXCEPT = 2;
 
 const int math_errhandling = 3;
 
-const int _FE_DIVBYZERO = 4;
+// const int _FE_DIVBYZERO = 4;
 
-const int _FE_INEXACT = 32;
+// const int _FE_INEXACT = 32;
 
-const int _FE_INVALID = 1;
+// const int _FE_INVALID = 1;
 
-const int _FE_OVERFLOW = 8;
+// const int _FE_OVERFLOW = 8;
 
-const int _FE_UNDERFLOW = 16;
+// const int _FE_UNDERFLOW = 16;
 
-const int _D0_C = 3;
+// const int _D0_C = 3;
 
-const int _D1_C = 2;
+// const int _D1_C = 2;
 
-const int _D2_C = 1;
+// const int _D2_C = 1;
 
-const int _D3_C = 0;
+// const int _D3_C = 0;
 
-const int _DBIAS = 1022;
+// const int _DBIAS = 1022;
 
-const int _DOFF = 4;
+// const int _DOFF = 4;
 
-const int _F0_C = 1;
+// const int _F0_C = 1;
 
-const int _F1_C = 0;
+// const int _F1_C = 0;
 
-const int _FBIAS = 126;
+// const int _FBIAS = 126;
 
-const int _FOFF = 7;
+// const int _FOFF = 7;
 
-const int _FRND = 1;
+// const int _FRND = 1;
 
-const int _L0_C = 3;
+// const int _L0_C = 3;
 
-const int _L1_C = 2;
+// const int _L1_C = 2;
 
-const int _L2_C = 1;
+// const int _L2_C = 1;
 
-const int _L3_C = 0;
+// const int _L3_C = 0;
 
-const int _LBIAS = 1022;
+// const int _LBIAS = 1022;
 
-const int _LOFF = 4;
+// const int _LOFF = 4;
 
-const int _DFRAC = 15;
+// const int _DFRAC = 15;
 
-const int _DMASK = 32752;
+// const int _DMASK = 32752;
 
-const int _DMAX = 2047;
+// const int _DMAX = 2047;
 
-const int _DSIGN = 32768;
+// const int _DSIGN = 32768;
 
-const int _FFRAC = 127;
+// const int _FFRAC = 127;
 
-const int _FMASK = 32640;
+// const int _FMASK = 32640;
 
-const int _FMAX = 255;
+// const int _FMAX = 255;
 
-const int _FSIGN = 32768;
+// const int _FSIGN = 32768;
 
-const int _LFRAC = 65535;
+// const int _LFRAC = 65535;
 
-const int _LMASK = 32767;
+// const int _LMASK = 32767;
 
-const int _LMAX = 32767;
+// const int _LMAX = 32767;
 
-const int _LSIGN = 32768;
+// const int _LSIGN = 32768;
 
-const int _DHUGE_EXP = 1842;
+// const int _DHUGE_EXP = 1842;
 
-const int _FHUGE_EXP = 229;
+// const int _FHUGE_EXP = 229;
 
-const int _LHUGE_EXP = 29490;
+// const int _LHUGE_EXP = 29490;
 
-const int _FP_LT = 1;
+// const int _FP_LT = 1;
 
-const int _FP_EQ = 2;
+// const int _FP_EQ = 2;
 
-const int _FP_GT = 4;
+// const int _FP_GT = 4;
 
 const int DOMAIN = 1;
 
@@ -100541,79 +100541,79 @@ const int TLOSS = 5;
 
 const int PLOSS = 6;
 
-const int _MAX_ITOSTR_BASE16_COUNT = 9;
+// const int _MAX_ITOSTR_BASE16_COUNT = 9;
 
-const int _MAX_ITOSTR_BASE10_COUNT = 12;
+// const int _MAX_ITOSTR_BASE10_COUNT = 12;
 
-const int _MAX_ITOSTR_BASE8_COUNT = 12;
+// const int _MAX_ITOSTR_BASE8_COUNT = 12;
 
-const int _MAX_ITOSTR_BASE2_COUNT = 33;
+// const int _MAX_ITOSTR_BASE2_COUNT = 33;
 
-const int _MAX_LTOSTR_BASE16_COUNT = 9;
+// const int _MAX_LTOSTR_BASE16_COUNT = 9;
 
-const int _MAX_LTOSTR_BASE10_COUNT = 12;
+// const int _MAX_LTOSTR_BASE10_COUNT = 12;
 
-const int _MAX_LTOSTR_BASE8_COUNT = 12;
+// const int _MAX_LTOSTR_BASE8_COUNT = 12;
 
-const int _MAX_LTOSTR_BASE2_COUNT = 33;
+// const int _MAX_LTOSTR_BASE2_COUNT = 33;
 
-const int _MAX_ULTOSTR_BASE16_COUNT = 9;
+// const int _MAX_ULTOSTR_BASE16_COUNT = 9;
 
-const int _MAX_ULTOSTR_BASE10_COUNT = 11;
+// const int _MAX_ULTOSTR_BASE10_COUNT = 11;
 
-const int _MAX_ULTOSTR_BASE8_COUNT = 12;
+// const int _MAX_ULTOSTR_BASE8_COUNT = 12;
 
-const int _MAX_ULTOSTR_BASE2_COUNT = 33;
+// const int _MAX_ULTOSTR_BASE2_COUNT = 33;
 
-const int _MAX_I64TOSTR_BASE16_COUNT = 17;
+// const int _MAX_I64TOSTR_BASE16_COUNT = 17;
 
-const int _MAX_I64TOSTR_BASE10_COUNT = 21;
+// const int _MAX_I64TOSTR_BASE10_COUNT = 21;
 
-const int _MAX_I64TOSTR_BASE8_COUNT = 23;
+// const int _MAX_I64TOSTR_BASE8_COUNT = 23;
 
-const int _MAX_I64TOSTR_BASE2_COUNT = 65;
+// const int _MAX_I64TOSTR_BASE2_COUNT = 65;
 
-const int _MAX_U64TOSTR_BASE16_COUNT = 17;
+// const int _MAX_U64TOSTR_BASE16_COUNT = 17;
 
-const int _MAX_U64TOSTR_BASE10_COUNT = 21;
+// const int _MAX_U64TOSTR_BASE10_COUNT = 21;
 
-const int _MAX_U64TOSTR_BASE8_COUNT = 23;
+// const int _MAX_U64TOSTR_BASE8_COUNT = 23;
 
-const int _MAX_U64TOSTR_BASE2_COUNT = 65;
+// const int _MAX_U64TOSTR_BASE2_COUNT = 65;
 
 const int EXIT_SUCCESS = 0;
 
 const int EXIT_FAILURE = 1;
 
-const int _WRITE_ABORT_MSG = 1;
+// const int _WRITE_ABORT_MSG = 1;
 
-const int _CALL_REPORTFAULT = 2;
+// const int _CALL_REPORTFAULT = 2;
 
-const int _OUT_TO_DEFAULT = 0;
+// const int _OUT_TO_DEFAULT = 0;
 
-const int _OUT_TO_STDERR = 1;
+// const int _OUT_TO_STDERR = 1;
 
-const int _OUT_TO_MSGBOX = 2;
+// const int _OUT_TO_MSGBOX = 2;
 
-const int _REPORT_ERRMODE = 3;
+// const int _REPORT_ERRMODE = 3;
 
 const int RAND_MAX = 32767;
 
-const int _CVTBUFSIZE = 349;
+// const int _CVTBUFSIZE = 349;
 
-const int _MAX_PATH = 260;
+// const int _MAX_PATH = 260;
 
-const int _MAX_DRIVE = 3;
+// const int _MAX_DRIVE = 3;
 
-const int _MAX_DIR = 256;
+// const int _MAX_DIR = 256;
 
-const int _MAX_FNAME = 256;
+// const int _MAX_FNAME = 256;
 
-const int _MAX_EXT = 256;
+// const int _MAX_EXT = 256;
 
-const int _MAX_ENV = 32767;
+// const int _MAX_ENV = 32767;
 
-const int _USE_STD_VECTOR_ALGORITHMS = 1;
+// const int _USE_STD_VECTOR_ALGORITHMS = 1;
 
 const int EGL_PLATFORM_ANGLE_PLATFORM_METHODS_ANGLEX = 13442;
 
@@ -101095,91 +101095,91 @@ typedef _dart_eglWaitSync = int Function(
   int flags,
 );
 
-typedef _c___va_start = ffi.Void Function(
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
-);
+// typedef _c___va_start = ffi.Void Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+// );
 
-typedef _dart___va_start = void Function(
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
-);
+// typedef _dart___va_start = void Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> arg0,
+// );
 
-typedef _c___security_init_cookie = ffi.Void Function();
+// typedef _c___security_init_cookie = ffi.Void Function();
 
-typedef _dart___security_init_cookie = void Function();
+// typedef _dart___security_init_cookie = void Function();
 
-typedef _c___security_check_cookie = ffi.Void Function(
-  ffi.Uint64 _StackCookie,
-);
+// typedef _c___security_check_cookie = ffi.Void Function(
+//   ffi.Uint64 _StackCookie,
+// );
 
-typedef _dart___security_check_cookie = void Function(
-  int _StackCookie,
-);
+// typedef _dart___security_check_cookie = void Function(
+//   int _StackCookie,
+// );
 
-typedef _c___report_gsfailure = ffi.Void Function(
-  ffi.Uint64 _StackCookie,
-);
+// typedef _c___report_gsfailure = ffi.Void Function(
+//   ffi.Uint64 _StackCookie,
+// );
 
-typedef _dart___report_gsfailure = void Function(
-  int _StackCookie,
-);
+// typedef _dart___report_gsfailure = void Function(
+//   int _StackCookie,
+// );
 
-typedef _c___C_specific_handler = ffi.Int32 Function(
-  ffi.Pointer<EXCEPTION_RECORD> ExceptionRecord,
-  ffi.Pointer<ffi.Void> EstablisherFrame,
-  ffi.Pointer<PCONTEXT> ContextRecord,
-  ffi.Pointer<PDISPATCHER_CONTEXT> DispatcherContext,
-);
+// typedef _c___C_specific_handler = ffi.Int32 Function(
+//   ffi.Pointer<EXCEPTION_RECORD> ExceptionRecord,
+//   ffi.Pointer<ffi.Void> EstablisherFrame,
+//   ffi.Pointer<PCONTEXT> ContextRecord,
+//   ffi.Pointer<PDISPATCHER_CONTEXT> DispatcherContext,
+// );
 
-typedef _dart___C_specific_handler = int Function(
-  ffi.Pointer<EXCEPTION_RECORD> ExceptionRecord,
-  ffi.Pointer<ffi.Void> EstablisherFrame,
-  ffi.Pointer<PCONTEXT> ContextRecord,
-  ffi.Pointer<PDISPATCHER_CONTEXT> DispatcherContext,
-);
+// typedef _dart___C_specific_handler = int Function(
+//   ffi.Pointer<EXCEPTION_RECORD> ExceptionRecord,
+//   ffi.Pointer<ffi.Void> EstablisherFrame,
+//   ffi.Pointer<PCONTEXT> ContextRecord,
+//   ffi.Pointer<PDISPATCHER_CONTEXT> DispatcherContext,
+// );
 
-typedef _c__exception_code = ffi.Uint64 Function();
+// typedef _c__exception_code = ffi.Uint64 Function();
 
-typedef _dart__exception_code = int Function();
+// typedef _dart__exception_code = int Function();
 
-typedef _c__exception_info = ffi.Pointer<ffi.Void> Function();
+// typedef _c__exception_info = ffi.Pointer<ffi.Void> Function();
 
-typedef _dart__exception_info = ffi.Pointer<ffi.Void> Function();
+// typedef _dart__exception_info = ffi.Pointer<ffi.Void> Function();
 
-typedef _c__abnormal_termination = ffi.Int32 Function();
+// typedef _c__abnormal_termination = ffi.Int32 Function();
 
-typedef _dart__abnormal_termination = int Function();
+// typedef _dart__abnormal_termination = int Function();
 
-typedef _c__invalid_parameter_noinfo = ffi.Void Function();
+// typedef _c__invalid_parameter_noinfo = ffi.Void Function();
 
-typedef _dart__invalid_parameter_noinfo = void Function();
+// typedef _dart__invalid_parameter_noinfo = void Function();
 
-typedef _c__invalid_parameter_noinfo_noreturn = ffi.Void Function();
+// typedef _c__invalid_parameter_noinfo_noreturn = ffi.Void Function();
 
-typedef _dart__invalid_parameter_noinfo_noreturn = void Function();
+// typedef _dart__invalid_parameter_noinfo_noreturn = void Function();
 
-typedef _c__invoke_watson = ffi.Void Function(
-  ffi.Pointer<ffi.Uint16> _Expression,
-  ffi.Pointer<ffi.Uint16> _FunctionName,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  ffi.Uint32 _LineNo,
-  ffi.Uint64 _Reserved,
-);
+// typedef _c__invoke_watson = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint16> _Expression,
+//   ffi.Pointer<ffi.Uint16> _FunctionName,
+//   ffi.Pointer<ffi.Uint16> _FileName,
+//   ffi.Uint32 _LineNo,
+//   ffi.Uint64 _Reserved,
+// );
 
-typedef _dart__invoke_watson = void Function(
-  ffi.Pointer<ffi.Uint16> _Expression,
-  ffi.Pointer<ffi.Uint16> _FunctionName,
-  ffi.Pointer<ffi.Uint16> _FileName,
-  int _LineNo,
-  int _Reserved,
-);
+// typedef _dart__invoke_watson = void Function(
+//   ffi.Pointer<ffi.Uint16> _Expression,
+//   ffi.Pointer<ffi.Uint16> _FunctionName,
+//   ffi.Pointer<ffi.Uint16> _FileName,
+//   int _LineNo,
+//   int _Reserved,
+// );
 
-typedef _c___pctype_func = ffi.Pointer<ffi.Uint16> Function();
+// typedef _c___pctype_func = ffi.Pointer<ffi.Uint16> Function();
 
-typedef _dart___pctype_func = ffi.Pointer<ffi.Uint16> Function();
+// typedef _dart___pctype_func = ffi.Pointer<ffi.Uint16> Function();
 
-typedef _c___pwctype_func = ffi.Pointer<ffi.Uint16> Function();
+// typedef _c___pwctype_func = ffi.Pointer<ffi.Uint16> Function();
 
-typedef _dart___pwctype_func = ffi.Pointer<ffi.Uint16> Function();
+// typedef _dart___pwctype_func = ffi.Pointer<ffi.Uint16> Function();
 
 typedef _c_iswalnum = ffi.Int32 Function(
   ffi.Uint16 _C,
@@ -101285,161 +101285,161 @@ typedef _dart_iswxdigit = int Function(
   int _C,
 );
 
-typedef _c___iswcsymf = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
+// typedef _c___iswcsymf = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+// );
 
-typedef _dart___iswcsymf = int Function(
-  int _C,
-);
+// typedef _dart___iswcsymf = int Function(
+//   int _C,
+// );
 
-typedef _c___iswcsym = ffi.Int32 Function(
-  ffi.Uint16 _C,
-);
+// typedef _c___iswcsym = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+// );
 
-typedef _dart___iswcsym = int Function(
-  int _C,
-);
+// typedef _dart___iswcsym = int Function(
+//   int _C,
+// );
 
-typedef _c__iswalnum_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswalnum_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswalnum_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswalnum_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswalpha_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswalpha_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswalpha_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswalpha_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswblank_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswblank_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswblank_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswblank_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswcntrl_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswcntrl_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswcntrl_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswcntrl_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswdigit_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswdigit_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswdigit_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswdigit_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswgraph_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswgraph_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswgraph_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswgraph_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswlower_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswlower_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswlower_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswlower_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswprint_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswprint_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswprint_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswprint_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswpunct_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswpunct_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswpunct_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswpunct_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswspace_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswspace_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswspace_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswspace_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswupper_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswupper_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswupper_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswupper_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswxdigit_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswxdigit_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswxdigit_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswxdigit_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswcsymf_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswcsymf_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswcsymf_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswcsymf_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswcsym_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswcsym_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswcsym_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswcsym_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_towupper = ffi.Uint16 Function(
   ffi.Uint16 _C,
@@ -101467,37 +101467,37 @@ typedef _dart_iswctype = int Function(
   int _Type,
 );
 
-typedef _c__towupper_l = ffi.Uint16 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__towupper_l = ffi.Uint16 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__towupper_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__towupper_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__towlower_l = ffi.Uint16 Function(
-  ffi.Uint16 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__towlower_l = ffi.Uint16 Function(
+//   ffi.Uint16 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__towlower_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__towlower_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__iswctype_l = ffi.Int32 Function(
-  ffi.Uint16 _C,
-  ffi.Uint16 _Type,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iswctype_l = ffi.Int32 Function(
+//   ffi.Uint16 _C,
+//   ffi.Uint16 _Type,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iswctype_l = int Function(
-  int _C,
-  int _Type,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iswctype_l = int Function(
+//   int _C,
+//   int _Type,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_isleadbyte = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101507,15 +101507,15 @@ typedef _dart_isleadbyte = int Function(
   int _C,
 );
 
-typedef _c__isleadbyte_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__isleadbyte_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__isleadbyte_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__isleadbyte_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_is_wctype = ffi.Int32 Function(
   ffi.Uint16 _C,
@@ -101527,27 +101527,27 @@ typedef _dart_is_wctype = int Function(
   int _Type,
 );
 
-typedef _c__isctype = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Int32 _Type,
-);
+// typedef _c__isctype = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Int32 _Type,
+// );
 
-typedef _dart__isctype = int Function(
-  int _C,
-  int _Type,
-);
+// typedef _dart__isctype = int Function(
+//   int _C,
+//   int _Type,
+// );
 
-typedef _c__isctype_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Int32 _Type,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__isctype_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Int32 _Type,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__isctype_l = int Function(
-  int _C,
-  int _Type,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__isctype_l = int Function(
+//   int _C,
+//   int _Type,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_isalpha = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101557,15 +101557,15 @@ typedef _dart_isalpha = int Function(
   int _C,
 );
 
-typedef _c__isalpha_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__isalpha_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__isalpha_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__isalpha_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_isupper = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101575,15 +101575,15 @@ typedef _dart_isupper = int Function(
   int _C,
 );
 
-typedef _c__isupper_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__isupper_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__isupper_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__isupper_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_islower = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101593,15 +101593,15 @@ typedef _dart_islower = int Function(
   int _C,
 );
 
-typedef _c__islower_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__islower_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__islower_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__islower_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_isdigit = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101611,15 +101611,15 @@ typedef _dart_isdigit = int Function(
   int _C,
 );
 
-typedef _c__isdigit_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__isdigit_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__isdigit_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__isdigit_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_isxdigit = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101629,15 +101629,15 @@ typedef _dart_isxdigit = int Function(
   int _C,
 );
 
-typedef _c__isxdigit_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__isxdigit_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__isxdigit_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__isxdigit_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_isspace = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101647,15 +101647,15 @@ typedef _dart_isspace = int Function(
   int _C,
 );
 
-typedef _c__isspace_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__isspace_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__isspace_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__isspace_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_ispunct = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101665,15 +101665,15 @@ typedef _dart_ispunct = int Function(
   int _C,
 );
 
-typedef _c__ispunct_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__ispunct_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__ispunct_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__ispunct_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_isblank = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101683,15 +101683,15 @@ typedef _dart_isblank = int Function(
   int _C,
 );
 
-typedef _c__isblank_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__isblank_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__isblank_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__isblank_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_isalnum = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101701,15 +101701,15 @@ typedef _dart_isalnum = int Function(
   int _C,
 );
 
-typedef _c__isalnum_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__isalnum_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__isalnum_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__isalnum_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_isprint = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101719,15 +101719,15 @@ typedef _dart_isprint = int Function(
   int _C,
 );
 
-typedef _c__isprint_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__isprint_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__isprint_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__isprint_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_isgraph = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101737,15 +101737,15 @@ typedef _dart_isgraph = int Function(
   int _C,
 );
 
-typedef _c__isgraph_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__isgraph_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__isgraph_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__isgraph_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_iscntrl = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101755,15 +101755,15 @@ typedef _dart_iscntrl = int Function(
   int _C,
 );
 
-typedef _c__iscntrl_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__iscntrl_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__iscntrl_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__iscntrl_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_toupper = ffi.Int32 Function(
   ffi.Int32 _C,
@@ -101781,179 +101781,179 @@ typedef _dart_tolower = int Function(
   int _C,
 );
 
-typedef _c__tolower = ffi.Int32 Function(
-  ffi.Int32 _C,
-);
+// typedef _c__tolower = ffi.Int32 Function(
+//   ffi.Int32 _C,
+// );
 
-typedef _dart__tolower = int Function(
-  int _C,
-);
+// typedef _dart__tolower = int Function(
+//   int _C,
+// );
 
-typedef _c__tolower_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__tolower_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__tolower_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__tolower_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__toupper = ffi.Int32 Function(
-  ffi.Int32 _C,
-);
+// typedef _c__toupper = ffi.Int32 Function(
+//   ffi.Int32 _C,
+// );
 
-typedef _dart__toupper = int Function(
-  int _C,
-);
+// typedef _dart__toupper = int Function(
+//   int _C,
+// );
 
-typedef _c__toupper_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__toupper_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__toupper_l = int Function(
-  int _C,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__toupper_l = int Function(
+//   int _C,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c___isascii = ffi.Int32 Function(
-  ffi.Int32 _C,
-);
+// typedef _c___isascii = ffi.Int32 Function(
+//   ffi.Int32 _C,
+// );
 
-typedef _dart___isascii = int Function(
-  int _C,
-);
+// typedef _dart___isascii = int Function(
+//   int _C,
+// );
 
-typedef _c___toascii = ffi.Int32 Function(
-  ffi.Int32 _C,
-);
+// typedef _c___toascii = ffi.Int32 Function(
+//   ffi.Int32 _C,
+// );
 
-typedef _dart___toascii = int Function(
-  int _C,
-);
+// typedef _dart___toascii = int Function(
+//   int _C,
+// );
 
-typedef _c___iscsymf = ffi.Int32 Function(
-  ffi.Int32 _C,
-);
+// typedef _c___iscsymf = ffi.Int32 Function(
+//   ffi.Int32 _C,
+// );
 
-typedef _dart___iscsymf = int Function(
-  int _C,
-);
+// typedef _dart___iscsymf = int Function(
+//   int _C,
+// );
 
-typedef _c___iscsym = ffi.Int32 Function(
-  ffi.Int32 _C,
-);
+// typedef _c___iscsym = ffi.Int32 Function(
+//   ffi.Int32 _C,
+// );
 
-typedef _dart___iscsym = int Function(
-  int _C,
-);
+// typedef _dart___iscsym = int Function(
+//   int _C,
+// );
 
-typedef _c___acrt_locale_get_ctype_array_value = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Locale_pctype_array,
-  ffi.Int32 _Char_value,
-  ffi.Int32 _Mask,
-);
+// typedef _c___acrt_locale_get_ctype_array_value = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _Locale_pctype_array,
+//   ffi.Int32 _Char_value,
+//   ffi.Int32 _Mask,
+// );
 
-typedef _dart___acrt_locale_get_ctype_array_value = int Function(
-  ffi.Pointer<ffi.Uint16> _Locale_pctype_array,
-  int _Char_value,
-  int _Mask,
-);
+// typedef _dart___acrt_locale_get_ctype_array_value = int Function(
+//   ffi.Pointer<ffi.Uint16> _Locale_pctype_array,
+//   int _Char_value,
+//   int _Mask,
+// );
 
-typedef _c____mb_cur_max_func = ffi.Int32 Function();
+// typedef _c____mb_cur_max_func = ffi.Int32 Function();
 
-typedef _dart____mb_cur_max_func = int Function();
+// typedef _dart____mb_cur_max_func = int Function();
 
-typedef _c____mb_cur_max_l_func = ffi.Int32 Function(
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c____mb_cur_max_l_func = ffi.Int32 Function(
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart____mb_cur_max_l_func = int Function(
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart____mb_cur_max_l_func = int Function(
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c___ascii_tolower = ffi.Int32 Function(
-  ffi.Int32 _C,
-);
+// typedef _c___ascii_tolower = ffi.Int32 Function(
+//   ffi.Int32 _C,
+// );
 
-typedef _dart___ascii_tolower = int Function(
-  int _C,
-);
+// typedef _dart___ascii_tolower = int Function(
+//   int _C,
+// );
 
-typedef _c___ascii_toupper = ffi.Int32 Function(
-  ffi.Int32 _C,
-);
+// typedef _c___ascii_toupper = ffi.Int32 Function(
+//   ffi.Int32 _C,
+// );
 
-typedef _dart___ascii_toupper = int Function(
-  int _C,
-);
+// typedef _dart___ascii_toupper = int Function(
+//   int _C,
+// );
 
-typedef _c___ascii_iswalpha = ffi.Int32 Function(
-  ffi.Int32 _C,
-);
+// typedef _c___ascii_iswalpha = ffi.Int32 Function(
+//   ffi.Int32 _C,
+// );
 
-typedef _dart___ascii_iswalpha = int Function(
-  int _C,
-);
+// typedef _dart___ascii_iswalpha = int Function(
+//   int _C,
+// );
 
-typedef _c___ascii_iswdigit = ffi.Int32 Function(
-  ffi.Int32 _C,
-);
+// typedef _c___ascii_iswdigit = ffi.Int32 Function(
+//   ffi.Int32 _C,
+// );
 
-typedef _dart___ascii_iswdigit = int Function(
-  int _C,
-);
+// typedef _dart___ascii_iswdigit = int Function(
+//   int _C,
+// );
 
-typedef _c___ascii_towlower = ffi.Int32 Function(
-  ffi.Int32 _C,
-);
+// typedef _c___ascii_towlower = ffi.Int32 Function(
+//   ffi.Int32 _C,
+// );
 
-typedef _dart___ascii_towlower = int Function(
-  int _C,
-);
+// typedef _dart___ascii_towlower = int Function(
+//   int _C,
+// );
 
-typedef _c___ascii_towupper = ffi.Int32 Function(
-  ffi.Int32 _C,
-);
+// typedef _c___ascii_towupper = ffi.Int32 Function(
+//   ffi.Int32 _C,
+// );
 
-typedef _dart___ascii_towupper = int Function(
-  int _C,
-);
+// typedef _dart___ascii_towupper = int Function(
+//   int _C,
+// );
 
-typedef _c___acrt_get_locale_data_prefix = ffi.Pointer<__crt_locale_data_public>
-    Function(
-  ffi.Pointer<ffi.Void> _LocalePointers,
-);
+// typedef _c___acrt_get_locale_data_prefix = ffi.Pointer<__crt_locale_data_public>
+//     Function(
+//   ffi.Pointer<ffi.Void> _LocalePointers,
+// );
 
-typedef _dart___acrt_get_locale_data_prefix
-    = ffi.Pointer<__crt_locale_data_public> Function(
-  ffi.Pointer<ffi.Void> _LocalePointers,
-);
+// typedef _dart___acrt_get_locale_data_prefix
+//     = ffi.Pointer<__crt_locale_data_public> Function(
+//   ffi.Pointer<ffi.Void> _LocalePointers,
+// );
 
-typedef _c__chvalidchk_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Int32 _Mask,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__chvalidchk_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Int32 _Mask,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__chvalidchk_l = int Function(
-  int _C,
-  int _Mask,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__chvalidchk_l = int Function(
+//   int _C,
+//   int _Mask,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__ischartype_l = ffi.Int32 Function(
-  ffi.Int32 _C,
-  ffi.Int32 _Mask,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__ischartype_l = ffi.Int32 Function(
+//   ffi.Int32 _C,
+//   ffi.Int32 _Mask,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__ischartype_l = int Function(
-  int _C,
-  int _Mask,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__ischartype_l = int Function(
+//   int _C,
+//   int _Mask,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_HandleToULong = ffi.Uint64 Function(
   ffi.Pointer<ffi.Void> h,
@@ -102091,125 +102091,125 @@ typedef _dart_PtrToPtr32 = ffi.Pointer<ffi.Void> Function(
   ffi.Pointer<ffi.Void> p,
 );
 
-typedef _c__rotl8 = ffi.Uint8 Function(
-  ffi.Uint8 Value,
-  ffi.Uint8 Shift,
-);
+// typedef _c__rotl8 = ffi.Uint8 Function(
+//   ffi.Uint8 Value,
+//   ffi.Uint8 Shift,
+// );
 
-typedef _dart__rotl8 = int Function(
-  int Value,
-  int Shift,
-);
+// typedef _dart__rotl8 = int Function(
+//   int Value,
+//   int Shift,
+// );
 
-typedef _c__rotl16 = ffi.Uint16 Function(
-  ffi.Uint16 Value,
-  ffi.Uint8 Shift,
-);
+// typedef _c__rotl16 = ffi.Uint16 Function(
+//   ffi.Uint16 Value,
+//   ffi.Uint8 Shift,
+// );
 
-typedef _dart__rotl16 = int Function(
-  int Value,
-  int Shift,
-);
+// typedef _dart__rotl16 = int Function(
+//   int Value,
+//   int Shift,
+// );
 
-typedef _c__rotr8 = ffi.Uint8 Function(
-  ffi.Uint8 Value,
-  ffi.Uint8 Shift,
-);
+// typedef _c__rotr8 = ffi.Uint8 Function(
+//   ffi.Uint8 Value,
+//   ffi.Uint8 Shift,
+// );
 
-typedef _dart__rotr8 = int Function(
-  int Value,
-  int Shift,
-);
+// typedef _dart__rotr8 = int Function(
+//   int Value,
+//   int Shift,
+// );
 
-typedef _c__rotr16 = ffi.Uint16 Function(
-  ffi.Uint16 Value,
-  ffi.Uint8 Shift,
-);
+// typedef _c__rotr16 = ffi.Uint16 Function(
+//   ffi.Uint16 Value,
+//   ffi.Uint8 Shift,
+// );
 
-typedef _dart__rotr16 = int Function(
-  int Value,
-  int Shift,
-);
+// typedef _dart__rotr16 = int Function(
+//   int Value,
+//   int Shift,
+// );
 
-typedef _c__rotl = ffi.Uint32 Function(
-  ffi.Uint32 Value,
-  ffi.Int32 Shift,
-);
+// typedef _c__rotl = ffi.Uint32 Function(
+//   ffi.Uint32 Value,
+//   ffi.Int32 Shift,
+// );
 
-typedef _dart__rotl = int Function(
-  int Value,
-  int Shift,
-);
+// typedef _dart__rotl = int Function(
+//   int Value,
+//   int Shift,
+// );
 
-typedef _c__rotl64 = ffi.Uint64 Function(
-  ffi.Uint64 Value,
-  ffi.Int32 Shift,
-);
+// typedef _c__rotl64 = ffi.Uint64 Function(
+//   ffi.Uint64 Value,
+//   ffi.Int32 Shift,
+// );
 
-typedef _dart__rotl64 = int Function(
-  int Value,
-  int Shift,
-);
+// typedef _dart__rotl64 = int Function(
+//   int Value,
+//   int Shift,
+// );
 
-typedef _c__rotr = ffi.Uint32 Function(
-  ffi.Uint32 Value,
-  ffi.Int32 Shift,
-);
+// typedef _c__rotr = ffi.Uint32 Function(
+//   ffi.Uint32 Value,
+//   ffi.Int32 Shift,
+// );
 
-typedef _dart__rotr = int Function(
-  int Value,
-  int Shift,
-);
+// typedef _dart__rotr = int Function(
+//   int Value,
+//   int Shift,
+// );
 
-typedef _c__rotr64 = ffi.Uint64 Function(
-  ffi.Uint64 Value,
-  ffi.Int32 Shift,
-);
+// typedef _c__rotr64 = ffi.Uint64 Function(
+//   ffi.Uint64 Value,
+//   ffi.Int32 Shift,
+// );
 
-typedef _dart__rotr64 = int Function(
-  int Value,
-  int Shift,
-);
+// typedef _dart__rotr64 = int Function(
+//   int Value,
+//   int Shift,
+// );
 
-typedef _c__errno = ffi.Pointer<ffi.Int32> Function();
+// typedef _c__errno = ffi.Pointer<ffi.Int32> Function();
 
-typedef _dart__errno = ffi.Pointer<ffi.Int32> Function();
+// typedef _dart__errno = ffi.Pointer<ffi.Int32> Function();
 
-typedef _c__set_errno = ffi.Int32 Function(
-  ffi.Int32 _Value,
-);
+// typedef _c__set_errno = ffi.Int32 Function(
+//   ffi.Int32 _Value,
+// );
 
-typedef _dart__set_errno = int Function(
-  int _Value,
-);
+// typedef _dart__set_errno = int Function(
+//   int _Value,
+// );
 
-typedef _c__get_errno = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int32> _Value,
-);
+// typedef _c__get_errno = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int32> _Value,
+// );
 
-typedef _dart__get_errno = int Function(
-  ffi.Pointer<ffi.Int32> _Value,
-);
+// typedef _dart__get_errno = int Function(
+//   ffi.Pointer<ffi.Int32> _Value,
+// );
 
-typedef _c___doserrno = ffi.Pointer<ffi.Uint64> Function();
+// typedef _c___doserrno = ffi.Pointer<ffi.Uint64> Function();
 
-typedef _dart___doserrno = ffi.Pointer<ffi.Uint64> Function();
+// typedef _dart___doserrno = ffi.Pointer<ffi.Uint64> Function();
 
-typedef _c__set_doserrno = ffi.Int32 Function(
-  ffi.Uint64 _Value,
-);
+// typedef _c__set_doserrno = ffi.Int32 Function(
+//   ffi.Uint64 _Value,
+// );
 
-typedef _dart__set_doserrno = int Function(
-  int _Value,
-);
+// typedef _dart__set_doserrno = int Function(
+//   int _Value,
+// );
 
-typedef _c__get_doserrno = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint64> _Value,
-);
+// typedef _c__get_doserrno = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint64> _Value,
+// );
 
-typedef _dart__get_doserrno = int Function(
-  ffi.Pointer<ffi.Uint64> _Value,
-);
+// typedef _dart__get_doserrno = int Function(
+//   ffi.Pointer<ffi.Uint64> _Value,
+// );
 
 typedef _c_memchr = ffi.Pointer<ffi.Void> Function(
   ffi.Pointer<ffi.Void> _Buf,
@@ -102359,31 +102359,31 @@ typedef _dart_memmove_s = int Function(
   int _SourceSize,
 );
 
-typedef _c__memicmp = ffi.Int32 Function(
-  ffi.Pointer<ffi.Void> _Buf1,
-  ffi.Pointer<ffi.Void> _Buf2,
-  ffi.Uint64 _Size,
-);
+// typedef _c__memicmp = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Void> _Buf1,
+//   ffi.Pointer<ffi.Void> _Buf2,
+//   ffi.Uint64 _Size,
+// );
 
-typedef _dart__memicmp = int Function(
-  ffi.Pointer<ffi.Void> _Buf1,
-  ffi.Pointer<ffi.Void> _Buf2,
-  int _Size,
-);
+// typedef _dart__memicmp = int Function(
+//   ffi.Pointer<ffi.Void> _Buf1,
+//   ffi.Pointer<ffi.Void> _Buf2,
+//   int _Size,
+// );
 
-typedef _c__memicmp_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Void> _Buf1,
-  ffi.Pointer<ffi.Void> _Buf2,
-  ffi.Uint64 _Size,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__memicmp_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Void> _Buf1,
+//   ffi.Pointer<ffi.Void> _Buf2,
+//   ffi.Uint64 _Size,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__memicmp_l = int Function(
-  ffi.Pointer<ffi.Void> _Buf1,
-  ffi.Pointer<ffi.Void> _Buf2,
-  int _Size,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__memicmp_l = int Function(
+//   ffi.Pointer<ffi.Void> _Buf1,
+//   ffi.Pointer<ffi.Void> _Buf2,
+//   int _Size,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_memccpy = ffi.Pointer<ffi.Void> Function(
   ffi.Pointer<ffi.Void> _Dst,
@@ -102475,13 +102475,13 @@ typedef _dart_wcstok_s = ffi.Pointer<ffi.Uint16> Function(
   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Context,
 );
 
-typedef _c__wcsdup = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
+// typedef _c__wcsdup = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
 
-typedef _dart__wcsdup = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
+// typedef _dart__wcsdup = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
 
 typedef _c_wcscat = ffi.Pointer<ffi.Uint16> Function(
   ffi.Pointer<ffi.Uint16> _Destination,
@@ -102619,239 +102619,239 @@ typedef _dart_wcstok = ffi.Pointer<ffi.Uint16> Function(
   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Context,
 );
 
-typedef _c__wcstok = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Uint16> _Delimiter,
-);
+// typedef _c__wcstok = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Uint16> _Delimiter,
+// );
 
-typedef _dart__wcstok = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Uint16> _Delimiter,
-);
+// typedef _dart__wcstok = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Uint16> _Delimiter,
+// );
 
-typedef _c__wcserror = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Int32 _ErrorNumber,
-);
+// typedef _c__wcserror = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Int32 _ErrorNumber,
+// );
 
-typedef _dart__wcserror = ffi.Pointer<ffi.Uint16> Function(
-  int _ErrorNumber,
-);
+// typedef _dart__wcserror = ffi.Pointer<ffi.Uint16> Function(
+//   int _ErrorNumber,
+// );
 
-typedef _c__wcserror_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _SizeInWords,
-  ffi.Int32 _ErrorNumber,
-);
+// typedef _c__wcserror_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Uint64 _SizeInWords,
+//   ffi.Int32 _ErrorNumber,
+// );
 
-typedef _dart__wcserror_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _SizeInWords,
-  int _ErrorNumber,
-);
+// typedef _dart__wcserror_s = int Function(
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _SizeInWords,
+//   int _ErrorNumber,
+// );
 
-typedef _c___wcserror = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
+// typedef _c___wcserror = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
 
-typedef _dart___wcserror = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
+// typedef _dart___wcserror = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
 
-typedef _c___wcserror_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _ErrorMessage,
-);
+// typedef _c___wcserror_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Uint64 _SizeInWords,
+//   ffi.Pointer<ffi.Uint16> _ErrorMessage,
+// );
 
-typedef _dart___wcserror_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _SizeInWords,
-  ffi.Pointer<ffi.Uint16> _ErrorMessage,
-);
+// typedef _dart___wcserror_s = int Function(
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _SizeInWords,
+//   ffi.Pointer<ffi.Uint16> _ErrorMessage,
+// );
 
-typedef _c__wcsicmp = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
+// typedef _c__wcsicmp = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+// );
 
-typedef _dart__wcsicmp = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
+// typedef _dart__wcsicmp = int Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+// );
 
-typedef _c__wcsicmp_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcsicmp_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcsicmp_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcsicmp_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__wcsnicmp = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-);
+// typedef _c__wcsnicmp = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   ffi.Uint64 _MaxCount,
+// );
 
-typedef _dart__wcsnicmp = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-);
+// typedef _dart__wcsnicmp = int Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   int _MaxCount,
+// );
 
-typedef _c__wcsnicmp_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcsnicmp_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   ffi.Uint64 _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcsnicmp_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcsnicmp_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   int _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__wcsnset_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Uint64 _SizeInWords,
-  ffi.Uint16 _Value,
-  ffi.Uint64 _MaxCount,
-);
+// typedef _c__wcsnset_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _Destination,
+//   ffi.Uint64 _SizeInWords,
+//   ffi.Uint16 _Value,
+//   ffi.Uint64 _MaxCount,
+// );
 
-typedef _dart__wcsnset_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  int _SizeInWords,
-  int _Value,
-  int _MaxCount,
-);
+// typedef _dart__wcsnset_s = int Function(
+//   ffi.Pointer<ffi.Uint16> _Destination,
+//   int _SizeInWords,
+//   int _Value,
+//   int _MaxCount,
+// );
 
-typedef _c__wcsnset = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint16 _Value,
-  ffi.Uint64 _MaxCount,
-);
+// typedef _c__wcsnset = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Uint16 _Value,
+//   ffi.Uint64 _MaxCount,
+// );
 
-typedef _dart__wcsnset = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _Value,
-  int _MaxCount,
-);
+// typedef _dart__wcsnset = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   int _Value,
+//   int _MaxCount,
+// );
 
-typedef _c__wcsrev = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
+// typedef _c__wcsrev = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
 
-typedef _dart__wcsrev = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
+// typedef _dart__wcsrev = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
 
-typedef _c__wcsset_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Uint64 _SizeInWords,
-  ffi.Uint16 _Value,
-);
+// typedef _c__wcsset_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _Destination,
+//   ffi.Uint64 _SizeInWords,
+//   ffi.Uint16 _Value,
+// );
 
-typedef _dart__wcsset_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  int _SizeInWords,
-  int _Value,
-);
+// typedef _dart__wcsset_s = int Function(
+//   ffi.Pointer<ffi.Uint16> _Destination,
+//   int _SizeInWords,
+//   int _Value,
+// );
 
-typedef _c__wcsset = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint16 _Value,
-);
+// typedef _c__wcsset = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Uint16 _Value,
+// );
 
-typedef _dart__wcsset = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _Value,
-);
+// typedef _dart__wcsset = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   int _Value,
+// );
 
-typedef _c__wcslwr_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint64 _SizeInWords,
-);
+// typedef _c__wcslwr_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Uint64 _SizeInWords,
+// );
 
-typedef _dart__wcslwr_s = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _SizeInWords,
-);
+// typedef _dart__wcslwr_s = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   int _SizeInWords,
+// );
 
-typedef _c__wcslwr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
+// typedef _c__wcslwr = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
 
-typedef _dart__wcslwr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
+// typedef _dart__wcslwr = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
 
-typedef _c__wcslwr_s_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcslwr_s_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Uint64 _SizeInWords,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcslwr_s_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _SizeInWords,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcslwr_s_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   int _SizeInWords,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__wcslwr_l = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcslwr_l = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcslwr_l = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcslwr_l = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__wcsupr_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint64 _Size,
-);
+// typedef _c__wcsupr_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Uint64 _Size,
+// );
 
-typedef _dart__wcsupr_s = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _Size,
-);
+// typedef _dart__wcsupr_s = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   int _Size,
+// );
 
-typedef _c__wcsupr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
+// typedef _c__wcsupr = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
 
-typedef _dart__wcsupr = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
+// typedef _dart__wcsupr = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
 
-typedef _c__wcsupr_s_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Uint64 _Size,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcsupr_s_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Uint64 _Size,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcsupr_s_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  int _Size,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcsupr_s_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   int _Size,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__wcsupr_l = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcsupr_l = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcsupr_l = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcsupr_l = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_wcsxfrm = ffi.Uint64 Function(
   ffi.Pointer<ffi.Uint16> _Destination,
@@ -102865,19 +102865,19 @@ typedef _dart_wcsxfrm = int Function(
   int _MaxCount,
 );
 
-typedef _c__wcsxfrm_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcsxfrm_l = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Uint16> _Destination,
+//   ffi.Pointer<ffi.Uint16> _Source,
+//   ffi.Uint64 _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcsxfrm_l = int Function(
-  ffi.Pointer<ffi.Uint16> _Destination,
-  ffi.Pointer<ffi.Uint16> _Source,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcsxfrm_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _Destination,
+//   ffi.Pointer<ffi.Uint16> _Source,
+//   int _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_wcscoll = ffi.Int32 Function(
   ffi.Pointer<ffi.Uint16> _String1,
@@ -102889,91 +102889,91 @@ typedef _dart_wcscoll = int Function(
   ffi.Pointer<ffi.Uint16> _String2,
 );
 
-typedef _c__wcscoll_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcscoll_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcscoll_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcscoll_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__wcsicoll = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
+// typedef _c__wcsicoll = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+// );
 
-typedef _dart__wcsicoll = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-);
+// typedef _dart__wcsicoll = int Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+// );
 
-typedef _c__wcsicoll_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcsicoll_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcsicoll_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcsicoll_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__wcsncoll = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-);
+// typedef _c__wcsncoll = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   ffi.Uint64 _MaxCount,
+// );
 
-typedef _dart__wcsncoll = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-);
+// typedef _dart__wcsncoll = int Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   int _MaxCount,
+// );
 
-typedef _c__wcsncoll_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcsncoll_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   ffi.Uint64 _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcsncoll_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcsncoll_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   int _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__wcsnicoll = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-);
+// typedef _c__wcsnicoll = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   ffi.Uint64 _MaxCount,
+// );
 
-typedef _dart__wcsnicoll = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-);
+// typedef _dart__wcsnicoll = int Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   int _MaxCount,
+// );
 
-typedef _c__wcsnicoll_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcsnicoll_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   ffi.Uint64 _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcsnicoll_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String1,
-  ffi.Pointer<ffi.Uint16> _String2,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcsnicoll_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String1,
+//   ffi.Pointer<ffi.Uint16> _String2,
+//   int _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_wcsdup = ffi.Pointer<ffi.Uint16> Function(
   ffi.Pointer<ffi.Uint16> _String,
@@ -103137,19 +103137,19 @@ typedef _dart_strtok_s = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<ffi.Pointer<ffi.Int8>> _Context,
 );
 
-typedef _c__memccpy = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Dst,
-  ffi.Pointer<ffi.Void> _Src,
-  ffi.Int32 _Val,
-  ffi.Uint64 _MaxCount,
-);
+// typedef _c__memccpy = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Dst,
+//   ffi.Pointer<ffi.Void> _Src,
+//   ffi.Int32 _Val,
+//   ffi.Uint64 _MaxCount,
+// );
 
-typedef _dart__memccpy = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Dst,
-  ffi.Pointer<ffi.Void> _Src,
-  int _Val,
-  int _MaxCount,
-);
+// typedef _dart__memccpy = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Dst,
+//   ffi.Pointer<ffi.Void> _Src,
+//   int _Val,
+//   int _MaxCount,
+// );
 
 typedef _c_strcat = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<ffi.Int8> _Destination,
@@ -103171,15 +103171,15 @@ typedef _dart_strcmp = int Function(
   ffi.Pointer<ffi.Int8> _Str2,
 );
 
-typedef _c__strcmpi = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-);
+// typedef _c__strcmpi = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+// );
 
-typedef _dart__strcmpi = int Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-);
+// typedef _dart__strcmpi = int Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+// );
 
 typedef _c_strcoll = ffi.Int32 Function(
   ffi.Pointer<ffi.Int8> _String1,
@@ -103191,17 +103191,17 @@ typedef _dart_strcoll = int Function(
   ffi.Pointer<ffi.Int8> _String2,
 );
 
-typedef _c__strcoll_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strcoll_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strcoll_l = int Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strcoll_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_strcpy = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<ffi.Int8> _Destination,
@@ -103223,33 +103223,33 @@ typedef _dart_strcspn = int Function(
   ffi.Pointer<ffi.Int8> _Control,
 );
 
-typedef _c__strdup = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Source,
-);
+// typedef _c__strdup = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _Source,
+// );
 
-typedef _dart__strdup = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Source,
-);
+// typedef _dart__strdup = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _Source,
+// );
 
-typedef _c__strerror = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _ErrorMessage,
-);
+// typedef _c__strerror = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _ErrorMessage,
+// );
 
-typedef _dart__strerror = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _ErrorMessage,
-);
+// typedef _dart__strerror = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _ErrorMessage,
+// );
 
-typedef _c__strerror_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Uint64 _SizeInBytes,
-  ffi.Pointer<ffi.Int8> _ErrorMessage,
-);
+// typedef _c__strerror_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Uint64 _SizeInBytes,
+//   ffi.Pointer<ffi.Int8> _ErrorMessage,
+// );
 
-typedef _dart__strerror_s = int Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _SizeInBytes,
-  ffi.Pointer<ffi.Int8> _ErrorMessage,
-);
+// typedef _dart__strerror_s = int Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _SizeInBytes,
+//   ffi.Pointer<ffi.Int8> _ErrorMessage,
+// );
 
 typedef _c_strerror = ffi.Pointer<ffi.Int8> Function(
   ffi.Int32 _ErrorMessage,
@@ -103259,49 +103259,49 @@ typedef _dart_strerror = ffi.Pointer<ffi.Int8> Function(
   int _ErrorMessage,
 );
 
-typedef _c__stricmp = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-);
+// typedef _c__stricmp = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+// );
 
-typedef _dart__stricmp = int Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-);
+// typedef _dart__stricmp = int Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+// );
 
-typedef _c__stricoll = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-);
+// typedef _c__stricoll = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+// );
 
-typedef _dart__stricoll = int Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-);
+// typedef _dart__stricoll = int Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+// );
 
-typedef _c__stricoll_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__stricoll_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__stricoll_l = int Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__stricoll_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__stricmp_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__stricmp_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__stricmp_l = int Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__stricmp_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_strlen = ffi.Uint64 Function(
   ffi.Pointer<ffi.Int8> _Str,
@@ -103311,45 +103311,45 @@ typedef _dart_strlen = int Function(
   ffi.Pointer<ffi.Int8> _Str,
 );
 
-typedef _c__strlwr_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Uint64 _Size,
-);
+// typedef _c__strlwr_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Uint64 _Size,
+// );
 
-typedef _dart__strlwr_s = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  int _Size,
-);
+// typedef _dart__strlwr_s = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   int _Size,
+// );
 
-typedef _c__strlwr = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _c__strlwr = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _dart__strlwr = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _dart__strlwr = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _c__strlwr_s_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Uint64 _Size,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strlwr_s_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Uint64 _Size,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strlwr_s_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  int _Size,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strlwr_s_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   int _Size,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__strlwr_l = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strlwr_l = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strlwr_l = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strlwr_l = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_strncat = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<ffi.Int8> _Destination,
@@ -103375,93 +103375,93 @@ typedef _dart_strncmp = int Function(
   int _MaxCount,
 );
 
-typedef _c__strnicmp = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  ffi.Uint64 _MaxCount,
-);
+// typedef _c__strnicmp = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   ffi.Uint64 _MaxCount,
+// );
 
-typedef _dart__strnicmp = int Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  int _MaxCount,
-);
+// typedef _dart__strnicmp = int Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   int _MaxCount,
+// );
 
-typedef _c__strnicmp_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strnicmp_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   ffi.Uint64 _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strnicmp_l = int Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strnicmp_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   int _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__strnicoll = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  ffi.Uint64 _MaxCount,
-);
+// typedef _c__strnicoll = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   ffi.Uint64 _MaxCount,
+// );
 
-typedef _dart__strnicoll = int Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  int _MaxCount,
-);
+// typedef _dart__strnicoll = int Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   int _MaxCount,
+// );
 
-typedef _c__strnicoll_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strnicoll_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   ffi.Uint64 _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strnicoll_l = int Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strnicoll_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   int _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__strncoll = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  ffi.Uint64 _MaxCount,
-);
+// typedef _c__strncoll = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   ffi.Uint64 _MaxCount,
+// );
 
-typedef _dart__strncoll = int Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  int _MaxCount,
-);
+// typedef _dart__strncoll = int Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   int _MaxCount,
+// );
 
-typedef _c__strncoll_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strncoll_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   ffi.Uint64 _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strncoll_l = int Function(
-  ffi.Pointer<ffi.Int8> _String1,
-  ffi.Pointer<ffi.Int8> _String2,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strncoll_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String1,
+//   ffi.Pointer<ffi.Int8> _String2,
+//   int _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c___strncnt = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Uint64 _Count,
-);
+// typedef _c___strncnt = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Uint64 _Count,
+// );
 
-typedef _dart___strncnt = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  int _Count,
-);
+// typedef _dart___strncnt = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   int _Count,
+// );
 
 typedef _c_strncpy = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<ffi.Int8> _Destination,
@@ -103495,31 +103495,31 @@ typedef _dart_strnlen_s = int Function(
   int _MaxCount,
 );
 
-typedef _c__strnset_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Uint64 _SizeInBytes,
-  ffi.Int32 _Value,
-  ffi.Uint64 _MaxCount,
-);
+// typedef _c__strnset_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Uint64 _SizeInBytes,
+//   ffi.Int32 _Value,
+//   ffi.Uint64 _MaxCount,
+// );
 
-typedef _dart__strnset_s = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  int _SizeInBytes,
-  int _Value,
-  int _MaxCount,
-);
+// typedef _dart__strnset_s = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   int _SizeInBytes,
+//   int _Value,
+//   int _MaxCount,
+// );
 
-typedef _c__strnset = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Destination,
-  ffi.Int32 _Value,
-  ffi.Uint64 _Count,
-);
+// typedef _c__strnset = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _Destination,
+//   ffi.Int32 _Value,
+//   ffi.Uint64 _Count,
+// );
 
-typedef _dart__strnset = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Destination,
-  int _Value,
-  int _Count,
-);
+// typedef _dart__strnset = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _Destination,
+//   int _Value,
+//   int _Count,
+// );
 
 typedef _c_strpbrk = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<ffi.Int8> _Str,
@@ -103531,35 +103531,35 @@ typedef _dart_strpbrk = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<ffi.Int8> _Control,
 );
 
-typedef _c__strrev = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Str,
-);
+// typedef _c__strrev = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _Str,
+// );
 
-typedef _dart__strrev = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Str,
-);
+// typedef _dart__strrev = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _Str,
+// );
 
-typedef _c__strset_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _Destination,
-  ffi.Uint64 _DestinationSize,
-  ffi.Int32 _Value,
-);
+// typedef _c__strset_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _Destination,
+//   ffi.Uint64 _DestinationSize,
+//   ffi.Int32 _Value,
+// );
 
-typedef _dart__strset_s = int Function(
-  ffi.Pointer<ffi.Int8> _Destination,
-  int _DestinationSize,
-  int _Value,
-);
+// typedef _dart__strset_s = int Function(
+//   ffi.Pointer<ffi.Int8> _Destination,
+//   int _DestinationSize,
+//   int _Value,
+// );
 
-typedef _c__strset = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Destination,
-  ffi.Int32 _Value,
-);
+// typedef _c__strset = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _Destination,
+//   ffi.Int32 _Value,
+// );
 
-typedef _dart__strset = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Destination,
-  int _Value,
-);
+// typedef _dart__strset = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _Destination,
+//   int _Value,
+// );
 
 typedef _c_strspn = ffi.Uint64 Function(
   ffi.Pointer<ffi.Int8> _Str,
@@ -103581,45 +103581,45 @@ typedef _dart_strtok = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<ffi.Int8> _Delimiter,
 );
 
-typedef _c__strupr_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Uint64 _Size,
-);
+// typedef _c__strupr_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Uint64 _Size,
+// );
 
-typedef _dart__strupr_s = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  int _Size,
-);
+// typedef _dart__strupr_s = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   int _Size,
+// );
 
-typedef _c__strupr = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _c__strupr = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _dart__strupr = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _dart__strupr = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _c__strupr_s_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Uint64 _Size,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strupr_s_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Uint64 _Size,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strupr_s_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  int _Size,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strupr_s_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   int _Size,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__strupr_l = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strupr_l = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strupr_l = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strupr_l = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_strxfrm = ffi.Uint64 Function(
   ffi.Pointer<ffi.Int8> _Destination,
@@ -103633,19 +103633,19 @@ typedef _dart_strxfrm = int Function(
   int _MaxCount,
 );
 
-typedef _c__strxfrm_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _Destination,
-  ffi.Pointer<ffi.Int8> _Source,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strxfrm_l = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Int8> _Destination,
+//   ffi.Pointer<ffi.Int8> _Source,
+//   ffi.Uint64 _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strxfrm_l = int Function(
-  ffi.Pointer<ffi.Int8> _Destination,
-  ffi.Pointer<ffi.Int8> _Source,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strxfrm_l = int Function(
+//   ffi.Pointer<ffi.Int8> _Destination,
+//   ffi.Pointer<ffi.Int8> _Source,
+//   int _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_strdup = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<ffi.Int8> _String,
@@ -103733,766 +103733,766 @@ typedef _dart_strupr = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<ffi.Int8> _String,
 );
 
-typedef _c__bittest = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Int64> Base,
-  ffi.Int64 Offset,
-);
-
-typedef _dart__bittest = int Function(
-  ffi.Pointer<ffi.Int64> Base,
-  int Offset,
-);
-
-typedef _c__bittestandcomplement = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Int64> Base,
-  ffi.Int64 Offset,
-);
-
-typedef _dart__bittestandcomplement = int Function(
-  ffi.Pointer<ffi.Int64> Base,
-  int Offset,
-);
-
-typedef _c__bittestandset = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Int64> Base,
-  ffi.Int64 Offset,
-);
-
-typedef _dart__bittestandset = int Function(
-  ffi.Pointer<ffi.Int64> Base,
-  int Offset,
-);
-
-typedef _c__bittestandreset = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Int64> Base,
-  ffi.Int64 Offset,
-);
-
-typedef _dart__bittestandreset = int Function(
-  ffi.Pointer<ffi.Int64> Base,
-  int Offset,
-);
-
-typedef _c__interlockedbittestandset = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Int64> Base,
-  ffi.Int64 Offset,
-);
-
-typedef _dart__interlockedbittestandset = int Function(
-  ffi.Pointer<ffi.Int64> Base,
-  int Offset,
-);
-
-typedef _c__interlockedbittestandreset = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Int64> Base,
-  ffi.Int64 Offset,
-);
-
-typedef _dart__interlockedbittestandreset = int Function(
-  ffi.Pointer<ffi.Int64> Base,
-  int Offset,
-);
-
-typedef _c__bittest64 = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Int64> Base,
-  ffi.Int64 Offset,
-);
-
-typedef _dart__bittest64 = int Function(
-  ffi.Pointer<ffi.Int64> Base,
-  int Offset,
-);
-
-typedef _c__bittestandcomplement64 = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Int64> Base,
-  ffi.Int64 Offset,
-);
-
-typedef _dart__bittestandcomplement64 = int Function(
-  ffi.Pointer<ffi.Int64> Base,
-  int Offset,
-);
-
-typedef _c__bittestandset64 = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Int64> Base,
-  ffi.Int64 Offset,
-);
-
-typedef _dart__bittestandset64 = int Function(
-  ffi.Pointer<ffi.Int64> Base,
-  int Offset,
-);
-
-typedef _c__bittestandreset64 = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Int64> Base,
-  ffi.Int64 Offset,
-);
-
-typedef _dart__bittestandreset64 = int Function(
-  ffi.Pointer<ffi.Int64> Base,
-  int Offset,
-);
-
-typedef _c__interlockedbittestandset64 = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Int64> Base,
-  ffi.Int64 Offset,
-);
-
-typedef _dart__interlockedbittestandset64 = int Function(
-  ffi.Pointer<ffi.Int64> Base,
-  int Offset,
-);
-
-typedef _c__interlockedbittestandreset64 = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Int64> Base,
-  ffi.Int64 Offset,
-);
-
-typedef _dart__interlockedbittestandreset64 = int Function(
-  ffi.Pointer<ffi.Int64> Base,
-  int Offset,
-);
-
-typedef _c__BitScanForward = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Uint64> Index,
-  ffi.Uint64 Mask,
-);
-
-typedef _dart__BitScanForward = int Function(
-  ffi.Pointer<ffi.Uint64> Index,
-  int Mask,
-);
-
-typedef _c__BitScanReverse = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Uint64> Index,
-  ffi.Uint64 Mask,
-);
-
-typedef _dart__BitScanReverse = int Function(
-  ffi.Pointer<ffi.Uint64> Index,
-  int Mask,
-);
-
-typedef _c__BitScanForward64 = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Uint64> Index,
-  ffi.Uint64 Mask,
-);
-
-typedef _dart__BitScanForward64 = int Function(
-  ffi.Pointer<ffi.Uint64> Index,
-  int Mask,
-);
-
-typedef _c__BitScanReverse64 = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Uint64> Index,
-  ffi.Uint64 Mask,
-);
-
-typedef _dart__BitScanReverse64 = int Function(
-  ffi.Pointer<ffi.Uint64> Index,
-  int Mask,
-);
-
-typedef _c__InterlockedIncrement16 = ffi.Int16 Function(
-  ffi.Pointer<ffi.Int16> Addend,
-);
-
-typedef _dart__InterlockedIncrement16 = int Function(
-  ffi.Pointer<ffi.Int16> Addend,
-);
-
-typedef _c__InterlockedDecrement16 = ffi.Int16 Function(
-  ffi.Pointer<ffi.Int16> Addend,
-);
-
-typedef _dart__InterlockedDecrement16 = int Function(
-  ffi.Pointer<ffi.Int16> Addend,
-);
-
-typedef _c__InterlockedCompareExchange16 = ffi.Int16 Function(
-  ffi.Pointer<ffi.Int16> Destination,
-  ffi.Int16 ExChange,
-  ffi.Int16 Comperand,
-);
-
-typedef _dart__InterlockedCompareExchange16 = int Function(
-  ffi.Pointer<ffi.Int16> Destination,
-  int ExChange,
-  int Comperand,
-);
-
-typedef _c__InterlockedAnd = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  ffi.Int64 Value,
-);
-
-typedef _dart__InterlockedAnd = int Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  int Value,
-);
-
-typedef _c__InterlockedOr = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  ffi.Int64 Value,
-);
-
-typedef _dart__InterlockedOr = int Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  int Value,
-);
-
-typedef _c__InterlockedXor = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  ffi.Int64 Value,
-);
-
-typedef _dart__InterlockedXor = int Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  int Value,
-);
-
-typedef _c__InterlockedAnd64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  ffi.Int64 Value,
-);
-
-typedef _dart__InterlockedAnd64 = int Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  int Value,
-);
-
-typedef _c__InterlockedOr64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  ffi.Int64 Value,
-);
-
-typedef _dart__InterlockedOr64 = int Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  int Value,
-);
-
-typedef _c__InterlockedXor64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  ffi.Int64 Value,
-);
-
-typedef _dart__InterlockedXor64 = int Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  int Value,
-);
-
-typedef _c__InterlockedIncrement = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Addend,
-);
-
-typedef _dart__InterlockedIncrement = int Function(
-  ffi.Pointer<ffi.Int64> Addend,
-);
-
-typedef _c__InterlockedDecrement = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Addend,
-);
-
-typedef _dart__InterlockedDecrement = int Function(
-  ffi.Pointer<ffi.Int64> Addend,
-);
-
-typedef _c__InterlockedExchange = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Target,
-  ffi.Int64 Value,
-);
-
-typedef _dart__InterlockedExchange = int Function(
-  ffi.Pointer<ffi.Int64> Target,
-  int Value,
-);
-
-typedef _c__InterlockedExchangeAdd = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Addend,
-  ffi.Int64 Value,
-);
-
-typedef _dart__InterlockedExchangeAdd = int Function(
-  ffi.Pointer<ffi.Int64> Addend,
-  int Value,
-);
-
-typedef _c__InlineInterlockedAdd = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Addend,
-  ffi.Int64 Value,
-);
-
-typedef _dart__InlineInterlockedAdd = int Function(
-  ffi.Pointer<ffi.Int64> Addend,
-  int Value,
-);
-
-typedef _c__InterlockedCompareExchange = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  ffi.Int64 ExChange,
-  ffi.Int64 Comperand,
-);
-
-typedef _dart__InterlockedCompareExchange = int Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  int ExChange,
-  int Comperand,
-);
-
-typedef _c__InterlockedIncrement64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Addend,
-);
-
-typedef _dart__InterlockedIncrement64 = int Function(
-  ffi.Pointer<ffi.Int64> Addend,
-);
-
-typedef _c__InterlockedDecrement64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Addend,
-);
-
-typedef _dart__InterlockedDecrement64 = int Function(
-  ffi.Pointer<ffi.Int64> Addend,
-);
-
-typedef _c__InterlockedExchange64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Target,
-  ffi.Int64 Value,
-);
-
-typedef _dart__InterlockedExchange64 = int Function(
-  ffi.Pointer<ffi.Int64> Target,
-  int Value,
-);
-
-typedef _c__InterlockedExchangeAdd64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Addend,
-  ffi.Int64 Value,
-);
-
-typedef _dart__InterlockedExchangeAdd64 = int Function(
-  ffi.Pointer<ffi.Int64> Addend,
-  int Value,
-);
-
-typedef _c__InlineInterlockedAdd64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Addend,
-  ffi.Int64 Value,
-);
-
-typedef _dart__InlineInterlockedAdd64 = int Function(
-  ffi.Pointer<ffi.Int64> Addend,
-  int Value,
-);
-
-typedef _c__InterlockedCompareExchange64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  ffi.Int64 ExChange,
-  ffi.Int64 Comperand,
-);
-
-typedef _dart__InterlockedCompareExchange64 = int Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  int ExChange,
-  int Comperand,
-);
-
-typedef _c__InterlockedCompareExchange128 = ffi.Uint8 Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  ffi.Int64 ExchangeHigh,
-  ffi.Int64 ExchangeLow,
-  ffi.Pointer<ffi.Int64> ComparandResult,
-);
-
-typedef _dart__InterlockedCompareExchange128 = int Function(
-  ffi.Pointer<ffi.Int64> Destination,
-  int ExchangeHigh,
-  int ExchangeLow,
-  ffi.Pointer<ffi.Int64> ComparandResult,
-);
-
-typedef _c__InterlockedCompareExchangePointer = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Pointer<ffi.Void>> Destination,
-  ffi.Pointer<ffi.Void> Exchange,
-  ffi.Pointer<ffi.Void> Comperand,
-);
-
-typedef _dart__InterlockedCompareExchangePointer = ffi.Pointer<ffi.Void>
-    Function(
-  ffi.Pointer<ffi.Pointer<ffi.Void>> Destination,
-  ffi.Pointer<ffi.Void> Exchange,
-  ffi.Pointer<ffi.Void> Comperand,
-);
-
-typedef _c__InterlockedExchangePointer = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Pointer<ffi.Void>> Target,
-  ffi.Pointer<ffi.Void> Value,
-);
-
-typedef _dart__InterlockedExchangePointer = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Pointer<ffi.Void>> Target,
-  ffi.Pointer<ffi.Void> Value,
-);
-
-typedef _c__InterlockedExchange8 = ffi.Int8 Function(
-  ffi.Pointer<ffi.Int8> Target,
-  ffi.Int8 Value,
-);
-
-typedef _dart__InterlockedExchange8 = int Function(
-  ffi.Pointer<ffi.Int8> Target,
-  int Value,
-);
-
-typedef _c__InterlockedExchange16 = ffi.Int16 Function(
-  ffi.Pointer<ffi.Int16> Destination,
-  ffi.Int16 ExChange,
-);
-
-typedef _dart__InterlockedExchange16 = int Function(
-  ffi.Pointer<ffi.Int16> Destination,
-  int ExChange,
-);
-
-typedef _c__InterlockedExchangeAdd8 = ffi.Int8 Function(
-  ffi.Pointer<ffi.Int8> _Addend,
-  ffi.Int8 _Value,
-);
-
-typedef _dart__InterlockedExchangeAdd8 = int Function(
-  ffi.Pointer<ffi.Int8> _Addend,
-  int _Value,
-);
-
-typedef _c__InterlockedAnd8 = ffi.Int8 Function(
-  ffi.Pointer<ffi.Int8> Destination,
-  ffi.Int8 Value,
-);
-
-typedef _dart__InterlockedAnd8 = int Function(
-  ffi.Pointer<ffi.Int8> Destination,
-  int Value,
-);
-
-typedef _c__InterlockedOr8 = ffi.Int8 Function(
-  ffi.Pointer<ffi.Int8> Destination,
-  ffi.Int8 Value,
-);
-
-typedef _dart__InterlockedOr8 = int Function(
-  ffi.Pointer<ffi.Int8> Destination,
-  int Value,
-);
-
-typedef _c__InterlockedXor8 = ffi.Int8 Function(
-  ffi.Pointer<ffi.Int8> Destination,
-  ffi.Int8 Value,
-);
-
-typedef _dart__InterlockedXor8 = int Function(
-  ffi.Pointer<ffi.Int8> Destination,
-  int Value,
-);
-
-typedef _c__InterlockedAnd16 = ffi.Int16 Function(
-  ffi.Pointer<ffi.Int16> Destination,
-  ffi.Int16 Value,
-);
-
-typedef _dart__InterlockedAnd16 = int Function(
-  ffi.Pointer<ffi.Int16> Destination,
-  int Value,
-);
-
-typedef _c__InterlockedOr16 = ffi.Int16 Function(
-  ffi.Pointer<ffi.Int16> Destination,
-  ffi.Int16 Value,
-);
-
-typedef _dart__InterlockedOr16 = int Function(
-  ffi.Pointer<ffi.Int16> Destination,
-  int Value,
-);
-
-typedef _c__InterlockedXor16 = ffi.Int16 Function(
-  ffi.Pointer<ffi.Int16> Destination,
-  ffi.Int16 Value,
-);
-
-typedef _dart__InterlockedXor16 = int Function(
-  ffi.Pointer<ffi.Int16> Destination,
-  int Value,
-);
-
-typedef _c___cpuidex = ffi.Void Function(
-  ffi.Pointer<ffi.Int32> CPUInfo,
-  ffi.Int32 Function_1,
-  ffi.Int32 SubLeaf,
-);
-
-typedef _dart___cpuidex = void Function(
-  ffi.Pointer<ffi.Int32> CPUInfo,
-  int Function_1,
-  int SubLeaf,
-);
-
-typedef _c__mm_clflush = ffi.Void Function(
-  ffi.Pointer<ffi.Void> Address,
-);
-
-typedef _dart__mm_clflush = void Function(
-  ffi.Pointer<ffi.Void> Address,
-);
-
-typedef _c__ReadWriteBarrier = ffi.Void Function();
-
-typedef _dart__ReadWriteBarrier = void Function();
-
-typedef _c___faststorefence = ffi.Void Function();
-
-typedef _dart___faststorefence = void Function();
-
-typedef _c__mm_lfence = ffi.Void Function();
-
-typedef _dart__mm_lfence = void Function();
-
-typedef _c__mm_mfence = ffi.Void Function();
-
-typedef _dart__mm_mfence = void Function();
-
-typedef _c__mm_sfence = ffi.Void Function();
-
-typedef _dart__mm_sfence = void Function();
-
-typedef _c__mm_pause = ffi.Void Function();
-
-typedef _dart__mm_pause = void Function();
-
-typedef _c__mm_prefetch = ffi.Void Function(
-  ffi.Pointer<ffi.Int8> a,
-  ffi.Int32 sel,
-);
-
-typedef _dart__mm_prefetch = void Function(
-  ffi.Pointer<ffi.Int8> a,
-  int sel,
-);
-
-typedef _c__m_prefetchw = ffi.Void Function(
-  ffi.Pointer<ffi.Void> Source,
-);
-
-typedef _dart__m_prefetchw = void Function(
-  ffi.Pointer<ffi.Void> Source,
-);
-
-typedef _c__mm_getcsr = ffi.Uint32 Function();
-
-typedef _dart__mm_getcsr = int Function();
-
-typedef _c__mm_setcsr = ffi.Void Function(
-  ffi.Uint32 MxCsr,
-);
-
-typedef _dart__mm_setcsr = void Function(
-  int MxCsr,
-);
-
-typedef _c___getcallerseflags = ffi.Uint32 Function();
-
-typedef _dart___getcallerseflags = int Function();
-
-typedef _c___segmentlimit = ffi.Uint64 Function(
-  ffi.Uint64 Selector,
-);
-
-typedef _dart___segmentlimit = int Function(
-  int Selector,
-);
-
-typedef _c___readpmc = ffi.Uint64 Function(
-  ffi.Uint64 Counter,
-);
-
-typedef _dart___readpmc = int Function(
-  int Counter,
-);
-
-typedef _c___rdtsc = ffi.Uint64 Function();
-
-typedef _dart___rdtsc = int Function();
-
-typedef _c___movsb = ffi.Void Function(
-  ffi.Pointer<ffi.Uint8> Destination,
-  ffi.Pointer<ffi.Uint8> Source,
-  ffi.Uint64 Count,
-);
-
-typedef _dart___movsb = void Function(
-  ffi.Pointer<ffi.Uint8> Destination,
-  ffi.Pointer<ffi.Uint8> Source,
-  int Count,
-);
-
-typedef _c___movsw = ffi.Void Function(
-  ffi.Pointer<ffi.Uint16> Destination,
-  ffi.Pointer<ffi.Uint16> Source,
-  ffi.Uint64 Count,
-);
-
-typedef _dart___movsw = void Function(
-  ffi.Pointer<ffi.Uint16> Destination,
-  ffi.Pointer<ffi.Uint16> Source,
-  int Count,
-);
-
-typedef _c___movsd = ffi.Void Function(
-  ffi.Pointer<ffi.Uint64> Destination,
-  ffi.Pointer<ffi.Uint64> Source,
-  ffi.Uint64 Count,
-);
-
-typedef _dart___movsd = void Function(
-  ffi.Pointer<ffi.Uint64> Destination,
-  ffi.Pointer<ffi.Uint64> Source,
-  int Count,
-);
-
-typedef _c___movsq = ffi.Void Function(
-  ffi.Pointer<ffi.Uint64> Destination,
-  ffi.Pointer<ffi.Uint64> Source,
-  ffi.Uint64 Count,
-);
-
-typedef _dart___movsq = void Function(
-  ffi.Pointer<ffi.Uint64> Destination,
-  ffi.Pointer<ffi.Uint64> Source,
-  int Count,
-);
-
-typedef _c___stosb = ffi.Void Function(
-  ffi.Pointer<ffi.Uint8> Destination,
-  ffi.Uint8 Value,
-  ffi.Uint64 Count,
-);
-
-typedef _dart___stosb = void Function(
-  ffi.Pointer<ffi.Uint8> Destination,
-  int Value,
-  int Count,
-);
-
-typedef _c___stosw = ffi.Void Function(
-  ffi.Pointer<ffi.Uint16> Destination,
-  ffi.Uint16 Value,
-  ffi.Uint64 Count,
-);
-
-typedef _dart___stosw = void Function(
-  ffi.Pointer<ffi.Uint16> Destination,
-  int Value,
-  int Count,
-);
-
-typedef _c___stosd = ffi.Void Function(
-  ffi.Pointer<ffi.Uint64> Destination,
-  ffi.Uint64 Value,
-  ffi.Uint64 Count,
-);
-
-typedef _dart___stosd = void Function(
-  ffi.Pointer<ffi.Uint64> Destination,
-  int Value,
-  int Count,
-);
-
-typedef _c___stosq = ffi.Void Function(
-  ffi.Pointer<ffi.Uint64> Destination,
-  ffi.Uint64 Value,
-  ffi.Uint64 Count,
-);
-
-typedef _dart___stosq = void Function(
-  ffi.Pointer<ffi.Uint64> Destination,
-  int Value,
-  int Count,
-);
-
-typedef _c___mulh = ffi.Int64 Function(
-  ffi.Int64 Multiplier,
-  ffi.Int64 Multiplicand,
-);
-
-typedef _dart___mulh = int Function(
-  int Multiplier,
-  int Multiplicand,
-);
-
-typedef _c___umulh = ffi.Uint64 Function(
-  ffi.Uint64 Multiplier,
-  ffi.Uint64 Multiplicand,
-);
-
-typedef _dart___umulh = int Function(
-  int Multiplier,
-  int Multiplicand,
-);
-
-typedef _c___popcnt64 = ffi.Uint64 Function(
-  ffi.Uint64 operand,
-);
-
-typedef _dart___popcnt64 = int Function(
-  int operand,
-);
-
-typedef _c___shiftleft128 = ffi.Uint64 Function(
-  ffi.Uint64 LowPart,
-  ffi.Uint64 HighPart,
-  ffi.Uint8 Shift,
-);
-
-typedef _dart___shiftleft128 = int Function(
-  int LowPart,
-  int HighPart,
-  int Shift,
-);
-
-typedef _c___shiftright128 = ffi.Uint64 Function(
-  ffi.Uint64 LowPart,
-  ffi.Uint64 HighPart,
-  ffi.Uint8 Shift,
-);
-
-typedef _dart___shiftright128 = int Function(
-  int LowPart,
-  int HighPart,
-  int Shift,
-);
-
-typedef _c__mul128 = ffi.Int64 Function(
-  ffi.Int64 Multiplier,
-  ffi.Int64 Multiplicand,
-  ffi.Pointer<ffi.Int64> HighProduct,
-);
-
-typedef _dart__mul128 = int Function(
-  int Multiplier,
-  int Multiplicand,
-  ffi.Pointer<ffi.Int64> HighProduct,
-);
-
-typedef _c__umul128 = ffi.Uint64 Function(
-  ffi.Uint64 Multiplier,
-  ffi.Uint64 Multiplicand,
-  ffi.Pointer<ffi.Uint64> HighProduct,
-);
-
-typedef _dart__umul128 = int Function(
-  int Multiplier,
-  int Multiplicand,
-  ffi.Pointer<ffi.Uint64> HighProduct,
-);
+// typedef _c__bittest = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   ffi.Int64 Offset,
+// );
+
+// typedef _dart__bittest = int Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   int Offset,
+// );
+
+// typedef _c__bittestandcomplement = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   ffi.Int64 Offset,
+// );
+
+// typedef _dart__bittestandcomplement = int Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   int Offset,
+// );
+
+// typedef _c__bittestandset = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   ffi.Int64 Offset,
+// );
+
+// typedef _dart__bittestandset = int Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   int Offset,
+// );
+
+// typedef _c__bittestandreset = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   ffi.Int64 Offset,
+// );
+
+// typedef _dart__bittestandreset = int Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   int Offset,
+// );
+
+// typedef _c__interlockedbittestandset = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   ffi.Int64 Offset,
+// );
+
+// typedef _dart__interlockedbittestandset = int Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   int Offset,
+// );
+
+// typedef _c__interlockedbittestandreset = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   ffi.Int64 Offset,
+// );
+
+// typedef _dart__interlockedbittestandreset = int Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   int Offset,
+// );
+
+// typedef _c__bittest64 = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   ffi.Int64 Offset,
+// );
+
+// typedef _dart__bittest64 = int Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   int Offset,
+// );
+
+// typedef _c__bittestandcomplement64 = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   ffi.Int64 Offset,
+// );
+
+// typedef _dart__bittestandcomplement64 = int Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   int Offset,
+// );
+
+// typedef _c__bittestandset64 = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   ffi.Int64 Offset,
+// );
+
+// typedef _dart__bittestandset64 = int Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   int Offset,
+// );
+
+// typedef _c__bittestandreset64 = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   ffi.Int64 Offset,
+// );
+
+// typedef _dart__bittestandreset64 = int Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   int Offset,
+// );
+
+// typedef _c__interlockedbittestandset64 = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   ffi.Int64 Offset,
+// );
+
+// typedef _dart__interlockedbittestandset64 = int Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   int Offset,
+// );
+
+// typedef _c__interlockedbittestandreset64 = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   ffi.Int64 Offset,
+// );
+
+// typedef _dart__interlockedbittestandreset64 = int Function(
+//   ffi.Pointer<ffi.Int64> Base,
+//   int Offset,
+// );
+
+// typedef _c__BitScanForward = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Uint64> Index,
+//   ffi.Uint64 Mask,
+// );
+
+// typedef _dart__BitScanForward = int Function(
+//   ffi.Pointer<ffi.Uint64> Index,
+//   int Mask,
+// );
+
+// typedef _c__BitScanReverse = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Uint64> Index,
+//   ffi.Uint64 Mask,
+// );
+
+// typedef _dart__BitScanReverse = int Function(
+//   ffi.Pointer<ffi.Uint64> Index,
+//   int Mask,
+// );
+
+// typedef _c__BitScanForward64 = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Uint64> Index,
+//   ffi.Uint64 Mask,
+// );
+
+// typedef _dart__BitScanForward64 = int Function(
+//   ffi.Pointer<ffi.Uint64> Index,
+//   int Mask,
+// );
+
+// typedef _c__BitScanReverse64 = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Uint64> Index,
+//   ffi.Uint64 Mask,
+// );
+
+// typedef _dart__BitScanReverse64 = int Function(
+//   ffi.Pointer<ffi.Uint64> Index,
+//   int Mask,
+// );
+
+// typedef _c__InterlockedIncrement16 = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Int16> Addend,
+// );
+
+// typedef _dart__InterlockedIncrement16 = int Function(
+//   ffi.Pointer<ffi.Int16> Addend,
+// );
+
+// typedef _c__InterlockedDecrement16 = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Int16> Addend,
+// );
+
+// typedef _dart__InterlockedDecrement16 = int Function(
+//   ffi.Pointer<ffi.Int16> Addend,
+// );
+
+// typedef _c__InterlockedCompareExchange16 = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Int16> Destination,
+//   ffi.Int16 ExChange,
+//   ffi.Int16 Comperand,
+// );
+
+// typedef _dart__InterlockedCompareExchange16 = int Function(
+//   ffi.Pointer<ffi.Int16> Destination,
+//   int ExChange,
+//   int Comperand,
+// );
+
+// typedef _c__InterlockedAnd = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   ffi.Int64 Value,
+// );
+
+// typedef _dart__InterlockedAnd = int Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   int Value,
+// );
+
+// typedef _c__InterlockedOr = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   ffi.Int64 Value,
+// );
+
+// typedef _dart__InterlockedOr = int Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   int Value,
+// );
+
+// typedef _c__InterlockedXor = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   ffi.Int64 Value,
+// );
+
+// typedef _dart__InterlockedXor = int Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   int Value,
+// );
+
+// typedef _c__InterlockedAnd64 = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   ffi.Int64 Value,
+// );
+
+// typedef _dart__InterlockedAnd64 = int Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   int Value,
+// );
+
+// typedef _c__InterlockedOr64 = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   ffi.Int64 Value,
+// );
+
+// typedef _dart__InterlockedOr64 = int Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   int Value,
+// );
+
+// typedef _c__InterlockedXor64 = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   ffi.Int64 Value,
+// );
+
+// typedef _dart__InterlockedXor64 = int Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   int Value,
+// );
+
+// typedef _c__InterlockedIncrement = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+// );
+
+// typedef _dart__InterlockedIncrement = int Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+// );
+
+// typedef _c__InterlockedDecrement = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+// );
+
+// typedef _dart__InterlockedDecrement = int Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+// );
+
+// typedef _c__InterlockedExchange = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Target,
+//   ffi.Int64 Value,
+// );
+
+// typedef _dart__InterlockedExchange = int Function(
+//   ffi.Pointer<ffi.Int64> Target,
+//   int Value,
+// );
+
+// typedef _c__InterlockedExchangeAdd = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+//   ffi.Int64 Value,
+// );
+
+// typedef _dart__InterlockedExchangeAdd = int Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+//   int Value,
+// );
+
+// typedef _c__InlineInterlockedAdd = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+//   ffi.Int64 Value,
+// );
+
+// typedef _dart__InlineInterlockedAdd = int Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+//   int Value,
+// );
+
+// typedef _c__InterlockedCompareExchange = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   ffi.Int64 ExChange,
+//   ffi.Int64 Comperand,
+// );
+
+// typedef _dart__InterlockedCompareExchange = int Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   int ExChange,
+//   int Comperand,
+// );
+
+// typedef _c__InterlockedIncrement64 = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+// );
+
+// typedef _dart__InterlockedIncrement64 = int Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+// );
+
+// typedef _c__InterlockedDecrement64 = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+// );
+
+// typedef _dart__InterlockedDecrement64 = int Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+// );
+
+// typedef _c__InterlockedExchange64 = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Target,
+//   ffi.Int64 Value,
+// );
+
+// typedef _dart__InterlockedExchange64 = int Function(
+//   ffi.Pointer<ffi.Int64> Target,
+//   int Value,
+// );
+
+// typedef _c__InterlockedExchangeAdd64 = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+//   ffi.Int64 Value,
+// );
+
+// typedef _dart__InterlockedExchangeAdd64 = int Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+//   int Value,
+// );
+
+// typedef _c__InlineInterlockedAdd64 = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+//   ffi.Int64 Value,
+// );
+
+// typedef _dart__InlineInterlockedAdd64 = int Function(
+//   ffi.Pointer<ffi.Int64> Addend,
+//   int Value,
+// );
+
+// typedef _c__InterlockedCompareExchange64 = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   ffi.Int64 ExChange,
+//   ffi.Int64 Comperand,
+// );
+
+// typedef _dart__InterlockedCompareExchange64 = int Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   int ExChange,
+//   int Comperand,
+// );
+
+// typedef _c__InterlockedCompareExchange128 = ffi.Uint8 Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   ffi.Int64 ExchangeHigh,
+//   ffi.Int64 ExchangeLow,
+//   ffi.Pointer<ffi.Int64> ComparandResult,
+// );
+
+// typedef _dart__InterlockedCompareExchange128 = int Function(
+//   ffi.Pointer<ffi.Int64> Destination,
+//   int ExchangeHigh,
+//   int ExchangeLow,
+//   ffi.Pointer<ffi.Int64> ComparandResult,
+// );
+
+// typedef _c__InterlockedCompareExchangePointer = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Void>> Destination,
+//   ffi.Pointer<ffi.Void> Exchange,
+//   ffi.Pointer<ffi.Void> Comperand,
+// );
+
+// typedef _dart__InterlockedCompareExchangePointer = ffi.Pointer<ffi.Void>
+//     Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Void>> Destination,
+//   ffi.Pointer<ffi.Void> Exchange,
+//   ffi.Pointer<ffi.Void> Comperand,
+// );
+
+// typedef _c__InterlockedExchangePointer = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Void>> Target,
+//   ffi.Pointer<ffi.Void> Value,
+// );
+
+// typedef _dart__InterlockedExchangePointer = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Void>> Target,
+//   ffi.Pointer<ffi.Void> Value,
+// );
+
+// typedef _c__InterlockedExchange8 = ffi.Int8 Function(
+//   ffi.Pointer<ffi.Int8> Target,
+//   ffi.Int8 Value,
+// );
+
+// typedef _dart__InterlockedExchange8 = int Function(
+//   ffi.Pointer<ffi.Int8> Target,
+//   int Value,
+// );
+
+// typedef _c__InterlockedExchange16 = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Int16> Destination,
+//   ffi.Int16 ExChange,
+// );
+
+// typedef _dart__InterlockedExchange16 = int Function(
+//   ffi.Pointer<ffi.Int16> Destination,
+//   int ExChange,
+// );
+
+// typedef _c__InterlockedExchangeAdd8 = ffi.Int8 Function(
+//   ffi.Pointer<ffi.Int8> _Addend,
+//   ffi.Int8 _Value,
+// );
+
+// typedef _dart__InterlockedExchangeAdd8 = int Function(
+//   ffi.Pointer<ffi.Int8> _Addend,
+//   int _Value,
+// );
+
+// typedef _c__InterlockedAnd8 = ffi.Int8 Function(
+//   ffi.Pointer<ffi.Int8> Destination,
+//   ffi.Int8 Value,
+// );
+
+// typedef _dart__InterlockedAnd8 = int Function(
+//   ffi.Pointer<ffi.Int8> Destination,
+//   int Value,
+// );
+
+// typedef _c__InterlockedOr8 = ffi.Int8 Function(
+//   ffi.Pointer<ffi.Int8> Destination,
+//   ffi.Int8 Value,
+// );
+
+// typedef _dart__InterlockedOr8 = int Function(
+//   ffi.Pointer<ffi.Int8> Destination,
+//   int Value,
+// );
+
+// typedef _c__InterlockedXor8 = ffi.Int8 Function(
+//   ffi.Pointer<ffi.Int8> Destination,
+//   ffi.Int8 Value,
+// );
+
+// typedef _dart__InterlockedXor8 = int Function(
+//   ffi.Pointer<ffi.Int8> Destination,
+//   int Value,
+// );
+
+// typedef _c__InterlockedAnd16 = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Int16> Destination,
+//   ffi.Int16 Value,
+// );
+
+// typedef _dart__InterlockedAnd16 = int Function(
+//   ffi.Pointer<ffi.Int16> Destination,
+//   int Value,
+// );
+
+// typedef _c__InterlockedOr16 = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Int16> Destination,
+//   ffi.Int16 Value,
+// );
+
+// typedef _dart__InterlockedOr16 = int Function(
+//   ffi.Pointer<ffi.Int16> Destination,
+//   int Value,
+// );
+
+// typedef _c__InterlockedXor16 = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Int16> Destination,
+//   ffi.Int16 Value,
+// );
+
+// typedef _dart__InterlockedXor16 = int Function(
+//   ffi.Pointer<ffi.Int16> Destination,
+//   int Value,
+// );
+
+// typedef _c___cpuidex = ffi.Void Function(
+//   ffi.Pointer<ffi.Int32> CPUInfo,
+//   ffi.Int32 Function_1,
+//   ffi.Int32 SubLeaf,
+// );
+
+// typedef _dart___cpuidex = void Function(
+//   ffi.Pointer<ffi.Int32> CPUInfo,
+//   int Function_1,
+//   int SubLeaf,
+// );
+
+// typedef _c__mm_clflush = ffi.Void Function(
+//   ffi.Pointer<ffi.Void> Address,
+// );
+
+// typedef _dart__mm_clflush = void Function(
+//   ffi.Pointer<ffi.Void> Address,
+// );
+
+// typedef _c__ReadWriteBarrier = ffi.Void Function();
+
+// typedef _dart__ReadWriteBarrier = void Function();
+
+// typedef _c___faststorefence = ffi.Void Function();
+
+// typedef _dart___faststorefence = void Function();
+
+// typedef _c__mm_lfence = ffi.Void Function();
+
+// typedef _dart__mm_lfence = void Function();
+
+// typedef _c__mm_mfence = ffi.Void Function();
+
+// typedef _dart__mm_mfence = void Function();
+
+// typedef _c__mm_sfence = ffi.Void Function();
+
+// typedef _dart__mm_sfence = void Function();
+
+// typedef _c__mm_pause = ffi.Void Function();
+
+// typedef _dart__mm_pause = void Function();
+
+// typedef _c__mm_prefetch = ffi.Void Function(
+//   ffi.Pointer<ffi.Int8> a,
+//   ffi.Int32 sel,
+// );
+
+// typedef _dart__mm_prefetch = void Function(
+//   ffi.Pointer<ffi.Int8> a,
+//   int sel,
+// );
+
+// typedef _c__m_prefetchw = ffi.Void Function(
+//   ffi.Pointer<ffi.Void> Source,
+// );
+
+// typedef _dart__m_prefetchw = void Function(
+//   ffi.Pointer<ffi.Void> Source,
+// );
+
+// typedef _c__mm_getcsr = ffi.Uint32 Function();
+
+// typedef _dart__mm_getcsr = int Function();
+
+// typedef _c__mm_setcsr = ffi.Void Function(
+//   ffi.Uint32 MxCsr,
+// );
+
+// typedef _dart__mm_setcsr = void Function(
+//   int MxCsr,
+// );
+
+// typedef _c___getcallerseflags = ffi.Uint32 Function();
+
+// typedef _dart___getcallerseflags = int Function();
+
+// typedef _c___segmentlimit = ffi.Uint64 Function(
+//   ffi.Uint64 Selector,
+// );
+
+// typedef _dart___segmentlimit = int Function(
+//   int Selector,
+// );
+
+// typedef _c___readpmc = ffi.Uint64 Function(
+//   ffi.Uint64 Counter,
+// );
+
+// typedef _dart___readpmc = int Function(
+//   int Counter,
+// );
+
+// typedef _c___rdtsc = ffi.Uint64 Function();
+
+// typedef _dart___rdtsc = int Function();
+
+// typedef _c___movsb = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint8> Destination,
+//   ffi.Pointer<ffi.Uint8> Source,
+//   ffi.Uint64 Count,
+// );
+
+// typedef _dart___movsb = void Function(
+//   ffi.Pointer<ffi.Uint8> Destination,
+//   ffi.Pointer<ffi.Uint8> Source,
+//   int Count,
+// );
+
+// typedef _c___movsw = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint16> Destination,
+//   ffi.Pointer<ffi.Uint16> Source,
+//   ffi.Uint64 Count,
+// );
+
+// typedef _dart___movsw = void Function(
+//   ffi.Pointer<ffi.Uint16> Destination,
+//   ffi.Pointer<ffi.Uint16> Source,
+//   int Count,
+// );
+
+// typedef _c___movsd = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint64> Destination,
+//   ffi.Pointer<ffi.Uint64> Source,
+//   ffi.Uint64 Count,
+// );
+
+// typedef _dart___movsd = void Function(
+//   ffi.Pointer<ffi.Uint64> Destination,
+//   ffi.Pointer<ffi.Uint64> Source,
+//   int Count,
+// );
+
+// typedef _c___movsq = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint64> Destination,
+//   ffi.Pointer<ffi.Uint64> Source,
+//   ffi.Uint64 Count,
+// );
+
+// typedef _dart___movsq = void Function(
+//   ffi.Pointer<ffi.Uint64> Destination,
+//   ffi.Pointer<ffi.Uint64> Source,
+//   int Count,
+// );
+
+// typedef _c___stosb = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint8> Destination,
+//   ffi.Uint8 Value,
+//   ffi.Uint64 Count,
+// );
+
+// typedef _dart___stosb = void Function(
+//   ffi.Pointer<ffi.Uint8> Destination,
+//   int Value,
+//   int Count,
+// );
+
+// typedef _c___stosw = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint16> Destination,
+//   ffi.Uint16 Value,
+//   ffi.Uint64 Count,
+// );
+
+// typedef _dart___stosw = void Function(
+//   ffi.Pointer<ffi.Uint16> Destination,
+//   int Value,
+//   int Count,
+// );
+
+// typedef _c___stosd = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint64> Destination,
+//   ffi.Uint64 Value,
+//   ffi.Uint64 Count,
+// );
+
+// typedef _dart___stosd = void Function(
+//   ffi.Pointer<ffi.Uint64> Destination,
+//   int Value,
+//   int Count,
+// );
+
+// typedef _c___stosq = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint64> Destination,
+//   ffi.Uint64 Value,
+//   ffi.Uint64 Count,
+// );
+
+// typedef _dart___stosq = void Function(
+//   ffi.Pointer<ffi.Uint64> Destination,
+//   int Value,
+//   int Count,
+// );
+
+// typedef _c___mulh = ffi.Int64 Function(
+//   ffi.Int64 Multiplier,
+//   ffi.Int64 Multiplicand,
+// );
+
+// typedef _dart___mulh = int Function(
+//   int Multiplier,
+//   int Multiplicand,
+// );
+
+// typedef _c___umulh = ffi.Uint64 Function(
+//   ffi.Uint64 Multiplier,
+//   ffi.Uint64 Multiplicand,
+// );
+
+// typedef _dart___umulh = int Function(
+//   int Multiplier,
+//   int Multiplicand,
+// );
+
+// typedef _c___popcnt64 = ffi.Uint64 Function(
+//   ffi.Uint64 operand,
+// );
+
+// typedef _dart___popcnt64 = int Function(
+//   int operand,
+// );
+
+// typedef _c___shiftleft128 = ffi.Uint64 Function(
+//   ffi.Uint64 LowPart,
+//   ffi.Uint64 HighPart,
+//   ffi.Uint8 Shift,
+// );
+
+// typedef _dart___shiftleft128 = int Function(
+//   int LowPart,
+//   int HighPart,
+//   int Shift,
+// );
+
+// typedef _c___shiftright128 = ffi.Uint64 Function(
+//   ffi.Uint64 LowPart,
+//   ffi.Uint64 HighPart,
+//   ffi.Uint8 Shift,
+// );
+
+// typedef _dart___shiftright128 = int Function(
+//   int LowPart,
+//   int HighPart,
+//   int Shift,
+// );
+
+// typedef _c__mul128 = ffi.Int64 Function(
+//   ffi.Int64 Multiplier,
+//   ffi.Int64 Multiplicand,
+//   ffi.Pointer<ffi.Int64> HighProduct,
+// );
+
+// typedef _dart__mul128 = int Function(
+//   int Multiplier,
+//   int Multiplicand,
+//   ffi.Pointer<ffi.Int64> HighProduct,
+// );
+
+// typedef _c__umul128 = ffi.Uint64 Function(
+//   ffi.Uint64 Multiplier,
+//   ffi.Uint64 Multiplicand,
+//   ffi.Pointer<ffi.Uint64> HighProduct,
+// );
+
+// typedef _dart__umul128 = int Function(
+//   int Multiplier,
+//   int Multiplicand,
+//   ffi.Pointer<ffi.Uint64> HighProduct,
+// );
 
 typedef _c_MultiplyExtract128 = ffi.Int64 Function(
   ffi.Int64 Multiplier,
@@ -104518,153 +104518,153 @@ typedef _dart_UnsignedMultiplyExtract128 = int Function(
   int Shift,
 );
 
-typedef _c___readgsbyte = ffi.Uint8 Function(
-  ffi.Uint64 Offset,
-);
+// typedef _c___readgsbyte = ffi.Uint8 Function(
+//   ffi.Uint64 Offset,
+// );
 
-typedef _dart___readgsbyte = int Function(
-  int Offset,
-);
+// typedef _dart___readgsbyte = int Function(
+//   int Offset,
+// );
 
-typedef _c___readgsword = ffi.Uint16 Function(
-  ffi.Uint64 Offset,
-);
+// typedef _c___readgsword = ffi.Uint16 Function(
+//   ffi.Uint64 Offset,
+// );
 
-typedef _dart___readgsword = int Function(
-  int Offset,
-);
+// typedef _dart___readgsword = int Function(
+//   int Offset,
+// );
 
-typedef _c___readgsdword = ffi.Uint64 Function(
-  ffi.Uint64 Offset,
-);
+// typedef _c___readgsdword = ffi.Uint64 Function(
+//   ffi.Uint64 Offset,
+// );
 
-typedef _dart___readgsdword = int Function(
-  int Offset,
-);
+// typedef _dart___readgsdword = int Function(
+//   int Offset,
+// );
 
-typedef _c___readgsqword = ffi.Uint64 Function(
-  ffi.Uint64 Offset,
-);
+// typedef _c___readgsqword = ffi.Uint64 Function(
+//   ffi.Uint64 Offset,
+// );
 
-typedef _dart___readgsqword = int Function(
-  int Offset,
-);
+// typedef _dart___readgsqword = int Function(
+//   int Offset,
+// );
 
-typedef _c___writegsbyte = ffi.Void Function(
-  ffi.Uint64 Offset,
-  ffi.Uint8 Data,
-);
+// typedef _c___writegsbyte = ffi.Void Function(
+//   ffi.Uint64 Offset,
+//   ffi.Uint8 Data,
+// );
 
-typedef _dart___writegsbyte = void Function(
-  int Offset,
-  int Data,
-);
+// typedef _dart___writegsbyte = void Function(
+//   int Offset,
+//   int Data,
+// );
 
-typedef _c___writegsword = ffi.Void Function(
-  ffi.Uint64 Offset,
-  ffi.Uint16 Data,
-);
+// typedef _c___writegsword = ffi.Void Function(
+//   ffi.Uint64 Offset,
+//   ffi.Uint16 Data,
+// );
 
-typedef _dart___writegsword = void Function(
-  int Offset,
-  int Data,
-);
+// typedef _dart___writegsword = void Function(
+//   int Offset,
+//   int Data,
+// );
 
-typedef _c___writegsdword = ffi.Void Function(
-  ffi.Uint64 Offset,
-  ffi.Uint64 Data,
-);
+// typedef _c___writegsdword = ffi.Void Function(
+//   ffi.Uint64 Offset,
+//   ffi.Uint64 Data,
+// );
 
-typedef _dart___writegsdword = void Function(
-  int Offset,
-  int Data,
-);
+// typedef _dart___writegsdword = void Function(
+//   int Offset,
+//   int Data,
+// );
 
-typedef _c___writegsqword = ffi.Void Function(
-  ffi.Uint64 Offset,
-  ffi.Uint64 Data,
-);
+// typedef _c___writegsqword = ffi.Void Function(
+//   ffi.Uint64 Offset,
+//   ffi.Uint64 Data,
+// );
 
-typedef _dart___writegsqword = void Function(
-  int Offset,
-  int Data,
-);
+// typedef _dart___writegsqword = void Function(
+//   int Offset,
+//   int Data,
+// );
 
-typedef _c___incgsbyte = ffi.Void Function(
-  ffi.Uint64 Offset,
-);
+// typedef _c___incgsbyte = ffi.Void Function(
+//   ffi.Uint64 Offset,
+// );
 
-typedef _dart___incgsbyte = void Function(
-  int Offset,
-);
+// typedef _dart___incgsbyte = void Function(
+//   int Offset,
+// );
 
-typedef _c___addgsbyte = ffi.Void Function(
-  ffi.Uint64 Offset,
-  ffi.Uint8 Value,
-);
+// typedef _c___addgsbyte = ffi.Void Function(
+//   ffi.Uint64 Offset,
+//   ffi.Uint8 Value,
+// );
 
-typedef _dart___addgsbyte = void Function(
-  int Offset,
-  int Value,
-);
+// typedef _dart___addgsbyte = void Function(
+//   int Offset,
+//   int Value,
+// );
 
-typedef _c___incgsword = ffi.Void Function(
-  ffi.Uint64 Offset,
-);
+// typedef _c___incgsword = ffi.Void Function(
+//   ffi.Uint64 Offset,
+// );
 
-typedef _dart___incgsword = void Function(
-  int Offset,
-);
+// typedef _dart___incgsword = void Function(
+//   int Offset,
+// );
 
-typedef _c___addgsword = ffi.Void Function(
-  ffi.Uint64 Offset,
-  ffi.Uint16 Value,
-);
+// typedef _c___addgsword = ffi.Void Function(
+//   ffi.Uint64 Offset,
+//   ffi.Uint16 Value,
+// );
 
-typedef _dart___addgsword = void Function(
-  int Offset,
-  int Value,
-);
+// typedef _dart___addgsword = void Function(
+//   int Offset,
+//   int Value,
+// );
 
-typedef _c___incgsdword = ffi.Void Function(
-  ffi.Uint64 Offset,
-);
+// typedef _c___incgsdword = ffi.Void Function(
+//   ffi.Uint64 Offset,
+// );
 
-typedef _dart___incgsdword = void Function(
-  int Offset,
-);
+// typedef _dart___incgsdword = void Function(
+//   int Offset,
+// );
 
-typedef _c___addgsdword = ffi.Void Function(
-  ffi.Uint64 Offset,
-  ffi.Uint64 Value,
-);
+// typedef _c___addgsdword = ffi.Void Function(
+//   ffi.Uint64 Offset,
+//   ffi.Uint64 Value,
+// );
 
-typedef _dart___addgsdword = void Function(
-  int Offset,
-  int Value,
-);
+// typedef _dart___addgsdword = void Function(
+//   int Offset,
+//   int Value,
+// );
 
-typedef _c___incgsqword = ffi.Void Function(
-  ffi.Uint64 Offset,
-);
+// typedef _c___incgsqword = ffi.Void Function(
+//   ffi.Uint64 Offset,
+// );
 
-typedef _dart___incgsqword = void Function(
-  int Offset,
-);
+// typedef _dart___incgsqword = void Function(
+//   int Offset,
+// );
 
-typedef _c___addgsqword = ffi.Void Function(
-  ffi.Uint64 Offset,
-  ffi.Uint64 Value,
-);
+// typedef _c___addgsqword = ffi.Void Function(
+//   ffi.Uint64 Offset,
+//   ffi.Uint64 Value,
+// );
 
-typedef _dart___addgsqword = void Function(
-  int Offset,
-  int Value,
-);
+// typedef _dart___addgsqword = void Function(
+//   int Offset,
+//   int Value,
+// );
 
-typedef _c___int2c = ffi.Void Function();
+// typedef _c___int2c = ffi.Void Function();
 
-typedef _dart___int2c = void Function();
+// typedef _dart___int2c = void Function();
 
 typedef _c_ReadAcquire8 = ffi.Int8 Function(
   ffi.Pointer<ffi.Int8> Source,
@@ -105419,13 +105419,13 @@ typedef _c_RtlGetReturnAddressHijackTarget = ffi.Uint64 Function();
 
 typedef _dart_RtlGetReturnAddressHijackTarget = int Function();
 
-typedef _c___fastfail = ffi.Void Function(
-  ffi.Uint32 Code,
-);
+// typedef _c___fastfail = ffi.Void Function(
+//   ffi.Uint32 Code,
+// );
 
-typedef _dart___fastfail = void Function(
-  int Code,
-);
+// typedef _dart___fastfail = void Function(
+//   int Code,
+// );
 
 typedef _c_HEAP_MAKE_TAG_FLAGS = ffi.Uint64 Function(
   ffi.Uint64 TagBase,
@@ -115627,93 +115627,93 @@ typedef _dart_OpenFile = int Function(
   int uStyle,
 );
 
-typedef _c__lopen = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> lpPathName,
-  ffi.Int32 iReadWrite,
-);
+// typedef _c__lopen = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> lpPathName,
+//   ffi.Int32 iReadWrite,
+// );
 
-typedef _dart__lopen = int Function(
-  ffi.Pointer<ffi.Int8> lpPathName,
-  int iReadWrite,
-);
+// typedef _dart__lopen = int Function(
+//   ffi.Pointer<ffi.Int8> lpPathName,
+//   int iReadWrite,
+// );
 
-typedef _c__lcreat = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> lpPathName,
-  ffi.Int32 iAttribute,
-);
+// typedef _c__lcreat = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> lpPathName,
+//   ffi.Int32 iAttribute,
+// );
 
-typedef _dart__lcreat = int Function(
-  ffi.Pointer<ffi.Int8> lpPathName,
-  int iAttribute,
-);
+// typedef _dart__lcreat = int Function(
+//   ffi.Pointer<ffi.Int8> lpPathName,
+//   int iAttribute,
+// );
 
-typedef _c__lread = ffi.Uint32 Function(
-  ffi.Int32 hFile,
-  ffi.Pointer<ffi.Void> lpBuffer,
-  ffi.Uint32 uBytes,
-);
+// typedef _c__lread = ffi.Uint32 Function(
+//   ffi.Int32 hFile,
+//   ffi.Pointer<ffi.Void> lpBuffer,
+//   ffi.Uint32 uBytes,
+// );
 
-typedef _dart__lread = int Function(
-  int hFile,
-  ffi.Pointer<ffi.Void> lpBuffer,
-  int uBytes,
-);
+// typedef _dart__lread = int Function(
+//   int hFile,
+//   ffi.Pointer<ffi.Void> lpBuffer,
+//   int uBytes,
+// );
 
-typedef _c__lwrite = ffi.Uint32 Function(
-  ffi.Int32 hFile,
-  ffi.Pointer<ffi.Int8> lpBuffer,
-  ffi.Uint32 uBytes,
-);
+// typedef _c__lwrite = ffi.Uint32 Function(
+//   ffi.Int32 hFile,
+//   ffi.Pointer<ffi.Int8> lpBuffer,
+//   ffi.Uint32 uBytes,
+// );
 
-typedef _dart__lwrite = int Function(
-  int hFile,
-  ffi.Pointer<ffi.Int8> lpBuffer,
-  int uBytes,
-);
+// typedef _dart__lwrite = int Function(
+//   int hFile,
+//   ffi.Pointer<ffi.Int8> lpBuffer,
+//   int uBytes,
+// );
 
-typedef _c__hread = ffi.Int64 Function(
-  ffi.Int32 hFile,
-  ffi.Pointer<ffi.Void> lpBuffer,
-  ffi.Int64 lBytes,
-);
+// typedef _c__hread = ffi.Int64 Function(
+//   ffi.Int32 hFile,
+//   ffi.Pointer<ffi.Void> lpBuffer,
+//   ffi.Int64 lBytes,
+// );
 
-typedef _dart__hread = int Function(
-  int hFile,
-  ffi.Pointer<ffi.Void> lpBuffer,
-  int lBytes,
-);
+// typedef _dart__hread = int Function(
+//   int hFile,
+//   ffi.Pointer<ffi.Void> lpBuffer,
+//   int lBytes,
+// );
 
-typedef _c__hwrite = ffi.Int64 Function(
-  ffi.Int32 hFile,
-  ffi.Pointer<ffi.Int8> lpBuffer,
-  ffi.Int64 lBytes,
-);
+// typedef _c__hwrite = ffi.Int64 Function(
+//   ffi.Int32 hFile,
+//   ffi.Pointer<ffi.Int8> lpBuffer,
+//   ffi.Int64 lBytes,
+// );
 
-typedef _dart__hwrite = int Function(
-  int hFile,
-  ffi.Pointer<ffi.Int8> lpBuffer,
-  int lBytes,
-);
+// typedef _dart__hwrite = int Function(
+//   int hFile,
+//   ffi.Pointer<ffi.Int8> lpBuffer,
+//   int lBytes,
+// );
 
-typedef _c__lclose = ffi.Int32 Function(
-  ffi.Int32 hFile,
-);
+// typedef _c__lclose = ffi.Int32 Function(
+//   ffi.Int32 hFile,
+// );
 
-typedef _dart__lclose = int Function(
-  int hFile,
-);
+// typedef _dart__lclose = int Function(
+//   int hFile,
+// );
 
-typedef _c__llseek = ffi.Int64 Function(
-  ffi.Int32 hFile,
-  ffi.Int64 lOffset,
-  ffi.Int32 iOrigin,
-);
+// typedef _c__llseek = ffi.Int64 Function(
+//   ffi.Int32 hFile,
+//   ffi.Int64 lOffset,
+//   ffi.Int32 iOrigin,
+// );
 
-typedef _dart__llseek = int Function(
-  int hFile,
-  int lOffset,
-  int iOrigin,
-);
+// typedef _dart__llseek = int Function(
+//   int hFile,
+//   int lOffset,
+//   int iOrigin,
+// );
 
 typedef _c_IsTextUnicode = ffi.Int32 Function(
   ffi.Pointer<ffi.Void> lpv,
@@ -139091,245 +139091,245 @@ typedef _c_ImmDisableLegacyIME = ffi.Int32 Function();
 
 typedef _dart_ImmDisableLegacyIME = int Function();
 
-typedef _c__fperrraise = ffi.Void Function(
-  ffi.Int32 _Except,
-);
+// typedef _c__fperrraise = ffi.Void Function(
+//   ffi.Int32 _Except,
+// );
 
-typedef _dart__fperrraise = void Function(
-  int _Except,
-);
+// typedef _dart__fperrraise = void Function(
+//   int _Except,
+// );
 
-typedef _c__dclass = ffi.Int16 Function(
-  ffi.Double _X,
-);
+// typedef _c__dclass = ffi.Int16 Function(
+//   ffi.Double _X,
+// );
 
-typedef _dart__dclass = int Function(
-  double _X,
-);
+// typedef _dart__dclass = int Function(
+//   double _X,
+// );
 
-typedef _c__fdclass = ffi.Int16 Function(
-  ffi.Float _X,
-);
+// typedef _c__fdclass = ffi.Int16 Function(
+//   ffi.Float _X,
+// );
 
-typedef _dart__fdclass = int Function(
-  double _X,
-);
+// typedef _dart__fdclass = int Function(
+//   double _X,
+// );
 
-typedef _c__dsign = ffi.Int32 Function(
-  ffi.Double _X,
-);
+// typedef _c__dsign = ffi.Int32 Function(
+//   ffi.Double _X,
+// );
 
-typedef _dart__dsign = int Function(
-  double _X,
-);
+// typedef _dart__dsign = int Function(
+//   double _X,
+// );
 
-typedef _c__fdsign = ffi.Int32 Function(
-  ffi.Float _X,
-);
+// typedef _c__fdsign = ffi.Int32 Function(
+//   ffi.Float _X,
+// );
 
-typedef _dart__fdsign = int Function(
-  double _X,
-);
+// typedef _dart__fdsign = int Function(
+//   double _X,
+// );
 
-typedef _c__dpcomp = ffi.Int32 Function(
-  ffi.Double _X,
-  ffi.Double _Y,
-);
+// typedef _c__dpcomp = ffi.Int32 Function(
+//   ffi.Double _X,
+//   ffi.Double _Y,
+// );
 
-typedef _dart__dpcomp = int Function(
-  double _X,
-  double _Y,
-);
+// typedef _dart__dpcomp = int Function(
+//   double _X,
+//   double _Y,
+// );
 
-typedef _c__fdpcomp = ffi.Int32 Function(
-  ffi.Float _X,
-  ffi.Float _Y,
-);
+// typedef _c__fdpcomp = ffi.Int32 Function(
+//   ffi.Float _X,
+//   ffi.Float _Y,
+// );
 
-typedef _dart__fdpcomp = int Function(
-  double _X,
-  double _Y,
-);
+// typedef _dart__fdpcomp = int Function(
+//   double _X,
+//   double _Y,
+// );
 
-typedef _c__dtest = ffi.Int16 Function(
-  ffi.Pointer<ffi.Double> _Px,
-);
+// typedef _c__dtest = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Double> _Px,
+// );
 
-typedef _dart__dtest = int Function(
-  ffi.Pointer<ffi.Double> _Px,
-);
+// typedef _dart__dtest = int Function(
+//   ffi.Pointer<ffi.Double> _Px,
+// );
 
-typedef _c__fdtest = ffi.Int16 Function(
-  ffi.Pointer<ffi.Float> _Px,
-);
+// typedef _c__fdtest = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Float> _Px,
+// );
 
-typedef _dart__fdtest = int Function(
-  ffi.Pointer<ffi.Float> _Px,
-);
+// typedef _dart__fdtest = int Function(
+//   ffi.Pointer<ffi.Float> _Px,
+// );
 
-typedef _c__d_int = ffi.Int16 Function(
-  ffi.Pointer<ffi.Double> _Px,
-  ffi.Int16 _Xexp,
-);
+// typedef _c__d_int = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Double> _Px,
+//   ffi.Int16 _Xexp,
+// );
 
-typedef _dart__d_int = int Function(
-  ffi.Pointer<ffi.Double> _Px,
-  int _Xexp,
-);
+// typedef _dart__d_int = int Function(
+//   ffi.Pointer<ffi.Double> _Px,
+//   int _Xexp,
+// );
 
-typedef _c__fd_int = ffi.Int16 Function(
-  ffi.Pointer<ffi.Float> _Px,
-  ffi.Int16 _Xexp,
-);
+// typedef _c__fd_int = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Float> _Px,
+//   ffi.Int16 _Xexp,
+// );
 
-typedef _dart__fd_int = int Function(
-  ffi.Pointer<ffi.Float> _Px,
-  int _Xexp,
-);
+// typedef _dart__fd_int = int Function(
+//   ffi.Pointer<ffi.Float> _Px,
+//   int _Xexp,
+// );
 
-typedef _c__dscale = ffi.Int16 Function(
-  ffi.Pointer<ffi.Double> _Px,
-  ffi.Int64 _Lexp,
-);
+// typedef _c__dscale = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Double> _Px,
+//   ffi.Int64 _Lexp,
+// );
 
-typedef _dart__dscale = int Function(
-  ffi.Pointer<ffi.Double> _Px,
-  int _Lexp,
-);
+// typedef _dart__dscale = int Function(
+//   ffi.Pointer<ffi.Double> _Px,
+//   int _Lexp,
+// );
 
-typedef _c__fdscale = ffi.Int16 Function(
-  ffi.Pointer<ffi.Float> _Px,
-  ffi.Int64 _Lexp,
-);
+// typedef _c__fdscale = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Float> _Px,
+//   ffi.Int64 _Lexp,
+// );
 
-typedef _dart__fdscale = int Function(
-  ffi.Pointer<ffi.Float> _Px,
-  int _Lexp,
-);
+// typedef _dart__fdscale = int Function(
+//   ffi.Pointer<ffi.Float> _Px,
+//   int _Lexp,
+// );
 
-typedef _c__dunscale = ffi.Int16 Function(
-  ffi.Pointer<ffi.Int16> _Pex,
-  ffi.Pointer<ffi.Double> _Px,
-);
+// typedef _c__dunscale = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Int16> _Pex,
+//   ffi.Pointer<ffi.Double> _Px,
+// );
 
-typedef _dart__dunscale = int Function(
-  ffi.Pointer<ffi.Int16> _Pex,
-  ffi.Pointer<ffi.Double> _Px,
-);
+// typedef _dart__dunscale = int Function(
+//   ffi.Pointer<ffi.Int16> _Pex,
+//   ffi.Pointer<ffi.Double> _Px,
+// );
 
-typedef _c__fdunscale = ffi.Int16 Function(
-  ffi.Pointer<ffi.Int16> _Pex,
-  ffi.Pointer<ffi.Float> _Px,
-);
+// typedef _c__fdunscale = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Int16> _Pex,
+//   ffi.Pointer<ffi.Float> _Px,
+// );
 
-typedef _dart__fdunscale = int Function(
-  ffi.Pointer<ffi.Int16> _Pex,
-  ffi.Pointer<ffi.Float> _Px,
-);
+// typedef _dart__fdunscale = int Function(
+//   ffi.Pointer<ffi.Int16> _Pex,
+//   ffi.Pointer<ffi.Float> _Px,
+// );
 
-typedef _c__dexp = ffi.Int16 Function(
-  ffi.Pointer<ffi.Double> _Px,
-  ffi.Double _Y,
-  ffi.Int64 _Eoff,
-);
+// typedef _c__dexp = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Double> _Px,
+//   ffi.Double _Y,
+//   ffi.Int64 _Eoff,
+// );
 
-typedef _dart__dexp = int Function(
-  ffi.Pointer<ffi.Double> _Px,
-  double _Y,
-  int _Eoff,
-);
+// typedef _dart__dexp = int Function(
+//   ffi.Pointer<ffi.Double> _Px,
+//   double _Y,
+//   int _Eoff,
+// );
 
-typedef _c__fdexp = ffi.Int16 Function(
-  ffi.Pointer<ffi.Float> _Px,
-  ffi.Float _Y,
-  ffi.Int64 _Eoff,
-);
+// typedef _c__fdexp = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Float> _Px,
+//   ffi.Float _Y,
+//   ffi.Int64 _Eoff,
+// );
 
-typedef _dart__fdexp = int Function(
-  ffi.Pointer<ffi.Float> _Px,
-  double _Y,
-  int _Eoff,
-);
+// typedef _dart__fdexp = int Function(
+//   ffi.Pointer<ffi.Float> _Px,
+//   double _Y,
+//   int _Eoff,
+// );
 
-typedef _c__dnorm = ffi.Int16 Function(
-  ffi.Pointer<ffi.Uint16> _Ps,
-);
+// typedef _c__dnorm = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Uint16> _Ps,
+// );
 
-typedef _dart__dnorm = int Function(
-  ffi.Pointer<ffi.Uint16> _Ps,
-);
+// typedef _dart__dnorm = int Function(
+//   ffi.Pointer<ffi.Uint16> _Ps,
+// );
 
-typedef _c__fdnorm = ffi.Int16 Function(
-  ffi.Pointer<ffi.Uint16> _Ps,
-);
+// typedef _c__fdnorm = ffi.Int16 Function(
+//   ffi.Pointer<ffi.Uint16> _Ps,
+// );
 
-typedef _dart__fdnorm = int Function(
-  ffi.Pointer<ffi.Uint16> _Ps,
-);
+// typedef _dart__fdnorm = int Function(
+//   ffi.Pointer<ffi.Uint16> _Ps,
+// );
 
-typedef _c__dpoly = ffi.Double Function(
-  ffi.Double _X,
-  ffi.Pointer<ffi.Double> _Tab,
-  ffi.Int32 _N,
-);
+// typedef _c__dpoly = ffi.Double Function(
+//   ffi.Double _X,
+//   ffi.Pointer<ffi.Double> _Tab,
+//   ffi.Int32 _N,
+// );
 
-typedef _dart__dpoly = double Function(
-  double _X,
-  ffi.Pointer<ffi.Double> _Tab,
-  int _N,
-);
+// typedef _dart__dpoly = double Function(
+//   double _X,
+//   ffi.Pointer<ffi.Double> _Tab,
+//   int _N,
+// );
 
-typedef _c__fdpoly = ffi.Float Function(
-  ffi.Float _X,
-  ffi.Pointer<ffi.Float> _Tab,
-  ffi.Int32 _N,
-);
+// typedef _c__fdpoly = ffi.Float Function(
+//   ffi.Float _X,
+//   ffi.Pointer<ffi.Float> _Tab,
+//   ffi.Int32 _N,
+// );
 
-typedef _dart__fdpoly = double Function(
-  double _X,
-  ffi.Pointer<ffi.Float> _Tab,
-  int _N,
-);
+// typedef _dart__fdpoly = double Function(
+//   double _X,
+//   ffi.Pointer<ffi.Float> _Tab,
+//   int _N,
+// );
 
-typedef _c__dlog = ffi.Double Function(
-  ffi.Double _X,
-  ffi.Int32 _Baseflag,
-);
+// typedef _c__dlog = ffi.Double Function(
+//   ffi.Double _X,
+//   ffi.Int32 _Baseflag,
+// );
 
-typedef _dart__dlog = double Function(
-  double _X,
-  int _Baseflag,
-);
+// typedef _dart__dlog = double Function(
+//   double _X,
+//   int _Baseflag,
+// );
 
-typedef _c__fdlog = ffi.Float Function(
-  ffi.Float _X,
-  ffi.Int32 _Baseflag,
-);
+// typedef _c__fdlog = ffi.Float Function(
+//   ffi.Float _X,
+//   ffi.Int32 _Baseflag,
+// );
 
-typedef _dart__fdlog = double Function(
-  double _X,
-  int _Baseflag,
-);
+// typedef _dart__fdlog = double Function(
+//   double _X,
+//   int _Baseflag,
+// );
 
-typedef _c__dsin = ffi.Double Function(
-  ffi.Double _X,
-  ffi.Uint32 _Qoff,
-);
+// typedef _c__dsin = ffi.Double Function(
+//   ffi.Double _X,
+//   ffi.Uint32 _Qoff,
+// );
 
-typedef _dart__dsin = double Function(
-  double _X,
-  int _Qoff,
-);
+// typedef _dart__dsin = double Function(
+//   double _X,
+//   int _Qoff,
+// );
 
-typedef _c__fdsin = ffi.Float Function(
-  ffi.Float _X,
-  ffi.Uint32 _Qoff,
-);
+// typedef _c__fdsin = ffi.Float Function(
+//   ffi.Float _X,
+//   ffi.Uint32 _Qoff,
+// );
 
-typedef _dart__fdsin = double Function(
-  double _X,
-  int _Qoff,
-);
+// typedef _dart__fdsin = double Function(
+//   double _X,
+//   int _Qoff,
+// );
 
 typedef _c_abs = ffi.Int32 Function(
   ffi.Int32 _X,
@@ -139529,15 +139529,15 @@ typedef _dart_atof = double Function(
   ffi.Pointer<ffi.Int8> _String,
 );
 
-typedef _c__atof_l = ffi.Double Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__atof_l = ffi.Double Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__atof_l = double Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__atof_l = double Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_cbrt = ffi.Double Function(
   ffi.Double _X,
@@ -139555,13 +139555,13 @@ typedef _dart_ceil = double Function(
   double _X,
 );
 
-typedef _c__chgsign = ffi.Double Function(
-  ffi.Double _X,
-);
+// typedef _c__chgsign = ffi.Double Function(
+//   ffi.Double _X,
+// );
 
-typedef _dart__chgsign = double Function(
-  double _X,
-);
+// typedef _dart__chgsign = double Function(
+//   double _X,
+// );
 
 typedef _c_copysign = ffi.Double Function(
   ffi.Double _Number,
@@ -139573,15 +139573,15 @@ typedef _dart_copysign = double Function(
   double _Sign,
 );
 
-typedef _c__copysign = ffi.Double Function(
-  ffi.Double _Number,
-  ffi.Double _Sign,
-);
+// typedef _c__copysign = ffi.Double Function(
+//   ffi.Double _Number,
+//   ffi.Double _Sign,
+// );
 
-typedef _dart__copysign = double Function(
-  double _Number,
-  double _Sign,
-);
+// typedef _dart__copysign = double Function(
+//   double _Number,
+//   double _Sign,
+// );
 
 typedef _c_erf = ffi.Double Function(
   ffi.Double _X,
@@ -139685,15 +139685,15 @@ typedef _dart_hypot = double Function(
   double _Y,
 );
 
-typedef _c__hypot = ffi.Double Function(
-  ffi.Double _X,
-  ffi.Double _Y,
-);
+// typedef _c__hypot = ffi.Double Function(
+//   ffi.Double _X,
+//   ffi.Double _Y,
+// );
 
-typedef _dart__hypot = double Function(
-  double _X,
-  double _Y,
-);
+// typedef _dart__hypot = double Function(
+//   double _X,
+//   double _Y,
+// );
 
 typedef _c_ilogb = ffi.Int32 Function(
   ffi.Double _X,
@@ -139777,13 +139777,13 @@ typedef _dart_lround = int Function(
   double _X,
 );
 
-typedef _c__matherr = ffi.Int32 Function(
-  ffi.Pointer<_exception> _Except,
-);
+// typedef _c__matherr = ffi.Int32 Function(
+//   ffi.Pointer<_exception> _Except,
+// );
 
-typedef _dart__matherr = int Function(
-  ffi.Pointer<_exception> _Except,
-);
+// typedef _dart__matherr = int Function(
+//   ffi.Pointer<_exception> _Except,
+// );
 
 typedef _c_modf = ffi.Double Function(
   ffi.Double _X,
@@ -139895,57 +139895,57 @@ typedef _dart_trunc = double Function(
   double _X,
 );
 
-typedef _c__j0 = ffi.Double Function(
-  ffi.Double _X,
-);
+// typedef _c__j0 = ffi.Double Function(
+//   ffi.Double _X,
+// );
 
-typedef _dart__j0 = double Function(
-  double _X,
-);
+// typedef _dart__j0 = double Function(
+//   double _X,
+// );
 
-typedef _c__j1 = ffi.Double Function(
-  ffi.Double _X,
-);
+// typedef _c__j1 = ffi.Double Function(
+//   ffi.Double _X,
+// );
 
-typedef _dart__j1 = double Function(
-  double _X,
-);
+// typedef _dart__j1 = double Function(
+//   double _X,
+// );
 
-typedef _c__jn = ffi.Double Function(
-  ffi.Int32 _X,
-  ffi.Double _Y,
-);
+// typedef _c__jn = ffi.Double Function(
+//   ffi.Int32 _X,
+//   ffi.Double _Y,
+// );
 
-typedef _dart__jn = double Function(
-  int _X,
-  double _Y,
-);
+// typedef _dart__jn = double Function(
+//   int _X,
+//   double _Y,
+// );
 
-typedef _c__y0 = ffi.Double Function(
-  ffi.Double _X,
-);
+// typedef _c__y0 = ffi.Double Function(
+//   ffi.Double _X,
+// );
 
-typedef _dart__y0 = double Function(
-  double _X,
-);
+// typedef _dart__y0 = double Function(
+//   double _X,
+// );
 
-typedef _c__y1 = ffi.Double Function(
-  ffi.Double _X,
-);
+// typedef _c__y1 = ffi.Double Function(
+//   ffi.Double _X,
+// );
 
-typedef _dart__y1 = double Function(
-  double _X,
-);
+// typedef _dart__y1 = double Function(
+//   double _X,
+// );
 
-typedef _c__yn = ffi.Double Function(
-  ffi.Int32 _X,
-  ffi.Double _Y,
-);
+// typedef _c__yn = ffi.Double Function(
+//   ffi.Int32 _X,
+//   ffi.Double _Y,
+// );
 
-typedef _dart__yn = double Function(
-  int _X,
-  double _Y,
-);
+// typedef _dart__yn = double Function(
+//   int _X,
+//   double _Y,
+// );
 
 typedef _c_acoshf = ffi.Float Function(
   ffi.Float _X,
@@ -139979,13 +139979,13 @@ typedef _dart_cbrtf = double Function(
   double _X,
 );
 
-typedef _c__chgsignf = ffi.Float Function(
-  ffi.Float _X,
-);
+// typedef _c__chgsignf = ffi.Float Function(
+//   ffi.Float _X,
+// );
 
-typedef _dart__chgsignf = double Function(
-  double _X,
-);
+// typedef _dart__chgsignf = double Function(
+//   double _X,
+// );
 
 typedef _c_copysignf = ffi.Float Function(
   ffi.Float _Number,
@@ -139997,15 +139997,15 @@ typedef _dart_copysignf = double Function(
   double _Sign,
 );
 
-typedef _c__copysignf = ffi.Float Function(
-  ffi.Float _Number,
-  ffi.Float _Sign,
-);
+// typedef _c__copysignf = ffi.Float Function(
+//   ffi.Float _Number,
+//   ffi.Float _Sign,
+// );
 
-typedef _dart__copysignf = double Function(
-  double _Number,
-  double _Sign,
-);
+// typedef _dart__copysignf = double Function(
+//   double _Number,
+//   double _Sign,
+// );
 
 typedef _c_erff = ffi.Float Function(
   ffi.Float _X,
@@ -140081,15 +140081,15 @@ typedef _dart_fminf = double Function(
   double _Y,
 );
 
-typedef _c__hypotf = ffi.Float Function(
-  ffi.Float _X,
-  ffi.Float _Y,
-);
+// typedef _c__hypotf = ffi.Float Function(
+//   ffi.Float _X,
+//   ffi.Float _Y,
+// );
 
-typedef _dart__hypotf = double Function(
-  double _X,
-  double _Y,
-);
+// typedef _dart__hypotf = double Function(
+//   double _X,
+//   double _Y,
+// );
 
 typedef _c_ilogbf = ffi.Int32 Function(
   ffi.Float _X,
@@ -140263,59 +140263,59 @@ typedef _dart_truncf = double Function(
   double _X,
 );
 
-typedef _c__logbf = ffi.Float Function(
-  ffi.Float _X,
-);
+// typedef _c__logbf = ffi.Float Function(
+//   ffi.Float _X,
+// );
 
-typedef _dart__logbf = double Function(
-  double _X,
-);
+// typedef _dart__logbf = double Function(
+//   double _X,
+// );
 
-typedef _c__nextafterf = ffi.Float Function(
-  ffi.Float _X,
-  ffi.Float _Y,
-);
+// typedef _c__nextafterf = ffi.Float Function(
+//   ffi.Float _X,
+//   ffi.Float _Y,
+// );
 
-typedef _dart__nextafterf = double Function(
-  double _X,
-  double _Y,
-);
+// typedef _dart__nextafterf = double Function(
+//   double _X,
+//   double _Y,
+// );
 
-typedef _c__finitef = ffi.Int32 Function(
-  ffi.Float _X,
-);
+// typedef _c__finitef = ffi.Int32 Function(
+//   ffi.Float _X,
+// );
 
-typedef _dart__finitef = int Function(
-  double _X,
-);
+// typedef _dart__finitef = int Function(
+//   double _X,
+// );
 
-typedef _c__isnanf = ffi.Int32 Function(
-  ffi.Float _X,
-);
+// typedef _c__isnanf = ffi.Int32 Function(
+//   ffi.Float _X,
+// );
 
-typedef _dart__isnanf = int Function(
-  double _X,
-);
+// typedef _dart__isnanf = int Function(
+//   double _X,
+// );
 
-typedef _c__fpclassf = ffi.Int32 Function(
-  ffi.Float _X,
-);
+// typedef _c__fpclassf = ffi.Int32 Function(
+//   ffi.Float _X,
+// );
 
-typedef _dart__fpclassf = int Function(
-  double _X,
-);
+// typedef _dart__fpclassf = int Function(
+//   double _X,
+// );
 
-typedef _c__set_FMA3_enable = ffi.Int32 Function(
-  ffi.Int32 _Flag,
-);
+// typedef _c__set_FMA3_enable = ffi.Int32 Function(
+//   ffi.Int32 _Flag,
+// );
 
-typedef _dart__set_FMA3_enable = int Function(
-  int _Flag,
-);
+// typedef _dart__set_FMA3_enable = int Function(
+//   int _Flag,
+// );
 
-typedef _c__get_FMA3_enable = ffi.Int32 Function();
+// typedef _c__get_FMA3_enable = ffi.Int32 Function();
 
-typedef _dart__get_FMA3_enable = int Function();
+// typedef _dart__get_FMA3_enable = int Function();
 
 typedef _c_acosf = ffi.Float Function(
   ffi.Float _X,
@@ -140567,15 +140567,15 @@ typedef _dart_yn = double Function(
   double _Y,
 );
 
-typedef _c__calloc_base = ffi.Pointer<ffi.Void> Function(
-  ffi.Uint64 _Count,
-  ffi.Uint64 _Size,
-);
+// typedef _c__calloc_base = ffi.Pointer<ffi.Void> Function(
+//   ffi.Uint64 _Count,
+//   ffi.Uint64 _Size,
+// );
 
-typedef _dart__calloc_base = ffi.Pointer<ffi.Void> Function(
-  int _Count,
-  int _Size,
-);
+// typedef _dart__calloc_base = ffi.Pointer<ffi.Void> Function(
+//   int _Count,
+//   int _Size,
+// );
 
 typedef _c_calloc = ffi.Pointer<ffi.Void> Function(
   ffi.Uint64 _Count,
@@ -140587,31 +140587,31 @@ typedef _dart_calloc = ffi.Pointer<ffi.Void> Function(
   int _Size,
 );
 
-typedef _c__callnewh = ffi.Int32 Function(
-  ffi.Uint64 _Size,
-);
+// typedef _c__callnewh = ffi.Int32 Function(
+//   ffi.Uint64 _Size,
+// );
 
-typedef _dart__callnewh = int Function(
-  int _Size,
-);
+// typedef _dart__callnewh = int Function(
+//   int _Size,
+// );
 
-typedef _c__expand = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  ffi.Uint64 _Size,
-);
+// typedef _c__expand = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   ffi.Uint64 _Size,
+// );
 
-typedef _dart__expand = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  int _Size,
-);
+// typedef _dart__expand = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   int _Size,
+// );
 
-typedef _c__free_base = ffi.Void Function(
-  ffi.Pointer<ffi.Void> _Block,
-);
+// typedef _c__free_base = ffi.Void Function(
+//   ffi.Pointer<ffi.Void> _Block,
+// );
 
-typedef _dart__free_base = void Function(
-  ffi.Pointer<ffi.Void> _Block,
-);
+// typedef _dart__free_base = void Function(
+//   ffi.Pointer<ffi.Void> _Block,
+// );
 
 typedef _c_free = ffi.Void Function(
   ffi.Pointer<ffi.Void> _Block,
@@ -140621,13 +140621,13 @@ typedef _dart_free = void Function(
   ffi.Pointer<ffi.Void> _Block,
 );
 
-typedef _c__malloc_base = ffi.Pointer<ffi.Void> Function(
-  ffi.Uint64 _Size,
-);
+// typedef _c__malloc_base = ffi.Pointer<ffi.Void> Function(
+//   ffi.Uint64 _Size,
+// );
 
-typedef _dart__malloc_base = ffi.Pointer<ffi.Void> Function(
-  int _Size,
-);
+// typedef _dart__malloc_base = ffi.Pointer<ffi.Void> Function(
+//   int _Size,
+// );
 
 typedef _c_malloc = ffi.Pointer<ffi.Void> Function(
   ffi.Uint64 _Size,
@@ -140637,31 +140637,31 @@ typedef _dart_malloc = ffi.Pointer<ffi.Void> Function(
   int _Size,
 );
 
-typedef _c__msize_base = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Void> _Block,
-);
+// typedef _c__msize_base = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Void> _Block,
+// );
 
-typedef _dart__msize_base = int Function(
-  ffi.Pointer<ffi.Void> _Block,
-);
+// typedef _dart__msize_base = int Function(
+//   ffi.Pointer<ffi.Void> _Block,
+// );
 
-typedef _c__msize = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Void> _Block,
-);
+// typedef _c__msize = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Void> _Block,
+// );
 
-typedef _dart__msize = int Function(
-  ffi.Pointer<ffi.Void> _Block,
-);
+// typedef _dart__msize = int Function(
+//   ffi.Pointer<ffi.Void> _Block,
+// );
 
-typedef _c__realloc_base = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  ffi.Uint64 _Size,
-);
+// typedef _c__realloc_base = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   ffi.Uint64 _Size,
+// );
 
-typedef _dart__realloc_base = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  int _Size,
-);
+// typedef _dart__realloc_base = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   int _Size,
+// );
 
 typedef _c_realloc = ffi.Pointer<ffi.Void> Function(
   ffi.Pointer<ffi.Void> _Block,
@@ -140673,135 +140673,135 @@ typedef _dart_realloc = ffi.Pointer<ffi.Void> Function(
   int _Size,
 );
 
-typedef _c__recalloc_base = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  ffi.Uint64 _Count,
-  ffi.Uint64 _Size,
-);
+// typedef _c__recalloc_base = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   ffi.Uint64 _Count,
+//   ffi.Uint64 _Size,
+// );
 
-typedef _dart__recalloc_base = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  int _Count,
-  int _Size,
-);
+// typedef _dart__recalloc_base = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   int _Count,
+//   int _Size,
+// );
 
-typedef _c__recalloc = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  ffi.Uint64 _Count,
-  ffi.Uint64 _Size,
-);
+// typedef _c__recalloc = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   ffi.Uint64 _Count,
+//   ffi.Uint64 _Size,
+// );
 
-typedef _dart__recalloc = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  int _Count,
-  int _Size,
-);
+// typedef _dart__recalloc = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   int _Count,
+//   int _Size,
+// );
 
-typedef _c__aligned_free = ffi.Void Function(
-  ffi.Pointer<ffi.Void> _Block,
-);
+// typedef _c__aligned_free = ffi.Void Function(
+//   ffi.Pointer<ffi.Void> _Block,
+// );
 
-typedef _dart__aligned_free = void Function(
-  ffi.Pointer<ffi.Void> _Block,
-);
+// typedef _dart__aligned_free = void Function(
+//   ffi.Pointer<ffi.Void> _Block,
+// );
 
-typedef _c__aligned_malloc = ffi.Pointer<ffi.Void> Function(
-  ffi.Uint64 _Size,
-  ffi.Uint64 _Alignment,
-);
+// typedef _c__aligned_malloc = ffi.Pointer<ffi.Void> Function(
+//   ffi.Uint64 _Size,
+//   ffi.Uint64 _Alignment,
+// );
 
-typedef _dart__aligned_malloc = ffi.Pointer<ffi.Void> Function(
-  int _Size,
-  int _Alignment,
-);
+// typedef _dart__aligned_malloc = ffi.Pointer<ffi.Void> Function(
+//   int _Size,
+//   int _Alignment,
+// );
 
-typedef _c__aligned_offset_malloc = ffi.Pointer<ffi.Void> Function(
-  ffi.Uint64 _Size,
-  ffi.Uint64 _Alignment,
-  ffi.Uint64 _Offset,
-);
+// typedef _c__aligned_offset_malloc = ffi.Pointer<ffi.Void> Function(
+//   ffi.Uint64 _Size,
+//   ffi.Uint64 _Alignment,
+//   ffi.Uint64 _Offset,
+// );
 
-typedef _dart__aligned_offset_malloc = ffi.Pointer<ffi.Void> Function(
-  int _Size,
-  int _Alignment,
-  int _Offset,
-);
+// typedef _dart__aligned_offset_malloc = ffi.Pointer<ffi.Void> Function(
+//   int _Size,
+//   int _Alignment,
+//   int _Offset,
+// );
 
-typedef _c__aligned_msize = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Void> _Block,
-  ffi.Uint64 _Alignment,
-  ffi.Uint64 _Offset,
-);
+// typedef _c__aligned_msize = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   ffi.Uint64 _Alignment,
+//   ffi.Uint64 _Offset,
+// );
 
-typedef _dart__aligned_msize = int Function(
-  ffi.Pointer<ffi.Void> _Block,
-  int _Alignment,
-  int _Offset,
-);
+// typedef _dart__aligned_msize = int Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   int _Alignment,
+//   int _Offset,
+// );
 
-typedef _c__aligned_offset_realloc = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  ffi.Uint64 _Size,
-  ffi.Uint64 _Alignment,
-  ffi.Uint64 _Offset,
-);
+// typedef _c__aligned_offset_realloc = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   ffi.Uint64 _Size,
+//   ffi.Uint64 _Alignment,
+//   ffi.Uint64 _Offset,
+// );
 
-typedef _dart__aligned_offset_realloc = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  int _Size,
-  int _Alignment,
-  int _Offset,
-);
+// typedef _dart__aligned_offset_realloc = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   int _Size,
+//   int _Alignment,
+//   int _Offset,
+// );
 
-typedef _c__aligned_offset_recalloc = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  ffi.Uint64 _Count,
-  ffi.Uint64 _Size,
-  ffi.Uint64 _Alignment,
-  ffi.Uint64 _Offset,
-);
+// typedef _c__aligned_offset_recalloc = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   ffi.Uint64 _Count,
+//   ffi.Uint64 _Size,
+//   ffi.Uint64 _Alignment,
+//   ffi.Uint64 _Offset,
+// );
 
-typedef _dart__aligned_offset_recalloc = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  int _Count,
-  int _Size,
-  int _Alignment,
-  int _Offset,
-);
+// typedef _dart__aligned_offset_recalloc = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   int _Count,
+//   int _Size,
+//   int _Alignment,
+//   int _Offset,
+// );
 
-typedef _c__aligned_realloc = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  ffi.Uint64 _Size,
-  ffi.Uint64 _Alignment,
-);
+// typedef _c__aligned_realloc = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   ffi.Uint64 _Size,
+//   ffi.Uint64 _Alignment,
+// );
 
-typedef _dart__aligned_realloc = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  int _Size,
-  int _Alignment,
-);
+// typedef _dart__aligned_realloc = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   int _Size,
+//   int _Alignment,
+// );
 
-typedef _c__aligned_recalloc = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  ffi.Uint64 _Count,
-  ffi.Uint64 _Size,
-  ffi.Uint64 _Alignment,
-);
+// typedef _c__aligned_recalloc = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   ffi.Uint64 _Count,
+//   ffi.Uint64 _Size,
+//   ffi.Uint64 _Alignment,
+// );
 
-typedef _dart__aligned_recalloc = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Block,
-  int _Count,
-  int _Size,
-  int _Alignment,
-);
+// typedef _dart__aligned_recalloc = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Block,
+//   int _Count,
+//   int _Size,
+//   int _Alignment,
+// );
 
-typedef _c___threadid = ffi.Uint64 Function();
+// typedef _c___threadid = ffi.Uint64 Function();
 
-typedef _dart___threadid = int Function();
+// typedef _dart___threadid = int Function();
 
-typedef _c___threadhandle = ffi.Uint64 Function();
+// typedef _c___threadhandle = ffi.Uint64 Function();
 
-typedef _dart___threadhandle = int Function();
+// typedef _dart___threadhandle = int Function();
 
 typedef _CoreCrtSecureSearchSortCompareFunction = ffi.Int32 Function(
   ffi.Pointer<ffi.Void>,
@@ -140886,81 +140886,81 @@ typedef _dart_qsort = void Function(
       _CompareFunction,
 );
 
-typedef _c__lfind_s = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Key,
-  ffi.Pointer<ffi.Void> _Base,
-  ffi.Pointer<ffi.Uint32> _NumOfElements,
-  ffi.Uint64 _SizeOfElements,
-  ffi.Pointer<ffi.NativeFunction<_CoreCrtSecureSearchSortCompareFunction>>
-      _CompareFunction,
-  ffi.Pointer<ffi.Void> _Context,
-);
+// typedef _c__lfind_s = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Key,
+//   ffi.Pointer<ffi.Void> _Base,
+//   ffi.Pointer<ffi.Uint32> _NumOfElements,
+//   ffi.Uint64 _SizeOfElements,
+//   ffi.Pointer<ffi.NativeFunction<_CoreCrtSecureSearchSortCompareFunction>>
+//       _CompareFunction,
+//   ffi.Pointer<ffi.Void> _Context,
+// );
 
-typedef _dart__lfind_s = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Key,
-  ffi.Pointer<ffi.Void> _Base,
-  ffi.Pointer<ffi.Uint32> _NumOfElements,
-  int _SizeOfElements,
-  ffi.Pointer<ffi.NativeFunction<_CoreCrtSecureSearchSortCompareFunction>>
-      _CompareFunction,
-  ffi.Pointer<ffi.Void> _Context,
-);
+// typedef _dart__lfind_s = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Key,
+//   ffi.Pointer<ffi.Void> _Base,
+//   ffi.Pointer<ffi.Uint32> _NumOfElements,
+//   int _SizeOfElements,
+//   ffi.Pointer<ffi.NativeFunction<_CoreCrtSecureSearchSortCompareFunction>>
+//       _CompareFunction,
+//   ffi.Pointer<ffi.Void> _Context,
+// );
 
-typedef _c__lfind = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Key,
-  ffi.Pointer<ffi.Void> _Base,
-  ffi.Pointer<ffi.Uint32> _NumOfElements,
-  ffi.Uint32 _SizeOfElements,
-  ffi.Pointer<ffi.NativeFunction<_CoreCrtNonSecureSearchSortCompareFunction>>
-      _CompareFunction,
-);
+// typedef _c__lfind = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Key,
+//   ffi.Pointer<ffi.Void> _Base,
+//   ffi.Pointer<ffi.Uint32> _NumOfElements,
+//   ffi.Uint32 _SizeOfElements,
+//   ffi.Pointer<ffi.NativeFunction<_CoreCrtNonSecureSearchSortCompareFunction>>
+//       _CompareFunction,
+// );
 
-typedef _dart__lfind = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Key,
-  ffi.Pointer<ffi.Void> _Base,
-  ffi.Pointer<ffi.Uint32> _NumOfElements,
-  int _SizeOfElements,
-  ffi.Pointer<ffi.NativeFunction<_CoreCrtNonSecureSearchSortCompareFunction>>
-      _CompareFunction,
-);
+// typedef _dart__lfind = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Key,
+//   ffi.Pointer<ffi.Void> _Base,
+//   ffi.Pointer<ffi.Uint32> _NumOfElements,
+//   int _SizeOfElements,
+//   ffi.Pointer<ffi.NativeFunction<_CoreCrtNonSecureSearchSortCompareFunction>>
+//       _CompareFunction,
+// );
 
-typedef _c__lsearch_s = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Key,
-  ffi.Pointer<ffi.Void> _Base,
-  ffi.Pointer<ffi.Uint32> _NumOfElements,
-  ffi.Uint64 _SizeOfElements,
-  ffi.Pointer<ffi.NativeFunction<_CoreCrtSecureSearchSortCompareFunction>>
-      _CompareFunction,
-  ffi.Pointer<ffi.Void> _Context,
-);
+// typedef _c__lsearch_s = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Key,
+//   ffi.Pointer<ffi.Void> _Base,
+//   ffi.Pointer<ffi.Uint32> _NumOfElements,
+//   ffi.Uint64 _SizeOfElements,
+//   ffi.Pointer<ffi.NativeFunction<_CoreCrtSecureSearchSortCompareFunction>>
+//       _CompareFunction,
+//   ffi.Pointer<ffi.Void> _Context,
+// );
 
-typedef _dart__lsearch_s = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Key,
-  ffi.Pointer<ffi.Void> _Base,
-  ffi.Pointer<ffi.Uint32> _NumOfElements,
-  int _SizeOfElements,
-  ffi.Pointer<ffi.NativeFunction<_CoreCrtSecureSearchSortCompareFunction>>
-      _CompareFunction,
-  ffi.Pointer<ffi.Void> _Context,
-);
+// typedef _dart__lsearch_s = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Key,
+//   ffi.Pointer<ffi.Void> _Base,
+//   ffi.Pointer<ffi.Uint32> _NumOfElements,
+//   int _SizeOfElements,
+//   ffi.Pointer<ffi.NativeFunction<_CoreCrtSecureSearchSortCompareFunction>>
+//       _CompareFunction,
+//   ffi.Pointer<ffi.Void> _Context,
+// );
 
-typedef _c__lsearch = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Key,
-  ffi.Pointer<ffi.Void> _Base,
-  ffi.Pointer<ffi.Uint32> _NumOfElements,
-  ffi.Uint32 _SizeOfElements,
-  ffi.Pointer<ffi.NativeFunction<_CoreCrtNonSecureSearchSortCompareFunction>>
-      _CompareFunction,
-);
+// typedef _c__lsearch = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Key,
+//   ffi.Pointer<ffi.Void> _Base,
+//   ffi.Pointer<ffi.Uint32> _NumOfElements,
+//   ffi.Uint32 _SizeOfElements,
+//   ffi.Pointer<ffi.NativeFunction<_CoreCrtNonSecureSearchSortCompareFunction>>
+//       _CompareFunction,
+// );
 
-typedef _dart__lsearch = ffi.Pointer<ffi.Void> Function(
-  ffi.Pointer<ffi.Void> _Key,
-  ffi.Pointer<ffi.Void> _Base,
-  ffi.Pointer<ffi.Uint32> _NumOfElements,
-  int _SizeOfElements,
-  ffi.Pointer<ffi.NativeFunction<_CoreCrtNonSecureSearchSortCompareFunction>>
-      _CompareFunction,
-);
+// typedef _dart__lsearch = ffi.Pointer<ffi.Void> Function(
+//   ffi.Pointer<ffi.Void> _Key,
+//   ffi.Pointer<ffi.Void> _Base,
+//   ffi.Pointer<ffi.Uint32> _NumOfElements,
+//   int _SizeOfElements,
+//   ffi.Pointer<ffi.NativeFunction<_CoreCrtNonSecureSearchSortCompareFunction>>
+//       _CompareFunction,
+// );
 
 typedef _c_lfind = ffi.Pointer<ffi.Void> Function(
   ffi.Pointer<ffi.Void> _Key,
@@ -140998,83 +140998,83 @@ typedef _dart_lsearch = ffi.Pointer<ffi.Void> Function(
       _CompareFunction,
 );
 
-typedef _c__itow_s = ffi.Int32 Function(
-  ffi.Int32 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
+// typedef _c__itow_s = ffi.Int32 Function(
+//   ffi.Int32 _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__itow_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
+// typedef _dart__itow_s = int Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _BufferCount,
+//   int _Radix,
+// );
 
-typedef _c__itow = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Int32 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Int32 _Radix,
-);
+// typedef _c__itow = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Int32 _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__itow = ffi.Pointer<ffi.Uint16> Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _Radix,
-);
+// typedef _dart__itow = ffi.Pointer<ffi.Uint16> Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _Radix,
+// );
 
-typedef _c__ltow_s = ffi.Int32 Function(
-  ffi.Int64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
+// typedef _c__ltow_s = ffi.Int32 Function(
+//   ffi.Int64 _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__ltow_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
+// typedef _dart__ltow_s = int Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _BufferCount,
+//   int _Radix,
+// );
 
-typedef _c__ltow = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Int64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Int32 _Radix,
-);
+// typedef _c__ltow = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Int64 _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__ltow = ffi.Pointer<ffi.Uint16> Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _Radix,
-);
+// typedef _dart__ltow = ffi.Pointer<ffi.Uint16> Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _Radix,
+// );
 
-typedef _c__ultow_s = ffi.Int32 Function(
-  ffi.Uint64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
+// typedef _c__ultow_s = ffi.Int32 Function(
+//   ffi.Uint64 _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__ultow_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
+// typedef _dart__ultow_s = int Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _BufferCount,
+//   int _Radix,
+// );
 
-typedef _c__ultow = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Uint64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Int32 _Radix,
-);
+// typedef _c__ultow = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Uint64 _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__ultow = ffi.Pointer<ffi.Uint16> Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _Radix,
-);
+// typedef _dart__ultow = ffi.Pointer<ffi.Uint16> Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _Radix,
+// );
 
 typedef _c_wcstod = ffi.Double Function(
   ffi.Pointer<ffi.Uint16> _String,
@@ -141086,17 +141086,17 @@ typedef _dart_wcstod = double Function(
   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
 );
 
-typedef _c__wcstod_l = ffi.Double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcstod_l = ffi.Double Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcstod_l = double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcstod_l = double Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_wcstol = ffi.Int64 Function(
   ffi.Pointer<ffi.Uint16> _String,
@@ -141110,19 +141110,19 @@ typedef _dart_wcstol = int Function(
   int _Radix,
 );
 
-typedef _c__wcstol_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcstol_l = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   ffi.Int32 _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcstol_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcstol_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   int _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_wcstoll = ffi.Int64 Function(
   ffi.Pointer<ffi.Uint16> _String,
@@ -141136,19 +141136,19 @@ typedef _dart_wcstoll = int Function(
   int _Radix,
 );
 
-typedef _c__wcstoll_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcstoll_l = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   ffi.Int32 _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcstoll_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcstoll_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   int _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_wcstoul = ffi.Uint64 Function(
   ffi.Pointer<ffi.Uint16> _String,
@@ -141162,19 +141162,19 @@ typedef _dart_wcstoul = int Function(
   int _Radix,
 );
 
-typedef _c__wcstoul_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcstoul_l = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   ffi.Int32 _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcstoul_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcstoul_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   int _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_wcstoull = ffi.Uint64 Function(
   ffi.Pointer<ffi.Uint16> _String,
@@ -141188,19 +141188,19 @@ typedef _dart_wcstoull = int Function(
   int _Radix,
 );
 
-typedef _c__wcstoull_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcstoull_l = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   ffi.Int32 _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcstoull_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcstoull_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   int _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_wcstof = ffi.Float Function(
   ffi.Pointer<ffi.Uint16> _String,
@@ -141212,469 +141212,469 @@ typedef _dart_wcstof = double Function(
   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
 );
 
-typedef _c__wcstof_l = ffi.Float Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcstof_l = double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wtof = ffi.Double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wtof = double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c__wtof_l = ffi.Double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wtof_l = double Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wtoi = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wtoi = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c__wtoi_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wtoi_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wtol = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wtol = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c__wtol_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wtol_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wtoll = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wtoll = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c__wtoll_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wtoll_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__i64tow_s = ffi.Int32 Function(
-  ffi.Int64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__i64tow_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
-
-typedef _c__i64tow = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Int64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__i64tow = ffi.Pointer<ffi.Uint16> Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _Radix,
-);
-
-typedef _c__ui64tow_s = ffi.Int32 Function(
-  ffi.Uint64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__ui64tow_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
-
-typedef _c__ui64tow = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Uint64 _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__ui64tow = ffi.Pointer<ffi.Uint16> Function(
-  int _Value,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _Radix,
-);
-
-typedef _c__wtoi64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _dart__wtoi64 = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-);
-
-typedef _c__wtoi64_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wtoi64_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wcstoi64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__wcstoi64 = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-);
-
-typedef _c__wcstoi64_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcstoi64_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wcstoui64 = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-);
-
-typedef _dart__wcstoui64 = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-);
-
-typedef _c__wcstoui64_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _dart__wcstoui64_l = int Function(
-  ffi.Pointer<ffi.Uint16> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
-
-typedef _c__wfullpath = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Pointer<ffi.Uint16> _Path,
-  ffi.Uint64 _BufferCount,
-);
-
-typedef _dart__wfullpath = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Pointer<ffi.Uint16> _Path,
-  int _BufferCount,
-);
-
-typedef _c__wmakepath_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _Ext,
-);
-
-typedef _dart__wmakepath_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _Ext,
-);
-
-typedef _c__wmakepath = ffi.Void Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _Ext,
-);
-
-typedef _dart__wmakepath = void Function(
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _Ext,
-);
-
-typedef _c__wperror = ffi.Void Function(
-  ffi.Pointer<ffi.Uint16> _ErrorMessage,
-);
-
-typedef _dart__wperror = void Function(
-  ffi.Pointer<ffi.Uint16> _ErrorMessage,
-);
-
-typedef _c__wsplitpath = ffi.Void Function(
-  ffi.Pointer<ffi.Uint16> _FullPath,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _Ext,
-);
-
-typedef _dart__wsplitpath = void Function(
-  ffi.Pointer<ffi.Uint16> _FullPath,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _Ext,
-);
-
-typedef _c__wsplitpath_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _FullPath,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  ffi.Uint64 _DriveCount,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  ffi.Uint64 _DirCount,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Uint64 _FilenameCount,
-  ffi.Pointer<ffi.Uint16> _Ext,
-  ffi.Uint64 _ExtCount,
-);
-
-typedef _dart__wsplitpath_s = int Function(
-  ffi.Pointer<ffi.Uint16> _FullPath,
-  ffi.Pointer<ffi.Uint16> _Drive,
-  int _DriveCount,
-  ffi.Pointer<ffi.Uint16> _Dir,
-  int _DirCount,
-  ffi.Pointer<ffi.Uint16> _Filename,
-  int _FilenameCount,
-  ffi.Pointer<ffi.Uint16> _Ext,
-  int _ExtCount,
-);
-
-typedef _c__wdupenv_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Buffer,
-  ffi.Pointer<ffi.Uint64> _BufferCount,
-  ffi.Pointer<ffi.Uint16> _VarName,
-);
-
-typedef _dart__wdupenv_s = int Function(
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Buffer,
-  ffi.Pointer<ffi.Uint64> _BufferCount,
-  ffi.Pointer<ffi.Uint16> _VarName,
-);
-
-typedef _c__wgetenv = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _VarName,
-);
-
-typedef _dart__wgetenv = ffi.Pointer<ffi.Uint16> Function(
-  ffi.Pointer<ffi.Uint16> _VarName,
-);
-
-typedef _c__wgetenv_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint64> _RequiredCount,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Pointer<ffi.Uint16> _VarName,
-);
-
-typedef _dart__wgetenv_s = int Function(
-  ffi.Pointer<ffi.Uint64> _RequiredCount,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-  ffi.Pointer<ffi.Uint16> _VarName,
-);
-
-typedef _c__wputenv = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _EnvString,
-);
-
-typedef _dart__wputenv = int Function(
-  ffi.Pointer<ffi.Uint16> _EnvString,
-);
-
-typedef _c__wputenv_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Name,
-  ffi.Pointer<ffi.Uint16> _Value,
-);
-
-typedef _dart__wputenv_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Name,
-  ffi.Pointer<ffi.Uint16> _Value,
-);
-
-typedef _c__wsearchenv_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _VarName,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  ffi.Uint64 _BufferCount,
-);
-
-typedef _dart__wsearchenv_s = int Function(
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _VarName,
-  ffi.Pointer<ffi.Uint16> _Buffer,
-  int _BufferCount,
-);
-
-typedef _c__wsearchenv = ffi.Void Function(
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _VarName,
-  ffi.Pointer<ffi.Uint16> _ResultPath,
-);
-
-typedef _dart__wsearchenv = void Function(
-  ffi.Pointer<ffi.Uint16> _Filename,
-  ffi.Pointer<ffi.Uint16> _VarName,
-  ffi.Pointer<ffi.Uint16> _ResultPath,
-);
-
-typedef _c__wsystem = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _Command,
-);
-
-typedef _dart__wsystem = int Function(
-  ffi.Pointer<ffi.Uint16> _Command,
-);
-
-typedef _c__swab = ffi.Void Function(
-  ffi.Pointer<ffi.Int8> _Buf1,
-  ffi.Pointer<ffi.Int8> _Buf2,
-  ffi.Int32 _SizeInBytes,
-);
-
-typedef _dart__swab = void Function(
-  ffi.Pointer<ffi.Int8> _Buf1,
-  ffi.Pointer<ffi.Int8> _Buf2,
-  int _SizeInBytes,
-);
-
-typedef _c_exit = ffi.Void Function(
-  ffi.Int32 _Code,
-);
-
-typedef _dart_exit = void Function(
-  int _Code,
-);
-
-typedef _c__exit = ffi.Void Function(
-  ffi.Int32 _Code,
-);
-
-typedef _dart__exit = void Function(
-  int _Code,
-);
-
-typedef _c__Exit = ffi.Void Function(
-  ffi.Int32 _Code,
-);
-
-typedef _dart__Exit = void Function(
-  int _Code,
-);
-
-typedef _c_quick_exit = ffi.Void Function(
-  ffi.Int32 _Code,
-);
-
-typedef _dart_quick_exit = void Function(
-  int _Code,
-);
-
-typedef _c_abort = ffi.Void Function();
-
-typedef _dart_abort = void Function();
-
-typedef _c__set_abort_behavior = ffi.Uint32 Function(
-  ffi.Uint32 _Flags,
-  ffi.Uint32 _Mask,
-);
-
-typedef _dart__set_abort_behavior = int Function(
-  int _Flags,
-  int _Mask,
-);
-
-typedef _typedefC_1 = ffi.Void Function();
-
-typedef _c_atexit = ffi.Int32 Function(
-  ffi.Pointer<ffi.NativeFunction<_typedefC_1>> arg0,
-);
-
-typedef _dart_atexit = int Function(
-  ffi.Pointer<ffi.NativeFunction<_typedefC_1>> arg0,
-);
+// typedef _c__wcstof_l = ffi.Float Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _dart__wcstof_l = double Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _c__wtof = ffi.Double Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
+
+// typedef _dart__wtof = double Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
+
+// typedef _c__wtof_l = ffi.Double Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _dart__wtof_l = double Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _c__wtoi = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
+
+// typedef _dart__wtoi = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
+
+// typedef _c__wtoi_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _dart__wtoi_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _c__wtol = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
+
+// typedef _dart__wtol = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
+
+// typedef _c__wtol_l = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _dart__wtol_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _c__wtoll = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
+
+// typedef _dart__wtoll = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
+
+// typedef _c__wtoll_l = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _dart__wtoll_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _c__i64tow_s = ffi.Int32 Function(
+//   ffi.Int64 _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Int32 _Radix,
+// );
+
+// typedef _dart__i64tow_s = int Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _BufferCount,
+//   int _Radix,
+// );
+
+// typedef _c__i64tow = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Int64 _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Int32 _Radix,
+// );
+
+// typedef _dart__i64tow = ffi.Pointer<ffi.Uint16> Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _Radix,
+// );
+
+// typedef _c__ui64tow_s = ffi.Int32 Function(
+//   ffi.Uint64 _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Int32 _Radix,
+// );
+
+// typedef _dart__ui64tow_s = int Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _BufferCount,
+//   int _Radix,
+// );
+
+// typedef _c__ui64tow = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Uint64 _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Int32 _Radix,
+// );
+
+// typedef _dart__ui64tow = ffi.Pointer<ffi.Uint16> Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _Radix,
+// );
+
+// typedef _c__wtoi64 = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
+
+// typedef _dart__wtoi64 = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+// );
+
+// typedef _c__wtoi64_l = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _dart__wtoi64_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _c__wcstoi64 = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   ffi.Int32 _Radix,
+// );
+
+// typedef _dart__wcstoi64 = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   int _Radix,
+// );
+
+// typedef _c__wcstoi64_l = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   ffi.Int32 _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _dart__wcstoi64_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   int _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _c__wcstoui64 = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   ffi.Int32 _Radix,
+// );
+
+// typedef _dart__wcstoui64 = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   int _Radix,
+// );
+
+// typedef _c__wcstoui64_l = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   ffi.Int32 _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _dart__wcstoui64_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _EndPtr,
+//   int _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
+
+// typedef _c__wfullpath = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Pointer<ffi.Uint16> _Path,
+//   ffi.Uint64 _BufferCount,
+// );
+
+// typedef _dart__wfullpath = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Pointer<ffi.Uint16> _Path,
+//   int _BufferCount,
+// );
+
+// typedef _c__wmakepath_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Pointer<ffi.Uint16> _Drive,
+//   ffi.Pointer<ffi.Uint16> _Dir,
+//   ffi.Pointer<ffi.Uint16> _Filename,
+//   ffi.Pointer<ffi.Uint16> _Ext,
+// );
+
+// typedef _dart__wmakepath_s = int Function(
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _BufferCount,
+//   ffi.Pointer<ffi.Uint16> _Drive,
+//   ffi.Pointer<ffi.Uint16> _Dir,
+//   ffi.Pointer<ffi.Uint16> _Filename,
+//   ffi.Pointer<ffi.Uint16> _Ext,
+// );
+
+// typedef _c__wmakepath = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Pointer<ffi.Uint16> _Drive,
+//   ffi.Pointer<ffi.Uint16> _Dir,
+//   ffi.Pointer<ffi.Uint16> _Filename,
+//   ffi.Pointer<ffi.Uint16> _Ext,
+// );
+
+// typedef _dart__wmakepath = void Function(
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Pointer<ffi.Uint16> _Drive,
+//   ffi.Pointer<ffi.Uint16> _Dir,
+//   ffi.Pointer<ffi.Uint16> _Filename,
+//   ffi.Pointer<ffi.Uint16> _Ext,
+// );
+
+// typedef _c__wperror = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint16> _ErrorMessage,
+// );
+
+// typedef _dart__wperror = void Function(
+//   ffi.Pointer<ffi.Uint16> _ErrorMessage,
+// );
+
+// typedef _c__wsplitpath = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint16> _FullPath,
+//   ffi.Pointer<ffi.Uint16> _Drive,
+//   ffi.Pointer<ffi.Uint16> _Dir,
+//   ffi.Pointer<ffi.Uint16> _Filename,
+//   ffi.Pointer<ffi.Uint16> _Ext,
+// );
+
+// typedef _dart__wsplitpath = void Function(
+//   ffi.Pointer<ffi.Uint16> _FullPath,
+//   ffi.Pointer<ffi.Uint16> _Drive,
+//   ffi.Pointer<ffi.Uint16> _Dir,
+//   ffi.Pointer<ffi.Uint16> _Filename,
+//   ffi.Pointer<ffi.Uint16> _Ext,
+// );
+
+// typedef _c__wsplitpath_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _FullPath,
+//   ffi.Pointer<ffi.Uint16> _Drive,
+//   ffi.Uint64 _DriveCount,
+//   ffi.Pointer<ffi.Uint16> _Dir,
+//   ffi.Uint64 _DirCount,
+//   ffi.Pointer<ffi.Uint16> _Filename,
+//   ffi.Uint64 _FilenameCount,
+//   ffi.Pointer<ffi.Uint16> _Ext,
+//   ffi.Uint64 _ExtCount,
+// );
+
+// typedef _dart__wsplitpath_s = int Function(
+//   ffi.Pointer<ffi.Uint16> _FullPath,
+//   ffi.Pointer<ffi.Uint16> _Drive,
+//   int _DriveCount,
+//   ffi.Pointer<ffi.Uint16> _Dir,
+//   int _DirCount,
+//   ffi.Pointer<ffi.Uint16> _Filename,
+//   int _FilenameCount,
+//   ffi.Pointer<ffi.Uint16> _Ext,
+//   int _ExtCount,
+// );
+
+// typedef _c__wdupenv_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Buffer,
+//   ffi.Pointer<ffi.Uint64> _BufferCount,
+//   ffi.Pointer<ffi.Uint16> _VarName,
+// );
+
+// typedef _dart__wdupenv_s = int Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Buffer,
+//   ffi.Pointer<ffi.Uint64> _BufferCount,
+//   ffi.Pointer<ffi.Uint16> _VarName,
+// );
+
+// typedef _c__wgetenv = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _VarName,
+// );
+
+// typedef _dart__wgetenv = ffi.Pointer<ffi.Uint16> Function(
+//   ffi.Pointer<ffi.Uint16> _VarName,
+// );
+
+// typedef _c__wgetenv_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint64> _RequiredCount,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Pointer<ffi.Uint16> _VarName,
+// );
+
+// typedef _dart__wgetenv_s = int Function(
+//   ffi.Pointer<ffi.Uint64> _RequiredCount,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _BufferCount,
+//   ffi.Pointer<ffi.Uint16> _VarName,
+// );
+
+// typedef _c__wputenv = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _EnvString,
+// );
+
+// typedef _dart__wputenv = int Function(
+//   ffi.Pointer<ffi.Uint16> _EnvString,
+// );
+
+// typedef _c__wputenv_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _Name,
+//   ffi.Pointer<ffi.Uint16> _Value,
+// );
+
+// typedef _dart__wputenv_s = int Function(
+//   ffi.Pointer<ffi.Uint16> _Name,
+//   ffi.Pointer<ffi.Uint16> _Value,
+// );
+
+// typedef _c__wsearchenv_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _Filename,
+//   ffi.Pointer<ffi.Uint16> _VarName,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   ffi.Uint64 _BufferCount,
+// );
+
+// typedef _dart__wsearchenv_s = int Function(
+//   ffi.Pointer<ffi.Uint16> _Filename,
+//   ffi.Pointer<ffi.Uint16> _VarName,
+//   ffi.Pointer<ffi.Uint16> _Buffer,
+//   int _BufferCount,
+// );
+
+// typedef _c__wsearchenv = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint16> _Filename,
+//   ffi.Pointer<ffi.Uint16> _VarName,
+//   ffi.Pointer<ffi.Uint16> _ResultPath,
+// );
+
+// typedef _dart__wsearchenv = void Function(
+//   ffi.Pointer<ffi.Uint16> _Filename,
+//   ffi.Pointer<ffi.Uint16> _VarName,
+//   ffi.Pointer<ffi.Uint16> _ResultPath,
+// );
+
+// typedef _c__wsystem = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _Command,
+// );
+
+// typedef _dart__wsystem = int Function(
+//   ffi.Pointer<ffi.Uint16> _Command,
+// );
+
+// typedef _c__swab = ffi.Void Function(
+//   ffi.Pointer<ffi.Int8> _Buf1,
+//   ffi.Pointer<ffi.Int8> _Buf2,
+//   ffi.Int32 _SizeInBytes,
+// );
+
+// typedef _dart__swab = void Function(
+//   ffi.Pointer<ffi.Int8> _Buf1,
+//   ffi.Pointer<ffi.Int8> _Buf2,
+//   int _SizeInBytes,
+// );
+
+// typedef _c_exit = ffi.Void Function(
+//   ffi.Int32 _Code,
+// );
+
+// typedef _dart_exit = void Function(
+//   int _Code,
+// );
+
+// typedef _c__exit = ffi.Void Function(
+//   ffi.Int32 _Code,
+// );
+
+// typedef _dart__exit = void Function(
+//   int _Code,
+// );
+
+// typedef _c__Exit = ffi.Void Function(
+//   ffi.Int32 _Code,
+// );
+
+// typedef _dart__Exit = void Function(
+//   int _Code,
+// );
+
+// typedef _c_quick_exit = ffi.Void Function(
+//   ffi.Int32 _Code,
+// );
+
+// typedef _dart_quick_exit = void Function(
+//   int _Code,
+// );
+
+// typedef _c_abort = ffi.Void Function();
+
+// typedef _dart_abort = void Function();
+
+// typedef _c__set_abort_behavior = ffi.Uint32 Function(
+//   ffi.Uint32 _Flags,
+//   ffi.Uint32 _Mask,
+// );
+
+// typedef _dart__set_abort_behavior = int Function(
+//   int _Flags,
+//   int _Mask,
+// );
+
+// typedef _typedefC_1 = ffi.Void Function();
+
+// typedef _c_atexit = ffi.Int32 Function(
+//   ffi.Pointer<ffi.NativeFunction<_typedefC_1>> arg0,
+// );
+
+// typedef _dart_atexit = int Function(
+//   ffi.Pointer<ffi.NativeFunction<_typedefC_1>> arg0,
+// );
 
 typedef _onexit_t = ffi.Int32 Function();
 
-typedef _c__onexit = ffi.Pointer<ffi.NativeFunction<_onexit_t>> Function(
-  ffi.Pointer<ffi.NativeFunction<_onexit_t>> _Func,
-);
+// typedef _c__onexit = ffi.Pointer<ffi.NativeFunction<_onexit_t>> Function(
+//   ffi.Pointer<ffi.NativeFunction<_onexit_t>> _Func,
+// );
 
-typedef _dart__onexit = ffi.Pointer<ffi.NativeFunction<_onexit_t>> Function(
-  ffi.Pointer<ffi.NativeFunction<_onexit_t>> _Func,
-);
+// typedef _dart__onexit = ffi.Pointer<ffi.NativeFunction<_onexit_t>> Function(
+//   ffi.Pointer<ffi.NativeFunction<_onexit_t>> _Func,
+// );
 
 typedef _typedefC_2 = ffi.Void Function();
 
@@ -141686,79 +141686,79 @@ typedef _dart_at_quick_exit = int Function(
   ffi.Pointer<ffi.NativeFunction<_typedefC_2>> arg0,
 );
 
-typedef _purecall_handler = ffi.Void Function();
+// typedef _purecall_handler = ffi.Void Function();
 
-typedef _c__set_purecall_handler
-    = ffi.Pointer<ffi.NativeFunction<_purecall_handler>> Function(
-  ffi.Pointer<ffi.NativeFunction<_purecall_handler>> _Handler,
-);
+// typedef _c__set_purecall_handler
+//     = ffi.Pointer<ffi.NativeFunction<_purecall_handler>> Function(
+//   ffi.Pointer<ffi.NativeFunction<_purecall_handler>> _Handler,
+// );
 
-typedef _dart__set_purecall_handler
-    = ffi.Pointer<ffi.NativeFunction<_purecall_handler>> Function(
-  ffi.Pointer<ffi.NativeFunction<_purecall_handler>> _Handler,
-);
+// typedef _dart__set_purecall_handler
+//     = ffi.Pointer<ffi.NativeFunction<_purecall_handler>> Function(
+//   ffi.Pointer<ffi.NativeFunction<_purecall_handler>> _Handler,
+// );
 
-typedef _c__get_purecall_handler
-    = ffi.Pointer<ffi.NativeFunction<_purecall_handler>> Function();
+// typedef _c__get_purecall_handler
+//     = ffi.Pointer<ffi.NativeFunction<_purecall_handler>> Function();
 
-typedef _dart__get_purecall_handler
-    = ffi.Pointer<ffi.NativeFunction<_purecall_handler>> Function();
+// typedef _dart__get_purecall_handler
+//     = ffi.Pointer<ffi.NativeFunction<_purecall_handler>> Function();
 
-typedef _invalid_parameter_handler = ffi.Void Function(
-  ffi.Pointer<ffi.Uint16>,
-  ffi.Pointer<ffi.Uint16>,
-  ffi.Pointer<ffi.Uint16>,
-  ffi.Uint32,
-  ffi.Uint64,
-);
+// typedef _invalid_parameter_handler = ffi.Void Function(
+//   ffi.Pointer<ffi.Uint16>,
+//   ffi.Pointer<ffi.Uint16>,
+//   ffi.Pointer<ffi.Uint16>,
+//   ffi.Uint32,
+//   ffi.Uint64,
+// );
 
-typedef _c__set_invalid_parameter_handler
-    = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function(
-  ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> _Handler,
-);
+// typedef _c__set_invalid_parameter_handler
+//     = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function(
+//   ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> _Handler,
+// );
 
-typedef _dart__set_invalid_parameter_handler
-    = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function(
-  ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> _Handler,
-);
+// typedef _dart__set_invalid_parameter_handler
+//     = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function(
+//   ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> _Handler,
+// );
 
-typedef _c__get_invalid_parameter_handler
-    = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function();
+// typedef _c__get_invalid_parameter_handler
+//     = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function();
 
-typedef _dart__get_invalid_parameter_handler
-    = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function();
+// typedef _dart__get_invalid_parameter_handler
+//     = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function();
 
-typedef _c__set_thread_local_invalid_parameter_handler
-    = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function(
-  ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> _Handler,
-);
+// typedef _c__set_thread_local_invalid_parameter_handler
+//     = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function(
+//   ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> _Handler,
+// );
 
-typedef _dart__set_thread_local_invalid_parameter_handler
-    = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function(
-  ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> _Handler,
-);
+// typedef _dart__set_thread_local_invalid_parameter_handler
+//     = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function(
+//   ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> _Handler,
+// );
 
-typedef _c__get_thread_local_invalid_parameter_handler
-    = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function();
+// typedef _c__get_thread_local_invalid_parameter_handler
+//     = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function();
 
-typedef _dart__get_thread_local_invalid_parameter_handler
-    = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function();
+// typedef _dart__get_thread_local_invalid_parameter_handler
+//     = ffi.Pointer<ffi.NativeFunction<_invalid_parameter_handler>> Function();
 
-typedef _c__set_error_mode = ffi.Int32 Function(
-  ffi.Int32 _Mode,
-);
+// typedef _c__set_error_mode = ffi.Int32 Function(
+//   ffi.Int32 _Mode,
+// );
 
-typedef _dart__set_error_mode = int Function(
-  int _Mode,
-);
+// typedef _dart__set_error_mode = int Function(
+//   int _Mode,
+// );
 
-typedef _c___sys_errlist = ffi.Pointer<ffi.Pointer<ffi.Int8>> Function();
+// typedef _c___sys_errlist = ffi.Pointer<ffi.Pointer<ffi.Int8>> Function();
 
-typedef _dart___sys_errlist = ffi.Pointer<ffi.Pointer<ffi.Int8>> Function();
+// typedef _dart___sys_errlist = ffi.Pointer<ffi.Pointer<ffi.Int8>> Function();
 
-typedef _c___sys_nerr = ffi.Pointer<ffi.Int32> Function();
+// typedef _c___sys_nerr = ffi.Pointer<ffi.Int32> Function();
 
-typedef _dart___sys_nerr = ffi.Pointer<ffi.Int32> Function();
+// typedef _dart___sys_nerr = ffi.Pointer<ffi.Int32> Function();
 
 typedef _c_perror = ffi.Void Function(
   ffi.Pointer<ffi.Int8> _ErrMsg,
@@ -141768,101 +141768,101 @@ typedef _dart_perror = void Function(
   ffi.Pointer<ffi.Int8> _ErrMsg,
 );
 
-typedef _c___p__pgmptr = ffi.Pointer<ffi.Pointer<ffi.Int8>> Function();
+// typedef _c___p__pgmptr = ffi.Pointer<ffi.Pointer<ffi.Int8>> Function();
 
-typedef _dart___p__pgmptr = ffi.Pointer<ffi.Pointer<ffi.Int8>> Function();
+// typedef _dart___p__pgmptr = ffi.Pointer<ffi.Pointer<ffi.Int8>> Function();
 
-typedef _c___p__wpgmptr = ffi.Pointer<ffi.Pointer<ffi.Uint16>> Function();
+// typedef _c___p__wpgmptr = ffi.Pointer<ffi.Pointer<ffi.Uint16>> Function();
 
-typedef _dart___p__wpgmptr = ffi.Pointer<ffi.Pointer<ffi.Uint16>> Function();
+// typedef _dart___p__wpgmptr = ffi.Pointer<ffi.Pointer<ffi.Uint16>> Function();
 
-typedef _c___p__fmode = ffi.Pointer<ffi.Int32> Function();
+// typedef _c___p__fmode = ffi.Pointer<ffi.Int32> Function();
 
-typedef _dart___p__fmode = ffi.Pointer<ffi.Int32> Function();
+// typedef _dart___p__fmode = ffi.Pointer<ffi.Int32> Function();
 
-typedef _c__get_pgmptr = ffi.Int32 Function(
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _Value,
-);
+// typedef _c__get_pgmptr = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _Value,
+// );
 
-typedef _dart__get_pgmptr = int Function(
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _Value,
-);
+// typedef _dart__get_pgmptr = int Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _Value,
+// );
 
-typedef _c__get_wpgmptr = ffi.Int32 Function(
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Value,
-);
+// typedef _c__get_wpgmptr = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Value,
+// );
 
-typedef _dart__get_wpgmptr = int Function(
-  ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Value,
-);
+// typedef _dart__get_wpgmptr = int Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Uint16>> _Value,
+// );
 
-typedef _c__set_fmode = ffi.Int32 Function(
-  ffi.Int32 _Mode,
-);
+// typedef _c__set_fmode = ffi.Int32 Function(
+//   ffi.Int32 _Mode,
+// );
 
-typedef _dart__set_fmode = int Function(
-  int _Mode,
-);
+// typedef _dart__set_fmode = int Function(
+//   int _Mode,
+// );
 
-typedef _c__get_fmode = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int32> _PMode,
-);
+// typedef _c__get_fmode = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int32> _PMode,
+// );
 
-typedef _dart__get_fmode = int Function(
-  ffi.Pointer<ffi.Int32> _PMode,
-);
+// typedef _dart__get_fmode = int Function(
+//   ffi.Pointer<ffi.Int32> _PMode,
+// );
 
-typedef _c__abs64 = ffi.Int64 Function(
-  ffi.Int64 _Number,
-);
+// typedef _c__abs64 = ffi.Int64 Function(
+//   ffi.Int64 _Number,
+// );
 
-typedef _dart__abs64 = int Function(
-  int _Number,
-);
+// typedef _dart__abs64 = int Function(
+//   int _Number,
+// );
 
-typedef _c__byteswap_ushort = ffi.Uint16 Function(
-  ffi.Uint16 _Number,
-);
+// typedef _c__byteswap_ushort = ffi.Uint16 Function(
+//   ffi.Uint16 _Number,
+// );
 
-typedef _dart__byteswap_ushort = int Function(
-  int _Number,
-);
+// typedef _dart__byteswap_ushort = int Function(
+//   int _Number,
+// );
 
-typedef _c__byteswap_ulong = ffi.Uint64 Function(
-  ffi.Uint64 _Number,
-);
+// typedef _c__byteswap_ulong = ffi.Uint64 Function(
+//   ffi.Uint64 _Number,
+// );
 
-typedef _dart__byteswap_ulong = int Function(
-  int _Number,
-);
+// typedef _dart__byteswap_ulong = int Function(
+//   int _Number,
+// );
 
-typedef _c__byteswap_uint64 = ffi.Uint64 Function(
-  ffi.Uint64 _Number,
-);
+// typedef _c__byteswap_uint64 = ffi.Uint64 Function(
+//   ffi.Uint64 _Number,
+// );
 
-typedef _dart__byteswap_uint64 = int Function(
-  int _Number,
-);
+// typedef _dart__byteswap_uint64 = int Function(
+//   int _Number,
+// );
 
-typedef _c__lrotl = ffi.Uint64 Function(
-  ffi.Uint64 _Value,
-  ffi.Int32 _Shift,
-);
+// typedef _c__lrotl = ffi.Uint64 Function(
+//   ffi.Uint64 _Value,
+//   ffi.Int32 _Shift,
+// );
 
-typedef _dart__lrotl = int Function(
-  int _Value,
-  int _Shift,
-);
+// typedef _dart__lrotl = int Function(
+//   int _Value,
+//   int _Shift,
+// );
 
-typedef _c__lrotr = ffi.Uint64 Function(
-  ffi.Uint64 _Value,
-  ffi.Int32 _Shift,
-);
+// typedef _c__lrotr = ffi.Uint64 Function(
+//   ffi.Uint64 _Value,
+//   ffi.Int32 _Shift,
+// );
 
-typedef _dart__lrotr = int Function(
-  int _Value,
-  int _Shift,
-);
+// typedef _dart__lrotr = int Function(
+//   int _Value,
+//   int _Shift,
+// );
 
 typedef _c_srand = ffi.Void Function(
   ffi.Uint32 _Seed,
@@ -141900,119 +141900,119 @@ typedef _dart_atoll = int Function(
   ffi.Pointer<ffi.Int8> _String,
 );
 
-typedef _c__atoi64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _c__atoi64 = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _dart__atoi64 = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _dart__atoi64 = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _c__atoi_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__atoi_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__atoi_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__atoi_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__atol_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__atol_l = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__atol_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__atol_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__atoll_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__atoll_l = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__atoll_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__atoll_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__atoi64_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__atoi64_l = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__atoi64_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__atoi64_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__atoflt = ffi.Int32 Function(
-  ffi.Pointer<_CRT_FLOAT> _Result,
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _c__atoflt = ffi.Int32 Function(
+//   ffi.Pointer<_CRT_FLOAT> _Result,
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _dart__atoflt = int Function(
-  ffi.Pointer<_CRT_FLOAT> _Result,
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _dart__atoflt = int Function(
+//   ffi.Pointer<_CRT_FLOAT> _Result,
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _c__atodbl = ffi.Int32 Function(
-  ffi.Pointer<_CRT_DOUBLE> _Result,
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _c__atodbl = ffi.Int32 Function(
+//   ffi.Pointer<_CRT_DOUBLE> _Result,
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _dart__atodbl = int Function(
-  ffi.Pointer<_CRT_DOUBLE> _Result,
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _dart__atodbl = int Function(
+//   ffi.Pointer<_CRT_DOUBLE> _Result,
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _c__atoldbl = ffi.Int32 Function(
-  ffi.Pointer<_LDOUBLE> _Result,
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _c__atoldbl = ffi.Int32 Function(
+//   ffi.Pointer<_LDOUBLE> _Result,
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _dart__atoldbl = int Function(
-  ffi.Pointer<_LDOUBLE> _Result,
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _dart__atoldbl = int Function(
+//   ffi.Pointer<_LDOUBLE> _Result,
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _c__atoflt_l = ffi.Int32 Function(
-  ffi.Pointer<_CRT_FLOAT> _Result,
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__atoflt_l = ffi.Int32 Function(
+//   ffi.Pointer<_CRT_FLOAT> _Result,
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__atoflt_l = int Function(
-  ffi.Pointer<_CRT_FLOAT> _Result,
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__atoflt_l = int Function(
+//   ffi.Pointer<_CRT_FLOAT> _Result,
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__atodbl_l = ffi.Int32 Function(
-  ffi.Pointer<_CRT_DOUBLE> _Result,
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__atodbl_l = ffi.Int32 Function(
+//   ffi.Pointer<_CRT_DOUBLE> _Result,
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__atodbl_l = int Function(
-  ffi.Pointer<_CRT_DOUBLE> _Result,
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__atodbl_l = int Function(
+//   ffi.Pointer<_CRT_DOUBLE> _Result,
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__atoldbl_l = ffi.Int32 Function(
-  ffi.Pointer<_LDOUBLE> _Result,
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__atoldbl_l = ffi.Int32 Function(
+//   ffi.Pointer<_LDOUBLE> _Result,
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__atoldbl_l = int Function(
-  ffi.Pointer<_LDOUBLE> _Result,
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__atoldbl_l = int Function(
+//   ffi.Pointer<_LDOUBLE> _Result,
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_strtof = ffi.Float Function(
   ffi.Pointer<ffi.Int8> _String,
@@ -142024,17 +142024,17 @@ typedef _dart_strtof = double Function(
   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
 );
 
-typedef _c__strtof_l = ffi.Float Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strtof_l = ffi.Float Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strtof_l = double Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strtof_l = double Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_strtod = ffi.Double Function(
   ffi.Pointer<ffi.Int8> _String,
@@ -142046,17 +142046,17 @@ typedef _dart_strtod = double Function(
   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
 );
 
-typedef _c__strtod_l = ffi.Double Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strtod_l = ffi.Double Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strtod_l = double Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strtod_l = double Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_strtol = ffi.Int64 Function(
   ffi.Pointer<ffi.Int8> _String,
@@ -142070,19 +142070,19 @@ typedef _dart_strtol = int Function(
   int _Radix,
 );
 
-typedef _c__strtol_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strtol_l = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   ffi.Int32 _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strtol_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strtol_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   int _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_strtoll = ffi.Int64 Function(
   ffi.Pointer<ffi.Int8> _String,
@@ -142096,19 +142096,19 @@ typedef _dart_strtoll = int Function(
   int _Radix,
 );
 
-typedef _c__strtoll_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strtoll_l = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   ffi.Int32 _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strtoll_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strtoll_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   int _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_strtoul = ffi.Uint64 Function(
   ffi.Pointer<ffi.Int8> _String,
@@ -142122,19 +142122,19 @@ typedef _dart_strtoul = int Function(
   int _Radix,
 );
 
-typedef _c__strtoul_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strtoul_l = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   ffi.Int32 _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strtoul_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strtoul_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   int _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_strtoull = ffi.Uint64 Function(
   ffi.Pointer<ffi.Int8> _String,
@@ -142148,291 +142148,291 @@ typedef _dart_strtoull = int Function(
   int _Radix,
 );
 
-typedef _c__strtoull_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strtoull_l = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   ffi.Int32 _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strtoull_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strtoull_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   int _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__strtoi64 = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  ffi.Int32 _Radix,
-);
+// typedef _c__strtoi64 = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__strtoi64 = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  int _Radix,
-);
+// typedef _dart__strtoi64 = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   int _Radix,
+// );
 
-typedef _c__strtoi64_l = ffi.Int64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strtoi64_l = ffi.Int64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   ffi.Int32 _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strtoi64_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strtoi64_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   int _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__strtoui64 = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  ffi.Int32 _Radix,
-);
+// typedef _c__strtoui64 = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__strtoui64 = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  int _Radix,
-);
+// typedef _dart__strtoui64 = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   int _Radix,
+// );
 
-typedef _c__strtoui64_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  ffi.Int32 _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__strtoui64_l = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   ffi.Int32 _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__strtoui64_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
-  int _Radix,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__strtoui64_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _EndPtr,
+//   int _Radix,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__itoa_s = ffi.Int32 Function(
-  ffi.Int32 _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
+// typedef _c__itoa_s = ffi.Int32 Function(
+//   ffi.Int32 _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__itoa_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
+// typedef _dart__itoa_s = int Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _BufferCount,
+//   int _Radix,
+// );
 
-typedef _c__itoa = ffi.Pointer<ffi.Int8> Function(
-  ffi.Int32 _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Int32 _Radix,
-);
+// typedef _c__itoa = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Int32 _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__itoa = ffi.Pointer<ffi.Int8> Function(
-  int _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _Radix,
-);
+// typedef _dart__itoa = ffi.Pointer<ffi.Int8> Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _Radix,
+// );
 
-typedef _c__ltoa_s = ffi.Int32 Function(
-  ffi.Int64 _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
+// typedef _c__ltoa_s = ffi.Int32 Function(
+//   ffi.Int64 _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__ltoa_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
+// typedef _dart__ltoa_s = int Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _BufferCount,
+//   int _Radix,
+// );
 
-typedef _c__ltoa = ffi.Pointer<ffi.Int8> Function(
-  ffi.Int64 _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Int32 _Radix,
-);
+// typedef _c__ltoa = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Int64 _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__ltoa = ffi.Pointer<ffi.Int8> Function(
-  int _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _Radix,
-);
+// typedef _dart__ltoa = ffi.Pointer<ffi.Int8> Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _Radix,
+// );
 
-typedef _c__ultoa_s = ffi.Int32 Function(
-  ffi.Uint64 _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
+// typedef _c__ultoa_s = ffi.Int32 Function(
+//   ffi.Uint64 _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__ultoa_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
+// typedef _dart__ultoa_s = int Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _BufferCount,
+//   int _Radix,
+// );
 
-typedef _c__ultoa = ffi.Pointer<ffi.Int8> Function(
-  ffi.Uint64 _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Int32 _Radix,
-);
+// typedef _c__ultoa = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Uint64 _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__ultoa = ffi.Pointer<ffi.Int8> Function(
-  int _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _Radix,
-);
+// typedef _dart__ultoa = ffi.Pointer<ffi.Int8> Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _Radix,
+// );
 
-typedef _c__i64toa_s = ffi.Int32 Function(
-  ffi.Int64 _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
+// typedef _c__i64toa_s = ffi.Int32 Function(
+//   ffi.Int64 _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__i64toa_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
+// typedef _dart__i64toa_s = int Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _BufferCount,
+//   int _Radix,
+// );
 
-typedef _c__i64toa = ffi.Pointer<ffi.Int8> Function(
-  ffi.Int64 _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Int32 _Radix,
-);
+// typedef _c__i64toa = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Int64 _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__i64toa = ffi.Pointer<ffi.Int8> Function(
-  int _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _Radix,
-);
+// typedef _dart__i64toa = ffi.Pointer<ffi.Int8> Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _Radix,
+// );
 
-typedef _c__ui64toa_s = ffi.Int32 Function(
-  ffi.Uint64 _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Int32 _Radix,
-);
+// typedef _c__ui64toa_s = ffi.Int32 Function(
+//   ffi.Uint64 _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__ui64toa_s = int Function(
-  int _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _BufferCount,
-  int _Radix,
-);
+// typedef _dart__ui64toa_s = int Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _BufferCount,
+//   int _Radix,
+// );
 
-typedef _c__ui64toa = ffi.Pointer<ffi.Int8> Function(
-  ffi.Uint64 _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Int32 _Radix,
-);
+// typedef _c__ui64toa = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Uint64 _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Int32 _Radix,
+// );
 
-typedef _dart__ui64toa = ffi.Pointer<ffi.Int8> Function(
-  int _Value,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _Radix,
-);
+// typedef _dart__ui64toa = ffi.Pointer<ffi.Int8> Function(
+//   int _Value,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _Radix,
+// );
 
-typedef _c__ecvt_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Double _Value,
-  ffi.Int32 _DigitCount,
-  ffi.Pointer<ffi.Int32> _PtDec,
-  ffi.Pointer<ffi.Int32> _PtSign,
-);
+// typedef _c__ecvt_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Double _Value,
+//   ffi.Int32 _DigitCount,
+//   ffi.Pointer<ffi.Int32> _PtDec,
+//   ffi.Pointer<ffi.Int32> _PtSign,
+// );
 
-typedef _dart__ecvt_s = int Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _BufferCount,
-  double _Value,
-  int _DigitCount,
-  ffi.Pointer<ffi.Int32> _PtDec,
-  ffi.Pointer<ffi.Int32> _PtSign,
-);
+// typedef _dart__ecvt_s = int Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _BufferCount,
+//   double _Value,
+//   int _DigitCount,
+//   ffi.Pointer<ffi.Int32> _PtDec,
+//   ffi.Pointer<ffi.Int32> _PtSign,
+// );
 
-typedef _c__ecvt = ffi.Pointer<ffi.Int8> Function(
-  ffi.Double _Value,
-  ffi.Int32 _DigitCount,
-  ffi.Pointer<ffi.Int32> _PtDec,
-  ffi.Pointer<ffi.Int32> _PtSign,
-);
+// typedef _c__ecvt = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Double _Value,
+//   ffi.Int32 _DigitCount,
+//   ffi.Pointer<ffi.Int32> _PtDec,
+//   ffi.Pointer<ffi.Int32> _PtSign,
+// );
 
-typedef _dart__ecvt = ffi.Pointer<ffi.Int8> Function(
-  double _Value,
-  int _DigitCount,
-  ffi.Pointer<ffi.Int32> _PtDec,
-  ffi.Pointer<ffi.Int32> _PtSign,
-);
+// typedef _dart__ecvt = ffi.Pointer<ffi.Int8> Function(
+//   double _Value,
+//   int _DigitCount,
+//   ffi.Pointer<ffi.Int32> _PtDec,
+//   ffi.Pointer<ffi.Int32> _PtSign,
+// );
 
-typedef _c__fcvt_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Double _Value,
-  ffi.Int32 _FractionalDigitCount,
-  ffi.Pointer<ffi.Int32> _PtDec,
-  ffi.Pointer<ffi.Int32> _PtSign,
-);
+// typedef _c__fcvt_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Double _Value,
+//   ffi.Int32 _FractionalDigitCount,
+//   ffi.Pointer<ffi.Int32> _PtDec,
+//   ffi.Pointer<ffi.Int32> _PtSign,
+// );
 
-typedef _dart__fcvt_s = int Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _BufferCount,
-  double _Value,
-  int _FractionalDigitCount,
-  ffi.Pointer<ffi.Int32> _PtDec,
-  ffi.Pointer<ffi.Int32> _PtSign,
-);
+// typedef _dart__fcvt_s = int Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _BufferCount,
+//   double _Value,
+//   int _FractionalDigitCount,
+//   ffi.Pointer<ffi.Int32> _PtDec,
+//   ffi.Pointer<ffi.Int32> _PtSign,
+// );
 
-typedef _c__fcvt = ffi.Pointer<ffi.Int8> Function(
-  ffi.Double _Value,
-  ffi.Int32 _FractionalDigitCount,
-  ffi.Pointer<ffi.Int32> _PtDec,
-  ffi.Pointer<ffi.Int32> _PtSign,
-);
+// typedef _c__fcvt = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Double _Value,
+//   ffi.Int32 _FractionalDigitCount,
+//   ffi.Pointer<ffi.Int32> _PtDec,
+//   ffi.Pointer<ffi.Int32> _PtSign,
+// );
 
-typedef _dart__fcvt = ffi.Pointer<ffi.Int8> Function(
-  double _Value,
-  int _FractionalDigitCount,
-  ffi.Pointer<ffi.Int32> _PtDec,
-  ffi.Pointer<ffi.Int32> _PtSign,
-);
+// typedef _dart__fcvt = ffi.Pointer<ffi.Int8> Function(
+//   double _Value,
+//   int _FractionalDigitCount,
+//   ffi.Pointer<ffi.Int32> _PtDec,
+//   ffi.Pointer<ffi.Int32> _PtSign,
+// );
 
-typedef _c__gcvt_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Double _Value,
-  ffi.Int32 _DigitCount,
-);
+// typedef _c__gcvt_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Double _Value,
+//   ffi.Int32 _DigitCount,
+// );
 
-typedef _dart__gcvt_s = int Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _BufferCount,
-  double _Value,
-  int _DigitCount,
-);
+// typedef _dart__gcvt_s = int Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _BufferCount,
+//   double _Value,
+//   int _DigitCount,
+// );
 
-typedef _c__gcvt = ffi.Pointer<ffi.Int8> Function(
-  ffi.Double _Value,
-  ffi.Int32 _DigitCount,
-  ffi.Pointer<ffi.Int8> _Buffer,
-);
+// typedef _c__gcvt = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Double _Value,
+//   ffi.Int32 _DigitCount,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+// );
 
-typedef _dart__gcvt = ffi.Pointer<ffi.Int8> Function(
-  double _Value,
-  int _DigitCount,
-  ffi.Pointer<ffi.Int8> _Buffer,
-);
+// typedef _dart__gcvt = ffi.Pointer<ffi.Int8> Function(
+//   double _Value,
+//   int _DigitCount,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+// );
 
 typedef _c_mblen = ffi.Int32 Function(
   ffi.Pointer<ffi.Int8> _Ch,
@@ -142444,57 +142444,57 @@ typedef _dart_mblen = int Function(
   int _MaxCount,
 );
 
-typedef _c__mblen_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _Ch,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__mblen_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _Ch,
+//   ffi.Uint64 _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__mblen_l = int Function(
-  ffi.Pointer<ffi.Int8> _Ch,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__mblen_l = int Function(
+//   ffi.Pointer<ffi.Int8> _Ch,
+//   int _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__mbstrlen = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _c__mbstrlen = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _dart__mbstrlen = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-);
+// typedef _dart__mbstrlen = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+// );
 
-typedef _c__mbstrlen_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__mbstrlen_l = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__mbstrlen_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__mbstrlen_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__mbstrnlen = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Uint64 _MaxCount,
-);
+// typedef _c__mbstrnlen = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Uint64 _MaxCount,
+// );
 
-typedef _dart__mbstrnlen = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  int _MaxCount,
-);
+// typedef _dart__mbstrnlen = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   int _MaxCount,
+// );
 
-typedef _c__mbstrnlen_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _String,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__mbstrnlen_l = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   ffi.Uint64 _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__mbstrnlen_l = int Function(
-  ffi.Pointer<ffi.Int8> _String,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__mbstrnlen_l = int Function(
+//   ffi.Pointer<ffi.Int8> _String,
+//   int _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_mbtowc = ffi.Int32 Function(
   ffi.Pointer<ffi.Uint16> _DstCh,
@@ -142508,19 +142508,19 @@ typedef _dart_mbtowc = int Function(
   int _SrcSizeInBytes,
 );
 
-typedef _c__mbtowc_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint16> _DstCh,
-  ffi.Pointer<ffi.Int8> _SrcCh,
-  ffi.Uint64 _SrcSizeInBytes,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__mbtowc_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint16> _DstCh,
+//   ffi.Pointer<ffi.Int8> _SrcCh,
+//   ffi.Uint64 _SrcSizeInBytes,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__mbtowc_l = int Function(
-  ffi.Pointer<ffi.Uint16> _DstCh,
-  ffi.Pointer<ffi.Int8> _SrcCh,
-  int _SrcSizeInBytes,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__mbtowc_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _DstCh,
+//   ffi.Pointer<ffi.Int8> _SrcCh,
+//   int _SrcSizeInBytes,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_mbstowcs_s = ffi.Int32 Function(
   ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
@@ -142550,37 +142550,37 @@ typedef _dart_mbstowcs = int Function(
   int _MaxCount,
 );
 
-typedef _c__mbstowcs_s_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
-  ffi.Pointer<ffi.Uint16> _DstBuf,
-  ffi.Uint64 _SizeInWords,
-  ffi.Pointer<ffi.Int8> _SrcBuf,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__mbstowcs_s_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
+//   ffi.Pointer<ffi.Uint16> _DstBuf,
+//   ffi.Uint64 _SizeInWords,
+//   ffi.Pointer<ffi.Int8> _SrcBuf,
+//   ffi.Uint64 _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__mbstowcs_s_l = int Function(
-  ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
-  ffi.Pointer<ffi.Uint16> _DstBuf,
-  int _SizeInWords,
-  ffi.Pointer<ffi.Int8> _SrcBuf,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__mbstowcs_s_l = int Function(
+//   ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
+//   ffi.Pointer<ffi.Uint16> _DstBuf,
+//   int _SizeInWords,
+//   ffi.Pointer<ffi.Int8> _SrcBuf,
+//   int _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__mbstowcs_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Uint16> _Dest,
-  ffi.Pointer<ffi.Int8> _Source,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__mbstowcs_l = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Uint16> _Dest,
+//   ffi.Pointer<ffi.Int8> _Source,
+//   ffi.Uint64 _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__mbstowcs_l = int Function(
-  ffi.Pointer<ffi.Uint16> _Dest,
-  ffi.Pointer<ffi.Int8> _Source,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__mbstowcs_l = int Function(
+//   ffi.Pointer<ffi.Uint16> _Dest,
+//   ffi.Pointer<ffi.Int8> _Source,
+//   int _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_wctomb = ffi.Int32 Function(
   ffi.Pointer<ffi.Int8> _MbCh,
@@ -142592,17 +142592,17 @@ typedef _dart_wctomb = int Function(
   int _WCh,
 );
 
-typedef _c__wctomb_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _MbCh,
-  ffi.Uint16 _WCh,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wctomb_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _MbCh,
+//   ffi.Uint16 _WCh,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wctomb_l = int Function(
-  ffi.Pointer<ffi.Int8> _MbCh,
-  int _WCh,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wctomb_l = int Function(
+//   ffi.Pointer<ffi.Int8> _MbCh,
+//   int _WCh,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_wctomb_s = ffi.Int32 Function(
   ffi.Pointer<ffi.Int32> _SizeConverted,
@@ -142618,21 +142618,21 @@ typedef _dart_wctomb_s = int Function(
   int _WCh,
 );
 
-typedef _c__wctomb_s_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int32> _SizeConverted,
-  ffi.Pointer<ffi.Int8> _MbCh,
-  ffi.Uint64 _SizeInBytes,
-  ffi.Uint16 _WCh,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wctomb_s_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int32> _SizeConverted,
+//   ffi.Pointer<ffi.Int8> _MbCh,
+//   ffi.Uint64 _SizeInBytes,
+//   ffi.Uint16 _WCh,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wctomb_s_l = int Function(
-  ffi.Pointer<ffi.Int32> _SizeConverted,
-  ffi.Pointer<ffi.Int8> _MbCh,
-  int _SizeInBytes,
-  int _WCh,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wctomb_s_l = int Function(
+//   ffi.Pointer<ffi.Int32> _SizeConverted,
+//   ffi.Pointer<ffi.Int8> _MbCh,
+//   int _SizeInBytes,
+//   int _WCh,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
 typedef _c_wcstombs_s = ffi.Int32 Function(
   ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
@@ -142662,123 +142662,123 @@ typedef _dart_wcstombs = int Function(
   int _MaxCount,
 );
 
-typedef _c__wcstombs_s_l = ffi.Int32 Function(
-  ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
-  ffi.Pointer<ffi.Int8> _Dst,
-  ffi.Uint64 _DstSizeInBytes,
-  ffi.Pointer<ffi.Uint16> _Src,
-  ffi.Uint64 _MaxCountInBytes,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcstombs_s_l = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
+//   ffi.Pointer<ffi.Int8> _Dst,
+//   ffi.Uint64 _DstSizeInBytes,
+//   ffi.Pointer<ffi.Uint16> _Src,
+//   ffi.Uint64 _MaxCountInBytes,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcstombs_s_l = int Function(
-  ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
-  ffi.Pointer<ffi.Int8> _Dst,
-  int _DstSizeInBytes,
-  ffi.Pointer<ffi.Uint16> _Src,
-  int _MaxCountInBytes,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcstombs_s_l = int Function(
+//   ffi.Pointer<ffi.Uint64> _PtNumOfCharConverted,
+//   ffi.Pointer<ffi.Int8> _Dst,
+//   int _DstSizeInBytes,
+//   ffi.Pointer<ffi.Uint16> _Src,
+//   int _MaxCountInBytes,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__wcstombs_l = ffi.Uint64 Function(
-  ffi.Pointer<ffi.Int8> _Dest,
-  ffi.Pointer<ffi.Uint16> _Source,
-  ffi.Uint64 _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _c__wcstombs_l = ffi.Uint64 Function(
+//   ffi.Pointer<ffi.Int8> _Dest,
+//   ffi.Pointer<ffi.Uint16> _Source,
+//   ffi.Uint64 _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _dart__wcstombs_l = int Function(
-  ffi.Pointer<ffi.Int8> _Dest,
-  ffi.Pointer<ffi.Uint16> _Source,
-  int _MaxCount,
-  ffi.Pointer<__crt_locale_pointers> _Locale,
-);
+// typedef _dart__wcstombs_l = int Function(
+//   ffi.Pointer<ffi.Int8> _Dest,
+//   ffi.Pointer<ffi.Uint16> _Source,
+//   int _MaxCount,
+//   ffi.Pointer<__crt_locale_pointers> _Locale,
+// );
 
-typedef _c__fullpath = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Pointer<ffi.Int8> _Path,
-  ffi.Uint64 _BufferCount,
-);
+// typedef _c__fullpath = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Pointer<ffi.Int8> _Path,
+//   ffi.Uint64 _BufferCount,
+// );
 
-typedef _dart__fullpath = ffi.Pointer<ffi.Int8> Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Pointer<ffi.Int8> _Path,
-  int _BufferCount,
-);
+// typedef _dart__fullpath = ffi.Pointer<ffi.Int8> Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Pointer<ffi.Int8> _Path,
+//   int _BufferCount,
+// );
 
-typedef _c__makepath_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Uint64 _BufferCount,
-  ffi.Pointer<ffi.Int8> _Drive,
-  ffi.Pointer<ffi.Int8> _Dir,
-  ffi.Pointer<ffi.Int8> _Filename,
-  ffi.Pointer<ffi.Int8> _Ext,
-);
+// typedef _c__makepath_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Uint64 _BufferCount,
+//   ffi.Pointer<ffi.Int8> _Drive,
+//   ffi.Pointer<ffi.Int8> _Dir,
+//   ffi.Pointer<ffi.Int8> _Filename,
+//   ffi.Pointer<ffi.Int8> _Ext,
+// );
 
-typedef _dart__makepath_s = int Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _BufferCount,
-  ffi.Pointer<ffi.Int8> _Drive,
-  ffi.Pointer<ffi.Int8> _Dir,
-  ffi.Pointer<ffi.Int8> _Filename,
-  ffi.Pointer<ffi.Int8> _Ext,
-);
+// typedef _dart__makepath_s = int Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _BufferCount,
+//   ffi.Pointer<ffi.Int8> _Drive,
+//   ffi.Pointer<ffi.Int8> _Dir,
+//   ffi.Pointer<ffi.Int8> _Filename,
+//   ffi.Pointer<ffi.Int8> _Ext,
+// );
 
-typedef _c__makepath = ffi.Void Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Pointer<ffi.Int8> _Drive,
-  ffi.Pointer<ffi.Int8> _Dir,
-  ffi.Pointer<ffi.Int8> _Filename,
-  ffi.Pointer<ffi.Int8> _Ext,
-);
+// typedef _c__makepath = ffi.Void Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Pointer<ffi.Int8> _Drive,
+//   ffi.Pointer<ffi.Int8> _Dir,
+//   ffi.Pointer<ffi.Int8> _Filename,
+//   ffi.Pointer<ffi.Int8> _Ext,
+// );
 
-typedef _dart__makepath = void Function(
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Pointer<ffi.Int8> _Drive,
-  ffi.Pointer<ffi.Int8> _Dir,
-  ffi.Pointer<ffi.Int8> _Filename,
-  ffi.Pointer<ffi.Int8> _Ext,
-);
+// typedef _dart__makepath = void Function(
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Pointer<ffi.Int8> _Drive,
+//   ffi.Pointer<ffi.Int8> _Dir,
+//   ffi.Pointer<ffi.Int8> _Filename,
+//   ffi.Pointer<ffi.Int8> _Ext,
+// );
 
-typedef _c__splitpath = ffi.Void Function(
-  ffi.Pointer<ffi.Int8> _FullPath,
-  ffi.Pointer<ffi.Int8> _Drive,
-  ffi.Pointer<ffi.Int8> _Dir,
-  ffi.Pointer<ffi.Int8> _Filename,
-  ffi.Pointer<ffi.Int8> _Ext,
-);
+// typedef _c__splitpath = ffi.Void Function(
+//   ffi.Pointer<ffi.Int8> _FullPath,
+//   ffi.Pointer<ffi.Int8> _Drive,
+//   ffi.Pointer<ffi.Int8> _Dir,
+//   ffi.Pointer<ffi.Int8> _Filename,
+//   ffi.Pointer<ffi.Int8> _Ext,
+// );
 
-typedef _dart__splitpath = void Function(
-  ffi.Pointer<ffi.Int8> _FullPath,
-  ffi.Pointer<ffi.Int8> _Drive,
-  ffi.Pointer<ffi.Int8> _Dir,
-  ffi.Pointer<ffi.Int8> _Filename,
-  ffi.Pointer<ffi.Int8> _Ext,
-);
+// typedef _dart__splitpath = void Function(
+//   ffi.Pointer<ffi.Int8> _FullPath,
+//   ffi.Pointer<ffi.Int8> _Drive,
+//   ffi.Pointer<ffi.Int8> _Dir,
+//   ffi.Pointer<ffi.Int8> _Filename,
+//   ffi.Pointer<ffi.Int8> _Ext,
+// );
 
-typedef _c__splitpath_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _FullPath,
-  ffi.Pointer<ffi.Int8> _Drive,
-  ffi.Uint64 _DriveCount,
-  ffi.Pointer<ffi.Int8> _Dir,
-  ffi.Uint64 _DirCount,
-  ffi.Pointer<ffi.Int8> _Filename,
-  ffi.Uint64 _FilenameCount,
-  ffi.Pointer<ffi.Int8> _Ext,
-  ffi.Uint64 _ExtCount,
-);
+// typedef _c__splitpath_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _FullPath,
+//   ffi.Pointer<ffi.Int8> _Drive,
+//   ffi.Uint64 _DriveCount,
+//   ffi.Pointer<ffi.Int8> _Dir,
+//   ffi.Uint64 _DirCount,
+//   ffi.Pointer<ffi.Int8> _Filename,
+//   ffi.Uint64 _FilenameCount,
+//   ffi.Pointer<ffi.Int8> _Ext,
+//   ffi.Uint64 _ExtCount,
+// );
 
-typedef _dart__splitpath_s = int Function(
-  ffi.Pointer<ffi.Int8> _FullPath,
-  ffi.Pointer<ffi.Int8> _Drive,
-  int _DriveCount,
-  ffi.Pointer<ffi.Int8> _Dir,
-  int _DirCount,
-  ffi.Pointer<ffi.Int8> _Filename,
-  int _FilenameCount,
-  ffi.Pointer<ffi.Int8> _Ext,
-  int _ExtCount,
-);
+// typedef _dart__splitpath_s = int Function(
+//   ffi.Pointer<ffi.Int8> _FullPath,
+//   ffi.Pointer<ffi.Int8> _Drive,
+//   int _DriveCount,
+//   ffi.Pointer<ffi.Int8> _Dir,
+//   int _DirCount,
+//   ffi.Pointer<ffi.Int8> _Filename,
+//   int _FilenameCount,
+//   ffi.Pointer<ffi.Int8> _Ext,
+//   int _ExtCount,
+// );
 
 typedef _c_getenv_s = ffi.Int32 Function(
   ffi.Pointer<ffi.Uint64> _RequiredCount,
@@ -142794,33 +142794,33 @@ typedef _dart_getenv_s = int Function(
   ffi.Pointer<ffi.Int8> _VarName,
 );
 
-typedef _c___p___argc = ffi.Pointer<ffi.Int32> Function();
+// typedef _c___p___argc = ffi.Pointer<ffi.Int32> Function();
 
-typedef _dart___p___argc = ffi.Pointer<ffi.Int32> Function();
+// typedef _dart___p___argc = ffi.Pointer<ffi.Int32> Function();
 
-typedef _c___p___argv = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>>
-    Function();
+// typedef _c___p___argv = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>>
+//     Function();
 
-typedef _dart___p___argv = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>>
-    Function();
+// typedef _dart___p___argv = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>>
+//     Function();
 
-typedef _c___p___wargv = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint16>>>
-    Function();
+// typedef _c___p___wargv = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint16>>>
+//     Function();
 
-typedef _dart___p___wargv = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint16>>>
-    Function();
+// typedef _dart___p___wargv = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint16>>>
+//     Function();
 
-typedef _c___p__environ = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>>
-    Function();
+// typedef _c___p__environ = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>>
+//     Function();
 
-typedef _dart___p__environ = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>>
-    Function();
+// typedef _dart___p__environ = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Int8>>>
+//     Function();
 
-typedef _c___p__wenviron = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint16>>>
-    Function();
+// typedef _c___p__wenviron = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint16>>>
+//     Function();
 
-typedef _dart___p__wenviron = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint16>>>
-    Function();
+// typedef _dart___p__wenviron = ffi.Pointer<ffi.Pointer<ffi.Pointer<ffi.Uint16>>>
+//     Function();
 
 typedef _c_getenv = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<ffi.Int8> _VarName,
@@ -142830,17 +142830,17 @@ typedef _dart_getenv = ffi.Pointer<ffi.Int8> Function(
   ffi.Pointer<ffi.Int8> _VarName,
 );
 
-typedef _c__dupenv_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _Buffer,
-  ffi.Pointer<ffi.Uint64> _BufferCount,
-  ffi.Pointer<ffi.Int8> _VarName,
-);
+// typedef _c__dupenv_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _Buffer,
+//   ffi.Pointer<ffi.Uint64> _BufferCount,
+//   ffi.Pointer<ffi.Int8> _VarName,
+// );
 
-typedef _dart__dupenv_s = int Function(
-  ffi.Pointer<ffi.Pointer<ffi.Int8>> _Buffer,
-  ffi.Pointer<ffi.Uint64> _BufferCount,
-  ffi.Pointer<ffi.Int8> _VarName,
-);
+// typedef _dart__dupenv_s = int Function(
+//   ffi.Pointer<ffi.Pointer<ffi.Int8>> _Buffer,
+//   ffi.Pointer<ffi.Uint64> _BufferCount,
+//   ffi.Pointer<ffi.Int8> _VarName,
+// );
 
 typedef _c_system = ffi.Int32 Function(
   ffi.Pointer<ffi.Int8> _Command,
@@ -142850,75 +142850,75 @@ typedef _dart_system = int Function(
   ffi.Pointer<ffi.Int8> _Command,
 );
 
-typedef _c__putenv = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _EnvString,
-);
+// typedef _c__putenv = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _EnvString,
+// );
 
-typedef _dart__putenv = int Function(
-  ffi.Pointer<ffi.Int8> _EnvString,
-);
+// typedef _dart__putenv = int Function(
+//   ffi.Pointer<ffi.Int8> _EnvString,
+// );
 
-typedef _c__putenv_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _Name,
-  ffi.Pointer<ffi.Int8> _Value,
-);
+// typedef _c__putenv_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _Name,
+//   ffi.Pointer<ffi.Int8> _Value,
+// );
 
-typedef _dart__putenv_s = int Function(
-  ffi.Pointer<ffi.Int8> _Name,
-  ffi.Pointer<ffi.Int8> _Value,
-);
+// typedef _dart__putenv_s = int Function(
+//   ffi.Pointer<ffi.Int8> _Name,
+//   ffi.Pointer<ffi.Int8> _Value,
+// );
 
-typedef _c__searchenv_s = ffi.Int32 Function(
-  ffi.Pointer<ffi.Int8> _Filename,
-  ffi.Pointer<ffi.Int8> _VarName,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  ffi.Uint64 _BufferCount,
-);
+// typedef _c__searchenv_s = ffi.Int32 Function(
+//   ffi.Pointer<ffi.Int8> _Filename,
+//   ffi.Pointer<ffi.Int8> _VarName,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   ffi.Uint64 _BufferCount,
+// );
 
-typedef _dart__searchenv_s = int Function(
-  ffi.Pointer<ffi.Int8> _Filename,
-  ffi.Pointer<ffi.Int8> _VarName,
-  ffi.Pointer<ffi.Int8> _Buffer,
-  int _BufferCount,
-);
+// typedef _dart__searchenv_s = int Function(
+//   ffi.Pointer<ffi.Int8> _Filename,
+//   ffi.Pointer<ffi.Int8> _VarName,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+//   int _BufferCount,
+// );
 
-typedef _c__searchenv = ffi.Void Function(
-  ffi.Pointer<ffi.Int8> _Filename,
-  ffi.Pointer<ffi.Int8> _VarName,
-  ffi.Pointer<ffi.Int8> _Buffer,
-);
+// typedef _c__searchenv = ffi.Void Function(
+//   ffi.Pointer<ffi.Int8> _Filename,
+//   ffi.Pointer<ffi.Int8> _VarName,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+// );
 
-typedef _dart__searchenv = void Function(
-  ffi.Pointer<ffi.Int8> _Filename,
-  ffi.Pointer<ffi.Int8> _VarName,
-  ffi.Pointer<ffi.Int8> _Buffer,
-);
+// typedef _dart__searchenv = void Function(
+//   ffi.Pointer<ffi.Int8> _Filename,
+//   ffi.Pointer<ffi.Int8> _VarName,
+//   ffi.Pointer<ffi.Int8> _Buffer,
+// );
 
-typedef _c__seterrormode = ffi.Void Function(
-  ffi.Int32 _Mode,
-);
+// typedef _c__seterrormode = ffi.Void Function(
+//   ffi.Int32 _Mode,
+// );
 
-typedef _dart__seterrormode = void Function(
-  int _Mode,
-);
+// typedef _dart__seterrormode = void Function(
+//   int _Mode,
+// );
 
-typedef _c__beep = ffi.Void Function(
-  ffi.Uint32 _Frequency,
-  ffi.Uint32 _Duration,
-);
+// typedef _c__beep = ffi.Void Function(
+//   ffi.Uint32 _Frequency,
+//   ffi.Uint32 _Duration,
+// );
 
-typedef _dart__beep = void Function(
-  int _Frequency,
-  int _Duration,
-);
+// typedef _dart__beep = void Function(
+//   int _Frequency,
+//   int _Duration,
+// );
 
-typedef _c__sleep = ffi.Void Function(
-  ffi.Uint64 _Duration,
-);
+// typedef _c__sleep = ffi.Void Function(
+//   ffi.Uint64 _Duration,
+// );
 
-typedef _dart__sleep = void Function(
-  int _Duration,
-);
+// typedef _dart__sleep = void Function(
+//   int _Duration,
+// );
 
 typedef _c_ecvt = ffi.Pointer<ffi.Int8> Function(
   ffi.Double _Value,

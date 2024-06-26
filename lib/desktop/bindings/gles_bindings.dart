@@ -11,17 +11,17 @@ class LibOpenGLES {
   /// The symbols are looked up in [dynamicLibrary].
   LibOpenGLES(ffi.DynamicLibrary dynamicLibrary) : _dylib = dynamicLibrary;
 
-  void __report_gsfailure(
-    int _StackCookie,
-  ) {
-    return (___report_gsfailure ??=
-        _dylib.lookupFunction<_c___report_gsfailure, _dart___report_gsfailure>(
-            '__report_gsfailure'))(
-      _StackCookie,
-    );
-  }
+  // void __report_gsfailure(
+  //   int _StackCookie,
+  // ) {
+  //   return (___report_gsfailure ??=
+  //       _dylib.lookupFunction<_c___report_gsfailure, _dart___report_gsfailure>(
+  //           '__report_gsfailure'))(
+  //     _StackCookie,
+  //   );
+  // }
 
-  _dart___report_gsfailure? ___report_gsfailure;
+  // _dart___report_gsfailure? ___report_gsfailure;
 
   void glActiveTexture(
     int texture,
@@ -5893,9 +5893,9 @@ abstract class khronos_boolean_enum_t {
   static const int KHRONOS_BOOLEAN_ENUM_FORCE_SIZE = 2147483647;
 }
 
-class __GLsync extends ffi.Opaque {}
+final class __GLsync extends ffi.Opaque {}
 
-const int __gles2_gl2ext_h_ = 1;
+// const int __gles2_gl2ext_h_ = 1;
 
 const int GL_KHR_blend_equation_advanced = 1;
 
@@ -9245,11 +9245,11 @@ const int GL_VIV_shader_binary = 1;
 
 const int GL_SHADER_BINARY_VIV = 36804;
 
-const int __gles2_gl32_h_ = 1;
+// const int __gles2_gl32_h_ = 1;
 
-const int __null = 0;
+// const int __null = 0;
 
-const int _WCHAR_T_DEFINED = 1;
+// const int _WCHAR_T_DEFINED = 1;
 
 const int KHRONOS_SUPPORT_INT64 = 1;
 
@@ -11239,13 +11239,13 @@ const int GL_INT_SAMPLER_2D_MULTISAMPLE_ARRAY = 37132;
 
 const int GL_UNSIGNED_INT_SAMPLER_2D_MULTISAMPLE_ARRAY = 37133;
 
-typedef _c___report_gsfailure = ffi.Void Function(
-  ffi.Uint64 _StackCookie,
-);
+// typedef _c___report_gsfailure = ffi.Void Function(
+//   ffi.Uint64 _StackCookie,
+// );
 
-typedef _dart___report_gsfailure = void Function(
-  int _StackCookie,
-);
+// typedef _dart___report_gsfailure = void Function(
+//   int _StackCookie,
+// );
 
 typedef _c_glActiveTexture = ffi.Void Function(
   ffi.Uint32 texture,

@@ -196,12 +196,11 @@ class LibOpenGLES{
     gl.getProgramParameter(program, pname);
   }
 
-  //TODO
-  getActiveUniform(v0, v1) {
+  void getActiveUniform(v0, v1) {
     gl.getActiveUniform(v0, v1);
   }
 
-  getActiveAttrib(v0, v1) {
+  void getActiveAttrib(v0, v1) {
     gl.getActiveAttrib(v0, v1);
   }
 
