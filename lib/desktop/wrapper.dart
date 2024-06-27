@@ -38,7 +38,7 @@ class RenderingContext {
   }
 
   void startCheck(String type){
-    angleConsole.info('Start: $type');
+    //angleConsole.info('Start: $type');
   }
 
   void beginTransformFeedback(int primitiveMode){
@@ -1113,7 +1113,7 @@ class RenderingContext {
   void uniform1fv(UniformLocation location, List<double> v){
     startCheck('uniform1fv');
     var arrayPointer = floatListToArrayPointer(v);
-    gl.glUniform1fv(location.id, v.length ~/ 1, arrayPointer);
+    gl.glUniform1fv(location.id, v.length, arrayPointer);
     checkError('uniform1fv');
     calloc.free(arrayPointer);
   }
@@ -1142,18 +1142,21 @@ class RenderingContext {
   void uniform2fv(UniformLocation location, List<double> v){
     startCheck('uniform2fv');
     var arrayPointer = floatListToArrayPointer(v);
-    gl.glUniform2fv(location.id, v.length ~/ 1, arrayPointer);
+    gl.glUniform2fv(location.id, v.length ~/ 2, arrayPointer);
     checkError('uniform2fv');
     calloc.free(arrayPointer);
   }
 
-  // void uniform2i(UniformLocation? location, int x, int y);
+  void uniform2i(UniformLocation location, int x, int y){
+    gl.glUniform2i(location.id, x, y);
+    checkError('uniform2iv'); 
+  }
 
   void uniform2iv(UniformLocation location, List<int> v){
     int count = v.length;
     final valuePtr = calloc<Int32>(count);
     valuePtr.asTypedList(count).setAll(0, v);
-    gl.glUniform2iv(location.id, count, valuePtr);
+    gl.glUniform2iv(location.id, count ~/ 2, valuePtr);
     calloc.free(valuePtr);
     checkError('uniform2iv'); 
   }
@@ -1176,7 +1179,7 @@ class RenderingContext {
     int count = v.length;
     final valuePtr = calloc<Int32>(count);
     valuePtr.asTypedList(count).setAll(0, v);
-    gl.glUniform3iv(location.id, count, valuePtr);
+    gl.glUniform3iv(location.id, count ~/ 3, valuePtr);
     calloc.free(valuePtr);
     checkError('uniform3iv'); 
   }
@@ -1190,7 +1193,7 @@ class RenderingContext {
   void uniform4fv(UniformLocation location, List<double> vectors) {
     startCheck('uniform4fv');
     var arrayPointer = floatListToArrayPointer(vectors);
-    gl.glUniform4fv(location.id, vectors.length ~/ 3, arrayPointer);
+    gl.glUniform4fv(location.id, vectors.length ~/ 4, arrayPointer);
     checkError('uniform4fv');
     calloc.free(arrayPointer);
   }
@@ -1199,7 +1202,7 @@ class RenderingContext {
     int count = v.length;
     final valuePtr = calloc<Int32>(count);
     valuePtr.asTypedList(count).setAll(0, v);
-    gl.glUniform4iv(location.id, count, valuePtr);
+    gl.glUniform4iv(location.id, count ~/ 4, valuePtr);
     calloc.free(valuePtr);
     checkError('uniform4iv'); 
   }
@@ -1207,7 +1210,7 @@ class RenderingContext {
   void uniformMatrix2fv(UniformLocation location, bool transpose, List<double> values) {
     startCheck('uniformMatrix2fv');
     var arrayPointer = floatListToArrayPointer(values);
-    gl.glUniformMatrix2fv(location.id, values.length ~/ 9, transpose ? 1 : 0, arrayPointer);
+    gl.glUniformMatrix2fv(location.id, values.length ~/ 4, transpose ? 1 : 0, arrayPointer);
     checkError('uniformMatrix2fv');
     calloc.free(arrayPointer);
   }
