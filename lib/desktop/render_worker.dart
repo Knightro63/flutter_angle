@@ -78,7 +78,6 @@ class RenderWorker{
     ).program;
 
     _gl.useProgram(_program);
-    
     _gl.checkError("drawTexture 02");
     
     final _positionSlot = _gl.getAttribLocation(_program, "Position");

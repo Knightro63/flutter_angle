@@ -17,13 +17,13 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
 ## Requirements
 
 **MacOS**
- - Minimum os Deployment Target: 10.13
+ - Minimum os Deployment Target: 10.14
  - Xcode 13 or newer
  - Swift 5
  - Metal supported
 
 **iOS**
- - Minimum os Deployment Target: 11.0
+ - Minimum os Deployment Target: 12.0
  - Xcode 13 or newer
  - Swift 5
  - Metal supported

@@ -30,7 +30,7 @@ class RenderingContext {
     if (glError != WebGL.NO_ERROR) {
       final openGLException = OpenGLException('RenderingContext.$message', glError);
       // assert(() {
-        angleConsole.info(openGLException.toString());
+        angleConsole.warning(openGLException.toString());
       //   return true;
       // }());
       // throw openGLException;
@@ -38,7 +38,7 @@ class RenderingContext {
   }
 
   void startCheck(String type){
-    //angleConsole.info('Start: $type');
+    angleConsole.info('Start: $type');
   }
 
   void beginTransformFeedback(int primitiveMode){
@@ -575,7 +575,9 @@ class RenderingContext {
     if (_intValues.indexOf(key) >= 0) {
       final v = calloc<Int32>(4);
       gl.glGetIntegerv(key, v);
-      return v.value;
+      int _v = v.value;
+      calloc.free(v);
+      return _v;
     } else {
       throw (" OpenGL getParameter key: ${key} is not support ");
     }
@@ -796,7 +798,7 @@ class RenderingContext {
     checkError('getExtension');
     String _vstr = _v.cast<Utf8>().toDartString();
     List<String> _extensions = _vstr.split(" ");
-
+    calloc.free(_v);
     return _extensions;
   }
 
@@ -815,7 +817,9 @@ class RenderingContext {
     startCheck('getStringi');
     Pointer _v = gl.glGetStringi(key, index);
     checkError('getStringi');
-    return _v.cast<Utf8>().toDartString();
+    String temp = _v.cast<Utf8>().toDartString();
+    //calloc.free(_v);
+    return temp;
   }
 
   int getIntegerv(int v0) {

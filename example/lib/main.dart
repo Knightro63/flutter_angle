@@ -66,11 +66,10 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     lesson = Lesson3(textures[0].getContext());
     lesson2 = Lesson5(textures[1].getContext());
 
-    // /// Updating all Textues takes a slighllty less than 150ms
-    // /// so we can't get much faster than this at the moment because it could happen that
-    // /// the timer starts a new async function while the last one hasn't finished
-    // /// which creates an OpenGL Exception
-
+    /// Updating all Textues takes a slighllty less than 150ms
+    /// so we can't get much faster than this at the moment because it could happen that
+    /// the timer starts a new async function while the last one hasn't finished
+    /// which creates an OpenGL Exception
     if (!mounted) return;
     setState(() {
       textureId = textures[0].textureId;

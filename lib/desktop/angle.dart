@@ -311,7 +311,7 @@ class FlutterAngle {
     final newTexture = FlutterAngleTexture.fromMap(result, null, fbo.value, options);
     angleConsole.info(newTexture.toMap());
     angleConsole.info(_rawOpenGl.glGetError());
-    _rawOpenGl.glActiveTexture(WebGL.TEXTURE);
+    _rawOpenGl.glActiveTexture(WebGL.TEXTURE0);
 
     if (newTexture.metalAsGLTextureId != 0) {
       // Draw to metal interop texture directly
@@ -343,6 +343,8 @@ class FlutterAngle {
     }
     
     _activeFramebuffer = fbo.value;
+    
+    calloc.free(depthBuffer);
     calloc.free(fbo);
 
     if(!options.customRenderer){
