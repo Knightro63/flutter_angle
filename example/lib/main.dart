@@ -80,7 +80,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     ticker.start();
   }
 
-  Timer? timer;
   Stopwatch stopwatch = Stopwatch();
 
   late Ticker ticker;
@@ -125,7 +124,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
 
   void dispose() {
     ticker.dispose();
-    timer?.cancel();
     lesson?.dispose();
     lesson2?.dispose();
     super.dispose();

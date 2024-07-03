@@ -11,16 +11,15 @@ class RenderWorker{
   late final Buffer vertexBuffer;
   late final Buffer vertexBuffer4FBO;
   late final RenderingContext _gl;
-
+  
   RenderWorker(FlutterAngleTexture texture){
     _gl = texture.getContext();
-
     setupVBO();
     setupVBO4FBO();
   }
 
   void renderTexture(WebGLTexture? texture, {Float32List? matrix, bool isFBO = false}){
-    var _vertexBuffer;
+    late final Buffer _vertexBuffer;
     
     if(isFBO) {
       _vertexBuffer = vertexBuffer4FBO;
@@ -48,7 +47,6 @@ class RenderWorker{
     vertices.dispose();
   }
   
-  
   void setupVBO4FBO() {
     double w = 1.0;
     double h = 1.0;
@@ -69,20 +67,18 @@ class RenderWorker{
   void drawTexture({required WebGLTexture? texture, required Buffer vertexBuffer, Float32List? matrix}) {
     _gl.checkError("drawTexture 01");
     
-    final _program = GlProgram(
-      _gl, 
+    final program = GlProgram(
+      _gl,
       fragment_shader, 
-      vertex_shader, 
-      [], 
-      []
+      vertex_shader
     ).program;
 
-    _gl.useProgram(_program);
+    _gl.useProgram(program);
     _gl.checkError("drawTexture 02");
     
-    final _positionSlot = _gl.getAttribLocation(_program, "Position");
-    final _textureSlot = _gl.getAttribLocation(_program, "TextureCoords");
-    final _texture0Uniform = _gl.getUniformLocation(_program, "Texture0");
+    final _positionSlot = _gl.getAttribLocation(program, "Position");
+    final _textureSlot = _gl.getAttribLocation(program, "TextureCoords");
+    final _texture0Uniform = _gl.getUniformLocation(program, "Texture0");
     
     _gl.activeTexture(WebGL.TEXTURE10);
     _gl.bindTexture(WebGL.TEXTURE_2D, texture!);
@@ -100,34 +96,31 @@ class RenderWorker{
       _matrix = matrix;
     }
 
-    final _matrixUniform = _gl.getUniformLocation(_program, "matrix");
+    final _matrixUniform = _gl.getUniformLocation(program, "matrix");
     _gl.uniformMatrix4fv(_matrixUniform, false, _matrix);
     
     _gl.checkError("drawTexture 04");
     _gl.bindBuffer(WebGL.ARRAY_BUFFER, vertexBuffer);
     
     _gl.checkError("drawTexture 05");
-    
-    final step = Float32List.bytesPerElement * 5;
 
     final vao = _gl.createVertexArray();
     _gl.bindVertexArray(vao);
     
-    // let positionSlotFirstComponent = UnsafeRawPointer(bitPattern: 0);
-    _gl.vertexAttribPointer(_positionSlot.id, 3, WebGL.FLOAT, false, step, 0);
+    _gl.vertexAttribPointer(_positionSlot.id, 3, WebGL.FLOAT, false, Float32List.bytesPerElement * 5, 0);
     _gl.checkError("drawTexture 06");
 
     _gl.enableVertexAttribArray(_positionSlot.id);
     _gl.checkError("drawTexture 07");
     
-    // let textureSlotFirstComponent = UnsafeRawPointer(bitPattern: MemoryLayout<CFloat>.size * 3)
-    _gl.vertexAttribPointer(_textureSlot.id, 2, WebGL.FLOAT, false, step, Float32List.bytesPerElement * 3);
+    _gl.vertexAttribPointer(_textureSlot.id, 2, WebGL.FLOAT, false, Float32List.bytesPerElement * 5, Float32List.bytesPerElement * 3);
     _gl.enableVertexAttribArray(_textureSlot.id);
     
     _gl.checkError("drawTexture 08");
     _gl.drawArrays(WebGL.TRIANGLE_STRIP, 0, 4);
     _gl.deleteVertexArray(vao);
     _gl.checkError("drawTexture 09");
+    _gl.deleteProgram(program);
   }
 
   void dispose(){

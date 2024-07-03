@@ -3,18 +3,13 @@ import '../shared/classes.dart';
 import 'wrapper.dart';
 
 class GlProgram {
-  Map<String, int> attributes = new Map<String, int>();
-  Map<String, UniformLocation> uniforms = new Map<String, UniformLocation>();
   late Program program;
-
   late WebGLShader fragShader, vertShader;
 
   GlProgram(
     RenderingContext gl,
     String fragSrc, 
-    String vertSrc, 
-    List<String> attributeNames, 
-    List<String> uniformNames
+    String vertSrc
   ) {
     fragShader = gl.createShader(WebGL.FRAGMENT_SHADER);
     gl.shaderSource(fragShader, fragSrc);
@@ -29,16 +24,7 @@ class GlProgram {
     gl.attachShader(program, fragShader);
     gl.linkProgram(program);
 
-    for (String attrib in attributeNames) {
-      int attributeLocation = gl.getAttribLocation(program, attrib).id;
-      gl.enableVertexAttribArray(attributeLocation);
-      gl.checkError(attrib);
-      attributes[attrib] = attributeLocation;
-    }
-    for (String uniform in uniformNames) {
-      var uniformLocation = gl.getUniformLocation(program, uniform);
-      gl.checkError(uniform);
-      uniforms[uniform] = UniformLocation(uniformLocation.id);
-    }
+    gl.deleteShader(vertShader);
+    gl.deleteShader(fragShader);
   }
 }
