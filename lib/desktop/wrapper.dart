@@ -798,7 +798,7 @@ class RenderingContext {
     checkError('getExtension');
     String _vstr = _v.cast<Utf8>().toDartString();
     List<String> _extensions = _vstr.split(" ");
-    calloc.free(_v);
+    // calloc.free(_v);
     return _extensions;
   }
 
