@@ -1,4 +1,4 @@
-import 'package:flutter_angle/shared/array.dart';
+import 'array.dart';
 
 /// Amalgamation of the WebGL constants from the IDL interfaces in
 /// WebGLRenderingContextBase, WebGL2RenderingContextBase, & WebGLDrawBuffers.

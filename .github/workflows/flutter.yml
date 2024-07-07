@@ -28,9 +28,10 @@ jobs:
           architecture: x64
           cache: true
 
-      - name: Install dependencies for flutter_angle
+      - name: Install dependencies for ./flutter_angle
+        working-directory: ./flutter_angle
         run: flutter pub get
         
       - name: Install dependencies for flutter_angle example
-        working-directory: ./example
+        working-directory: ./flutter_angle/example
         run: flutter pub get

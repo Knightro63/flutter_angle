@@ -13,6 +13,7 @@ import 'bindings/index.dart';
 import '../shared/webgl.dart';
 import '../shared/classes.dart';
 
+
 // JS "WebGL2RenderingContext")
 class RenderingContext {
   final LibOpenGLES gl;

@@ -57,8 +57,8 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     try {
       textures.add(await FlutterAngle.createTexture(options));
       textures.add(await FlutterAngle.createTexture(options));
-    } on PlatformException catch (ex) {
-      print("failed to get texture id");
+    } on PlatformException catch (e) {
+      print("failed to get texture id $e");
       return;
     }
 

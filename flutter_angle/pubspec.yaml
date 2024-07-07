@@ -1,24 +1,29 @@
 name: flutter_angle
 description: "Flutters Almost Native Graphics Layer Engine."
 version: 0.0.1
-homepage: https://github.com/Knightro63/three_js/tree/main/packages/flutter_angle
+homepage: https://github.com/Knightro63/flutter_angle/tree/main/flutter_angle
 
 environment:
   sdk: ">=3.3.2 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
+  flutter:
+    sdk: flutter
   logger: ^2.3.0
   dylib: ^0.3.3
   ffi: ^2.1.2
-  flutter:
-    sdk: flutter
+  flutter_angle_darwin:
+    path: ../flutter_angle_darwin
+  flutter_angle_windows:
+    path: ../flutter_angle_windows
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   ffigen: ^12.0.0
   lint: ^2.3.0
+  plugin_platform_interface: ^2.1.8
 
 flutter:
   plugin:
@@ -27,11 +32,9 @@ flutter:
         package: org.fluttergl.flutter_angle
         pluginClass: FlutterAnglePlugin
       windows:
-        pluginClass: FlutterAnglePlugin
+        default_package: flutter_angle_windows
       ios:
-        pluginClass: FlutterAnglePlugin
-        sharedDarwinSource: true
+        default_package: flutter_angle_darwin
       macos:
-        pluginClass: FlutterAnglePlugin
-        sharedDarwinSource: true
+        default_package: flutter_angle_darwin
 
