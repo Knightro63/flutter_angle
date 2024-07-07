@@ -5,7 +5,7 @@ homepage: https://github.com/Knightro63/flutter_angle/tree/main/flutter_angle
 
 environment:
   sdk: ">=3.3.2 <4.0.0"
-  flutter: ">=1.17.0"
+  flutter: ">=1.20.0"
 
 dependencies:
   flutter:
@@ -13,10 +13,8 @@ dependencies:
   logger: ^2.3.0
   dylib: ^0.3.3
   ffi: ^2.1.2
-  flutter_angle_darwin:
-    path: ../flutter_angle_darwin
-  flutter_angle_windows:
-    path: ../flutter_angle_windows
+  flutter_angle_darwin: ^0.0.1
+  flutter_angle_windows: ^0.0.1
 
 dev_dependencies:
   flutter_test:
