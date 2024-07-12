@@ -26,9 +26,7 @@
 */macos
 */web
 */ios
-*/android
 */linux
-*/windows
 
 # Flutter repo-specific
 /bin/cache/
