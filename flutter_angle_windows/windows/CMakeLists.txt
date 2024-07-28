@@ -1,13 +1,13 @@
 cmake_minimum_required(VERSION 3.15)
-set(PROJECT_NAME "flutter_angle")
+set(PROJECT_NAME "flutter_angle_windows")
 project(${PROJECT_NAME} LANGUAGES CXX)
 
 # This value is used when generating builds using this plugin, so it must
 # not be changed
-set(PLUGIN_NAME "flutter_angle_plugin")
+set(PLUGIN_NAME "flutter_angle_windows_plugin")
 
 add_library(${PLUGIN_NAME} SHARED
-  "flutter_angle_plugin.cpp"
+  "flutter_angle_windows_plugin.cpp"
 )
 apply_standard_settings(${PLUGIN_NAME})
 set_target_properties(${PLUGIN_NAME} PROPERTIES

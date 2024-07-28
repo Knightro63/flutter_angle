@@ -1,4 +1,4 @@
-#include "include/flutter_angle/flutter_angle_plugin.h"
+#include "include/flutter_angle_windows/flutter_angle_windows_plugin.h"
 #include "include/gl32.h"
 #include "include/egl.h"
 
@@ -40,13 +40,13 @@ using flutter::EncodableValue;
 
   typedef  std::map<int64_t, std::unique_ptr<FlutterGLTexture>> TextureMap;
 
-  class FlutterAnglePlugin : public flutter::Plugin {
+  class FlutterAngleWindowsPlugin : public flutter::Plugin {
   public:
       static void RegisterWithRegistrar(flutter::PluginRegistrarWindows* registrar);
 
-      FlutterAnglePlugin(flutter::TextureRegistrar* textures);
+      FlutterAngleWindowsPlugin(flutter::TextureRegistrar* textures);
 
-      virtual ~FlutterAnglePlugin();
+      virtual ~FlutterAngleWindowsPlugin();
 
       static flutter::TextureRegistrar* textureRegistrar;
 
@@ -60,7 +60,7 @@ using flutter::EncodableValue;
       TextureMap flutterGLTextures; // stores all created Textures
   };
 
-  flutter::TextureRegistrar* FlutterAnglePlugin::textureRegistrar;
+  flutter::TextureRegistrar* FlutterAngleWindowsPlugin::textureRegistrar;
 
 
   class FlutterGLTexture
@@ -125,7 +125,7 @@ using flutter::EncodableValue;
         return CopyPixelBuffer(width, height);
     }));
 
-    flutterTextureId = FlutterAnglePlugin::textureRegistrar->RegisterTexture(flutterTexture.get());
+    flutterTextureId = FlutterAngleWindowsPlugin::textureRegistrar->RegisterTexture(flutterTexture.get());
 
   }
 
@@ -135,7 +135,7 @@ using flutter::EncodableValue;
   }
 
   FlutterGLTexture::~FlutterGLTexture() {
-      FlutterAnglePlugin::textureRegistrar->UnregisterTexture(flutterTextureId);
+      FlutterAngleWindowsPlugin::textureRegistrar->UnregisterTexture(flutterTextureId);
       glDeleteRenderbuffers(1, &rbo);
       glDeleteFramebuffers(1, &fbo);
       pixels.reset();
@@ -143,14 +143,14 @@ using flutter::EncodableValue;
   }
 
   // static
-  void FlutterAnglePlugin::RegisterWithRegistrar(
+  void FlutterAngleWindowsPlugin::RegisterWithRegistrar(
       flutter::PluginRegistrarWindows *registrar) {
     auto channel =
         std::make_unique<flutter::MethodChannel<flutter::EncodableValue>>(
             registrar->messenger(), "flutter_angle",
             &flutter::StandardMethodCodec::GetInstance());
 
-    auto plugin = std::make_unique<FlutterAnglePlugin>(registrar->texture_registrar());
+    auto plugin = std::make_unique<FlutterAngleWindowsPlugin>(registrar->texture_registrar());
 
     channel->SetMethodCallHandler(
         [plugin_pointer = plugin.get()](const auto& call, auto result) {
@@ -159,14 +159,14 @@ using flutter::EncodableValue;
     registrar->AddPlugin(std::move(plugin));
   }
 
-  FlutterAnglePlugin::FlutterAnglePlugin(flutter::TextureRegistrar *textures)  {
+  FlutterAngleWindowsPlugin::FlutterAngleWindowsPlugin(flutter::TextureRegistrar *textures)  {
       textureRegistrar = textures;
   }
 
-  FlutterAnglePlugin::~FlutterAnglePlugin() {}
+  FlutterAngleWindowsPlugin::~FlutterAngleWindowsPlugin() {}
 
 
-  void FlutterAnglePlugin::HandleMethodCall(
+  void FlutterAngleWindowsPlugin::HandleMethodCall(
       const flutter::MethodCall<flutter::EncodableValue> &method_call,
       std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result) {
     const auto* arguments = std::get_if<EncodableMap>(method_call.arguments());
@@ -393,9 +393,9 @@ using flutter::EncodableValue;
   }
 }
 
-void FlutterAnglePluginRegisterWithRegistrar(
+void FlutterAngleWindowsPluginRegisterWithRegistrar(
     FlutterDesktopPluginRegistrarRef registrar) {
-  FlutterAnglePlugin::RegisterWithRegistrar(
+  FlutterAngleWindowsPlugin::RegisterWithRegistrar(
       flutter::PluginRegistrarManager::GetInstance()
           ->GetRegistrar<flutter::PluginRegistrarWindows>(registrar));
 }
