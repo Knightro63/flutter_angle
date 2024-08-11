@@ -185,18 +185,18 @@ using flutter::EncodableValue;
     }
     else if (method_call.method_name().compare("initOpenGL") == 0) 
     {
-        static EGLContext  context;
-        if (context != nullptr)
-        {
-          // this means initOpenGL() was already called, which makes sense if you want to acess a Texture not only 
-          // from the main thread but also from an isolate. On the plugin layer here that doesn't bother because all 
-          // by `initOpenGL``in Dart created contexts will be linked to the one we got from the very first call to `initOpenGL`
-          // we return this information so that the Dart side can dispose of one context.
-          auto response = flutter::EncodableValue(context);
-          result->Success(response);
+        // static EGLContext  context;
+        // if (context != nullptr)
+        // {
+        //   // this means initOpenGL() was already called, which makes sense if you want to acess a Texture not only 
+        //   // from the main thread but also from an isolate. On the plugin layer here that doesn't bother because all 
+        //   // by `initOpenGL``in Dart created contexts will be linked to the one we got from the very first call to `initOpenGL`
+        //   // we return this information so that the Dart side can dispose of one context.
+        //   auto response = flutter::EncodableValue((int64_t) context);
+        //   result->Success(response);
 
-          return;
-        }
+        //   return;
+        // }
 
         auto display = eglGetDisplay(EGL_DEFAULT_DISPLAY);
         EGLint major;
@@ -245,7 +245,7 @@ using flutter::EncodableValue;
           3,
           EGL_NONE
         };
-        context = eglCreateContext(display,config,EGL_NO_CONTEXT,contextAttributes);
+        const EGLContext context = eglCreateContext(display,config,EGL_NO_CONTEXT,contextAttributes);
 
 
         // This is just a dummy surface that it needed to make an OpenGL context current (bind it to this thread)
