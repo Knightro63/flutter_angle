@@ -19,6 +19,7 @@ class FlutterAngleTexture {
   final int metalAsGLTextureId;
   late final Pointer<Void> androidSurface;
   final int fboId;
+  final int loc;
   //static LibOpenGLES? _libOpenGLES;
   late AngleOptions options;
 
@@ -32,7 +33,8 @@ class FlutterAngleTexture {
     this.metalAsGLTextureId,
     int androidSurfaceId, 
     this.element,
-    this.fboId, 
+    this.fboId,
+    this.loc,
     this.options
   ) {
     androidSurface = Pointer.fromAddress(androidSurfaceId);
@@ -51,6 +53,7 @@ class FlutterAngleTexture {
       map['surface'] as int? ?? 0,
       element,
       fboId,
+      map['location'] as int? ?? 0,
       options
     );
   }
@@ -126,7 +129,6 @@ class FlutterAngle {
     loadEGL();
     // Initialize native part of he plugin
     final result = await _channel.invokeMethod('initOpenGL');
-
     angleConsole.info(result);
     if (result == null) {
       throw EglException('Plugin.initOpenGL didn\'t return anything. Something is really wrong!');
@@ -206,6 +208,8 @@ class FlutterAngle {
       _rawOpenGl.glDebugMessageCallback(Pointer.fromFunction<GLDEBUGPROC>(glDebugOutput), nullptr);
       _rawOpenGl.glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
     }
+
+    print("DONE");
   }
 
   static void glDebugOutput(int source, int type, int id, int severity,
@@ -292,7 +296,7 @@ class FlutterAngle {
     final height = (options.height*options.dpr).toInt();
     final width = (options.width*options.dpr).toInt();
     final result = await _channel.invokeMethod('createTexture', {"width": width, "height": height,});
-    
+
     if (Platform.isAndroid) {
       final newTexture = FlutterAngleTexture.fromMap(result, null, 0, options);
       _rawOpenGl.glViewport(0, 0, width, height);
@@ -369,7 +373,7 @@ class FlutterAngle {
     }
     _rawOpenGl.glFlush();
     assert(_activeFramebuffer != null,'There is no active FlutterGL Texture to update');
-    _channel.invokeMethod('updateTexture', {"textureId": texture.textureId});    
+    await _channel.invokeMethod('updateTexture', {"textureId": texture.textureId,"location": texture.loc});    
   }
 
   static Future<void> deleteTexture(FlutterAngleTexture texture) async {
@@ -386,7 +390,7 @@ class FlutterAngle {
       calloc.free(fbo);
     }
     worker.dispose();
-    await _channel.invokeMethod('deleteTexture', {"textureId": texture.textureId});
+    await _channel.invokeMethod('deleteTexture', {"textureId": texture.textureId,"location": texture.loc});
   }
 
   static void activateTexture(FlutterAngleTexture texture) {

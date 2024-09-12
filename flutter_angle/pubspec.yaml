@@ -14,6 +14,7 @@ dependencies:
   dylib: ^0.3.3
   ffi: ^2.1.2
   flutter_angle_darwin: ^0.0.1
+    #path: ../temp
   #flutter_angle_windows: ^0.0.1
 
 dev_dependencies:

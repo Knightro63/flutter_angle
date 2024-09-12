@@ -18,10 +18,8 @@ class _MyAppState extends State<ExampleDemoTest> {
   int? fboId;
   bool ready = false;
   double dpr = 1.0;
-  late double width;
-  late double height;
 
-  Size? screenSize;
+  late Size screenSize;
 
   late FlutterAngleTexture sourceTexture;
   late final defaultFramebufferTexture;
@@ -32,6 +30,9 @@ class _MyAppState extends State<ExampleDemoTest> {
 
   @override
   void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      setup();
+    });
     super.initState();
   }
 
@@ -41,130 +42,55 @@ class _MyAppState extends State<ExampleDemoTest> {
     super.dispose();
   }
 
-  // Platform messages are asynchronous, so we initialize in an async method.
-  Future<void> initPlatformState() async {
-    width = screenSize!.width;
-    height = width;
-
-    // OpenGLOptions _options = OpenGLOptions(
-    //   antialias: true,
-    //   alpha: false,
-    //   width: width.toInt(),
-    //   height: height.toInt(),
-    //   dpr: dpr
-    // );
-
-    // print("_options: ${_options}  ");
-
+  Future<void> setup() async {
     await FlutterAngle.initOpenGL(true);
 
-    // print(" flutterGlPlugin: textureid: ${flutterGlPlugin.textureId} ");
+    sourceTexture = await FlutterAngle.createTexture(      
+      AngleOptions(
+        width: screenSize.width.toInt(), 
+        height: screenSize.height.toInt(), 
+        dpr: dpr,
+      ),
+    );
 
-    setState(() {});
+    _gl = sourceTexture.getContext();
 
-    // web need wait dom ok!!!
-    Future.delayed(Duration(milliseconds: 100), () {
-      setup();
+    setState(() {
+      ready = true;
     });
-  }
-
-  setup() async {
-    // web no need use fbo
-
-      sourceTexture = await FlutterAngle.createTexture(      
-        AngleOptions(
-          width: width.toInt(), 
-          height: height.toInt(), 
-          dpr: dpr,
-        )
-      );
-
-      _gl = sourceTexture.getContext();
-      var _size = _gl.getParameter(WebGL.MAX_TEXTURE_SIZE);
-
-      print(" setup MAX_TEXTURE_SIZE: ${_size}  ");
-
-      setupDefaultFBO();
-    
-    ready = true;
-
     animate();
-
-    setState(() {});
-    print(" setup done.... ");
-  }
-
-  initSize(BuildContext context) {
-    if (screenSize != null) {
-      return;
-    }
-
-    final mq = MediaQuery.of(context);
-
-    screenSize = mq.size;
-    dpr = mq.devicePixelRatio;
-
-    print(" screenSize: ${screenSize} dpr: ${dpr} ");
-
-    initPlatformState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final mq = MediaQuery.of(context);
+    screenSize = mq.size;
+    dpr = mq.devicePixelRatio;
+
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Example app'),
-        ),
-        body: Builder(
-          builder: (BuildContext context) {
-            initSize(context);
-            return SingleChildScrollView(child: _build(context));
-          },
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            render();
-          },
-          child: Text("Render"),
-        ),
+        body: Container(
+          width: screenSize.width,
+          height: screenSize.height,
+          color: Colors.black,
+          child: kIsWeb?ready?HtmlElementView(viewType: sourceTexture.textureId.toString()):Container()
+            :ready?Texture(textureId: sourceTexture.textureId):Container()
+        )
       ),
     );
   }
 
-  Widget _build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-            width: width,
-            height: height,
-            color: Colors.black,
-            child: Builder(builder: (BuildContext context) {
-              if (kIsWeb) {
-                return !ready?Container():HtmlElementView(viewType: sourceTexture.textureId.toString());
-              } else {
-                return ready?Texture(textureId: sourceTexture.textureId):Container();
-              }
-            })),
-        Row(
-          children: [],
-        )
-      ],
-    );
-  }
-
-  animate() {
+  void animate() {
     render();
 
     Future.delayed(Duration(milliseconds: 40), () {
-      sourceTexture.activate();
       animate();
     });
   }
 
-  setupDefaultFBO() {
-    int glWidth = (width * dpr).toInt();
-    int glHeight = (height * dpr).toInt();
+  void setupDefaultFBO() {
+    int glWidth = (screenSize.width * dpr).toInt();
+    int glHeight = (screenSize.height * dpr).toInt();
 
     final defaultFramebuffer = _gl.createFramebuffer();
     defaultFramebufferTexture = _gl.createTexture();
@@ -179,20 +105,17 @@ class _MyAppState extends State<ExampleDemoTest> {
     _gl.framebufferTexture2D(WebGL.FRAMEBUFFER, WebGL.COLOR_ATTACHMENT0, WebGL.TEXTURE_2D, defaultFramebufferTexture, 0);
   }
 
-  render() async {
-    //print("render start: ${DateTime.now().millisecondsSinceEpoch} ");
+  Future<void> render() async {
+    sourceTexture.activate();
     int _current = DateTime.now().millisecondsSinceEpoch;
-
+    _gl.viewport(0, 0, screenSize.width.toInt(), screenSize.height.toInt());
     double _blue = sin((_current - t) / 500);
-
+  
     // Clear canvas
     _gl.clearColor(1.0, 0.0, _blue, 1.0);
     _gl.clear(WebGL.COLOR_BUFFER_BIT);
 
     _gl.flush();
-
-    if (!kIsWeb) {
-      await FlutterAngle.updateTexture(sourceTexture);
-    }
+    await FlutterAngle.updateTexture(sourceTexture);
   }
 }
