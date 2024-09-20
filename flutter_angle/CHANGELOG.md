@@ -1,3 +1,7 @@
+## 0.0.4
+
+* Added iOS simulator support.
+
 ## 0.0.3
 
 * Fixed windows not loading properly.

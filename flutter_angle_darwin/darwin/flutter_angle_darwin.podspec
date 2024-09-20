@@ -16,19 +16,16 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Classes/**/*.{h,inc}'
   s.swift_version = '5.0'
   s.library = 'c++'
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES'}  
 
-  s.osx.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES'}  
+  s.preserve_paths = 'MetalANGLE.xcframework'
+  s.vendored_frameworks = 'MetalANGLE.xcframework'
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES'} 
+  s.xcconfig = { 'OTHER_LDFLAGS' => '-framework MetalANGLE'}
+  
   s.osx.dependency 'FlutterMacOS'
-  s.osx.deployment_target = '10.14'
-  s.osx.preserve_paths = 'osxFramework/MetalANGLE.framework'
-  s.osx.xcconfig = { 'OTHER_LDFLAGS' => '-framework MetalANGLE', 'HEADER_SEARCH_PATHS' => '${PODS_TARGET_SRCROOT}/osxFramework/MetalANGLE.framework/Headers'}
-  s.osx.vendored_frameworks = 'osxFramework/MetalANGLE.framework'
+  s.osx.deployment_target = '10.15'
 
-  s.ios.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' } 
   s.ios.dependency 'Flutter'
   s.ios.deployment_target = '12.0'
-  s.ios.preserve_paths = 'iosFramework/MetalANGLE.framework'
-  s.ios.xcconfig = { 'OTHER_LDFLAGS' => '-framework MetalANGLE', 'HEADER_SEARCH_PATHS' => '"${PODS_TARGET_SRCROOT}/iosFramework/MetalANGLE.framework/Headers"'}
-  s.ios.vendored_frameworks = 'iosFramework/MetalANGLE.framework'
-
 end

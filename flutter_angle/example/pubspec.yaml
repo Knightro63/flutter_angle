@@ -12,6 +12,7 @@ dependencies:
   flutter_angle:
     path: ../
   cupertino_icons: ^1.0.2
+  camera_android: ^0.10.9+11
 
 dev_dependencies:
   flutter_test:
