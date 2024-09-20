@@ -1,6 +1,10 @@
-## 0.0.4
+## 0.0.5
 
 * Added iOS simulator support.
+
+## 0.0.4
+
+* Fixed windows hot reload bug.
 
 ## 0.0.3
 
