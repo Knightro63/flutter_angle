@@ -147,7 +147,7 @@ class RenderingContext {
     checkError('endTransformFeedback');
   }
 
-  ActiveInfo getTransformFeedbackVarying(int program, int index) {
+  ActiveInfo getTransformFeedbackVarying(Program program, int index) {
     startCheck('getTransformFeedbackVarying');
     int maxLen = 100;
     var length = calloc<Int32>();
@@ -155,7 +155,7 @@ class RenderingContext {
     var type = calloc<Uint32>();
     var name = calloc<Int8>(maxLen);
 
-    gl.glGetTransformFeedbackVarying(program, index, maxLen - 1, length, size, type, name);
+    gl.glGetTransformFeedbackVarying(program.id, index, maxLen - 1, length, size, type, name);
     checkError('getTransformFeedbackVarying');
     int _type = type.value;
     String _name = name.cast<Utf8>().toDartString();
@@ -898,9 +898,9 @@ class RenderingContext {
     calloc.free(_pointer);
     return _v == 0?false:true;
   }
-  void framebufferTextureLayer(int target,int attachment,int texture,int level,int layer){
+  void framebufferTextureLayer(int target,int attachment,WebGLTexture? texture,int level,int layer){
     startCheck('framebufferTextureLayer');
-    gl.glFramebufferTextureLayer(target, attachment, texture, level, layer);
+    gl.glFramebufferTextureLayer(target, attachment, texture?.id, level, layer);
     checkError('framebufferTextureLayer');
   }
 

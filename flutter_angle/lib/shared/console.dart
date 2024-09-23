@@ -7,7 +7,7 @@ class AngleConsole {
   late Logger _logger;
 
   /// Returns true if this is a verbose logger
-  static bool isVerbose = false;
+  static bool isVerbose = true;
 
   /// Gives access to internal logger
   Logger get rawLogger => _logger;
