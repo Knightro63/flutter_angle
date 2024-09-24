@@ -1,3 +1,7 @@
+## 0.0.6
+
+* Upgraded android for compatibility with AGP <4.2.
+
 ## 0.0.5
 
 * Added iOS simulator support.
