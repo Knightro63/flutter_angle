@@ -56,10 +56,9 @@ public final class OpenGLManager  {
 
     android.opengl.EGLSurface createDummySurface() {
         int[] surfaceAttributes = new int[]{
-
-                EGL_WIDTH, 16,
-                EGL_HEIGHT, 16,
-                EGL_NONE
+            EGL_WIDTH, 16,
+            EGL_HEIGHT, 16,
+            EGL_NONE
         };
         return EGL14.eglCreatePbufferSurface(eglDisplayAndroid, eglConfigAndroid, surfaceAttributes,0);
     }
@@ -167,15 +166,17 @@ public final class OpenGLManager  {
 
     private int[] getConfigAttributes() {
         return new int[]{
-                EGL10.EGL_RENDERABLE_TYPE,
-                EGL_OPENGL_ES3_BIT_KHR,
-                EGL_SURFACE_TYPE,    EGL_WINDOW_BIT,
+                EGL10.EGL_RENDERABLE_TYPE, EGL_OPENGL_ES3_BIT_KHR,
+                // EGL_SURFACE_TYPE,    
+                // EGL_WINDOW_BIT,
                 EGL10.EGL_RED_SIZE, 8,
                 EGL10.EGL_GREEN_SIZE, 8,
                 EGL10.EGL_BLUE_SIZE, 8,
                 EGL10.EGL_ALPHA_SIZE, 8,
                 EGL10.EGL_DEPTH_SIZE, 24,
                 EGL10.EGL_STENCIL_SIZE, 8,
+                // EGL10.EGL_SAMPLE_BUFFERS, 1, // Enable multisampling
+                // EGL10.EGL_SAMPLES, 4, // Number of samples per pixel
                 EGL10.EGL_NONE
         };
     }
