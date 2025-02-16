@@ -97,13 +97,19 @@ class FlutterAngle {
   static late Pointer<Void> _dummySurface;
   static int? _activeFramebuffer;
   static late RenderWorker worker; 
+  static bool _useAngle = false;
 
   static LibOpenGLES get _rawOpenGl {
     if (FlutterAngle._libOpenGLES == null) {
       if (Platform.isMacOS || Platform.isIOS) {
         FlutterAngle._libOpenGLES = LibOpenGLES(DynamicLibrary.process());
       } else if (Platform.isAndroid) {
-        FlutterAngle._libOpenGLES = LibOpenGLES(DynamicLibrary.open('libGLESv3.so'));
+        if (_useAngle) {
+          //
+        FlutterAngle._libOpenGLES = LibOpenGLES(DynamicLibrary.open('libGLESv2_angle.so'));
+        } else {
+          FlutterAngle._libOpenGLES = LibOpenGLES(DynamicLibrary.open('libGLESv3.so'));
+        }
       } else {
         FlutterAngle._libOpenGLES =
             LibOpenGLES(DynamicLibrary.open(resolveDylibPath('libGLESv2')));
@@ -121,14 +127,20 @@ class FlutterAngle {
   // * test on all plaforms
   // * mulitple textures on Android and the other OSs
 
-  static Future<void> initOpenGL([bool useDebugContext = false]) async {
+  static Future<void> initOpenGL([bool useDebugContext = false, bool useAngle = false]) async {
+    _useAngle = useAngle;
     /// make sure we don't call this twice
     if (_display != nullptr) {
       return;
     }
-    loadEGL();
+    loadEGL(useAngle: _useAngle);
     // Initialize native part of he plugin
-    final result = await _channel.invokeMethod('initOpenGL');
+    late final dynamic result;
+    if (_useAngle) {
+      result = await _channel.invokeMethod('initOpenGLAngle');
+    } else {
+      result = await _channel.invokeMethod('initOpenGL');
+    }
     angleConsole.info(result);
     if (result == null) {
       throw EglException('Plugin.initOpenGL didn\'t return anything. Something is really wrong!');
@@ -295,7 +307,12 @@ class FlutterAngle {
     final textureTarget = GL_TEXTURE_2D;
     final height = (options.height*options.dpr).toInt();
     final width = (options.width*options.dpr).toInt();
-    final result = await _channel.invokeMethod('createTexture', {"width": width, "height": height,});
+    late final dynamic result;
+    if (_useAngle){
+      result = await _channel.invokeMethod('createTextureAngle', {"width": width, "height": height,});
+    } else {
+      result = await _channel.invokeMethod('createTexture', {"width": width, "height": height,});
+    }
 
     if (Platform.isAndroid) {
       final newTexture = FlutterAngleTexture.fromMap(result, null, 0, options);
