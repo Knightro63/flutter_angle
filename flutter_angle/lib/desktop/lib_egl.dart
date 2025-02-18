@@ -26,12 +26,16 @@ Pointer<Void> eglGetDisplay([Pointer<Void>? displayId]) {
   return nativeCallResult;
 }
 
-void loadEGL() {
+void loadEGL({bool useAngle = false}) {
   if (_libEGL == null) {
     if (Platform.isMacOS || Platform.isIOS) {
       _libEGL = LibEGL(DynamicLibrary.process());
     } else if (Platform.isAndroid) {
-      _libEGL = LibEGL(DynamicLibrary.open('libEGL.so'));
+      if (useAngle) {
+        _libEGL = LibEGL(DynamicLibrary.open('libEGL_angle.so'));
+      } else {
+        _libEGL = LibEGL(DynamicLibrary.open('libEGL.so'));
+      }
     } else {
       _libEGL = LibEGL(DynamicLibrary.open(resolveDylibPath('libEGL')));
     }
