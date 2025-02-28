@@ -1,0 +1,24 @@
+name: flutter_angle_example
+description: Demonstrates how to use the flutter_angle plugin.
+publish_to: 'none'
+
+environment:
+  sdk: ">=2.16.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_angle_web:
+    path: ../
+  cupertino_icons: ^1.0.2
+  camera_android: ^0.10.9+11
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/ 
