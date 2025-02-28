@@ -1,3 +1,7 @@
+## 0.0.8
+
+* Removed "import io.flutter.plugin.common.PluginRegistry.Registrar;" to fix android bug.
+
 ## 0.0.7
 
 * Updated iOS device framework to fix xcode 16 archive bug.

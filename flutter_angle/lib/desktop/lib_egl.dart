@@ -475,8 +475,6 @@ extension EglErrorExtension on EglError {
         return EGL_BAD_NATIVE_WINDOW;
       case EglError.contextLost:
         return EGL_CONTEXT_LOST;
-      default:
-        throw UnsupportedError('Unsupported value: $this');
     }
   }
 }
@@ -854,8 +852,6 @@ extension EglConfigAttributeExtension on EglConfigAttribute {
         return EGL_TRANSPARENT_GREEN_VALUE;
       case EglConfigAttribute.transparentBlueValue:
         return EGL_TRANSPARENT_BLUE_VALUE;
-      default:
-        throw UnsupportedError('Unsupported value: $this');
     }
   }
 }
@@ -947,8 +943,6 @@ extension EglValueExtension on EglValue {
         return EGL_OPENGL_ES2_BIT;
       case EglValue.openglEs3Bit:
         return EGL_OPENGL_ES3_BIT;
-      default:
-        throw UnsupportedError('Unsupported value: $this');
     }
   }
 }
