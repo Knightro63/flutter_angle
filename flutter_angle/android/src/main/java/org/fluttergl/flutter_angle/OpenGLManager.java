@@ -5,6 +5,7 @@ import android.opengl.EGL14;
 import android.opengl.GLES30;
 import android.opengl.GLUtils;
 import android.util.Log;
+import android.view.Surface;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
@@ -52,6 +53,11 @@ public final class OpenGLManager  {
     android.opengl.EGLSurface createSurfaceFromTexture(SurfaceTexture texture) {
         int [] attributes = new int[]{EGL_NONE};
         return EGL14.eglCreateWindowSurface(eglDisplayAndroid, eglConfigAndroid, texture, attributes,0);
+    }
+    
+    android.opengl.EGLSurface createSurfaceFromSurface(Surface surface) {
+        int [] attributes = new int[]{EGL_NONE};
+        return EGL14.eglCreateWindowSurface(eglDisplayAndroid, eglConfigAndroid, surface, attributes,0);
     }
 
     android.opengl.EGLSurface createDummySurface() {

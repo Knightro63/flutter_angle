@@ -1,4 +1,3 @@
-
 package org.fluttergl.flutter_angle;
 
 import androidx.annotation.NonNull;
@@ -10,8 +9,6 @@ import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 
-
-import io.flutter.plugin.common.PluginRegistry.Registrar;
 import io.flutter.view.TextureRegistry;
 
 import android.graphics.SurfaceTexture;
@@ -25,6 +22,7 @@ import android.opengl.EGLSurface;
 import android.opengl.GLES30;
 import android.os.Build;
 import android.util.Log;
+import android.view.Surface;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -74,22 +72,37 @@ class MyEGLContext extends EGLObjectHandle {
 }
 
 
-class FlutterGLTexture
-{
+class FlutterGLTexture {
   public
-  FlutterGLTexture(TextureRegistry.SurfaceTextureEntry textureEntry,  OpenGLManager openGLManager, int width, int  height)
-  {
-    this.with=width;
-    this.height=height;
+  FlutterGLTexture(TextureRegistry.SurfaceTextureEntry textureEntry, OpenGLManager openGLManager, int width, int height) {
+    this.with = width;
+    this.height = height;
     this.openGLManager = openGLManager;
-    surfaceTextureEntry=textureEntry;
-    surfaceTextureEntry.surfaceTexture().setDefaultBufferSize(width,height);
+    this.usingSurfaceProducer = false;
+    this.surfaceTextureEntry = textureEntry;
+    this.surfaceProducer = null;
+    surfaceTextureEntry.surfaceTexture().setDefaultBufferSize(width, height);
     surface = openGLManager.createSurfaceFromTexture(surfaceTextureEntry.surfaceTexture());
   }
+  
+  public
+  FlutterGLTexture(TextureRegistry.SurfaceProducer surfaceProducer, OpenGLManager openGLManager, int width, int height) {
+    this.with = width;
+    this.height = height;
+    this.openGLManager = openGLManager;
+    this.usingSurfaceProducer = true;
+    this.surfaceTextureEntry = null;
+    this.surfaceProducer = surfaceProducer;
+    surfaceProducer.setSize(width, height);
+    surface = openGLManager.createSurfaceFromSurface(surfaceProducer.getSurface());
+  }
 
-  protected void finalize()
-  {
-    surfaceTextureEntry.release();
+  protected void finalize() {
+    if (usingSurfaceProducer && surfaceProducer != null) {
+      surfaceProducer.release();
+    } else if (surfaceTextureEntry != null) {
+      surfaceTextureEntry.release();
+    }
     EGL14.eglDestroySurface(openGLManager.getEglDisplayAndroid(), surface);
   }
 
@@ -98,8 +111,13 @@ class FlutterGLTexture
   int height;
   EGLSurface surface;
   TextureRegistry.SurfaceTextureEntry surfaceTextureEntry;
-};
-
+  TextureRegistry.SurfaceProducer surfaceProducer;
+  boolean usingSurfaceProducer;
+  
+  public long getTextureId() {
+    return usingSurfaceProducer ? surfaceProducer.id() : surfaceTextureEntry.id();
+  }
+}
 
 /** FlutterAnglePlugin */
 public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
@@ -112,6 +130,7 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
   private TextureRegistry textureRegistry;
   private OpenGLManager openGLManager = null;
   private Map<Long,FlutterGLTexture> textureMap;
+  private static final String TAG = "FlutterAnglePlugin";
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {
@@ -151,7 +170,6 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
       return;
     }
     else if (call.method.equals("createTexture")){
-
       int width = (int) arguments.get("width");
       int height = (int) arguments.get("height");
 
@@ -163,27 +181,44 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
         result.error("no texture height","no texture height",null);
         return;
       }
+      
       FlutterGLTexture flutterGLTexture;
 
-      try
-      {
-        TextureRegistry.SurfaceTextureEntry surfaceTextureEntry = textureRegistry.createSurfaceTexture();
-        flutterGLTexture = new FlutterGLTexture(surfaceTextureEntry,openGLManager,  width, height);
+      try {
+        // Try to use the new SurfaceProducer API first
+        boolean useSurfaceProducer = true;
+        try {
+          // Check if SurfaceProducer API is available
+          Class.forName("io.flutter.view.TextureRegistry$SurfaceProducer");
+        } catch (ClassNotFoundException e) {
+          useSurfaceProducer = false;
+        }
+        
+        if (useSurfaceProducer) {
+          // Use the new API
+          TextureRegistry.SurfaceProducer producer = textureRegistry.createSurfaceProducer();
+          flutterGLTexture = new FlutterGLTexture(producer, openGLManager, width, height);
+          Log.i(TAG, "Created texture using SurfaceProducer API");
+        } else {
+          // Fall back to the old API
+          TextureRegistry.SurfaceTextureEntry surfaceTextureEntry = textureRegistry.createSurfaceTexture();
+          flutterGLTexture = new FlutterGLTexture(surfaceTextureEntry, openGLManager, width, height);
+          Log.i(TAG, "Created texture using SurfaceTextureEntry API (legacy)");
+        }
       }
-      catch (Exception ex)
-      {
-        result.error(ex.getMessage() + " : " + ex.toString(),null,null);
+      catch (Exception ex) {
+        result.error(ex.getMessage() + " : " + ex.toString(), null, null);
         return;
       }
-      textureMap.put(flutterGLTexture.surfaceTextureEntry.id(),flutterGLTexture);
-
-
+      
+      textureMap.put(flutterGLTexture.getTextureId(), flutterGLTexture);
+      
       Map<String, Object> response = new HashMap<>();
-      response.put("textureId", flutterGLTexture.surfaceTextureEntry.id());
+      response.put("textureId", flutterGLTexture.getTextureId());
       response.put("surface", flutterGLTexture.surface.getNativeHandle());
       result.success(response);
 
-      Log.i("FlutterAngle","Created a new texture " + width + "x" + height);
+      Log.i(TAG, "Created a new texture " + width + "x" + height);
     } else {
       result.notImplemented();
     }
