@@ -187,12 +187,6 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
       try {
         // Try to use the new SurfaceProducer API first
         boolean useSurfaceProducer = true;
-        try {
-          // Check if SurfaceProducer API is available
-          Class.forName("io.flutter.view.TextureRegistry$SurfaceProducer");
-        } catch (ClassNotFoundException e) {
-          useSurfaceProducer = false;
-        }
         
         if (useSurfaceProducer) {
           // Use the new API
