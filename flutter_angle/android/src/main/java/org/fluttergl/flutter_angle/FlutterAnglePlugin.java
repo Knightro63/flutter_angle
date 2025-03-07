@@ -288,10 +288,35 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
         result.error("Invalid dimensions", "Width and height must be positive", null);
         return;
       }
-      GLTexture texture = new GLTexture(textureRegistry.createSurfaceTexture(), width, height);
-      angleTextureMap.put(texture.entry.id(), texture);
+      
+      // Try to use the new SurfaceProducer API first
+      boolean useSurfaceProducer = true;
+      
+      GLTexture texture;
+      if (useSurfaceProducer) {
+        try {
+          // Use the new API
+          TextureRegistry.SurfaceProducer producer = textureRegistry.createSurfaceProducer();
+          producer.setSize(width, height);
+          texture = new GLTexture(producer);
+          Log.i(TAG, "Created ANGLE texture using SurfaceProducer API");
+        } catch (Exception e) {
+          // Fall back to old API if SurfaceProducer fails
+          Log.w(TAG, "SurfaceProducer failed, falling back to SurfaceTextureEntry", e);
+          TextureRegistry.SurfaceTextureEntry entry = textureRegistry.createSurfaceTexture();
+          texture = new GLTexture(entry, width, height);
+          Log.i(TAG, "Created ANGLE texture using SurfaceTextureEntry API (fallback)");
+        }
+      } else {
+        // Explicitly use old API
+        TextureRegistry.SurfaceTextureEntry entry = textureRegistry.createSurfaceTexture();
+        texture = new GLTexture(entry, width, height);
+        Log.i(TAG, "Created ANGLE texture using SurfaceTextureEntry API (legacy)");
+      }
+      
+      angleTextureMap.put(texture.getId(), texture);
       Map<String, Object> response = new HashMap<>();
-      response.put("textureId", texture.entry.id());
+      response.put("textureId", texture.getId());
       response.put("surface", texture.surfaceHandle);
       result.success(response);
       Log.i(TAG, String.format("Created ANGLE texture %dx%d", width, height));
@@ -338,18 +363,25 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
   private static native long getCurrentContext();
 
   private static native long createWindowSurfaceFromTexture(SurfaceTexture texture);
+  
+  // Add new native method for Surface objects
+  private static native long createWindowSurfaceFromSurface(Surface surface);
 
   // --- Helper classes ---
   // GLTexture used by ANGLE (plugin2) implementation
   private static class GLTexture {
-    final TextureRegistry.SurfaceTextureEntry entry;
+    final TextureRegistry.SurfaceTextureEntry textureEntry;
+    final TextureRegistry.SurfaceProducer producer;
     final long surfaceHandle;
     final int width;
     final int height;
     private boolean disposed = false;
+    private final boolean usingSurfaceProducer;
 
     GLTexture(TextureRegistry.SurfaceTextureEntry entry, int width, int height) {
-      this.entry = entry;
+      this.textureEntry = entry;
+      this.producer = null;
+      this.usingSurfaceProducer = false;
       this.width = width;
       this.height = height;
       entry.surfaceTexture().setDefaultBufferSize(width, height);
@@ -358,10 +390,30 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
         throw new RuntimeException("Failed to create EGL surface: " + getError());
       }
     }
+    
+    GLTexture(TextureRegistry.SurfaceProducer producer) {
+      this.producer = producer;
+      this.textureEntry = null;
+      this.usingSurfaceProducer = true;
+      this.width = producer.getWidth();
+      this.height = producer.getHeight();
+      this.surfaceHandle = createWindowSurfaceFromSurface(producer.getSurface());
+      if (this.surfaceHandle == 0) {
+        throw new RuntimeException("Failed to create EGL surface: " + getError());
+      }
+    }
+    
+    long getId() {
+      return usingSurfaceProducer ? producer.id() : textureEntry.id();
+    }
 
     void dispose() {
       if (!disposed) {
-        entry.release();
+        if (usingSurfaceProducer && producer != null) {
+          producer.release();
+        } else if (textureEntry != null) {
+          textureEntry.release();
+        }
         disposed = true;
       }
     }

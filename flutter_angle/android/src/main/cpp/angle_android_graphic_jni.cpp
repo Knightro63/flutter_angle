@@ -176,5 +176,32 @@ Java_org_fluttergl_flutter_1angle_FlutterAnglePlugin_createWindowSurfaceFromText
     return reinterpret_cast<jlong>(eglSurface);
 }
 
+// Add new method to create window surface directly from Surface object
+JNIEXPORT jlong JNICALL
+Java_org_fluttergl_flutter_1angle_FlutterAnglePlugin_createWindowSurfaceFromSurface(JNIEnv* env, jclass clazz, jobject surface) {
+    if (g_display == EGL_NO_DISPLAY || !g_config) {
+        setError("EGL not initialized");
+        return 0;
+    }
+
+    // Create the EGL surface directly from Surface
+    ANativeWindow* window = ANativeWindow_fromSurface(env, surface);
+    if (!window) {
+        setError("Failed to get native window from Surface");
+        return 0;
+    }
+
+    const EGLint attribs[] = { EGL_NONE };
+    EGLSurface eglSurface = eglCreateWindowSurface(g_display, g_config, window, attribs);
+    ANativeWindow_release(window);
+
+    if (eglSurface == EGL_NO_SURFACE) {
+        setError("Failed to create window surface from Surface");
+        return 0;
+    }
+
+    ALOG("Created window surface from Surface: %p", eglSurface);
+    return reinterpret_cast<jlong>(eglSurface);
+}
 
 } // extern "C"
