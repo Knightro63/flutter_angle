@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     width = screenSize!.width;
     height = width;
 
-    await FlutterAngle.initOpenGL(true, false);
+    await FlutterAngle.initOpenGL(true, true);
 
     final options = AngleOptions(
       width: textureWidth, 

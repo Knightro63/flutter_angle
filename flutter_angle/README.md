@@ -28,7 +28,9 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
 
 **Android**
  - compileSdkVersion: 34
+ - minSdk = 27
  - OpenGL supported
+ - Vulkan supported
 
  **Windows**
  - Intel supported.

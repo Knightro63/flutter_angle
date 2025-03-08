@@ -118,7 +118,7 @@ class FlutterAngle{
     return newTexture;
   }
 
-  static Future<void> initOpenGL([bool useDebugContext = false]) async {}
+  static Future<void> initOpenGL([bool useDebugContext = false, bool useAngle = false]) async {}
   static Future<void> updateTexture(FlutterAngleTexture texture,[WebGLTexture? sourceTexture]) async {
     texture.rawOpenGl.glFlush();
   }

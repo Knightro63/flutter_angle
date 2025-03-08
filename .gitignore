@@ -9,12 +9,15 @@
 .buildlog/
 .history
 .svn/
+.cxx/
 
 # IntelliJ related
 *.iml
 *.ipr
 *.iws
 .idea/
+
+libangle_android_graphic_jni.so
 
 # Visual Studio Code related
 .classpath

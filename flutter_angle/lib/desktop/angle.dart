@@ -136,9 +136,10 @@ class FlutterAngle {
     loadEGL(useAngle: _useAngle);
     // Initialize native part of he plugin
     late final dynamic result;
-    if (_useAngle) {
+    if (Platform.isAndroid && _useAngle) {
       result = await _channel.invokeMethod('initOpenGLAngle');
     } else {
+      _useAngle = false;
       result = await _channel.invokeMethod('initOpenGL');
     }
     angleConsole.info(result);
