@@ -1,5 +1,38 @@
 part of native_array;
 
+class AllNativeData{
+  List<NativeArray> allData = [];
+
+  int get length => allData.length;
+  int _save = 0;
+
+  bool _disposingAll = false;
+
+  void save(){
+    _save = length;
+  }
+
+  void add(NativeArray array){
+    allData.add(array);
+  }
+
+  void dispose(){
+    _disposingAll = true;
+    allData.forEach((a){
+      a.dispose();
+    });
+
+    allData.clear();
+  }
+
+  void removeAt(NativeArray array){
+    if(_disposingAll) return;
+    allData.remove(array);
+  }
+}
+
+AllNativeData allNativeData = AllNativeData();
+
 abstract class NativeArray<T extends num> {
   late int _size;
   late int oneByteSize;
@@ -34,5 +67,7 @@ abstract class NativeArray<T extends num> {
     set(source.toDartList() as List<T>);
   }
 
-  void dispose() {}
+  void dispose(){
+    allNativeData.removeAt(this);
+  }
 }

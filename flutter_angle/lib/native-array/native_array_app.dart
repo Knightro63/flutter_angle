@@ -4,9 +4,13 @@ import 'package:ffi/ffi.dart';
 import 'index.dart';
 
 abstract class PlatformNativeArray<T extends num> extends NativeArray<T> {
-  PlatformNativeArray(int size) : super(size) {}
+  PlatformNativeArray(int size) : super(size) {
+    allNativeData.add(this);
+  }
 
-  PlatformNativeArray.fromList(List<T> listData) : super(listData.length);
+  PlatformNativeArray.fromList(List<T> listData) : super(listData.length){
+    allNativeData.add(this);
+  }
 
   PlatformNativeArray clone() {
     throw Exception(" NativeArray clone need implement ");
