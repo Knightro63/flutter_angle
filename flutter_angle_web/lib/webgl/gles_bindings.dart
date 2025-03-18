@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import '../shared/webgl.dart';
 import '../shared/classes.dart';
+import 'package:web/web.dart' as html;
 
 class LibOpenGLES{
   late dynamic gl;

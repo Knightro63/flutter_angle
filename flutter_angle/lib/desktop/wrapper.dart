@@ -464,7 +464,7 @@ class RenderingContext {
           final infoLog = calloc<Int8>(infoLen.value);
 
           gl.glGetShaderInfoLog(shader.id, infoLen.value, nullptr, infoLog);
-          message = "\nError compiling shader:\n${infoLog.cast<Utf8>().toDartString()}";
+          message = "\nError compiling shader:\n${infoLog.cast<Utf8>()}";
 
           calloc.free(infoLog);
         }
@@ -738,7 +738,8 @@ class RenderingContext {
     checkError('getActiveAttrib');
 
     int _type = type.value;
-    String _name = name.cast<Utf8>().toDartString();
+    Pointer<Utf8> temp = name.cast<Utf8>();
+    String _name = temp == nullptr?'unnamed':temp.toDartString();
     int _size = size.value;
 
     calloc.free(type);
@@ -760,7 +761,8 @@ class RenderingContext {
     checkError('getActiveUniform');
 
     int _type = type.value;
-    String _name = name.cast<Utf8>().toDartString();
+    Pointer<Utf8> temp = name.cast<Utf8>();
+    String _name = temp == nullptr?'unnamed':temp.toDartString();
     int _size = size.value;
 
     calloc.free(type);
@@ -797,7 +799,8 @@ class RenderingContext {
     }
     Pointer _v = gl.glGetString(WebGL.EXTENSIONS);
     checkError('getExtension');
-    String _vstr = _v.cast<Utf8>().toDartString();
+    Pointer<Utf8> temp = _v.cast<Utf8>();
+    String _vstr = temp == nullptr?'unnamed':temp.toDartString();
     List<String> _extensions = _vstr.split(" ");
     // calloc.free(_v);
     return _extensions;
@@ -818,9 +821,10 @@ class RenderingContext {
     startCheck('getStringi');
     Pointer _v = gl.glGetStringi(key, index);
     checkError('getStringi');
-    String temp = _v.cast<Utf8>().toDartString();
+    Pointer<Utf8> temp = _v.cast<Utf8>();
+    String str = temp == nullptr?'unnamed':temp.toDartString();
     //calloc.free(_v);
-    return temp;
+    return str;
   }
 
   int getIntegerv(int v0) {
@@ -849,7 +853,7 @@ class RenderingContext {
       final infoLog = calloc<Int8>(_len);
       gl.glGetProgramInfoLog(program.id, _len, nullptr, infoLog);
       checkError('getProgramInfoLog');
-      message = "\nError compiling shader:\n${infoLog.cast<Utf8>().toDartString()}";
+      message = "\nError compiling shader:\n${infoLog.cast<Utf8>()}";
       calloc.free(infoLog);
       return message;
     } 
@@ -882,7 +886,7 @@ class RenderingContext {
 
       gl.glGetShaderInfoLog(shader.id, _len, nullptr, infoLog);
       checkError('getShaderInfoLog');
-      message = "\nError compiling shader:\n${infoLog.cast<Utf8>().toDartString()}";
+      message = "\nError compiling shader:\n${infoLog.cast<Utf8>()}";
       calloc.free(infoLog);
       return message;
     }
@@ -958,7 +962,7 @@ class RenderingContext {
           final infoLog = calloc<Int8>(infoLen.value);
 
           gl.glGetProgramInfoLog(program.id, infoLen.value, nullptr, infoLog);
-          message = "\nError linking program:\n${infoLog.cast<Utf8>().toDartString()}";
+          message = "\nError linking program:\n${infoLog.cast<Utf8>()}";
 
           calloc.free(infoLog);
         }

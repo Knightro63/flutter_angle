@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -26,6 +25,8 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   static const textureHeight = 320;
   static const aspect = textureWidth / textureHeight;
 
+  FlutterAngle angle = FlutterAngle();
+
   double dpr = 1.0;
   late double width;
   late double height;
@@ -46,7 +47,9 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     width = screenSize!.width;
     height = width;
 
-    await FlutterAngle.initOpenGL(true);
+    await angle.init(true);
+
+    print('did angle init');
 
     final options = AngleOptions(
       width: textureWidth, 
@@ -55,8 +58,8 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     );
 
     try {
-      textures.add(await FlutterAngle.createTexture(options));
-      textures.add(await FlutterAngle.createTexture(options));
+      textures.add(await angle.createTexture(options));
+      textures.add(await angle.createTexture(options));
     } on PlatformException catch (e) {
       print("failed to get texture id $e");
       return;
@@ -149,7 +152,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
             onHorizontalDragUpdate: horizontalDragUpdate,
             child: Container(
               child: 
-              kIsWeb?
+              kIsWeb || kIsWasm?
                 useRow
                   ? Row(
                     mainAxisSize: MainAxisSize.min,
@@ -157,13 +160,29 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
                       Expanded(child: 
                         Transform.scale(
                           scaleY: -1,
-                          child: HtmlElementView(viewType: textureId.toString()),
+                          child: HtmlElementView(
+                            viewType: textureId.toString(),  
+                            onPlatformViewCreated: (e){
+                              print(e);
+                            },
+                            creationParams: <String, Object?>{
+                            'key': 'someValue',
+                            },
+                          ),
                         ) 
                       ),
                       Expanded(child: 
                         Transform.scale(
                           scaleY: -1,
-                          child: HtmlElementView(viewType: textureId2.toString()),
+                          child: HtmlElementView(
+                            viewType: textureId2.toString(),  
+                            onPlatformViewCreated: (e){
+                              print(e);
+                            },
+                            creationParams: <String, Object?>{
+                            'key': 'someValue',
+                            },
+                          ),
                         ) 
                       ),
                     ],
@@ -174,13 +193,29 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
                       Expanded(child: 
                         Transform.scale(
                           scaleY: -1,
-                          child: HtmlElementView(viewType: textureId.toString()),
+                          child: HtmlElementView(
+                            viewType: textureId.toString(),  
+                            onPlatformViewCreated: (e){
+                              print(e);
+                            },
+                            creationParams: <String, Object?>{
+                            'key': 'someValue',
+                            },
+                          ),
                         ) 
                       ),
                       Expanded(child: 
                         Transform.scale(
                           scaleY: -1,
-                          child: HtmlElementView(viewType: textureId2.toString()),
+                          child: HtmlElementView(
+                            viewType: textureId2.toString(),  
+                            onPlatformViewCreated: (e){
+                              print(e);
+                            },
+                            creationParams: <String, Object?>{
+                            'key': 'someValue',
+                            },
+                          ),
                         ) 
                       ),
                     ],

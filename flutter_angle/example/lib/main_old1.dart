@@ -13,7 +13,7 @@ class ExampleDemoTest extends StatefulWidget {
 }
 
 class _MyAppState extends State<ExampleDemoTest> {
-  late FlutterAngle flutterGlPlugin;
+  FlutterAngle angle = FlutterAngle();
 
   int? fboId;
   bool ready = false;
@@ -38,14 +38,14 @@ class _MyAppState extends State<ExampleDemoTest> {
 
   @override
   void dispose(){
-    FlutterAngle.deleteTexture(sourceTexture);
+    angle.dispose([sourceTexture]);
     super.dispose();
   }
 
   Future<void> setup() async {
-    await FlutterAngle.initOpenGL(true);
+    await angle.init(false);
 
-    sourceTexture = await FlutterAngle.createTexture(      
+    sourceTexture = await angle.createTexture(      
       AngleOptions(
         width: screenSize.width.toInt(), 
         height: screenSize.height.toInt(), 
@@ -116,6 +116,6 @@ class _MyAppState extends State<ExampleDemoTest> {
     _gl.clear(WebGL.COLOR_BUFFER_BIT);
 
     _gl.flush();
-    await FlutterAngle.updateTexture(sourceTexture);
+    await angle.updateTexture(sourceTexture);
   }
 }

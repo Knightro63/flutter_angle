@@ -26,6 +26,7 @@ class _MyAppState extends State<ExampleTriangle01> {
   late final RenderingContext _gl;
 
   late FlutterAngleTexture sourceTexture;
+  FlutterAngle angle = FlutterAngle();
 
   late int defaultFramebufferTexture;
 
@@ -41,6 +42,7 @@ class _MyAppState extends State<ExampleTriangle01> {
 
   @override
   void dispose(){
+    angle.dispose([sourceTexture]);
     vertices?.dispose();
     vertices = null;
     super.dispose();
@@ -51,7 +53,7 @@ class _MyAppState extends State<ExampleTriangle01> {
     width = screenSize!.width;
     height = width;
 
-    await FlutterAngle.initOpenGL(true);
+    await angle.init();
     setState(() {});
 
     // web need wait dom ok!!!
@@ -61,7 +63,7 @@ class _MyAppState extends State<ExampleTriangle01> {
   }
 
   void setup() async {
-    sourceTexture = await FlutterAngle.createTexture(      
+    sourceTexture = await angle.createTexture(      
       AngleOptions(
         width: width.toInt(), 
         height: height.toInt(), 
@@ -169,7 +171,7 @@ class _MyAppState extends State<ExampleTriangle01> {
      _gl.gl.glFinish();
 
     if (!kIsWeb) {
-      await FlutterAngle.updateTexture(sourceTexture);
+      await angle.updateTexture(sourceTexture);
     }
   }
 

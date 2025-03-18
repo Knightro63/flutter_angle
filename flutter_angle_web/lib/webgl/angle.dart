@@ -1,5 +1,4 @@
 import 'dart:js_interop';
-
 import 'package:web/web.dart' as html;
 import './wrapper.dart';
 import '../shared/classes.dart';
@@ -29,15 +28,17 @@ class FlutterAngleTexture {
     this.options
   );
 
+
   LibOpenGLES get rawOpenGl {
     if (_libOpenGLES == null) {
-      _libOpenGLES = LibOpenGLES(
-        element?.getContext(
-          "webgl2", {
+      html.RenderingContext? rc = element?.getContext(
+          "webgl", {
             "alpha": options.alpha, 
             "antialias": options.antialias
           }.jsify()
-        )!
+        )!;
+      _libOpenGLES = LibOpenGLES(
+        rc as html.WebGL2RenderingContext
       );
     }
 
@@ -87,11 +88,6 @@ class FlutterAngleTexture {
 }
 
 class FlutterAngle{
-
-  static Future<String> get platformVersion async {
-    return 'WebGL';
-  }
-
   static void glDebugOutput(
     int source, 
     int type, 
@@ -102,14 +98,16 @@ class FlutterAngle{
     int pUserParam
   ) {}
 
-  static Future<FlutterAngleTexture> createTexture(AngleOptions options) async {
+  Future<FlutterAngleTexture> createTexture(AngleOptions options) async {
+    print('create texture');
     final _divId = DateTime.now().microsecondsSinceEpoch;
     final element = html.HTMLCanvasElement()
     ..width = (options.width * options.dpr).toInt()
     ..height = (options.height * options.dpr).toInt()
     ..id = 'canvas-id${math.Random().nextInt(100)}';
-    
+    print(element);
     ui.platformViewRegistry.registerViewFactory(_divId.toString(), (int viewId) {
+      print('did register');
       return element;
     });
 
@@ -120,11 +118,13 @@ class FlutterAngle{
     return newTexture;
   }
 
-  static Future<void> initOpenGL([bool useDebugContext = false]) async {}
-  static Future<void> updateTexture(FlutterAngleTexture texture,[WebGLTexture? sourceTexture]) async {
+  Future<void> init([bool useDebugContext = false]) async {
+    print('did init');
+  }
+  Future<void> updateTexture(FlutterAngleTexture texture,[WebGLTexture? sourceTexture]) async {
     texture.rawOpenGl.glFlush();
   }
-  static Future<void> deleteTexture(FlutterAngleTexture texture) async {}
-  static void activateTexture(FlutterAngleTexture texture) {}
-  static void printOpenGLError(String message) {}
+  Future<void> deleteTexture(FlutterAngleTexture texture) async {}
+  void activateTexture(FlutterAngleTexture texture) {}
+  void printOpenGLError(String message) {}
 }
