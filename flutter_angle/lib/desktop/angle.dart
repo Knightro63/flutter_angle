@@ -24,7 +24,7 @@ class FlutterAngleTexture {
   late final FlutterAngle _flutterAngle;
 
   LibOpenGLES get rawOpenGl {
-    return FlutterAngle._rawOpenGl;
+    return _flutterAngle._rawOpenGl;
   }
 
   FlutterAngleTexture(
@@ -52,7 +52,7 @@ class FlutterAngleTexture {
 
   RenderingContext getContext() {
     assert(_flutterAngle._baseAppContext != nullptr, "OpenGL isn't initialized! Please call FlutterAngle.initOpenGL");
-    return RenderingContext.create(FlutterAngle._rawOpenGl,options.width, options.height);
+    return RenderingContext.create(_flutterAngle._rawOpenGl,options.width, options.height);
   }
 
   /// Whenever you finished your rendering you have to call this function to signal
@@ -67,13 +67,13 @@ class FlutterAngleTexture {
   /// you can start rendering on it. If you forget it you will render into the wrong Texture.
   void activate() {
     _flutterAngle.activateTexture(this);
-    FlutterAngle._rawOpenGl.glViewport(0, 0, options.width, options.height);
+    _flutterAngle._rawOpenGl.glViewport(0, 0, options.width, options.height);
   }
 }
 
 class FlutterAngle {
-  static const MethodChannel _channel = const MethodChannel('flutter_angle');
-  static LibOpenGLES? _libOpenGLES;
+  final MethodChannel _channel = const MethodChannel('flutter_angle');
+  LibOpenGLES? _libOpenGLES;
   Pointer<Void> _display = nullptr;
   late Pointer<Void> _EGLconfig;
   Pointer<Void> _baseAppContext = nullptr;
@@ -81,10 +81,10 @@ class FlutterAngle {
   late Pointer<Void> _dummySurface;
   int? _activeFramebuffer;
   late RenderWorker _worker;
-  static bool _useAngle = false;
+  bool _useAngle = false;
   bool _didInit = false;
 
-  static LibOpenGLES get _rawOpenGl {
+  LibOpenGLES get _rawOpenGl {
     if (_libOpenGLES == null) {
       if (Platform.isMacOS || Platform.isIOS) {
         _libOpenGLES = LibOpenGLES(DynamicLibrary.process());
@@ -108,12 +108,12 @@ class FlutterAngle {
   Future<void> init([bool useDebugContext = false,bool useAngle = false]) async {
     if(_didInit) return;
     _useAngle = useAngle;
+    _didInit = true;
     /// make sure we don't call this twice
     if (_display != nullptr) {
       return;
     }
     loadEGL(useAngle: _useAngle);
-    // Initialize native part of he plugin
     // Initialize native part of he plugin
     late final dynamic result;
     if (Platform.isAndroid && _useAngle) {
@@ -201,8 +201,6 @@ class FlutterAngle {
       _rawOpenGl.glDebugMessageCallback(Pointer.fromFunction<GLDEBUGPROC>(glDebugOutput), nullptr);
       _rawOpenGl.glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
     }
-
-    print("DONE");
   }
 
   static void glDebugOutput(int source, int type, int id, int severity,
@@ -288,7 +286,12 @@ class FlutterAngle {
     final textureTarget = GL_TEXTURE_2D;
     final height = (options.height*options.dpr).toInt();
     final width = (options.width*options.dpr).toInt();
-    final Map result = await _channel.invokeMethod('createTexture', {"width": width, "height": height,});
+    late final dynamic result;
+    if (_useAngle){
+      result = await _channel.invokeMethod('createTextureAngle', {"width": width, "height": height,});
+    } else {
+      result = await _channel.invokeMethod('createTexture', {"width": width, "height": height,});
+    }
 
     if (Platform.isAndroid) {
       final newTexture = FlutterAngleTexture(
@@ -410,11 +413,11 @@ class FlutterAngle {
     textures?.forEach((t){
       deleteTexture(t);
     });
-    calloc.free(_display);
-    calloc.free(_EGLconfig);
-    calloc.free(_baseAppContext);
-    calloc.free(_pluginContext);
-    calloc.free(_dummySurface);
+    // if(_display != nullptr) calloc.free(_display);
+    // if(_EGLconfig != nullptr) calloc.free(_EGLconfig);
+    // if(_baseAppContext != nullptr) calloc.free(_baseAppContext);
+    // if(_pluginContext != nullptr) calloc.free(_pluginContext);
+    // if(_dummySurface != nullptr) calloc.free(_dummySurface);
     _worker.dispose();
     _libOpenGLES = null;
   }

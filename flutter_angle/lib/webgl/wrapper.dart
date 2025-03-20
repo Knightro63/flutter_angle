@@ -448,6 +448,11 @@ class RenderingContext{
     checkError('copyTexSubImage2D');
   }
 
+  void copyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height){
+    _gl.glCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height);
+    checkError('copyTexSubImage3D');
+  }
+
   void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, pixels) {
     _gl.texSubImage2D(target, level, xoffset, yoffset, width, height, format,type, pixels?.data);
     checkError('texSubImage2D');

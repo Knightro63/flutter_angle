@@ -4,13 +4,8 @@ class AllNativeData{
   List<NativeArray> allData = [];
 
   int get length => allData.length;
-  int _save = 0;
 
   bool _disposingAll = false;
-
-  void save(){
-    _save = length;
-  }
 
   void add(NativeArray array){
     allData.add(array);

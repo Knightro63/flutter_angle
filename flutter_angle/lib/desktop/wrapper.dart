@@ -500,6 +500,12 @@ class RenderingContext {
     checkError('copyTexSubImage2D');
   }
 
+  void copyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height){
+    startCheck('copyTexSubImage3D');
+    gl.glCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height);
+    checkError('copyTexSubImage3D');
+  }
+
   Buffer createBuffer() {
     startCheck('createBuffer');
     Pointer<Uint32> id = calloc<Uint32>();
@@ -797,12 +803,11 @@ class RenderingContext {
     if (Platform.isMacOS) {
       return getExtensionMacos(key);
     }
-    Pointer _v = gl.glGetString(WebGL.EXTENSIONS);
+    Pointer<Uint8> _v = gl.glGetString(WebGL.EXTENSIONS);
     checkError('getExtension');
-    Pointer<Utf8> temp = _v.cast<Utf8>();
-    String _vstr = temp == nullptr?'unnamed':temp.toDartString();
+    String _vstr = _v == nullptr?'unnamed':_v.cast<Utf8>().toDartString();
     List<String> _extensions = _vstr.split(" ");
-    // calloc.free(_v);
+    //calloc.free(_v);
     return _extensions;
   }
 
@@ -819,10 +824,9 @@ class RenderingContext {
 
   String getStringi(int key, int index) {
     startCheck('getStringi');
-    Pointer _v = gl.glGetStringi(key, index);
+    Pointer<Uint8> _v = gl.glGetStringi(key, index);
     checkError('getStringi');
-    Pointer<Utf8> temp = _v.cast<Utf8>();
-    String str = temp == nullptr?'unnamed':temp.toDartString();
+    String str = _v == nullptr?'unnamed':_v.cast<Utf8>().toDartString();
     //calloc.free(_v);
     return str;
   }
@@ -1121,7 +1125,7 @@ class RenderingContext {
 
   void uniform1fv(UniformLocation location, List<double> v){
     startCheck('uniform1fv');
-    var arrayPointer = floatListToArrayPointer(v);
+    var arrayPointer = _floatListToArrayPointer(v);
     gl.glUniform1fv(location.id, v.length, arrayPointer);
     checkError('uniform1fv');
     calloc.free(arrayPointer);
@@ -1150,7 +1154,7 @@ class RenderingContext {
 
   void uniform2fv(UniformLocation location, List<double> v){
     startCheck('uniform2fv');
-    var arrayPointer = floatListToArrayPointer(v);
+    var arrayPointer = _floatListToArrayPointer(v);
     gl.glUniform2fv(location.id, v.length ~/ 2, arrayPointer);
     checkError('uniform2fv');
     calloc.free(arrayPointer);
@@ -1178,7 +1182,7 @@ class RenderingContext {
 
   void uniform3fv(UniformLocation location, List<double> vectors) {
     startCheck('uniform3fv');
-    var arrayPointer = floatListToArrayPointer(vectors);
+    var arrayPointer = _floatListToArrayPointer(vectors);
     gl.glUniform3fv(location.id, vectors.length ~/ 3, arrayPointer);
     checkError('uniform3fv');
     calloc.free(arrayPointer);
@@ -1201,7 +1205,7 @@ class RenderingContext {
 
   void uniform4fv(UniformLocation location, List<double> vectors) {
     startCheck('uniform4fv');
-    var arrayPointer = floatListToArrayPointer(vectors);
+    var arrayPointer = _floatListToArrayPointer(vectors);
     gl.glUniform4fv(location.id, vectors.length ~/ 4, arrayPointer);
     checkError('uniform4fv');
     calloc.free(arrayPointer);
@@ -1218,7 +1222,7 @@ class RenderingContext {
 
   void uniformMatrix2fv(UniformLocation location, bool transpose, List<double> values) {
     startCheck('uniformMatrix2fv');
-    var arrayPointer = floatListToArrayPointer(values);
+    var arrayPointer = _floatListToArrayPointer(values);
     gl.glUniformMatrix2fv(location.id, values.length ~/ 4, transpose ? 1 : 0, arrayPointer);
     checkError('uniformMatrix2fv');
     calloc.free(arrayPointer);
@@ -1226,7 +1230,7 @@ class RenderingContext {
 
   void uniformMatrix3fv(UniformLocation location, bool transpose, List<double> values) {
     startCheck('uniformMatrix3fv');
-    var arrayPointer = floatListToArrayPointer(values);
+    var arrayPointer = _floatListToArrayPointer(values);
     gl.glUniformMatrix3fv(location.id, values.length ~/ 9, transpose ? 1 : 0, arrayPointer);
     checkError('uniformMatrix3fv');
     calloc.free(arrayPointer);
@@ -1235,7 +1239,7 @@ class RenderingContext {
   /// be careful, data always has a length that is a multiple of 16
   void uniformMatrix4fv(UniformLocation location, bool transpose, List<double> values) {
     startCheck('uniformMatrix4fv');
-    var arrayPointer = floatListToArrayPointer(values);
+    var arrayPointer = _floatListToArrayPointer(values);
     gl.glUniformMatrix4fv(location.id, values.length ~/ 16, transpose ? 1 : 0, arrayPointer);
     checkError('uniformMatrix4fv');
     calloc.free(arrayPointer);
@@ -1249,7 +1253,7 @@ class RenderingContext {
 
   void vertexAttrib1fv(int index, List<double> values){
     startCheck('vertexAttrib1fv');
-    var arrayPointer = floatListToArrayPointer(values);
+    var arrayPointer = _floatListToArrayPointer(values);
     gl.glVertexAttrib1fv(index, arrayPointer);
     checkError('vertexAttrib2fv');
     calloc.free(arrayPointer);
@@ -1257,7 +1261,7 @@ class RenderingContext {
 
   void vertexAttrib2fv(int index, List<double> values){
     startCheck('vertexAttrib2fv');
-    var arrayPointer = floatListToArrayPointer(values);
+    var arrayPointer = _floatListToArrayPointer(values);
     gl.glVertexAttrib2fv(index, arrayPointer);
     checkError('vertexAttrib2fv');
     calloc.free(arrayPointer);
@@ -1265,7 +1269,7 @@ class RenderingContext {
 
   void vertexAttrib3fv(int index, List<double> values){
     startCheck('vertexAttrib3fv');
-    var arrayPointer = floatListToArrayPointer(values);
+    var arrayPointer = _floatListToArrayPointer(values);
     gl.glVertexAttrib3fv(index, arrayPointer);
     checkError('vertexAttrib3fv');
     calloc.free(arrayPointer);
@@ -1273,7 +1277,7 @@ class RenderingContext {
 
   void vertexAttrib4fv(int index, List<double> values){
     startCheck('vertexAttrib4fv');
-    var arrayPointer = floatListToArrayPointer(values);
+    var arrayPointer = _floatListToArrayPointer(values);
     gl.glVertexAttrib4fv(index, arrayPointer);
     checkError('vertexAttrib4fv');
     calloc.free(arrayPointer);
@@ -1313,9 +1317,9 @@ class RenderingContext {
 
   void vertexAttribPointer(int index, int size, int type, bool normalized, int stride, int offset) {
     startCheck('vertexAttribPointer');
-    var offsetPointer = Pointer<Void>.fromAddress(offset);
+    Pointer<Void> offsetPointer = Pointer<Void>.fromAddress(offset);
     using((Arena arena) {
-      gl.glVertexAttribPointer(index, size, type, normalized ? 1 : 0, stride, offsetPointer.cast<Void>());
+      gl.glVertexAttribPointer(index, size, type, normalized ? 1 : 0, stride, offsetPointer);
     });
     checkError('vertexAttribPointer');
     //calloc.free(offsetPointer);
@@ -1333,7 +1337,7 @@ class RenderingContext {
     checkError('readPixels');
   }
 
-  Pointer<Float> floatListToArrayPointer(List<double> list) {
+  Pointer<Float> _floatListToArrayPointer(List<double> list) {
     final ptr = calloc<Float>(list.length);
     ptr.asTypedList(list.length).setAll(0, list);
     return ptr;

@@ -112,5 +112,5 @@ class FlutterAngle{
   Future<void> deleteTexture(FlutterAngleTexture texture) async {}
   void activateTexture(FlutterAngleTexture texture) {}
   void printOpenGLError(String message) {}
-  void dispose(){}
+  void dispose([List<FlutterAngleTexture>? textures]){}
 }
