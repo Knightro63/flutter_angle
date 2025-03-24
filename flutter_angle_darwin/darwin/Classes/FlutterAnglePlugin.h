@@ -3,10 +3,9 @@
 #elif TARGET_OS_MAC
     #import <FlutterMacOS/FlutterMacOS.h>
 #endif
-#define GL_SILENCE_DEPRECATION
 
-@interface FlutterAnglePlugin : NSObject<FlutterPlugin>
-@end
+#import "FlutterAnglePlugin.h"
+#import "libEGL/EGL/egl.h"
 
 @interface OpenGLException: NSException
 - (instancetype) initWithMessage: (NSString*) message andError: (int) error;
@@ -22,6 +21,12 @@
 @property (nonatomic) CVPixelBufferRef  pixelData;
 // Metal -> GL interop texture
 @property (nonatomic, readonly) GLuint metalAsGLTexture;
+@property (nonatomic, readonly) GLuint texture;
+@property (nonatomic, readonly) GLuint rbo;
+@property (nonatomic, readonly) GLuint fbo;
+@end
 
-
+@interface FlutterAnglePlugin : NSObject<FlutterPlugin>
+@property (nonatomic) EGLContext  context;
+@property (nonatomic) NSMutableArray* flutterGLTextures;
 @end

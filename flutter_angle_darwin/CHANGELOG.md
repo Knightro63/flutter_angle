@@ -1,3 +1,7 @@
+## 0.0.4
+
+* Updated framework to the latest version of angle.
+
 ## 0.0.3
 
 * Updated iOS device framework to fix xcode 16 archive bug.

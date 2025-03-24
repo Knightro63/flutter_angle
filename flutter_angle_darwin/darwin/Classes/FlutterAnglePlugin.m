@@ -1,24 +1,14 @@
 #import "FlutterAnglePlugin.h"
-#import "MetalANGLE/EGL/egl.h"
-#define EGL_EGLEXT_PROTOTYPES
-#import "MetalANGLE/EGL/eglext.h"
-#import "MetalANGLE/EGL/eglext_angle.h"
-#import "MetalANGLE/angle_gl.h"
+#import "libEGL/EGL/egl.h"
+#import "libEGL/EGL/eglext.h"
+#import "libEGL/EGL/eglext_angle.h"
+#import "libEGL/EGL/eglplatform.h"
+#import "libEGL/KHR/khrplatform.h"
+#import "libGLESv2/angle_gl.h"
 
-// Get metal device used by MetalANGLE.
-// This can return nil if the MetalANGLE is not currently using Metal back-end. For example, the
-// target device is running iOS version < 11.0 or macOS version < 13.0
-static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
-    EGLAttrib angleDevice = 0;
-    EGLAttrib device      = 0;
-    if (eglQueryDisplayAttribEXT(display, EGL_DEVICE_EXT, &angleDevice) != EGL_TRUE)
-        return nil;
-
-    if (eglQueryDeviceAttribEXT((EGLDeviceEXT)(angleDevice), EGL_MTL_DEVICE_ANGLE, &device) != EGL_TRUE)
-        return nil;
-
-    return (__bridge id<MTLDevice>)(void *)(device);
-}
+#import <Metal/Metal.h>
+#import <simd/simd.h>
+#import <MetalKit/MetalKit.h>
 
 @implementation OpenGLException
 
@@ -32,12 +22,13 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
 }
 
 @end
-
+    
 @interface FlutterGlTexture() {
     CVMetalTextureCacheRef _metalTextureCache;
     CVMetalTextureRef _metalTextureCVRef;
     id<MTLTexture> _metalTexture;
     EGLImageKHR _metalAsEGLImage;
+    GLuint _fbo;
 }
 @end
 
@@ -48,25 +39,45 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
         _width = width;
         _height = height;
         NSDictionary* options = @{
-          (NSString*)kCVPixelBufferMetalCompatibilityKey : @YES
+            (NSString*)kCVPixelBufferMetalCompatibilityKey : @YES
         };
-
+        
         CVReturn status = CVPixelBufferCreate(
-            kCFAllocatorDefault, 
-            width, 
-            height,
-            kCVPixelFormatType_32BGRA, 
-            (__bridge CFDictionaryRef)options, 
-            &_pixelData
+          kCFAllocatorDefault,
+          width,
+          height,
+          kCVPixelFormatType_32BGRA,
+          (__bridge CFDictionaryRef)options,
+          &_pixelData
         );
-
+        
         if (status != 0){
             NSLog(@"CVPixelBufferCreate error %d", (int)status);
         }
         
         CVPixelBufferLockBaseAddress(_pixelData, 0);
         [self createMtlTextureFromCVPixBufferWithWidth:width andHeight:height];
-
+        glGenFramebuffers(1, &_fbo);
+        glBindFramebuffer(GL_FRAMEBUFFER, _fbo);
+        
+        if (_texture) {
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, _metalAsGLTexture, 0);
+        }
+        else {
+            // use offscreen renderbuffer as fallback if Metal back-end is not available
+            [self createTextureFromCVPixBufferWithWidth:width andHeight:height];
+        }
+        
+        int frameBufferCheck = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+        if (frameBufferCheck != GL_FRAMEBUFFER_COMPLETE){
+            NSLog(@"GFramebuffer error %d\n", frameBufferCheck);
+            @throw [[OpenGLException alloc] initWithMessage: @"Framebuffer error"   andError: frameBufferCheck];
+        }
+        int error = glGetError() ;
+        if( error != GL_NO_ERROR){
+            NSLog(@"GlError while allocating Renderbuffer %d\n", error);
+        }
+        
         _flutterTextureId = [registry registerTexture:self];
     }
     
@@ -74,7 +85,8 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
 }
 
 - (void)dealloc {
-    // TODO: deallocate GL resources
+    glDeleteRenderbuffers(1, &_rbo);
+    glDeleteFramebuffers(1, &_fbo);
     _metalTexture = nil;
     if (_metalTextureCVRef) {
         CFRelease(_metalTextureCVRef);
@@ -87,13 +99,29 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
     CVPixelBufferRelease(_pixelData);
 }
 
+- (void)createTextureFromCVPixBufferWithWidth:(int) width andHeight:(int)height {
+    glGenRenderbuffers(1, &_rbo);
+    glBindRenderbuffer(GL_RENDERBUFFER, _rbo);
+    
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8, width, height);
+    int error = glGetError();
+    if (error != GL_NO_ERROR)
+    {
+        NSLog(@"GlError while allocating Renderbuffer %d\n", error);
+        @throw [[OpenGLException alloc] initWithMessage: @"GlError while allocating Renderbuffer"   andError: error];
+    }
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER,_rbo);
+}
+
 - (void)createMtlTextureFromCVPixBufferWithWidth:(int) width andHeight:(int)height {
     EGLDisplay display = eglGetDisplay(EGL_DEFAULT_DISPLAY);
     // Create Metal texture backed by CVPixelBuffer
-    id<MTLDevice> mtlDevice = GetANGLEMtlDevice(display);
+    id<MTLDevice> mtlDevice = MTLCreateSystemDefaultDevice();//GetANGLEMtlDevice(display);
     // if mtlDevice is nil, fall-back to CPU readback via glReadPixels
-    if (!mtlDevice)
+    if (!mtlDevice){
+        @throw [[OpenGLException alloc] initWithMessage: @"GlError while allocating MTLDevice"   andError: 1];
         return;
+    }
 
     CVReturn status = CVMetalTextureCacheCreate(
         kCFAllocatorDefault,
@@ -109,10 +137,10 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
     status = CVMetalTextureCacheCreateTextureFromImage(
         kCFAllocatorDefault,
         _metalTextureCache,
-        _pixelData, 
+        _pixelData,
         nil,
         MTLPixelFormatBGRA8Unorm,
-        width, 
+        width,
         height,
         0,
         &_metalTextureCVRef
@@ -123,14 +151,14 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
     _metalTexture = CVMetalTextureGetTexture(_metalTextureCVRef);
 
     // Create EGL image backed by Metal texture
-    EGLint attribs[] = {
+    EGLAttrib attribs[] = {
         EGL_NONE,
     };
-    _metalAsEGLImage = eglCreateImageKHR(
-        display, 
-        EGL_NO_CONTEXT, 
-        EGL_MTL_TEXTURE_MGL,
-        (__bridge EGLClientBuffer)(_metalTexture), 
+    _metalAsEGLImage = eglCreateImage(
+        display,
+        EGL_NO_CONTEXT,
+        EGL_COLORSPACE_sRGB,
+        (__bridge EGLClientBuffer)(_metalTexture),
         attribs
     );
 
@@ -177,12 +205,6 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
 
 - (void)handleMethodCall:(FlutterMethodCall*)call result:(FlutterResult)result {
     if ([call.method isEqualToString:@"initOpenGL"]) {
-        static EGLContext  context;
-        if (context != NULL)
-        {
-          result([NSNumber numberWithLong: (long)context]);
-          return;
-        }
 
         EGLDisplay display = eglGetDisplay(EGL_DEFAULT_DISPLAY);
         EGLint major;
@@ -194,13 +216,15 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
         }
         
         const EGLint attribute_list[] = {
-          EGL_RED_SIZE, 8,
-          EGL_GREEN_SIZE, 8,
-          EGL_BLUE_SIZE, 8,
-          EGL_ALPHA_SIZE, 8,
-          EGL_DEPTH_SIZE, 24,
-          EGL_STENCIL_SIZE, 8,
-          EGL_NONE
+            EGL_RENDERABLE_TYPE,
+            EGL_OPENGL_ES3_BIT,
+            EGL_RED_SIZE, 8,
+            EGL_GREEN_SIZE, 8,
+            EGL_BLUE_SIZE, 8,
+            EGL_ALPHA_SIZE, 8,
+            EGL_DEPTH_SIZE, 24,
+            EGL_STENCIL_SIZE, 8,
+            EGL_NONE
         };
 
         EGLint num_config;
@@ -210,26 +234,35 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
             result([FlutterError errorWithCode: @"EGL InitError" message: @"Failed to call eglCreateWindowSurface()"  details:NULL]);
             return;
         }
-
-        // This is just a dummy surface that it needed to make an OpenGL context current (bind it to this thread)
-        CALayer* dummyLayer       = [[CALayer alloc] init];
-        dummyLayer.frame = CGRectMake(0, 0, 1, 1);
-        CALayer* dummyLayer2       = [[CALayer alloc] init];
-        dummyLayer2.frame = CGRectMake(0, 0, 1, 1);
-
-        EGLSurface dummySurfaceForDartSide = eglCreateWindowSurface(display, config,(__bridge EGLNativeWindowType)dummyLayer, NULL);
-        EGLSurface dummySurface = eglCreateWindowSurface(display, config,(__bridge EGLNativeWindowType)dummyLayer2, NULL);
+        
+        const EGLint surfaceAttributes[] = {
+          EGL_WIDTH, 16,
+          EGL_HEIGHT, 16,
+          EGL_NONE
+        };
+        
+        EGLSurface dummySurface = eglCreatePbufferSurface(display, config, surfaceAttributes);
+        EGLSurface dummySurfaceForDartSide = eglCreatePbufferSurface(display, config, surfaceAttributes);
         
         if ((dummySurfaceForDartSide == EGL_NO_SURFACE) || (dummySurface == EGL_NO_SURFACE)){
             result([FlutterError errorWithCode: @"EGL InitError" message: @"Dummy Surface creation failed"  details:NULL]);
             return;
         }
-        if (eglMakeCurrent(display, dummySurface, dummySurface, context)!=1){
+        const EGLint contextAttribs[] = {
+            EGL_CONTEXT_CLIENT_VERSION,
+            3,
+            EGL_NONE
+        };
+        _context = eglCreateContext(display, config, nil, contextAttribs);
+        
+        if (eglMakeCurrent(display, dummySurface, dummySurface, _context)!=1){
             NSLog(@"MakeCurrent failed: %d",eglGetError());
         }
         
+        _flutterGLTextures = [[NSMutableArray alloc] init];
+        
         result(@{
-            @"context" : [NSNumber numberWithLong: (long)context],
+            @"context" : [NSNumber numberWithLong: (long)_context],
             @"dummySurface" : [NSNumber numberWithLong: (long)dummySurfaceForDartSide]
         });
         return;
@@ -253,28 +286,37 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
           result([FlutterError errorWithCode: @"No arguments" message: @"No arguments received by the native part of FlutterGL.createTexture"  details:NULL]);
           return;
         }
-
+        
+        FlutterGlTexture* temp;
         @try{
-            _flutterGLTexture = [[FlutterGlTexture alloc] initWithWidth:width.intValue andHeight:height.intValue registerWidth:_textureRegistry];
+             temp = [[FlutterGlTexture alloc] initWithWidth:width.intValue andHeight:height.intValue registerWidth:_textureRegistry];
         }
         @catch (OpenGLException* ex){
             result([FlutterError errorWithCode: [@( [ex errorCode]) stringValue] message: [@"Error creating FlutterGLTextureObjec: " stringByAppendingString:[ex message]] details:NULL]);
             return;
         }
-
-        //flutterGLTextures.insert(TextureMap::value_type(flutterGLTexture->flutterTextureId, std::move(flutterGLTexture)));
+        [_flutterGLTextures addObject:temp];
+        int c = (int)[_flutterGLTextures count];
         result(@{
-           @"textureId" : [NSNumber numberWithLongLong: [_flutterGLTexture flutterTextureId]],
-           @"metalAsGLTexture": [NSNumber numberWithLongLong: [_flutterGLTexture  metalAsGLTexture]]
+            @"textureId" : [NSNumber numberWithLongLong: [temp flutterTextureId]],
+            @"location" : [NSNumber numberWithLong: c-1],
+            @"metalAsGLTexture": [NSNumber numberWithLongLong: [temp  metalAsGLTexture]],
+            @"rbo": [NSNumber numberWithLongLong: [temp  rbo]]
         });
         return;
     }
     if ([call.method isEqualToString:@"updateTexture"]) {
         NSNumber* textureId;
+        NSNumber* loc;
         if (call.arguments) {
             textureId = call.arguments[@"textureId"];
             if (textureId == NULL){
                 result([FlutterError errorWithCode: @"updateTexture Error" message: @"no texture id received by the native part of FlutterGL.updateTexture"  details:NULL]);
+                return;
+            }
+            loc = call.arguments[@"location"];
+            if (loc == NULL){
+                result([FlutterError errorWithCode: @"updateTexture Error" message: @"no texture loc received by the native part of FlutterGL.updateTexture"  details:NULL]);
                 return;
             }
         }
@@ -282,10 +324,20 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
             result([FlutterError errorWithCode: @"No arguments" message: @"No arguments received by the native part of FlutterGL.updateTexture"  details:NULL]);
             return;
         }
-
-        FlutterGlTexture* currentTexture = _flutterGLTexture;
-
+        FlutterGlTexture* currentTexture = [_flutterGLTextures objectAtIndex: [loc intValue]];
+        if (currentTexture.metalAsGLTexture || currentTexture.texture) {
+            // DO NOTHING, metal texture is automatically updated
+        }
+        else {
+            glBindFramebuffer(GL_FRAMEBUFFER, currentTexture.fbo);
+            CVPixelBufferLockBaseAddress([currentTexture pixelData], 0);
+            void* buffer = (void*)CVPixelBufferGetBaseAddress([currentTexture pixelData]);
+            glReadPixels(0, 0, (GLsizei)[currentTexture width], (GLsizei)currentTexture.height, GL_BGRA_IMG, GL_UNSIGNED_BYTE, (void*)buffer);
+            CVPixelBufferUnlockBaseAddress([currentTexture pixelData],0);
+        }
+        
         [_textureRegistry textureFrameAvailable:[currentTexture flutterTextureId]];
+            
         result(nil);
         return;
     }   
@@ -299,10 +351,16 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
     } 
     if ([call.method isEqualToString:@"deleteTexture"]) {
         NSNumber* textureId;
+        NSNumber* loc;
         if (call.arguments) {
             textureId = call.arguments[@"textureId"];
             if (textureId == NULL){
                 result([FlutterError errorWithCode: @"deleteTexture Error" message: @"no texture id received by the native part of FlutterGL.deleteTexture"  details:NULL]);
+                return;
+            }
+            loc = call.arguments[@"location"];
+            if (loc == NULL){
+                result([FlutterError errorWithCode: @"updateTexture Error" message: @"no texture loc received by the native part of FlutterGL.updateTexture"  details:NULL]);
                 return;
             }
         }
@@ -310,6 +368,8 @@ static id<MTLDevice> GetANGLEMtlDevice(EGLDisplay display){
             result([FlutterError errorWithCode: @"No arguments" message: @"No arguments received by the native part of FlutterGL.deleteTexture"  details:NULL]);
             return;
         }
+        
+        [_flutterGLTextures removeObjectAtIndex:[loc intValue]];
         result(nil);
         return;
     } 
