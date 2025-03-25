@@ -138,7 +138,7 @@ class RenderingContext {
     var indices = Pointer<Void>.fromAddress(offset);
     gl.glDrawElementsInstanced(mode, count, type, indices, instanceCount);
     checkError('drawElementsInstanced');
-    calloc.free(indices);
+    //calloc.free(indices);
   }
 
   void endTransformFeedback(){
@@ -409,9 +409,16 @@ class RenderingContext {
   /// Be careful which type of integer you really pass here. Unfortunately an UInt16List
   /// is viewed by the Dart type system just as List<int>, so we jave to specify the native type
   /// here in [nativeType]
-  void bufferData(int target, NativeArray data, int usage) {
+  void bufferData(int target, dynamic data, int? usage) {
     startCheck('bufferData');
-    gl.glBufferData(target, data.lengthInBytes, data.data, usage);
+    if(data is int){
+      var offSetPointer = Pointer<Void>.fromAddress(data);
+      gl.glBufferData(target, data, offSetPointer.cast(), usage ?? 0);
+    }
+    else{
+      gl.glBufferData(target, data.lengthInBytes, data.data, usage ?? 0);
+    }
+    
     checkError('bufferData');
   }
 
@@ -682,7 +689,7 @@ class RenderingContext {
     var offSetPointer = Pointer<Void>.fromAddress(offset);
     gl.glDrawElements(mode, count, type, offSetPointer.cast());
     checkError('drawElements');
-    calloc.free(offSetPointer);
+    //calloc.free(offSetPointer);
   }
 
   void enable(int cap) {
