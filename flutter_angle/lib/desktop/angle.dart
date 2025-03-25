@@ -102,7 +102,7 @@ class FlutterAngle {
   static LibOpenGLES get _rawOpenGl {
     if (FlutterAngle._libOpenGLES == null) {
       if (Platform.isMacOS || Platform.isIOS) {
-        FlutterAngle._libOpenGLES = LibOpenGLES(DynamicLibrary.process());
+        FlutterAngle._libOpenGLES = LibOpenGLES(DynamicLibrary.open('libGLESv2.dylib'));
       } else if (Platform.isAndroid) {
         if (_useAngle) {
           //
@@ -414,12 +414,18 @@ class FlutterAngle {
   static void activateTexture(FlutterAngleTexture texture) {
     _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, texture.fboId);
     if (Platform.isAndroid) {
-      eglMakeCurrent(_display, texture.androidSurface, texture.androidSurface,_baseAppContext);
+      eglMakeCurrent(_display, texture.androidSurface, texture.androidSurface, _baseAppContext);
       return;
     }
+    
+    // For macOS (and other platforms), make sure we validate the context before continuing
+    if (_baseAppContext == nullptr) {
+      throw EglException("OpenGL context is null. Make sure you called FlutterAngle.initOpenGL");
+    }
+    
     if (texture.metalAsGLTextureId != 0) {
       // Draw to metal interop texture directly
-      _rawOpenGl.glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, texture.metalAsGLTextureId, 0);
+      _rawOpenGl.glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture.metalAsGLTextureId, 0);
     } 
     else {
       _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, texture.rboId);

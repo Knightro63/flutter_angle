@@ -17,11 +17,9 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   s.library = 'c++'
 
-  s.preserve_paths = 'libEGL.xcframework', 'libGLESv2.xcframework'
-  s.vendored_frameworks = 'libEGL.xcframework', 'libGLESv2.xcframework'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES'} 
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-framework libEGL', 'OTHER_LDFLAGS' => '-framework libGLESv2'}
   
+  s.osx.vendored_library = 'Assets/macos-arm64_x86_64/libEGL.dylib','Assets/macos-arm64_x86_64/libGLESv2.dylib','Assets/macos-arm64_x86_64/libc++_chrome.dylib','Assets/macos-arm64_x86_64/libchrome_zlib.dylib','Assets/macos-arm64_x86_64/libdawn_native.dylib','Assets/macos-arm64_x86_64/libdawn_proc.dylib','Assets/macos-arm64_x86_64/libdawn_platform.dylib','Assets/macos-arm64_x86_64/libthird_party_abseil-cpp_absl.dylib'
   s.osx.dependency 'FlutterMacOS'
   s.osx.deployment_target = '10.15'
 
