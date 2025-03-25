@@ -22,8 +22,6 @@ flutter:
     platforms:
       ios:
         pluginClass: FlutterAnglePlugin
-        sharedDarwinSource: true
       macos:
         pluginClass: FlutterAnglePlugin
-        sharedDarwinSource: true
 

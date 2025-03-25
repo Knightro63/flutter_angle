@@ -27,9 +27,7 @@ libangle_android_graphic_jni.so
 .metadata
 .temp/
 
-*/macos
 */web
-*/ios
 */linux
 
 # Flutter repo-specific
