@@ -308,11 +308,12 @@ class FlutterAngle {
     final textureTarget = GL_TEXTURE_2D;
     final height = (options.height*options.dpr).toInt();
     final width = (options.width*options.dpr).toInt();
+
     late final dynamic result;
     if (_useAngle){
-      result = await _channel.invokeMethod('createTextureAngle', {"width": width, "height": height,});
+      result = await _channel.invokeMethod('createTextureAngle', {"width": width, "height": height, "useSurfaceProducer": options.useSurfaceProducer,});
     } else {
-      result = await _channel.invokeMethod('createTexture', {"width": width, "height": height,});
+      result = await _channel.invokeMethod('createTexture', {"width": width, "height": height, "useSurfaceProducer": options.useSurfaceProducer,});
     }
 
     if (Platform.isAndroid) {

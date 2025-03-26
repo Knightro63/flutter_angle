@@ -1,10 +1,10 @@
 name: flutter_angle_native_array
 description: "A type cast array simular to js."
 version: 0.0.1
-homepage:
+homepage: https://github.com/Knightro63/flutter_angle/tree/main/flutter_angle
 
 environment:
-  sdk: ^3.7.0
+  sdk: ">=3.3.2 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
