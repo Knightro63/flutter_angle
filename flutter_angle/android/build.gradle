@@ -57,6 +57,15 @@ android {
         }
     }
 
+    sourceSets {
+        debug {
+            jniLibs.srcDirs = ['src/debug/jniLibs']
+        }
+        release {
+            jniLibs.srcDirs = ['src/release/jniLibs']
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
