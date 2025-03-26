@@ -283,7 +283,7 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
       Map<String, Object> args = (Map<String, Object>) call.arguments;
       int width = (int) args.get("width");
       int height = (int) args.get("height");
-      boolean useSurfaceProducer = (boolean) arguments.get("useSurfaceProducer");
+      boolean useSurfaceProducer = (boolean) args.get("useSurfaceProducer");
 
       if (width <= 0 || height <= 0) {
         result.error("Invalid dimensions", "Width and height must be positive", null);
