@@ -26,6 +26,8 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   static const textureHeight = 320;
   static const aspect = textureWidth / textureHeight;
 
+  FlutterAngle angle = FlutterAngle();
+
   double dpr = 1.0;
   late double width;
   late double height;
@@ -46,7 +48,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     width = screenSize!.width;
     height = width;
 
-    await FlutterAngle.initOpenGL(true, true);
+    await angle.init(true, false);
 
     final options = AngleOptions(
       width: textureWidth, 
@@ -55,8 +57,8 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     );
 
     try {
-      textures.add(await FlutterAngle.createTexture(options));
-      textures.add(await FlutterAngle.createTexture(options));
+      textures.add(await angle.createTexture(options));
+      textures.add(await angle.createTexture(options));
     } on PlatformException catch (e) {
       print("failed to get texture id $e");
       return;
@@ -126,6 +128,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     ticker.dispose();
     lesson?.dispose();
     lesson2?.dispose();
+    angle.dispose(textures);
     super.dispose();
   }
 

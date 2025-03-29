@@ -329,6 +329,42 @@ void eglMakeCurrent(
   Pointer<Void> read,
   Pointer<Void> context,
 ) {
+  // Check for invalid small pointer values (like 0x1 or 0x2) which are not valid EGL surfaces
+  // These may be returned by some EGL implementations on macOS
+  bool isInvalidSurface(Pointer<Void> ptr) {
+    final address = ptr.address;
+    return address > 0 && address < 1000; // Arbitrary cutoff for "suspiciously small" pointer values
+  }
+
+  if (isInvalidSurface(draw) || isInvalidSurface(read)) {
+    // Try to create a proper dummy surface if we don't have one
+    try {
+      if (display != nullptr) {
+        // Try to find any valid config
+        final configs = eglGetConfigs(display, maxConfigs: 1);
+        if (configs.isNotEmpty) {
+          // Create a minimal pbuffer surface
+          final attributes = {
+            EglSurfaceAttributes.width: 4,
+            EglSurfaceAttributes.height: 4,
+          };
+          final newSurface = eglCreatePbufferSurface(display, configs[0], attributes: attributes);
+          
+          // Now make current with the new surface instead of the invalid ones
+          final nativeCallResult = _libEGL!.eglMakeCurrent(display, newSurface, newSurface, context) == 1;
+          if (nativeCallResult) {
+            return;
+          } else {
+            // Fall through to the original error handling
+          }
+        }
+      }
+    } catch (e) {
+      // Fall through to the original error handling
+    }
+  }
+  
+  // Original implementation
   final nativeCallResult = _libEGL!.eglMakeCurrent(display, draw, read, context) == 1;
 
   if (nativeCallResult) {
