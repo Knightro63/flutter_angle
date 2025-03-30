@@ -18,9 +18,9 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-dependency_overrides:
-  flutter_angle_darwin:
-    path: ../../flutter_angle_darwin
+# dependency_overrides:
+#   flutter_angle_darwin:
+#     path: ../../flutter_angle_darwin
 
 flutter:
   uses-material-design: true
