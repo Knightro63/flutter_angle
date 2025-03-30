@@ -1,4 +1,4 @@
-## 0.0.4
+## 0.1.0
 
 * Updated framework to the latest version of angle.
 

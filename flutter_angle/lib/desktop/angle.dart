@@ -84,12 +84,14 @@ class FlutterAngle {
   late Pointer<Void> _dummySurface;
   int? _activeFramebuffer;
   late RenderWorker _worker;
+
   bool _useAngle = false;
   bool _didInit = false;
+  bool _isApple = false;
 
   LibOpenGLES get _rawOpenGl {
     if (_libOpenGLES == null) {
-      if (Platform.isIOS || Platform.isMacOS) {
+      if (_isApple) {
         _libOpenGLES = LibOpenGLES(DynamicLibrary.process());
       } else if (Platform.isAndroid) {
         if (_useAngle) {
@@ -108,8 +110,8 @@ class FlutterAngle {
   // Next stepps:
   // * test on all plaforms
   // * mulitple textures on Android and the other OSs
-  Future<void> init(
-      [bool useDebugContext = false, bool useAngle = false]) async {
+  Future<void> init([bool useDebugContext = false, bool useAngle = false]) async {
+    _isApple = Platform.isIOS || Platform.isMacOS;
     if (_didInit) return;
     _useAngle = useAngle;
     _didInit = true;
@@ -305,7 +307,7 @@ class FlutterAngle {
   /// For iOS only: Creates an EGL surface from an IOSurface pointer
   Pointer<Void>? createEGLSurfaceFromIOSurface(
       Pointer<Void> ioSurfacePtr, int width, int height) {
-    if (!Platform.isIOS) return null;
+    if (!_isApple) return null;
 
     final surfaceAttribs = calloc<Int32>(20);
     int i = 0;
@@ -375,6 +377,8 @@ class FlutterAngle {
         "height": height,
         "useSurfaceProducer": options.useSurfaceProducer,
       });
+
+      print(result);
     }
 
     if (Platform.isAndroid) {
@@ -397,7 +401,7 @@ class FlutterAngle {
       return newTexture;
     }
 
-    if (Platform.isIOS) {
+    if (_isApple) {
       // Create the EGL surface from IOSurface before creating the texture object
       Pointer<Void>? macIosSurface;
       if (result.containsKey('surfacePointer')) {
@@ -516,13 +520,13 @@ class FlutterAngle {
     }
 
     // If we have an iOS EGL surface created from IOSurface, use it
-    if (Platform.isIOS && texture.macIosSurface != nullptr) {
+    if (_isApple && texture.macIosSurface != nullptr) {
       eglSwapBuffers(_display, texture.macIosSurface!);
       await _channel.invokeMethod('textureFrameAvailable', texture.textureId);
       return;
     }
 
-    if (Platform.isAndroid || Platform.isIOS) {
+    if (Platform.isAndroid || _isApple) {
       eglSwapBuffers(_display, texture.androidSurface);
       return;
     }
@@ -570,9 +574,8 @@ class FlutterAngle {
     _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, texture.fboId);
 
     // If we have an iOS EGL surface created from IOSurface, use it
-    if (Platform.isIOS && texture.macIosSurface != nullptr) {
-      eglMakeCurrent(_display, texture.macIosSurface!, texture.macIosSurface!,
-          _baseAppContext);
+    if (_isApple && texture.macIosSurface != nullptr) {
+      eglMakeCurrent(_display, texture.macIosSurface!, texture.macIosSurface!, _baseAppContext);
       return;
     }
 
