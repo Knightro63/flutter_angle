@@ -1,6 +1,0 @@
-version: "Apple Swift version 6.0.3 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)"
-options: "a2c49e84ec4f1a9c8516d5ee912f527e4c0e630b2fe084542b1cf97bb710cb1a"
-build_start_time: [1743313451, 745758000]
-build_end_time: [1743313453, 752937000]
-inputs:
-  "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/Classes/FlutterAnglePlugin.swift": [1743312868, 233498521]
