@@ -29,7 +29,7 @@ Pointer<Void> eglGetDisplay([Pointer<Void>? displayId]) {
 void loadEGL({bool useAngle = false}) {
   if (_libEGL == null) {
     if (Platform.isMacOS || Platform.isIOS) {
-      _libEGL = LibEGL(DynamicLibrary.open('libEGL.dylib'));
+      _libEGL = LibEGL(DynamicLibrary.process());
     } else if (Platform.isAndroid) {
       if (useAngle) {
         _libEGL = LibEGL(DynamicLibrary.open('libEGL_angle.so'));
@@ -323,6 +323,26 @@ Pointer<Void> eglCreatePbufferSurface(
   return nativeCallResult;
 }
 
+// Add a new public function to create pbuffer from client buffer after eglCreatePbufferSurface
+Pointer<Void> eglCreatePbufferFromClientBuffer(
+  Pointer<Void> display,
+  int bufferType,
+  Pointer<Void> buffer,
+  Pointer<Void> config,
+  Pointer<Int32> attribList,
+) {
+  // Using direct access to _libEGL to call eglCreatePbufferFromClientBuffer
+  final nativeCallResult = _libEGL!.eglCreatePbufferFromClientBuffer(
+      display, bufferType, buffer, config, attribList);
+
+  if (nativeCallResult == nullptr) {
+    final error = _libEGL!.eglGetError();
+    throw EglException(
+        'Failed to create PBuffer from client buffer for display [$display], buffer type [$bufferType], buffer [$buffer], config [$config]. EGL error: $error');
+  }
+  return nativeCallResult;
+}
+
 void eglMakeCurrent(
   Pointer<Void> display,
   Pointer<Void> draw,
@@ -333,7 +353,9 @@ void eglMakeCurrent(
   // These may be returned by some EGL implementations on macOS
   bool isInvalidSurface(Pointer<Void> ptr) {
     final address = ptr.address;
-    return address > 0 && address < 1000; // Arbitrary cutoff for "suspiciously small" pointer values
+    return address > 0 &&
+        address <
+            1000; // Arbitrary cutoff for "suspiciously small" pointer values
   }
 
   if (isInvalidSurface(draw) || isInvalidSurface(read)) {
@@ -348,10 +370,13 @@ void eglMakeCurrent(
             EglSurfaceAttributes.width: 4,
             EglSurfaceAttributes.height: 4,
           };
-          final newSurface = eglCreatePbufferSurface(display, configs[0], attributes: attributes);
-          
+          final newSurface = eglCreatePbufferSurface(display, configs[0],
+              attributes: attributes);
+
           // Now make current with the new surface instead of the invalid ones
-          final nativeCallResult = _libEGL!.eglMakeCurrent(display, newSurface, newSurface, context) == 1;
+          final nativeCallResult = _libEGL!
+                  .eglMakeCurrent(display, newSurface, newSurface, context) ==
+              1;
           if (nativeCallResult) {
             return;
           } else {
@@ -363,15 +388,17 @@ void eglMakeCurrent(
       // Fall through to the original error handling
     }
   }
-  
+
   // Original implementation
-  final nativeCallResult = _libEGL!.eglMakeCurrent(display, draw, read, context) == 1;
+  final nativeCallResult =
+      _libEGL!.eglMakeCurrent(display, draw, read, context) == 1;
 
   if (nativeCallResult) {
     return;
   }
 
-  throw EglException('Failed to make current using display [$display], draw [$draw], read [$read], context [$context].');
+  throw EglException(
+      'Failed to make current using display [$display], draw [$draw], read [$read], context [$context].');
 }
 
 void eglSwapBuffers(
@@ -384,7 +411,8 @@ void eglSwapBuffers(
     return;
   }
 
-  throw EglException('Failed to swap buffers using display [$display], surface [$surface].');
+  throw EglException(
+      'Failed to swap buffers using display [$display], surface [$surface].');
 }
 
 void eglDestroyContext(

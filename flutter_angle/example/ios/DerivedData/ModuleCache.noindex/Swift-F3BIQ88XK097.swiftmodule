@@ -1,0 +1,12 @@
+---
+path:            '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/18.2/Swift.swiftmodule/arm64-apple-ios.swiftmodule'
+dependencies:
+  - mtime:           1733472060000000000
+    path:            '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphoneos/prebuilt-modules/18.2/Swift.swiftmodule/arm64-apple-ios.swiftmodule'
+    size:            14300156
+  - mtime:           1731230703000000000
+    path:            'usr/lib/swift/Swift.swiftmodule/arm64-apple-ios.swiftinterface'
+    size:            2050243
+    sdk_relative:    true
+version:         1
+...

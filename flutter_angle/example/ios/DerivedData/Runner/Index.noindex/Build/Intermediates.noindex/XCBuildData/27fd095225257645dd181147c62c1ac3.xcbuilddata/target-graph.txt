@@ -1,0 +1,30 @@
+Target dependency graph (14 targets)
+Target 'RunnerTests' in project 'Runner' (no dependencies)
+Target 'RunnerTests' in project 'Runner'
+➜ Explicit dependency on target 'Runner' in project 'Runner'
+Target 'Runner' in project 'Runner'
+➜ Implicit dependency on target 'Pods-Runner' in project 'Pods' via file 'libPods-Runner.a' in build phase 'Link Binary'
+➜ Implicit dependency on target 'flutterAngle' in project 'Pods' via options '-lflutterAngle' in build setting 'OTHER_LDFLAGS'
+Target 'RunnerTests' in project 'Runner'
+➜ Explicit dependency on target 'Runner' in project 'Runner'
+Target 'Runner' in project 'Runner'
+➜ Implicit dependency on target 'Pods-Runner' in project 'Pods' via file 'libPods-Runner.a' in build phase 'Link Binary'
+➜ Implicit dependency on target 'flutterAngle' in project 'Pods' via options '-lflutterAngle' in build setting 'OTHER_LDFLAGS'
+Target 'Pods-Runner' in project 'Pods'
+➜ Explicit dependency on target 'Flutter' in project 'Pods'
+➜ Explicit dependency on target 'flutterAngle' in project 'Pods'
+Target 'flutterAngle' in project 'Pods'
+➜ Explicit dependency on target 'Flutter' in project 'Pods'
+Target 'Flutter' in project 'Pods' (no dependencies)
+Target 'Pods-Runner' in project 'Pods'
+➜ Explicit dependency on target 'Flutter' in project 'Pods'
+➜ Explicit dependency on target 'flutterAngle' in project 'Pods'
+Target 'flutterAngle' in project 'Pods'
+➜ Explicit dependency on target 'Flutter' in project 'Pods'
+Target 'Flutter' in project 'Pods' (no dependencies)
+Target 'Pods-Runner' in project 'Pods'
+➜ Explicit dependency on target 'Flutter' in project 'Pods'
+➜ Explicit dependency on target 'flutterAngle' in project 'Pods'
+Target 'flutterAngle' in project 'Pods'
+➜ Explicit dependency on target 'Flutter' in project 'Pods'
+Target 'Flutter' in project 'Pods' (no dependencies)

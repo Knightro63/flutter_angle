@@ -1,0 +1,78 @@
+{
+  "buildCommand" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildOnly"
+  },
+  "configuredTargets" : [
+    {
+      "guid" : "18c1723432283e0cc55f10a6dcfd9e0288a783a885d8b0b3beb2e9f90bde3f49"
+    }
+  ],
+  "containerPath" : "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/Runner.xcworkspace",
+  "continueBuildingAfterErrors" : false,
+  "dependencyScope" : "workspace",
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "arm64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphoneos",
+      "sdk" : "iphoneos18.2",
+      "sdkVariant" : "iphoneos",
+      "supportedArchitectures" : [
+        "arm64e",
+        "arm64v8",
+        "arm64",
+        "armv8"
+      ],
+      "targetArchitecture" : "arm64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/DerivedData/Runner/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/DerivedData/Runner/Build/Products",
+      "derivedDataPath" : "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/DerivedData/Runner/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/DerivedData/Runner/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/DerivedData/Runner/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "commandLine" : {
+        "table" : {
+          "ARCHS" : "arm64",
+          "BUILD_DIR" : "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/build/ios",
+          "COMPILER_INDEX_STORE_ENABLE" : "NO",
+          "FLUTTER_SUPPRESS_ANALYTICS" : "true",
+          "ONLY_ACTIVE_ARCH" : "YES",
+          "SCRIPT_OUTPUT_STREAM_FILE" : "/var/folders/26/005lz3kd46114x4t27x1xqdr0000gn/T/flutter_tools.Jf2SQ8/flutter_ios_build_temp_dir3Kb3dX/pipe_to_stdout",
+          "SDKROOT" : "iphoneos18.2"
+        }
+      },
+      "synthesized" : {
+        "table" : {
+          "ACTION" : "build",
+          "ASSETCATALOG_FILTER_FOR_DEVICE_MODEL" : "iPhone17,1",
+          "ASSETCATALOG_FILTER_FOR_DEVICE_OS_VERSION" : "18.3.2",
+          "ASSETCATALOG_FILTER_FOR_THINNING_DEVICE_CONFIGURATION" : "iPhone17,1",
+          "BUILD_ACTIVE_RESOURCES_ONLY" : "YES",
+          "ENABLE_PREVIEWS" : "NO",
+          "ENABLE_XOJIT_PREVIEWS" : "YES",
+          "TARGET_DEVICE_IDENTIFIER" : "00008140-001A450614F3001C",
+          "TARGET_DEVICE_MODEL" : "iPhone17,1",
+          "TARGET_DEVICE_OS_VERSION" : "18.3.2",
+          "TARGET_DEVICE_PLATFORM_NAME" : "iphoneos"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

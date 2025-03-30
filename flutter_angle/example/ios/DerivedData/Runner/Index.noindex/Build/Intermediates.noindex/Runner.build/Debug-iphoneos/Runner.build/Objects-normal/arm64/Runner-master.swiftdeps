@@ -1,0 +1,8 @@
+version: "Apple Swift version 6.0.3 (swiftlang-6.0.3.1.10 clang-1600.0.30.1)"
+options: "54f2aa3a2854506d1dc00278b4448cb6808396f73eaad4f2288a8dd1ae6398ee"
+build_start_time: [1743313516, 207289000]
+build_end_time: [1743313516, 442048000]
+inputs:
+  ? "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/DerivedData/Runner/Index.noindex/Build/Intermediates.noindex/Runner.build/Debug-iphoneos/Runner.build/DerivedSources/GeneratedAssetSymbols.swift"
+  : [1743313516, 202041987]
+  "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/Runner/AppDelegate.swift": [1743312868, 289125700]

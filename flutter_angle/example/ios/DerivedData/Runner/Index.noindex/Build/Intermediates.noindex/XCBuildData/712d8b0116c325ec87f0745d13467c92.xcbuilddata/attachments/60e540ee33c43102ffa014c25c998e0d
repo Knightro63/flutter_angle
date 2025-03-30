@@ -1,0 +1,12 @@
+{
+  "" : {
+    "dependencies" : "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/DerivedData/Runner/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/flutterAngle.build/Objects-normal/arm64/flutterAngle-master.d",
+    "diagnostics" : "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/DerivedData/Runner/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/flutterAngle.build/Objects-normal/arm64/flutterAngle-master.dia",
+    "emit-module-dependencies" : "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/DerivedData/Runner/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/flutterAngle.build/Objects-normal/arm64/flutterAngle-master-emit-module.d",
+    "emit-module-diagnostics" : "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/DerivedData/Runner/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/flutterAngle.build/Objects-normal/arm64/flutterAngle-master-emit-module.dia",
+    "swift-dependencies" : "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/DerivedData/Runner/Index.noindex/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/flutterAngle.build/Objects-normal/arm64/flutterAngle-master.swiftdeps"
+  },
+  "/Users/g32zhu/Desktop/forked angle/flutter_angle/flutter_angle/example/ios/Classes/FlutterAnglePlugin.swift" : {
+
+  }
+}

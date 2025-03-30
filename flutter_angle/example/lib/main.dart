@@ -51,8 +51,8 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     await angle.init(false);
 
     final options = AngleOptions(
-      width: textureWidth, 
-      height: textureHeight, 
+      width: textureWidth,
+      height: textureHeight,
       dpr: dpr,
     );
 
@@ -142,7 +142,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
         ),
         body: LayoutBuilder(builder: (context, constraints) {
           final useRow = constraints.maxWidth > constraints.maxHeight;
-          if(!didInit){
+          if (!didInit) {
             initPlatformState();
           }
           return GestureDetector(
@@ -151,58 +151,57 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
             onHorizontalDragStart: horizontalDragStart,
             onHorizontalDragUpdate: horizontalDragUpdate,
             child: Container(
-              child: 
-              kIsWeb?
-                useRow
-                  ? Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Expanded(child: 
-                        Transform.scale(
-                          scaleY: -1,
-                          child: HtmlElementView(viewType: textureId.toString()),
-                        ) 
-                      ),
-                      Expanded(child: 
-                        Transform.scale(
-                          scaleY: -1,
-                          child: HtmlElementView(viewType: textureId2.toString()),
-                        ) 
-                      ),
-                    ],
-                  )
-                : Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Expanded(child: 
-                        Transform.scale(
-                          scaleY: -1,
-                          child: HtmlElementView(viewType: textureId.toString()),
-                        ) 
-                      ),
-                      Expanded(child: 
-                        Transform.scale(
-                          scaleY: -1,
-                          child: HtmlElementView(viewType: textureId2.toString()),
-                        ) 
-                      ),
-                    ],
-                  )
-                :useRow
-                  ? Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Expanded(child: Texture(textureId: textureId)),
-                      Expanded(child: Texture(textureId: textureId2)),
-                    ],
-                  )
-                : Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Expanded(child: Texture(textureId: textureId)),
-                      Expanded(child: Texture(textureId: textureId2)),
-                    ],
-                  ),
+              child: kIsWeb
+                  ? useRow
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Expanded(
+                                child: Transform.scale(
+                              scaleY: -1,
+                              child: HtmlElementView(
+                                  viewType: textureId.toString()),
+                            )),
+                            Expanded(
+                                child: Transform.scale(
+                              scaleY: -1,
+                              child: HtmlElementView(
+                                  viewType: textureId2.toString()),
+                            )),
+                          ],
+                        )
+                      : Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Expanded(
+                                child: Transform.scale(
+                              scaleY: -1,
+                              child: HtmlElementView(
+                                  viewType: textureId.toString()),
+                            )),
+                            Expanded(
+                                child: Transform.scale(
+                              scaleY: -1,
+                              child: HtmlElementView(
+                                  viewType: textureId2.toString()),
+                            )),
+                          ],
+                        )
+                  : useRow
+                      ? Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Expanded(child: Texture(textureId: textureId)),
+                            Expanded(child: Texture(textureId: textureId2)),
+                          ],
+                        )
+                      : Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Expanded(child: Texture(textureId: textureId)),
+                            Expanded(child: Texture(textureId: textureId2)),
+                          ],
+                        ),
             ),
           );
         }),
