@@ -10,6 +10,18 @@
 .history
 .svn/
 
+*/libEGL.framework/Headers
+*/libEGL.framework/Modules
+*/libEGL.framework/Resources
+*/libEGL.framework/libEGL
+*/libEGL.framework/Versions/Current
+
+*/libGLESv2.framework/Headers
+*/libGLESv2.framework/Modules
+*/libGLESv2.framework/Resources
+*/libGLESv2.framework/libGLESv2
+*/libGLESv2.framework/Versions/Current
+
 # IntelliJ related
 *.iml
 *.ipr

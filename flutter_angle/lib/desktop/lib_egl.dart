@@ -411,8 +411,7 @@ void eglSwapBuffers(
     return;
   }
 
-  throw EglException(
-      'Failed to swap buffers using display [$display], surface [$surface].');
+  throw EglException('Failed to swap buffers using display [$display], surface [$surface].');
 }
 
 void eglDestroyContext(

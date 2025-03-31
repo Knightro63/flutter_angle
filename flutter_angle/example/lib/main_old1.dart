@@ -22,6 +22,7 @@ class _MyAppState extends State<ExampleDemoTest> {
   late Size screenSize;
 
   late FlutterAngleTexture sourceTexture;
+  FlutterAngle angle = FlutterAngle();
   late final defaultFramebufferTexture;
 
   int n = 0;
@@ -38,14 +39,14 @@ class _MyAppState extends State<ExampleDemoTest> {
 
   @override
   void dispose(){
-    FlutterAngle.deleteTexture(sourceTexture);
+    angle.dispose([sourceTexture]);
     super.dispose();
   }
 
   Future<void> setup() async {
-    await FlutterAngle.initOpenGL(true);
+    await angle.init(true);
 
-    sourceTexture = await FlutterAngle.createTexture(      
+    sourceTexture = await angle.createTexture(      
       AngleOptions(
         width: screenSize.width.toInt(), 
         height: screenSize.height.toInt(), 
@@ -116,6 +117,6 @@ class _MyAppState extends State<ExampleDemoTest> {
     _gl.clear(WebGL.COLOR_BUFFER_BIT);
 
     _gl.flush();
-    await FlutterAngle.updateTexture(sourceTexture);
+    await angle.updateTexture(sourceTexture);
   }
 }
