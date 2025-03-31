@@ -12,8 +12,7 @@ class FlutterAngleTexture {
   final html.HTMLCanvasElement? element;
   final int textureId;
   final int rboId;
-  final int metalAsGLTextureId;
-  late final int androidSurface;
+  final int surfaceId;
   final int fboId;
   final int loc;
   LibOpenGLES? _libOpenGLES;
@@ -23,8 +22,7 @@ class FlutterAngleTexture {
     FlutterAngle flutterAngle,
     this.textureId, 
     this.rboId, 
-    this.metalAsGLTextureId,
-    int androidSurfaceId, 
+    this.surfaceId,
     this.element,
     this.fboId,
     this.loc,
@@ -50,7 +48,6 @@ class FlutterAngleTexture {
     return {
       'textureId': textureId,
       'rbo': rboId,
-      'metalAsGLTexture': metalAsGLTextureId
     };
   }
 
@@ -62,10 +59,7 @@ class FlutterAngleTexture {
   /// As you can have multiple Texture objects, but WebGL allways draws in the currently
   /// active one you have to call this function if you use more than one Textureobject before
   /// you can start rendering on it. If you forget it you will render into the wrong Texture.
-  void activate() {
-    //rawOpenGl.glViewport(0, 0, width, height);
-  }
-
+  void activate() {}
   RenderingContext getContext() {
     return RenderingContext.create(rawOpenGl,options.width, options.height);
   }
@@ -97,7 +91,7 @@ class FlutterAngle{
     final newTexture = FlutterAngleTexture(
       this,
       _divId,
-      0,0,0,
+      0,0,
       element, 
       0,0,
       options
