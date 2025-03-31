@@ -1,14 +1,15 @@
 import '../shared/classes.dart';
 import '../shared/options.dart';
 import 'dart:async';
-import 'dart:html';
+import 'dart:js_interop';
+import 'package:web/web.dart' as html;
 import 'wrapper.dart';
 import 'gles_bindings.dart';
 import 'dart:ui_web' as ui;
 import 'dart:math' as math;
 
 class FlutterAngleTexture {
-  final CanvasElement? element;
+  final html.HTMLCanvasElement? element;
   final int textureId;
   final int rboId;
   final int metalAsGLTextureId;
@@ -37,7 +38,7 @@ class FlutterAngleTexture {
           "webgl2", {
             "alpha": options.alpha, 
             "antialias": options.antialias
-          }
+          }.jsify()
         )!
       );
     }
@@ -84,10 +85,10 @@ class FlutterAngle{
 
   Future<FlutterAngleTexture> createTexture(AngleOptions options) async {
     final _divId = DateTime.now().microsecondsSinceEpoch;
-    final element = CanvasElement(
-      width: (options.width * options.dpr).toInt(), 
-      height: (options.height * options.dpr).toInt()
-    )..id = 'canvas-id${math.Random().nextInt(100)}';
+    final element = html.HTMLCanvasElement()
+    ..width = (options.width * options.dpr).toInt()
+    ..height = (options.height * options.dpr).toInt()
+    ..id = 'canvas-id${math.Random().nextInt(100)}';
 
     ui.platformViewRegistry.registerViewFactory(_divId.toString(), (int viewId) {
       return element;
