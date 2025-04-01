@@ -428,6 +428,29 @@ void eglDestroyContext(
       'Failed to destroy context [$display], surface [$context].');
 }
 
+int getTextureTarget(Pointer<Void> display, Pointer<Void> config) {
+  final targetPtr = calloc<Int32>(1);
+  int textureTarget;
+
+  try {
+    if (_libEGL!.eglGetConfigAttrib(
+            display, config, EGL_BIND_TO_TEXTURE_TARGET_ANGLE, targetPtr) ==
+        0) {
+      final error = _libEGL!.eglGetError();
+      angleConsole.info('Failed to get texture target: Error $error');
+      textureTarget = EGL_TEXTURE_2D; // Fallback to 2D if query fails
+    } else {
+      textureTarget = targetPtr.value;
+      angleConsole
+          .info('Queried texture target: 0x${textureTarget.toRadixString(16)}');
+    }
+  } finally {
+    calloc.free(targetPtr);
+  }
+
+  return textureTarget;
+}
+
 //
 // Supporting types
 //
