@@ -85,7 +85,7 @@ class FlutterAngle {
 
   LibOpenGLES get _rawOpenGl {
     if (_libOpenGLES == null) {
-      if (_isApple) {
+      if (Platform.isIOS || Platform.isMacOS) {
         _libOpenGLES = LibOpenGLES(DynamicLibrary.process());
       } else if (Platform.isAndroid) {
         if (_useAngle) {
@@ -108,21 +108,28 @@ class FlutterAngle {
     if (_didInit) return;
     _useAngle = useAngle;
     _didInit = true;
-
+    loadEGL(useAngle: _useAngle);
     /// make sure we don't call this twice
     if (_display != nullptr) {
       return;
     }
-    loadEGL(useAngle: _useAngle);
+
     // Initialize native part of he plugin
     late final dynamic result;
     if (Platform.isAndroid && _useAngle) {
       result = await _channel.invokeMethod('initOpenGLAngle');
+      _useAngle = !result['isEmulator'];
     } else {
       _useAngle = false;
       result = await _channel.invokeMethod('initOpenGL');
+      if(_isApple){
+        //_isApple = !result['isSimulator'];
+      }
     }
+
+    
     angleConsole.info(result);
+
     if (result == null) {
       throw EglException('Plugin.initOpenGL didn\'t return anything. Something is really wrong!');
     }

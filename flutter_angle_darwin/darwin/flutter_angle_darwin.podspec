@@ -21,8 +21,7 @@ Pod::Spec.new do |s|
   
   s.preserve_paths = 'libEGL.xcframework', 'libGLESv2.xcframework'
   s.vendored_frameworks = 'libEGL.xcframework', 'libGLESv2.xcframework'
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-framework libEGL', } #'OTHER_LDFLAGS' => '-framework libGLESv2'
-
+  
   s.osx.dependency 'FlutterMacOS'
   s.osx.deployment_target = '10.15'
 

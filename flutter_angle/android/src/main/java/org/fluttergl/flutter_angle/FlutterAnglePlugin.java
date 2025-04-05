@@ -56,6 +56,24 @@ import static android.opengl.GLES20.GL_VENDOR;
 import static android.opengl.GLES20.GL_VERSION;
 import static android.opengl.GLES20.glGetError;
 
+class EmulatorDetector {
+  public static boolean isEmulator() {
+    return (Build.FINGERPRINT.startsWith("generic")
+      || Build.FINGERPRINT.contains("vbox")
+      || Build.FINGERPRINT.contains("sdk_gphone")
+      || Build.PRODUCT.contains("sdk")
+      || Build.PRODUCT.contains("emulator")
+      || Build.PRODUCT.contains("google_sdk")
+      || Build.HARDWARE.contains("goldfish")
+      || Build.HARDWARE.contains("ranchu")
+      || Build.MANUFACTURER.contains("Genymotion")
+      || Build.MANUFACTURER.contains("Google")
+      || Build.MODEL.contains("google_sdk")
+      || Build.MODEL.contains("Emulator")
+    );
+  }
+}
+
 class OpenGLException extends Throwable {
 
   OpenGLException(String message, int error) {
@@ -169,7 +187,6 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
       case "getPlatformVersion":
         result.success("Android " + Build.VERSION.RELEASE);
         break;
-
       // Plugin1 methods (non‑ANGLE)
       case "initOpenGL":
         initOpenGLImplementation(result);
@@ -177,13 +194,20 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
       case "createTexture":
         createTextureImplementation(call, result);
         break;
-
       // Plugin2 methods (ANGLE) – note the "Angle" suffix
       case "initOpenGLAngle":
-        initOpenGLAngleImplementation(result);
+        if(EmulatorDetector.isEmulator()){
+          initOpenGLImplementation(result);
+        }else{
+          initOpenGLAngleImplementation(result);
+        }
         break;
       case "createTextureAngle":
-        createTextureAngleImplementation(call, result);
+        if(EmulatorDetector.isEmulator()){
+          createTextureImplementation(call, result);
+        }else{
+          createTextureAngleImplementation(call, result);
+        }
         break;
       default:
         result.notImplemented();
@@ -210,6 +234,7 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
     response.put("context", context.getNativeHandle());
     response.put("eglConfigId", openGLManager.getConfigId());
     response.put("dummySurface", dummySurface);
+    response.put("isEmulator", EmulatorDetector.isEmulator());
     result.success(response);
   }
 

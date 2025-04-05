@@ -1,13 +1,9 @@
 #if os(macOS)
 import FlutterMacOS
-import AppKit
 #elseif os(iOS)
 import Flutter
-import UIKit
 #endif
 import IOSurface
-import CoreVideo
-
 
 @objc public class FlutterAnglePlugin: NSObject, FlutterPlugin, FlutterTexture {
     // Flutter texture-related
@@ -19,10 +15,6 @@ import CoreVideo
     // Texture tracking - map texture IDs to their corresponding IOSurfaces
     private var textures: [Int64: IOSurfaceRef] = [:]
     private var textureToPixelBuffer: [Int64: CVPixelBuffer] = [:]
-    
-    // EGL-related
-    private var eglHandle: UnsafeMutableRawPointer?
-    private var eglDisplay: UnsafeMutableRawPointer?
     
     public static func register(with registrar: FlutterPluginRegistrar) {
         #if os(iOS)
