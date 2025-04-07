@@ -108,7 +108,7 @@ class FlutterAngle {
     if (_didInit) return;
     _useAngle = useAngle;
     _didInit = true;
-    loadEGL(useAngle: _useAngle);
+    
     /// make sure we don't call this twice
     if (_display != nullptr) {
       return;
@@ -127,7 +127,7 @@ class FlutterAngle {
       }
     }
 
-    
+    loadEGL(useAngle: _useAngle);
     angleConsole.info(result);
 
     if (result == null) {
