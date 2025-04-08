@@ -8,30 +8,40 @@ import IOSurface
 
 @objc public class FlutterAngleOSPlugin: NSObject, FlutterTexture{
     private var textureRegistry: FlutterTextureRegistry?
-    private var texture: IOSurfaceRef?
-    var textureToPixelBuffer: CVPixelBuffer?
-    public var textureId: Int64?;
+    private var pixelBuffer: CVPixelBuffer?
+
+    private var textures: IOSurfaceRef?
+    private var textureToPixelBuffer: CVPixelBuffer?
+
+    private var width: Int = 0
+    private var height: Int = 0
+
+    public var textureId: Int64 = -1;
     
     init(textureRegistry: FlutterTextureRegistry?){
         self.textureRegistry = textureRegistry;
         super.init();
         // Register with Flutter texture registry
         self.textureId = textureRegistry?.register(self) ?? -1
+        print("Created Texture ID: \(self.textureId)")
     }
     
-    public func textureFrameAvailable(textureId: Int64, result: @escaping FlutterResult) {
-        guard texture != nil else {
+    public func textureFrameAvailable(result: @escaping FlutterResult) {
+        guard textures != nil else {
             result(FlutterError(code: "INVALID_TEXTURE_ID", message: "Unknown texture ID", details: nil))
             return
         }
         
         // Notify the Flutter texture registry that a new frame is available
-        textureRegistry?.textureFrameAvailable(textureId)
+        textureRegistry?.textureFrameAvailable(self.textureId)
         result(nil)
     }
     
     // MARK: - Texture Creation
     public func createTexture(width: Int, height: Int, result: @escaping FlutterResult) {
+        self.width = width
+        self.height = height
+
         // Create IOSurface
         NSLog("Creating texture with physical dimensions: \(width) x \(height)")
 
@@ -67,7 +77,7 @@ import IOSurface
         }
 
         // Store in our texture maps
-        texture = ioSurface
+        textures = ioSurface
         if let pixBuffer = pixBuffer {
             textureToPixelBuffer = pixBuffer
         }
@@ -76,7 +86,7 @@ import IOSurface
         let surfacePointer = UInt64(bitPattern: Int64(Int(bitPattern: Unmanaged.passUnretained(ioSurface!).toOpaque())))
         print("IOSurface pointer as UInt64: \(surfacePointer)")
         
-        result(["textureId": textureId!, "surfacePointer": surfacePointer])
+        result(["textureId": textureId, "surfacePointer": surfacePointer])
     }
     
     public func disposeTexture(textureId: Int64) {
@@ -85,13 +95,13 @@ import IOSurface
         }
         
         // Clean up our maps
-        texture = nil
+        textures = nil
         textureToPixelBuffer = nil
     }
     
     // MARK: - IOSurface Access
-    public func getIOSurfaceHandle(textureId: Int64, result: @escaping FlutterResult) {
-        guard let surface = texture else {
+    public func getIOSurfaceHandle(result: @escaping FlutterResult) {
+        guard let surface = textures else {
             result(FlutterError(code: "NO_IOSURFACE", message: "No IOSurface available for this texture ID", details: nil))
             return
         }
@@ -120,7 +130,7 @@ import IOSurface
             print("CVPixelBuffer is nil")
             return false
         }
-        
+
         // Take ownership of the buffer created by Core Foundation
         pixelBuffer = unmanagedBuffer.takeRetainedValue()
         return true
@@ -132,16 +142,16 @@ import IOSurface
         // which texture is being requested. For now, we'll use a simple approach:
         // Either return the most recently used texture or the first texture in the map
         // If we have no textures registered, return nil
-        guard textureToPixelBuffer == nil else {
+        guard textureToPixelBuffer != nil else {
             return nil
         }
-    
+        
         // Return the first available texture's pixel buffer
         // In a more sophisticated implementation, we would track the active texture ID
         if let pixBuffer = textureToPixelBuffer {
             return Unmanaged.passRetained(pixBuffer)
-        }
-        
+        }  
+
         return nil
     }
 }

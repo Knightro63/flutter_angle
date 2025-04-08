@@ -284,7 +284,7 @@ class FlutterAngle {
   }
 
   /// For iOS only: Creates an EGL surface from an IOSurface pointer
-Pointer<Void>? createEGLSurfaceFromIOSurface(Pointer<Void> ioSurfacePtr, int width, int height) {
+  Pointer<Void>? createEGLSurfaceFromIOSurface(Pointer<Void> ioSurfacePtr, int width, int height) {
     if (!_isApple) return null;
 
     final textureTarget = getTextureTarget(_display, _EGLconfig);
@@ -362,7 +362,7 @@ Pointer<Void>? createEGLSurfaceFromIOSurface(Pointer<Void> ioSurfacePtr, int wid
         this,
         result['textureId']! as int,
         result['rbo'] as int? ?? 0,
-        Pointer.fromAddress(result['surface'] as int? ?? 0),//result['surface'] as int? ?? 0,
+        Pointer.fromAddress(result['surface'] as int? ?? 0),
         null,
         0,
         result['location'] as int? ?? 0,
