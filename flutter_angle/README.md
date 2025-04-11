@@ -26,9 +26,12 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Swift 5
  - Metal supported
 
+**iOS-Simulator**
+ - No longer supported due to IOSurface issue, please use flutter_angle: ^0.1.0 for testing on simulator.
+
 **Android**
  - compileSdkVersion: 34
- - minSdk = 27
+ - minSdk: 27
  - OpenGL supported
  - Vulkan supported
 
@@ -39,6 +42,9 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
 
 **Web**
  - WebGL2 supported.
+
+**WASM**
+ - Currently not supported due to WebGL2RenderingContext conversion issue.
 
 **Linux**
  - Unsupported

@@ -4,28 +4,33 @@ import FlutterMacOS
 import Flutter
 #endif
 
-import IOSurface
+import libEGL
+import libGLESv2
 
-@objc public class FlutterAngleOSPlugin: NSObject, FlutterTexture{
+@objc public class FlutterAngleOSPlugin: NSObject{
     private var textureRegistry: FlutterTextureRegistry?
     private var pixelBuffer: CVPixelBuffer?
 
     private var textures: IOSurfaceRef?
-    private var textureToPixelBuffer: CVPixelBuffer?
+    private var textureToPixelBuffer: Unmanaged<CVPixelBuffer>?
 
     private var width: Int = 0
     private var height: Int = 0
 
     public var textureId: Int64 = -1;
+    public var metlaAsGLTexture: UInt32 = 0
+
+    var sourceImageBuf: CVMetalTexture?
+    var textureCache: CVMetalTextureCache?
+    var metalTexture: MTLTexture?
     
     init(textureRegistry: FlutterTextureRegistry?){
         self.textureRegistry = textureRegistry;
         super.init();
-        // Register with Flutter texture registry
         self.textureId = textureRegistry?.register(self) ?? -1
-        print("Created Texture ID: \(self.textureId)")
     }
     
+
     public func textureFrameAvailable(result: @escaping FlutterResult) {
         guard textures != nil else {
             result(FlutterError(code: "INVALID_TEXTURE_ID", message: "Unknown texture ID", details: nil))
@@ -67,29 +72,24 @@ import IOSurface
             return
         }
 
-        print("Created IOSurface: \(width)x\(height)")
-
-        // Create CVPixelBuffer from IOSurface
-        var pixBuffer: CVPixelBuffer?
-        if !createPixelBufferFromIOSurface(ioSurface!, pixelBuffer: &pixBuffer) {
+        if !createPixelBufferFromIOSurface(ioSurface!) {
             result(FlutterError(code: "PIXELBUFFER_ERROR", message: "Failed to create CVPixelBuffer", details: nil))
             return
         }
 
         // Store in our texture maps
         textures = ioSurface
-        if let pixBuffer = pixBuffer {
-            textureToPixelBuffer = pixBuffer
-        }
-
         // Convert the pointer to UInt64 for safe passage through Flutter codec
         let surfacePointer = UInt64(bitPattern: Int64(Int(bitPattern: Unmanaged.passUnretained(ioSurface!).toOpaque())))
-        print("IOSurface pointer as UInt64: \(surfacePointer)")
-        
-        result(["textureId": textureId, "surfacePointer": surfacePointer])
+
+        result([
+            "textureId": textureId,
+            "surfacePointer": surfacePointer,
+            "metalTexture": metlaAsGLTexture
+        ])
     }
     
-    public func disposeTexture(textureId: Int64) {
+    public func disposeTexture() {
         if let tr = textureRegistry {
             tr.unregisterTexture(textureId)
         }
@@ -111,47 +111,29 @@ import IOSurface
         result(surfaceID)
     }
     
-    private func createPixelBufferFromIOSurface(_ surface: IOSurfaceRef, pixelBuffer: inout CVPixelBuffer?) -> Bool {
-        // Fix: Change the type to Unmanaged<CVPixelBuffer>? to match what the function expects
-        var unmanagedPixelBuffer: Unmanaged<CVPixelBuffer>?
-        let status = CVPixelBufferCreateWithIOSurface(
+    private func createPixelBufferFromIOSurface(_ surface: IOSurfaceRef) -> Bool {
+        guard CVPixelBufferCreateWithIOSurface(
             kCFAllocatorDefault,
             surface,
-            nil,
-            &unmanagedPixelBuffer
-        )
-        
-        if status != kCVReturnSuccess {
-            print("Failed to create CVPixelBuffer from IOSurface: \(status)")
-            return false
-        }
-        
-        guard let unmanagedBuffer = unmanagedPixelBuffer else {
+            [kCVPixelBufferMetalCompatibilityKey: true] as CFDictionary,
+            &textureToPixelBuffer
+        ) == kCVReturnSuccess else{
             print("CVPixelBuffer is nil")
             return false
         }
-
-        // Take ownership of the buffer created by Core Foundation
-        pixelBuffer = unmanagedBuffer.takeRetainedValue()
+        
         return true
     }
-    
-    // MARK: - FlutterTexture Protocol
+}
+
+extension FlutterAngleOSPlugin: FlutterTexture {
     public func copyPixelBuffer() -> Unmanaged<CVPixelBuffer>? {
-        // In a complex implementation with multiple textures, we'd need a way to know
-        // which texture is being requested. For now, we'll use a simple approach:
-        // Either return the most recently used texture or the first texture in the map
-        // If we have no textures registered, return nil
         guard textureToPixelBuffer != nil else {
             return nil
         }
-        
-        // Return the first available texture's pixel buffer
-        // In a more sophisticated implementation, we would track the active texture ID
-        if let pixBuffer = textureToPixelBuffer {
+        if let pixBuffer = textureToPixelBuffer?.takeUnretainedValue() {
             return Unmanaged.passRetained(pixBuffer)
-        }  
-
+        }
         return nil
     }
 }

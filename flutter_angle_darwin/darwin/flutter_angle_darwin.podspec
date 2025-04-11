@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'libEGL.xcframework', 'libGLESv2.xcframework'
   
   s.osx.dependency 'FlutterMacOS'
-  s.osx.deployment_target = '10.15'
+  s.osx.deployment_target = '10.14'
 
   s.ios.dependency 'Flutter'
   s.ios.deployment_target = '12.0'

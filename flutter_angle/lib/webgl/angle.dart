@@ -32,7 +32,7 @@ class FlutterAngleTexture {
   LibOpenGLES get rawOpenGl {
     if (_libOpenGLES == null) {
       _libOpenGLES = LibOpenGLES(
-        element?.getContext(
+         element?.getContext(
           "webgl2", {
             "alpha": options.alpha, 
             "antialias": options.antialias

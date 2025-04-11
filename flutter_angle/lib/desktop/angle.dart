@@ -103,9 +103,9 @@ class FlutterAngle {
   // Next stepps:
   // * test on all plaforms
   // * mulitple textures on Android and the other OSs
-  Future<void> init([bool useDebugContext = false, bool useAngle = false]) async {
-    _isApple = Platform.isIOS || Platform.isMacOS;
+  Future<void> init([bool useDebugContext = false, bool useAngle = true]) async {
     if (_didInit) return;
+    _isApple = Platform.isIOS || Platform.isMacOS;
     _useAngle = useAngle;
     _didInit = true;
     
@@ -122,9 +122,6 @@ class FlutterAngle {
     } else {
       _useAngle = false;
       result = await _channel.invokeMethod('initOpenGL');
-      if(_isApple){
-        //_isApple = !result['isSimulator'];
-      }
     }
 
     loadEGL(useAngle: _useAngle);
@@ -195,12 +192,13 @@ class FlutterAngle {
     if(!_isApple){
       /// bind context to this thread. All following OpenGL calls from this thread will use this context
       eglMakeCurrent(_display, _dummySurface, _dummySurface, _baseAppContext);
-    }
-    if (useDebugContext && Platform.isWindows) {
-      _rawOpenGl.glEnable(GL_DEBUG_OUTPUT);
-      _rawOpenGl.glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
-      _rawOpenGl.glDebugMessageCallback(Pointer.fromFunction<GLDEBUGPROC>(glDebugOutput), nullptr);
-      _rawOpenGl.glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+    
+      if (useDebugContext && Platform.isWindows) {
+        _rawOpenGl.glEnable(GL_DEBUG_OUTPUT);
+        _rawOpenGl.glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS);
+        _rawOpenGl.glDebugMessageCallback(Pointer.fromFunction<GLDEBUGPROC>(glDebugOutput), nullptr);
+        _rawOpenGl.glDebugMessageControl(GL_DONT_CARE, GL_DONT_CARE, GL_DONT_CARE, 0, nullptr, GL_TRUE);
+      }
     }
   }
 
@@ -347,13 +345,13 @@ class FlutterAngle {
       result = await _channel.invokeMethod('createTextureAngle', {
         "width": width,
         "height": height,
-        "useSurfaceProducer": options.useSurfaceProducer,
+        "useSurfaceProducer": options.useSurfaceProducer
       });
     } else {
       result = await _channel.invokeMethod('createTexture', {
         "width": width,
         "height": height,
-        "useSurfaceProducer": options.useSurfaceProducer,
+        "useSurfaceProducer": options.useSurfaceProducer
       });
     }
 
@@ -488,17 +486,19 @@ class FlutterAngle {
   }
 
   Future<void> deleteTexture(FlutterAngleTexture texture) async {
-    if (Platform.isAndroid || _isApple) {
+    if (Platform.isAndroid) {
       return;
     }
-    assert(_activeFramebuffer != null, 'There is no active FlutterGL Texture to delete');
-    if (_activeFramebuffer == texture.fboId) {
-      _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, 0);
+    else if(Platform.isWindows){
+      assert(_activeFramebuffer != null, 'There is no active FlutterGL Texture to delete');
+      if (_activeFramebuffer == texture.fboId) {
+        _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, 0);
 
-      Pointer<Uint32> fbo = calloc();
-      fbo.value = texture.fboId;
-      _rawOpenGl.glDeleteBuffers(1, fbo);
-      calloc.free(fbo);
+        Pointer<Uint32> fbo = calloc();
+        fbo.value = texture.fboId;
+        _rawOpenGl.glDeleteBuffers(1, fbo);
+        calloc.free(fbo);
+      }
     }
 
     await _channel.invokeMethod('deleteTexture',{"textureId": texture.textureId, "location": texture.loc});

@@ -1,3 +1,12 @@
+## 0.1.0
+
+* Updated framework to the latest version of angle.
+* IOSurface from angle does not support ios-simulator
+
+## 0.1.0
+
+* Removed static features to fix [late reinitialization error](https://github.com/Knightro63/flutter_angle/issues/4). 
+
 ## 0.0.8
 
 * Added google's ANGLE to android with the option to choose angle or opengl.
