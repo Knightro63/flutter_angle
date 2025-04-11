@@ -28,6 +28,9 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Swift 5
  - Metal supported
 
+**iOS-Simulator**
+ - No longer supported due to IOSurface issue, please use flutter_angle: ^0.1.0 for testing on simulator.
+
 ## Getting started
 
 To get started add flutter_angle to your pubspec.yaml file.

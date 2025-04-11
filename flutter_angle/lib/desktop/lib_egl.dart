@@ -45,8 +45,7 @@ void loadEGL({bool useAngle = false}) {
 EglInitializeResult eglInitialize(Pointer<Void> display) {
   final major = calloc<Int32>();
   final minor = calloc<Int32>();
-  final nativeCallSucceeded =
-      _libEGL!.eglInitialize(display, major, minor) == 1;
+  final nativeCallSucceeded = _libEGL!.eglInitialize(display, major, minor) == 1;
   EglInitializeResult result;
 
   if (nativeCallSucceeded) {
@@ -108,8 +107,7 @@ List<Pointer<Void>> eglChooseConfig(
   calloc.free(numConfigs);
 
   if (!nativeCallSucceeded) {
-    throw EglException(
-        'Failed to choose config for display [$display], attributes $attributes, max configs $maxConfigs.');
+    throw EglException('Failed to choose config for display [$display], attributes $attributes, max configs $maxConfigs.');
   }
 
   return result;
@@ -120,12 +118,11 @@ List<Pointer<Void>> eglGetConfigs(Pointer<Void> display,
   final configs = calloc<IntPtr>(maxConfigs);
   final numConfigs = calloc<Int32>();
   final nativeCallSucceeded = _libEGL!.eglGetConfigs(
-        display,
-        configs.cast<Pointer<Void>>(),
-        maxConfigs,
-        numConfigs,
-      ) ==
-      1;
+    display,
+    configs.cast<Pointer<Void>>(),
+    maxConfigs,
+    numConfigs,
+  ) == 1;
   List<Pointer<Void>> result = <Pointer<Void>>[];
 
   if (nativeCallSucceeded) {
@@ -138,8 +135,7 @@ List<Pointer<Void>> eglGetConfigs(Pointer<Void> display,
   calloc.free(numConfigs);
 
   if (!nativeCallSucceeded) {
-    throw EglException(
-        'Failed to get configs for display [$display], max configs $maxConfigs.');
+    throw EglException('Failed to get configs for display [$display], max configs $maxConfigs.');
   }
 
   return result;
@@ -149,12 +145,11 @@ int eglGetConfigAttrib(
     Pointer<Void> display, Pointer<Void> config, EglConfigAttribute attribute) {
   final value = calloc<Int32>();
   final nativeCallSucceeded = _libEGL!.eglGetConfigAttrib(
-        display,
-        config,
-        attribute.toIntValue(),
-        value.cast(),
-      ) ==
-      1;
+    display,
+    config,
+    attribute.toIntValue(),
+    value.cast(),
+  ) == 1;
   int result = -1;
   if (nativeCallSucceeded) {
     result = value.value;
@@ -218,8 +213,7 @@ void printConfigAttributes(Pointer<Void> display, Pointer<Void> config) {
   angleConsole.info(
       '${EglConfigAttribute.renderableType.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.renderableType)}');
 
-  final surfaceType =
-      eglGetConfigAttrib(display, config, EglConfigAttribute.surfaceType);
+  final surfaceType = eglGetConfigAttrib(display, config, EglConfigAttribute.surfaceType);
 
   angleConsole.info(
       'SurfaceType: ${(surfaceType & EGL_MULTISAMPLE_RESOLVE_BOX_BIT) != 0 ? 'EGL_MULTISAMPLE_RESOLVE_BOX_BIT, ' : ''}'
@@ -268,8 +262,7 @@ Pointer<Void> eglCreateContext(
   calloc.free(attributeList);
 
   if (nativeCallResult == nullptr) {
-    throw EglException(
-        'Failed to create context for display [$display], config [$config], context client version $contextClientVersion, share context [$shareContext].');
+    throw EglException('Failed to create context for display [$display], config [$config], context client version $contextClientVersion, share context [$shareContext].');
   }
 
   return result;
@@ -280,12 +273,10 @@ Pointer<Void> eglCreateWindowSurface(
   Pointer<Void> config,
   Pointer<Void> nativeWindow,
 ) {
-  final nativeCallResult =
-      _libEGL!.eglCreateWindowSurface(display, config, nativeWindow, nullptr);
+  final nativeCallResult = _libEGL!.eglCreateWindowSurface(display, config, nativeWindow, nullptr);
 
   if (nativeCallResult == nullptr) {
-    throw EglException(
-        'Failed to create window surface for display [$display], config [$config], native window [$nativeWindow].');
+    throw EglException('Failed to create window surface for display [$display], config [$config], native window [$nativeWindow].');
   }
 
   return nativeCallResult;
@@ -316,10 +307,27 @@ Pointer<Void> eglCreatePbufferSurface(
 
   calloc.free(attributeList);
   if (nativeCallResult == nullptr) {
-    throw EglException(
-        'Failed to create Pbuffer surface for display [$display], config [$config], attributes [$attributeList].');
+    throw EglException('Failed to create Pbuffer surface for display [$display], config [$config], attributes [$attributeList].');
   }
 
+  return nativeCallResult;
+}
+
+// Add a new public function to create pbuffer from client buffer after eglCreatePbufferSurface
+Pointer<Void> eglCreatePbufferFromClientBuffer(
+  Pointer<Void> display,
+  int bufferType,
+  Pointer<Void> buffer,
+  Pointer<Void> config,
+  Pointer<Int32> attribList,
+) {
+  // Using direct access to _libEGL to call eglCreatePbufferFromClientBuffer
+  final nativeCallResult = _libEGL!.eglCreatePbufferFromClientBuffer(display, bufferType, buffer, config, attribList);
+
+  if (nativeCallResult == nullptr) {
+    final error = _libEGL!.eglGetError();
+    throw EglException('Failed to create PBuffer from client buffer for display [$display], buffer type [$bufferType], buffer [$buffer], config [$config]. EGL error: $error');
+  }
   return nativeCallResult;
 }
 
@@ -348,10 +356,10 @@ void eglMakeCurrent(
             EglSurfaceAttributes.width: 4,
             EglSurfaceAttributes.height: 4,
           };
-          final newSurface = eglCreatePbufferSurface(display, configs[0], attributes: attributes);
-          
+          final newSurface = eglCreatePbufferSurface(display, configs[0],attributes: attributes);
+
           // Now make current with the new surface instead of the invalid ones
-          final nativeCallResult = _libEGL!.eglMakeCurrent(display, newSurface, newSurface, context) == 1;
+          final nativeCallResult = _libEGL!.eglMakeCurrent(display, newSurface, newSurface, context) ==1;
           if (nativeCallResult) {
             return;
           } else {
@@ -363,7 +371,7 @@ void eglMakeCurrent(
       // Fall through to the original error handling
     }
   }
-  
+
   // Original implementation
   final nativeCallResult = _libEGL!.eglMakeCurrent(display, draw, read, context) == 1;
 
@@ -397,8 +405,27 @@ void eglDestroyContext(
     return;
   }
 
-  throw EglException(
-      'Failed to destroy context [$display], surface [$context].');
+  throw EglException('Failed to destroy context [$display], surface [$context].');
+}
+
+int getTextureTarget(Pointer<Void> display, Pointer<Void> config) {
+  final targetPtr = calloc<Int32>(1);
+  int textureTarget;
+
+  try {
+    if (_libEGL!.eglGetConfigAttrib(display, config, EGL_BIND_TO_TEXTURE_TARGET_ANGLE, targetPtr) == 0) {
+      final error = _libEGL!.eglGetError();
+      angleConsole.info('Failed to get texture target: Error $error');
+      textureTarget = EGL_TEXTURE_2D; // Fallback to 2D if query fails
+    } else {
+      textureTarget = targetPtr.value;
+      angleConsole.info('Queried texture target: 0x${textureTarget.toRadixString(16)}');
+    }
+  } finally {
+    calloc.free(targetPtr);
+  }
+
+  return textureTarget;
 }
 
 //
@@ -414,8 +441,7 @@ class EglException implements Exception {
   bool get hasEglError => eglError != EglError.success;
 
   @override
-  String toString() =>
-      '$message${hasEglError ? ' EGL error $eglError (${eglError.toIntValue()})' : ''}';
+  String toString() => '$message${hasEglError ? ' EGL error $eglError (${eglError.toIntValue()})' : ''}';
 }
 
 class EglInitializeResult {

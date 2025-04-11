@@ -1,3 +1,8 @@
+## 0.2.0
+
+* Updated framework to the latest version of angle.
+* IOSurface from angle does not support ios-simulator
+
 ## 0.1.0
 
 * Removed static features to fix [late reinitialization error](https://github.com/Knightro63/flutter_angle/issues/4). 

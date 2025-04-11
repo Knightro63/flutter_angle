@@ -1,6 +1,6 @@
 name: flutter_angle
 description: "Flutters Almost Native Graphics Layer Engine is made by google to use OpenGL ES API calls to one of the hardware-supported APIs available for that platform."
-version: 0.1.0
+version: 0.2.0
 homepage: https://github.com/Knightro63/flutter_angle/tree/main/flutter_angle
 
 environment:
@@ -15,17 +15,18 @@ topics:
 dependencies:
   flutter:
     sdk: flutter
-  logger: ^2.3.0
+  logger: ^2.5.0
   dylib: ^0.3.3
-  ffi: ^2.1.2
-  flutter_angle_darwin: ^0.0.2
+  ffi: ^2.1.4
+  flutter_angle_darwin: ^0.1.0
+  web: ^1.1.1
   #flutter_angle_windows: ^0.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  ffigen: ^12.0.0
-  lint: ^2.3.0
+  ffigen: ^18.1.0
+  lint: ^2.8.0
   plugin_platform_interface: ^2.1.8
 
 flutter:
@@ -36,10 +37,5 @@ flutter:
         pluginClass: FlutterAnglePlugin
       windows:
         pluginClass: FlutterAnglePlugin
-        #default_package: flutter_angle_windows
-      ios:
-        default_package: flutter_angle_darwin
-      macos:
-        default_package: flutter_angle_darwin
       web:
         default_package: flutter_angle_web

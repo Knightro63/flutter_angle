@@ -16,15 +16,13 @@ Pod::Spec.new do |s|
   s.public_header_files = 'Classes/**/*.{h,inc}'
   s.swift_version = '5.0'
   s.library = 'c++'
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES'}  
-
-  s.preserve_paths = 'MetalANGLE.xcframework'
-  s.vendored_frameworks = 'MetalANGLE.xcframework'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES'} 
-  s.xcconfig = { 'OTHER_LDFLAGS' => '-framework MetalANGLE'}
+  
+  s.preserve_paths = 'libEGL.xcframework', 'libGLESv2.xcframework'
+  s.vendored_frameworks = 'libEGL.xcframework', 'libGLESv2.xcframework'
   
   s.osx.dependency 'FlutterMacOS'
-  s.osx.deployment_target = '10.15'
+  s.osx.deployment_target = '10.14'
 
   s.ios.dependency 'Flutter'
   s.ios.deployment_target = '12.0'

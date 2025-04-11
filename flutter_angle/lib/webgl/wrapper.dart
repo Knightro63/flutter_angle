@@ -1,7 +1,8 @@
+import 'dart:js_interop';
 import 'package:flutter/services.dart';
 import 'package:flutter_angle/native-array/index.dart';
 import 'package:flutter_angle/shared/console.dart';
-import 'dart:html' as html;
+import 'package:web/web.dart' as html;
 import '../shared/webgl.dart';
 import '../shared/classes.dart';
 import 'dart:async';
@@ -135,10 +136,10 @@ class RenderingContext{
   }) async {
     final completer = Completer<void>();
     final bytes = (await image.toByteData())!;
-    final hblob = html.Blob([bytes]);
-    final imageDom = html.ImageElement();
+    final hblob = html.Blob([bytes].jsify() as JSArray<JSAny>);
+    final imageDom = html.HTMLImageElement();
     imageDom.crossOrigin = "";
-    imageDom.src = html.Url.createObjectUrl(hblob);
+    imageDom.src = html.URL.createObjectURL(hblob);
     
     imageDom.onLoad.listen((e) {
       completer.complete();
@@ -157,7 +158,7 @@ class RenderingContext{
     int type = WebGL.UNSIGNED_BYTE,
   }) async {
     final completer = Completer<void>();
-    final imageDom = html.ImageElement();
+    final imageDom = html.HTMLImageElement();
     imageDom.crossOrigin = "";
     imageDom.src = asset;
     imageDom.onLoad.listen((e) {

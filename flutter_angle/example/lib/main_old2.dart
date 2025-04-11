@@ -20,15 +20,13 @@ class _MyAppState extends State<ExampleTriangle01> {
   late double width;
   late double height;
 
-  FlutterAngle angle = FlutterAngle();
-
   late final glProgram;
 
   Size? screenSize;
   late final RenderingContext _gl;
 
   late FlutterAngleTexture sourceTexture;
-
+  FlutterAngle angle = FlutterAngle();
   late int defaultFramebufferTexture;
 
   int n = 0;
