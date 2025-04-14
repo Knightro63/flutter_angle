@@ -1,4 +1,8 @@
-## 0.1.0
+## 0.2.1
+
+* Fixed macos code sign issue.
+
+## 0.2.0
 
 * Updated framework to the latest version of angle.
 * IOSurface from angle does not support ios-simulator
