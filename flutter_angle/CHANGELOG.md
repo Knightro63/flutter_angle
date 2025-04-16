@@ -1,3 +1,7 @@
+## 0.2.2
+
+* Fixed android emulator bug.
+
 ## 0.2.1
 
 * Fixed macos code sign issue.

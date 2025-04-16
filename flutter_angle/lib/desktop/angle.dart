@@ -118,7 +118,7 @@ class FlutterAngle {
     late final dynamic result;
     if (Platform.isAndroid && _useAngle) {
       result = await _channel.invokeMethod('initOpenGLAngle');
-      _useAngle = !result['isEmulator'];
+      _useAngle = result['isEmulator'] == null?_useAngle:!result['isEmulator'];
     } else {
       _useAngle = false;
       result = await _channel.invokeMethod('initOpenGL');

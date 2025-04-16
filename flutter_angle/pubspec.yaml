@@ -1,6 +1,6 @@
 name: flutter_angle
 description: "Flutters Almost Native Graphics Layer Engine is made by google to use OpenGL ES API calls to one of the hardware-supported APIs available for that platform."
-version: 0.2.1
+version: 0.2.2
 homepage: https://github.com/Knightro63/flutter_angle/tree/main/flutter_angle
 
 environment:
