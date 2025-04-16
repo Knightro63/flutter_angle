@@ -300,6 +300,7 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
     Map<String, Object> response = new HashMap<>();
     response.put("context", getCurrentContext());
     response.put("dummySurface", dummySurface);
+    response.put("isEmulator", EmulatorDetector.isEmulator());
     result.success(response);
     Log.i(TAG, "ANGLE OpenGL initialized successfully");
   }
