@@ -1,3 +1,8 @@
+## 0.1.0
+
+* Updated framework to the latest version of angle.
+* IOSurface from angle does not support ios-simulator
+
 ## 0.0.3
 
 * Updated iOS device framework to fix xcode 16 archive bug.

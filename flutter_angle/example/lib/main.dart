@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -17,11 +18,15 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
+  FlutterAngle angle = FlutterAngle();
   final textures = <FlutterAngleTexture>[];
+
   int textureId = -1;
   int textureId2 = -1;
+
   Lesson? lesson;
   Lesson? lesson2;
+
   static const textureWidth = 640;
   static const textureHeight = 320;
   static const aspect = textureWidth / textureHeight;
@@ -46,17 +51,17 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     width = screenSize!.width;
     height = width;
 
-    await FlutterAngle.initOpenGL(true, true);
+    await angle.init();
 
     final options = AngleOptions(
-      width: textureWidth, 
-      height: textureHeight, 
+      width: textureWidth,
+      height: textureHeight,
       dpr: dpr,
     );
 
     try {
-      textures.add(await FlutterAngle.createTexture(options));
-      textures.add(await FlutterAngle.createTexture(options));
+      textures.add(await angle.createTexture(options));
+      textures.add(await angle.createTexture(options));
     } on PlatformException catch (e) {
       print("failed to get texture id $e");
       return;
@@ -123,10 +128,47 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   }
 
   void dispose() {
+    angle.dispose(textures);
     ticker.dispose();
     lesson?.dispose();
     lesson2?.dispose();
     super.dispose();
+  }
+
+  Widget texture(bool useRow){
+    return useRow? Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Expanded(
+          child: Transform.scale(
+            scaleY: kIsWeb || Platform.isAndroid? -1: 1,
+            child: kIsWeb?HtmlElementView(viewType: textureId.toString()):Texture(textureId: textureId),
+          )
+        ),
+        Expanded(
+          child: Transform.scale(
+            scaleY: kIsWeb || Platform.isAndroid? -1: 1,
+            child: kIsWeb?HtmlElementView(viewType: textureId2.toString()):Texture(textureId: textureId2),
+          )
+        ),
+      ],
+    ):Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Expanded(
+          child: Transform.scale(
+            scaleY: kIsWeb || Platform.isAndroid? -1: 1,
+            child: kIsWeb?HtmlElementView(viewType: textureId.toString()):Texture(textureId: textureId),
+          )
+        ),
+        Expanded(
+          child: Transform.scale(
+            scaleY: kIsWeb || Platform.isAndroid? -1: 1,
+            child: kIsWeb?HtmlElementView(viewType: textureId2.toString()):Texture(textureId: textureId2),
+          )
+        ),
+      ],
+    );
   }
 
   @override
@@ -139,98 +181,14 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
         ),
         body: LayoutBuilder(builder: (context, constraints) {
           final useRow = constraints.maxWidth > constraints.maxHeight;
-          if(!didInit){
+          if (!didInit) {
             initPlatformState();
           }
-          return GestureDetector(
-            onVerticalDragStart: verticalDragStart,
-            onVerticalDragUpdate: verticalDragUpdate,
-            onHorizontalDragStart: horizontalDragStart,
-            onHorizontalDragUpdate: horizontalDragUpdate,
-            child: Container(
-              child: 
-              kIsWeb?
-                useRow
-                  ? Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Expanded(child: 
-                        Transform.scale(
-                          scaleY: -1,
-                          child: HtmlElementView(viewType: textureId.toString()),
-                        ) 
-                      ),
-                      Expanded(child: 
-                        Transform.scale(
-                          scaleY: -1,
-                          child: HtmlElementView(viewType: textureId2.toString()),
-                        ) 
-                      ),
-                    ],
-                  )
-                : Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Expanded(child: 
-                        Transform.scale(
-                          scaleY: -1,
-                          child: HtmlElementView(viewType: textureId.toString()),
-                        ) 
-                      ),
-                      Expanded(child: 
-                        Transform.scale(
-                          scaleY: -1,
-                          child: HtmlElementView(viewType: textureId2.toString()),
-                        ) 
-                      ),
-                    ],
-                  )
-                :useRow
-                  ? Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Expanded(child: Texture(textureId: textureId)),
-                      Expanded(child: Texture(textureId: textureId2)),
-                    ],
-                  )
-                : Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Expanded(child: Texture(textureId: textureId)),
-                      Expanded(child: Texture(textureId: textureId2)),
-                    ],
-                  ),
-            ),
+          return Container(
+            child: texture(useRow)
           );
         }),
       ),
     );
-  }
-
-  double lastVertical = 0;
-
-  double lastHorizontal = 0;
-
-  void verticalDragStart(DragStartDetails details) {}
-
-  void verticalDragUpdate(DragUpdateDetails details) {
-    if (details.delta.dy < 0) {
-      movement = Directions.up;
-      print('up');
-    } else if (details.delta.dy > 0) {
-      print('down');
-      movement = Directions.down;
-    }
-  }
-
-  void horizontalDragStart(DragStartDetails details) {}
-  void horizontalDragUpdate(DragUpdateDetails details) {
-    if (details.delta.dx < 0) {
-      movement = Directions.right;
-      print('right');
-    } else if (details.delta.dx > 0) {
-      movement = Directions.left;
-      print('left');
-    }
   }
 }

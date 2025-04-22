@@ -1,7 +1,8 @@
+import 'dart:js_interop';
 import 'package:flutter/services.dart';
 import 'package:flutter_angle/native-array/index.dart';
 import 'package:flutter_angle/shared/console.dart';
-import 'dart:html' as html;
+import 'package:web/web.dart' as html;
 import '../shared/webgl.dart';
 import '../shared/classes.dart';
 import 'dart:async';
@@ -135,10 +136,10 @@ class RenderingContext{
   }) async {
     final completer = Completer<void>();
     final bytes = (await image.toByteData())!;
-    final hblob = html.Blob([bytes]);
-    final imageDom = html.ImageElement();
+    final hblob = html.Blob([bytes].jsify() as JSArray<JSAny>);
+    final imageDom = html.HTMLImageElement();
     imageDom.crossOrigin = "";
-    imageDom.src = html.Url.createObjectUrl(hblob);
+    imageDom.src = html.URL.createObjectURL(hblob);
     
     imageDom.onLoad.listen((e) {
       completer.complete();
@@ -157,7 +158,7 @@ class RenderingContext{
     int type = WebGL.UNSIGNED_BYTE,
   }) async {
     final completer = Completer<void>();
-    final imageDom = html.ImageElement();
+    final imageDom = html.HTMLImageElement();
     imageDom.crossOrigin = "";
     imageDom.src = asset;
     imageDom.onLoad.listen((e) {
@@ -392,11 +393,23 @@ class RenderingContext{
     _gl.bindBufferBase(target, index, buffer?.id);
     checkError('bindBufferBase');
   }
-  void bufferData(int target, NativeArray data, int usage) {
-    _gl.bufferData(target, data.data, usage);
+  // void bufferData(int target, offset, int? usage) {
+  //   _gl.bufferData(target, offset, usage);
+  //   checkError('bufferData');
+  // }
+  /// Be careful which type of integer you really pass here. Unfortunately an UInt16List
+  /// is viewed by the Dart type system just as List<int>, so we jave to specify the native type
+  /// here in [nativeType]
+  void bufferData(int target, dynamic data, int? usage) {
+    if(data is int){
+      _gl.bufferData(target, data, usage ?? 0);
+    }
+    else{
+      _gl.bufferData(target, data.data, usage ?? 0);
+    }
+    
     checkError('bufferData');
   }
-
   void vertexAttribPointer(int index, int size, int type, bool normalized, int stride, int offset) {
     _gl.vertexAttribPointer(index, size, type, normalized, stride, offset);
     checkError('vertexAttribPointer');
@@ -446,6 +459,11 @@ class RenderingContext{
   void copyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height){
     _gl.copyTexSubImage2D(target, level, xoffset, yoffset, x,y,width, height);
     checkError('copyTexSubImage2D');
+  }
+
+  void copyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height){
+    _gl.glCopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height);
+    checkError('copyTexSubImage3D');
   }
 
   void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, pixels) {

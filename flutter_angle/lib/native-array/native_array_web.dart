@@ -16,7 +16,13 @@ abstract class PlatformNativeArray<T extends num> extends NativeArray<T> {
 
   @override
   T operator [](int index) {
-    return toDartList()[index];
+    final list = toDartList();
+    if(index < 0)
+      return list[0];
+    if(index >= list.length)
+      return list[index-list.length];
+    else
+      return list[index];
   }
 
   @override
