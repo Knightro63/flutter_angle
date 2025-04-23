@@ -19,12 +19,7 @@ Pod::Spec.new do |s|
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES'} 
 
-  s.vendored_frameworks = [
-    '../../flutter_angle_darwin/darwin/libEGL.xcframework',
-    '../../flutter_angle_darwin/darwin/libGLESv2.xcframework'
-  ]
-
-  s.dependency 'FlutterAngle', '~> 0.0.1'
+  s.dependency 'FlutterAngle', '~> 0.0.2'
   
   s.osx.dependency 'FlutterMacOS'
   s.osx.deployment_target = '10.14'
