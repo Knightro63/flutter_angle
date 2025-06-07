@@ -1,3 +1,7 @@
+## 0.2.3
+
+* Changed android minSdkVersion to 21.
+
 ## 0.2.2
 
 * Fixed android emulator bug.

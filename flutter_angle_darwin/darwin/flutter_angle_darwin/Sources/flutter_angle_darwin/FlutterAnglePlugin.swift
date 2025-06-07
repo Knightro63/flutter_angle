@@ -4,8 +4,6 @@ import FlutterMacOS
 import Flutter
 #endif
 
-import libEGL
-
 @objc public class FlutterAnglePlugin: NSObject, FlutterPlugin {
   // Flutter texture-related
   private var textureRegistry: FlutterTextureRegistry

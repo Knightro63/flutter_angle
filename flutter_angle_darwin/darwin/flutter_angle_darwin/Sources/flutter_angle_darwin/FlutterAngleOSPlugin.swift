@@ -4,9 +4,6 @@ import FlutterMacOS
 import Flutter
 #endif
 
-import libEGL
-import libGLESv2
-
 @objc public class FlutterAngleOSPlugin: NSObject{
     private var textureRegistry: FlutterTextureRegistry?
     private var pixelBuffer: CVPixelBuffer?
@@ -18,11 +15,6 @@ import libGLESv2
     private var height: Int = 0
 
     public var textureId: Int64 = -1;
-    public var metlaAsGLTexture: UInt32 = 0
-
-    var sourceImageBuf: CVMetalTexture?
-    var textureCache: CVMetalTextureCache?
-    var metalTexture: MTLTexture?
     
     init(textureRegistry: FlutterTextureRegistry?){
         self.textureRegistry = textureRegistry;
@@ -85,7 +77,6 @@ import libGLESv2
         result([
             "textureId": textureId,
             "surfacePointer": surfacePointer,
-            "metalTexture": metlaAsGLTexture
         ])
     }
     
