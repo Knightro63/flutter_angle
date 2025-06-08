@@ -1,4 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
+
+# Project-level configuration.
 set(PROJECT_NAME "flutter_angle")
 project(${PROJECT_NAME} LANGUAGES CXX)
 
@@ -6,33 +8,43 @@ project(${PROJECT_NAME} LANGUAGES CXX)
 # not be changed
 set(PLUGIN_NAME "flutter_angle_plugin")
 
-add_library(${PLUGIN_NAME} SHARED
-  "flutter_angle_plugin.cpp"
-)
+add_library(${PLUGIN_NAME} SHARED "flutter_angle_plugin.cpp")
+
+# Apply a standard set of build settings that are configured in the
+# application-level CMakeLists.txt. This can be removed for plugins that want
+# full control over build settings.
 apply_standard_settings(${PLUGIN_NAME})
-set_target_properties(${PLUGIN_NAME} PROPERTIES
-  CXX_VISIBILITY_PRESET hidden)
+
+# Symbols are hidden by default to reduce the chance of accidental conflicts
+# between plugins. This should not be removed; any symbols that should be
+# exported should be explicitly exported with the FLUTTER_PLUGIN_EXPORT macro.
+set_target_properties(${PLUGIN_NAME} PROPERTIES CXX_VISIBILITY_PRESET hidden)
 target_compile_definitions(${PLUGIN_NAME} PRIVATE FLUTTER_PLUGIN_IMPL)
-target_include_directories(${PLUGIN_NAME} INTERFACE
-  "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(${PLUGIN_NAME} INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/include")
   
-  set(LIB_GLES_NAME "libGLESv2.dll")
-  set(LIB_EGL_NAME "libEGL.dll")
-  set(ZLIB_NAME "zlib.dll")
-  set(ANGLE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/angle")
-  set(OPENGL_ARCH ${MSVC_CXX_ARCHITECTURE_ID})
-  set(OPENGL_BUILD_TYPE "$<$<CONFIG:Debug>:debug>$<$<CONFIG:Release>:release>")
-  set(OPENGL_LIB_DIR "${ANGLE_DIR}/${OPENGL_ARCH}/${OPENGL_BUILD_TYPE}")
-  set(OPENGL_LIB "${OPENGL_LIB_DIR}/${LIB_GLES_NAME}")
-  set(EGL_LIB "${OPENGL_LIB_DIR}/${LIB_EGL_NAME}")
-  set(ZLIB_LIB "${OPENGL_LIB_DIR}/${ZLIB_NAME}")
-  
-  target_link_directories(${PLUGIN_NAME} PUBLIC ${OPENGL_LIB_DIR} )
-  target_link_libraries(${PLUGIN_NAME} PRIVATE flutter flutter_wrapper_plugin ${LIB_GLES_NAME}.lib ${LIB_EGL_NAME}.lib)
+target_link_directories(
+  ${PLUGIN_NAME} PUBLIC 
+  ${OPENGL_LIB_DIR} 
+)
+
+target_link_libraries(
+  ${PLUGIN_NAME} PRIVATE 
+  flutter 
+  flutter_wrapper_plugin 
+  "${CMAKE_CURRENT_SOURCE_DIR}/bin/lib/libEGL.dll.lib" 
+  "${CMAKE_CURRENT_SOURCE_DIR}/bin/lib/libGLESv2.dll.lib"
+)
+
 # List of absolute paths to libraries that should be bundled with the plugin
 set(flutter_angle_bundled_libraries
-  "${OPENGL_LIB}"
-  "${EGL_LIB}"
-  "${ZLIB_LIB}"
+  "${CMAKE_CURRENT_SOURCE_DIR}/bin/dll/libEGL.dll"
+  "${CMAKE_CURRENT_SOURCE_DIR}/bin/dll/libGLESv2.dll"
+  "${CMAKE_CURRENT_SOURCE_DIR}/bin/dll/libc++.dll"
+  "${CMAKE_CURRENT_SOURCE_DIR}/bin/dll/msvcp140d.dll"
+  "${CMAKE_CURRENT_SOURCE_DIR}/bin/dll/ucrtbased.dll"
+  "${CMAKE_CURRENT_SOURCE_DIR}/bin/dll/vccorlib140d.dll"
+  "${CMAKE_CURRENT_SOURCE_DIR}/bin/dll/vcruntime140_1d.dll"
+  "${CMAKE_CURRENT_SOURCE_DIR}/bin/dll/vcruntime140d.dll"
+  "${CMAKE_CURRENT_SOURCE_DIR}/bin/dll/zlib.dll"
   PARENT_SCOPE
 )
