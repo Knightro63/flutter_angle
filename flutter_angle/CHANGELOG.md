@@ -1,3 +1,7 @@
+## 0.2.4
+
+* Update: pods dependency for FlutterAngle to 0.0.3.
+
 ## 0.2.3
 
 * Changed android minSdkVersion to 21.
