@@ -1,3 +1,7 @@
+## 0.2.6
+
+* Update: pods dependency for FlutterAngle to 0.0.4.
+
 ## 0.2.5
 
 * Update: dll files for windows release version.

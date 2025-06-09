@@ -35,7 +35,7 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - OpenGL supported
  - Vulkan supported
 
- **Windows**
+**Windows**
  - Intel supported.
  - AMD supported.
  - Direct3D 11 and OpenGL supported
