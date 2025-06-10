@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.library = 'c++'
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES'} 
-  s.dependency 'FlutterAngle', '~> 0.0.4'
+  s.dependency 'FlutterAngle', '~> 0.0.5'
 
   s.osx.dependency 'FlutterMacOS'
   s.osx.deployment_target = '10.14'
