@@ -15,11 +15,7 @@ extern "C" {
 **   https://github.com/KhronosGroup/OpenGL-Registry
 */
 
-#if __has_include(<libGLESv2/GLES/glplatform.h>)
 #include <libGLESv2/GLES2/gl2platform.h>
-#else
-#include <GLES2/gl2platform.h>
-#endif
 
 #ifndef GL_APIENTRYP
 #define GL_APIENTRYP GL_APIENTRY*
@@ -43,11 +39,7 @@ extern "C" {
 
 #ifndef GL_ES_VERSION_2_0
 #define GL_ES_VERSION_2_0 1
-#if __has_include(<libGLESv2/KHR/khrplatform.h>)
 #include <libGLESv2/KHR/khrplatform.h>
-#else
-#include <KHR/khrplatform.h>
-#endif
 typedef khronos_int8_t GLbyte;
 typedef khronos_float_t GLclampf;
 typedef khronos_int32_t GLfixed;

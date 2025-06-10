@@ -1,3 +1,7 @@
+## 0.2.8
+
+* Update: pods dependency for FlutterAngle to 0.0.6.
+
 ## 0.2.7
 
 * Update: pods dependency for FlutterAngle to 0.0.5.

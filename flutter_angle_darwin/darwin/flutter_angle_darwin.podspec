@@ -12,13 +12,15 @@ Pod::Spec.new do |s|
   s.license          = { :file => '../LICENSE' }
   s.authors          = 'Multiple Authors'
   s.source           = { :path => '.' }
-  s.source_files = 'flutter_angle/Sources/flutter_angle/**/*.{h,m,swift,inc,plist}'
-  s.public_header_files = 'flutter_angle/Sources/flutter_angle/**/*.{h,inc}'
+  s.source_files = 'Classes/**/*.{h,m,swift,inc,plist}'
+  s.public_header_files = 'Classes/**/*.{h,inc}'
   s.swift_version = '5.0'
   s.library = 'c++'
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES'} 
-  #s.dependency 'FlutterAngle', '~> 0.0.1'
+
+  s.vendored_frameworks = 'libEGL.xcframework', 'libGLESv2.xcframework'
+  s.preserve_paths = 'ibEGL.xcframework', 'libGLESv2.xcframework'
 
   s.osx.dependency 'FlutterMacOS'
   s.osx.deployment_target = '10.14'

@@ -43,7 +43,7 @@
  *    http://www.khronos.org/registry/implementers_guide.pdf
  *
  * This file should be included as
- *        #include <KHR/khrplatform.h>
+ *        #include <libGLESv2/KHR/khrplatform.h>
  * by Khronos client API header files that use its types and defines.
  *
  * The types in khrplatform.h should only be used to define API-specific types.

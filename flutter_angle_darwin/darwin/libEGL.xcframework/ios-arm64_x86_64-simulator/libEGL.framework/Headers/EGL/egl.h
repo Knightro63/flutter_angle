@@ -14,20 +14,16 @@ extern "C" {
 ** used to make the header, and the header can be found at
 **   http://www.khronos.org/registry/egl
 **
-** Khronos $Git commit SHA1: 6fb1daea15 $ on $Git commit date: 2022-05-25 09:41:13 -0600 $
+** Khronos $Git commit SHA1: 5b1165a76f $ on $Git commit date: 2023-06-22 06:48:34 -0700 $
 */
 
-#if __has_include(<libEGL/EGL/eglplatform.h>)
 #include <libEGL/EGL/eglplatform.h>
-#else
-#include <EGL/eglplatform.h>
-#endif
 
 #ifndef EGL_EGL_PROTOTYPES
 #define EGL_EGL_PROTOTYPES 1
 #endif
 
-/* Generated on date 20220525 */
+/* Generated on date 20230622 */
 
 /* Generated C header for:
  * API: egl
@@ -42,13 +38,8 @@ extern "C" {
 #define EGL_VERSION_1_0 1
 typedef unsigned int EGLBoolean;
 typedef void *EGLDisplay;
-#if __has_include(<libEGL/KHR/khrplatform.h>)
 #include <libEGL/KHR/khrplatform.h>
 #include <libEGL/EGL/eglplatform.h>
-#else
-#include <KHR/khrplatform.h>
-#include <EGL/eglplatform.h>
-#endif
 typedef void *EGLConfig;
 typedef void *EGLSurface;
 typedef void *EGLContext;
