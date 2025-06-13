@@ -118,9 +118,17 @@ class FlutterAngle {
     late final dynamic result;
     if (Platform.isAndroid && _useAngle) {
       result = await _channel.invokeMethod('initOpenGLAngle');
-    } else {
+      _useAngle = result['forceOpengl'] == null?_useAngle:!result['forceOpengl'];
+      print("Force Opengl: ${result['forceOpengl']}");
+    } 
+    else {
       _useAngle = false;
       result = await _channel.invokeMethod('initOpenGL');
+
+      if(_isApple){
+        _isApple = result['isSimulator'] == null?_isApple:!result['isSimulator'];
+        print(result);
+      }
     }
 
     loadEGL(useAngle: _useAngle);
@@ -360,7 +368,7 @@ class FlutterAngle {
         result['textureId']! as int,
         result['rbo'] as int? ?? 0,
         Pointer.fromAddress(result['surface'] as int? ?? 0),
-        null,
+        0,
         0,
         result['location'] as int? ?? 0,
         options
@@ -394,7 +402,7 @@ class FlutterAngle {
         result['textureId']! as int,
         result['rbo'] as int? ?? 0,
         macIosSurface, // We'll use an IOSurface instead
-        null,
+        0,
         0,
         result['location'] as int? ?? 0,
         options
@@ -418,17 +426,27 @@ class FlutterAngle {
       result['textureId']! as int,
       result['rbo'] as int? ?? 0,
       Pointer.fromAddress(result['surface'] as int? ?? 0),
-      null,
+      result['metalAsGLTexture'] as int? ?? 0,
       fbo.value,
       result['location'] as int? ?? 0,
       options
     );
+
+    print(result);
+
     angleConsole.info(newTexture.toMap());
     angleConsole.info(_rawOpenGl.glGetError());
     _rawOpenGl.glActiveTexture(WebGL.TEXTURE0);
 
-    _rawOpenGl.glBindRenderbuffer(GL_RENDERBUFFER, newTexture.rboId);
-    _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, newTexture.rboId);
+    if (newTexture.element != 0) {
+      // Draw to metal interop texture directly
+      _rawOpenGl.glBindTexture(GL_TEXTURE_2D, newTexture.element);
+      _rawOpenGl.glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, newTexture.element, 0);
+    } 
+    else {
+      _rawOpenGl.glBindRenderbuffer(GL_RENDERBUFFER, newTexture.rboId);
+      _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, newTexture.rboId);
+    }
 
     var frameBufferCheck = _rawOpenGl.glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (frameBufferCheck != GL_FRAMEBUFFER_COMPLETE) {
@@ -528,7 +546,13 @@ class FlutterAngle {
       return;
     }
 
-    _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, texture.rboId);
+    if (texture.element != 0) {
+      // Draw to metal interop texture directly
+      _rawOpenGl.glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, texture.element, 0);
+    } 
+    else {
+      _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, texture.rboId);
+    }
     _activeFramebuffer = texture.fboId;
   }
 

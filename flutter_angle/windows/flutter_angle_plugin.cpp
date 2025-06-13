@@ -92,7 +92,6 @@ using flutter::EncodableValue;
     buffer->height = height;
     memset(pixels.get(), 0x00, size);
 
-
     glGenFramebuffers(1, &fbo);
     glBindFramebuffer(GL_FRAMEBUFFER, fbo);
 

@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     width = screenSize!.width;
     height = width;
 
-    await angle.init(false,false);
+    await angle.init();
 
     final options = AngleOptions(
       width: textureWidth,

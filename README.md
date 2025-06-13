@@ -8,9 +8,7 @@ A graphics library for dart (based on [angle](https://github.com/google/angle)) 
 
 ## Features
 
-<picture>
-  <img alt="Gif of angle working." src="https://github.com/Knightro63/flutter_angle/blob/main/assets/example.gif?raw=true">
-</picture>
+![Gif of angle working.](https://github.com/Knightro63/flutter_angle/blob/main/assets/example.gif?raw=true)
 
 This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutter_web_gl/tree/master) originally created by [@escamoteur](https://github.com/escamoteur) and [@kentcb](https://github.com/kentcb).
 
@@ -28,17 +26,28 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Swift 5
  - Metal supported
 
+**iOS-Simulator**
+ - No longer supported due to IOSurface issue, please use flutter_angle: ^0.1.0 for testing on simulator.
+
 **Android**
  - compileSdkVersion: 34
+ - minSdk: 21
  - OpenGL supported
+ - Vulkan supported
 
- **Windows**
+**Android Emulator**
+ - Supported.
+
+**Windows**
  - Intel supported.
  - AMD supported.
  - Direct3D 11 and OpenGL supported
 
 **Web**
  - WebGL2 supported.
+
+**WASM**
+ - Currently not supported due to WebGL2RenderingContext conversion issue.
 
 **Linux**
  - Unsupported

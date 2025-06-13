@@ -33,7 +33,7 @@ import Flutter
         textureRegistry?.textureFrameAvailable(self.textureId)
         result(nil)
     }
-    
+
     // MARK: - Texture Creation
     public func createTexture(width: Int, height: Int, result: @escaping FlutterResult) {
         self.width = width

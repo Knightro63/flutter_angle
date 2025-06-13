@@ -56,6 +56,42 @@ import static android.opengl.GLES20.GL_VENDOR;
 import static android.opengl.GLES20.GL_VERSION;
 import static android.opengl.GLES20.glGetError;
 
+class AngleCheck {
+  public static boolean isEmulator() {
+    Log.i("FlutterAnglePlugin", "Using Android Virtual Device.");
+    return (Build.FINGERPRINT.startsWith("generic")
+      || Build.FINGERPRINT.contains("vbox")
+      || Build.FINGERPRINT.contains("sdk_gphone")
+      || Build.PRODUCT.contains("sdk")
+      || Build.PRODUCT.contains("emulator")
+      || Build.PRODUCT.contains("google_sdk")
+      || Build.HARDWARE.contains("goldfish")
+      || Build.HARDWARE.contains("ranchu")
+      || Build.MANUFACTURER.contains("Genymotion")
+      || Build.MANUFACTURER.contains("Google")
+      || Build.MODEL.contains("google_sdk")
+      || Build.MODEL.contains("Emulator")
+    );
+  }
+
+  public static boolean isVersionAllowed() {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.P) {
+      Log.i("FlutterAnglePlugin", "Android version is lower than 28.");
+      return false;
+    }
+
+    Log.i("FlutterAnglePlugin", "Android version is greater than or equal to 28.");
+    return true;
+  }
+
+  public static boolean isAllowed() {
+    if (isEmulator() || !isVersionAllowed()) {
+      return false;
+    } 
+    return true;
+  }
+}
+
 class OpenGLException extends Throwable {
 
   OpenGLException(String message, int error) {
@@ -180,10 +216,20 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
 
       // Plugin2 methods (ANGLE) – note the "Angle" suffix
       case "initOpenGLAngle":
-        initOpenGLAngleImplementation(result);
+        if(AngleCheck.isAllowed()){
+          initOpenGLAngleImplementation(result);
+        }
+        else{
+          initOpenGLImplementation(result);
+        }
         break;
       case "createTextureAngle":
-        createTextureAngleImplementation(call, result);
+        if(AngleCheck.isAllowed()){
+          createTextureAngleImplementation(call, result);
+        }
+        else{
+          createTextureImplementation(call, result);
+        }
         break;
       default:
         result.notImplemented();
@@ -210,6 +256,7 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
     response.put("context", context.getNativeHandle());
     response.put("eglConfigId", openGLManager.getConfigId());
     response.put("dummySurface", dummySurface);
+    response.put("forceOpengl", !AngleCheck.isAllowed());
     result.success(response);
   }
 
@@ -273,6 +320,7 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
     Map<String, Object> response = new HashMap<>();
     response.put("context", getCurrentContext());
     response.put("dummySurface", dummySurface);
+    response.put("forceOpengl", !AngleCheck.isAllowed());
     result.success(response);
     Log.i(TAG, "ANGLE OpenGL initialized successfully");
   }
