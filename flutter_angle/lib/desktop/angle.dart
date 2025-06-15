@@ -479,6 +479,12 @@ class FlutterAngle {
     return newTexture;
   }
 
+  Future<FlutterAngleTexture> resize(FlutterAngleTexture texture, AngleOptions options) async{
+    final t = await createTexture(options);
+    await deleteTexture(texture);
+    return t;
+  }
+
   Future<void> updateTexture(FlutterAngleTexture texture, [WebGLTexture? sourceTexture]) async {
     if (sourceTexture != null) {
       _rawOpenGl.glClearColor(0.0, 0.0, 0.0, 0.0);

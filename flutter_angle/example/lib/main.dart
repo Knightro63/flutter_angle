@@ -171,6 +171,28 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     );
   }
 
+  Future<void> onWindowResize(BuildContext context) async{
+    print('here');
+    final mqd = MediaQuery.of(context);
+    if(screenSize != mqd.size){
+      screenSize = mqd.size;
+      width = screenSize!.width;
+      height = screenSize!.height;
+      dpr = mqd.devicePixelRatio;
+
+      final options = AngleOptions(
+        width: textureWidth,
+        height: height~/2,
+        dpr: dpr,
+      );
+
+      // final t = await angle.resize(textures.last, options);
+      // lesson2?.dispose();
+      // lesson2 = Lesson5(t.getContext());
+      // textures.last = t;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -184,8 +206,18 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
           if (!didInit) {
             initPlatformState();
           }
-          return Container(
-            child: texture(useRow)
+          return NotificationListener<SizeChangedLayoutNotification>(
+            onNotification: (notification) {
+              onWindowResize(context);
+              return true;
+            },
+            child:SizeChangedLayoutNotifier(
+              child: Builder(builder: (BuildContext context) {
+                return SizedBox(
+                  child: texture(useRow)
+                );
+              })
+            )
           );
         }),
       ),

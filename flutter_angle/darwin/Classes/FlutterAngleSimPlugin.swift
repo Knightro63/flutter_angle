@@ -1,3 +1,4 @@
+#if targetEnvironment(simulator)
 #if os(macOS)
 import FlutterMacOS
 #elseif os(iOS)
@@ -447,3 +448,4 @@ extension FlutterAngleSimPlugin: FlutterTexture {
         return nil
     }
 }
+#endif
