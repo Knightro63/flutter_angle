@@ -38,8 +38,6 @@ public struct EGLInfo {
     var metalImageBuf: CVMetalTexture?
     var openglImageBuf: CVOpenGLESTexture?
     
-    var openGLContext: EAGLContext?
-    
     init(textureRegistry: FlutterTextureRegistry?){
         self.textureRegistry = textureRegistry;
         super.init();
@@ -108,8 +106,14 @@ public struct EGLInfo {
             EGL_WIDTH, 16,
             EGL_HEIGHT, 16,
             EGL_NONE
-        ]
-
+        ];
+        let buffer_attributes:[Int32] = [
+            EGL_WIDTH, 16,
+            EGL_HEIGHT, 16,
+            EGL_TEXTURE_TARGET, EGL_TEXTURE_2D, 
+            EGL_TEXTURE_FORMAT, EGL_TEXTURE_RGBA,
+            EGL_NONE,
+        ];
         let contextAttributes: [Int32] = [
           EGL_CONTEXT_CLIENT_VERSION,
           3,
@@ -122,11 +126,11 @@ public struct EGLInfo {
         
         let dummySurface = eglCreatePbufferSurface(display, configs, surfaceAttribs)
         let dummySurfaceForDartSide = eglCreatePbufferSurface(display, configs, surfaceAttribs)
-        
+       
         if eglMakeCurrent(display, dummySurface, dummySurface, context) == 0 {
-            result(FlutterError(code: "Flutter Angle Error", message: "Failed to make context current", details: nil))
-            return nil
-        }
+           result(FlutterError(code: "Flutter Angle Error", message: "Failed to make context current", details: nil))
+           return nil
+       }
         
         // Print OpenGL information
         if let version = libGLESv2.glGetString(GLenum(libGLESv2.GL_VERSION)),
@@ -150,12 +154,11 @@ public struct EGLInfo {
         return EGLInfo(
             eglDisplay: display,
             eglContext: context,
-            eglSurface: dummySurface!
-          )
+            eglSurface: dummySurface!,
+        )
     }
     
     public func setInfo(info: EGLInfo?) {
-        openGLContext = EAGLContext.init(api: EAGLRenderingAPI.openGLES3)
         eglInfo = info
     }
         
@@ -201,72 +204,70 @@ public struct EGLInfo {
     }
 
     private func createMtlTextureFromCVPixBuffer(width: Int, height: Int) {
-        // Create Metal texture backed by CVPixelBuffer
-        guard let mtlDevice:MTLDevice = MTLCreateSystemDefaultDevice() else {
-            fatalError("Could not create Metal Device")
-        }
+         // Create Metal texture backed by CVPixelBuffer
+         guard let mtlDevice:MTLDevice = MTLCreateSystemDefaultDevice() else {
+             fatalError("Could not create Metal Device")
+         }
 
-        guard CVMetalTextureCacheCreate(
-            kCFAllocatorDefault,
-            nil,
-            mtlDevice,
-            nil,
-            &textureMetalCache
-        ) == kCVReturnSuccess else {
-            print("No IOSurface available for this texture ID")
-            return
-        }
-        guard CVMetalTextureCacheCreateTextureFromImage(
-            kCFAllocatorDefault,
-            textureMetalCache!,
-            pixelBuffer!,
-            nil,
-            .bgra8Unorm,
-            width,
-            height,
-            0,
-            &metalImageBuf) == kCVReturnSuccess else {
-            fatalError("CVMetalTextureCacheCreateTextureFromImage bind CVPixelBuffer to metal texture error")
-        }
-        
-        if let image = metalImageBuf {
-            let metalTexture = CVMetalTextureGetTexture(image)
+         guard CVMetalTextureCacheCreate(
+             kCFAllocatorDefault,
+             nil,
+             mtlDevice,
+             nil,
+             &textureMetalCache
+         ) == kCVReturnSuccess else {
+             print("No IOSurface available for this texture ID")
+             return
+         }
+         guard CVMetalTextureCacheCreateTextureFromImage(
+             kCFAllocatorDefault,
+             textureMetalCache!,
+             pixelBuffer!,
+             nil,
+             .bgra8Unorm,
+             width,
+             height,
+             0,
+             &metalImageBuf) == kCVReturnSuccess else {
+             fatalError("CVMetalTextureCacheCreateTextureFromImage bind CVPixelBuffer to metal texture error")
         }
         
-        guard CVOpenGLESTextureCacheCreate(
-            kCFAllocatorDefault,
-            nil,
-            openGLContext!,
-            nil,
-            &textureOpenGLCache
-        ) == kCVReturnSuccess else {
-            print("CVOpenGLESTextureCacheCreate failed")
-            return
-        }
+        let metalTexture = CVMetalTextureGetTexture(metalImageBuf!)
         
-        guard CVOpenGLESTextureCacheCreateTextureFromImage(
-            kCFAllocatorDefault,
-            textureOpenGLCache!,
-            pixelBuffer!,
-            nil,
-            GLenum(GL_TEXTURE_2D),
-            GLint(GL_RGBA),
-            GLsizei(width),
-            GLsizei(height),
-            GLenum(GL_BGRA),
-            GLenum(GL_UNSIGNED_BYTE),
-            0,
-            &openglImageBuf
-        ) == kCVReturnSuccess else {
-            print("CVOpenGLESTextureCacheCreateTextureFromImage failed")
-            return
-        }
+//        guard CVOpenGLESTextureCacheCreate(
+//            kCFAllocatorDefault,
+//            nil,
+//            eglInfo!.eglContext,
+//            nil,
+//            &textureOpenGLCache
+//        ) == kCVReturnSuccess else {
+//            print("CVOpenGLESTextureCacheCreate failed")
+//            return
+//        }
+//        
+//        guard CVOpenGLESTextureCacheCreateTextureFromImage(
+//            kCFAllocatorDefault,
+//            textureOpenGLCache!,
+//            pixelBuffer!,
+//            nil,
+//            GLenum(GL_TEXTURE_2D),
+//            GLint(GL_RGBA),
+//            GLsizei(width),
+//            GLsizei(height),
+//            GLenum(GL_BGRA),
+//            GLenum(GL_UNSIGNED_BYTE),
+//            0,
+//            &openglImageBuf
+//        ) == kCVReturnSuccess else {
+//            print("CVOpenGLESTextureCacheCreateTextureFromImage failed")
+//            return
+//        }
         
         libGLESv2.glGenTextures(1, &textures!.metalTextureId)
         libGLESv2.glBindTexture(GLenum(libGLESv2.GL_TEXTURE_2D), textures!.metalTextureId)
         
-        let openGLTexture = CVOpenGLESTextureGetName(openglImageBuf!)
-        glBindTexture(GLenum(GL_TEXTURE_2D), openGLTexture)
+        let glEGLImageTargetTexture2DOES:(Double, Double)! = eglGetProcAddress("glEGLImageTargetTexture2DOES"); //(PFNGLEGLIMAGETARGETTEXTURE2DOESPROC) PFNGLEGLIMAGETARGETTEXTURE2DOESPROC
+        glEGLImageTargetTexture2DOES(GLenum(libGLESv2.GL_TEXTURE_2D), metalTexture)
     }
     
     private func setupOpenGLResources(useRenderBuf: Bool) {
