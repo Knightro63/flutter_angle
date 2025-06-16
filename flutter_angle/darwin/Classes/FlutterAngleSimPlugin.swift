@@ -119,7 +119,9 @@ public struct EGLInfo {
           3,
           EGL_NONE
         ]
-        guard let context = eglCreateContext(display, configs, nil, contextAttributes) else {
+        let t:EAGLContext = EAGLContext(api: .openGLES3)!
+
+        guard let context = eglCreateContext(display, configs,  UnsafeMutableRawPointer(bitPattern: t.hash), contextAttributes) else {
             result(FlutterError(code: "Flutter Angle Error", message: "Failed to create EGL context", details: nil))
             return nil
         }
@@ -202,12 +204,33 @@ public struct EGLInfo {
           "location": 0  // For compatibility with Android
         ]);
     }
+    private func GetANGLEMtlDevice(display: EGLDisplay) -> MTLDevice?{
+        var angleDevice: libEGL.EGLAttrib = 0;
+        var device: libEGL.EGLAttrib      = 0;
+        
+        typealias PFNEGLQUERYDISPLAYATTRIBEXTPROC = @convention(c) (libEGL.EGLDisplay, libEGL.EGLint, UnsafePointer<libEGL.EGLAttrib>?) -> EGLBoolean
+        typealias PFNEGLQUERYDEVICEATTRIBEXTPROC = @convention(c) (libEGL.EGLDeviceEXT, libEGL.EGLint, UnsafePointer<libEGL.EGLAttrib>?) -> libEGL.EGLBoolean
+        
+        let eglQueryDisplayAttribEXT = unsafeBitCast(libEGL.eglGetProcAddress("eglQueryDisplayAttribEXT"), to: PFNEGLQUERYDISPLAYATTRIBEXTPROC.self);
+  
+        let eglQueryDeviceAttribEXT = unsafeBitCast(libEGL.eglGetProcAddress("eglQueryDeviceAttribEXT"), to: PFNEGLQUERYDEVICEATTRIBEXTPROC.self);
+        
+        if (eglQueryDisplayAttribEXT(eglInfo!.eglDisplay, libEGL.EGL_DEVICE_EXT, &angleDevice) != libEGL.EGL_TRUE){
+            print(angleDevice);
+            return nil;
+        }
+        
+        if (eglQueryDeviceAttribEXT((libEGL.EGLDeviceEXT)(bitPattern: angleDevice)!, 0x33A2, &device) != libEGL.EGL_TRUE){
+            return nil;
+        }
 
+        return unsafeBitCast(device, to: MTLDevice.self);//(__bridge id<MTLDevice>)(void *)(device);
+    }
     private func createMtlTextureFromCVPixBuffer(width: Int, height: Int) {
          // Create Metal texture backed by CVPixelBuffer
-         guard let mtlDevice:MTLDevice = MTLCreateSystemDefaultDevice() else {
+        guard let mtlDevice:MTLDevice =  MTLCreateSystemDefaultDevice() else {
              fatalError("Could not create Metal Device")
-         }
+         }//GetANGLEMtlDevice(display: eglInfo!.eglDisplay)
 
          guard CVMetalTextureCacheCreate(
              kCFAllocatorDefault,
@@ -228,46 +251,44 @@ public struct EGLInfo {
              width,
              height,
              0,
-             &metalImageBuf) == kCVReturnSuccess else {
+             &metalImageBuf
+         ) == kCVReturnSuccess else {
              fatalError("CVMetalTextureCacheCreateTextureFromImage bind CVPixelBuffer to metal texture error")
         }
         
         let metalTexture = CVMetalTextureGetTexture(metalImageBuf!)
+
+        typealias PFNEGLCREATEIMAGEKHRPROC = @convention(c) (libEGL.EGLDisplay, libEGL.EGLContext?, libEGL.EGLenum, libEGL.EGLClientBuffer, UnsafePointer<EGLint>?) -> libEGL.EGLImageKHR
+        let eglCreateImageKHR = unsafeBitCast(libEGL.eglGetProcAddress("eglCreateImageKHR"), to: PFNEGLCREATEIMAGEKHRPROC.self)
+
+        // Call the function
+        let eglImage = eglCreateImageKHR(eglInfo!.eglDisplay, nil, libEGL.EGLenum(libEGL.EGL_NATIVE_PIXMAP_KHR), unsafeBitCast(metalTexture!, to: libEGL.EGLClientBuffer.self), [libEGL.EGL_NONE])
         
-//        guard CVOpenGLESTextureCacheCreate(
-//            kCFAllocatorDefault,
-//            nil,
-//            eglInfo!.eglContext,
-//            nil,
-//            &textureOpenGLCache
-//        ) == kCVReturnSuccess else {
-//            print("CVOpenGLESTextureCacheCreate failed")
-//            return
-//        }
-//        
-//        guard CVOpenGLESTextureCacheCreateTextureFromImage(
-//            kCFAllocatorDefault,
-//            textureOpenGLCache!,
-//            pixelBuffer!,
-//            nil,
-//            GLenum(GL_TEXTURE_2D),
-//            GLint(GL_RGBA),
-//            GLsizei(width),
-//            GLsizei(height),
-//            GLenum(GL_BGRA),
-//            GLenum(GL_UNSIGNED_BYTE),
-//            0,
-//            &openglImageBuf
-//        ) == kCVReturnSuccess else {
-//            print("CVOpenGLESTextureCacheCreateTextureFromImage failed")
-//            return
-//        }
         
         libGLESv2.glGenTextures(1, &textures!.metalTextureId)
         libGLESv2.glBindTexture(GLenum(libGLESv2.GL_TEXTURE_2D), textures!.metalTextureId)
+     
+        // Define a typealias for the function pointer
+        typealias EGLSwapBuffersFunc = @convention(c) (UInt32, libEGL.EGLImageKHR?) -> libEGL.EGLBoolean
         
-        let glEGLImageTargetTexture2DOES:(Double, Double)! = eglGetProcAddress("glEGLImageTargetTexture2DOES"); //(PFNGLEGLIMAGETARGETTEXTURE2DOESPROC) PFNGLEGLIMAGETARGETTEXTURE2DOESPROC
-        glEGLImageTargetTexture2DOES(GLenum(libGLESv2.GL_TEXTURE_2D), metalTexture)
+        // Get the address of eglSwapBuffers
+        let swapBuffersPtr = libEGL.eglGetProcAddress("glEGLImageTargetTexture2DOES")
+        // Check if the function was found
+        if let swapBuffersPtr = swapBuffersPtr {
+            let swapBuffers = unsafeBitCast(swapBuffersPtr, to: EGLSwapBuffersFunc.self)
+            let success = swapBuffers(GLenum(libGLESv2.GL_TEXTURE_2D), eglImage)
+            print(eglImage)
+            if success == libEGL.EGL_TRUE {
+                print("Swap buffers successful")
+            } else {
+                print("Swap buffers failed")
+                textures!.metalTextureId = 0
+                return
+            }
+        } else {
+            print("eglSwapBuffers not available")
+            return
+        }
     }
     
     private func setupOpenGLResources(useRenderBuf: Bool) {
@@ -323,6 +344,7 @@ public struct EGLInfo {
             libGLESv2.glReadPixels(0, 0, GLsizei(width), GLsizei(height), GLenum(GL_BGRA), GLenum(libGLESv2.GL_UNSIGNED_BYTE), pixelBufferBaseAddress)
             CVPixelBufferUnlockBaseAddress(pixelBuffer!, .readOnly)
         }
+        
         textureRegistry?.textureFrameAvailable(textureId)
         result(nil)
     }
