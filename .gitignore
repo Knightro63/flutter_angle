@@ -30,7 +30,6 @@ libangle_android_graphic_jni.so
 */macos
 */web
 */ios
-*/linux
 
 # Flutter repo-specific
 /bin/cache/

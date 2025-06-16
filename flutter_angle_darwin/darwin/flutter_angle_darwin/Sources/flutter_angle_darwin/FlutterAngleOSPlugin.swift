@@ -33,7 +33,7 @@ import Flutter
         textureRegistry?.textureFrameAvailable(self.textureId)
         result(nil)
     }
-    
+
     // MARK: - Texture Creation
     public func createTexture(width: Int, height: Int, result: @escaping FlutterResult) {
         self.width = width
@@ -78,6 +78,12 @@ import Flutter
             "textureId": textureId,
             "surfacePointer": surfacePointer,
         ])
+    }
+
+    public func resizeTexture(width: Int, height: Int, result: @escaping FlutterResult) {
+        textures = nil
+        textureToPixelBuffer = nil
+        createTexture(width: width, height: height, result: result)
     }
     
     public func disposeTexture() {

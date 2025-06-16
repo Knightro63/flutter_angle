@@ -1,6 +1,6 @@
 name: flutter_angle_windows
 description: "Flutters Almost Native Graphics Layer Engine for windows."
-version: 0.0.2
+version: 0.0.3
 homepage: https://github.com/Knightro63/flutter_angle/tree/main/flutter_angle_windows
 
 environment:
@@ -14,12 +14,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^3.0.0
+  flutter_lints: ^5.0.0
 
 flutter:
   plugin:
     implements: flutter_angle
     platforms:
       windows:
-        pluginClass: FlutterAngleWindowsPlugin
+        pluginClass: FlutterAnglePlugin
 

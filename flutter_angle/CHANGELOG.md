@@ -1,6 +1,8 @@
 ## 0.2.9
 
 * Fixed: Android bug not rendering on devices lower than SDK version 28.
+* Fixed: Added Support for iOS Simulator.
+* Update: pods dependency for FlutterAngle to 0.0.7.
 
 ## 0.2.8
 

@@ -1,6 +1,6 @@
 # flutter_angle_windows
 
-[![Pub Version](https://img.shields.io/pub/v/flutter_angle)](https://pub.dev/packages/flutter_angle)
+[![Pub Version](https://img.shields.io/pub/v/flutter_angle_windows)](https://pub.dev/packages/flutter_angle_windows)
 [![analysis](https://github.com/Knightro63/flutter_angle/actions/workflows/flutter.yml/badge.svg)](https://github.com/Knightro63//flutter_angle/actions/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 

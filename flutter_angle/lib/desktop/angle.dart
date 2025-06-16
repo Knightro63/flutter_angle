@@ -17,7 +17,7 @@ class FlutterAngleTexture {
   final dynamic element;
   final int textureId;
   final int rboId;
-  final Pointer<Void>? surfaceId;
+  Pointer<Void>? surfaceId;
   final int fboId;
   final int loc;
   late AngleOptions options;
@@ -479,10 +479,18 @@ class FlutterAngle {
     return newTexture;
   }
 
-  Future<FlutterAngleTexture> resize(FlutterAngleTexture texture, AngleOptions options) async{
-    final t = await createTexture(options);
-    await deleteTexture(texture);
-    return t;
+  Future<void> resize(FlutterAngleTexture texture, AngleOptions options) async{
+    if(Platform.isMacOS){
+      // final dynamic result = await _channel.invokeMethod('resizeTexture', {
+      //   "width": options.width,
+      //   "height": options.height,
+      //   "textureId": texture.textureId,
+      //   "useSurfaceProducer": options.useSurfaceProducer
+      // });
+
+      // malloc.free(texture.surfaceId!);
+      // texture.surfaceId = Pointer.fromAddress(result['surface'] as int? ?? 0);
+    }
   }
 
   Future<void> updateTexture(FlutterAngleTexture texture, [WebGLTexture? sourceTexture]) async {

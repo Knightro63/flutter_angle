@@ -79,6 +79,12 @@ import Flutter
             "surfacePointer": surfacePointer,
         ])
     }
+
+    public func resizeTexture(width: Int, height: Int, result: @escaping FlutterResult) {
+        textures = nil
+        textureToPixelBuffer = nil
+        createTexture(width: width, height: height, result: result)
+    }
     
     public func disposeTexture() {
         if let tr = textureRegistry {

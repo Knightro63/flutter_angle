@@ -1,6 +1,6 @@
 # flutter_angle_darwin
 
-[![Pub Version](https://img.shields.io/pub/v/flutter_angle)](https://pub.dev/packages/flutter_angle)
+[![Pub Version](https://img.shields.io/pub/v/flutter_angle_darwin)](https://pub.dev/packages/flutter_angle_darwin)
 [![analysis](https://github.com/Knightro63/flutter_angle/actions/workflows/flutter.yml/badge.svg)](https://github.com/Knightro63//flutter_angle/actions/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
 
@@ -29,7 +29,7 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Metal supported
 
 **iOS-Simulator**
- - No longer supported due to IOSurface issue, please use flutter_angle: ^0.1.0 for testing on simulator.
+ - Supported: Please use flutter_angle: ^0.2.0 for simulator.
 
 ## Getting started
 

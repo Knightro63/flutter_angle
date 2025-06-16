@@ -1,3 +1,8 @@
+## 0.2.0
+
+* Updated framework to the latest version of angle.
+* Added Simulator Support.
+
 ## 0.1.0
 
 * Updated framework to the latest version of angle.

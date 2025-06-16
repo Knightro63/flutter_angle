@@ -1,6 +1,6 @@
 name: flutter_angle_darwin
 description: "Flutters Almost Native Graphics Layer Engine for ios and osx."
-version: 0.1.0
+version: 0.2.0
 homepage: https://github.com/Knightro63/flutter_angle/tree/main/flutter_angle_darwin
 
 environment:

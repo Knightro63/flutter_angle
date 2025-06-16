@@ -172,7 +172,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   }
 
   Future<void> onWindowResize(BuildContext context) async{
-    print('here');
     final mqd = MediaQuery.of(context);
     if(screenSize != mqd.size){
       screenSize = mqd.size;
@@ -186,7 +185,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
         dpr: dpr,
       );
 
-      // final t = await angle.resize(textures.last, options);
+      await angle.resize(textures.last, options);
       // lesson2?.dispose();
       // lesson2 = Lesson5(t.getContext());
       // textures.last = t;
