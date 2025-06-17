@@ -1,4 +1,4 @@
-#include "include/flutter_angle/flutter_angle_plugin.h"
+#include "include/flutter_angle_linux/flutter_angle_linux_plugin.h"
 #include "include/gl32.h"
 #include "include/egl.h"
 
@@ -16,13 +16,13 @@
 #include <cstring>
 
 #include "include/flutter_texture_gl.h"
-#include "flutter_angle_plugin_private.h"
+#include "flutter_angle_linux_plugin_private.h"
 
-#define FLUTTER_ANGLE_PLUGIN(obj)                                     \
-  (G_TYPE_CHECK_INSTANCE_CAST((obj), flutter_angle_plugin_get_type(), \
-                              FlutterAnglePlugin))
+#define FLUTTER_ANGLE_LINUX_PLUGIN(obj)                                     \
+  (G_TYPE_CHECK_INSTANCE_CAST((obj), flutter_angle_linux_plugin_get_type(), \
+                              FlutterAngleLinuxPlugin))
 
-struct _FlutterAnglePlugin{
+struct _FlutterAngleLinuxPlugin{
   GObject parent_instance;
   FlTextureRegistrar *textureRegistrar = nullptr;
   TextureMap flutterGLTextures;
@@ -30,11 +30,11 @@ struct _FlutterAnglePlugin{
   FlView *fl_view = nullptr;
 };
 
-G_DEFINE_TYPE(FlutterAnglePlugin, flutter_angle_plugin, g_object_get_type())
+G_DEFINE_TYPE(FlutterAngleLinuxPlugin, flutter_angle_linux_plugin, g_object_get_type())
 
 // Called when a method call is received from Flutter.
-static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, FlMethodCall *method_call){
-	g_autoptr(FlMethodResponse) response = nullptr;
+static void flutter_angle_linux_plugin_handle_method_call(FlutterAngleLinuxPlugin *self, FlMethodCall *method_call){
+  g_autoptr(FlMethodResponse) response = nullptr;
 
 	const gchar *method = fl_method_call_get_name(method_call);
 	FlValue *args = fl_method_call_get_args(method_call);
@@ -88,7 +88,7 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
     }
 
     EGLint configId;
-    eglGetConfigAttrib(display,config,EGL_CONFIG_ID,&configId);
+    eglGetConfigAttrib(display, config, EGL_CONFIG_ID, &configId);
 
     const EGLint surfaceAttributes[] = {
       EGL_WIDTH, 16,
@@ -107,7 +107,17 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
     auto dummySurface = eglCreatePbufferSurface(display, config, surfaceAttributes);
     auto dummySurfaceForDartSide = eglCreatePbufferSurface(display, config, surfaceAttributes);
     
-    eglMakeCurrent(display, dummySurface, dummySurface, context);
+    if(eglMakeCurrent(display, dummySurface, dummySurface, context) == 0){
+      response = FL_METHOD_RESPONSE(
+        fl_method_error_response_new(
+          "EGL InitError", 
+          "eglMakeCurrent failed",
+          nullptr
+        )
+      );
+      fl_method_call_respond(method_call, response, nullptr);
+      return;
+    }
 
     auto v = glGetString(GL_VENDOR);
     int error = glGetError();
@@ -146,6 +156,8 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
         return;
       }
     }
+    std::cerr << "Window Size:" << width << "," << height << std::endl;
+
 
     auto ft = flutter_texture_gl_new(width, height);
 
@@ -159,20 +171,37 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
     auto error = glGetError();
     if (error != GL_NO_ERROR){
       std::cerr << "GlError while allocating Renderbuffer" << error << std::endl;
-      throw new OpenGLException("GlError while allocating Renderbuffer", error);
+      response = FL_METHOD_RESPONSE(
+        fl_method_error_response_new(
+          "EGL CreateError", 
+          "GlError while allocating Renderbuffer.",
+          nullptr
+        )
+      );
+      fl_method_call_respond(method_call, response, nullptr);
+      return;
     }
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER,rbo);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER,ft->rbo);
     auto frameBufferCheck = glCheckFramebufferStatus(GL_FRAMEBUFFER);
     if (frameBufferCheck != GL_FRAMEBUFFER_COMPLETE){
       std::cerr << "Framebuffer error" << frameBufferCheck << std::endl;
-      throw new OpenGLException("Framebuffer Error while creating Texture", frameBufferCheck);
+      std::cerr << "GlError while allocating Renderbuffer" << error << std::endl;
+      response = FL_METHOD_RESPONSE(
+        fl_method_error_response_new(
+          "EGL CreateError", 
+          "Framebuffer Error while creating Texture.",
+          nullptr
+        )
+      );
+      fl_method_call_respond(method_call, response, nullptr);
+      return;
     }
 
     error = glGetError() ;
     if( error != GL_NO_ERROR){
       std::cerr << "GlError" << error << std::endl;
     }
-    
+    std::cerr << "Create Texture" <<std::endl;
     self->texture = FL_TEXTURE(ft);
     fl_texture_registrar_register_texture(self->textureRegistrar, self->texture);
     ft->textureId = fl_texture_get_id(self->texture);
@@ -184,7 +213,7 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
     self->flutterGLTextures.insert(TextureMap::value_type(ft->textureId, std::move(ft)));
 		
     response = FL_METHOD_RESPONSE(fl_method_success_response_new(value));
-    std::cerr << "Created a new texture " << width << "x" << height << "openGL ID" << rbo << std::endl;
+    std::cerr << "Created a new texture " << width << "x" << height << "openGL ID" << ft->rbo << std::endl;
 	}
 	else if (strcmp(method, "updateTexture") == 0){
     std::cerr << "EGL updateTexture" << std::endl;
@@ -266,27 +295,27 @@ FlMethodResponse* get_platform_version() {
   return FL_METHOD_RESPONSE(fl_method_success_response_new(result));
 }
 
-static void flutter_angle_plugin_dispose(GObject *object){
-	G_OBJECT_CLASS(flutter_angle_plugin_parent_class)->dispose(object);
+static void flutter_angle_linux_plugin_dispose(GObject *object){
+	G_OBJECT_CLASS(flutter_angle_linux_plugin_parent_class)->dispose(object);
 }
 
-static void flutter_angle_plugin_class_init(FlutterAnglePluginClass *klass){
-	G_OBJECT_CLASS(klass)->dispose = flutter_angle_plugin_dispose;
+static void flutter_angle_linux_plugin_class_init(FlutterAngleLinuxPluginClass *klass){
+	G_OBJECT_CLASS(klass)->dispose = flutter_angle_linux_plugin_dispose;
 }
 
-static void flutter_angle_plugin_init(FlutterAnglePlugin *self) {}
+static void flutter_angle_linux_plugin_init(FlutterAngleLinuxPlugin *self) {}
 
 static void method_call_cb(FlMethodChannel *channel, FlMethodCall *method_call, gpointer user_data){
-	FlutterAnglePlugin *plugin = FLUTTER_ANGLE_PLUGIN(user_data);
-	flutter_angle_plugin_handle_method_call(plugin, method_call);
+	FlutterAngleLinuxPlugin *plugin = FLUTTER_ANGLE_LINUX_PLUGIN(user_data);
+	flutter_angle_linux_plugin_handle_method_call(plugin, method_call);
 }
 
-void flutter_angle_plugin_register_with_registrar(FlPluginRegistrar *registrar){
-	FlutterAnglePlugin *plugin = FLUTTER_ANGLE_PLUGIN(g_object_new(flutter_angle_plugin_get_type(), nullptr));
+void flutter_angle_linux_plugin_register_with_registrar(FlPluginRegistrar *registrar){
+	FlutterAngleLinuxPlugin *plugin = FLUTTER_ANGLE_LINUX_PLUGIN(g_object_new(flutter_angle_linux_plugin_get_type(), nullptr));
 
 	FlView *fl_view = fl_plugin_registrar_get_view(registrar);
 	plugin->fl_view = fl_view;
-	plugin->texture_registrar = fl_plugin_registrar_get_texture_registrar(registrar);
+	plugin->textureRegistrar = fl_plugin_registrar_get_texture_registrar(registrar);
 
 	g_autoptr(FlStandardMethodCodec) codec = fl_standard_method_codec_new();
 	g_autoptr(FlMethodChannel) channel = fl_method_channel_new(

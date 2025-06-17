@@ -26,9 +26,9 @@ static gboolean flutter_texture_gl_copy_pixels(
 
 FlutterTextureGL *flutter_texture_gl_new(
   uint32_t width,
-  uint32_t height,
+  uint32_t height
 ){
-  auto r = FLUTTER_TEXTURE_GL(g_object_new(flutter_texture_gl_get_type(), nullptr));
+  auto r = FL_FLUTTER_TEXTURE_GL(g_object_new(flutter_texture_gl_get_type(), nullptr));
   r->width = width;
   r->height = height;
   r->buffer = static_cast<uint8_t*>(malloc(r->width * r->height * 4));

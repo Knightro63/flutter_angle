@@ -4,15 +4,15 @@
 cmake_minimum_required(VERSION 3.15)
 
 # Project-level configuration.
-set(PROJECT_NAME "flutter_angle")
+set(PROJECT_NAME "flutter_angle_linux")
 project(${PROJECT_NAME} LANGUAGES CXX)
 
 # This value is used when generating builds using this plugin, so it must
 # not be changed.
-set(PLUGIN_NAME "flutter_angle_plugin")
+set(PLUGIN_NAME "flutter_angle_linux_plugin")
 
 list(APPEND PLUGIN_SOURCES
-  "flutter_angle_plugin.cc"
+  "flutter_angle_linux_plugin.cc"
 )
 
 add_library(${PLUGIN_NAME} SHARED
@@ -42,7 +42,9 @@ target_link_directories(
 
 target_link_libraries(
   ${PLUGIN_NAME} PRIVATE 
-  flutter 
+  flutter
+  # EGL
+  # GLEW
   "${CMAKE_CURRENT_SOURCE_DIR}/jniLibs/libEGL.so" 
   "${CMAKE_CURRENT_SOURCE_DIR}/jniLibs/libGLESv2.so"
 )

@@ -179,13 +179,13 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
       height = screenSize!.height;
       dpr = mqd.devicePixelRatio;
 
-      final options = AngleOptions(
-        width: textureWidth,
-        height: height~/2,
-        dpr: dpr,
-      );
+      // final options = AngleOptions(
+      //   width: textureWidth,
+      //   height: height~/2,
+      //   dpr: dpr,
+      // );
 
-      await angle.resize(textures.last, options);
+      // await angle.resize(textures.last, options);
       // lesson2?.dispose();
       // lesson2 = Lesson5(t.getContext());
       // textures.last = t;

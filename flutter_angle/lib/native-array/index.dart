@@ -4,6 +4,6 @@
 library native_array;
 
 import 'dart:math' as math;
-import 'native_array_app.dart' if (dart.library.js) './native_array_web.dart';
+import 'native_array_app.dart' if (dart.library.js_interop) './native_array_web.dart';
 part 'base_native_array.dart';
 part 'native_array.dart';
