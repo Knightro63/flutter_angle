@@ -10,9 +10,12 @@ external void glViewport(JSObject gl, int x, int y, int width, int height);
 @JS()
 external JSObject glGetShaderPrecisionFormat(JSObject gl);
 
-// getExtension(String key);
-// getParameter(key);
-// getString(String key);
+@JS()
+external JSAny? glGetExtension(JSObject gl,String key);
+@JS()
+external JSAny? glGetParameter(JSObject gl,int key);
+@JS()
+external JSAny? glGetString(JSObject gl,String key);
 
 @JS()
 external JSObject createTexture(JSObject gl);
@@ -36,7 +39,7 @@ external void glTexImage2D(
   int border, 
   int format, 
   int type, 
-  JSArray pixels
+  JSAny? pixels
 );
 
 @JS()
@@ -47,7 +50,7 @@ external void glTexImage2D_NOSIZE(
   int internalformat,
   int format, 
   int type, 
-  JSObject? pixels
+  JSAny? pixels
 );
 
 // @JS()
@@ -62,7 +65,7 @@ external void glTexImage2D_NOSIZE(
 // );
 
 @JS()
-external void glTexImage3D(JSObject gl, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, JSArray? pixels);
+external void glTexImage3D(JSObject gl, int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, JSAny? pixels);
 @JS()
 external void glDepthFunc(JSObject gl, int v0);
 @JS()
@@ -106,7 +109,7 @@ external void glColorMask(JSObject gl, bool red, bool green, bool blue, bool alp
 @JS()
 external void glClearColor(JSObject gl, double red, double green, double blue, double alpha);
 @JS()
-external void glCompressedTexImage2D(JSObject gl, int target, int level, int internalformat, int width, int height, int border, JSArray? data);
+external void glCompressedTexImage2D(JSObject gl, int target, int level, int internalformat, int width, int height, int border, JSAny? data);
 @JS()
 external void glGenerateMipmap(JSObject gl, int target);
 @JS()
@@ -114,29 +117,29 @@ external void glDeleteTexture(JSObject gl, int v0);
 @JS()
 external void glDeleteFramebuffer(JSObject gl, int framebuffer);
 @JS()
-external void deleteRenderbuffer(JSObject gl, int renderbuffer);
+external void glDeleteRenderbuffer(JSObject gl, int renderbuffer);
 @JS()
-external void texParameterf(JSObject gl, int target, int pname, double param);
+external void glTexParameterf(JSObject gl, int target, int pname, double param);
 @JS()
 external void glPixelStorei(JSObject gl, int pname, int param);
 @JS()
-external JSObject getContextAttributes(JSObject gl);
+external JSAny? glGetContextAttributes(JSObject gl);
 @JS()
-external JSObject glGetProgramParameter(JSObject gl, JSObject program, int pname);
+external JSAny? glGetProgramParameter(JSObject gl, JSObject program, int pname);
 @JS()
-external void getActiveUniform(JSObject gl, int v0, int v1);
+external JSAny? glGetActiveUniform(JSObject gl, JSObject v0, int v1);
 @JS()
-external void getActiveAttrib(JSObject gl, int v0, int v1);
+external JSAny? glGetActiveAttrib(JSObject gl, JSObject v0, int v1);
 @JS()
-external JSObject glGetUniformLocation(JSObject gl, JSObject program, String name);
+external JSAny? glGetUniformLocation(JSObject gl, JSObject program, String name);
 @JS()
 external void glClear(JSObject gl, int mask);
 @JS()
-external JSObject glCreateBuffer(JSObject gl);
+external JSAny? glCreateBuffer(JSObject gl);
 @JS()
 external void glBindBuffer(JSObject gl, int target, JSObject buffer);
 @JS()
-external void glBufferData(JSObject gl, int target, JSObject data, int usage);
+external void glBufferData(JSObject gl, int target, JSAny? data, int usage);
 @JS()
 external void glBufferDatai(JSObject gl, int target, int data, int usage);
 @JS()
@@ -146,21 +149,21 @@ external void glDrawArrays(JSObject gl, int mode, int first, int count);
 @JS()
 external void glDrawArraysInstanced(JSObject gl, int mode, int first, int count, int instanceCount);
 @JS()
-external void glBindFramebuffer(JSObject gl, int target, int framebuffer);
+external void glBindFramebuffer(JSObject gl, int target, JSAny? framebuffer);
 @JS()
 external int glCheckFramebufferStatus(JSObject gl, int target);
 @JS()
-external void glFramebufferTexture2D(JSObject gl, int target, int attachment, int textarget, int texture, int level);
+external void glFramebufferTexture2D(JSObject gl, int target, int attachment, int textarget, JSAny? texture, int level);
 @JS()
-external void glReadPixels(JSObject gl, int x, int y, int width, int height, int format, int type, JSArray? pixels);
+external void glReadPixels(JSObject gl, int x, int y, int width, int height, int format, int type, JSAny? pixels);
 @JS()
-external bool glIsProgram(JSObject gl, int program);
+external bool glIsProgram(JSObject gl, JSAny? program);
 @JS()
 external void glCopyTexImage2D(JSObject gl, int target, int level, int internalformat, int x, int y, int width, int height, int border);
 @JS()
-external void glTexSubImage2D(JSObject gl, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, JSArray? pixels) ;
+external void glTexSubImage2D(JSObject gl, int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, JSAny? pixels) ;
 @JS()
-external void glTexSubImage2D_NOSIZE(JSObject gl, int target, int level, int xoffset, int yoffset, int format, int type, JSArray? pixels);
+external void glTexSubImage2D_NOSIZE(JSObject gl, int target, int level, int xoffset, int yoffset, int format, int type, JSAny? pixels);
 
 @JS()
 external void glTexSubImage3D(JSObject gl, 
@@ -174,57 +177,57 @@ external void glTexSubImage3D(JSObject gl,
   int depth,
   int format,
   int type,
-  JSArray? pixels
+  JSAny? pixels
 );
 
 @JS()
-external void glCompressedTexSubImage2D(JSObject gl, int target, int level, int xoffset, int yoffset, int width, int height, int format, JSArray? pixels);
+external void glCompressedTexSubImage2D(JSObject gl, int target, int level, int xoffset, int yoffset, int width, int height, int format, JSAny? pixels);
 @JS()
-external void glBindRenderbuffer(JSObject gl, int target, int framebuffer);
+external void glBindRenderbuffer(JSObject gl, int target, JSAny? framebuffer);
 @JS()
 external void glRenderbufferStorageMultisample(JSObject gl, int target, int samples, int internalformat, int width, int height);
 @JS()
 external void glRenderbufferStorage(JSObject gl, int target, int internalformat, int width, int height);
 @JS()
-external void glFramebufferRenderbuffer(JSObject gl, int target, int attachment, int renderbuffertarget, int renderbuffer);
+external void glFramebufferRenderbuffer(JSObject gl, int target, int attachment, int renderbuffertarget, JSAny? renderbuffer);
 @JS()
-external JSObject glCreateRenderbuffer(JSObject gl);
+external JSAny? glCreateRenderbuffer(JSObject gl);
 @JS()
-external void glGenRenderbuffers(JSObject gl, int count, JSArray buffers);
+external void glGenRenderbuffers(JSObject gl, int count, JSAny buffers);
 @JS()
-external JSObject glCreateFramebuffer(JSObject gl);
+external JSAny? glCreateFramebuffer(JSObject gl);
 @JS()
-external void glGenFramebuffers(JSObject gl, int count, JSArray buffers);
+external void glGenFramebuffers(JSObject gl, int count, JSAny buffers);
 @JS()
 external void glBlitFramebuffer(JSObject gl, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, int mask, int filter);
 @JS()
-external void glBufferSubData(JSObject gl, int target, int dstByteOffset, JSArray srcData);
+external void glBufferSubData(JSObject gl, int target, int dstByteOffset, JSAny srcData);
 @JS()
-external JSObject glCreateVertexArray(JSObject gl);
+external JSAny? glCreateVertexArray(JSObject gl);
 @JS()
-external JSObject glCreateProgram(JSObject gl);
+external JSAny? glCreateProgram(JSObject gl);
 @JS()
-external void glAttachShader(JSObject gl, JSObject program, JSObject shader);
+external void glAttachShader(JSObject gl, JSAny? program, JSAny? shader);
 @JS()
-external void glBindAttribLocation(JSObject gl, int program, int index, String name);
+external void glBindAttribLocation(JSObject gl, JSAny? program, int index, String name);
 @JS()
-external void glLinkProgram(JSObject gl, JSObject program);
+external void glLinkProgram(JSObject gl, JSAny? program);
 @JS()
-external String? getProgramInfoLog(JSObject gl, JSObject program);
+external String? getProgramInfoLog(JSObject gl, JSAny? program);
 @JS()
-external String? getShaderInfoLog(JSObject gl, JSObject shader);
+external String? getShaderInfoLog(JSObject gl, JSAny? shader);
 @JS()
 external int glGetError(JSObject gl);
 @JS()
-external void glDeleteShader(JSObject gl, JSObject shader);
+external void glDeleteShader(JSObject gl, JSAny? shader);
 @JS()
-external void glDeleteProgram(JSObject gl, JSObject program);
+external void glDeleteProgram(JSObject gl, JSAny? program);
 @JS()
-external void glDeleteBuffer(JSObject gl, JSObject buffer);
+external void glDeleteBuffer(JSObject gl, JSAny? buffer);
 @JS()
-external void glBindVertexArray(JSObject gl, JSObject array);
+external void glBindVertexArray(JSObject gl, JSAny? array);
 @JS()
-external void glDeleteVertexArray(JSObject gl, JSObject array);
+external void glDeleteVertexArray(JSObject gl, JSAny? array);
 @JS()
 external void glEnableVertexAttribArray(JSObject gl, int index);
 @JS()
@@ -232,61 +235,61 @@ external void glDisableVertexAttribArray(JSObject gl, int index);
 @JS()
 external void glVertexAttribIPointer(JSObject gl, int index, int size, int type, int stride, int pointer);
 @JS()
-external void glVertexAttrib2fv(JSObject gl, int index, JSArray values);
+external void glVertexAttrib2fv(JSObject gl, int index, JSAny? values);
 @JS()
-external void glVertexAttrib3fv(JSObject gl, int index, JSArray values);
+external void glVertexAttrib3fv(JSObject gl, int index, JSAny? values);
 @JS()
-external void glVertexAttrib4fv(JSObject gl, int index, JSArray values);
+external void glVertexAttrib4fv(JSObject gl, int index, JSAny? values);
 @JS()
-external void glVertexAttrib1fv(JSObject gl, int index, JSArray values);
+external void glVertexAttrib1fv(JSObject gl, int index, JSAny? values);
 @JS()
 external void glDrawElements(JSObject gl, int mode, int count, int type, int offset);
 @JS()
-external void glDrawBuffers(JSObject gl, JSArray buffers);
+external void glDrawBuffers(JSObject gl, JSAny buffers);
 @JS()
-external JSObject glCreateShader(JSObject gl, int type);
+external JSAny? glCreateShader(JSObject gl, int type);
 @JS()
-external void glShaderSource(JSObject gl, JSObject shader, String shaderSource);
+external void glShaderSource(JSObject gl, JSAny? shader, String shaderSource);
 @JS()
-external void glCompileShader(JSObject gl, JSObject shader);
+external void glCompileShader(JSObject gl, JSAny? shader);
 @JS()
-external int glGetShaderParameter(JSObject gl, JSObject shader, int pname);
+external bool glGetShaderParameter(JSObject gl, JSAny? shader, int pname);
 @JS()
-external String? glGetShaderSource(JSObject gl, JSObject shader);
+external String? glGetShaderSource(JSObject gl, JSAny? shader);
 @JS()
-external void glUniformMatrix4fv(JSObject gl, JSObject location, bool transpose, JSObject values);
+external void glUniformMatrix4fv(JSObject gl, JSAny? location, bool transpose, JSAny? values);
 @JS()
-external void glUniform1i(JSObject gl, JSObject location, int x);
+external void glUniform1i(JSObject gl, JSAny? location, int x);
 @JS()
-external void glUniform3f(JSObject gl, JSObject location, double x, double y, double z);
+external void glUniform3f(JSObject gl, JSAny? location, double x, double y, double z);
 @JS()
-external void glUniform4f(JSObject gl, JSObject location, double x, double y, double z, double w);
+external void glUniform4f(JSObject gl, JSAny? location, double x, double y, double z, double w);
 @JS()
-external void glUniform1fv(JSObject gl, JSObject location, JSArray v);
+external void glUniform1fv(JSObject gl, JSAny? location, JSAny? v);
 @JS()
-external void glUniform2fv(JSObject gl, JSObject location, JSArray v);
+external void glUniform2fv(JSObject gl, JSAny? location, JSAny? v);
 @JS()
-external void glUniform3fv(JSObject gl, JSObject location, JSArray v);
+external void glUniform3fv(JSObject gl, JSAny? location, JSAny? v);
 
 @JS()
 external void glUniform1f(JSObject gl, JSObject location, double x);
 @JS()
-external void glUniformMatrix3fv(JSObject gl, JSObject location, bool transpose, JSArray values);
+external void glUniformMatrix3fv(JSObject gl, JSAny? location, bool transpose, JSAny? values);
 @JS()
-external int glGetAttribLocation(JSObject gl, JSObject program, String name);
+external int glGetAttribLocation(JSObject gl, JSAny? program, String name);
 @JS()
-external void glUniform2f(JSObject gl, JSObject location, double x, double y);
+external void glUniform2f(JSObject gl, JSAny? location, double x, double y);
 @JS()
-external void glUniform1iv(JSObject gl, JSObject location, JSArray v);
+external void glUniform1iv(JSObject gl, JSAny? location, JSAny? v);
 @JS()
-external void glUniform2iv(JSObject gl, JSObject location, JSArray v);
+external void glUniform2iv(JSObject gl, JSAny? location, JSAny? v);
 @JS()
-external void glUniform3iv(JSObject gl, JSObject location, JSArray v);
+external void glUniform3iv(JSObject gl, JSAny? location, JSAny? v);
 
 @JS()
-external void glUniform4iv(JSObject gl, JSObject location, JSArray v);
+external void glUniform4iv(JSObject gl, JSAny? location, JSAny? v);
 @JS()
-external void glUniform4fv(JSObject gl, JSObject location, JSArray vectors);
+external void glUniform4fv(JSObject gl, JSAny? location, JSAny? vectors);
 @JS()
 external void glVertexAttribDivisor(JSObject gl, int index, int divisor);
 @JS()
@@ -302,7 +305,7 @@ external int glCreateTransformFeedback(JSObject gl);
 @JS()
 external void glBindTransformFeedback(JSObject gl, int target, int id);
 @JS()
-external void glTransformFeedbackVaryings(JSObject gl, JSObject program, JSArray varyings, int bufferMode);
+external void glTransformFeedbackVaryings(JSObject gl, JSAny? program, JSAny? varyings, int bufferMode);
 @JS()
 external void glDeleteTransformFeedback(JSObject gl, int transformFeedback);
 @JS()
@@ -316,33 +319,22 @@ external void glPauseTransformFeedback(JSObject gl);
 @JS()
 external void glResumeTransformFeedback(JSObject gl);
 @JS()
-external JSObject glGetTransformFeedbackVarying(JSObject gl, int program, int index);
+external JSAny? glGetTransformFeedbackVarying(JSObject gl, JSAny? program, int index);
 @JS()
-external void glInvalidateFramebuffer(JSObject gl, int target, JSArray attachments);
+external void glInvalidateFramebuffer(JSObject gl, int target, JSAny? attachments);
 @JS()
-external JSArray readCurrentPixels(JSObject gl, int x, int y, int width, int height);
+external JSAny? readCurrentPixels(JSObject gl, int x, int y, int width, int height);
 @JS()
-external JSObject glCreateTexture(JSObject gl);
+external JSAny? glCreateTexture(JSObject gl);
+
 @JS()
-external JSObject glGetParameter(JSObject gl, int key);
+external int glGetUniformBlockIndex(JSObject gl, JSAny? program, String uniformBlockName);
 @JS()
-external JSObject glGetExtension(JSObject gl, String key);
+external void glUniformBlockBinding(JSObject gl, JSAny? program, int uniformBlockIndex,int uniformBlockBinding);
+
+
 @JS()
-external int glGlGetUniformBlockIndex(JSObject gl, int program, String uniformBlockName);
-@JS()
-external void glGlUniformBlockBinding(JSObject gl, int program, int uniformBlockIndex,int uniformBlockBinding);
-@JS()
-external void glDeleteRenderbuffer(JSObject gl, int renderbuffer);
-@JS()
-external void glTexParameterf(JSObject gl, int target, int pname, double param);
-@JS()
-external void glGetContextAttributes(JSObject gl);
-@JS()
-external JSObject glGetActiveUniform(JSObject gl, JSObject v0, int v1);
-@JS()
-external JSObject glGetActiveAttrib(JSObject gl, JSObject v0, int v1);
-@JS()
-external void glFramebufferTextureLayer(JSObject gl, int target,int attachment,int texture,int level,int layer);
+external void glFramebufferTextureLayer(JSObject gl, int target,int attachment, int texture,int level,int layer);
 @JS()
 external void glClearBufferuiv(JSObject gl, int buffer,int drawbuffer, int value);
 @JS()
@@ -352,34 +344,34 @@ external void glBindBufferBase(JSObject gl, int target, int index, int buffer);
 @JS()
 external void glCopyTexSubImage2D(JSObject gl,int target, int level, int xoffset, int yoffset, int x, int y, int width, int height);
 @JS()
-external void glGlCopyTexSubImage3D(JSObject gl, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
+external void glCopyTexSubImage3D(JSObject gl, int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
 @JS()
-external void glCompressedTexSubImage3D(JSObject gl, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int ormat, JSArray pixels);
+external void glCompressedTexSubImage3D(JSObject gl, int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int ormat, JSAny pixels);
 @JS()
-external void glCompressedTexImage3D(JSObject gl, int target,int level,int internalformat,int width, int height, int depth, int border, JSArray pixels);
+external void glCompressedTexImage3D(JSObject gl, int target,int level,int internalformat,int width, int height, int depth, int border, JSAny pixels);
 @JS()
-external String? glGetProgramInfoLog(JSObject gl, int id);
+external String? glGetProgramInfoLog(JSObject gl, JSObject id);
 @JS()
-external String? glGetShaderInfoLog(JSObject gl, int id);
+external String? glGetShaderInfoLog(JSObject gl, JSObject id);
 @JS()
-external void glUniformMatrix2fv(JSObject gl, int id, bool transpose, JSArray values);
+external void glUniformMatrix2fv(JSObject gl, int id, bool transpose, JSAny? values);
 @JS()
 external bool glIsTransformFeedback(JSObject gl, int transformFeedback);
 
 @JS()
-external void glUniform1uiv(JSObject gl, int location, JSArray v);
+external void glUniform1uiv(JSObject gl, JSAny? location, JSAny? v);
 @JS()
-external void glUniform2uiv(JSObject gl, int location, JSArray v);
+external void glUniform2uiv(JSObject gl, JSAny? location, JSAny? v);
 @JS()
-external void glUniform3uiv(JSObject gl, int location, JSArray v);
+external void glUniform3uiv(JSObject gl, JSAny? location, JSAny? v);
 @JS()
-external void glUniform4uiv(JSObject gl, int location, JSArray v);
+external void glUniform4uiv(JSObject gl, JSAny? location, JSAny? v);
 
 @JS()
-external void glUniform1ui(JSObject gl, int location, int v0);
+external void glUniform1ui(JSObject gl, JSAny? location, int v0);
 @JS()
-external void glUniform2ui(JSObject gl, int location, int v0, int v1);
+external void glUniform2ui(JSObject gl, JSAny? location, int v0, int v1);
 @JS()
-external void glUniform3ui(JSObject gl, int location, int v0, int v1, int v2);
+external void glUniform3ui(JSObject gl, JSAny? location, int v0, int v1, int v2);
 @JS()
-external void glUniform4ui(JSObject gl, int location, int v0, int v1, int v2, int v3);
+external void glUniform4ui(JSObject gl, JSAny? location, int v0, int v1, int v2, int v3);

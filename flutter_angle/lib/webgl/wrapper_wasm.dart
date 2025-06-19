@@ -40,15 +40,15 @@ class RenderingContext{
     return ShaderPrecisionFormat();
   }
 
-  Object? getExtension(String key) {
+  dynamic getExtension(String key) {
     return glGetExtension(_gl, key);
   }
   int getUniformBlockIndex(Program program, String uniformBlockName){
-    return glGlGetUniformBlockIndex(_gl, program.id, uniformBlockName);
+    return glGetUniformBlockIndex(_gl, program.id, uniformBlockName);
   }
 
   void uniformBlockBinding(Program program, int uniformBlockIndex,int uniformBlockBinding){
-    glGlUniformBlockBinding(_gl, program.id,uniformBlockIndex,uniformBlockBinding);
+    glUniformBlockBinding(_gl, program.id,uniformBlockIndex,uniformBlockBinding);
   }
   // getParameter(key) {
   //   glGetParameter(_gl, key);
@@ -113,8 +113,8 @@ class RenderingContext{
 
     if (_intValues.contains(key)) {
       dynamic val = glGetParameter(_gl, key);
-      if(val is List<int>){
-        return ByteData.view(Uint8List.fromList(val).buffer).getUint32(0);
+      if(val is JSInt32Array){
+        return ByteData.view(Uint8List.fromList(val.toDart).buffer).getUint32(0);
       }
       return val;
     } 
@@ -352,33 +352,21 @@ class RenderingContext{
   }
 
   ActiveInfo getActiveUniform(Program v0, v1) {
-    final val = glGetActiveUniform(_gl, v0.id, v1);
-    print(val);
+    final dynamic val = glGetActiveUniform(_gl, v0.id, v1);
     return ActiveInfo(
-      0,
-      'val.name',
-      0
+      val.type,
+      val.name,
+      val.size
     );
-    // return ActiveInfo(
-    //   val.type,
-    //   val.name,
-    //   val.size
-    // );
   }
   
   ActiveInfo getActiveAttrib(Program v0, v1) {
-    final val = glGetActiveAttrib(_gl, v0.id, v1);
-    print(val);
+    final dynamic val = glGetActiveAttrib(_gl, v0.id, v1);
     return ActiveInfo(
-      0,
-      'val.name',
-      0
+      val.type,
+      val.name,
+      val.size
     );
-    // return ActiveInfo(
-    //   val.type,
-    //   val.name,
-    //   val.size
-    // );
   }
 
   UniformLocation getUniformLocation(Program program, String name) {
@@ -424,7 +412,7 @@ class RenderingContext{
       glBufferDatai(_gl, target, data, usage ?? 0);
     }
     else{
-      glBufferData(_gl, target, (data.data as TypedData).jsify() as JSObject, usage ?? 0);
+      glBufferData(_gl, target, (data.data as TypedData).jsify(), usage ?? 0);
     }
     
     checkError('bufferData');
@@ -476,12 +464,12 @@ class RenderingContext{
   }
 
   void copyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height){
-    glCopyTexSubImage2D(_gl, target, level, xoffset, yoffset, x,y,width, height);
+    glCopyTexSubImage2D(_gl, target, level, xoffset, yoffset, x, y, width, height);
     checkError('copyTexSubImage2D');
   }
 
   void copyTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height){
-    glGlCopyTexSubImage3D(_gl, target, level, xoffset, yoffset, zoffset, x, y, width, height);
+    glCopyTexSubImage3D(_gl, target, level, xoffset, yoffset, zoffset, x, y, width, height);
     checkError('copyTexSubImage3D');
   }
 
@@ -705,7 +693,7 @@ class RenderingContext{
   }
 
   bool getShaderParameter(WebGLShader shader, int pname){
-    return glGetShaderParameter(_gl, shader.id, pname) == 0?false:true;
+    return glGetShaderParameter(_gl, shader.id, pname);
   }
 
   String? getShaderSource(WebGLShader shader) {
@@ -728,17 +716,17 @@ class RenderingContext{
   }
 
   void uniform1fv(UniformLocation location, List<double> v){
-    glUniform1fv(_gl, location.id, v.jsify() as JSArray);
+    glUniform1fv(_gl, location.id, v.jsify());
     checkError('uniform1fv');
   }
 
   void uniform2fv(UniformLocation location, List<double> v){
-    glUniform2fv(_gl, location.id, v.jsify() as JSArray);
+    glUniform2fv(_gl, location.id, v.jsify());
     checkError('uniform2fv');
   }
 
   void uniform3fv(UniformLocation location, List<double> v){
-    glUniform3fv(_gl, location.id, v.jsify() as JSArray);
+    glUniform3fv(_gl, location.id, v.jsify());
     checkError('uniform3fv');
   }
 
@@ -747,17 +735,17 @@ class RenderingContext{
     checkError('uniform1f');
   }
   void uniformMatrix2fv(UniformLocation location, bool transpose, List<double> values) {
-    glUniformMatrix2fv(_gl, location.id, transpose, values.jsify() as JSArray);
+    glUniformMatrix2fv(_gl, location.id, transpose, values.jsify());
     checkError('uniformMatrix2fv');
   }
 
   void uniformMatrix3fv(UniformLocation location, bool transpose, List<double> values) {
-    glUniformMatrix3fv(_gl, location.id, transpose, values.jsify() as JSArray);
+    glUniformMatrix3fv(_gl, location.id, transpose, values.jsify());
     checkError('uniformMatrix3fv');
   }
 
   void uniformMatrix4fv(UniformLocation location, bool transpose, List<double> values) {
-    glUniformMatrix4fv(_gl, location.id, transpose, values.jsify() as JSObject);
+    glUniformMatrix4fv(_gl, location.id, transpose, values.jsify());
     checkError('uniformMatrix4fv');
   }
 
@@ -771,42 +759,42 @@ class RenderingContext{
   }
 
   void uniform1iv(UniformLocation location, List<int> v){
-    glUniform1iv(_gl, location.id, v.jsify() as JSArray);
+    glUniform1iv(_gl, location.id, v.jsify());
     checkError('uniform1iv');
   }
 
   void uniform2iv(UniformLocation location, List<int> v){
-    glUniform2iv(_gl, location.id, v.jsify() as JSArray);
+    glUniform2iv(_gl, location.id, v.jsify());
     checkError('uniform2iv');
   }
 
   void uniform3iv(UniformLocation location, List<int> v){
-    glUniform3iv(_gl, location.id, v.jsify() as JSArray);
+    glUniform3iv(_gl, location.id, v.jsify());
     checkError('uniform3iv');
   }
 
   void uniform4iv(UniformLocation location, List<int> v){
-    glUniform4iv(_gl, location.id, v.jsify() as JSArray);
+    glUniform4iv(_gl, location.id, v.jsify());
     checkError('uniform4iv');
   }
 
   void uniform1uiv(UniformLocation? location, List<int> v){
-    glUniform1uiv(_gl, location?.id, v.jsify() as JSArray);
+    glUniform1uiv(_gl, location?.id, v.jsify());
     checkError('uniform1uiv');
   }
   
   void uniform2uiv(UniformLocation? location, List<int> v){
-    glUniform2uiv(_gl, location?.id, v.jsify() as JSArray);
+    glUniform2uiv(_gl, location?.id, v.jsify());
     checkError('uniform2uiv');
   }
 
   void uniform3uiv(UniformLocation? location, List<int> v){
-    glUniform3uiv(_gl, location?.id, v.jsify() as JSArray);
+    glUniform3uiv(_gl, location?.id, v.jsify());
     checkError('uniform3uiv');
   }
 
   void uniform4uiv(UniformLocation? location, List<int> v){
-    glUniform4uiv(_gl, location?.id, v.jsify() as JSArray);
+    glUniform4uiv(_gl, location?.id, v.jsify());
     checkError('uniform4uiv');
   }
 
@@ -831,7 +819,7 @@ class RenderingContext{
   }
 
   void uniform4fv(UniformLocation location, List<double> vectors) {
-    glUniform4fv(_gl, location.id, vectors.jsify() as JSArray);
+    glUniform4fv(_gl, location.id, vectors.jsify());
     checkError('uniform4fv');
   }
 
@@ -868,7 +856,7 @@ class RenderingContext{
   }
 
   void transformFeedbackVaryings(Program program, int count, List<String> varyings, int bufferMode) {
-    glTransformFeedbackVaryings(_gl, program.id, varyings.jsify() as JSArray, bufferMode);
+    glTransformFeedbackVaryings(_gl, program.id, varyings.jsify(), bufferMode);
     checkError('transformFeedbackVaryings');
   }
 
@@ -901,13 +889,13 @@ class RenderingContext{
     checkError('resumeTransformFeedback');
   }
 
-  // ActiveInfo getTransformFeedbackVarying(int program, int index) {
-  //   Map temp = glGetTransformFeedbackVarying(_gl, program, index).;
-  //   return ActiveInfo(temp['type'], temp['name'], temp['size']);
-  // }
+  ActiveInfo getTransformFeedbackVarying( program, int index) {
+    dynamic temp = glGetTransformFeedbackVarying(_gl, program, index);
+    return ActiveInfo(temp['type'], temp['name'], temp['size']);
+  }
 
   void invalidateFramebuffer(int target, List<int> attachments){
-    glInvalidateFramebuffer(_gl, target, attachments.jsify() as JSArray);
+    glInvalidateFramebuffer(_gl, target, attachments.jsify());
     checkError('invalidateFramebuffer');
   }
 }

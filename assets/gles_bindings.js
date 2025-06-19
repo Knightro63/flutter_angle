@@ -27,15 +27,15 @@ function glGetShaderPrecisionFormat(gl) {
   return ShaderPrecisionFormat();
 }
 
-function getExtension(gl,key) {
+function glGetExtension(gl,key) {
   return gl.getExtension(key);
 }
 
-function getParameter(gl,key) {
+function glGetParameter(gl,key) {
   return gl.getParameter(key);
 }
 
-function getString(gl,key) {
+function glGetString(gl,key) {
   return gl.getParameter(key);
 }
 
@@ -186,11 +186,11 @@ function glDeleteFramebuffer(gl, framebuffer) {
   gl.deleteFramebuffer(framebuffer);
 }
 
-function deleteRenderbuffer(gl, renderbuffer) {
+function glDeleteRenderbuffer(gl, renderbuffer) {
   gl.deleteRenderbuffer(renderbuffer);
 }
 
-function texParameterf(gl, target, pname, param) {
+function glTexParameterf(gl, target, pname, param) {
   gl.texParameterf(target, pname, param);
 }
 
@@ -198,20 +198,20 @@ function glPixelStorei(gl, pname, param) {
   gl.pixelStorei(pname, param);
 }
 
-function getContextAttributes(gl) {
-  gl.getContextAttributes();
+function glGetContextAttributes(gl) {
+  return gl.getContextAttributes();
 }
 
 function glGetProgramParameter(gl, program, pname) {
-  gl.getProgramParameter(program, pname);
+  return gl.getProgramParameter(program, pname);
 }
 
-function getActiveUniform(gl, v0, v1) {
-  gl.getActiveUniform(v0, v1);
+function glGetActiveUniform(gl, v0, v1) {
+  return gl.getActiveUniform(v0, v1);
 }
 
-function getActiveAttrib(gl, v0, v1) {
-  gl.getActiveAttrib(v0, v1);
+function glGetActiveAttrib(gl, v0, v1) {
+  return gl.getActiveAttrib(v0, v1);
 }
 
 function glGetUniformLocation(gl, program, name) {
@@ -359,11 +359,11 @@ function glLinkProgram(gl, program) {
   gl.linkProgram(program);
 }
 
-function  getProgramInfoLog(gl, program) {
+function  glGetProgramInfoLog(gl, program) {
   return gl.getProgramInfoLog(program);
 }
 
-function  getShaderInfoLog(gl, shader){
+function  glGetShaderInfoLog(gl, shader){
   return gl.getShaderInfoLog(shader);
 }
 

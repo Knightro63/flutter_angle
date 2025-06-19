@@ -333,7 +333,7 @@ class LibOpenGLES{
     return gl.createVertexArray();
   }
 
-  void glCreateProgram() {
+  dynamic glCreateProgram() {
     return gl.createProgram();
   }
 
