@@ -27,17 +27,17 @@ function glGetShaderPrecisionFormat(gl) {
   return ShaderPrecisionFormat();
 }
 
-// getExtension(key) {
-//   gl.getExtension(key);
-// }
+function getExtension(gl,key) {
+  return gl.getExtension(key);
+}
 
-// getParameter(key) {
-//   gl.getParameter(key);
-// }
+function getParameter(gl,key) {
+  return gl.getParameter(key);
+}
 
-// getString(key) {
-//   gl.getParameter(key);
-// }
+function getString(gl,key) {
+  return gl.getParameter(key);
+}
 
 function createTexture(gl) {
   return gl.createTexture();

@@ -18,17 +18,17 @@ class LibOpenGLES{
     return ShaderPrecisionFormat();
   }
 
-  // getExtension(String key) {
-  //   gl.getExtension(key);
-  // }
+  dynamic getExtension(String key) {
+    return gl.getExtension(key);
+  }
 
-  // getParameter(key) {
-  //   gl.getParameter(key);
-  // }
+  dynamic getParameter(key) {
+    return gl.getParameter(key);
+  }
 
-  // getString(String key) {
-  //   gl.getParameter(key);
-  // }
+  dynamic getString(String key) {
+    return gl.getParameter(key);
+  }
 
   dynamic createTexture() {
     return gl.createTexture();

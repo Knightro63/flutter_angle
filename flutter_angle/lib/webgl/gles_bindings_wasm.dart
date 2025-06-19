@@ -326,7 +326,7 @@ external JSObject glCreateTexture(JSObject gl);
 @JS()
 external JSObject glGetParameter(JSObject gl, int key);
 @JS()
-external int glGetExtension(JSObject gl, String key);
+external JSObject glGetExtension(JSObject gl, String key);
 @JS()
 external int glGlGetUniformBlockIndex(JSObject gl, int program, String uniformBlockName);
 @JS()

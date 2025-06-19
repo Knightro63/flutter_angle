@@ -27,13 +27,18 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Metal supported
 
 **iOS-Simulator**
- - Supported: Use flutter_angle: 0.2.9.
+ - Supported: Use flutter_angle: 0.3.0.
 
 **Android**
+***Angle***
+ - compileSdkVersion: 34
+ - minSdk: 28
+ - OpenGL supported
+ - Vulkan supported
+ ***Opengl***
  - compileSdkVersion: 34
  - minSdk: 21
  - OpenGL supported
- - Vulkan supported
 
 **Android Emulator**
  - Supported.
@@ -41,13 +46,14 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
 **Windows**
  - Intel supported.
  - AMD supported.
+ - Qualcom supported.
  - Direct3D 11 and OpenGL supported
 
 **Web**
  - WebGL2 supported.
 
 **WASM**
- - Currently not supported due to WebGL2RenderingContext conversion issue.
+ - Webgl2 supported; please add `<script src="https://cdn.jsdelivr.net/gh/Knightro63/flutter_angle/assets/gles_bindings.js"></script>` to your index.html to load the file.
 
 **Linux**
  - Unsupported
