@@ -148,7 +148,7 @@ class LibOpenGLES{
     gl.clearStencil(s);
   }
 
-  void glClearDepthf(double depth) {
+  void glClearDepth(double depth) {
     gl.clearDepth(depth);
   }
 
@@ -473,8 +473,8 @@ class LibOpenGLES{
     gl.uniformMatrix3fv(location, transpose, values);
   }
 
-  void glGetAttribLocation(int program, String name) {
-    gl.getAttribLocation(program, name);
+  dynamic glGetAttribLocation(int program, String name) {
+    return gl.getAttribLocation(program, name);
   }
 
   void glUniform2f(int location, double x, double y){

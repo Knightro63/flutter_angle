@@ -19,10 +19,8 @@ dependencies:
   dylib: ^0.3.3
   ffi: ^2.1.4
   web: ^1.1.1
-  flutter_angle_darwin:
-    path: ../flutter_angle_darwin
-  # flutter_angle_web:
-  #   path: ../flutter_angle_web
+  # flutter_angle_darwin:
+  #   path: ../flutter_angle_darwin
   #flutter_angle_windows: ^0.0.3
   #flutter_angle_linux: ^0.0.1
   #flutter_angle_darwin: ^0.2.0
@@ -35,6 +33,9 @@ dev_dependencies:
   plugin_platform_interface: ^2.1.8
 
 flutter:
+  assets:
+    - web/gles_bindings.js
+    - assets/gles_bindings.js
   plugin:
     platforms:
       android:
@@ -42,18 +43,18 @@ flutter:
         pluginClass: FlutterAnglePlugin
       windows:
         pluginClass: FlutterAnglePlugin
-        #   default_package: flutter_angle_linux
+        #   default_package: flutter_angle_windows
       web:
         default_package: flutter_angle_web
-      # ios:
-      #   pluginClass: FlutterAnglePlugin
-      #   sharedDarwinSource: true
-      # macos:
-      #   pluginClass: FlutterAnglePlugin
-      #   sharedDarwinSource: true
+      ios:
+        pluginClass: FlutterAnglePlugin
+        sharedDarwinSource: true
+      macos:
+        pluginClass: FlutterAnglePlugin
+        sharedDarwinSource: true
       #linux:
       #   default_package: flutter_angle_linux
-      ios:
-        default_package: flutter_angle_darwin
-      macos:
-        default_package: flutter_angle_darwin
+      # ios:
+      #   default_package: flutter_angle_darwin
+      # macos:
+      #   default_package: flutter_angle_darwin

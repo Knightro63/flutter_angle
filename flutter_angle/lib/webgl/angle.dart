@@ -1,15 +1,15 @@
+import 'package:flutter/foundation.dart';
 import '../shared/classes.dart';
 import '../shared/options.dart';
 import 'dart:async';
-import 'dart:js_interop';
 import 'package:web/web.dart' as html;
-import 'wrapper.dart';
+import 'wrapper.dart'
+  if(dart.library.js_interop) 'wrapper_wasm.dart';
 import 'gles_bindings.dart';
 import 'dart:ui_web' as ui;
-import 'dart:math' as math;
 
 class FlutterAngleTexture {
-  final html.HTMLCanvasElement? element;
+  final dynamic element;
   final int textureId;
   final int rboId;
   final int surfaceId;
@@ -31,14 +31,19 @@ class FlutterAngleTexture {
 
   LibOpenGLES get rawOpenGl {
     if (_libOpenGLES == null) {
-      _libOpenGLES = LibOpenGLES(
-         element?.getContext(
+      if(kIsWasm){
+        final rc = RenderingContext.createCanvas(element);
+        _libOpenGLES = LibOpenGLES(rc);
+      }
+      else{
+        var rc = element?.getContext(
           "webgl2", {
             "alpha": options.alpha, 
             "antialias": options.antialias
-          }.jsify()
-        )!
-      );
+          }
+        );
+        _libOpenGLES = LibOpenGLES(rc);
+      }
     }
 
     return _libOpenGLES!;
@@ -78,26 +83,38 @@ class FlutterAngle{
   ) {}
 
   Future<FlutterAngleTexture> createTexture(AngleOptions options) async {
+    Completer<FlutterAngleTexture> c = Completer<FlutterAngleTexture>();
     final _divId = DateTime.now().microsecondsSinceEpoch;
+    final String id = 'canvas-id$_divId';
+    final width = (options.width * options.dpr).toInt();
+    final height = (options.height * options.dpr).toInt();
+
+    late final newTexture;
+    
     final element = html.HTMLCanvasElement()
-    ..width = (options.width * options.dpr).toInt()
-    ..height = (options.height * options.dpr).toInt()
-    ..id = 'canvas-id${math.Random().nextInt(100)}';
+    ..width = width
+    ..height = height
+    ..id = id;
 
     ui.platformViewRegistry.registerViewFactory(_divId.toString(), (int viewId) {
       return element;
     });
 
-    final newTexture = FlutterAngleTexture(
-      this,
-      _divId,
-      0,0,
-      element, 
-      0,0,
-      options
-    );
+    Future.delayed(const Duration(milliseconds: 100), () {
+      newTexture = FlutterAngleTexture(
+        this,
+        _divId,
+        0,0,
+        element, 
+        0,0,
+        options
+      );
 
-    return newTexture;
+      c.complete(newTexture);
+    });
+
+
+    return c.future;
   }
 
   Future<void> init([bool useDebugContext = false, bool useAngle = false]) async {}
