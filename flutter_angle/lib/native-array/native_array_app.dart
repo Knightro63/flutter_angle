@@ -32,6 +32,7 @@ class NativeFloat32Array extends PlatformNativeArray<double> {
   late Pointer<Float> _list;
 
   Pointer<Float> get data => _list;
+  Pointer<Float> get toJS => _list;
 
   NativeFloat32Array(int size) : super(size) {
     _list = calloc<Float>(size);
@@ -67,6 +68,7 @@ class NativeFloat64Array extends PlatformNativeArray<double> {
   late Pointer<Double> _list;
 
   Pointer<Double> get data => _list;
+  Pointer<Double> get toJS => _list;
 
   NativeFloat64Array(int size) : super(size) {
     _list = calloc<Double>(size);
@@ -102,6 +104,7 @@ class NativeUint16Array extends PlatformNativeArray<int> {
   late Pointer<Uint16> _list;
 
   Pointer<Uint16> get data => _list;
+   Pointer<Uint16> get toJS => _list;
 
   NativeUint16Array(int size) : super(size) {
     _list = calloc<Uint16>(size);
@@ -134,6 +137,7 @@ class NativeUint32Array extends PlatformNativeArray<int> {
 
   Pointer<Uint32> get data => _list;
   Pointer<Uint32> get buffer => data;
+   Pointer<Uint32> get toJS => _list;
 
   NativeUint32Array(int size) : super(size) {
     _list = calloc<Uint32>(size);
@@ -165,6 +169,7 @@ class NativeInt8Array extends PlatformNativeArray<int> {
   late Pointer<Int8> _list;
 
   Pointer<Int8> get data => _list;
+   Pointer<Int8> get toJS => _list;
 
   NativeInt8Array(int size) : super(size) {
     _list = calloc<Int8>(size);
@@ -195,6 +200,7 @@ class NativeInt16Array extends PlatformNativeArray<int> {
   late Pointer<Int16> _list;
 
   Pointer<Int16> get data => _list;
+   Pointer<Int16> get toJS => _list;
 
   NativeInt16Array(int size) : super(size) {
     _list = calloc<Int16>(size);
@@ -225,6 +231,7 @@ class NativeInt32Array extends PlatformNativeArray<int> {
   late Pointer<Int32> _list;
 
   Pointer<Int32> get data => _list;
+   Pointer<Int32> get toJS => _list;
 
   NativeInt32Array(int size) : super(size) {
     _list = calloc<Int32>(size);
@@ -255,6 +262,7 @@ class NativeUint8Array extends PlatformNativeArray<int> {
   late Pointer<Uint8> _list;
 
   Pointer<Uint8> get data => _list;
+   Pointer<Uint8> get toJS => _list;
 
   NativeUint8Array(int size) : super(size) {
     _list = calloc<Uint8>(size);

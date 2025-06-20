@@ -112,11 +112,18 @@ class RenderingContext{
     ];
 
     if (_intValues.contains(key)) {
-      dynamic val = glGetParameter(_gl, key);
-      if(val is JSInt32Array){
-        return ByteData.view(Uint8List.fromList(val.toDart).buffer).getUint32(0);
+      Object? val = glGetParameter(_gl, key)?.dartify();
+
+      if(val is List<int>){
+        return ByteData.view(Uint8List.fromList(val).buffer).getUint32(0);
       }
-      return val;
+      else if(val is double){
+        return val.toInt();
+      }
+      else if(val is bool){
+        return val?1:0;
+      }
+      return val as int;
     } 
     else {
       return key;
@@ -187,7 +194,7 @@ class RenderingContext{
     int type, 
     NativeArray? pixels
   ) {
-    glTexImage2D(_gl, target, level, internalformat, width, height, border, format, type, pixels?.data);
+    glTexImage2D(_gl, target, level, internalformat, width, height, border, format, type, pixels?.toJS);
     checkError('texImage2D');
   }
 
@@ -204,7 +211,7 @@ class RenderingContext{
   }
 
   void texImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, NativeArray? pixels) {
-    glTexImage3D(_gl, target, level, internalformat, width, height, depth,border, format, type, pixels?.data);
+    glTexImage3D(_gl, target, level, internalformat, width, height, depth,border, format, type, pixels?.toJS);
     checkError('texImage3D');
   }
 
@@ -309,7 +316,7 @@ class RenderingContext{
   }
 
   void compressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, NativeArray? data){
-    glCompressedTexImage2D(_gl, target, level, internalformat, width, height, border, data?.data);
+    glCompressedTexImage2D(_gl, target, level, internalformat, width, height, border, data?.data.toJS);
     checkError('compressedTexImage2D');
   }
 
@@ -496,7 +503,7 @@ class RenderingContext{
     int type,
     NativeArray? pixels
   ) {
-    glTexSubImage3D(_gl, target, level, xoffset, yoffset, zoffset, width,height, depth, format, type, pixels?.data);
+    glTexSubImage3D(_gl, target, level, xoffset, yoffset, zoffset, width,height, depth, format, type, pixels?.toJS);
     checkError('texSubImage3D');
   }
 
@@ -512,7 +519,7 @@ class RenderingContext{
     int format,
     NativeArray? pixels,
   ){
-    glCompressedTexSubImage3D(_gl, target,level,xoffset,yoffset,zoffset,width,height,depth,format,pixels?.data);
+    glCompressedTexSubImage3D(_gl, target,level,xoffset,yoffset,zoffset,width,height,depth,format,pixels?.toJS);
     checkError('compressedTexSubImage3D');
   }
 
@@ -526,12 +533,12 @@ class RenderingContext{
     int border,
     NativeArray? pixels,
   ){
-    glCompressedTexImage3D(_gl, target,level,internalformat,width,height,depth,border,pixels?.data);
+    glCompressedTexImage3D(_gl, target,level,internalformat,width,height,depth,border,pixels?.toJS);
     checkError('compressedTexImage3D');
   }
 
   void compressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, NativeArray? pixels) {
-    glCompressedTexSubImage2D(_gl, target, level, xoffset, yoffset, width, height, format, pixels?.data);
+    glCompressedTexSubImage2D(_gl, target, level, xoffset, yoffset, width, height, format, pixels?.toJS);
     checkError('compressedTexSubImage2D');
   }
 
@@ -569,7 +576,7 @@ class RenderingContext{
   }
 
   void bufferSubData(int target, int dstByteOffset, NativeArray srcData){
-    glBufferSubData(_gl, target, dstByteOffset, srcData.data);
+    glBufferSubData(_gl, target, dstByteOffset, srcData.data.toJS);
     checkError('bufferSubData');
   }
 
@@ -649,22 +656,22 @@ class RenderingContext{
   }
 
   void vertexAttrib2fv(int index, NativeArray<double> values) {
-    glVertexAttrib2fv(_gl, index, values.data);
+    glVertexAttrib2fv(_gl, index, values.data.toJS);
     checkError('vertexAttrib2fv');
   }
 
   void vertexAttrib3fv(int index, NativeArray<double> values) {
-    glVertexAttrib3fv(_gl, index, values.data);
+    glVertexAttrib3fv(_gl, index, values.data.toJS);
     checkError('vertexAttrib3fv');
   }
 
   void vertexAttrib4fv(int index, NativeArray<double> values) {
-    glVertexAttrib4fv(_gl, index, values.data);
+    glVertexAttrib4fv(_gl, index, values.data.toJS);
     checkError('vertexAttrib4fv');
   }
 
   void vertexAttrib1fv(int index, NativeArray<double> values) {
-    glVertexAttrib1fv(_gl, index, values.data);
+    glVertexAttrib1fv(_gl, index, values.data.toJS);
     checkError('vertexAttrib1fv');
   }
 
@@ -674,7 +681,7 @@ class RenderingContext{
   }
 
   void drawBuffers(NativeArray buffers) {
-    glDrawBuffers(_gl, buffers.data);
+    glDrawBuffers(_gl, buffers.data.toJS);
     checkError('drawBuffers');
   }
 

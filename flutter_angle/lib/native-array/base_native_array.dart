@@ -41,6 +41,7 @@ abstract class NativeArray<T extends num> {
   bool disposed = false;
 
   get data;
+  get toJS;
 
   T operator [](int index); //=> data[index];
   void operator []=(int index, T value); // => data[index] = value;

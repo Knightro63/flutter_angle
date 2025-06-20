@@ -1,3 +1,4 @@
+import 'dart:js_interop';
 import 'dart:typed_data';
 import 'index.dart';
 
@@ -35,6 +36,7 @@ class NativeFloat32Array extends PlatformNativeArray<double> {
   late Float32List _list;
 
   Float32List get data => _list;
+  JSFloat32Array get toJS => _list.toJS;
 
   NativeFloat32Array(int size) : super(size) {
     _list = Float32List(size);
@@ -66,6 +68,7 @@ class NativeUint16Array extends PlatformNativeArray<int> {
   late Uint16List _list;
 
   Uint16List get data => _list;
+  JSUint16Array get toJS => _list.toJS;
 
   NativeUint16Array(int size) : super(size) {
     _list = Uint16List(size);
@@ -89,6 +92,7 @@ class NativeUint32Array extends PlatformNativeArray<int> {
   late Uint32List _list;
 
   Uint32List get data => _list;
+  JSUint32Array get toJS => _list.toJS;
 
   NativeUint32Array(int size) : super(size) {
     _list = Uint32List(size);
@@ -112,6 +116,7 @@ class NativeInt8Array extends PlatformNativeArray<int> {
   late Int8List _list;
 
   Int8List get data => _list;
+  JSInt8Array get toJS => _list.toJS;
 
   NativeInt8Array(int size) : super(size) {
     _list = Int8List(size);
@@ -136,6 +141,7 @@ class NativeInt16Array extends PlatformNativeArray<int> {
   late Int16List _list;
 
   Int16List get data => _list;
+  JSInt16Array get toJS => _list.toJS;
 
   NativeInt16Array(int size) : super(size) {
     _list = Int16List(size);
@@ -160,6 +166,7 @@ class NativeInt32Array extends PlatformNativeArray<int> {
   late Int32List _list;
 
   Int32List get data => _list;
+  JSInt32Array get toJS => _list.toJS;
 
   NativeInt32Array(int size) : super(size) {
     _list = Int32List(size);
@@ -184,6 +191,7 @@ class NativeUint8Array extends PlatformNativeArray<int> {
   late Uint8List _list;
 
   Uint8List get data => _list;
+  JSUint8Array get toJS => _list.toJS;
 
   NativeUint8Array(int size) : super(size) {
     _list = Uint8List(size);
@@ -208,6 +216,7 @@ class NativeFloat64Array extends PlatformNativeArray<double> {
   late Float64List _list;
 
   Float64List get data => _list;
+  JSFloat64Array get toJS => _list.toJS;
 
   NativeFloat64Array(int size) : super(size) {
     _list = Float64List(size);
