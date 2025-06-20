@@ -142,13 +142,13 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
         Expanded(
           child: Transform.scale(
             scaleY: kIsWeb || Platform.isAndroid? -1: 1,
-            child: kIsWeb?HtmlElementView(viewType: textureId.toString()):Texture(textureId: textureId),
+            child: kIsWeb?textureId == -1?Container():HtmlElementView(viewType: textureId.toString()):Texture(textureId: textureId),
           )
         ),
         Expanded(
           child: Transform.scale(
             scaleY: kIsWeb || Platform.isAndroid? -1: 1,
-            child: kIsWeb?HtmlElementView(viewType: textureId2.toString()):Texture(textureId: textureId2),
+            child: kIsWeb?textureId2 == -1?Container():HtmlElementView(viewType: textureId2.toString()):Texture(textureId: textureId2),
           )
         ),
       ],
@@ -158,13 +158,13 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
         Expanded(
           child: Transform.scale(
             scaleY: kIsWeb || Platform.isAndroid? -1: 1,
-            child: kIsWeb?HtmlElementView(viewType: textureId.toString()):Texture(textureId: textureId),
+            child: kIsWeb?textureId == -1?Container():HtmlElementView(viewType: textureId.toString()):Texture(textureId: textureId),
           )
         ),
         Expanded(
           child: Transform.scale(
             scaleY: kIsWeb || Platform.isAndroid? -1: 1,
-            child: kIsWeb?HtmlElementView(viewType: textureId2.toString()):Texture(textureId: textureId2),
+            child: kIsWeb?textureId2 == -1?Container():HtmlElementView(viewType: textureId2.toString()):Texture(textureId: textureId2),
           )
         ),
       ],
@@ -196,7 +196,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.red,
         appBar: AppBar(
           title: const Text('Plugin example app'),
         ),

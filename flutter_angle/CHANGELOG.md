@@ -1,8 +1,11 @@
-## 0.2.9
+## 0.3.0
 
 * Fixed: Android bug not rendering on devices lower than SDK version 28.
+* Fixed: Android Emulator speed.
 * Fixed: Added Support for iOS Simulator.
-* Update: pods dependency for FlutterAngle to 0.0.7.
+* Added: Swift Package Manager(SPM) Support.
+* Added: WASM support.
+* Updated: Moved windows to its own package.
 
 ## 0.2.8
 
