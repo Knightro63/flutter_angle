@@ -1,14 +1,14 @@
 cmake_minimum_required(VERSION 3.15)
 
 # Project-level configuration.
-set(PROJECT_NAME "flutter_angle")
+set(PROJECT_NAME "flutter_angle_windows")
 project(${PROJECT_NAME} LANGUAGES CXX)
 
 # This value is used when generating builds using this plugin, so it must
 # not be changed
-set(PLUGIN_NAME "flutter_angle_plugin")
+set(PLUGIN_NAME "flutter_angle_windows_plugin")
 
-add_library(${PLUGIN_NAME} SHARED "flutter_angle_plugin.cpp")
+add_library(${PLUGIN_NAME} SHARED "flutter_angle_windows_plugin.cpp")
 
 # Apply a standard set of build settings that are configured in the
 # application-level CMakeLists.txt. This can be removed for plugins that want
@@ -36,7 +36,7 @@ target_link_libraries(
 )
 
 # List of absolute paths to libraries that should be bundled with the plugin
-set(flutter_angle_bundled_libraries
+set(flutter_angle_windows_bundled_libraries
   "${CMAKE_CURRENT_SOURCE_DIR}/bin/dll/libEGL.dll"
   "${CMAKE_CURRENT_SOURCE_DIR}/bin/dll/libGLESv2.dll"
   "${CMAKE_CURRENT_SOURCE_DIR}/bin/dll/libc++.dll"

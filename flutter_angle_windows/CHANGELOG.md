@@ -1,3 +1,7 @@
+## 0.1.0
+
+* Moved to flutter_angle_windows.
+
 ## 0.0.3
 
 * Moved from flutter angle main.
