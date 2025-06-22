@@ -136,6 +136,15 @@ class FlutterGLTexture {
     surface = openGLManager.createSurfaceFromSurface(surfaceProducer.getSurface());
   }
 
+  protected void resize(int width,int height) {
+    if (usingSurfaceProducer && surfaceProducer != null) {
+      surfaceProducer.setSize(width, height);
+    } 
+    else if (surfaceTextureEntry != null) {
+      surfaceTextureEntry.surfaceTexture().setDefaultBufferSize(width, height);
+    }
+  }
+
   protected void finalize() {
     if (usingSurfaceProducer && surfaceProducer != null) {
       surfaceProducer.release();
@@ -231,6 +240,9 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
           createTextureImplementation(call, result);
         }
         break;
+      case "resizeTexture":
+        changeSize(call, result);
+        break;
       default:
         result.notImplemented();
         break;
@@ -300,6 +312,29 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
     result.success(response);
 
     Log.i(TAG, "Created a new texture " + width + "x" + height);
+  }
+
+  private void changeSize(MethodCall call, MethodChannel.Result result){
+    Map<String, Object> arguments = (Map<String, Object>) call.arguments;
+    int width = (int) arguments.get("width");
+    int height = (int) arguments.get("height");
+    int textureId = (int) arguments.get("textureId");
+    
+    if (width <= 0) {
+      result.error("no texture width", "no texture width", 0);
+      return;
+    }
+    if (height <= 0) {
+      result.error("no texture height", "no texture height", null);
+      return;
+    }
+    if (textureId <= 0) {
+      result.error("no texture textureId", "no texture textureId", null);
+      return;
+    }
+
+    Long id = Long.valueOf(textureId);
+    flutterTextureMap.get(id).resize(width,height);
   }
 
   // ANGLE (plugin2) methods: renamed with 'Angle'

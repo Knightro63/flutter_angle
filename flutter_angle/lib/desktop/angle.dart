@@ -480,16 +480,16 @@ class FlutterAngle {
   }
 
   Future<void> resize(FlutterAngleTexture texture, AngleOptions options) async{
-    if(Platform.isMacOS){
-      // final dynamic result = await _channel.invokeMethod('resizeTexture', {
-      //   "width": options.width,
-      //   "height": options.height,
-      //   "textureId": texture.textureId,
-      //   "useSurfaceProducer": options.useSurfaceProducer
-      // });
-
-      // malloc.free(texture.surfaceId!);
-      // texture.surfaceId = Pointer.fromAddress(result['surface'] as int? ?? 0);
+    if(kIsWeb){
+      texture.element?.width = (options.width * options.dpr).toInt();
+      texture.element?.height = (options.height * options.dpr).toInt();
+    }
+    else if(Platform.isWindows || Platform.isAndroid){
+      await _channel.invokeMethod('resizeTexture', {
+        "width": options.width,
+        "height": options.height,
+        "textureId": texture.textureId,
+      });
     }
   }
 

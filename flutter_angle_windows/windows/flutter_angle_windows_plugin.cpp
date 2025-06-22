@@ -63,6 +63,7 @@ namespace {
       FlutterGLTexture(GLsizei width, GLsizei height);
       virtual ~FlutterGLTexture();
       const FlutterDesktopPixelBuffer *CopyPixelBuffer(size_t width, size_t height);
+      void ChangeSize(GLsizei width, GLsizei height);
 
       std::unique_ptr<FlutterDesktopPixelBuffer> buffer;
       GLuint fbo;
@@ -73,16 +74,20 @@ namespace {
       std::unique_ptr<uint8_t> pixels;
       size_t request_count_ = 0;
   }; 
-  
-  FlutterGLTexture::FlutterGLTexture(GLsizei width, GLsizei height){
+
+  void FlutterGLTexture::ChangeSize(GLsizei width, GLsizei height){
     int64_t size = width * height * 4;
     pixels.reset(new uint8_t[size]);
 
-    buffer = std::make_unique<FlutterDesktopPixelBuffer>();
     buffer->buffer = pixels.get();
     buffer->width = width;
     buffer->height = height;
     memset(pixels.get(), 0x00, size);
+  }
+  
+  FlutterGLTexture::FlutterGLTexture(GLsizei width, GLsizei height){
+    buffer = std::make_unique<FlutterDesktopPixelBuffer>();
+    ChangeSize(width,height);
 
     glGenFramebuffers(1, &fbo);
     glBindFramebuffer(GL_FRAMEBUFFER, fbo);
@@ -316,6 +321,48 @@ namespace {
 
       glReadPixels(0, 0, (GLsizei)currentTexture->buffer->width, (GLsizei)currentTexture->buffer->height, GL_RGBA, GL_UNSIGNED_BYTE, (void*)currentTexture->buffer->buffer);
       textureRegistrar->MarkTextureFrameAvailable(textureId);
+
+      result->Success();
+    }
+    else if (method_call.method_name().compare("resizeTexture") == 0) {
+      int64_t textureId = 0;
+      int width = 0;
+      int height = 0;
+      if (arguments) {
+        auto findResult = arguments->find(EncodableValue("textureId"));
+        if (findResult != arguments->end()) {
+          textureId = std::get<std::int64_t>(findResult->second);
+        }
+        auto texture_width = arguments->find(EncodableValue("width"));
+        if (texture_width != arguments->end()) {
+          width = std::get<std::int32_t>(texture_width->second);
+        }
+        else{
+          result->Error("no texture width","no texture width");
+          return;
+        }
+        auto texture_height = arguments->find(EncodableValue("height"));
+        if (texture_height != arguments->end()) {
+          height = std::get<std::int32_t>(texture_height->second);
+        }
+        else{
+          result->Error("no texture height","no texture height");
+          return;
+        }
+      }
+      else{
+        result->Error("no texture id","no texture id");
+        return;
+      }
+
+      // Check if the received ID is registered
+      if (flutterGLTextures.find(textureId) == flutterGLTextures.end()){
+        result->Error("Invalid texture ID", "Invalid Texture ID: " + std::to_string(textureId));
+        return;
+      }
+
+      auto currentTexture = flutterGLTextures[textureId].get();
+      currentTexture->ChangeSize(width,height);
 
       result->Success();
     }
