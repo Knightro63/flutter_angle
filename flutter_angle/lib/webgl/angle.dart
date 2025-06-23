@@ -121,6 +121,10 @@ class FlutterAngle{
   Future<void> updateTexture(FlutterAngleTexture texture,[WebGLTexture? sourceTexture]) async {
     texture.rawOpenGl.glFlush();
   }
+  Future<void> resize(FlutterAngleTexture texture, AngleOptions options) async{
+    texture.element?.width = (options.width * options.dpr).toInt();
+    texture.element?.height = (options.height * options.dpr).toInt();
+  }
   Future<void> deleteTexture(FlutterAngleTexture texture) async {}
   void activateTexture(FlutterAngleTexture texture) {}
   void printOpenGLError(String message) {}

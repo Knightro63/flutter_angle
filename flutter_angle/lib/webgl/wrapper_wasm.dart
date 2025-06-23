@@ -56,7 +56,7 @@ class RenderingContext{
 
   dynamic getExtension(String key) {
     startCheck("getExtension");
-    return glGetExtension(_gl, key);
+    return glGetExtension(_gl, key).dartify();
   }
   int getUniformBlockIndex(Program program, String uniformBlockName){
     startCheck("getUniformBlockIndex");
@@ -354,7 +354,7 @@ class RenderingContext{
 
   void compressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, NativeArray? data){
     startCheck("compressedTexImage2D");
-    glCompressedTexImage2D(_gl, target, level, internalformat, width, height, border, data?.data.toJS);
+    glCompressedTexImage2D(_gl, target, level, internalformat, width, height, border, data?.toJS);
     checkError('compressedTexImage2D');
   }
 
@@ -523,9 +523,9 @@ class RenderingContext{
     checkError('framebufferTexture2D');
   }
 
-  void readPixels(int x, int y, int width, int height, int format, int type,pixels) {
+  void readPixels(int x, int y, int width, int height, int format, int type, TypedData pixels) {
     startCheck("readPixels");
-    glReadPixels(_gl, x, y, width, height, format, type, pixels);
+    glReadPixels(_gl, x, y, width, height, format, type, pixels.jsify());
     checkError('readPixels');
   }
 
@@ -552,9 +552,9 @@ class RenderingContext{
     checkError('copyTexSubImage3D');
   }
 
-  void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, pixels) {
+  void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, NativeArray? pixels) {
     startCheck("texSubImage2D");
-    glTexSubImage2D(_gl, target, level, xoffset, yoffset, width, height, format, type, pixels?.data);
+    glTexSubImage2D(_gl, target, level, xoffset, yoffset, width, height, format, type, pixels?.toJS);
     checkError('texSubImage2D');
   }
 
@@ -662,7 +662,7 @@ class RenderingContext{
 
   void bufferSubData(int target, int dstByteOffset, NativeArray srcData){
     startCheck("bufferSubData");
-    glBufferSubData(_gl, target, dstByteOffset, srcData.data.toJS);
+    glBufferSubData(_gl, target, dstByteOffset, srcData.toJS);
     checkError('bufferSubData');
   }
 
@@ -757,27 +757,27 @@ class RenderingContext{
     checkError('vertexAttribIPointer');
   }
 
-  void vertexAttrib2fv(int index, NativeArray<double> values) {
+  void vertexAttrib2fv(int index, List<double> values) {
     startCheck("vertexAttrib2fv");
-    glVertexAttrib2fv(_gl, index, values.data.toJS);
+    glVertexAttrib2fv(_gl, index, values.jsify());
     checkError('vertexAttrib2fv');
   }
 
-  void vertexAttrib3fv(int index, NativeArray<double> values) {
+  void vertexAttrib3fv(int index, List<double> values) {
     startCheck("vertexAttrib3fv");
-    glVertexAttrib3fv(_gl, index, values.data.toJS);
+    glVertexAttrib3fv(_gl, index, values.jsify());
     checkError('vertexAttrib3fv');
   }
 
-  void vertexAttrib4fv(int index, NativeArray<double> values) {
+  void vertexAttrib4fv(int index, List<double> values) {
     startCheck("vertexAttrib4fv");
-    glVertexAttrib4fv(_gl, index, values.data.toJS);
+    glVertexAttrib4fv(_gl, index, values.jsify());
     checkError('vertexAttrib4fv');
   }
 
-  void vertexAttrib1fv(int index, NativeArray<double> values) {
+  void vertexAttrib1fv(int index, List<double> values) {
     startCheck("vertexAttrib1fv");
-    glVertexAttrib1fv(_gl, index, values.data.toJS);
+    glVertexAttrib1fv(_gl, index, values.jsify());
     checkError('vertexAttrib1fv');
   }
 
@@ -789,7 +789,7 @@ class RenderingContext{
 
   void drawBuffers(NativeArray buffers) {
     startCheck("drawBuffers");
-    glDrawBuffers(_gl, buffers.data.toJS);
+    glDrawBuffers(_gl, buffers.toJS);
     checkError('drawBuffers');
   }
 

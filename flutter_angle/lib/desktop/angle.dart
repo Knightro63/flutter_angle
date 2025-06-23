@@ -480,11 +480,7 @@ class FlutterAngle {
   }
 
   Future<void> resize(FlutterAngleTexture texture, AngleOptions options) async{
-    if(kIsWeb){
-      texture.element?.width = (options.width * options.dpr).toInt();
-      texture.element?.height = (options.height * options.dpr).toInt();
-    }
-    else if(Platform.isWindows || Platform.isAndroid){
+    if(Platform.isWindows || Platform.isAndroid){
       await _channel.invokeMethod('resizeTexture', {
         "width": options.width,
         "height": options.height,

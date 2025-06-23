@@ -526,11 +526,11 @@ function glVertexAttribDivisor(gl, index, divisor){
 }
 
 function glFlush(gl) {
-  //gl.glFlush();
+  gl.flush();
 }
 
 function glFinish(gl) {
-  //gl.glFinish();
+  gl.finish();
 }
 
 function glTexStorage2D(gl, target, levels, internalformat, width, height){

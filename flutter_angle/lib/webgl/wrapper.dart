@@ -1,4 +1,5 @@
 import 'dart:js_interop';
+import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:flutter_angle/native-array/index.dart';
 import 'package:flutter_angle/shared/console.dart';
@@ -437,7 +438,7 @@ class RenderingContext{
     checkError('framebufferTexture2D');
   }
 
-  void readPixels(int x, int y, int width, int height, int format, int type,pixels) {
+  void readPixels(int x, int y, int width, int height, int format, int type, TypedData pixels) {
     _gl.readPixels(x, y, width, height, format, type, pixels);
     checkError('readPixels');
   }

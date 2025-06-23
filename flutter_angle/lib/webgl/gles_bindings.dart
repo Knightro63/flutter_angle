@@ -957,7 +957,7 @@ class LibOpenGLES{
       gles.glFlush(gl);
       return;
     }
-    gl.glFlush();
+    gl.flush();
   }
 
   void glFinish() {
@@ -965,7 +965,7 @@ class LibOpenGLES{
       gles.glFinish(gl);
       return;
     }
-    gl.glFinish();
+    gl.finish();
   }
 
   void glTexStorage2D(int target, int levels, int internalformat, int width, int height){
