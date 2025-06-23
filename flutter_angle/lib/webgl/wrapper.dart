@@ -45,13 +45,10 @@ class RenderingContext{
   void uniformBlockBinding(Program program, int uniformBlockIndex,int uniformBlockBinding){
     _gl.glUniformBlockBinding(program.id,uniformBlockIndex,uniformBlockBinding);
   }
-  // getParameter(key) {
-  //   _gl.getParameter(key);
-  // }
 
-  // getString(String key) {
-  //   _gl.getParameter(key);
-  // }
+  dynamic getString(String key) {
+    return _gl.getParameter(key);
+  }
 
   WebGLTexture createTexture() {
     return WebGLTexture(_gl.createTexture());
@@ -82,11 +79,7 @@ class RenderingContext{
     final glError = _gl.getError();
     if (glError != WebGL.NO_ERROR) {
       final openGLException = OpenGLException('RenderingContext.$message', glError);
-      // assert(() {
-        angleConsole.warning(openGLException.toString());
-      //   return true;
-      // }());
-      // throw openGLException;
+      angleConsole.warning(openGLException.toString());
     }
   }
 

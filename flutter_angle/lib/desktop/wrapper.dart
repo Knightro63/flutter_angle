@@ -30,11 +30,7 @@ class RenderingContext {
     final glError = gl.glGetError();
     if (glError != WebGL.NO_ERROR) {
       final openGLException = OpenGLException('RenderingContext.$message', glError);
-      // assert(() {
-        angleConsole.warning(openGLException.toString());
-      //   return true;
-      // }());
-      // throw openGLException;
+      angleConsole.warning(openGLException.toString());
     }
   }
 

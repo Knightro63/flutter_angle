@@ -207,11 +207,21 @@ function glGetProgramParameter(gl, program, pname) {
 }
 
 function glGetActiveUniform(gl, v0, v1) {
-  return gl.getActiveUniform(v0, v1);
+    var temp = gl.getActiveUniform(v0, v1);
+  return {
+    "type": temp.type,
+    "name": temp.name,
+    "size": temp.size
+  };
 }
 
 function glGetActiveAttrib(gl, v0, v1) {
-  return gl.getActiveAttrib(v0, v1);
+    var temp =  gl.getActiveAttrib(v0, v1);
+  return {
+    "type": temp.type,
+    "name": temp.name,
+    "size": temp.size
+  };
 }
 
 function glGetUniformLocation(gl, program, name) {
@@ -516,11 +526,11 @@ function glVertexAttribDivisor(gl, index, divisor){
 }
 
 function glFlush(gl) {
-  gl.glFlush();
+  //gl.glFlush();
 }
 
 function glFinish(gl) {
-  gl.glFinish();
+  //gl.glFinish();
 }
 
 function glTexStorage2D(gl, target, levels, internalformat, width, height){
@@ -567,7 +577,12 @@ function glResumeTransformFeedback(gl) {
 }
 
 function  glGetTransformFeedbackVarying(gl, program, index) {
-  return gl.getTransformFeedbackVarying(program, index);
+    var temp = gl.getTransformFeedbackVarying(program, index);
+  return {
+    "type": temp.type,
+    "name": temp.name,
+    "size": temp.size
+  };
 }
 
 function glInvalidateFramebuffer(gl, target, attachments){
