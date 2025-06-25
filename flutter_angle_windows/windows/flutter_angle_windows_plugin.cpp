@@ -12,6 +12,9 @@
 #include <flutter/plugin_registrar_windows.h>
 #include <flutter/standard_method_codec.h>
 
+#include "include/headers/opengl_exception.h"
+#include "include/headers/flutter_gl_texture.h"
+
 #include <map>
 #include <memory>
 #include <sstream>
@@ -22,21 +25,7 @@ namespace {
   using flutter::EncodableMap;
   using flutter::EncodableValue;
 
-  class OpenGLException{
-    public:
-      OpenGLException(char* message, int error);
-      GLint error = 0;
-      char* message ="";
-  };
-
-  OpenGLException::OpenGLException(char* message, int error){
-    this->error = error;
-    message = message;
-  }
-
-  class FlutterGLTexture;
-
-  typedef  std::map<int64_t, std::unique_ptr<FlutterGLTexture>> TextureMap;
+  typedef  std::map<int64_t, std::unique_ptr<FlutterGLTexture>> RendererMap;
 
   class FlutterAngleWindowsPlugin : public flutter::Plugin {
     public:
@@ -52,86 +41,9 @@ namespace {
         std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>> result
       );
 
-      TextureMap flutterGLTextures; // stores all created Textures
+      EGLInfo eglInfo;
+      RendererMap renderers; // stores all created Textures
   };
-
-  flutter::TextureRegistrar* FlutterAngleWindowsPlugin::textureRegistrar;
-
-
-  class FlutterGLTexture{
-    public:
-      FlutterGLTexture(GLsizei width, GLsizei height);
-      virtual ~FlutterGLTexture();
-      const FlutterDesktopPixelBuffer *CopyPixelBuffer(size_t width, size_t height);
-      void ChangeSize(GLsizei width, GLsizei height);
-
-      std::unique_ptr<FlutterDesktopPixelBuffer> buffer;
-      GLuint fbo;
-      GLuint rbo;
-      int64_t flutterTextureId;
-      std::unique_ptr<flutter::TextureVariant> flutterTexture;
-    private:
-      std::unique_ptr<uint8_t> pixels;
-      size_t request_count_ = 0;
-  }; 
-
-  void FlutterGLTexture::ChangeSize(GLsizei width, GLsizei height){
-    int64_t size = width * height * 4;
-    pixels.reset(new uint8_t[size]);
-
-    buffer->buffer = pixels.get();
-    buffer->width = width;
-    buffer->height = height;
-    memset(pixels.get(), 0x00, size);
-  }
-  
-  FlutterGLTexture::FlutterGLTexture(GLsizei width, GLsizei height){
-    buffer = std::make_unique<FlutterDesktopPixelBuffer>();
-    ChangeSize(width,height);
-
-    glGenFramebuffers(1, &fbo);
-    glBindFramebuffer(GL_FRAMEBUFFER, fbo);
-
-    glGenRenderbuffers(1, &rbo);
-    glBindRenderbuffer(GL_RENDERBUFFER, rbo);  
-
-    glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA8, width, height);
-    auto error = glGetError();
-    if (error != GL_NO_ERROR){
-      std::cerr << "GlError while allocating Renderbuffer" << error << std::endl;
-      throw new OpenGLException("GlError while allocating Renderbuffer", error);
-    }
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER,rbo);
-    auto frameBufferCheck = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    if (frameBufferCheck != GL_FRAMEBUFFER_COMPLETE){
-      std::cerr << "Framebuffer error" << frameBufferCheck << std::endl;
-      throw new OpenGLException("Framebuffer Error while creating Texture", frameBufferCheck);
-    }
-
-    error = glGetError() ;
-    if( error != GL_NO_ERROR){
-      std::cerr << "GlError" << error << std::endl;
-    }
-
-    flutterTexture = std::make_unique<flutter::TextureVariant>(flutter::PixelBufferTexture(
-      [this](size_t width, size_t height) -> const FlutterDesktopPixelBuffer* {
-      return CopyPixelBuffer(width, height);
-    }));
-
-    flutterTextureId = FlutterAngleWindowsPlugin::textureRegistrar->RegisterTexture(flutterTexture.get());
-  }
-
-  const FlutterDesktopPixelBuffer *FlutterGLTexture::CopyPixelBuffer(size_t width, size_t height){
-    return buffer.get();
-  }
-
-  FlutterGLTexture::~FlutterGLTexture() {
-    FlutterAngleWindowsPlugin::textureRegistrar->UnregisterTexture(flutterTextureId);
-    glDeleteRenderbuffers(1, &rbo);
-    glDeleteFramebuffers(1, &fbo);
-    pixels.reset();
-    buffer.reset();
-  }
 
   // static
   void FlutterAngleWindowsPlugin::RegisterWithRegistrar(flutter::PluginRegistrarWindows *registrar) {
@@ -173,80 +85,10 @@ namespace {
       result->Success(flutter::EncodableValue(version_stream.str()));
     }
     else if (method_call.method_name().compare("initOpenGL") == 0) {
-      auto display = eglGetDisplay(EGL_DEFAULT_DISPLAY);
-      EGLint major;
-      EGLint minor;
-      auto initializeResult = eglInitialize(display,&major,&minor);
-      if (initializeResult != 1){
-        result->Error("EGL InitError", "eglInit failed");
-        return;
-      }
-
-      std::cerr << "EGL version in native plugin" << major << "." << minor << std::endl;
-      
-      const EGLint attribute_list[] = {
-        EGL_RENDERABLE_TYPE,
-        EGL_OPENGL_ES3_BIT,
-        EGL_RED_SIZE, 8,
-        EGL_GREEN_SIZE, 8,
-        EGL_BLUE_SIZE, 8,
-        EGL_ALPHA_SIZE, 8,
-        EGL_DEPTH_SIZE, 24,
-        EGL_STENCIL_SIZE, 8,
-        EGL_NONE
-      };
-
-      EGLint num_config;
-      EGLConfig config;
-      auto chooseConfigResult = eglChooseConfig(display,attribute_list,&config,1,&num_config);
-      if (chooseConfigResult != 1){
-        result->Error("EGL InitError", "eglChooseConfig failed");
-        return;
-      }
-
-      EGLint configId;
-      eglGetConfigAttrib(display,config,EGL_CONFIG_ID,&configId);
-
-      const EGLint surfaceAttributes[] = {
-        EGL_WIDTH, 16,
-        EGL_HEIGHT, 16,
-        EGL_NONE
-      };
-
-      const EGLint contextAttributes[] ={
-        EGL_CONTEXT_CLIENT_VERSION,
-        3,
-        EGL_NONE
-      };
-      const EGLContext context = eglCreateContext(display,config,EGL_NO_CONTEXT,contextAttributes);
-
-
-      // This is just a dummy surface that it needed to make an OpenGL context current (bind it to this thread)
-      auto dummySurface = eglCreatePbufferSurface(display, config, surfaceAttributes);
-      auto dummySurfaceForDartSide = eglCreatePbufferSurface(display, config, surfaceAttributes);
-      
-      eglMakeCurrent(display, dummySurface, dummySurface, context);
-
-      auto v = glGetString(GL_VENDOR);
-      int error = glGetError();
-      if (error != GL_NO_ERROR){
-        std::cerr << "GlError" << error << std::endl;
-      }    
-      auto r = glGetString(GL_RENDERER);
-      auto v2 = glGetString(GL_VERSION);
-
-      std::cerr << v << std::endl << r << std::endl << v2 << std::endl;
-
-      /// we send back the context so that the Dart side can create a linked context. 
-      auto response = flutter::EncodableValue(flutter::EncodableMap{
-        {flutter::EncodableValue("context"),
-        flutter::EncodableValue((int64_t) context)},
-        {flutter::EncodableValue("dummySurface"),
-        flutter::EncodableValue((int64_t) dummySurfaceForDartSide)},
-        {flutter::EncodableValue("eglConfigId"),
-        flutter::EncodableValue((int64_t) configId)}
-      });
-      result->Success(response);
+      EGLInfo info = FlutterGLTexture::initOpenGL(result);
+      eglInfo.eglDisplay = info.eglDisplay;
+      eglInfo.eglContext = info.eglContext;
+      eglInfo.eglSurface = info.eglSurface;
       return;
     }
     else if (method_call.method_name().compare("createTexture") == 0) {
@@ -278,23 +120,20 @@ namespace {
       std::unique_ptr<FlutterGLTexture> flutterGLTexture;
 
       try{
-        flutterGLTexture = std::make_unique<FlutterGLTexture>(width, height);
+        int64_t textureId;
+        
+        flutterGLTexture = std::make_unique<FlutterGLTexture>(textureRegistrar);
+        textureId = flutterGLTexture->textureId;
+
+        renderers.insert(RendererMap::value_type(textureId, std::move(flutterGLTexture)));
+
+        flutterGLTexture.setInfo(eglInfo);
+        flutterGLTexture.createTexture(width, height, result);
       }
       catch (OpenGLException ex){
         result->Error(ex.message + ':' + std::to_string(ex.error));
       }
-      auto rbo = (int64_t)flutterGLTexture->rbo;
 
-      auto response = flutter::EncodableValue(flutter::EncodableMap{
-        {flutter::EncodableValue("textureId"),
-        flutter::EncodableValue(flutterGLTexture->flutterTextureId)},
-        {flutter::EncodableValue("rbo"),
-        flutter::EncodableValue( rbo)}
-      });
-
-      flutterGLTextures.insert(TextureMap::value_type(flutterGLTexture->flutterTextureId, std::move(flutterGLTexture)));
-          
-      result->Success(response);
       std::cerr << "Created a new texture " << width << "x" << height << "openGL ID" << rbo << std::endl;
     }
     else if (method_call.method_name().compare("updateTexture") == 0) {
@@ -316,13 +155,7 @@ namespace {
         return;
       }
 
-      auto currentTexture = flutterGLTextures[textureId].get();
-      glBindFramebuffer(GL_FRAMEBUFFER, currentTexture->fbo);
-
-      glReadPixels(0, 0, (GLsizei)currentTexture->buffer->width, (GLsizei)currentTexture->buffer->height, GL_RGBA, GL_UNSIGNED_BYTE, (void*)currentTexture->buffer->buffer);
-      textureRegistrar->MarkTextureFrameAvailable(textureId);
-
-      result->Success();
+      flutterGLTextures[textureId]->textureFrameAvailable(result);
     }
     else if (method_call.method_name().compare("resizeTexture") == 0) {
       int64_t textureId = 0;
@@ -356,13 +189,13 @@ namespace {
       }
 
       // Check if the received ID is registered
-      if (flutterGLTextures.find(textureId) == flutterGLTextures.end()){
+      if (renderers.find(textureId) == renderers.end()){
         result->Error("Invalid texture ID", "Invalid Texture ID: " + std::to_string(textureId));
         return;
       }
 
-      auto currentTexture = flutterGLTextures[textureId].get();
-      currentTexture->ChangeSize(width,height);
+      auto currentTexture = renderers[textureId].get();
+      currentTexture->changeSize(width,height);
 
       result->Success();
     }

@@ -77,7 +77,7 @@ class FlutterAngle {
   Pointer<Void> _pluginContext = nullptr;
   late Pointer<Void> _dummySurface;
   int? _activeFramebuffer;
-  late RenderWorker _worker;
+  RenderWorker? _worker;
 
   bool _useAngle = false;
   bool _didInit = false;
@@ -426,7 +426,7 @@ class FlutterAngle {
       result['textureId']! as int,
       result['rbo'] as int? ?? 0,
       Pointer.fromAddress(result['surface'] as int? ?? 0),
-      result['metalAsGLTexture'] as int? ?? 0,
+      Platform.isWindows?result['d3dAsGLTexture'] as int? ?? 0:result['metalAsGLTexture'] as int? ?? 0,
       fbo.value,
       result['location'] as int? ?? 0,
       options
@@ -494,7 +494,7 @@ class FlutterAngle {
       _rawOpenGl.glClearColor(0.0, 0.0, 0.0, 0.0);
       _rawOpenGl.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
       _rawOpenGl.glViewport(0, 0, (texture.options.width*texture.options.dpr).toInt(),( texture.options.height*texture.options.dpr).toInt());
-      _worker.renderTexture(sourceTexture, isFBO: Platform.isAndroid);
+      _worker?.renderTexture(sourceTexture, isFBO: Platform.isAndroid);
       _rawOpenGl.glFinish();
     }
 
@@ -543,7 +543,8 @@ class FlutterAngle {
     // if(_baseAppContext != nullptr) calloc.free(_baseAppContext);
     // if(_pluginContext != nullptr) calloc.free(_pluginContext);
     // if(_dummySurface != nullptr) calloc.free(_dummySurface);
-    _worker.dispose();
+    _worker?.dispose();
+    _worker = null;
     _libOpenGLES = null;
   }
 

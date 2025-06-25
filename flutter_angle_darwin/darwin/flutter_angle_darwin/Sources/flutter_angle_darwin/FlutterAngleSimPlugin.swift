@@ -101,13 +101,7 @@ public struct EGLInfo {
             EGL_HEIGHT, 16,
             EGL_NONE
         ];
-        let buffer_attributes:[Int32] = [
-            EGL_WIDTH, 16,
-            EGL_HEIGHT, 16,
-            EGL_TEXTURE_TARGET, EGL_TEXTURE_2D, 
-            EGL_TEXTURE_FORMAT, EGL_TEXTURE_RGBA,
-            EGL_NONE,
-        ];
+
         let contextAttributes: [Int32] = [
           EGL_CONTEXT_CLIENT_VERSION,
           3,
@@ -195,7 +189,7 @@ public struct EGLInfo {
           "location": 0  // For compatibility with Android
         ]);
     }
-   private func getANGLEMtlDevice(display: EGLDisplay) -> MTLDevice?{
+    private func getANGLEMtlDevice(display: EGLDisplay) -> MTLDevice?{
        var angleDevice: EGLAttrib = 0;
        var device: EGLAttrib      = 0;
        
@@ -208,13 +202,13 @@ public struct EGLInfo {
            return nil;
        }
 
-       return unsafeBitCast(device, to: MTLDevice.self);//(__bridge id<MTLDevice>)(void *)(device);
+       return unsafeBitCast(device, to: MTLDevice.self);
    }
    private func createMtlTextureFromCVPixBuffer(width: Int, height: Int) {
         // Create Metal texture backed by CVPixelBuffer
        guard let mtlDevice:MTLDevice =  getANGLEMtlDevice(display: eglInfo!.eglDisplay)else {
             fatalError("Could not create Metal Device")
-        }//GetANGLEMtlDevice(display: eglInfo!.eglDisplay) MTLCreateSystemDefaultDevice() 
+        }//MTLCreateSystemDefaultDevice() 
 
         guard CVMetalTextureCacheCreate(
             kCFAllocatorDefault,
@@ -264,7 +258,7 @@ public struct EGLInfo {
       // Make EGL context current
         if eglInfo?.eglContext != nil && eglInfo?.eglDisplay != nil && eglInfo?.eglSurface != nil {
             eglMakeCurrent(eglInfo!.eglDisplay, eglInfo!.eglSurface, eglInfo!.eglSurface, eglInfo!.eglContext)
-      }
+        }
 
       // Create framebuffer
       var fbo: UInt32 = 0
@@ -312,59 +306,7 @@ public struct EGLInfo {
         textureRegistry?.textureFrameAvailable(textureId)
         result(nil)
     }
-    public func textureFrameAvailable2(result: @escaping FlutterResult) {
-        guard textures != nil else {
-            result(FlutterError(code: "INVALID_TEXTURE_ID", message: "Unknown texture ID", details: nil))
-            return
-        }
-        guard let textureInfo = textures else {
-            result(FlutterError(code: "INVALID_TEXTURE_ID", message: "Failed to update texture - missing texture or GLES library", details: nil))
-            return
-        }
-        
-        // Make EGL context current
-        if eglInfo?.eglContext != nil && eglInfo?.eglDisplay != nil && eglInfo?.eglSurface != nil {
-            eglMakeCurrent(eglInfo!.eglDisplay, eglInfo!.eglSurface, eglInfo!.eglSurface, eglInfo!.eglContext)
-        }
-        
-        // OpenGL constants
-        let GL_BGRA: UInt32 = 0x80E1 // Use GL_BGRA instead of GL_RGBA to match CVPixelBuffer format
-        let GL_UNSIGNED_BYTE: UInt32 = 0x1401
-        let GL_READ_FRAMEBUFFER: UInt32 = 0x8CA8
-        
-        // Ensure we're reading from the correct framebuffer
-          glBindFramebuffer(GL_READ_FRAMEBUFFER, textureInfo.fboId)
-        
-        // Make sure all previous GL commands are completed
-          glFinish()
-        
-        // Copy the framebuffer content to the CVPixelBuffer
-        CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
-        
-        let width = width
-        let height = height
-        let pixelBufferBaseAddress = CVPixelBufferGetBaseAddress(pixelBuffer!)
-        
-        // Actually read the pixels from framebuffer to memory
-        // Use GL_BGRA instead of GL_RGBA to match macOS CVPixelBuffer format (kCVPixelFormatType_32BGRA)
-        glReadPixels(0, 0, Int32(width), Int32(height), GL_BGRA, GL_UNSIGNED_BYTE, pixelBufferBaseAddress)
-        
-        // Check for GL errors
-        let error = glGetError()
-        if error != 0 {
-          print("GL error during readPixels: \(error)")
-        }
-        
-        // Unlock the pixel buffer
-        CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
-        
-        // Ensure all commands are submitted
-        glFlush()
-        
-        textureRegistry?.textureFrameAvailable(textureId)
-        result(nil)
-    }
-  
+
     public func disposeTexture() {
         if let tr = textureRegistry {
             tr.unregisterTexture(textureId)

@@ -68,7 +68,7 @@ static void flutter_angle_linux_plugin_handle_method_call(FlutterAngleLinuxPlugi
       EGL_ALPHA_SIZE, 8,
       EGL_DEPTH_SIZE, 24,
       EGL_STENCIL_SIZE, 8,
-      EGL_SURFACE_TYPE, EGL_PBUFFER_BIT,
+      EGL_SURFACE_TYPE, EGL_WINDOW_BIT,
       EGL_NONE
     };
 
@@ -104,8 +104,8 @@ static void flutter_angle_linux_plugin_handle_method_call(FlutterAngleLinuxPlugi
     const EGLContext context = eglCreateContext(display,config,EGL_NO_CONTEXT,contextAttributes);
     
     // This is just a dummy surface that it needed to make an OpenGL context current (bind it to this thread)
-    auto dummySurface = eglCreatePbufferSurface(display, config, surfaceAttributes);
-    auto dummySurfaceForDartSide = eglCreatePbufferSurface(display, config, surfaceAttributes);
+    auto dummySurface = eglCreateWindowSurface(display, config, window, surfaceAttributes);
+    auto dummySurfaceForDartSide = eglCreateWindowSurface(display, config, window, surfaceAttributes);
     
     if(eglMakeCurrent(display, dummySurface, dummySurface, context) == 0){
       response = FL_METHOD_RESPONSE(
