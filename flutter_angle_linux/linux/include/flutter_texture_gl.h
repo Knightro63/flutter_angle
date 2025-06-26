@@ -15,26 +15,36 @@ G_DECLARE_FINAL_TYPE(
     flutter_texture_gl,
     FL,
     FLUTTER_TEXTURE_GL,
-    FlPixelBufferTexture
+    FlTextureGL
 )
 
 typedef std::map<int64_t, std::unique_ptr<FlutterTextureGL>> TextureMap;
 
 struct _FlutterTextureGL{
-    FlPixelBufferTexture parent_instance;
-    uint8_t *buffer;
+    FlTextureGL parent_instance;
+    uint32_t target;
+    uint32_t name;
     uint32_t width;
     uint32_t height;
-    uint64_t textureId;
-    uint32_t rbo;
-    uint32_t fbo;
 };
 
-FlutterTextureGL *flutter_texture_gl_new(
-    uint32_t width,
-    uint32_t height
-    // uint64_t textureId,
-    // uint32_t rboId,
-    // uint32_t fboId
-);
+#define FLUTTER_ANGLE_LINUX_PLUGIN(obj)                                     \
+  (G_TYPE_CHECK_INSTANCE_CAST((obj), flutter_angle_linux_plugin_get_type(), \
+                              FlutterAngleLinuxPlugin))
+
+struct _FlutterAngleLinuxPlugin{
+  GObject parent_instance;
+  GdkGLContext *context = nullptr;
+  FlTextureRegistrar *textureRegistrar = nullptr;
+  TextureMap flutterGLTextures;
+  int64_t textureId = 0;
+  g_autoptr(FlTexture) texture;
+  FlView *fl_view = nullptr;
+};
+
+FlMyTextureGL *flutter_texture_gl_new(uint32_t target,
+                                    uint32_t name,
+                                    uint32_t width,
+                                    uint32_t height);
+
 #endif // FLUTTER_ANGLE_TEXTURE_H

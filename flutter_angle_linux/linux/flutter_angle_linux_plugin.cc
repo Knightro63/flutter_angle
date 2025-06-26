@@ -18,18 +18,6 @@
 #include "include/flutter_texture_gl.h"
 #include "flutter_angle_linux_plugin_private.h"
 
-#define FLUTTER_ANGLE_LINUX_PLUGIN(obj)                                     \
-  (G_TYPE_CHECK_INSTANCE_CAST((obj), flutter_angle_linux_plugin_get_type(), \
-                              FlutterAngleLinuxPlugin))
-
-struct _FlutterAngleLinuxPlugin{
-  GObject parent_instance;
-  FlTextureRegistrar *textureRegistrar = nullptr;
-  TextureMap flutterGLTextures;
-  g_autoptr(FlTexture) texture;
-  FlView *fl_view = nullptr;
-};
-
 G_DEFINE_TYPE(FlutterAngleLinuxPlugin, flutter_angle_linux_plugin, g_object_get_type())
 
 // Called when a method call is received from Flutter.
@@ -43,6 +31,8 @@ static void flutter_angle_linux_plugin_handle_method_call(FlutterAngleLinuxPlugi
 		response = get_platform_version();
 	} 
 	else if (strcmp(method, "initOpenGL") == 0){
+    response = FL_METHOD_RESPONSE(fl_method_not_implemented_response_new());
+    return;
     auto display = eglGetDisplay(EGL_DEFAULT_DISPLAY);
     EGLint major;
     EGLint minor;
@@ -158,6 +148,53 @@ static void flutter_angle_linux_plugin_handle_method_call(FlutterAngleLinuxPlugi
     }
     std::cerr << "Window Size:" << width << "," << height << std::endl;
 
+    auto ft = flutter_texture_gl_new(width, height);
+
+    GdkWindow *window = nullptr;
+    window = gtk_widget_get_parent_window(GTK_WIDGET(self->fl_view));
+    GError *error = NULL;
+
+    self->context = gdk_window_create_gl_context(window, &error);
+
+    gdk_gl_context_make_current(self->context);
+
+    std::cerr << "Create Texture" <<std::endl;
+    self->texture = FL_TEXTURE(ft);
+    fl_texture_registrar_register_texture(self->textureRegistrar, self->texture);
+    self->textureId = fl_texture_get_id(self->texture);
+
+    gdk_gl_context_clear_current();
+
+    g_autoptr(FlValue) value = fl_value_new_map ();
+    fl_value_set_string_take(value, "textureId", fl_value_new_int(self->textureId));
+    fl_value_set_string_take(value, "surfacePointer", fl_value_new_int((int64_t)window));
+
+    self->flutterGLTextures.insert(TextureMap::value_type(self->textureId, std::move(ft)));
+		
+    response = FL_METHOD_RESPONSE(fl_method_success_response_new(value));
+    std::cerr << "Created a new texture " << width << "x" << height << "openGL ID" << ft->rbo << std::endl;
+	}
+	else if (strcmp(method, "createTexture2") == 0){
+    std::cerr << "EGL createTexture" << std::endl;
+    int width = 0;
+    int height = 0;
+    if(args){
+      width = fl_value_get_int(fl_value_lookup_string(args, "width"));
+      height = fl_value_get_int(fl_value_lookup_string(args, "height"));
+      if(!width || !height){
+        response = FL_METHOD_RESPONSE(
+          fl_method_error_response_new(
+            "EGL DeleteError", 
+            "Missing with or height.",
+            nullptr
+          )
+        );
+        fl_method_call_respond(method_call, response, nullptr);
+        return;
+      }
+    }
+    std::cerr << "Window Size:" << width << "," << height << std::endl;
+
 
     auto ft = flutter_texture_gl_new(width, height);
 
@@ -239,6 +276,32 @@ static void flutter_angle_linux_plugin_handle_method_call(FlutterAngleLinuxPlugi
         
     fl_texture_registrar_mark_texture_frame_available(self->textureRegistrar, self->texture);
     
+    g_autoptr(FlValue) result = fl_value_new_null();
+    response = FL_METHOD_RESPONSE(fl_method_success_response_new(result));
+	}
+	else if (strcmp(method, "textureFrameAvailable") == 0){
+    std::cerr << "EGL updateTexture" << std::endl;
+    int64_t textureId = 0;
+    if(args){
+      textureId = fl_value_get_int(fl_value_lookup_string(args, "textureId"));
+      if(!textureId){
+        response = FL_METHOD_RESPONSE(
+          fl_method_error_response_new(
+            "EGL DeleteError", 
+            "Missing textureId.",
+            nullptr
+          )
+        );
+        fl_method_call_respond(method_call, response, nullptr);
+        return;
+      }
+    }
+
+    gdk_gl_context_make_current(self->context);
+
+    fl_texture_registrar_mark_texture_frame_available(self->textureRegistrar, self->texture);
+    gdk_gl_context_clear_current();
+
     g_autoptr(FlValue) result = fl_value_new_null();
     response = FL_METHOD_RESPONSE(fl_method_success_response_new(result));
 	}

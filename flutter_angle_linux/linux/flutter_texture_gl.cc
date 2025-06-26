@@ -9,34 +9,38 @@ G_DEFINE_TYPE(
   fl_texture_gl_get_type()
 )
 
-static gboolean flutter_texture_gl_copy_pixels(
-  FlPixelBufferTexture *texture,
-  const uint8_t **buffer,
+static gboolean fl_my_texture_gl_populate(FlTextureGL *texture,
+  uint32_t *target,
+  uint32_t *name,
   uint32_t *width,
   uint32_t *height,
   GError **error
 ){
   // std::cout << "attention: populate called" << std::endl;
   FlutterTextureGL* f = (FlutterTextureGL*) texture;
-  *buffer = f->buffer;
+  *target = f->target;
+  *name = f->name;
   *width = f->width;
   *height = f->height;
   return true;
 }
 
 FlutterTextureGL *flutter_texture_gl_new(
+  uint32_t target,
+  uint32_t name,
   uint32_t width,
   uint32_t height
 ){
   auto r = FL_FLUTTER_TEXTURE_GL(g_object_new(flutter_texture_gl_get_type(), nullptr));
+  r->target = target;
+  r->name = name;
   r->width = width;
   r->height = height;
-  r->buffer = static_cast<uint8_t*>(malloc(r->width * r->height * 4));
   return r;
 }
 
 static void flutter_texture_gl_class_init(FlutterTextureGLClass *klass){
-  FL_PIXEL_BUFFER_TEXTURE_CLASS(klass)->copy_pixels = flutter_texture_gl_copy_pixels;
+  FL_TEXTURE_GL_CLASS(klass)->populate = fl_my_texture_gl_populate;
 }
 
 static void flutter_texture_gl_init(FlutterTextureGL *self){}

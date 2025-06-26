@@ -8,7 +8,12 @@ project(${PROJECT_NAME} LANGUAGES CXX)
 # not be changed
 set(PLUGIN_NAME "flutter_angle_windows_plugin")
 
-add_library(${PLUGIN_NAME} SHARED "flutter_angle_windows_plugin.cpp")
+add_library(
+  ${PLUGIN_NAME} SHARED 
+  "flutter_angle_windows_plugin.cpp"
+  "flutter_gl_texture.cpp"
+  "opengl_exception.cpp"
+)
 
 # Apply a standard set of build settings that are configured in the
 # application-level CMakeLists.txt. This can be removed for plugins that want

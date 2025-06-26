@@ -45,6 +45,9 @@ namespace {
       RendererMap renderers; // stores all created Textures
   };
 
+  flutter::TextureRegistrar* FlutterAngleWindowsPlugin::textureRegistrar;
+
+
   // static
   void FlutterAngleWindowsPlugin::RegisterWithRegistrar(flutter::PluginRegistrarWindows *registrar) {
     auto channel = std::make_unique<flutter::MethodChannel<flutter::EncodableValue>>(
@@ -127,14 +130,12 @@ namespace {
 
         renderers.insert(RendererMap::value_type(textureId, std::move(flutterGLTexture)));
 
-        flutterGLTexture.setInfo(eglInfo);
-        flutterGLTexture.createTexture(width, height, result);
+        flutterGLTexture->setInfo(eglInfo);
+        flutterGLTexture->createTexture(width, height, result);
       }
       catch (OpenGLException ex){
         result->Error(ex.message + ':' + std::to_string(ex.error));
       }
-
-      std::cerr << "Created a new texture " << width << "x" << height << "openGL ID" << rbo << std::endl;
     }
     else if (method_call.method_name().compare("updateTexture") == 0) {
       int64_t textureId =0;
@@ -150,12 +151,12 @@ namespace {
       }
 
       // Check if the received ID is registered
-      if (flutterGLTextures.find(textureId) == flutterGLTextures.end()){
+      if (renderers.find(textureId) == renderers.end()){
         result->Error("Invalid texture ID", "Invalid Texture ID: " + std::to_string(textureId));
         return;
       }
 
-      flutterGLTextures[textureId]->textureFrameAvailable(result);
+      renderers[textureId]->textureFrameAvailable(result);
     }
     else if (method_call.method_name().compare("resizeTexture") == 0) {
       int64_t textureId = 0;
@@ -212,15 +213,15 @@ namespace {
         return;
       }
 
-      auto findResult = flutterGLTextures.find(textureId);
+      auto findResult = renderers.find(textureId);
       // Check if the received ID is registered
-      if ( findResult == flutterGLTextures.end()){
+      if ( findResult == renderers.end()){
         result->Error("Invalid texture ID", "Invalid Texture ID: " + std::to_string(textureId));
         return;
       }
 
-      flutterGLTextures[textureId].release();
-      flutterGLTextures.erase(textureId);
+      renderers[textureId].release();
+      renderers.erase(textureId);
 
       result->Success();
     }
