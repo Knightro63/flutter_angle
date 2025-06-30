@@ -26,6 +26,17 @@ Pointer<Void> eglGetDisplay([Pointer<Void>? displayId]) {
   return nativeCallResult;
 }
 
+int eglBindTexImage(Pointer<Void> dpy, Pointer<Void> surface, int buffer){
+  return _libEGL!.eglBindTexImage(dpy, surface, buffer);
+}
+
+int eglTerminate(Pointer<Void> dpy){
+  return _libEGL!.eglTerminate(dpy);
+}
+int eglDestroySurface(Pointer<Void> dpy, Pointer<Void> surface){
+  return _libEGL!.eglDestroySurface(dpy,surface);
+}
+
 void loadEGL({bool useAngle = false}) {
   if (_libEGL == null) {
     if (Platform.isMacOS || Platform.isIOS) {

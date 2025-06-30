@@ -195,7 +195,7 @@ public struct EGLInfo {
           "location": 0  // For compatibility with Android
         ]);
     }
-   private func getANGLEMtlDevice(display: EGLDisplay) -> MTLDevice?{
+    private func getANGLEMtlDevice(display: EGLDisplay) -> MTLDevice?{
        var angleDevice: EGLAttrib = 0;
        var device: EGLAttrib      = 0;
        
@@ -209,8 +209,8 @@ public struct EGLInfo {
        }
 
        return unsafeBitCast(device, to: MTLDevice.self);//(__bridge id<MTLDevice>)(void *)(device);
-   }
-   private func createMtlTextureFromCVPixBuffer(width: Int, height: Int) {
+    }
+    private func createMtlTextureFromCVPixBuffer(width: Int, height: Int) {
         // Create Metal texture backed by CVPixelBuffer
        guard let mtlDevice:MTLDevice =  getANGLEMtlDevice(display: eglInfo!.eglDisplay)else {
             fatalError("Could not create Metal Device")
@@ -253,7 +253,7 @@ public struct EGLInfo {
        
        swapBuffers(GLenum(GL_TEXTURE_2D), eglImage)
        print(eglImage)
-   }
+    }
     
     private func setupOpenGLResources(useRenderBuf: Bool) {
       guard let textureInfo = textures else {

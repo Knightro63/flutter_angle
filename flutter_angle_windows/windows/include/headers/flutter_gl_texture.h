@@ -7,6 +7,11 @@
 
 #include <d3d.h>
 #include <d3d11.h>
+#include <Windows.h>
+#include <wrl.h>
+
+#include <cstdint>
+#include <functional>
 
 #include <flutter/plugin_registrar_windows.h>
 #include <flutter/standard_method_codec.h>
@@ -20,6 +25,7 @@ struct TextureInfo {
     uint32_t rboId = 0;
     uint32_t fboId = 0;
     uint32_t wTextureId = 0;
+    EGLSurface surface;
     int frameCount;
 };
 
@@ -27,39 +33,57 @@ struct EGLInfo {
     EGLDisplay eglDisplay;
     EGLContext eglContext;
     EGLSurface eglSurface;
+    EGLConfig eglConfig;
+};
+
+struct Structure{
+    int width;
+    int height;
+    bool useBuffer;
 };
 
 class FlutterGLTexture{
     public:
-        FlutterGLTexture(flutter::TextureRegistrar* textureRegistrar);
+        FlutterGLTexture(
+            flutter::TextureRegistrar* textureRegistrar, 
+            EGLInfo info,
+            Structure structure
+        );
         virtual ~FlutterGLTexture();
 
         static EGLInfo initOpenGL(std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>>& result);
-        void setInfo(EGLInfo info);
-        void createTexture(int width, int height,std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>>& result);
-        void changeSize(int width, int height);
+        void createTexture(std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>>& result);
         void textureFrameAvailable(std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>>& result);
+        void changeSize(int, int);
 
         int64_t textureId;
-
-    private:
-        void createD3DTextureFromPixBuffer(int width, int height);
-        void setupOpenGLResources(bool useRenderBuf);
-        const FlutterDesktopPixelBuffer *copyPixelBuffer();
-        ID3D11Device* getANGLED3DDevice(EGLDisplay display);
-
-        int width;
-        int height;
-
-        std::unique_ptr<uint8_t> pixels;
-        EGLInfo eglInfo;
         
-        TextureInfo textures;
-        std::unique_ptr<FlutterDesktopPixelBuffer> pixelBuffer;
-        std::unique_ptr<FlutterDesktopGpuSurfaceDescriptor> gpuTexture;
-        flutter::TextureRegistrar* textureRegistrar;
+    private:
+        void createANGLETexture();
+        void cleanUp(bool release_context);
+        bool createD3DTexture();
+        void setupOpenGLResources();
+        const FlutterDesktopPixelBuffer *copyPixelBuffer();
 
+
+        ID3D11Device* getANGLED3DDevice();
+        EGLInfo eglInfo = EGLInfo();
+        Structure structure;
+        
+        flutter::TextureRegistrar* textureRegistrar;
         std::unique_ptr<flutter::TextureVariant> flutterTexture;
+        
+        //Buffer
+        std::unique_ptr<uint8_t> pixels;
+        TextureInfo textures = TextureInfo();
+        std::unique_ptr<FlutterDesktopPixelBuffer> pixelBuffer;
+        
+        // Surface
+        HANDLE surfaceHandle = nullptr;
+        std::unique_ptr<FlutterDesktopGpuSurfaceDescriptor> gpuTexture;
+        ID3D11Device* d3d_11_device = nullptr;
+        ID3D11DeviceContext* d3d_11_device_context = nullptr;
+        Microsoft::WRL::ComPtr<ID3D11Texture2D> d3d_11_texture_2D;
 };
 
 #if defined(__cplusplus)

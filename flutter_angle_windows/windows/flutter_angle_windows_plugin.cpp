@@ -92,11 +92,14 @@ namespace {
       eglInfo.eglDisplay = info.eglDisplay;
       eglInfo.eglContext = info.eglContext;
       eglInfo.eglSurface = info.eglSurface;
+      eglInfo.eglConfig = info.eglConfig;
       return;
     }
     else if (method_call.method_name().compare("createTexture") == 0) {
       int width = 0;
       int height = 0;
+      bool useBuffer = false;
+
       if (arguments) {
         auto texture_width = arguments->find(EncodableValue("width"));
         if (texture_width != arguments->end()) {
@@ -114,6 +117,11 @@ namespace {
           result->Error("no texture height","no texture height");
           return;
         }
+        
+        auto useBuf = arguments->find(EncodableValue("useSurfaceProducer"));
+        if (useBuf != arguments->end()) {
+          useBuffer = !std::get<bool>(useBuf->second);
+        }
       }
       else{
         result->Error("no texture texture height and width","no texture width and height");
@@ -124,22 +132,32 @@ namespace {
 
       try{
         int64_t textureId;
-        
-        flutterGLTexture = std::make_unique<FlutterGLTexture>(textureRegistrar);
+
+        Structure st = Structure();
+        st.height = height;
+        st.width = width;
+        st.useBuffer = useBuffer;
+
+        flutterGLTexture = std::make_unique<FlutterGLTexture>(
+          textureRegistrar, 
+          eglInfo,
+          st
+        );
+
         textureId = flutterGLTexture->textureId;
-
         renderers.insert(RendererMap::value_type(textureId, std::move(flutterGLTexture)));
-
-        flutterGLTexture->setInfo(eglInfo);
-        flutterGLTexture->createTexture(width, height, result);
+        renderers[textureId]->createTexture(result);
       }
       catch (OpenGLException ex){
         result->Error(ex.message + ':' + std::to_string(ex.error));
       }
     }
-    else if (method_call.method_name().compare("updateTexture") == 0) {
-      int64_t textureId =0;
-      if (arguments) {
+    else if (method_call.method_name().compare("updateTexture") == 0 || method_call.method_name().compare("textureFrameAvailable") == 0) {
+      int64_t textureId = 0;
+      if (arguments && arguments->IsInt()) {
+        textureId = std::get<std::int64_t>(arguments->IntValue());
+      }
+      else if (arguments) {
         auto findResult = arguments->find(EncodableValue("textureId"));
         if (findResult != arguments->end()) {
           textureId = std::get<std::int64_t>(findResult->second);
@@ -202,10 +220,13 @@ namespace {
     }
     else if (method_call.method_name().compare("deleteTexture") == 0) {
       int64_t textureId = 0;
-      if (arguments) {
-        auto id_iterator = arguments->find(EncodableValue("textureId"));
-        if (id_iterator != arguments->end()) {
-          textureId = std::get<std::int64_t>(id_iterator->second);
+      if (arguments && arguments->IsInt()) {
+        textureId = std::get<std::int64_t>(arguments->IntValue());
+      }
+      else if (arguments) {
+        auto findResult = arguments->find(EncodableValue("textureId"));
+        if (findResult != arguments->end()) {
+          textureId = std::get<std::int64_t>(findResult->second);
         }
       }
       else{

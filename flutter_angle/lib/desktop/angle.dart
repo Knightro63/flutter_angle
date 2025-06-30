@@ -120,15 +120,14 @@ class FlutterAngle {
     if (Platform.isAndroid && _useAngle) {
       result = await _channel.invokeMethod('initOpenGLAngle');
       _useAngle = result['forceOpengl'] == null?_useAngle:!result['forceOpengl'];
-      print("Force Opengl: ${result['forceOpengl']}");
-    } 
+      angleConsole.info("Force Opengl: ${result['forceOpengl']}");
+    }
     else {
       _useAngle = false;
       result = await _channel.invokeMethod('initOpenGL');
 
       if(_isApple){
         _isApple = result['isSimulator'] == null?_isApple:!result['isSimulator'];
-        print(result);
       }
     }
 
@@ -138,10 +137,8 @@ class FlutterAngle {
     if (result == null) {
       throw EglException('Plugin.initOpenGL didn\'t return anything. Something is really wrong!');
     }
-    if(result['dummySurface'] == null){
-      _useSurface = true;
-    }
-    if (!_useSurface) {
+
+    if (!_useAngle) {
       final pluginContextAdress = result['context'] ?? result['openGLContext'];
       if (pluginContextAdress == null) {
         throw EglException('Plugin.initOpenGL didn\'t return a Context. Something is really wrong!');
@@ -218,7 +215,7 @@ class FlutterAngle {
       isDebugContext: useDebugContext && !Platform.isAndroid
     );
 
-    if(!_useSurface){
+    if(!_useAngle){
       /// bind context to this thread. All following OpenGL calls from this thread will use this context
       eglMakeCurrent(_display, _dummySurface, _dummySurface, _baseAppContext);
     
@@ -365,7 +362,6 @@ class FlutterAngle {
 
     return macIosSurface;
   }
-
   Pointer<Void>? createEGLSurfaceFromD3DSurface(Pointer<Void> d3dSurfacePtr, int width, int height){
     if (!Platform.isWindows) return null;
 
@@ -387,7 +383,7 @@ class FlutterAngle {
     try {
       d3dSurface = eglCreatePbufferFromClientBuffer(
         _display,
-        EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE, // 0x3454
+        EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE,
         d3dSurfacePtr,
         _EGLconfig,
         surfaceAttribs
@@ -414,7 +410,6 @@ class FlutterAngle {
 
     return d3dSurface;
   }
-  
   Pointer<Void>? createEGLSurfaceFromWindow(Pointer<Void> windowPtr){
     Pointer<Void>? egl_surface;
     egl_surface = eglCreateWindowSurface(_display, _EGLconfig, windowPtr);
@@ -441,6 +436,7 @@ class FlutterAngle {
     }
 
     if (Platform.isAndroid) {
+      _useSurface = true;
       final newTexture = FlutterAngleTexture(
         this,
         result['textureId']! as int,
@@ -460,6 +456,7 @@ class FlutterAngle {
       return newTexture;
     }
     else if (_isApple) {
+      _useSurface = true;
       // Create the EGL surface from IOSurface before creating the texture object
       Pointer<Void>? macIosSurface;
       if (result.containsKey('surfacePointer')) {
@@ -494,8 +491,9 @@ class FlutterAngle {
 
       return newTexture;
     }
-    else if (Platform.isWindows) {
-      // Create the EGL surface from IOSurface before creating the texture object
+    else if (Platform.isWindows && options.useSurfaceProducer) {
+      _useSurface = true;
+      // Create the EGL surface from D3DSurface before creating the texture object
       Pointer<Void>? d3dSurface;
       if (result.containsKey('surfacePointer')) {
         final surfacePointer = result['surfacePointer'] as int;
@@ -503,9 +501,9 @@ class FlutterAngle {
           final d3dSurfacePtr = Pointer<Void>.fromAddress(surfacePointer);
           d3dSurface = createEGLSurfaceFromD3DSurface(d3dSurfacePtr, width, height);
           if (d3dSurface == null) {
-            angleConsole.error("Failed to create EGL surface from IOSurface");
+            angleConsole.info("Failed to create EGL surface from D3DSurface");
           } else {
-            angleConsole.info("Successfully created EGL surface from IOSurface");
+            angleConsole.info("Successfully created EGL surface from D3DSurface");
           }
         }
       }
@@ -514,13 +512,12 @@ class FlutterAngle {
         this,
         result['textureId']! as int,
         result['rbo'] as int? ?? 0,
-        d3dSurface, // We'll use an IOSurface instead
+        d3dSurface, // We'll use an D3DSurface instead
         0,
         0,
         result['location'] as int? ?? 0,
         options
       );
-
       _rawOpenGl.glViewport(0, 0, width, height);
 
       if (!options.customRenderer) {
@@ -573,8 +570,8 @@ class FlutterAngle {
       this,
       result['textureId']! as int,
       result['rbo'] as int? ?? 0,
-      Pointer.fromAddress(result['surface'] as int? ?? 0),
-      Platform.isWindows?result['d3dAsGLTexture'] as int? ?? 0:result['metalAsGLTexture'] as int? ?? 0,
+      Pointer.fromAddress(0),//result['surface'] as int? ?? 0),
+      result['metalAsGLTexture'] as int? ?? 0,
       fbo.value,
       result['location'] as int? ?? 0,
       options
@@ -628,13 +625,11 @@ class FlutterAngle {
   }
 
   Future<void> resize(FlutterAngleTexture texture, AngleOptions options) async{
-    if(Platform.isWindows || Platform.isAndroid){
-      await _channel.invokeMethod('resizeTexture', {
-        "width": options.width,
-        "height": options.height,
-        "textureId": texture.textureId,
-      });
-    }
+    await _channel.invokeMethod('resizeTexture', {
+      "width": options.width,
+      "height": options.height,
+      "textureId": texture.textureId,
+    });
   }
 
   Future<void> updateTexture(FlutterAngleTexture texture, [WebGLTexture? sourceTexture]) async {
@@ -664,7 +659,7 @@ class FlutterAngle {
     if (Platform.isAndroid) {
       return;
     }
-    else if(_isApple){
+    else if(_useSurface){
       await _channel.invokeMethod('deleteTexture',texture.textureId);
       return;
     }
@@ -686,11 +681,19 @@ class FlutterAngle {
     textures?.forEach((t) {
       deleteTexture(t);
     });
-    // if(_display != nullptr) calloc.free(_display);
-    // if(_EGLconfig != nullptr) calloc.free(_EGLconfig);
-    // if(_baseAppContext != nullptr) calloc.free(_baseAppContext);
-    // if(_pluginContext != nullptr) calloc.free(_pluginContext);
-    // if(_dummySurface != nullptr) calloc.free(_dummySurface);
+    if(_baseAppContext != nullptr){
+      eglDestroyContext(_display, _baseAppContext);
+      _baseAppContext = nullptr;
+    }
+    if(_pluginContext != nullptr){
+      eglDestroyContext(_display, _pluginContext);
+      _pluginContext = nullptr;
+    }
+    if (_dummySurface != nullptr) {
+      eglDestroySurface(_display, _dummySurface);
+      _dummySurface = nullptr;
+    }
+
     _worker?.dispose();
     _worker = null;
     _libOpenGLES = null;
