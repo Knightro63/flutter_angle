@@ -39,16 +39,19 @@ int eglDestroySurface(Pointer<Void> dpy, Pointer<Void> surface){
 
 void loadEGL({bool useAngle = false}) {
   if (_libEGL == null) {
-    if (Platform.isMacOS || Platform.isIOS) {
-      _libEGL = LibEGL(DynamicLibrary.process());
-    } else if (Platform.isAndroid) {
+    if (Platform.isWindows) {
+      _libEGL = LibEGL(DynamicLibrary.open(resolveDylibPath('libEGL')));
+    } 
+    else if (Platform.isAndroid) {
       if (useAngle) {
         _libEGL = LibEGL(DynamicLibrary.open('libEGL_angle.so'));
-      } else {
+      } 
+      else {
         _libEGL = LibEGL(DynamicLibrary.open('libEGL.so'));
       }
-    } else {
-      _libEGL = LibEGL(DynamicLibrary.open(resolveDylibPath('libEGL')));
+    } 
+    else {
+      _libEGL = LibEGL(DynamicLibrary.process());
     }
   }
 }

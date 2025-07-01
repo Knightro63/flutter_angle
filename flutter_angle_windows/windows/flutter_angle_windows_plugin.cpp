@@ -154,10 +154,7 @@ namespace {
     }
     else if (method_call.method_name().compare("updateTexture") == 0 || method_call.method_name().compare("textureFrameAvailable") == 0) {
       int64_t textureId = 0;
-      if (arguments && arguments->IsInt()) {
-        textureId = std::get<std::int64_t>(arguments->IntValue());
-      }
-      else if (arguments) {
+      if (arguments) {
         auto findResult = arguments->find(EncodableValue("textureId"));
         if (findResult != arguments->end()) {
           textureId = std::get<std::int64_t>(findResult->second);
@@ -220,10 +217,7 @@ namespace {
     }
     else if (method_call.method_name().compare("deleteTexture") == 0) {
       int64_t textureId = 0;
-      if (arguments && arguments->IsInt()) {
-        textureId = std::get<std::int64_t>(arguments->IntValue());
-      }
-      else if (arguments) {
+      if (arguments) {
         auto findResult = arguments->find(EncodableValue("textureId"));
         if (findResult != arguments->end()) {
           textureId = std::get<std::int64_t>(findResult->second);

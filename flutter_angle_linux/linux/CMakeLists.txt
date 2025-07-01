@@ -3,6 +3,16 @@
 # the plugin to fail to compile for some customers of the plugin.
 cmake_minimum_required(VERSION 3.15)
 
+# Find Wayland libraries
+find_package(Wayland)
+
+# Find X11 libraries
+find_package(X11)
+
+# Find GTK3 libraries (Flutter's Linux embedder uses GTK)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(GTK3 REQUIRED gtk+-3.0)
+
 # Project-level configuration.
 set(PROJECT_NAME "flutter_angle_linux")
 project(${PROJECT_NAME} LANGUAGES CXX)
@@ -33,7 +43,14 @@ target_compile_definitions(${PLUGIN_NAME} PRIVATE FLUTTER_PLUGIN_IMPL)
 
 target_compile_options(${PLUGIN_NAME} PRIVATE -Wall -Wno-error -v -v)
 
-target_include_directories(${PLUGIN_NAME} INTERFACE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(
+  ${PLUGIN_NAME} INTERFACE 
+  "${CMAKE_CURRENT_SOURCE_DIR}/include"
+
+  ${Wayland_INCLUDE_DIRS}
+  ${X11_INCLUDE_DIRS}
+  ${GTK3_INCLUDE_DIRS}
+)
 
 target_link_directories(
   ${PLUGIN_NAME} PUBLIC 
@@ -43,12 +60,15 @@ target_link_directories(
 target_link_libraries(
   ${PLUGIN_NAME} PRIVATE 
   flutter
-  # EGL
-  # GLEW
+
+  ${Wayland_LIBRARIES}
+  ${X11_LIBRARIES}
+  ${GTK3_LIBRARIES} # Link to GTK3 libraries
+
   "${CMAKE_CURRENT_SOURCE_DIR}/jniLibs/libEGL.so" 
   "${CMAKE_CURRENT_SOURCE_DIR}/jniLibs/libGLESv2.so"
 )
-target_link_libraries(${PLUGIN_NAME} PRIVATE PkgConfig::GTK)
+#target_link_libraries(${PLUGIN_NAME} PRIVATE PkgConfig::GTK)
 
 # List of absolute paths to libraries that should be bundled with the plugin.
 # This list could contain prebuilt libraries, or libraries created by an

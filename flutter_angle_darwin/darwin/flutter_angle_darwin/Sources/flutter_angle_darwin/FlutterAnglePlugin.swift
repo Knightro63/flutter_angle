@@ -64,9 +64,10 @@ import Flutter
             result(FlutterError(code: "INVALID_ARGS", message: "Invalid Width and Height", details: nil))
             return
           }
-        //self.renders[textureId]!.resizeTexture(width: width, height: height, result: result)
+        self.renders[textureId]!.resizeTexture(width: width, height: height, result: result)
       case "deleteTexture":
-        guard let textureId = call.arguments as? Int64 else {
+        guard let args = call.arguments as? [String: Any],
+          let textureId = args["textureId"] as? Int64 else {
           result(FlutterError(code: "INVALID_ARGS", message: "Invalid texture ID", details: nil))
           return
         }
@@ -81,18 +82,11 @@ import Flutter
         self.renders[textureId]!.getIOSurfaceHandle(result: result)
         #endif
       case "textureFrameAvailable", "updateTexture":
-        #if targetEnvironment(simulator)
         guard let args = call.arguments as? [String: Any],
           let textureId = args["textureId"] as? Int64 else {
           result(FlutterError(code: "INVALID_ARGS", message: "Invalid texture ID", details: nil))
           return
         }
-        #else
-        guard let textureId = call.arguments as? Int64 else {
-          result(FlutterError(code: "INVALID_ARGS", message: "Invalid texture ID", details: nil))
-          return
-        }
-        #endif
         self.renders[textureId]!.textureFrameAvailable(result: result)
       case "initOpenGL":
         #if targetEnvironment(simulator)

@@ -33,22 +33,22 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Metal supported
  - Use flutter_angle: 0.3.0.
 
-**Android Angle**
+**Android ANGLE**
  - compileSdkVersion: 34
  - minSdk: 28
  - OpenGL supported
  - Vulkan supported
+ - Will automatically revert to OpenGL if below sdk 28
 
-**Android Opengl**
+**Android OpenGL**
  - compileSdkVersion: 34
  - minSdk: 21
  - OpenGL supported
- - Will automatically revert to opengl if below sdk 28
  - Not recommended for devices above sdk 27
 
 **Android Emulator**
- - Supported opengl only.
- - Will automatically revert to opengl
+ - Supported OpenGL only.
+ - Will automatically revert to OpenGL
 
 **Windows**
  - Intel supported.
@@ -56,6 +56,7 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Qualcom supported.
  - Direct3D 11
  - OpenGL supported
+ - Set AngleOptions useSurfaceProducer to false for legacy build
 
 **Web**
  - WebGL2 supported.

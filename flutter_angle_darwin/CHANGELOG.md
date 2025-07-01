@@ -2,6 +2,7 @@
 
 * Updated framework to the latest version of angle.
 * Added Simulator Support.
+* Moved from CocoaPods to Swift Package Manager(SPM)
 
 ## 0.1.0
 

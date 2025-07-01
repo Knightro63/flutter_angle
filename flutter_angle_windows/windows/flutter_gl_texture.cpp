@@ -159,7 +159,7 @@ EGLInfo FlutterGLTexture::initOpenGL(std::unique_ptr<flutter::MethodResult<flutt
 }
 
 void FlutterGLTexture::changeSize(int setWidth, int setHeight) {
-  if (setWidth == structure.width && setHeight == structure.height) {
+  if (setWidth == structure.width && setHeight == structure.height && didStart) {
     return;
   }
   if(structure.useBuffer){
@@ -176,9 +176,9 @@ void FlutterGLTexture::changeSize(int setWidth, int setHeight) {
     return;
   }
   //TODO
-  structure.width = setWidth;
-  structure.height = setHeight;
-  createANGLETexture();
+  // structure.width = setWidth;
+  // structure.height = setHeight;
+  // createANGLETexture();
 }
 
 void FlutterGLTexture::createANGLETexture() {
@@ -321,6 +321,8 @@ void FlutterGLTexture::createTexture(std::unique_ptr<flutter::MethodResult<flutt
     changeSize(structure.width,structure.height);
     setupOpenGLResources();
   }
+
+  didStart = true;
   
   auto response = flutter::EncodableValue(flutter::EncodableMap{
     {flutter::EncodableValue("textureId"),

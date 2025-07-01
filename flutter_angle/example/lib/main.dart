@@ -204,12 +204,13 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
           }
           return NotificationListener<SizeChangedLayoutNotification>(
             onNotification: (notification) {
-              onWindowResize(context);
+              //onWindowResize(context);
               return true;
             },
             child:SizeChangedLayoutNotifier(
               child: Builder(builder: (BuildContext context) {
-                return SizedBox(
+                return Container(
+                  color: Colors.red,
                   child: texture(useRow)
                 );
               })

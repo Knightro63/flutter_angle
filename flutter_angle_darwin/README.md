@@ -29,7 +29,10 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Metal supported
 
 **iOS-Simulator**
- - Supported: Please use flutter_angle: ^0.2.0 for simulator.
+ - Minimum os Deployment Target: 12.0
+ - Xcode 13 or newer
+ - Swift 5
+ - Metal supported
 
 ## Getting started
 

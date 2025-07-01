@@ -9,34 +9,40 @@ import 'gles_bindings.dart';
 import 'dart:ui_web' as ui;
 
 class FlutterAngleTexture {
-  final dynamic element;
   final int textureId;
-  final int rboId;
-  final int surfaceId;
-  final int fboId;
-  final int loc;
-  LibOpenGLES? _libOpenGLES;
+  late final int rboId;
+  late final dynamic surfaceId;
+  late final int fboId;
   late AngleOptions options;
+  LibOpenGLES? _libOpenGLES;
+  
   
   FlutterAngleTexture(
     FlutterAngle flutterAngle,
     this.textureId, 
     this.rboId, 
-    this.surfaceId,
-    this.element,
     this.fboId,
-    this.loc,
     this.options
-  ) {}
+  ){}
+
+  FlutterAngleTexture.fromSurface(
+    FlutterAngle flutterAngle,
+    this.textureId,
+    this.surfaceId,
+    this.options
+  ) {
+    rboId = 0;
+    fboId = 0;
+  }
 
   LibOpenGLES get rawOpenGl {
     if (_libOpenGLES == null) {
       if(kIsWasm){
-        final rc = RenderingContext.createCanvas(element);
+        final rc = RenderingContext.createCanvas(surfaceId);
         _libOpenGLES = LibOpenGLES(rc);
       }
       else{
-        var rc = element?.getContext(
+        var rc = surfaceId?.getContext(
           "webgl2", {
             "alpha": options.alpha, 
             "antialias": options.antialias
@@ -101,12 +107,10 @@ class FlutterAngle{
     });
 
     Future.delayed(const Duration(milliseconds: 100), () {
-      newTexture = FlutterAngleTexture(
+      newTexture = FlutterAngleTexture.fromSurface(
         this,
         _divId,
-        0,0,
         element, 
-        0,0,
         options
       );
 
@@ -122,8 +126,8 @@ class FlutterAngle{
     texture.rawOpenGl.glFlush();
   }
   Future<void> resize(FlutterAngleTexture texture, AngleOptions options) async{
-    texture.element?.width = (options.width * options.dpr).toInt();
-    texture.element?.height = (options.height * options.dpr).toInt();
+    texture.surfaceId?.width = (options.width * options.dpr).toInt();
+    texture.surfaceId?.height = (options.height * options.dpr).toInt();
   }
   Future<void> deleteTexture(FlutterAngleTexture texture) async {}
   void activateTexture(FlutterAngleTexture texture) {}
