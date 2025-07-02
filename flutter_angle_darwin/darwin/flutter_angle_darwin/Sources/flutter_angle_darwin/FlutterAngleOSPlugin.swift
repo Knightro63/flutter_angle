@@ -6,7 +6,6 @@ import Flutter
 
 @objc public class FlutterAngleOSPlugin: NSObject{
   private var textureRegistry: FlutterTextureRegistry?
-  private var pixelBuffer: Unmanaged<CVPixelBuffer>?
 
   private var textures: Unmanaged<IOSurfaceRef>?
   private var textureToPixelBuffer: Unmanaged<CVPixelBuffer>?
@@ -21,14 +20,12 @@ import Flutter
     super.init();
     self.textureId = textureRegistry?.register(self) ?? -1
   }
-    
 
   public func textureFrameAvailable(result: @escaping FlutterResult) {
     guard textures != nil else {
       result(FlutterError(code: "INVALID_TEXTURE_ID", message: "Unknown texture ID", details: nil))
       return
     }
-    
     // Notify the Flutter texture registry that a new frame is available
     textureRegistry?.textureFrameAvailable(self.textureId)
     result(nil)
@@ -63,14 +60,14 @@ import Flutter
       result(FlutterError(code: "IOSURFACE_ERROR", message: "Failed to create IOSurface", details: nil))
       return
     }
-
+      
     if !createPixelBufferFromIOSurface(ioSurface!) {
       result(FlutterError(code: "PIXELBUFFER_ERROR", message: "Failed to create CVPixelBuffer", details: nil))
       return
     }
-
+      
     // Store in our texture maps
-      textures = Unmanaged.passUnretained(ioSurface!)
+    textures = Unmanaged.passUnretained(ioSurface!)
     // Convert the pointer to UInt64 for safe passage through Flutter codec
     let surfacePointer = UInt64(bitPattern: Int64(Int(bitPattern: Unmanaged.passUnretained(ioSurface!).toOpaque())))
 
@@ -80,27 +77,28 @@ import Flutter
     ])
   }
 
-    public func resizeTexture(width: Int, height: Int, result: @escaping FlutterResult) {
-        textures?.release();
-        textures = nil
-            
-        textureToPixelBuffer?.release();
-        textureToPixelBuffer = nil
-        createTexture(width: width, height: height, result: result)
-    }
+  public func resizeTexture(width: Int, height: Int, result: @escaping FlutterResult) {
+    textures?.release()
+    textures = nil
+        
+    textureToPixelBuffer?.release()
+    textureToPixelBuffer = nil
+    createTexture(width: width, height: height, result: result)
+  }
+
   public func disposeTexture() {
     if let tr = textureRegistry {
       tr.unregisterTexture(textureId)
     }
     
     // Clean up our maps
-    textures?.release();
+    textures?.release()
     textures = nil
-    textureToPixelBuffer?.release();
+      
+    textureToPixelBuffer?.release()
     textureToPixelBuffer = nil
+      
     textureRegistry = nil
-    pixelBuffer?.release()
-    pixelBuffer = nil
   }
     
   // MARK: - IOSurface Access
@@ -111,7 +109,7 @@ import Flutter
     }
     
     // Return the IOSurface ID (not the pointer itself) for safety
-      let surfaceID = IOSurfaceGetID(surface.takeUnretainedValue())
+    let surfaceID = IOSurfaceGetID(surface.takeUnretainedValue())
     result(surfaceID)
   }
     

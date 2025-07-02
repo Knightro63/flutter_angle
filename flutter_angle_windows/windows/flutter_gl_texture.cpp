@@ -158,7 +158,7 @@ EGLInfo FlutterGLTexture::initOpenGL(std::unique_ptr<flutter::MethodResult<flutt
     return returnInfo;
 }
 
-void FlutterGLTexture::changeSize(int setWidth, int setHeight) {
+void FlutterGLTexture::changeSize(int setWidth, int setHeight, std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>>& result) {
   if (setWidth == structure.width && setHeight == structure.height && didStart) {
     return;
   }
@@ -170,15 +170,35 @@ void FlutterGLTexture::changeSize(int setWidth, int setHeight) {
     pixelBuffer->width = setWidth;
     pixelBuffer->height = setHeight;
     memset(pixels.get(), 0x00, size);
+
+    /// we send back the context so that the Dart side can create a linked context. 
+    auto response = flutter::EncodableValue(flutter::EncodableMap{
+      {flutter::EncodableValue("textureId"),
+        flutter::EncodableValue(textureId)},
+    });
+    result->Success(response);
     return;
   }
-  else{
-    return;
-  }
-  //TODO
-  // structure.width = setWidth;
-  // structure.height = setHeight;
-  // createANGLETexture();
+
+  structure.width = setWidth;
+  structure.height = setHeight;
+
+  createANGLETexture();
+
+  gpuTexture->handle = surfaceHandle;
+  gpuTexture->width = gpuTexture->visible_width = structure.width;
+  gpuTexture->height = gpuTexture->visible_height = structure.height;
+  
+  /// we send back the context so that the Dart side can create a linked context. 
+  auto response = flutter::EncodableValue(flutter::EncodableMap{
+    {flutter::EncodableValue("textureId"),
+      flutter::EncodableValue(textureId)},
+    {flutter::EncodableValue("surfacePointer"),
+    flutter::EncodableValue((int64_t)surfaceHandle)},
+  });
+  result->Success(response);
+
+  return;
 }
 
 void FlutterGLTexture::createANGLETexture() {
@@ -212,6 +232,10 @@ void FlutterGLTexture::cleanUp(bool release_context) {
     if(structure.useBuffer){
       glDeleteRenderbuffers(1, &textures.rboId);
       glDeleteFramebuffers(1, &textures.fboId);
+      
+      textures.rboId = nullptr;
+      textures.fboId = nullptr;
+
       pixels.reset();
       pixelBuffer.reset();
     }
@@ -244,12 +268,14 @@ ID3D11Device* FlutterGLTexture::getANGLED3DDevice(){
 }
 
 bool FlutterGLTexture::createD3DTexture() {
-  d3d_11_device = getANGLED3DDevice();
+  if(!d3d_11_device){
+    d3d_11_device = getANGLED3DDevice();
 
-  auto level = d3d_11_device->GetFeatureLevel();
-  std::cout << "media_kit: FlutterGLTexture: Direct3D Feature Level: "
-            << (((unsigned)level) >> 12) << "_"
-            << ((((unsigned)level) >> 8) & 0xf) << std::endl;
+    auto level = d3d_11_device->GetFeatureLevel();
+    std::cout << "media_kit: FlutterGLTexture: Direct3D Feature Level: "
+              << (((unsigned)level) >> 12) << "_"
+              << ((((unsigned)level) >> 8) & 0xf) << std::endl;
+  }
 
   auto d3d11_texture2D_desc = D3D11_TEXTURE2D_DESC{};
   d3d11_texture2D_desc.Width = structure.width;

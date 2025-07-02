@@ -454,12 +454,12 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
     }
 
     protected void resize(int width,int height) {
-      if (usingSurfaceProducer && surfaceProducer != null) {
-        surfaceProducer.setSize(width, height);
-      } 
-      else if (surfaceTextureEntry != null) {
-        surfaceTextureEntry.surfaceTexture().setDefaultBufferSize(width, height);
-      }
+      // if (usingSurfaceProducer && surfaceProducer != null) {
+      //   surfaceProducer.setSize(width, height);
+      // } 
+      // else if (surfaceTextureEntry != null) {
+      //   surfaceTextureEntry.surfaceTexture().setDefaultBufferSize(width, height);
+      // }
     }
     
     protected void dispose() {
@@ -471,7 +471,10 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
         }
 
         if(openGLManager != null){
-          EGL14.eglDestroySurface(openGLManager.getEglDisplayAndroid(), surface);
+          EGLDisplay dis = openGLManager.getEglDisplayAndroid();
+          EGL14.eglMakeCurrent(dis, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_SURFACE, EGL14.EGL_NO_CONTEXT);
+          EGL14.eglDestroySurface(dis, surface);
+          openGLManager.deinitGL();
         }
         disposed = true;
       }

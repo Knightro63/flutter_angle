@@ -345,6 +345,10 @@ Pointer<Void> eglCreatePbufferFromClientBuffer(
   return nativeCallResult;
 }
 
+void eglWaitClient(){
+  _libEGL!.eglWaitClient();
+}
+
 void eglMakeCurrent(
   Pointer<Void> display,
   Pointer<Void> draw,

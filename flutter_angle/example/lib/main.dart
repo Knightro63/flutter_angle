@@ -17,7 +17,7 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
+class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin, WidgetsBindingObserver{
   FlutterAngle angle = FlutterAngle();
   final textures = <FlutterAngleTexture>[];
 
@@ -36,9 +36,32 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
   late double height;
   Size? screenSize;
 
+  Timer? _debounceTimer;
+
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose(){
+    super.dispose();
+    _debounceTimer?.cancel(); // Cancel timer if active
+    WidgetsBinding.instance.removeObserver(this);
+
+    angle.dispose(textures);
+    ticker.dispose();
+    lesson?.dispose();
+    lesson2?.dispose();
+  }
+
+  @override
+  void didChangeMetrics() {
+    _debounceTimer?.cancel(); // Clear existing timer
+    _debounceTimer = Timer(const Duration(milliseconds: 300), () { // Set a new timer
+      onWindowResize(context);
+    });
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
@@ -128,14 +151,6 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
     }
   }
 
-  void dispose() {
-    angle.dispose(textures);
-    ticker.dispose();
-    lesson?.dispose();
-    lesson2?.dispose();
-    super.dispose();
-  }
-
   Widget texture(bool useRow){
     return useRow? Row(
       mainAxisSize: MainAxisSize.min,
@@ -181,12 +196,12 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
       dpr = mqd.devicePixelRatio;
 
       final options = AngleOptions(
-        width: textureWidth,
-        height: height~/2,
+        width: width.toInt(),
+        height: height.toInt(),
         dpr: dpr,
       );
-
-      await angle.resize(textures.last, options);
+      //await angle.resize(textures[0], options);
+      await angle.resize(textures[1], options);
     }
   }
 
@@ -202,19 +217,13 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
           if (!didInit) {
             initPlatformState();
           }
-          return NotificationListener<SizeChangedLayoutNotification>(
-            onNotification: (notification) {
-              //onWindowResize(context);
-              return true;
-            },
-            child:SizeChangedLayoutNotifier(
-              child: Builder(builder: (BuildContext context) {
-                return Container(
-                  color: Colors.red,
-                  child: texture(useRow)
-                );
-              })
-            )
+          return SizeChangedLayoutNotifier(
+            child: Builder(builder: (BuildContext context) {
+              return Container(
+                color: Colors.red,
+                child: texture(useRow)
+              );
+            })
           );
         }),
       ),

@@ -136,7 +136,7 @@ public final class OpenGLManager  {
     return true;
   }
 
-  private void deinitGL() {
+  public void deinitGL() {
     egl.eglMakeCurrent(eglDisplay, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_SURFACE, EGL10.EGL_NO_CONTEXT);
     egl.eglDestroySurface(eglDisplay, eglSurface);
     egl.eglDestroyContext(eglDisplay, eglContext);

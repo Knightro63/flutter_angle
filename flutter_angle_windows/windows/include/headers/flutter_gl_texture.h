@@ -54,7 +54,7 @@ class FlutterGLTexture{
         static EGLInfo initOpenGL(std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>>& result);
         void createTexture(std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>>& result);
         void textureFrameAvailable(std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>>& result);
-        void changeSize(int, int);
+        void changeSize(int, int, std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>>& result);
 
         int64_t textureId;
         
@@ -69,6 +69,7 @@ class FlutterGLTexture{
         ID3D11Device* getANGLED3DDevice();
         EGLInfo eglInfo = EGLInfo();
         Structure structure;
+        bool didStart = false;
         
         flutter::TextureRegistrar* textureRegistrar;
         std::unique_ptr<flutter::TextureVariant> flutterTexture;
