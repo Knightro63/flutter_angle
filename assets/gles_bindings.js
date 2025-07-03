@@ -15,6 +15,10 @@ function glCanvas(canvas) {
   return glp;
 }
 
+function glNavigator(){
+  return navigator;
+}
+
 function glScissor(gl, x, y, width, height) {
   gl.scissor(x, y, width, height);
 }
@@ -594,4 +598,8 @@ function  readCurrentPixels(gl, x, y, width, height) {
   buffer = Uint8List(_len);
   gl.readPixels(x, y, width, height, WebGL.RGBA, WebGL.UNSIGNED_BYTE, buffer);
   return buffer;
+}
+
+async makeXRCompatible(gl) {
+  await gl.makeXRCompatible();
 }

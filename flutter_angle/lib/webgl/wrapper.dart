@@ -21,6 +21,7 @@ class RenderingContext{
   }
 
   static dynamic createCanvas(_divId){}
+  static dynamic getNavigator(){}
 
   void scissor(int x, int y, int width, int height){
     _gl.scissor(x, y, width, height);
@@ -881,6 +882,10 @@ class RenderingContext{
   ActiveInfo getTransformFeedbackVarying(int program, int index) {
     Map temp = _gl.getTransformFeedbackVarying(program, index);
     return ActiveInfo(temp['type'], temp['name'], temp['size']);
+  }
+
+  Future<void> makeXRCompatible() async{
+    await _gl.makeXRCompatible();
   }
 
   void invalidateFramebuffer(int target, List<int> attachments){

@@ -1345,4 +1345,8 @@ class RenderingContext {
     ptr.asTypedList(list.length).setAll(0, list);
     return ptr;
   }
+
+  Future<void> makeXRCompatible() async{
+    throw("Currently not set up.");
+  }
 }
