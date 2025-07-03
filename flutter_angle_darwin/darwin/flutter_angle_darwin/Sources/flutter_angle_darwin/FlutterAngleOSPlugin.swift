@@ -7,7 +7,7 @@ import Flutter
 @objc public class FlutterAngleOSPlugin: NSObject{
   private var textureRegistry: FlutterTextureRegistry?
 
-  private var textures: Unmanaged<IOSurfaceRef>?
+  private var textures: IOSurfaceRef?
   private var textureToPixelBuffer: Unmanaged<CVPixelBuffer>?
 
   private var width: Int = 0
@@ -67,7 +67,7 @@ import Flutter
     }
       
     // Store in our texture maps
-    textures = Unmanaged.passUnretained(ioSurface!)
+    textures = ioSurface!
     // Convert the pointer to UInt64 for safe passage through Flutter codec
     let surfacePointer = UInt64(bitPattern: Int64(Int(bitPattern: Unmanaged.passUnretained(ioSurface!).toOpaque())))
 
@@ -78,7 +78,6 @@ import Flutter
   }
 
   public func resizeTexture(width: Int, height: Int, result: @escaping FlutterResult) {
-    textures?.release()
     textures = nil
         
     textureToPixelBuffer?.release()
@@ -92,7 +91,6 @@ import Flutter
     }
     
     // Clean up our maps
-    textures?.release()
     textures = nil
       
     textureToPixelBuffer?.release()
@@ -109,7 +107,7 @@ import Flutter
     }
     
     // Return the IOSurface ID (not the pointer itself) for safety
-    let surfaceID = IOSurfaceGetID(surface.takeUnretainedValue())
+    let surfaceID = IOSurfaceGetID(surface)
     result(surfaceID)
   }
     

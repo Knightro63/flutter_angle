@@ -104,8 +104,7 @@ public struct EGLInfo {
     ];
 
     let contextAttributes: [Int32] = [
-      EGL_CONTEXT_CLIENT_VERSION,
-      3,
+      EGL_CONTEXT_CLIENT_VERSION, 3,
       EGL_NONE
     ]
 
@@ -190,7 +189,6 @@ public struct EGLInfo {
       "textureId": textureId,
       "rbo": Int(textures!.rboId),
       "metalAsGLTexture": Int(textures!.metalTextureId),
-      "location": 0  // For compatibility with Android
     ]);
   }
   private func getANGLEMtlDevice(display: EGLDisplay) -> MTLDevice?{

@@ -92,6 +92,7 @@ namespace {
       eglInfo.eglDisplay = info.eglDisplay;
       eglInfo.eglContext = info.eglContext;
       eglInfo.eglSurface = info.eglSurface;
+      eglInfo.eglDSurface = info.eglDSurface;
       eglInfo.eglConfig = info.eglConfig;
       return;
     }
@@ -211,9 +212,7 @@ namespace {
       }
 
       auto currentTexture = renderers[textureId].get();
-      currentTexture->changeSize(width,height);
-
-      result->Success();
+      currentTexture->changeSize(width,height,result);
     }
     else if (method_call.method_name().compare("deleteTexture") == 0) {
       int64_t textureId = 0;

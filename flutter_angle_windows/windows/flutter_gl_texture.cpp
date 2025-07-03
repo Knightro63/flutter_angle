@@ -39,6 +39,7 @@ FlutterGLTexture::FlutterGLTexture(
   eglInfo.eglDisplay = info.eglDisplay;
   eglInfo.eglContext = info.eglContext;
   eglInfo.eglSurface = info.eglSurface;
+  eglInfo.eglDSurface = info.eglDSurface;
   eglInfo.eglConfig = info.eglConfig;
 
   structure.width = st.width;
@@ -153,6 +154,7 @@ EGLInfo FlutterGLTexture::initOpenGL(std::unique_ptr<flutter::MethodResult<flutt
     returnInfo.eglDisplay = display;
     returnInfo.eglContext = context;
     returnInfo.eglSurface = dummySurface;
+    returnInfo.eglSurface = dummySurfaceForDartSide;
     returnInfo.eglConfig = config;
 
     return returnInfo;
@@ -170,13 +172,14 @@ void FlutterGLTexture::changeSize(int setWidth, int setHeight, std::unique_ptr<f
     pixelBuffer->width = setWidth;
     pixelBuffer->height = setHeight;
     memset(pixels.get(), 0x00, size);
-
-    /// we send back the context so that the Dart side can create a linked context. 
-    auto response = flutter::EncodableValue(flutter::EncodableMap{
-      {flutter::EncodableValue("textureId"),
-        flutter::EncodableValue(textureId)},
-    });
-    result->Success(response);
+    if(didStart){
+      /// we send back the context so that the Dart side can create a linked context. 
+      auto response = flutter::EncodableValue(flutter::EncodableMap{
+        {flutter::EncodableValue("textureId"),
+          flutter::EncodableValue(textureId)},
+      });
+      result->Success(response);
+    }
     return;
   }
 
@@ -217,6 +220,7 @@ void FlutterGLTexture::cleanUp(bool release_context) {
   if (release_context) {
     // Release D3D device & context if the instance is being destroyed.
     if(eglInfo.eglDisplay != nullptr){
+      eglMakeCurrent(eglInfo.eglDisplay,EGL_NO_SURFACE,EGL_NO_SURFACE,EGL_NO_CONTEXT);
       if(eglInfo.eglConfig != nullptr){
         eglDestroyContext(eglInfo.eglDisplay, eglInfo.eglConfig);
         eglInfo.eglConfig = EGL_NO_CONTEXT;
@@ -225,7 +229,10 @@ void FlutterGLTexture::cleanUp(bool release_context) {
         eglDestroySurface(eglInfo.eglDisplay, eglInfo.eglSurface);
         eglInfo.eglSurface = EGL_NO_SURFACE;
       }
-    
+      if(eglInfo.eglDSurface != nullptr){
+        eglDestroySurface(eglInfo.eglDisplay, eglInfo.eglDSurface);
+        eglInfo.eglSurface = EGL_NO_SURFACE;
+      }
       eglTerminate(eglInfo.eglDisplay);
       std::cerr << "Terminated Display." << std::endl;
     }
@@ -233,11 +240,13 @@ void FlutterGLTexture::cleanUp(bool release_context) {
       glDeleteRenderbuffers(1, &textures.rboId);
       glDeleteFramebuffers(1, &textures.fboId);
       
-      textures.rboId = nullptr;
-      textures.fboId = nullptr;
+      textures.rboId = 0;
+      textures.fboId = 0;
 
       pixels.reset();
       pixelBuffer.reset();
+    }else{
+      CloseHandle(surfaceHandle);
     }
     if (d3d_11_device_context) {
       d3d_11_device_context->Release();
@@ -344,7 +353,7 @@ void FlutterGLTexture::setupOpenGLResources(){
 void FlutterGLTexture::createTexture(std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>>& result){
   if(structure.useBuffer){
     pixelBuffer = std::make_unique<FlutterDesktopPixelBuffer>();
-    changeSize(structure.width,structure.height);
+    changeSize(structure.width,structure.height,result);
     setupOpenGLResources();
   }
 

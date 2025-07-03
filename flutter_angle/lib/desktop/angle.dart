@@ -551,7 +551,6 @@ class FlutterAngle {
   //TODO: causes sever memory leak
   Future<void> resize(FlutterAngleTexture texture, AngleOptions options) async{
     if(_disposed || Platform.isIOS || Platform.isAndroid) return;
-    return;
     final height = (options.height * options.dpr).toInt();
     final width = (options.width * options.dpr).toInt();
     if(_useSurface){
@@ -568,8 +567,8 @@ class FlutterAngle {
 
     if(_useSurface){
       final surfacePointer = result['surfacePointer'] as int;
-      final ioSurfacePtr = Pointer<Void>.fromAddress(surfacePointer);
-      texture.surfaceId = _createEGLSurfaceFromIOSurface(ioSurfacePtr, width, height);
+      final surfacePtr = Pointer<Void>.fromAddress(surfacePointer);
+      texture.surfaceId = Platform.isWindows?_createEGLSurfaceFromD3DSurface(surfacePtr, width, height) :_createEGLSurfaceFromIOSurface(surfacePtr, width, height);
       eglMakeCurrent(_display, texture.surfaceId!, texture.surfaceId!, _baseAppContext);
       //pause = true;
     }
@@ -604,6 +603,11 @@ class FlutterAngle {
       return;
     }
 
+    if(texture.surfaceId != null && texture.surfaceId != nullptr){
+      eglMakeCurrent(_display, texture.surfaceId!, texture.surfaceId!, _baseAppContext);
+      eglDestroySurface(_display, texture.surfaceId!);
+    }
+
     angleConsole.warning('There is no active FlutterGL Texture to delete');
     if (_activeFramebuffer == texture.fboId) {
       _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, 0);
@@ -614,10 +618,6 @@ class FlutterAngle {
       calloc.free(fbo);
     }
 
-    if(texture.surfaceId != null && texture.surfaceId != nullptr){
-      // eglMakeCurrent(_display, texture.surfaceId!, texture.surfaceId!, _baseAppContext);
-      // eglDestroySurface(_display, texture.surfaceId!);
-    }
     await _channel.invokeMethod('deleteTexture',{"textureId": texture.textureId});
   }
 

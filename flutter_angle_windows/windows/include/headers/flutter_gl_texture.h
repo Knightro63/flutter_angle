@@ -33,6 +33,7 @@ struct EGLInfo {
     EGLDisplay eglDisplay;
     EGLContext eglContext;
     EGLSurface eglSurface;
+    EGLSurface eglDSurface;
     EGLConfig eglConfig;
 };
 
