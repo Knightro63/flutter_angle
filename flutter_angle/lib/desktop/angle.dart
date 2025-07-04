@@ -78,8 +78,7 @@ class FlutterAngle {
   Pointer<Void> _display = nullptr;
   late Pointer<Void> _EGLconfig;
   Pointer<Void> _baseAppContext = nullptr;
-  Pointer<Void> _pluginContext = nullptr;
-  Pointer<Void> _dummySurface = nullptr;
+  //Pointer<Void> _pluginContext = nullptr;
   int? _activeFramebuffer;
   RenderWorker? _worker;
 
@@ -88,8 +87,6 @@ class FlutterAngle {
   bool _useSurface = false;
   bool _isRBO = true;
   bool _disposed = false;
-
-  bool pause = false;
 
   LibOpenGLES get _rawOpenGl {
     if (_libOpenGLES == null) {
@@ -143,21 +140,6 @@ class FlutterAngle {
       throw EglException('Plugin.initOpenGL didn\'t return anything. Something is really wrong!');
     }
 
-    if (!_isApple) {
-      final pluginContextAdress = result['context'] ?? result['openGLContext'];
-      if (pluginContextAdress == null) {
-        throw EglException('Plugin.initOpenGL didn\'t return a Context. Something is really wrong!');
-      }
-
-      _pluginContext = Pointer<Void>.fromAddress(pluginContextAdress);
-
-      final dummySurfacePointer = result['dummySurface'] as int?;
-      if (dummySurfacePointer == null) {
-        throw EglException('Plugin.initOpenGL didn\'t return a dummy surface. Something is really wrong!');
-      }
-      _dummySurface = Pointer<Void>.fromAddress(dummySurfacePointer);
-    }
-
     /// Init OpenGL on the Dart side too
     _display = eglGetDisplay();
     final initializeResult = eglInitialize(_display);
@@ -196,14 +178,14 @@ class FlutterAngle {
     _baseAppContext = eglCreateContext(
       _display, 
       _EGLconfig,
-      shareContext: _pluginContext == nullptr?null:_pluginContext,
+      //shareContext: _pluginContext == nullptr?null:_pluginContext,
       contextClientVersion: 3,
       isDebugContext: useDebugContext && !Platform.isAndroid
     );
 
     if(!_isApple){
       /// bind context to this thread. All following OpenGL calls from this thread will use this context
-      eglMakeCurrent(_display, _dummySurface, _dummySurface, _baseAppContext);
+      eglMakeCurrent(_display, nullptr, nullptr, _baseAppContext);
     
       if (useDebugContext && Platform.isWindows) {
         _rawOpenGl.glEnable(GL_DEBUG_OUTPUT);
@@ -408,7 +390,7 @@ class FlutterAngle {
       "useSurfaceProducer": options.useSurfaceProducer
     });
 
-    if (Platform.isAndroid || Platform.isLinux) {
+    if (Platform.isAndroid) {
       _useSurface = true;
       final newTexture = FlutterAngleTexture.fromSurface(
         this,
@@ -570,12 +552,11 @@ class FlutterAngle {
       final surfacePtr = Pointer<Void>.fromAddress(surfacePointer);
       texture.surfaceId = Platform.isWindows?_createEGLSurfaceFromD3DSurface(surfacePtr, width, height) :_createEGLSurfaceFromIOSurface(surfacePtr, width, height);
       eglMakeCurrent(_display, texture.surfaceId!, texture.surfaceId!, _baseAppContext);
-      //pause = true;
     }
   }
 
   Future<void> updateTexture(FlutterAngleTexture texture, [WebGLTexture? sourceTexture]) async {
-    if(_disposed || pause) return;
+    if(_disposed) return;
     if (sourceTexture != null) {
       _rawOpenGl.glClearColor(0.0, 0.0, 0.0, 0.0);
       _rawOpenGl.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
@@ -629,14 +610,6 @@ class FlutterAngle {
       eglDestroyContext(_display, _baseAppContext);
       _baseAppContext = nullptr;
     }
-    if(_pluginContext != nullptr){
-      eglDestroyContext(_display, _pluginContext);
-      _pluginContext = nullptr;
-    }
-    if (_dummySurface != nullptr) {
-      eglDestroySurface(_display, _dummySurface);
-      _dummySurface = nullptr;
-    }
 
     _worker?.dispose();
     _worker = null;
@@ -645,21 +618,17 @@ class FlutterAngle {
   }
 
   void activateTexture(FlutterAngleTexture texture) {
+    if(_disposed) return;
     _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, texture.fboId);
 
-    if(_disposed || pause) return;
     // If we have an iOS EGL surface created from IOSurface, use it
     if (_useSurface && texture.surfaceId != nullptr) {
       eglMakeCurrent(_display, texture.surfaceId!, texture.surfaceId!, _baseAppContext);
       return;
     }
 
-    if (!_isRBO) {
-      _rawOpenGl.glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, texture.rboId, 0);
-    } 
-    else {
-      _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, texture.rboId);
-    }
+    if (!_isRBO) _rawOpenGl.glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, texture.rboId, 0);
+    else _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, texture.rboId);
     _activeFramebuffer = texture.fboId;
   }
 

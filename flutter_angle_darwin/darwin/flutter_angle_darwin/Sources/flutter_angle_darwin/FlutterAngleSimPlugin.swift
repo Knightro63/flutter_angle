@@ -5,17 +5,11 @@ import libEGL
 import libGLESv2
 
 private struct TextureInfo {
-  var rboId: UInt32 = 0
-  var fboId: UInt32 = 0
   var metalTextureId: UInt32 = 0
   var frameCount: Int = 0
 }
-
 public struct EGLInfo {
   var eglDisplay: UnsafeMutableRawPointer
-  var eglContext: UnsafeMutableRawPointer
-  var eglSurface: UnsafeMutableRawPointer
-  var eglDSurface: UnsafeMutableRawPointer
 }
 
 @objc public class FlutterAngleSimPlugin: NSObject{
@@ -97,30 +91,6 @@ public struct EGLInfo {
       return nil
     }
 
-    let surfaceAttribs: [Int32] = [
-      EGL_WIDTH, 16,
-      EGL_HEIGHT, 16,
-      EGL_NONE
-    ];
-
-    let contextAttributes: [Int32] = [
-      EGL_CONTEXT_CLIENT_VERSION, 3,
-      EGL_NONE
-    ]
-
-    guard let context = eglCreateContext(display, configs, nil, contextAttributes) else {
-      result(FlutterError(code: "Flutter Angle Error", message: "Failed to create EGL context", details: nil))
-      return nil
-    }
-    
-    let dummySurface = eglCreatePbufferSurface(display, configs, surfaceAttribs)
-    let dummySurfaceForDartSide = eglCreatePbufferSurface(display, configs, surfaceAttribs)
-    
-    if eglMakeCurrent(display, dummySurface, dummySurface, context) == 0 {
-      result(FlutterError(code: "Flutter Angle Error", message: "Failed to make context current", details: nil))
-      return nil
-    }
-      
     // Print OpenGL information
     if let version = glGetString(GLenum(GL_VERSION)),
         let vendor = glGetString(GLenum(GL_VENDOR)),
@@ -131,27 +101,21 @@ public struct EGLInfo {
     // Ensure the context value is explicitly included
     let results: [String: Any] = [
       "isSimulator": true,
-      "context": Int(bitPattern: context),
       "eglConfigId": Int(configId),
-      "dummySurface": Int(bitPattern: dummySurfaceForDartSide),
       "openGLVersion": "OpenGL ES 3.0 ANGLE",
     ]
     
     print("InitOpenGL returning: \(results)")
-    
     result(results)
     return EGLInfo(
       eglDisplay: display,
-      eglContext: context,
-      eglSurface: dummySurface!,
-      eglDSurface: dummySurfaceForDartSide!
     )
   }
-    
+
   public func setInfo(info: EGLInfo?) {
     eglInfo = info
   }
-      
+
   // MARK: - Texture Creation
   public func createTexture(width: Int, height: Int, result: @escaping FlutterResult) {
     self.width = width
@@ -182,12 +146,10 @@ public struct EGLInfo {
     textures = TextureInfo()
     CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
     createMtlTextureFromCVPixBuffer(width: width, height: height)
-    setupOpenGLResources(useRenderBuf: textures!.metalTextureId == 0)
     CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
 
     result([
       "textureId": textureId,
-      "rbo": Int(textures!.rboId),
       "metalAsGLTexture": Int(textures!.metalTextureId),
     ]);
   }
@@ -206,105 +168,52 @@ public struct EGLInfo {
 
     return unsafeBitCast(device, to: MTLDevice.self);
   }
-   private func createMtlTextureFromCVPixBuffer(width: Int, height: Int) {
-        // Create Metal texture backed by CVPixelBuffer
-       guard let mtlDevice:MTLDevice =  getANGLEMtlDevice(display: eglInfo!.eglDisplay)else {
-            fatalError("Could not create Metal Device")
-        }//MTLCreateSystemDefaultDevice() 
+  private func createMtlTextureFromCVPixBuffer(width: Int, height: Int) {
+    // Create Metal texture backed by CVPixelBuffer
+    guard let mtlDevice:MTLDevice =  getANGLEMtlDevice(display: eglInfo!.eglDisplay)else {
+      fatalError("Could not create Metal Device")
+    }//MTLCreateSystemDefaultDevice() 
 
-        guard CVMetalTextureCacheCreate(
-            kCFAllocatorDefault,
-            nil,
-            mtlDevice,
-            nil,
-            &textureMetalCache
-        ) == kCVReturnSuccess else {
-            print("No IOSurface available for this texture ID")
-            return
-        }
-        guard CVMetalTextureCacheCreateTextureFromImage(
-            kCFAllocatorDefault,
-            textureMetalCache!,
-            pixelBuffer!,
-            nil,
-            .bgra8Unorm,
-            width,
-            height,
-            0,
-            &metalImageBuf
-        ) == kCVReturnSuccess else {
-            fatalError("CVMetalTextureCacheCreateTextureFromImage bind CVPixelBuffer to metal texture error")
-       }
-       
-       let metalTexture = CVMetalTextureGetTexture(metalImageBuf!)
-
-       // Call the function
-       let eglImage = eglCreateImageKHR(eglInfo!.eglDisplay, nil, EGLenum(EGL_METAL_TEXTURE_ANGLE), unsafeBitCast(metalTexture!, to: EGLClientBuffer.self), [EGL_NONE])
-       
-       glGenTextures(1, &textures!.metalTextureId)
-       glBindTexture(GLenum(GL_TEXTURE_2D), textures!.metalTextureId)
-       
-       let swapBuffersPtr = eglGetProcAddress("glEGLImageTargetTexture2DOES")
-       let swapBuffers = unsafeBitCast(swapBuffersPtr, to: PFNGLEGLIMAGETARGETTEXTURE2DOESPROC.self)
-       
-       swapBuffers(GLenum(GL_TEXTURE_2D), eglImage)
-       print(eglImage)
-   }
-    
-  private func setupOpenGLResources(useRenderBuf: Bool) {
-    guard let textureInfo = textures else {
-      print("Failed to setup OpenGL resources - missing texture or GLES library")
+    guard CVMetalTextureCacheCreate(
+      kCFAllocatorDefault,
+      nil,
+      mtlDevice,
+      nil,
+      &textureMetalCache
+    ) == kCVReturnSuccess else {
+      print("No IOSurface available for this texture ID")
       return
     }
-    
-    // Make EGL context current
-    if eglInfo?.eglContext != nil && eglInfo?.eglDisplay != nil && eglInfo?.eglSurface != nil {
-      eglMakeCurrent(eglInfo!.eglDisplay, eglInfo!.eglSurface, eglInfo!.eglSurface, eglInfo!.eglContext)
+    guard CVMetalTextureCacheCreateTextureFromImage(
+      kCFAllocatorDefault,
+      textureMetalCache!,
+      pixelBuffer!,
+      nil,
+      .bgra8Unorm,
+      width,
+      height,
+      0,
+      &metalImageBuf
+    ) == kCVReturnSuccess else {
+      fatalError("CVMetalTextureCacheCreateTextureFromImage bind CVPixelBuffer to metal texture error")
     }
+    
+    let metalTexture = CVMetalTextureGetTexture(metalImageBuf!)
 
-    // Create framebuffer
-    var fbo: UInt32 = 0
-    glGenFramebuffers(1, &fbo)
-    glBindFramebuffer(GLenum(GL_FRAMEBUFFER), fbo)
-      
-    var rbo: UInt32 = 0
-    if(useRenderBuf){
-      glGenRenderbuffers(1, &rbo)
-      glBindRenderbuffer(GLenum(GL_RENDERBUFFER), rbo)
-
-      glRenderbufferStorage(GLenum(GL_RENDERBUFFER), GLenum(GL_RGBA8), Int32(width), Int32(height))
-      glFramebufferRenderbuffer(GLenum(GL_FRAMEBUFFER), GLenum(GL_COLOR_ATTACHMENT0), GLenum(GL_RENDERBUFFER), rbo)
-    }
-    // Check framebuffer status
-    let status = glCheckFramebufferStatus(GLenum(GL_FRAMEBUFFER))
-    if status != GLenum(GL_FRAMEBUFFER_COMPLETE) {
-      print("Framebuffer incomplete: \(status)")
-    } else {
-      print("Framebuffer complete")
-    }
+    // Call the function
+    let eglImage = eglCreateImageKHR(eglInfo!.eglDisplay, nil, EGLenum(EGL_METAL_TEXTURE_ANGLE), unsafeBitCast(metalTexture!, to: EGLClientBuffer.self), [EGL_NONE])
     
-    // Check for GL errors
-    let error = glGetError()
-    if error != 0 {
-      print("GL error during framebuffer setup: \(error)")
-    }
+    glGenTextures(1, &textures!.metalTextureId)
+    glBindTexture(GLenum(GL_TEXTURE_2D), textures!.metalTextureId)
     
-    // Update the texture info with the OpenGL IDs
-    var updatedInfo = textureInfo
-    updatedInfo.fboId = fbo
-    updatedInfo.rboId = rbo
-    textures = updatedInfo
+    let swapBuffersPtr = eglGetProcAddress("glEGLImageTargetTexture2DOES")
+    let swapBuffers = unsafeBitCast(swapBuffersPtr, to: PFNGLEGLIMAGETARGETTEXTURE2DOESPROC.self)
+    
+    swapBuffers(GLenum(GL_TEXTURE_2D), eglImage)
+    print(eglImage)
   }
   
-  public func textureFrameAvailable(result: @escaping FlutterResult) {
-    if (textures?.metalTextureId == 0) {
-      CVPixelBufferLockBaseAddress(pixelBuffer!, .readOnly)
-      glBindFramebuffer(GLenum(GL_FRAMEBUFFER), textures!.fboId)
-      let pixelBufferBaseAddress = CVPixelBufferGetBaseAddress(pixelBuffer!)
-      glReadPixels(0, 0, GLsizei(width), GLsizei(height), GLenum(GL_BGRA), GLenum(GL_UNSIGNED_BYTE), pixelBufferBaseAddress)
-      CVPixelBufferUnlockBaseAddress(pixelBuffer!, .readOnly)
-    }
-    
+  public func textureFrameAvailable(result: @escaping FlutterResult) {    
     textureRegistry?.textureFrameAvailable(textureId)
     result(nil)
   }
@@ -313,23 +222,6 @@ public struct EGLInfo {
     if let tr = textureRegistry {
       tr.unregisterTexture(textureId)
     }
-
-    // Make EGL context current
-    if eglInfo?.eglContext != nil && eglInfo?.eglDisplay != nil && eglInfo?.eglSurface != nil {
-      eglMakeCurrent(eglInfo!.eglDisplay, eglInfo!.eglSurface, eglInfo!.eglSurface, eglInfo!.eglContext)
-    }
-      
-    // Delete framebuffer and renderbuffer
-    var fbo = textures!.fboId
-    var rbo = textures!.rboId
-    
-    if fbo != 0 {
-      glDeleteFramebuffers(1, &fbo)
-    }
-    
-    if rbo != 0 {
-      glDeleteRenderbuffers(1, &rbo)
-    }
       
     // Clean up our maps
     textures = nil
@@ -337,29 +229,11 @@ public struct EGLInfo {
 
     // Clean up EGL
     let eglDisplay = eglInfo!.eglDisplay
-    let eglContext = eglInfo!.eglContext
-    let eglSurface = eglInfo!.eglSurface
-    let eglDSurface = eglInfo!.eglDSurface
     
     // Release EGL resources
     let makeCurrent = eglMakeCurrent(eglDisplay, nil, nil, nil)
     if makeCurrent == 0 {
       print("Failed to make EGL_NO_CONTEXT current during cleanup")
-    }
-    
-    let destroySurface = eglDestroySurface(eglDisplay, eglSurface)
-    if destroySurface == 0 {
-      print("Failed to destroy EGL surface during cleanup")
-    }
-    
-    let destroyDSurface = eglDestroySurface(eglDisplay, eglDSurface)
-    if destroyDSurface == 0 {
-      print("Failed to destroy EGL surface during cleanup")
-    }
-
-    let destroyContext = eglDestroyContext(eglDisplay, eglContext)
-    if destroyContext == 0 {
-      print("Failed to destroy EGL context during cleanup")
     }
     
     let terminate = eglTerminate(eglDisplay)

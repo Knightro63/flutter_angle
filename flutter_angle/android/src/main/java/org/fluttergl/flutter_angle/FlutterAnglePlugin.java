@@ -85,9 +85,9 @@ class AngleCheck {
   }
 
   public static boolean isAllowed() {
-    if (isEmulator() || !isVersionAllowed()) {
-      return false;
-    } 
+    // if (isEmulator() || !isVersionAllowed()) {
+    //   return false;
+    // } 
     return true;
   }
 }
@@ -194,15 +194,8 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
       return;
     }
 
-    TextureRegistry.SurfaceTextureEntry entry = textureRegistry.createSurfaceTexture();
-    SurfaceTexture surfaceTexture = entry.surfaceTexture();
-    surfaceTexture.setDefaultBufferSize(638, 320);
-    long dummySurface = openGLManager.createDummySurface().getNativeHandle();
-
     Map<String, Object> response = new HashMap<>();
-    response.put("context", openGLManager.getEGLContext().getNativeHandle());
     response.put("eglConfigId", openGLManager.getConfigId());
-    response.put("dummySurface", dummySurface);
     response.put("forceOpengl", !AngleCheck.isAllowed());
     result.success(response);
   }
@@ -282,15 +275,8 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
       result.error("OpenGL Init Error", error, null);
       return;
     }
-    TextureRegistry.SurfaceTextureEntry entry = textureRegistry.createSurfaceTexture();
-    SurfaceTexture surfaceTexture = entry.surfaceTexture();
-    surfaceTexture.setDefaultBufferSize(638, 320);
-    long dummySurface = createWindowSurfaceFromTexture(surfaceTexture);
 
     Map<String, Object> response = new HashMap<>();
-
-    response.put("context", getCurrentContext());
-    response.put("dummySurface", dummySurface);
     response.put("forceOpengl", !AngleCheck.isAllowed());
     result.success(response);
 
