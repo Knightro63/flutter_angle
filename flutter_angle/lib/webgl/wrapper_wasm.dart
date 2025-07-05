@@ -37,10 +37,6 @@ class RenderingContext{
     return glCanvas(_divId);
   }
 
-  static dynamic getNavigator(){
-    return glNavigator();
-  }
-
   void scissor(int x, int y, int width, int height){
     startCheck("scissor");
     glScissor(_gl, x, y, width, height);

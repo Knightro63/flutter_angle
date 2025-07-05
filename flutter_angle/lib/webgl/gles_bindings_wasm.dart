@@ -4,9 +4,6 @@ import 'dart:js_interop';
 external JSObject glCanvas(JSObject id);
 
 @JS()
-external JSObject glNavigator();
-
-@JS()
 external void glScissor(JSObject gl, int x, int y, int width, int height);
 @JS()
 external void glViewport(JSObject gl, int x, int y, int width, int height);
@@ -378,6 +375,3 @@ external void glUniform2ui(JSObject gl, JSAny? location, int v0, int v1);
 external void glUniform3ui(JSObject gl, JSAny? location, int v0, int v1, int v2);
 @JS()
 external void glUniform4ui(JSObject gl, JSAny? location, int v0, int v1, int v2, int v3);
-
-@JS()
-external JSPromise makeXRCompatible(JSObject gl);

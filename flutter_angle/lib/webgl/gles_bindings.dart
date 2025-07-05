@@ -1075,16 +1075,6 @@ class LibOpenGLES{
     return buffer;
   }
 
-  Future<void> makeXRCompatible() async{
-    if(kIsWasm){
-      JSPromise jsp = gles.makeXRCompatible(gl);
-      final Future<void> dartFuture = jsp.toDart as Future<void>; // Explicit conversion if needed
-      await dartFuture;
-      return;
-    }
-    await gl.makeXRCompatible();
-  }
-
   void glCopyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height){
     if(kIsWasm){
       gles.glCopyTexSubImage2D(gl, target, level, xoffset, yoffset, x, y, width, height);
