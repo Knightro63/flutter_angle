@@ -90,6 +90,7 @@ namespace {
     else if (method_call.method_name().compare("initOpenGL") == 0) {
       EGLInfo info = FlutterGLTexture::initOpenGL(result);
       eglInfo.eglDisplay = info.eglDisplay;
+      eglInfo.eglContext = info.eglContext;
       eglInfo.eglConfig = info.eglConfig;
       return;
     }

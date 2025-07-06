@@ -78,7 +78,7 @@ class FlutterAngle {
   Pointer<Void> _display = nullptr;
   late Pointer<Void> _EGLconfig;
   Pointer<Void> _baseAppContext = nullptr;
-  //Pointer<Void> _pluginContext = nullptr;
+  Pointer<Void> _pluginContext = nullptr;
   int? _activeFramebuffer;
   RenderWorker? _worker;
 
@@ -140,6 +140,15 @@ class FlutterAngle {
       throw EglException('Plugin.initOpenGL didn\'t return anything. Something is really wrong!');
     }
 
+    if (Platform.isWindows) {
+      final pluginContextAdress = result['context'] ?? result['openGLContext'];
+      if (pluginContextAdress == null) {
+        throw EglException('Plugin.initOpenGL didn\'t return a Context. Something is really wrong!');
+      }
+
+      _pluginContext = Pointer<Void>.fromAddress(pluginContextAdress);
+    }
+
     /// Init OpenGL on the Dart side too
     _display = eglGetDisplay();
     final initializeResult = eglInitialize(_display);
@@ -178,7 +187,7 @@ class FlutterAngle {
     _baseAppContext = eglCreateContext(
       _display, 
       _EGLconfig,
-      //shareContext: _pluginContext == nullptr?null:_pluginContext,
+      shareContext: _pluginContext == nullptr?null:_pluginContext,
       contextClientVersion: 3,
       isDebugContext: useDebugContext && !Platform.isAndroid
     );

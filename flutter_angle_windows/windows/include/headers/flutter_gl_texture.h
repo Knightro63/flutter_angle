@@ -31,6 +31,7 @@ struct TextureInfo {
 
 struct EGLInfo {
     EGLDisplay eglDisplay;
+    EGLContext eglContext;
     EGLConfig eglConfig;
 };
 

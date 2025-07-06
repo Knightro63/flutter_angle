@@ -37,6 +37,7 @@ FlutterGLTexture::FlutterGLTexture(
     Structure st
 ){
   eglInfo.eglDisplay = info.eglDisplay;
+  eglInfo.eglContext = info.eglContext;
   eglInfo.eglConfig = info.eglConfig;
 
   structure.width = st.width;
@@ -107,6 +108,14 @@ EGLInfo FlutterGLTexture::initOpenGL(std::unique_ptr<flutter::MethodResult<flutt
     EGLint configId;
     eglGetConfigAttrib(display,config,EGL_CONFIG_ID,&configId);
 
+    const EGLint contextAttributes[] ={
+      EGL_CONTEXT_CLIENT_VERSION, 3,
+      EGL_NONE
+    };
+    const EGLContext context = eglCreateContext(display,config,EGL_NO_CONTEXT,contextAttributes);
+    
+    eglMakeCurrent(display, EGL_NO_SURFACE, EGL_NO_SURFACE, context);
+
     auto v = glGetString(GL_VENDOR);
     int error = glGetError();
     if (error != GL_NO_ERROR){
@@ -119,6 +128,8 @@ EGLInfo FlutterGLTexture::initOpenGL(std::unique_ptr<flutter::MethodResult<flutt
 
     /// we send back the context so that the Dart side can create a linked context. 
     auto response = flutter::EncodableValue(flutter::EncodableMap{
+        {flutter::EncodableValue("context"),
+        flutter::EncodableValue((int64_t) context)},
         {flutter::EncodableValue("eglConfigId"),
         flutter::EncodableValue((int64_t) configId)}
     });
@@ -126,6 +137,7 @@ EGLInfo FlutterGLTexture::initOpenGL(std::unique_ptr<flutter::MethodResult<flutt
 
     EGLInfo returnInfo;
     returnInfo.eglDisplay = display;
+    returnInfo.eglContext = context;
     returnInfo.eglConfig = config;
 
     return returnInfo;
@@ -192,6 +204,10 @@ void FlutterGLTexture::cleanUp(bool release_context) {
     // Release D3D device & context if the instance is being destroyed.
     if(eglInfo.eglDisplay != nullptr){
       eglMakeCurrent(eglInfo.eglDisplay,EGL_NO_SURFACE,EGL_NO_SURFACE,EGL_NO_CONTEXT);
+      if(eglInfo.eglConfig != nullptr){
+        eglDestroyContext(eglInfo.eglDisplay, eglInfo.eglConfig);
+        eglInfo.eglConfig = EGL_NO_CONTEXT;
+      }
       eglTerminate(eglInfo.eglDisplay);
       std::cerr << "Terminated Display." << std::endl;
     }
