@@ -4,6 +4,9 @@ import 'dart:js_interop';
 external JSObject glCanvas(JSObject id);
 
 @JS()
+external JSPromise<JSAny?> glMakeXRCompatible(JSObject gl);
+
+@JS()
 external void glScissor(JSObject gl, int x, int y, int width, int height);
 @JS()
 external void glViewport(JSObject gl, int x, int y, int width, int height);

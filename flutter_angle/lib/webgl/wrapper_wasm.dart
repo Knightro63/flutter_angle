@@ -1061,4 +1061,9 @@ class RenderingContext{
     glInvalidateFramebuffer(_gl, target, attachments.jsify());
     checkError('invalidateFramebuffer');
   }
+
+  Future<void> makeXRCompatible() async{
+    JSPromise<JSAny?> jsp = glMakeXRCompatible(_gl);
+    await jsp.toDart;
+  }
 }

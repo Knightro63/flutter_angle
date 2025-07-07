@@ -885,7 +885,7 @@ class RenderingContext{
   }
 
   Future<void> makeXRCompatible() async{
-    await _gl.makeXRCompatible();
+    return _gl.makeXRCompatible();
   }
 
   void invalidateFramebuffer(int target, List<int> attachments){

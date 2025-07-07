@@ -15,6 +15,10 @@ function glCanvas(canvas) {
   return glp;
 }
 
+async function glMakeXRCompatible(gl){
+  await gl.makeXRCompatible();
+}
+
 function glScissor(gl, x, y, width, height) {
   gl.scissor(x, y, width, height);
 }
