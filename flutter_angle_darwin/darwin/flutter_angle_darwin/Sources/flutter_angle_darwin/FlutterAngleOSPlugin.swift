@@ -73,7 +73,7 @@ import Flutter
 
     result([
       "textureId": textureId,
-      "surfacePointer": surfacePointer,
+      "surfacePointer": surfacePointer
     ])
   }
 

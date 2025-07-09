@@ -289,6 +289,10 @@ function glTexSubImage2D(gl, target, level, xoffset, yoffset, width, height, for
   gl.texSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
 }
 
+function glCopyTexSubImage2D(gl, target, level, xoffset, yoffset, x, y, width, height) {
+  gl.copyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
+}
+
 function glTexSubImage2D_NOSIZE(gl, target, level, xoffset, yoffset, format, type, pixels){
   gl.texSubImage2D(target, level, xoffset, yoffset, format, type, pixels);
 }

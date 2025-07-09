@@ -102,13 +102,13 @@ public struct EGLInfo {
     let results: [String: Any] = [
       "isSimulator": true,
       "eglConfigId": Int(configId),
-      "openGLVersion": "OpenGL ES 3.0 ANGLE",
+      "openGLVersion": "OpenGL ES 3.0 ANGLE"
     ]
     
     print("InitOpenGL returning: \(results)")
     result(results)
     return EGLInfo(
-      eglDisplay: display,
+      eglDisplay: display
     )
   }
 
@@ -150,7 +150,7 @@ public struct EGLInfo {
 
     result([
       "textureId": textureId,
-      "metalAsGLTexture": Int(textures!.metalTextureId),
+      "metalAsGLTexture": Int(textures!.metalTextureId)
     ]);
   }
   private func getANGLEMtlDevice(display: EGLDisplay) -> MTLDevice?{
