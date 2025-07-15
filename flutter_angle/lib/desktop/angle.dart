@@ -1,5 +1,5 @@
 import 'package:flutter_angle/desktop/bindings/egl_bindings.dart';
-import 'package:flutter_angle/desktop/render_worker.dart';
+import '../shared/render_worker.dart';
 import 'package:flutter_angle/flutter_angle.dart';
 
 import 'dart:async';

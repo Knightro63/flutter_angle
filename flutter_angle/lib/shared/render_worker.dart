@@ -1,11 +1,7 @@
 import 'dart:typed_data';
-import 'gl_program.dart';
-import 'angle.dart';
-import '../shared/webgl.dart';
-import '../shared/classes.dart';
-import 'wrapper.dart';
-import '../native-array/index.dart';
-import 'shaders.dart';
+import 'package:flutter_angle/flutter_angle.dart';
+import 'package:flutter_angle/shared/gl_program.dart';
+import './shaders.dart';
 
 class RenderWorker{
   late final Buffer vertexBuffer;

@@ -1,6 +1,4 @@
-import '../shared/webgl.dart';
-import '../shared/classes.dart';
-import 'wrapper.dart';
+import 'package:flutter_angle/flutter_angle.dart';
 
 class GlProgram {
   late Program program;

@@ -454,7 +454,7 @@ class RenderingContext{
   }
 
   void copyTexSubImage2D(int target, int level, int xoffset, int yoffset, int x, int y, int width, int height){
-    _gl.copyTexSubImage2D(target, level, xoffset, yoffset, x,y,width, height);
+    _gl.copyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
     checkError('copyTexSubImage2D');
   }
 

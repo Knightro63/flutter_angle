@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import '../shared/render_worker.dart';
 import '../shared/classes.dart';
 import '../shared/options.dart';
 import 'dart:async';
@@ -77,6 +78,7 @@ class FlutterAngleTexture {
 }
 
 class FlutterAngle{
+  RenderWorker? _worker;
 
   static void glDebugOutput(
     int source, 
@@ -114,16 +116,28 @@ class FlutterAngle{
         options
       );
 
+      if (!options.customRenderer) {
+        _worker = RenderWorker(newTexture);
+      }
+
       c.complete(newTexture);
     });
-
 
     return c.future;
   }
 
   Future<void> init([bool useDebugContext = false, bool useAngle = false]) async {}
   Future<void> updateTexture(FlutterAngleTexture texture,[WebGLTexture? sourceTexture]) async {
-    texture.rawOpenGl.glFlush();
+    if (sourceTexture != null) {
+      texture.rawOpenGl.glClearColor(0.0, 0.0, 0.0, 0.0);
+      texture.rawOpenGl.glClear(16384 | 256 | 1024);
+      texture.rawOpenGl.glViewport(0, 0, (texture.options.width*texture.options.dpr).toInt(),( texture.options.height*texture.options.dpr).toInt());
+      _worker?.renderTexture(sourceTexture);
+      texture.rawOpenGl.glFinish();
+    }
+    else{
+      texture.rawOpenGl.glFlush();
+    }
   }
   Future<void> resize(FlutterAngleTexture texture, AngleOptions options) async{
     texture.surfaceId?.width = (options.width * options.dpr).toInt();
@@ -132,5 +146,8 @@ class FlutterAngle{
   Future<void> deleteTexture(FlutterAngleTexture texture) async {}
   void activateTexture(FlutterAngleTexture texture) {}
   void printOpenGLError(String message) {}
-  void dispose([List<FlutterAngleTexture>? textures]){}
+  void dispose([List<FlutterAngleTexture>? textures]){
+    _worker?.dispose();
+    _worker = null;
+  }
 }
