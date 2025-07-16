@@ -638,23 +638,23 @@ class RenderingContext{
     checkError('vertexAttribIPointer');
   }
 
-  void vertexAttrib2fv(int index, NativeArray<double> values) {
-    _gl.vertexAttrib2fv(index, values.data);
+  void vertexAttrib2fv(int index, List<double> values) {
+    _gl.vertexAttrib2fv(index, values);
     checkError('vertexAttrib2fv');
   }
 
-  void vertexAttrib3fv(int index, NativeArray<double> values) {
-    _gl.vertexAttrib3fv(index, values.data);
+  void vertexAttrib3fv(int index, List<double> values) {
+    _gl.vertexAttrib3fv(index, values);
     checkError('vertexAttrib3fv');
   }
 
-  void vertexAttrib4fv(int index, NativeArray<double> values) {
-    _gl.vertexAttrib4fv(index, values.data);
+  void vertexAttrib4fv(int index, List<double> values) {
+    _gl.vertexAttrib4fv(index, values);
     checkError('vertexAttrib4fv');
   }
 
-  void vertexAttrib1fv(int index, NativeArray<double> values) {
-    _gl.vertexAttrib1fv(index, values.data);
+  void vertexAttrib1fv(int index, List<double> values) {
+    _gl.vertexAttrib1fv(index, values);
     checkError('vertexAttrib1fv');
   }
 
