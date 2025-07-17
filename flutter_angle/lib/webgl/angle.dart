@@ -91,7 +91,6 @@ class FlutterAngle{
   ) {}
 
   Future<FlutterAngleTexture> createTexture(AngleOptions options) async {
-    Completer<FlutterAngleTexture> c = Completer<FlutterAngleTexture>();
     final _divId = DateTime.now().microsecondsSinceEpoch;
     final String id = 'canvas-id$_divId';
     final width = (options.width * options.dpr).toInt();
@@ -108,22 +107,18 @@ class FlutterAngle{
       return element;
     });
 
-    Future.delayed(const Duration(milliseconds: 100), () {
-      newTexture = FlutterAngleTexture.fromSurface(
-        this,
-        _divId,
-        element, 
-        options
-      );
+    newTexture = FlutterAngleTexture.fromSurface(
+      this,
+      _divId,
+      element, 
+      options
+    );
 
-      if (!options.customRenderer) {
-        _worker = RenderWorker(newTexture);
-      }
+    if (!options.customRenderer) {
+      _worker = RenderWorker(newTexture);
+    }
 
-      c.complete(newTexture);
-    });
-
-    return c.future;
+    return newTexture;
   }
 
   Future<void> init([bool useDebugContext = false, bool useAngle = false]) async {}

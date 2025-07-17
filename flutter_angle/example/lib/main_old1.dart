@@ -89,23 +89,6 @@ class _MyAppState extends State<ExampleDemoTest> {
     });
   }
 
-  void setupDefaultFBO() {
-    int glWidth = (screenSize.width * dpr).toInt();
-    int glHeight = (screenSize.height * dpr).toInt();
-
-    final defaultFramebuffer = _gl.createFramebuffer();
-    defaultFramebufferTexture = _gl.createTexture();
-    _gl.activeTexture(WebGL.TEXTURE0);
-
-    _gl.bindTexture(WebGL.TEXTURE_2D, defaultFramebufferTexture);
-    _gl.texImage2D(WebGL.TEXTURE_2D, 0, WebGL.RGBA, glWidth, glHeight, 0, WebGL.RGBA, WebGL.UNSIGNED_BYTE, null);
-    _gl.texParameteri(WebGL.TEXTURE_2D, WebGL.TEXTURE_MIN_FILTER, WebGL.LINEAR);
-    _gl.texParameteri(WebGL.TEXTURE_2D, WebGL.TEXTURE_MAG_FILTER, WebGL.LINEAR);
-
-    _gl.bindFramebuffer(WebGL.FRAMEBUFFER, defaultFramebuffer);
-    _gl.framebufferTexture2D(WebGL.FRAMEBUFFER, WebGL.COLOR_ATTACHMENT0, WebGL.TEXTURE_2D, defaultFramebufferTexture, 0);
-  }
-
   Future<void> render() async {
     sourceTexture.activate();
     int _current = DateTime.now().millisecondsSinceEpoch;

@@ -136,6 +136,10 @@ class FlutterAngle {
     loadEGL(useAngle: _useAngle);
     angleConsole.info(result);
 
+    if(Platform.isLinux){
+      return;
+    }
+
     if (result == null) {
       throw EglException('Plugin.initOpenGL didn\'t return anything. Something is really wrong!');
     }
@@ -539,7 +543,6 @@ class FlutterAngle {
     return newTexture;
   }
 
-  //TODO: causes sever memory leak
   Future<void> resize(FlutterAngleTexture texture, AngleOptions options) async{
     if(_disposed || Platform.isIOS || Platform.isAndroid) return;
     final height = (options.height * options.dpr).toInt();
