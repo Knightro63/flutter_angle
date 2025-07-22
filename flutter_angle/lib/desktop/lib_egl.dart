@@ -349,6 +349,16 @@ void eglWaitClient(){
   _libEGL!.eglWaitClient();
 }
 
+void makeCurrent(Pointer<Void> context){
+  final nativeCallResult = _libEGL!.makeCurrent(context.address) == 1;
+
+  if (nativeCallResult) {
+    return;
+  }
+
+  throw EglException('Failed to make current using context [$context].');
+}
+
 void eglMakeCurrent(
   Pointer<Void> display,
   Pointer<Void> draw,

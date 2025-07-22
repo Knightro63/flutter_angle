@@ -25,7 +25,8 @@ list(APPEND PLUGIN_SOURCES
 add_library(
   ${PLUGIN_NAME} SHARED
   ${PLUGIN_SOURCES}
-  flutter_texture_gl.cc
+  opengl_renderer.cc
+  fl_angle_texture.cc
 )
 
 # Symbols are hidden by default to reduce the chance of accidental conflicts

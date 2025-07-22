@@ -6,7 +6,8 @@
 
 #ifndef __egl_h_
 #define __egl_h_ 1
-
+#define EGL_EGLEXT_PROTOTYPES
+#define GL_GLEXT_PROTOTYPES
 #ifdef __cplusplus
 extern "C" {
 #endif

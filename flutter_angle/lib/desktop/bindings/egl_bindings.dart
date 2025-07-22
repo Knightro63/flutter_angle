@@ -249,6 +249,16 @@ class LibEGL {
 
   _dart_eglInitialize? _eglInitialize;
 
+  int makeCurrent(int context)  {
+    print("egl bindings makecurrenct"+context.toString());
+    return  _makeCurrent(context);
+  }
+
+  late final _makeCurrent_ptr =
+      _dylib.lookup<ffi.NativeFunction<_c_makeCurrent>>('makeCurrent');
+  late final _dart_makeCurrent _makeCurrent =
+      _makeCurrent_ptr.asFunction<_dart_makeCurrent>();
+
   int eglMakeCurrent(
     ffi.Pointer<ffi.Void> dpy,
     ffi.Pointer<ffi.Void> draw,
@@ -100798,6 +100808,9 @@ typedef _dart_eglInitialize = int Function(
   ffi.Pointer<ffi.Int32> major,
   ffi.Pointer<ffi.Int32> minor,
 );
+
+typedef _c_makeCurrent = ffi.Int64 Function(ffi.Int64);
+typedef _dart_makeCurrent = int Function(int);
 
 typedef _c_eglMakeCurrent = ffi.Uint32 Function(
   ffi.Pointer<ffi.Void> dpy,

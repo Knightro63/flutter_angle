@@ -136,12 +136,14 @@ class FlutterAngle {
     loadEGL(useAngle: _useAngle);
     angleConsole.info(result);
 
-    if(Platform.isLinux){
-      return;
-    }
-
     if (result == null) {
       throw EglException('Plugin.initOpenGL didn\'t return anything. Something is really wrong!');
+    }
+
+    if(Platform.isLinux){
+      _baseAppContext = Pointer<Void>.fromAddress(result['context']);
+      makeCurrent(_baseAppContext);
+      return;
     }
 
     if (Platform.isWindows) {
@@ -618,7 +620,7 @@ class FlutterAngle {
     textures?.forEach((t) {
       deleteTexture(t);
     });
-    if(_baseAppContext != nullptr){
+    if(_baseAppContext != nullptr && !Platform.isLinux){
       eglDestroyContext(_display, _baseAppContext);
       _baseAppContext = nullptr;
     }

@@ -31,7 +31,7 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Xcode 13 or newer
  - Swift 5
  - Metal supported
- - Use flutter_angle: 0.3.0.
+ - Use flutter_angle: 0.3.0
 
 **Android ANGLE**
  - compileSdkVersion: 34
@@ -47,25 +47,27 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Not recommended for devices above sdk 27
 
 **Android Emulator**
- - Supported OpenGL only.
+ - Supported OpenGL only
  - Will automatically revert to OpenGL
 
 **Windows**
- - Intel supported.
- - AMD supported.
- - Qualcom supported.
+ - Intel supported
+ - AMD supported
+ - Qualcom supported
  - Direct3D 11
  - OpenGL supported
  - Set AngleOptions useSurfaceProducer to false for legacy build
 
 **Web**
- - WebGL2 supported.
+ - WebGL2 supported
 
 **WASM**
- - WebGL2 supported; please add `<script src="https://cdn.jsdelivr.net/gh/Knightro63/flutter_angle/assets/gles_bindings.js"></script>` to your index.html to load the js_interop file.
+ - WebGL2 supported; please add `<script src="https://cdn.jsdelivr.net/gh/Knightro63/flutter_angle/assets/gles_bindings.js"></script>` to your index.html to load the js_interop file
 
 **Linux**
- - Unsupported
+ - Ubuntu supported (Tested on Linux Mint)
+ - OpenGL supported
+ - Please install `sudo apt install libglew-dev`
 
 ## Getting started
 

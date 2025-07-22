@@ -18,6 +18,7 @@ typedef struct {
 
 FLUTTER_PLUGIN_EXPORT GType flutter_angle_plugin_get_type();
 FLUTTER_PLUGIN_EXPORT void flutter_angle_plugin_register_with_registrar(FlPluginRegistrar* registrar);
+FLUTTER_PLUGIN_EXPORT int makeCurrent(GdkGLContext* window);
 
 G_END_DECLS
 #endif  // FLUTTER_PLUGIN_FLUTTER_ANGLE_PLUGIN_H_
