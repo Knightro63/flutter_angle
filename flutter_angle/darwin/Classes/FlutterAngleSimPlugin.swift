@@ -150,7 +150,7 @@ public struct EGLInfo {
 
     result([
       "textureId": textureId,
-      "metalAsGLTexture": Int(textures!.metalTextureId)
+      "openglTexture": Int(textures!.metalTextureId)
     ]);
   }
   private func getANGLEMtlDevice(display: EGLDisplay) -> MTLDevice?{

@@ -1,5 +1,5 @@
-#ifndef FL_ANGLE_GL_H
-#define FL_ANGLE_GL_H
+#ifndef FL_ANGLE_TEXTURE_H
+#define FL_ANGLE_TEXTURE_H
 
 #include <gtk/gtk.h>
 #include <glib-object.h>
@@ -15,13 +15,24 @@
 #include <map>
 #include <iostream>
 #include <memory>
+#include <mutex>
 
 G_DECLARE_FINAL_TYPE(
-  FlAngleGL,
-  fl_angle_gl,
+  FlAngleTextureGL,
+  fl_angle_texture_gl,
   FL,
-  ANGLE_GL,
+  ANGLE_TEXTURE_GL,
+  FlPixelBufferTexture
 )
+
+struct _FlAngleTextureGL{
+  FlPixelBufferTexture parent_instance;
+  uint8_t *buffer;
+  uint32_t width;
+  uint32_t height;
+};
+
+typedef std::map<int64_t, std::unique_ptr<OpenglRenderer>> RendererMap;
 
 #define FLUTTER_ANGLE_PLUGIN(obj)                                     \
   (G_TYPE_CHECK_INSTANCE_CAST((obj), flutter_angle_plugin_get_type(), \
@@ -29,13 +40,23 @@ G_DECLARE_FINAL_TYPE(
 
 struct _FlutterAnglePlugin{
   GObject parent_instance;
+
   FlTextureRegistrar *textureRegistrar = nullptr;
-  
+  FlView *fl_view = nullptr;
+  GdkWindow *window = nullptr;
   GdkGLContext* context;
   GdkGLContext* dartContext;
+  FlTexture *texture = nullptr;
 
-  //OpenGLRenderer *render = nullptr;
-  std::map<int64_t, std::unique_ptr<OpenGLRenderer>> renderers;
+  OpenglRenderer *render = nullptr;
+
+  RendererMap renderers;
+  std::mutex r_mutex;
 };
 
-#endif // FL_ANGLE_GL_H
+FlAngleTextureGL *fl_angle_texture_gl_new(
+  uint32_t width,
+  uint32_t height
+);
+
+#endif // FL_ANGLE_TEXTURE_H

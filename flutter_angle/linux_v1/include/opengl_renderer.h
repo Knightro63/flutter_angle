@@ -9,20 +9,19 @@
 
 class OpenglRenderer {
 public:
-    uint32_t width = 0;
-    uint32_t height = 0;
-    int64_t textureId = 0;
+    uint32_t width;
+    uint32_t height;
+    int64_t textureId;
 
     virtual ~OpenglRenderer();
     OpenglRenderer(OpenglRenderer&& other) noexcept; 
     OpenglRenderer& operator=(OpenglRenderer&& other) noexcept; 
-    OpenglRenderer(FlTextureRegistrar*,GdkGLContext*,int,int);
+    OpenglRenderer(FlTextureRegistrar*, GdkGLContext*,GdkGLContext*,int,int);
+
     FlValue *createTexture();
-    void activateTexture();
-    void deActivateTexture();
     void updateTexture();
     void changeSize(int, int);
-    void dispose(bool);
+    void dispose();
 
     template<class T, class U = T>
     T exchange(T& obj, U&& new_value){
@@ -33,13 +32,13 @@ public:
 
 private:
     GdkGLContext* context;
-    //GdkGLContext* dartContext;
+    GdkGLContext* dartContext;
+
+    uint32_t fboId = 0;
+    uint32_t rboId = 0;
 
     FlTextureRegistrar *textureRegistrar;
     FlTexture *texture;
-    //FlAngleTextureGL *angleTexture;
-
-    uint32_t texId = 0;
 
     // Private method to swap members, helpful for both move constructor and assignment
     void swap(OpenglRenderer& other) noexcept;

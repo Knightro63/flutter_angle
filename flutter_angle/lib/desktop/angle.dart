@@ -489,14 +489,14 @@ class FlutterAngle {
     _rawOpenGl.glGenFramebuffers(1, fbo);
     _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, fbo.value);
 
-    if(result['metalAsGLTexture'] != null){
+    if(result['openglTexture'] != null){
       _isRBO = false;
     }
 
     final newTexture = FlutterAngleTexture(
       this,
       result['textureId']! as int,
-      (result['metalAsGLTexture'] as int?) ?? (result['rbo'] as int?) ?? 0,
+      (result['openglTexture'] as int?) ?? (result['rbo'] as int?) ?? 0,
       fbo.value,
       options
     );
@@ -633,13 +633,17 @@ class FlutterAngle {
 
   void activateTexture(FlutterAngleTexture texture) {
     if(_disposed) return;
-    _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, texture.fboId);
 
     // If we have an iOS EGL surface created from IOSurface, use it
     if (_useSurface && texture.surfaceId != nullptr) {
       eglMakeCurrent(_display, texture.surfaceId!, texture.surfaceId!, _baseAppContext);
       return;
     }
+    else if(Platform.isLinux){ 
+      makeCurrent(_baseAppContext);//_channel.invokeMethod('activateTexture',{"textureId": texture.textureId});
+    }
+
+    _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, texture.fboId);
 
     if (!_isRBO) _rawOpenGl.glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, texture.rboId, 0);
     else _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, texture.rboId);

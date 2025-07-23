@@ -41,12 +41,12 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
 
     self->context = gdk_window_create_gl_context(self->window, &error);
     gdk_gl_context_realize (self->context,&error);
-    // self->dartContext = gdk_window_create_gl_context(self->window, &error);
-    // gdk_gl_context_realize (self->dartContext,&error);
-    // gdk_gl_context_make_current(self->context);
+    self->dartContext = gdk_window_create_gl_context(self->window, &error);
+    gdk_gl_context_realize (self->dartContext,&error);
+    gdk_gl_context_make_current(self->context);
 
     g_autoptr(FlValue) value = fl_value_new_map ();
-    fl_value_set_string_take(value, "context", fl_value_new_int ((int64_t)self->context));
+    fl_value_set_string_take(value, "context", fl_value_new_int ((int64_t)self->dartContext));
     response = FL_METHOD_RESPONSE(fl_method_success_response_new(value));
   }
 	else if (strcmp(method, "createTexture") == 0){
@@ -64,59 +64,34 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
     }
     std::cerr << "Window Size:" << width << "," << height << std::endl;
 
-    auto currentTexture = std::make_unique<OpenglRenderer>(
+    // std::unique_ptr<OpenglRenderer> currentTexture;
+    // int64_t textureId;
+
+    self->render = new OpenglRenderer(
       self->textureRegistrar,
       self->context,
-      //self->dartContext,
+      self->dartContext,
       width,
       height
     );
 
-    self->render = currentTexture;
+    //auto textureId = self->render->textureId;
     g_autoptr(FlValue) value = self->render->createTexture();
     response = FL_METHOD_RESPONSE(fl_method_success_response_new(value));
-
-    // auto textureId = currentTexture->textureId;
     // std::cerr << "BEFORE." << std::endl;
-    // self->renderers.insert(std::make_pair(textureId, std::move(currentTexture)));
-    // self->renderers[textureId] = std::move(currentTexture);
-    // g_autoptr(FlValue) value = self->renderers.at(textureId)->createTexture();
-    // response = FL_METHOD_RESPONSE(fl_method_success_response_new(value));
+    // std::lock_guard<std::mutex> lock(self->r_mutex);
+    // auto [it, inserted] = self->renderers.emplace(textureId, std::move(currentTexture));
+
+    // if (inserted) {
+    //   std::cout << "Thread " << std::this_thread::get_id() << ": Added renderer " << textureId << std::endl;
+    // }
+    //  else {
+    //   std::cout << "Thread " << std::this_thread::get_id() << ": Renderer " << textureId << " already exists." << std::endl;
+    // }
+
+    // //self->renderers.insert(RendererMap::value_type(textureId, std::move(currentTexture)));
+    // std::this_thread::sleep_for(std::chrono::milliseconds(50));
     // std::cerr << "AFTER." << std::endl;
-
-    
-  }
-  else if (strcmp(method, "activateTexture") == 0){
-    int64_t textureId = 0;
-    if(args){
-      textureId = fl_value_get_int(fl_value_lookup_string(args, "textureId"));
-      if(!textureId){
-        response = FL_METHOD_RESPONSE(fl_method_error_response_new("EGL DeleteError", "Missing textureId.",nullptr));
-        fl_method_call_respond(method_call, response, nullptr);
-        return;
-      }
-    }
-
-    self->render->activateTexture();
-
-    g_autoptr(FlValue) result = fl_value_new_null();
-    response = FL_METHOD_RESPONSE(fl_method_success_response_new(result));
-  }
-  else if (strcmp(method, "deActivateTexture") == 0){
-    int64_t textureId = 0;
-    if(args){
-      textureId = fl_value_get_int(fl_value_lookup_string(args, "textureId"));
-      if(!textureId){
-        response = FL_METHOD_RESPONSE(fl_method_error_response_new("EGL DeleteError", "Missing textureId.",nullptr));
-        fl_method_call_respond(method_call, response, nullptr);
-        return;
-      }
-    }
-
-    self->render->deActivateTexture();
-
-    g_autoptr(FlValue) result = fl_value_new_null();
-    response = FL_METHOD_RESPONSE(fl_method_success_response_new(result));
   }
 	else if (strcmp(method, "textureFrameAvailable") == 0){
     int64_t textureId = 0;
@@ -195,7 +170,7 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
       return;
     }
 
-    self->renderers[textureId]->dispose(true);
+    self->renderers[textureId]->dispose();
     self->renderers.erase(textureId);
 
     g_autoptr(FlValue) result = fl_value_new_null();

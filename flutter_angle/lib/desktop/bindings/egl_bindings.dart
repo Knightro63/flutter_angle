@@ -250,7 +250,6 @@ class LibEGL {
   _dart_eglInitialize? _eglInitialize;
 
   int makeCurrent(int context)  {
-    print("egl bindings makecurrenct"+context.toString());
     return  _makeCurrent(context);
   }
 
