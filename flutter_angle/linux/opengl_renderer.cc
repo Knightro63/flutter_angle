@@ -53,7 +53,6 @@ void OpenglRenderer::updateTexture() {
 
 void OpenglRenderer::dispose(bool release_context) {
   std::cerr << "Disposed of and deleted everything." << std::endl;
-  //gdk_gl_context_make_current(context);
   glDeleteTextures(1, &texId);
   texId = 0;
 

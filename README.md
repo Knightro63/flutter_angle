@@ -31,7 +31,6 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Xcode 13 or newer
  - Swift 5
  - Metal supported
- - Use flutter_angle: 0.3.0
 
 **Android ANGLE**
  - compileSdkVersion: 34
@@ -51,7 +50,7 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Will automatically revert to OpenGL
 
 **Windows**
- - Intel supported.
+ - Intel supported
  - AMD supported
  - Qualcom supported
  - Direct3D 11
@@ -76,6 +75,10 @@ To get started add flutter_angle to your pubspec.yaml file.
 ## Usage
 
 This project is a simple rendering engine for flutter to view 3D models and complex shaders.
+
+## iOS issue
+
+If you have used ios or ios-simulator and get an error pod not found FlutterAngle ~> 0.0.8. Delete Podfile.lock, change directory to ios folder and run `pod install --repo-update`.
 
 ## Example
 

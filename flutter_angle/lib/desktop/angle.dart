@@ -575,7 +575,7 @@ class FlutterAngle {
       _rawOpenGl.glClearColor(0.0, 0.0, 0.0, 0.0);
       _rawOpenGl.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
       _rawOpenGl.glViewport(0, 0, (texture.options.width*texture.options.dpr).toInt(),( texture.options.height*texture.options.dpr).toInt());
-      _worker?.renderTexture(sourceTexture, isFBO: Platform.isAndroid);
+      _worker?.renderTexture(sourceTexture, isFBO: Platform.isAndroid); //check for linux
       _rawOpenGl.glFinish();
     }
 
@@ -633,6 +633,10 @@ class FlutterAngle {
 
   void activateTexture(FlutterAngleTexture texture) {
     if(_disposed) return;
+    // if(Platform.isLinux){ //testing to fix multiview bug
+    //   makeCurrent(_baseAppContext);
+    // }
+    
     _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, texture.fboId);
 
     // If we have an iOS EGL surface created from IOSurface, use it
@@ -640,6 +644,9 @@ class FlutterAngle {
       eglMakeCurrent(_display, texture.surfaceId!, texture.surfaceId!, _baseAppContext);
       return;
     }
+    // else if(Platform.isLinux){ //testing to fix multiview bug
+    //   makeCurrent(_baseAppContext);
+    // }
 
     if (!_isRBO) _rawOpenGl.glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, texture.rboId, 0);
     else _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, texture.rboId);
