@@ -3,19 +3,15 @@
 #include <flutter_linux/fl_pixel_buffer_texture.h>
 #include <flutter_linux/fl_texture_registrar.h>
 
-//static FlAngleTextureGL *angleTexture;
-
 OpenglRenderer::OpenglRenderer(
   FlTextureRegistrar* textureRegistrar,
   GdkGLContext* context,
-  //GdkGLContext* dartContext,
   int width, 
   int height
 ){
   printf(".... OpenglRenderer create\n");
   this->textureRegistrar = textureRegistrar;
   this->context = context;
-  //this->dartContext = dartContext;
   this->width = width;
   this->height = height;
 
@@ -37,66 +33,46 @@ void OpenglRenderer::changeSize(int width, int height) {
     dispose(false);
   }
 
-  glGenTextures(1, &self->texId);
-  glBindTexture(GL_TEXTURE_2D, self->texId);
+  glGenTextures(1, &texId);
+  glBindTexture(GL_TEXTURE_2D, texId);
 
-  /// Might not be needed
-  // Give an empty image to OpenGL ( the last "0" )
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, 0);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
-  glBindTexture(GL_TEXTURE_2D, 0);
-
-  auto ft = fl_my_texture_gl_new(GL_TEXTURE_2D, self->texId, width, height);
+  auto ft = fl_angle_texture_gl_new(GL_TEXTURE_2D, texId, width, height);
   std::cerr << "Create Texture" <<std::endl;
   texture = FL_TEXTURE(ft);
   fl_texture_registrar_register_texture(textureRegistrar, texture);
   textureId = fl_texture_get_id(texture);
-
-  //angleTexture = ft;
-}
-
-void OpenglRenderer::activateTexture() {
-  gdk_gl_context_make_current(context);
-}
-
-void OpenglRenderer::deActivateTexture() {
-  gdk_gl_context_clear_current();
 }
 
 void OpenglRenderer::updateTexture() {
-  //gdk_gl_context_make_current(context);
   fl_texture_registrar_mark_texture_frame_available(textureRegistrar,texture);
-  //gdk_gl_context_clear_current();
 }
 
 void OpenglRenderer::dispose(bool release_context) {
-  gdk_gl_context_make_current(context);
+  std::cerr << "Disposed of and deleted everything." << std::endl;
+  //gdk_gl_context_make_current(context);
   glDeleteTextures(1, &texId);
   texId = 0;
-  gdk_gl_context_clear_current();
 
-  std::cerr << "Disposed of and deleted everything." << std::endl;
   fl_texture_registrar_unregister_texture(textureRegistrar,texture);
-
-  if(release_context){
-    //g_object_unref(angleTexture);
-    g_object_unref(context);
-    //g_object_unref(dartContext);
-  }
   textureId = 0;
+  gdk_gl_context_clear_current();
+  if(release_context){
+    g_object_unref(context);
+  }
 }
 
 OpenglRenderer::~OpenglRenderer() {
-  dispose(true);
+  //dispose(true);
 }
 
 // Move constructor definition
 OpenglRenderer::OpenglRenderer(OpenglRenderer&& other) noexcept: 
   textureRegistrar(exchange(other.textureRegistrar, nullptr)), // Transfer ownership and nullify other's pointer
   context(exchange(other.context, nullptr)),
-  //dartContext(exchange(other.dartContext, nullptr)),
   width(exchange(other.width, 0)), // Simple members can be just exchanged or copied, depending on semantics
   height(exchange(other.height, 0)),
   textureId(exchange(other.textureId, 0)),
@@ -117,7 +93,6 @@ OpenglRenderer& OpenglRenderer::operator=(OpenglRenderer&& other) noexcept {
     // Transfer resources
     textureRegistrar = exchange(other.textureRegistrar, nullptr);
     context = exchange(other.context, nullptr);
-    //dartContext = exchange(other.dartContext, nullptr);
     width = exchange(other.width, 0);
     height = exchange(other.height, 0);
     textureId = exchange(other.textureId, 0);
@@ -132,7 +107,6 @@ void OpenglRenderer::swap(OpenglRenderer& other) noexcept {
   using std::swap;
   swap(textureRegistrar, other.textureRegistrar);
   swap(context, other.context);
-  //swap(dartContext, other.dartContext);
   swap(width, other.width);
   swap(height, other.height);
   swap(textureId, other.textureId);

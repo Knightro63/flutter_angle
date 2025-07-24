@@ -85,9 +85,9 @@ class AngleCheck {
   }
 
   public static boolean isAllowed() {
-    // if (isEmulator() || !isVersionAllowed()) {
-    //   return false;
-    // } 
+    if (isEmulator() || !isVersionAllowed()) {
+      return false;
+    } 
     return true;
   }
 }

@@ -3,9 +3,8 @@
 * Fixed: Android bug not rendering on devices lower than SDK version 28.
 * Fixed: Android Emulator speed.
 * Fixed: Added Support for iOS Simulator.
-* Added: Swift Package Manager(SPM) Support.
 * Added: WASM support.
-* Updated: Moved windows to its own package.
+* Added: Linux support.
 
 ## 0.2.8
 

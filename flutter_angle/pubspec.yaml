@@ -19,10 +19,6 @@ dependencies:
   dylib: ^0.3.3
   ffi: ^2.1.4
   web: ^1.1.1
-  # flutter_angle_darwin: #^0.2.0
-  #   path: ../flutter_angle_darwin
-  # flutter_angle_windows: #^0.0.3
-  #   path: ../flutter_angle_windows
     
 dev_dependencies:
   flutter_test:
@@ -49,9 +45,3 @@ flutter:
         pluginClass: FlutterAnglePlugin
       web:
         default_package: flutter_angle_web
-      # ios:
-      #   default_package: flutter_angle_darwin
-      # macos:
-      #   default_package: flutter_angle_darwin
-      # windows:
-      #   default_package: flutter_angle_windows

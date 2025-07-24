@@ -5,10 +5,10 @@
 #include <flutter_linux/flutter_linux.h>
 #include <flutter_linux/fl_texture_registrar.h>
 #include <memory>
-//#include "fl_angle_texture_gl.h"
+#include <map>
 
 class OpenglRenderer {
-public:
+  public:
     uint32_t width = 0;
     uint32_t height = 0;
     int64_t textureId = 0;
@@ -18,8 +18,6 @@ public:
     OpenglRenderer& operator=(OpenglRenderer&& other) noexcept; 
     OpenglRenderer(FlTextureRegistrar*,GdkGLContext*,int,int);
     FlValue *createTexture();
-    void activateTexture();
-    void deActivateTexture();
     void updateTexture();
     void changeSize(int, int);
     void dispose(bool);
@@ -31,10 +29,8 @@ public:
       return old_value;
     }
 
-private:
+  private:
     GdkGLContext* context;
-    //GdkGLContext* dartContext;
-
     FlTextureRegistrar *textureRegistrar;
     FlTexture *texture;
     //FlAngleTextureGL *angleTexture;
@@ -43,6 +39,13 @@ private:
 
     // Private method to swap members, helpful for both move constructor and assignment
     void swap(OpenglRenderer& other) noexcept;
+};
+
+typedef std::map<int64_t, std::unique_ptr<OpenglRenderer>> RendererMap;
+
+class Map{
+  public:
+    RendererMap renderers;
 };
 
 #endif

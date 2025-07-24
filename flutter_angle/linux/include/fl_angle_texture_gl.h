@@ -12,7 +12,6 @@
 #include <EGL/egl.h>
 #include <EGL/eglext.h>
 
-#include <map>
 #include <iostream>
 #include <memory>
 #include <mutex>
@@ -33,7 +32,6 @@ struct _FlAngleTextureGL{
   uint32_t height;
 };
 
-typedef std::map<int64_t, std::unique_ptr<OpenglRenderer>> RendererMap;
 
 #define FLUTTER_ANGLE_PLUGIN(obj)                                     \
   (G_TYPE_CHECK_INSTANCE_CAST((obj), flutter_angle_plugin_get_type(), \
@@ -46,11 +44,8 @@ struct _FlutterAnglePlugin{
   FlView *fl_view = nullptr;
   GdkWindow *window = nullptr;
   GdkGLContext* context;
-  //GdkGLContext* dartContext;
-  //FlTexture *texture = nullptr;
 
-  OpenglRenderer *render = nullptr;
-  RendererMap renderers;
+  Map *map = nullptr;
 };
 
 FlAngleTextureGL *fl_angle_texture_gl_new(

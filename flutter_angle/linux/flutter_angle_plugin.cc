@@ -41,13 +41,12 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
 
     self->context = gdk_window_create_gl_context(self->window, &error);
     gdk_gl_context_realize (self->context,&error);
-    // self->dartContext = gdk_window_create_gl_context(self->window, &error);
-    // gdk_gl_context_realize (self->dartContext,&error);
-    // gdk_gl_context_make_current(self->context);
 
     g_autoptr(FlValue) value = fl_value_new_map ();
     fl_value_set_string_take(value, "context", fl_value_new_int ((int64_t)self->context));
     response = FL_METHOD_RESPONSE(fl_method_success_response_new(value));
+
+    self->map = new Map();
   }
 	else if (strcmp(method, "createTexture") == 0){
     std::cerr << "EGL createTexture" << std::endl;
@@ -67,56 +66,14 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
     auto currentTexture = std::make_unique<OpenglRenderer>(
       self->textureRegistrar,
       self->context,
-      //self->dartContext,
       width,
       height
     );
 
-    self->render = currentTexture;
-    g_autoptr(FlValue) value = self->render->createTexture();
+    auto textureId = currentTexture->textureId;
+    self->map->renderers[textureId] = std::move(currentTexture);
+    g_autoptr(FlValue) value = self->map->renderers.at(textureId)->createTexture();
     response = FL_METHOD_RESPONSE(fl_method_success_response_new(value));
-
-    // auto textureId = currentTexture->textureId;
-    // std::cerr << "BEFORE." << std::endl;
-    // self->renderers.insert(std::make_pair(textureId, std::move(currentTexture)));
-    // self->renderers[textureId] = std::move(currentTexture);
-    // g_autoptr(FlValue) value = self->renderers.at(textureId)->createTexture();
-    // response = FL_METHOD_RESPONSE(fl_method_success_response_new(value));
-    // std::cerr << "AFTER." << std::endl;
-
-    
-  }
-  else if (strcmp(method, "activateTexture") == 0){
-    int64_t textureId = 0;
-    if(args){
-      textureId = fl_value_get_int(fl_value_lookup_string(args, "textureId"));
-      if(!textureId){
-        response = FL_METHOD_RESPONSE(fl_method_error_response_new("EGL DeleteError", "Missing textureId.",nullptr));
-        fl_method_call_respond(method_call, response, nullptr);
-        return;
-      }
-    }
-
-    self->render->activateTexture();
-
-    g_autoptr(FlValue) result = fl_value_new_null();
-    response = FL_METHOD_RESPONSE(fl_method_success_response_new(result));
-  }
-  else if (strcmp(method, "deActivateTexture") == 0){
-    int64_t textureId = 0;
-    if(args){
-      textureId = fl_value_get_int(fl_value_lookup_string(args, "textureId"));
-      if(!textureId){
-        response = FL_METHOD_RESPONSE(fl_method_error_response_new("EGL DeleteError", "Missing textureId.",nullptr));
-        fl_method_call_respond(method_call, response, nullptr);
-        return;
-      }
-    }
-
-    self->render->deActivateTexture();
-
-    g_autoptr(FlValue) result = fl_value_new_null();
-    response = FL_METHOD_RESPONSE(fl_method_success_response_new(result));
   }
 	else if (strcmp(method, "textureFrameAvailable") == 0){
     int64_t textureId = 0;
@@ -129,15 +86,13 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
       }
     }
     
-    // if (self->renderers.find(textureId) == self->renderers.end()){
-    //   response = FL_METHOD_RESPONSE(fl_method_error_response_new("EGL DeleteError", "Invalid texture ID.",nullptr));
-    //   fl_method_call_respond(method_call, response, nullptr);
-    //   return;
-    // }
+    if (self->map->renderers.find(textureId) == self->map->renderers.end()){
+      response = FL_METHOD_RESPONSE(fl_method_error_response_new("EGL DeleteError", "Invalid texture ID.",nullptr));
+      fl_method_call_respond(method_call, response, nullptr);
+      return;
+    }
 
-    // self->renderers[textureId]->updateTexture();
-
-    self->render->updateTexture();
+    self->map->renderers[textureId]->updateTexture();
 
     g_autoptr(FlValue) result = fl_value_new_null();
     response = FL_METHOD_RESPONSE(fl_method_success_response_new(result));
@@ -165,13 +120,13 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
     }
     std::cerr << "Window Size:" << width << "," << height << std::endl;
 
-    if (self->renderers.find(textureId) == self->renderers.end()){
+    if (self->map->renderers.find(textureId) == self->map->renderers.end()){
       response = FL_METHOD_RESPONSE(fl_method_error_response_new("EGL DeleteError", "Invalid texture ID.",nullptr));
       fl_method_call_respond(method_call, response, nullptr);
       return;
     }
 
-    self->renderers[textureId]->changeSize(width,height);
+    self->map->renderers[textureId]->changeSize(width,height);
     
     g_autoptr(FlValue) result = fl_value_new_null();
     response = FL_METHOD_RESPONSE(fl_method_success_response_new(result));
@@ -189,14 +144,14 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
     }
 
     // Check if the received ID is registered
-    if (self->renderers.find(textureId) == self->renderers.end()){
+    if (self->map->renderers.find(textureId) == self->map->renderers.end()){
       response = FL_METHOD_RESPONSE(fl_method_error_response_new("EGL DeleteError", "Invalid texture ID.",nullptr));
       fl_method_call_respond(method_call, response, nullptr);
       return;
     }
 
-    self->renderers[textureId]->dispose(true);
-    self->renderers.erase(textureId);
+    self->map->renderers[textureId]->dispose(true);
+    self->map->renderers.erase(textureId);
 
     g_autoptr(FlValue) result = fl_value_new_null();
     response = FL_METHOD_RESPONSE(fl_method_success_response_new(result));
