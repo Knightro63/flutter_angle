@@ -1,232 +1,278 @@
 import 'dart:async';
 import 'dart:io';
-
+import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_angle/flutter_angle.dart';
-import 'learn_gl.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ExampleTriangle01());
 }
 
-class MyApp extends StatefulWidget {
-  @override
+
+class ExampleTriangle01 extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin, WidgetsBindingObserver{
-  FlutterAngle angle = FlutterAngle();
-  final textures = <FlutterAngleTexture>[];
-
-  int textureId = -1;
-  int textureId2 = -1;
-
-  Lesson? lesson;
-  Lesson? lesson2;
-
-  static const textureWidth = 640;
-  static const textureHeight = 320;
-  static const aspect = textureWidth / textureHeight;
-
+class _MyAppState extends State<ExampleTriangle01> {
+  int? fboId;
   double dpr = 1.0;
+  bool ready = false;
   late double width;
   late double height;
+
+  late final glProgram;
+
   Size? screenSize;
+  late final RenderingContext _gl;
 
-  Timer? _debounceTimer;
+  late FlutterAngleTexture sourceTexture;
+  FlutterAngle angle = FlutterAngle();
+  Framebuffer? defaultFramebuffer;
+  WebGLTexture? defaultFramebufferTexture;
 
+  int n = 0;
+
+  int t = DateTime.now().millisecondsSinceEpoch;
+  Float32Array? vertices; 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
+    print(" init state..... ");
   }
 
   @override
   void dispose(){
+    vertices?.dispose();
+    vertices = null;
+    angle.dispose([sourceTexture]);
     super.dispose();
-    _debounceTimer?.cancel(); // Cancel timer if active
-    WidgetsBinding.instance.removeObserver(this);
-
-    angle.dispose(textures);
-    ticker.dispose();
-    lesson?.dispose();
-    lesson2?.dispose();
-  }
-
-  @override
-  void didChangeMetrics() {
-    _debounceTimer?.cancel(); // Clear existing timer
-    _debounceTimer = Timer(const Duration(milliseconds: 300), () { // Set a new timer
-      onWindowResize(context);
-    });
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> initPlatformState() async {
-    didInit = true;
-    final mq = MediaQuery.of(context);
-    screenSize = mq.size;
-    dpr = mq.devicePixelRatio;
-
     width = screenSize!.width;
     height = width;
 
-    await angle.init();
+    await angle.init(true);
+    setState(() {});
 
-    final options = AngleOptions(
-      width: textureWidth,
-      height: textureHeight,
-      dpr: dpr,
-      useSurfaceProducer: true
+    // web need wait dom ok!!!
+    Future.delayed(Duration(milliseconds: 100), () {
+      setup();
+    });
+  }
+
+  void setup() async {
+    sourceTexture = await angle.createTexture(      
+      AngleOptions(
+        width: width.toInt(), 
+        height: height.toInt(), 
+        dpr: dpr,
+      )
     );
+    _gl = sourceTexture.getContext();
+    ready = true;
 
-    try {
-      textures.add(await angle.createTexture(options));
-      textures.add(await angle.createTexture(options));
-    } on PlatformException catch (e) {
-      print("failed to get texture id $e");
+    setState(() {});
+    // if(!kIsWeb && Platform.isLinux){
+    //   setupDefaultFBO();
+    // }
+
+    prepare();
+    animate();
+  }
+
+  void initSize(BuildContext context) {
+    if (screenSize != null) {
       return;
     }
 
-    //resetLessons();
-    lesson = Lesson3(textures[0].getContext());
-    lesson2 = Lesson5(textures[1].getContext());
+    final mq = MediaQuery.of(context);
 
-    /// Updating all Textues takes a slighllty less than 150ms
-    /// so we can't get much faster than this at the moment because it could happen that
-    /// the timer starts a new async function while the last one hasn't finished
-    /// which creates an OpenGL Exception
-    if (!mounted) return;
-    setState(() {
-      textureId = textures[0].textureId;
-      textureId2 = textures[1].textureId;
-    });
-    // timer = Timer.periodic(const Duration(milliseconds: 16), updateTexture);
-    ticker = createTicker(updateTexture);
-    ticker.start();
-  }
+    screenSize = mq.size;
+    dpr = mq.devicePixelRatio;
 
-  Stopwatch stopwatch = Stopwatch();
-
-  late Ticker ticker;
-  static bool updating = false;
-  int animationCounter = 0;
-  int totalTime = 0;
-  int iterationCount = 60;
-  int framesOver = 0;
-  bool didInit = false;
-  void updateTexture(_) async {
-    if (textureId < 0) return;
-    if (!updating) {
-      updating = true;
-      stopwatch.reset();
-      stopwatch.start();
-      textures[0].activate();
-      lesson?.handleKeys();
-      lesson?.animate(animationCounter += 2);
-      lesson?.drawScene(-1, 0, aspect);
-      await textures[0].signalNewFrameAvailable();
-      stopwatch.stop();
-      totalTime += stopwatch.elapsedMilliseconds;
-      if (stopwatch.elapsedMilliseconds > 16) {
-        framesOver++;
-      }
-      if (--iterationCount == 0) {
-        // print('Time: ${totalTime / 60} - Framesover $framesOver');
-        totalTime = 0;
-        iterationCount = 60;
-        framesOver = 0;
-      }
-      textures[1].activate();
-      lesson2?.handleKeys();
-      lesson2?.animate(animationCounter += 2);
-      lesson2?.drawScene(-1, 0, aspect);
-      await textures[1].signalNewFrameAvailable();
-      updating = false;
-    } else {
-      print('Too slow');
-    }
-  }
-
-  Widget texture(bool useRow){
-    return useRow? Row(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Expanded(
-          child: Transform.scale(
-            scaleY: kIsWeb || Platform.isAndroid? -1: 1,
-            child: kIsWeb?textureId == -1?Container():HtmlElementView(viewType: textureId.toString()):Texture(textureId: textureId),
-          )
-        ),
-        Expanded(
-          child: Transform.scale(
-            scaleY: kIsWeb || Platform.isAndroid? -1: 1,
-            child: kIsWeb?textureId2 == -1?Container():HtmlElementView(viewType: textureId2.toString()):Texture(textureId: textureId2),
-          )
-        ),
-      ],
-    ):Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Expanded(
-          child: Transform.scale(
-            scaleY: kIsWeb || Platform.isAndroid? -1: 1,
-            child: kIsWeb?textureId == -1?Container():HtmlElementView(viewType: textureId.toString()):Texture(textureId: textureId),
-          )
-        ),
-        Expanded(
-          child: Transform.scale(
-            scaleY: kIsWeb || Platform.isAndroid? -1: 1,
-            child: kIsWeb?textureId2 == -1?Container():HtmlElementView(viewType: textureId2.toString()):Texture(textureId: textureId2),
-          )
-        ),
-      ],
-    );
-  }
-
-  Future<void> onWindowResize(BuildContext context) async{
-    final mqd = MediaQuery.of(context);
-    if(screenSize != mqd.size){
-      screenSize = mqd.size;
-      width = screenSize!.width;
-      height = screenSize!.height;
-      dpr = mqd.devicePixelRatio;
-
-      final options = AngleOptions(
-        width: width.toInt(),
-        height: height.toInt(),
-        dpr: dpr,
-      );
-      //await angle.resize(textures[0], options);
-      await angle.resize(textures[1], options);
-    }
+    print(" screenSize: ${screenSize} dpr: ${dpr} ");
+    initPlatformState();
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
+        body: Builder(
+          builder: (BuildContext context) {
+            initSize(context);
+            return SingleChildScrollView(child: _build(context));
+          },
         ),
-        body: LayoutBuilder(builder: (context, constraints) {
-          final useRow = constraints.maxWidth > constraints.maxHeight;
-          if (!didInit) {
-            initPlatformState();
-          }
-          return SizeChangedLayoutNotifier(
-            child: Builder(builder: (BuildContext context) {
-              return Container(
-                color: Colors.red,
-                child: texture(useRow)
-              );
-            })
-          );
-        }),
       ),
     );
+  }
+
+  Widget _build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+            width: width,
+            height: width,
+            color: Colors.black,
+            child: Builder(builder: (BuildContext context) {
+              if (kIsWeb) {
+                return ready
+                    ? HtmlElementView(
+                        viewType: sourceTexture.textureId.toString())
+                    : Container();
+              } else {
+                return ready
+                    ? Texture(textureId: sourceTexture.textureId)
+                    : Container();
+              }
+            })),
+      ],
+    );
+  }
+
+  void animate() {
+    render();
+
+    Future.delayed(Duration(milliseconds: 40), () {
+      animate();
+    });
+  }
+
+  void setupDefaultFBO() {
+    int glWidth = (width * dpr).toInt();
+    int glHeight =  (height * dpr).toInt();
+
+    defaultFramebuffer = _gl.createFramebuffer();
+    defaultFramebufferTexture = _gl.createTexture();
+
+    _gl.activeTexture(WebGL.TEXTURE0);
+    _gl.bindTexture(WebGL.TEXTURE_2D, defaultFramebufferTexture);
+    _gl.texImage2D(WebGL.TEXTURE_2D, 0, WebGL.RGBA, glWidth, glHeight, 0, WebGL.RGBA, WebGL.UNSIGNED_BYTE, null);
+    _gl.texParameteri(WebGL.TEXTURE_2D, WebGL.TEXTURE_MIN_FILTER, WebGL.LINEAR);
+    _gl.texParameteri(WebGL.TEXTURE_2D, WebGL.TEXTURE_MAG_FILTER, WebGL.LINEAR);
+
+    _gl.bindFramebuffer(WebGL.FRAMEBUFFER, defaultFramebuffer);
+    _gl.framebufferTexture2D(WebGL.FRAMEBUFFER, WebGL.COLOR_ATTACHMENT0, WebGL.TEXTURE_2D, defaultFramebufferTexture, 0);
+  }
+
+  Future<void> render() async{
+    int _current = DateTime.now().millisecondsSinceEpoch;
+    double _blue = sin((_current - t) / 500);
+    double _green = cos((_current - t) / 500);
+    double _red = tan((_current - t) / 500);
+
+    _gl.viewport(0, 0, width.toInt(), height.toInt());
+    _gl.clearColor(_red, _green, _blue, 1.0);
+    _gl.clear(WebGL.COLOR_BUFFER_BIT);
+    
+    _gl.useProgram(glProgram);
+    _gl.drawArrays(WebGL.TRIANGLES, 0, n);
+    _gl.gl.glFinish();
+
+    await angle.updateTexture(sourceTexture,defaultFramebufferTexture);
+  }
+
+  void prepare() {
+    var vs = """
+      #version 300 es
+      #define attribute in
+      #define varying out
+      attribute vec3 a_Position;
+      // layout (location = 0) in vec3 a_Position;
+      void main() {
+          gl_Position = vec4(a_Position, 1.0);
+      }
+    """;
+
+    var fs = """
+      #version 300 es
+      out highp vec4 pc_fragColor;
+      #define gl_FragColor pc_fragColor
+
+      void main() {
+        gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+      }
+    """;
+
+    if (!initShaders(_gl, vs, fs)) {
+      print('Failed to intialize shaders.');
+      return;
+    }
+
+    // Write the positions of vertices to a vertex shader
+    n = initVertexBuffers(_gl);
+    if (n < 0) {
+      print('Failed to set the positions of the vertices');
+      return;
+    }
+  }
+
+  int initVertexBuffers(RenderingContext gl) {
+    // Vertices
+    final dim = 3;
+    vertices = Float32Array.fromList([
+      -0.5, -0.5, 0, // Vertice #2
+      0.5, -0.5, 0, // Vertice #3
+      0, 0.5, 0, // Vertice #1
+    ]);
+    
+    // Create a buffer object
+    dynamic vertexBuffer = gl.createBuffer();
+    gl.bindBuffer(WebGL.ARRAY_BUFFER, vertexBuffer);
+    gl.bufferData(WebGL.ARRAY_BUFFER, vertices!, WebGL.STATIC_DRAW);
+
+    // Assign the vertices in buffer object to a_Position variable
+    final a_Position = gl.getAttribLocation(glProgram, 'a_Position').id;
+    if (a_Position < 0) {
+      print('Failed to get the storage location of a_Position');
+      return -1;
+    }
+
+    gl.vertexAttribPointer(a_Position, dim, WebGL.FLOAT, false, Float32List.bytesPerElement * 3, 0);
+    gl.enableVertexAttribArray(a_Position);
+
+    // Return number of vertices
+    return vertices!.length ~/ dim;
+  }
+
+  bool initShaders(RenderingContext gl, String vs_source, String fs_source) {
+    // Compile shaders
+    final vertexShader = makeShader(gl, vs_source, WebGL.VERTEX_SHADER);
+    final fragmentShader = makeShader(gl, fs_source, WebGL.FRAGMENT_SHADER);
+
+    // Create program
+    glProgram = gl.createProgram();
+
+    // Attach and link shaders to the program
+    gl.attachShader(glProgram, vertexShader);
+    gl.attachShader(glProgram, fragmentShader);
+    gl.linkProgram(glProgram);
+    final _res = gl.getProgramParameter(glProgram, WebGL.LINK_STATUS);
+    print(" initShaders LINK_STATUS _res: ${_res} ");
+    if (_res == false || _res == 0) {
+      print("Unable to initialize the shader program");
+      return false;
+    }
+
+    // Use program
+    gl.useProgram(glProgram);
+
+    return true;
+  }
+
+  dynamic makeShader(RenderingContext gl, String src, int type) {
+    dynamic shader = gl.createShader(type);
+    gl.shaderSource(shader, src);
+    gl.compileShader(shader);
+    gl.shaderSource(shader, WebGL.COMPILE_STATUS.toString());
+    // if (_res == 0 || _res == false) {
+    //   print("Error compiling shader: ${gl.getShaderInfoLog(shader)}");
+    //   return;
+    // }
+    return shader;
   }
 }
