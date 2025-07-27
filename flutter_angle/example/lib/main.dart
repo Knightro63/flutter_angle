@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:io';
 import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -75,9 +74,6 @@ class _MyAppState extends State<ExampleTriangle01> {
     ready = true;
 
     setState(() {});
-    // if(!kIsWeb && Platform.isLinux){
-    //   setupDefaultFBO();
-    // }
 
     prepare();
     animate();
@@ -140,23 +136,6 @@ class _MyAppState extends State<ExampleTriangle01> {
     Future.delayed(Duration(milliseconds: 40), () {
       animate();
     });
-  }
-
-  void setupDefaultFBO() {
-    int glWidth = (width * dpr).toInt();
-    int glHeight =  (height * dpr).toInt();
-
-    defaultFramebuffer = _gl.createFramebuffer();
-    defaultFramebufferTexture = _gl.createTexture();
-
-    _gl.activeTexture(WebGL.TEXTURE0);
-    _gl.bindTexture(WebGL.TEXTURE_2D, defaultFramebufferTexture);
-    _gl.texImage2D(WebGL.TEXTURE_2D, 0, WebGL.RGBA, glWidth, glHeight, 0, WebGL.RGBA, WebGL.UNSIGNED_BYTE, null);
-    _gl.texParameteri(WebGL.TEXTURE_2D, WebGL.TEXTURE_MIN_FILTER, WebGL.LINEAR);
-    _gl.texParameteri(WebGL.TEXTURE_2D, WebGL.TEXTURE_MAG_FILTER, WebGL.LINEAR);
-
-    _gl.bindFramebuffer(WebGL.FRAMEBUFFER, defaultFramebuffer);
-    _gl.framebufferTexture2D(WebGL.FRAMEBUFFER, WebGL.COLOR_ATTACHMENT0, WebGL.TEXTURE_2D, defaultFramebufferTexture, 0);
   }
 
   Future<void> render() async{
