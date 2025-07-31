@@ -1,3 +1,9 @@
+## 0.3.1
+
+* Fixed: WASM not being supported on pub.dev
+* Fixed: XR issues
+* Fixed: Opengl error on Android
+
 ## 0.3.0
 
 * Fixed: Android bug not rendering on devices lower than SDK version 28.

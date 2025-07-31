@@ -79,6 +79,7 @@ class FlutterAngle {
   late Pointer<Void> _EGLconfig;
   Pointer<Void> _baseAppContext = nullptr;
   Pointer<Void> _pluginContext = nullptr;
+  Pointer<Void> _dummySurface = nullptr;
   int? _activeFramebuffer;
   RenderWorker? _worker;
 
@@ -146,13 +147,21 @@ class FlutterAngle {
       return;
     }
 
-    if (Platform.isWindows) {
+    if (Platform.isWindows || (Platform.isAndroid && !_useAngle)) {
       final pluginContextAdress = result['context'] ?? result['openGLContext'];
       if (pluginContextAdress == null) {
         throw EglException('Plugin.initOpenGL didn\'t return a Context. Something is really wrong!');
       }
 
       _pluginContext = Pointer<Void>.fromAddress(pluginContextAdress);
+    }
+
+    if(Platform.isAndroid && !_useAngle){
+      final dummySurfacePointer = result['dummySurface'] as int?;
+      if (dummySurfacePointer == null) {
+        throw EglException('Plugin.initOpenGL didn\'t return a dummy surface. Something is really wrong!');
+      }
+      _dummySurface = Pointer<Void>.fromAddress(dummySurfacePointer);
     }
 
     /// Init OpenGL on the Dart side too
@@ -200,7 +209,7 @@ class FlutterAngle {
 
     if(!_isApple){
       /// bind context to this thread. All following OpenGL calls from this thread will use this context
-      eglMakeCurrent(_display, nullptr, nullptr, _baseAppContext);
+      eglMakeCurrent(_display, _dummySurface, _dummySurface, _baseAppContext);
     
       if (useDebugContext && Platform.isWindows) {
         _rawOpenGl.glEnable(GL_DEBUG_OUTPUT);
@@ -547,6 +556,7 @@ class FlutterAngle {
 
   Future<void> resize(FlutterAngleTexture texture, AngleOptions options) async{
     if(_disposed || Platform.isIOS || Platform.isAndroid) return;
+    
     final height = (options.height * options.dpr).toInt();
     final width = (options.width * options.dpr).toInt();
     if(_useSurface){
@@ -567,6 +577,8 @@ class FlutterAngle {
       texture.surfaceId = Platform.isWindows?_createEGLSurfaceFromD3DSurface(surfacePtr, width, height) :_createEGLSurfaceFromIOSurface(surfacePtr, width, height);
       eglMakeCurrent(_display, texture.surfaceId!, texture.surfaceId!, _baseAppContext);
     }
+
+    texture.options = options;
   }
 
   Future<void> updateTexture(FlutterAngleTexture texture, [WebGLTexture? sourceTexture]) async {
@@ -638,8 +650,8 @@ class FlutterAngle {
     if(_disposed) return;
     if(Platform.isLinux){
       makeCurrent(_baseAppContext);
-      _rawOpenGl.glViewport(0, 0, (texture.options.width*texture.options.dpr).toInt(),( texture.options.height*texture.options.dpr).toInt());
     }
+    _rawOpenGl.glViewport(0, 0, (texture.options.width*texture.options.dpr).toInt(),( texture.options.height*texture.options.dpr).toInt());
     
     _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, texture.fboId);
 

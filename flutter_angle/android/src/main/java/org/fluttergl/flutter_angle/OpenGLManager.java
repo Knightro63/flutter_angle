@@ -41,6 +41,14 @@ public final class OpenGLManager  {
   private android.opengl.EGLDisplay eglDisplayAndroid;
   private android.opengl.EGLConfig eglConfigAndroid;
 
+  public android.opengl.EGLContext getEGLContext() {
+    if (eglContext == null){
+      return null;
+    }
+    android.opengl.EGLContext contextAndroid = EGL14.eglGetCurrentContext();
+    return  contextAndroid;
+  }
+
   android.opengl.EGLSurface createSurfaceFromTexture(SurfaceTexture texture) {
     int [] attributes = new int[]{EGL_NONE};
     return EGL14.eglCreateWindowSurface(eglDisplayAndroid, eglConfigAndroid, texture, attributes, 0);
@@ -49,6 +57,15 @@ public final class OpenGLManager  {
   android.opengl.EGLSurface createSurfaceFromSurface(Surface surface) {
     int [] attributes = new int[]{EGL_NONE};
     return EGL14.eglCreateWindowSurface(eglDisplayAndroid, eglConfigAndroid, surface, attributes, 0);
+  }
+
+  android.opengl.EGLSurface createDummySurface() {
+    int[] surfaceAttributes = new int[]{
+      EGL_WIDTH, 16,
+      EGL_HEIGHT, 16,
+      EGL_NONE
+    };
+    return EGL14.eglCreatePbufferSurface(eglDisplayAndroid, eglConfigAndroid, surfaceAttributes,0);
   }
 
   boolean initGL() {

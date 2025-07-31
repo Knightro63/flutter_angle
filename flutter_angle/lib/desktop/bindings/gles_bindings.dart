@@ -5,6 +5,8 @@ import 'dart:ffi' as ffi;
 
 /// https://www.khronos.org/registry/OpenGL/index_es.php#headers3
 class LibOpenGLES {
+  dynamic gl;
+  
   /// Holds the Dynamic library.
   final ffi.DynamicLibrary _dylib;
 

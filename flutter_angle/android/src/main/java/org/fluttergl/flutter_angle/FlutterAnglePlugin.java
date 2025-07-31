@@ -194,8 +194,12 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
       return;
     }
 
+    long dummySurface = openGLManager.createDummySurface().getNativeHandle();
+
     Map<String, Object> response = new HashMap<>();
+    response.put("context", openGLManager.getEGLContext().getNativeHandle());
     response.put("eglConfigId", openGLManager.getConfigId());
+    response.put("dummySurface", dummySurface);
     response.put("forceOpengl", !AngleCheck.isAllowed());
     result.success(response);
   }
