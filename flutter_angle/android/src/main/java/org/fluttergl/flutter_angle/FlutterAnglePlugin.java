@@ -121,7 +121,6 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
   private MethodChannel channel;
   private OpenGLManager openGLManager = null;
   private TextureRegistry textureRegistry;
-  //private android.opengl.EGLContext context = null;
   
   private Map<Long, FlutterGLTexture> flutterTextureMap;
   private static final String TAG = "FlutterAnglePlugin";

@@ -141,6 +141,8 @@ public final class OpenGLManager  {
     egl.eglDestroySurface(eglDisplay, eglSurface);
     egl.eglDestroyContext(eglDisplay, eglContext);
     egl.eglTerminate(eglDisplay);
+
+    EGL14.eglTerminate(eglDisplayAndroid);
     Log.d(LOG_TAG, "OpenGL deinit OK.");
   }
 
