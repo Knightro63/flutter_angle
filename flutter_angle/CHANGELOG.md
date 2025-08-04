@@ -1,3 +1,8 @@
+## 0.3.3
+
+* Fixed: ios sim resize
+* Fixed: ios resize
+
 ## 0.3.2
 
 * Fixed: WASM not being supported on pub.dev
