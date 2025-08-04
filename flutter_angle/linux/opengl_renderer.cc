@@ -43,7 +43,9 @@ void OpenglRenderer::changeSize(int width, int height) {
   std::cerr << "Create Texture" <<std::endl;
   texture = FL_TEXTURE(ft);
   fl_texture_registrar_register_texture(textureRegistrar, texture);
-  textureId = fl_texture_get_id(texture);
+  if(textureId == 0){
+    textureId = fl_texture_get_id(texture);
+  }
 }
 
 void OpenglRenderer::updateTexture() {
@@ -54,9 +56,10 @@ void OpenglRenderer::dispose(bool release_context) {
   std::cerr << "Disposed of and deleted everything." << std::endl;
   glDeleteTextures(1, &texId);
   texId = 0;
-
-  fl_texture_registrar_unregister_texture(textureRegistrar,texture);
-  textureId = 0;
+  if(release_context){
+    fl_texture_registrar_unregister_texture(textureRegistrar,texture);
+    textureId = 0;
+  }
   gdk_gl_context_clear_current();
   if(release_context){
     g_object_unref(context);

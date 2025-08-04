@@ -57,7 +57,6 @@ import Flutter
         #endif
         self.renders[textureId!]!.createTexture(width: width, height: height, result: result)
       case "resizeTexture":
-        #if !targetEnvironment(simulator)
         guard let args = call.arguments as? [String: Any],
           let width = args["width"] as? Int,
           let height = args["height"] as? Int,
@@ -66,7 +65,6 @@ import Flutter
             return
           }
         self.renders[textureId]!.resizeTexture(width: width, height: height, result: result)
-        #endif
       case "deleteTexture":
         guard let args = call.arguments as? [String: Any],
           let textureId = args["textureId"] as? Int64 else {

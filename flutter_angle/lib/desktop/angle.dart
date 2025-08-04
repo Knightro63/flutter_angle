@@ -13,9 +13,10 @@ import 'lib_egl.dart';
 
 class FlutterAngleTexture {
   final int textureId;
-  late final int rboId;
+  late int rboId;
   Pointer<Void>? surfaceId;
-  late final int fboId;
+  late int fboId;
+  late int depth;
   late AngleOptions options;
   late final FlutterAngle _flutterAngle;
 
@@ -28,6 +29,7 @@ class FlutterAngleTexture {
     this.textureId,
     this.rboId,
     this.fboId,
+    this.depth,
     this.options
   ) {
     _flutterAngle = flutterAngle;
@@ -402,7 +404,54 @@ class FlutterAngle {
 
     return d3dSurface;
   }
+  int _createFBOTexture(int rboId, int width, int height){    
+    angleConsole.info(_rawOpenGl.glGetError());
+    _rawOpenGl.glActiveTexture(WebGL.TEXTURE0);
 
+    _initRenderbuffer(rboId);
+
+    var frameBufferCheck = _rawOpenGl.glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (frameBufferCheck != GL_FRAMEBUFFER_COMPLETE) {
+      angleConsole.error("Framebuffer (color) check failed: $frameBufferCheck");
+    }
+
+    _rawOpenGl.glViewport(0, 0, width, height);
+
+    Pointer<Uint32> depthBuffer = calloc();
+    _rawOpenGl.glGenRenderbuffers(1, depthBuffer.cast());
+    _rawOpenGl.glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer.value);
+    _rawOpenGl.glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, width, height);
+    _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthBuffer.value);
+    _rawOpenGl.glBindRenderbuffer(GL_RENDERBUFFER, 0);
+
+    frameBufferCheck = _rawOpenGl.glCheckFramebufferStatus(GL_FRAMEBUFFER);
+    if (frameBufferCheck != GL_FRAMEBUFFER_COMPLETE) {
+      angleConsole.error("Framebuffer (depth) check failed: $frameBufferCheck");
+    }
+    final value = depthBuffer.value;
+
+    calloc.free(depthBuffer);
+
+    return value;
+  }
+
+  void _initRenderbuffer(int rboId) {
+    if (!_isRBO) {
+      _rawOpenGl.glBindTexture(GL_TEXTURE_2D, rboId);
+      _rawOpenGl.glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, rboId, 0);
+    } 
+    else {
+      _rawOpenGl.glBindRenderbuffer(GL_RENDERBUFFER, rboId);
+      _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, rboId);
+    }
+    _rawOpenGl.glBindRenderbuffer(GL_RENDERBUFFER, 0);
+  }
+  void _resizeDepthRenderbuffer(int depthRenderbuffer, int newWidth, int newHeight) {
+    _rawOpenGl.glBindRenderbuffer(GL_RENDERBUFFER, depthRenderbuffer);
+    _rawOpenGl.glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, newWidth, newHeight);
+    _rawOpenGl.glBindRenderbuffer(GL_RENDERBUFFER, 0);
+  }
+  
   Future<FlutterAngleTexture> createTexture(AngleOptions options) async {
     final height = (options.height * options.dpr).toInt();
     final width = (options.width * options.dpr).toInt();
@@ -493,77 +542,48 @@ class FlutterAngle {
 
       return newTexture;
     }
+    else{
+      Pointer<Uint32> fbo = calloc();
+      _rawOpenGl.glGenFramebuffers(1, fbo);
+      _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, fbo.value);
 
-    Pointer<Uint32> fbo = calloc();
-    _rawOpenGl.glGenFramebuffers(1, fbo);
-    _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, fbo.value);
+      final int rbo = (result['openglTexture'] as int?) ?? (result['rbo'] as int?) ?? 0;
+      if(result['openglTexture'] != null){
+        _isRBO = false;
+      }
 
-    if(result['openglTexture'] != null){
-      _isRBO = false;
+      final value = _createFBOTexture(rbo, width, height);
+
+      final newTexture = FlutterAngleTexture(
+        this,
+        result['textureId']! as int,
+        rbo,
+        fbo.value,
+        value,
+        options
+      );
+
+      angleConsole.info(newTexture.toMap());
+      _rawOpenGl.glViewport(0, 0, width, height);
+
+      if (!options.customRenderer) {
+        _worker = RenderWorker(newTexture);
+      }
+
+      _activeFramebuffer = fbo.value;
+      calloc.free(fbo);
+
+      return newTexture;
     }
-
-    final newTexture = FlutterAngleTexture(
-      this,
-      result['textureId']! as int,
-      (result['openglTexture'] as int?) ?? (result['rbo'] as int?) ?? 0,
-      fbo.value,
-      options
-    );
-
-    angleConsole.info(newTexture.toMap());
-    angleConsole.info(_rawOpenGl.glGetError());
-    _rawOpenGl.glActiveTexture(WebGL.TEXTURE0);
-
-    if (!_isRBO) {
-      _rawOpenGl.glBindTexture(GL_TEXTURE_2D, newTexture.rboId);
-      _rawOpenGl.glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, newTexture.rboId, 0);
-    } 
-    else {
-      _rawOpenGl.glBindRenderbuffer(GL_RENDERBUFFER, newTexture.rboId);
-      _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, newTexture.rboId);
-    }
-
-    var frameBufferCheck = _rawOpenGl.glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    if (frameBufferCheck != GL_FRAMEBUFFER_COMPLETE) {
-      angleConsole.error("Framebuffer (color) check failed: $frameBufferCheck");
-    }
-
-    _rawOpenGl.glViewport(0, 0, width, height);
-
-    Pointer<Int32> depthBuffer = calloc();
-    _rawOpenGl.glGenRenderbuffers(1, depthBuffer.cast());
-    _rawOpenGl.glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer.value);
-    _rawOpenGl.glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH24_STENCIL8, width, height);
-
-    _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthBuffer.value);
-
-    frameBufferCheck = _rawOpenGl.glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    if (frameBufferCheck != GL_FRAMEBUFFER_COMPLETE) {
-      angleConsole.error("Framebuffer (depth) check failed: $frameBufferCheck");
-    }
-
-    _activeFramebuffer = fbo.value;
-
-    calloc.free(depthBuffer);
-    calloc.free(fbo);
-
-    if (!options.customRenderer) {
-      _worker = RenderWorker(newTexture);
-    }
-
-    return newTexture;
   }
 
+
   Future<void> resize(FlutterAngleTexture texture, AngleOptions options) async{
-    if(_disposed || Platform.isIOS || Platform.isAndroid) return;
+    if(_disposed || Platform.isAndroid) return;
     
     final height = (options.height * options.dpr).toInt();
     final width = (options.width * options.dpr).toInt();
-    if(_useSurface){
-      eglMakeCurrent(_display, texture.surfaceId!, texture.surfaceId!, _baseAppContext);
-      eglDestroySurface(_display, texture.surfaceId!);
-      texture.surfaceId = nullptr;
-    }
+    await deleteTexture(texture,false);
 
     final result = await _channel.invokeMethod('resizeTexture', {
       "width": width,
@@ -576,6 +596,20 @@ class FlutterAngle {
       final surfacePtr = Pointer<Void>.fromAddress(surfacePointer);
       texture.surfaceId = Platform.isWindows?_createEGLSurfaceFromD3DSurface(surfacePtr, width, height) :_createEGLSurfaceFromIOSurface(surfacePtr, width, height);
       eglMakeCurrent(_display, texture.surfaceId!, texture.surfaceId!, _baseAppContext);
+    }
+    else{
+      final int rbo = (result['openglTexture'] as int?) ?? (result['rbo'] as int?) ?? 0;
+      _initRenderbuffer(rbo);
+      _resizeDepthRenderbuffer(texture.depth, width, height);
+      texture.rboId = rbo;
+
+      if(Platform.isLinux){
+        makeCurrent(_baseAppContext);
+      }
+      else{
+        eglMakeCurrent(_display, _dummySurface, _dummySurface, _baseAppContext);
+      }
+      _rawOpenGl.glViewport(0, 0, width, height);
     }
 
     texture.options = options;
@@ -605,7 +639,7 @@ class FlutterAngle {
     }
   }
 
-  Future<void> deleteTexture(FlutterAngleTexture texture) async {
+  Future<void> deleteTexture(FlutterAngleTexture texture,[bool releaseAll = true]) async {
     if (Platform.isAndroid) {
       return;
     }
@@ -613,22 +647,28 @@ class FlutterAngle {
       makeCurrent(_baseAppContext);
     }
 
-    if(texture.surfaceId != null && texture.surfaceId != nullptr){
+    if(_useSurface && texture.surfaceId != nullptr){
       eglMakeCurrent(_display, texture.surfaceId!, texture.surfaceId!, _baseAppContext);
       eglDestroySurface(_display, texture.surfaceId!);
+      texture.surfaceId = nullptr;
     }
 
     angleConsole.warning('There is no active FlutterGL Texture to delete');
-    if (_activeFramebuffer == texture.fboId) {
+    if (_activeFramebuffer == texture.fboId && releaseAll) {
       _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, 0);
 
       Pointer<Uint32> fbo = calloc();
       fbo.value = texture.fboId;
       _rawOpenGl.glDeleteBuffers(1, fbo);
       calloc.free(fbo);
+
+      Pointer<Uint32> depth = calloc();
+      depth.value = texture.depth;
+      _rawOpenGl.glDeleteRenderbuffers(1, depth);
+      calloc.free(depth);
     }
 
-    await _channel.invokeMethod('deleteTexture',{"textureId": texture.textureId});
+    if(releaseAll) await _channel.invokeMethod('deleteTexture',{"textureId": texture.textureId});
   }
 
   void dispose([List<FlutterAngleTexture>? textures]) {
@@ -651,8 +691,8 @@ class FlutterAngle {
     if(Platform.isLinux){
       makeCurrent(_baseAppContext);
     }
+
     _rawOpenGl.glViewport(0, 0, (texture.options.width*texture.options.dpr).toInt(),( texture.options.height*texture.options.dpr).toInt());
-    
     _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, texture.fboId);
 
     // If we have an iOS EGL surface created from IOSurface, use it
