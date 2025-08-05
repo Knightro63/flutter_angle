@@ -597,7 +597,7 @@ class FlutterAngle {
       texture.surfaceId = Platform.isWindows?_createEGLSurfaceFromD3DSurface(surfacePtr, width, height) :_createEGLSurfaceFromIOSurface(surfacePtr, width, height);
       eglMakeCurrent(_display, texture.surfaceId!, texture.surfaceId!, _baseAppContext);
     }
-    else{
+    else if(result != null){
       final int rbo = (result['openglTexture'] as int?) ?? (result['rbo'] as int?) ?? 0;
       _initRenderbuffer(rbo);
       _resizeDepthRenderbuffer(texture.depth, width, height);

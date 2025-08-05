@@ -45,10 +45,11 @@ target_include_directories(${PLUGIN_NAME} INTERFACE
 )
 target_link_libraries(${PLUGIN_NAME} PRIVATE flutter)
 target_link_libraries(${PLUGIN_NAME} PRIVATE PkgConfig::GTK)
+target_include_directories(${PLUGIN_NAME} PRIVATE ${OPENGL_INCLUDE_DIRS})
 
 target_link_libraries(${PLUGIN_NAME} PRIVATE 
   EGL
-  GLEW
+  OpenGL
 )
 
 # List of absolute paths to libraries that should be bundled with the plugin.

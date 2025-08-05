@@ -29,13 +29,7 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
 	} 
 	else if (strcmp(method, "initOpenGL") == 0){
     g_autoptr(GError) error = nullptr;
-    glewExperimental = GL_TRUE;
-    GLenum err = glewInit();
-    if (GLEW_OK != err){
-      std::cout << "Error: " << glewGetErrorString(err) << std::endl;
-      return;
-    }
-
+    
     self->window = gtk_widget_get_parent_window(GTK_WIDGET(self->fl_view));
     printf(".... initOpenGL\n");
 
