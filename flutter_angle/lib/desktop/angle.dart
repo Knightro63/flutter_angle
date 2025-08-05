@@ -573,6 +573,8 @@ class FlutterAngle {
       _activeFramebuffer = fbo.value;
       calloc.free(fbo);
 
+      _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
       return newTexture;
     }
   }
@@ -630,7 +632,10 @@ class FlutterAngle {
       eglSwapBuffers(_display, texture.surfaceId!);
     }
     else{
-      _rawOpenGl.glFlush();
+      _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, 0);
+      if(Platform.isIOS){
+        _rawOpenGl.glFlush();
+      }
       assert(_activeFramebuffer != null, 'There is no active FlutterGL Texture to update');
     }
 
@@ -655,7 +660,14 @@ class FlutterAngle {
 
     angleConsole.warning('There is no active FlutterGL Texture to delete');
     if (_activeFramebuffer == texture.fboId && releaseAll) {
-      _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, 0);
+      _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, texture.fboId);
+      if (!_isRBO) _rawOpenGl.glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,GL_TEXTURE_2D, 0, 0); //unbind texutre
+      else _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, 0); //unbind colorbutter
+      _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, 0); //unbind depth buffer
+      _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+      _rawOpenGl.glClearColor(0.0, 0.0, 0.0, 0.0);
+      _rawOpenGl.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 
       Pointer<Uint32> fbo = calloc();
       fbo.value = texture.fboId;
