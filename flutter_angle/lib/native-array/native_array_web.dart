@@ -54,7 +54,7 @@ class NativeFloat32Array extends PlatformNativeArray<double> {
   }
 
   @override
-  List<double> toDartList() => _list;
+  Float32List toDartList() => _list;
 
   // setAt(newList, int index) {
   //   this
@@ -85,7 +85,7 @@ class NativeUint16Array extends PlatformNativeArray<int> {
   }
 
   @override
-  List<int> toDartList() => _list;
+  Uint16List toDartList() => _list;
 }
 
 class NativeUint32Array extends PlatformNativeArray<int> {
@@ -109,7 +109,7 @@ class NativeUint32Array extends PlatformNativeArray<int> {
   }
 
   @override
-  List<int> toDartList() => _list;
+  Uint32List toDartList() => _list;
 }
 
 class NativeInt8Array extends PlatformNativeArray<int> {
@@ -134,7 +134,7 @@ class NativeInt8Array extends PlatformNativeArray<int> {
   }
 
   @override
-  List<int> toDartList() => _list;
+  Int8List toDartList() => _list;
 }
 
 class NativeInt16Array extends PlatformNativeArray<int> {
@@ -159,7 +159,7 @@ class NativeInt16Array extends PlatformNativeArray<int> {
   }
 
   @override
-  List<int> toDartList() => _list;
+  Int16List toDartList() => _list;
 }
 
 class NativeInt32Array extends PlatformNativeArray<int> {
@@ -184,7 +184,7 @@ class NativeInt32Array extends PlatformNativeArray<int> {
   }
 
   @override
-  List<int> toDartList() => _list;
+  Int32List toDartList() => _list;
 }
 
 class NativeUint8Array extends PlatformNativeArray<int> {
@@ -209,7 +209,7 @@ class NativeUint8Array extends PlatformNativeArray<int> {
   }
 
   @override
-  List<int> toDartList() => _list;
+  Uint8List toDartList() => _list;
 }
 
 class NativeFloat64Array extends PlatformNativeArray<double> {
@@ -234,5 +234,5 @@ class NativeFloat64Array extends PlatformNativeArray<double> {
   }
 
   @override
-  List<double> toDartList() => _list;
+  Float64List toDartList() => _list;
 }

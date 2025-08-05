@@ -115,7 +115,7 @@ class RenderingContext {
     ptr.asTypedList(1).setAll(0, _texturesList);
     gl.glDeleteVertexArrays(1, ptr);
     calloc.free(ptr);
-    checkError('deleteFramebuffer');
+    checkError('deleteVertexArray');
   }
 
   void drawArraysInstanced(int mode, int first, int count, int instanceCount){

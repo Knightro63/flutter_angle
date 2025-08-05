@@ -1,3 +1,5 @@
+import 'dart:js_interop';
+
 import 'package:flutter/foundation.dart';
 import '../shared/render_worker.dart';
 import '../shared/classes.dart';
@@ -43,11 +45,11 @@ class FlutterAngleTexture {
         _libOpenGLES = LibOpenGLES(rc);
       }
       else{
-        var rc = surfaceId?.getContext(
+        var rc = (surfaceId as html.HTMLCanvasElement?)?.getContext(
           "webgl2", {
             "alpha": options.alpha, 
             "antialias": options.antialias
-          }
+          }.jsify()
         );
         _libOpenGLES = LibOpenGLES(rc);
       }
@@ -141,7 +143,7 @@ class FlutterAngle{
   Future<void> deleteTexture(FlutterAngleTexture texture) async {}
   void activateTexture(FlutterAngleTexture texture) {}
   void printOpenGLError(String message) {}
-  void dispose([List<FlutterAngleTexture>? textures]){
+  void dispose([List<FlutterAngleTexture?>? textures]){
     _worker?.dispose();
     _worker = null;
   }
