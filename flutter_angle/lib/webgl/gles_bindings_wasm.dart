@@ -378,3 +378,7 @@ external void glUniform2ui(JSObject gl, JSAny? location, int v0, int v1);
 external void glUniform3ui(JSObject gl, JSAny? location, int v0, int v1, int v2);
 @JS()
 external void glUniform4ui(JSObject gl, JSAny? location, int v0, int v1, int v2, int v3);
+@JS()
+external void glDrawingBufferColorSpace(JSObject gl, String colorSpace);
+@JS()
+external void glUnpackColorSpace(JSObject gl, String colorSpace);

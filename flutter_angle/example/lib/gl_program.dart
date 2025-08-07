@@ -44,7 +44,7 @@ class GlProgram {
     gl.linkProgram(program);
 
     for (String attrib in attributeNames) {
-      int attributeLocation = gl.getAttribLocation(program, attrib).id;
+      var attributeLocation = gl.getAttribLocation(program, attrib).id;
       gl.enableVertexAttribArray(attributeLocation);
       gl.checkError(attrib);
       attributes[attrib] = attributeLocation;

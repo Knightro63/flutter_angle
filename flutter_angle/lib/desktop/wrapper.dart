@@ -78,7 +78,7 @@ class RenderingContext {
   void bufferSubData(int target, int dstByteOffset, NativeArray srcData){
     startCheck('bufferSubData');
     gl.glBufferSubData(target, dstByteOffset, srcData.lengthInBytes, srcData.data);
-    checkError('texSubImage2D');
+    checkError('bufferSubData');
   }
 
   TransformFeedback createTransformFeedback() {
@@ -231,7 +231,7 @@ class RenderingContext {
   ){
     startCheck('texSubImage3D');
     gl.glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type,pixels?.data ?? nullptr);
-    checkError('texSubImage2D');
+    checkError('texSubImage3D');
   }
 
   void transformFeedbackVaryings(Program program, int count, List<String> varyings, int bufferMode) {
@@ -1111,7 +1111,7 @@ class RenderingContext {
   // //JS ('texSubImage2D')
   void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, NativeArray? pixels){
     startCheck('texSubImage2D');
-    gl.glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type,pixels?.data ?? nullptr);
+    gl.glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels?.data ?? nullptr);
     checkError('texImage2D');
   }
 
@@ -1349,4 +1349,11 @@ class RenderingContext {
   Future<void> makeXRCompatible() async{
     throw('Web Only!');
   }
+
+  set drawingBufferColorSpace(String cspace) => {
+    gl.glEnable(GL_FRAMEBUFFER_SRGB_EXT)
+  };
+  set unpackColorSpace(String cspace) => {
+    gl.glEnable(GL_FRAMEBUFFER_SRGB_EXT)
+  };
 }

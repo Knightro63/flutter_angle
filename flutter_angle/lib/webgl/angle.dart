@@ -1,13 +1,9 @@
-import 'dart:js_interop';
-
-import 'package:flutter/foundation.dart';
 import '../shared/render_worker.dart';
 import '../shared/classes.dart';
 import '../shared/options.dart';
 import 'dart:async';
 import 'package:web/web.dart' as html;
-import 'wrapper_wasm.dart'
-  if(dart.library.js) 'wrapper.dart';
+import 'wrapper_wasm.dart';
 import 'gles_bindings.dart';
 import 'dart:ui_web' as ui;
 
@@ -40,19 +36,8 @@ class FlutterAngleTexture {
 
   LibOpenGLES get rawOpenGl {
     if (_libOpenGLES == null) {
-      if(kIsWasm){
-        final rc = RenderingContext.createCanvas(surfaceId);
-        _libOpenGLES = LibOpenGLES(rc);
-      }
-      else{
-        var rc = (surfaceId as html.HTMLCanvasElement?)?.getContext(
-          "webgl2", {
-            "alpha": options.alpha, 
-            "antialias": options.antialias
-          }.jsify()
-        );
-        _libOpenGLES = LibOpenGLES(rc);
-      }
+      final rc = RenderingContext.createCanvas(surfaceId);
+      _libOpenGLES = LibOpenGLES(rc);
     }
 
     return _libOpenGLES!;

@@ -1065,4 +1065,7 @@ class RenderingContext{
     JSPromise<JSAny?> jsp = glMakeXRCompatible(_gl);
     await jsp.toDart;
   }
+
+  set drawingBufferColorSpace(cspace) => glDrawingBufferColorSpace(_gl,cspace);
+  set unpackColorSpace(cspace) => glUnpackColorSpace(_gl,cspace);
 }

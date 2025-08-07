@@ -603,3 +603,11 @@ function  readCurrentPixels(gl, x, y, width, height) {
   gl.readPixels(x, y, width, height, WebGL.RGBA, WebGL.UNSIGNED_BYTE, buffer);
   return buffer;
 }
+
+function glDrawingBufferColorSpace(gl,colorSpace){
+  gl.drawingBufferColorSpace = colorSpace;
+}
+
+function glUnpackColorSpace(gl,colorSpace){
+  gl.unpackColorSpace = colorSpace;
+}

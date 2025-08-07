@@ -58,10 +58,10 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
  - Set AngleOptions useSurfaceProducer to false for legacy build
 
 **Web**
- - WebGL2 supported
+ - WebGL2 supported. please add `<script src="https://cdn.jsdelivr.net/gh/Knightro63/flutter_angle/assets/gles_bindings.js"></script>` to your index.html to load the js_interop file
 
 **WASM**
- - WebGL2 supported; please add `<script src="https://cdn.jsdelivr.net/gh/Knightro63/flutter_angle/assets/gles_bindings.js"></script>` to your index.html to load the js_interop file
+ - WebGL2 supported. please add `<script src="https://cdn.jsdelivr.net/gh/Knightro63/flutter_angle/assets/gles_bindings.js"></script>` to your index.html to load the js_interop file
 
 **Linux**
  - Ubuntu supported (Tested on Linux Mint)

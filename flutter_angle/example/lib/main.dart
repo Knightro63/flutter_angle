@@ -85,6 +85,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin, Widg
 
     try {
       textures.add(await angle.createTexture(options));
+      await Future.delayed(Duration(milliseconds: 300));
       textures.add(await angle.createTexture(options));
     } on PlatformException catch (e) {
       print("failed to get texture id $e");
