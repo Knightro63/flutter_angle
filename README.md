@@ -66,8 +66,7 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
 **Linux**
  - Ubuntu supported (Tested on Linux Mint)
  - OpenGL supported
- - Please install `sudo apt install libglew-dev`
-
+s
 ## Getting started
 
 To get started add flutter_angle to your pubspec.yaml file.

@@ -1,3 +1,9 @@
+## 0.3.4
+
+* Fixed: web release bug
+* Removed a permanate memory hold
+* Removed: glew from linux
+
 ## 0.3.3
 
 * Fixed: ios sim resize

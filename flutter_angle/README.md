@@ -66,7 +66,6 @@ This is a dart conversion of [flutter_web_gl](https://github.com/FlutterGL/flutt
 **Linux**
  - Ubuntu supported (Tested on Linux Mint)
  - OpenGL supported
- - Please install `sudo apt install libglew-dev`
 
 ## Getting started
 
