@@ -1,11 +1,11 @@
-function glCanvas(canvas) {
+function glCanvas(canvas,options) {
   // const canvas = document.createElement("canvas");
   // canvas.id = id;
   // canvas.width = width; // Set width to 800 pixels
   // canvas.height = height; // Set height to 600 pixels
 
   document.body.appendChild(canvas);
-  const glp = canvas.getContext("webgl2");
+  const glp = canvas.getContext("webgl2",options);
   if (!glp) {
     alert("Your browser does not support WebGL 2.");
     return;

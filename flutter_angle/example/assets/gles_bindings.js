@@ -1,11 +1,11 @@
-function glCanvas(canvas) {
+function glCanvas(canvas,options) {
   // const canvas = document.createElement("canvas");
   // canvas.id = id;
   // canvas.width = width; // Set width to 800 pixels
   // canvas.height = height; // Set height to 600 pixels
 
   document.body.appendChild(canvas);
-  const glp = canvas.getContext("webgl2");
+  const glp = canvas.getContext("webgl2",options);
   if (!glp) {
     alert("Your browser does not support WebGL 2.");
     return;
@@ -602,4 +602,12 @@ function  readCurrentPixels(gl, x, y, width, height) {
   buffer = Uint8List(_len);
   gl.readPixels(x, y, width, height, WebGL.RGBA, WebGL.UNSIGNED_BYTE, buffer);
   return buffer;
+}
+
+function glDrawingBufferColorSpace(gl,colorSpace){
+  gl.drawingBufferColorSpace = colorSpace;
+}
+
+function glUnpackColorSpace(gl,colorSpace){
+  gl.unpackColorSpace = colorSpace;
 }

@@ -80,6 +80,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin, Widg
       width: textureWidth,
       height: textureHeight,
       dpr: dpr,
+      antialias: true,
       useSurfaceProducer: true
     );
 

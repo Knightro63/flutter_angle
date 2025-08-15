@@ -32,8 +32,8 @@ class RenderingContext{
     angleConsole.info('Start: $type');
   }
 
-  static dynamic createCanvas(JSObject _divId){
-    return glCanvas(_divId);
+  static dynamic createCanvas(JSObject _divId, [JSAny? options]){
+    return glCanvas(_divId,options);
   }
 
   void scissor(int x, int y, int width, int height){

@@ -1,7 +1,7 @@
 import 'dart:js_interop';
 
 @JS()
-external JSObject glCanvas(JSObject id);
+external JSObject glCanvas(JSObject id, JSAny? options);
 
 @JS()
 external JSPromise<JSAny?> glMakeXRCompatible(JSObject gl);

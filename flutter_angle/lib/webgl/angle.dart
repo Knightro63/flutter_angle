@@ -1,3 +1,5 @@
+import 'dart:js_interop';
+
 import '../shared/render_worker.dart';
 import '../shared/classes.dart';
 import '../shared/options.dart';
@@ -36,7 +38,13 @@ class FlutterAngleTexture {
 
   LibOpenGLES get rawOpenGl {
     if (_libOpenGLES == null) {
-      final rc = RenderingContext.createCanvas(surfaceId);
+      final rc = RenderingContext.createCanvas(
+        surfaceId,
+        {
+          "alpha": options.alpha, 
+          "antialias": options.antialias
+        }.jsify()
+      );
       _libOpenGLES = LibOpenGLES(rc);
     }
 
