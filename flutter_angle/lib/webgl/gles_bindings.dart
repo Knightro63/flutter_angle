@@ -1,6 +1,5 @@
 import 'dart:js_interop';
 import 'dart:typed_data';
-import 'package:flutter/foundation.dart';
 import './gles_bindings_wasm.dart' as gles;
 import '../shared/webgl.dart';
 import '../shared/classes.dart';
@@ -171,15 +170,15 @@ class LibOpenGLES{
     gles.glGenerateMipmap(gl, target);
   }
 
-  void glDeleteTexture(int v0) {
-    gles.glGenerateMipmap(gl, v0);
+  void glDeleteTexture(dynamic v0) {
+    gles.glDeleteTexture(gl, v0);
   }
 
-  void glDeleteFramebuffer(int framebuffer) {
+  void glDeleteFramebuffer(dynamic framebuffer) {
     gles.glDeleteFramebuffer(gl, framebuffer);
   }
 
-  void deleteRenderbuffer(int renderbuffer) {
+  void deleteRenderbuffer(dynamic renderbuffer) {
     gles.glDeleteRenderbuffer(gl, renderbuffer);
   }
 
@@ -526,7 +525,7 @@ class LibOpenGLES{
   int glCreateTransformFeedback() {
     return gles.glCreateTransformFeedback(gl);
   }
-  void glBindTransformFeedback(int target, int id){
+  void glBindTransformFeedback(int target, dynamic id){
     gles.glBindTransformFeedback(gl, target, id);
   }
 
@@ -534,11 +533,11 @@ class LibOpenGLES{
     gles.glTransformFeedbackVaryings(gl, program, varyings.jsify(), bufferMode);
   }
 
-  void glDeleteTransformFeedback(int transformFeedback) {
+  void glDeleteTransformFeedback(dynamic transformFeedback) {
     gles.glDeleteTransformFeedback(gl, transformFeedback);
   }
 
-  bool isTransformFeedback(int transformFeedback) {
+  bool isTransformFeedback(dynamic transformFeedback) {
     return gles.isTransformFeedback(gl, transformFeedback);
   }
 
@@ -569,7 +568,7 @@ class LibOpenGLES{
   Uint8List readCurrentPixels(int x, int y, int width, int height) {
     int _len = width * height * 4;
     var buffer = Uint8List(_len);
-    gl.readPixels(x, y, width, height, WebGL.RGBA, WebGL.UNSIGNED_BYTE, buffer);
+    gles.glReadPixels(gl, x, y, width, height, WebGL.RGBA, WebGL.UNSIGNED_BYTE, buffer.jsify());
     return buffer;
   }
 

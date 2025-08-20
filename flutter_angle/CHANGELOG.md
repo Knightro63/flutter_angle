@@ -1,3 +1,8 @@
+## 0.3.5
+
+* Fixed: Some web bindings
+* Fixed: Web worker rendering backwards
+
 ## 0.3.4
 
 * Fixed: web release bug
