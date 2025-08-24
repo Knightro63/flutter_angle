@@ -11,13 +11,13 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Set paths based on build type
-if(CMAKE_BUILD_TYPE STREQUAL "Debug")
-    set(ANGLE_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../debug/jniLibs/${ANDROID_ABI})
-    set(OUTPUT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../debug/jniLibs/${ANDROID_ABI})
-else()
+# if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+#     set(ANGLE_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../debug/jniLibs/${ANDROID_ABI})
+#     set(OUTPUT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../debug/jniLibs/${ANDROID_ABI})
+# else()
     set(ANGLE_LIB_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../release/jniLibs/${ANDROID_ABI})
     set(OUTPUT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../release/jniLibs/${ANDROID_ABI})
-endif()
+# endif()
 
 message(STATUS "ANGLE_LIB_DIR: ${ANGLE_LIB_DIR}")
 message(STATUS "OUTPUT_DIR: ${OUTPUT_DIR}")
