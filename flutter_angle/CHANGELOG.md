@@ -1,3 +1,7 @@
+## 0.3.6
+
+* Removed ANGLE spamming issue on debug
+
 ## 0.3.5
 
 * Fixed: Some web bindings
