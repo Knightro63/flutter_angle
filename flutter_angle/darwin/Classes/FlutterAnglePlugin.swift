@@ -7,20 +7,12 @@ import Flutter
 @objc public class FlutterAnglePlugin: NSObject, FlutterPlugin {
   // Flutter texture-related
   private var textureRegistry: FlutterTextureRegistry
-  #if targetEnvironment(simulator)
   private var eglInfo: EGLInfo?
   private var renders: [Int64: FlutterAngleSimPlugin];
-  #else
-  private var renders: [Int64: FlutterAngleOSPlugin];
-  #endif
     
   init(textureRegistry: FlutterTextureRegistry) {
     self.textureRegistry = textureRegistry;
-    #if targetEnvironment(simulator)
     self.renders = [Int64: FlutterAngleSimPlugin]();
-    #else
-    self.renders = [Int64: FlutterAngleOSPlugin]();
-    #endif
   }
     
   public static func register(with registrar: FlutterPluginRegistrar) {
@@ -45,16 +37,10 @@ import Flutter
             return
         }
         var textureId: Int64?;
-        #if targetEnvironment(simulator)
         let render = FlutterAngleSimPlugin(textureRegistry: textureRegistry);
-        #else
-        let render = FlutterAngleOSPlugin(textureRegistry: textureRegistry);
-        #endif
         textureId = render.textureId;
         self.renders[textureId!] = render;
-        #if targetEnvironment(simulator)
         self.renders[textureId!]!.setInfo(info: eglInfo)
-        #endif
         self.renders[textureId!]!.createTexture(width: width, height: height, result: result)
       case "resizeTexture":
         guard let args = call.arguments as? [String: Any],
@@ -74,13 +60,7 @@ import Flutter
         self.renders[textureId]!.disposeTexture()
         self.renders.removeValue(forKey: textureId);
       case "getIOSurfaceHandle":
-        #if !targetEnvironment(simulator)
-        guard let textureId = call.arguments as? Int64 else {
-          result(FlutterError(code: "INVALID_ARGS", message: "Invalid texture ID", details: nil))
-          return
-        }
-        self.renders[textureId]!.getIOSurfaceHandle(result: result)
-        #endif
+        return;
       case "textureFrameAvailable", "updateTexture":
         guard let args = call.arguments as? [String: Any],
           let textureId = args["textureId"] as? Int64 else {
@@ -89,13 +69,9 @@ import Flutter
         }
         self.renders[textureId]!.textureFrameAvailable(result: result)
       case "initOpenGL":
-        #if targetEnvironment(simulator)
         eglInfo = nil
         eglInfo = FlutterAngleSimPlugin.initOpenGL(result: result)
         result(["isSimulator": true])
-        #else
-        result(["isSimulator": false])
-        #endif
       default:
         result(FlutterMethodNotImplemented)
     }

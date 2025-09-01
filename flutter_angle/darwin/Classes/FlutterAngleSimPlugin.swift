@@ -1,8 +1,11 @@
-#if targetEnvironment(simulator)
+//#if targetEnvironment(simulator)
 
+#if os(macOS)
+import FlutterMacOS
+#elseif os(iOS)
 import Flutter
-import libEGL
-import libGLESv2
+#endif
+import MetalANGLE
 
 private struct TextureInfo {
   var metalTextureId: UInt32 = 0
@@ -11,6 +14,9 @@ private struct TextureInfo {
 }
 public struct EGLInfo {
   var eglDisplay: UnsafeMutableRawPointer
+  var eglContext: EGLContext?
+  var eglSurface: EGLSurface?
+  var dartSurface: EGLSurface?
 }
 
 @objc public class FlutterAngleSimPlugin: NSObject{
@@ -63,8 +69,6 @@ public struct EGLInfo {
       EGL_ALPHA_SIZE, 8,
       EGL_DEPTH_SIZE, 24,
       EGL_STENCIL_SIZE, 8,
-      EGL_RENDERABLE_TYPE, EGL_OPENGL_ES3_BIT,
-      EGL_SURFACE_TYPE, EGL_PBUFFER_BIT,
       EGL_NONE
     ]
       
@@ -92,6 +96,32 @@ public struct EGLInfo {
       return nil
     }
 
+    var layer: CALayer = CALayer.init()
+    layer.frame = CGRectMake(0, 0, 1, 1)
+    var layer2: CALayer = CALayer.init()
+    layer2.frame = CGRectMake(0, 0, 1, 1);
+      
+    let nativeWindow = unsafeBitCast(layer, to: EGLNativeWindowType.self)
+    let surface = eglCreateWindowSurface(display, configs, nativeWindow, nil)
+    let nativeWindow2 = unsafeBitCast(layer2, to: EGLNativeWindowType.self)
+    let dartSurface = eglCreateWindowSurface(display, configs, nativeWindow2, nil)
+
+    if (surface == nil || dartSurface == nil){
+      result(FlutterError(code: "Flutter Angle Error", message: "Failed to get Surface", details: nil))
+      return nil
+    }
+    
+      let contextAttribs: [EGLint] = [
+          EGL_CONTEXT_CLIENT_VERSION, 3, // Specify OpenGL ES 2.0
+          EGL_NONE
+      ]
+    var context: EGLContext? = eglCreateContext(display, configs, nil, contextAttribs)
+      
+    if eglMakeCurrent(display, surface, surface, context) != 1 {
+      result(FlutterError(code: "Flutter Angle Error", message: "Failed to get Create Context", details: nil))
+      return nil
+    }
+
     // Print OpenGL information
     if let version = glGetString(GLenum(GL_VERSION)),
         let vendor = glGetString(GLenum(GL_VENDOR)),
@@ -102,14 +132,18 @@ public struct EGLInfo {
     // Ensure the context value is explicitly included
     let results: [String: Any] = [
       "isSimulator": true,
-      "eglConfigId": Int(configId),
+      "context": Int(bitPattern: context),
+      "dummySurface": Int(bitPattern: dartSurface),
       "openGLVersion": "OpenGL ES 3.0 ANGLE"
     ]
     
     print("InitOpenGL returning: \(results)")
     result(results)
     return EGLInfo(
-      eglDisplay: display
+      eglDisplay: display,
+      eglContext: context,
+      eglSurface: surface,
+      dartSurface: dartSurface
     )
   }
 
@@ -163,7 +197,7 @@ public struct EGLInfo {
       return nil;
     }
     
-    if (eglQueryDeviceAttribEXT((EGLDeviceEXT)(bitPattern: angleDevice)!, EGL_METAL_DEVICE_ANGLE, &device) != EGL_TRUE){
+    if (eglQueryDeviceAttribEXT((EGLDeviceEXT)(bitPattern: angleDevice)!, EGL_MTL_DEVICE_ANGLE, &device) != EGL_TRUE){
       return nil;
     }
 
@@ -202,7 +236,7 @@ public struct EGLInfo {
     let metalTexture = CVMetalTextureGetTexture(metalImageBuf!)
 
     // Call the function
-    textures!.eglImage = eglCreateImageKHR(eglInfo!.eglDisplay, nil, EGLenum(EGL_METAL_TEXTURE_ANGLE), unsafeBitCast(metalTexture!, to: EGLClientBuffer.self), [EGL_NONE])
+    textures!.eglImage = eglCreateImageKHR(eglInfo!.eglDisplay, nil, EGLenum(EGL_MTL_TEXTURE_MGL), unsafeBitCast(metalTexture!, to: EGLClientBuffer.self), [EGL_NONE])
     
     glGenTextures(1, &textures!.metalTextureId)
     glBindTexture(GLenum(GL_TEXTURE_2D), textures!.metalTextureId)
@@ -242,6 +276,13 @@ public struct EGLInfo {
       print("Failed to make EGL_NO_CONTEXT current during cleanup")
     }
 
+    let eglContext = eglInfo!.eglContext
+    eglDestroyContext(eglDisplay,eglContext)
+      
+    let surface = eglInfo!.eglSurface
+    let dartSurface = eglInfo!.dartSurface
+    eglDestroySurface(eglDisplay, surface)
+    eglDestroySurface(eglDisplay, dartSurface)
     glDeleteTextures(1, &textures!.metalTextureId)
     eglDestroyImageKHR(eglDisplay, textures!.eglImage)
 
@@ -268,4 +309,4 @@ extension FlutterAngleSimPlugin: FlutterTexture {
     return nil
   }
 }
-#endif
+//#endif

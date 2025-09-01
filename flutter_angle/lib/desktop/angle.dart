@@ -133,7 +133,19 @@ class FlutterAngle {
       result = await _channel.invokeMethod('initOpenGL');
 
       if(_isApple){
-        _isApple = result['isSimulator'] == null?_isApple:!result['isSimulator'];
+        _isApple = false;//result['isSimulator'] == null?_isApple:!result['isSimulator'];
+        final dummySurfacePointer = result['dummySurface'] as int?;
+        if (dummySurfacePointer == null) {
+          throw EglException('Plugin.initOpenGL didn\'t return a dummy surface. Something is really wrong!');
+        }
+        _dummySurface = Pointer<Void>.fromAddress(dummySurfacePointer);
+
+        final pluginContextAdress = result['context'] ?? result['openGLContext'];
+        if (pluginContextAdress == null) {
+          throw EglException('Plugin.initOpenGL didn\'t return a Context. Something is really wrong!');
+        }
+
+        _pluginContext = Pointer<Void>.fromAddress(pluginContextAdress);
       }
     }
 
@@ -190,7 +202,7 @@ class FlutterAngle {
         EglConfigAttribute.blueSize: 8,
         EglConfigAttribute.alphaSize: 8,
         EglConfigAttribute.depthSize: 24,
-        EglConfigAttribute.samples: 4,
+        //EglConfigAttribute.samples: 4,
         EglConfigAttribute.stencilSize: 8,
       };
     }
@@ -635,7 +647,7 @@ class FlutterAngle {
     }
     else{
       _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, 0);
-      if(Platform.isIOS){
+      if(Platform.isIOS || Platform.isMacOS){
         _rawOpenGl.glFlush();
       }
       assert(_activeFramebuffer != null, 'There is no active FlutterGL Texture to update');

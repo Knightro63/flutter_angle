@@ -1,0 +1,6 @@
+framework module MetalANGLE {
+  umbrella header "angle_gl.h"
+  
+  export *
+  module * { export * }
+}

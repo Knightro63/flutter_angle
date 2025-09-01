@@ -12,17 +12,22 @@ Pod::Spec.new do |s|
   s.license          = { :file => '../LICENSE' }
   s.authors          = 'Multiple Authors'
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*.{h,m,swift,inc,plist}'
-  s.public_header_files = 'Classes/**/*.{h,inc}'
+  s.source_files = 'Classes/**/*'
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES'}  
   s.swift_version = '5.0'
   s.library = 'c++'
 
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES'} 
-  s.dependency 'FlutterAngle', '~> 0.0.8'
-
   s.osx.dependency 'FlutterMacOS'
-  s.osx.deployment_target = '10.14'
+  s.osx.deployment_target = '10.13'
+  s.osx.preserve_paths = 'osxFramework/MetalANGLE.framework'
+  s.osx.xcconfig = { 'OTHER_LDFLAGS' => '-framework MetalANGLE', 'HEADER_SEARCH_PATHS' => '${PODS_TARGET_SRCROOT}/osxFramework/MetalANGLE.framework/Headers'}
+  s.osx.vendored_frameworks = 'osxFramework/MetalANGLE.framework'
 
   s.ios.dependency 'Flutter'
-  s.ios.deployment_target = '12.0'
+  s.ios.deployment_target = '11.0'
+  s.ios.preserve_paths = 'iosFramework/MetalANGLE.framework'
+  s.ios.xcconfig = { 'OTHER_LDFLAGS' => '-framework MetalANGLE', 'HEADER_SEARCH_PATHS' => '"${PODS_TARGET_SRCROOT}/iosFramework/MetalANGLE.framework/Headers"'}
+  s.ios.vendored_frameworks = 'iosFramework/MetalANGLE.framework'
+
+  s.library = 'c++'
 end
