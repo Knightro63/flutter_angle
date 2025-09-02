@@ -679,10 +679,7 @@ class FlutterAngle {
       else _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, 0); //unbind colorbutter
       _rawOpenGl.glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, 0); //unbind depth buffer
       _rawOpenGl.glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
-      _rawOpenGl.glClearColor(0.0, 0.0, 0.0, 0.0);
-      _rawOpenGl.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-
+      
       Pointer<Uint32> fbo = calloc();
       fbo.value = texture.fboId;
       _rawOpenGl.glDeleteBuffers(1, fbo);
