@@ -175,7 +175,7 @@ void FlutterGLTexture::changeSize(int setWidth, int setHeight, std::unique_ptr<f
     
     try {
       pixels.reset(new uint8_t[size]);
-    } catch (const std::bad_alloc& e) {
+    } catch (const std::bad_alloc&) {
       result->Error("Memory allocation failed", "Failed to allocate memory for texture buffer");
       return;
     }
