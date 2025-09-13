@@ -127,6 +127,22 @@ namespace {
         return;
       }
 
+      // Input validation to prevent crashes
+      const int MAX_TEXTURE_SIZE = 8192;
+      if (width <= 0 || height <= 0) {
+        result->Error("Invalid texture dimensions", "Width and height must be positive");
+        return;
+      }
+      if (width > MAX_TEXTURE_SIZE || height > MAX_TEXTURE_SIZE) {
+        result->Error("Texture too large", "Width and height must be less than " + std::to_string(MAX_TEXTURE_SIZE));
+        return;
+      }
+      // Check for potential integer overflow
+      if (width > INT_MAX / height / 4) {
+        result->Error("Texture too large", "Texture dimensions would cause integer overflow");
+        return;
+      }
+
       std::unique_ptr<FlutterGLTexture> flutterGLTexture;
 
       try{
@@ -147,8 +163,14 @@ namespace {
         renderers.insert(RendererMap::value_type(textureId, std::move(flutterGLTexture)));
         renderers[textureId]->createTexture(result);
       }
-      catch (OpenGLException ex){
-        result->Error(ex.message + ':' + std::to_string(ex.error));
+      catch (const OpenGLException& ex){
+        result->Error(std::string(ex.message) + ":" + std::to_string(ex.error));
+      }
+      catch (const std::exception& ex) {
+        result->Error("Standard exception", ex.what());
+      }
+      catch (...) {
+        result->Error("Unknown exception", "An unknown exception occurred during texture creation");
       }
     }
     else if (method_call.method_name().compare("updateTexture") == 0 || method_call.method_name().compare("textureFrameAvailable") == 0) {
