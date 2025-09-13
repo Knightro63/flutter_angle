@@ -1,0 +1,10 @@
+[33m67707ff[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m updates for pub dev
+[33mc113385[m Fixed ANGLE spamming issue on debug
+[33mc89d398[m Fixed binding error
+[33mc96e25a[m added antialias to web
+[33mde96ed3[m pub dev updates
+[33m9570127[m Fixed web release bug
+[33mb36beeb[m making web consistent and looking for memory leaks
+[33m0654066[m updates to fix Linux artifacts
+[33m815652a[m removed glew
+[33mb1df2ce[m update for pub dev
