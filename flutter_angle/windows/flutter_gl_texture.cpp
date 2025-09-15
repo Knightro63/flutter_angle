@@ -165,6 +165,10 @@ void FlutterGLTexture::changeSize(int setWidth, int setHeight, std::unique_ptr<f
     return;
   }
   if(structure.useBuffer){
+    // Update internal dimensions for buffer mode as well
+    structure.width = setWidth;
+    structure.height = setHeight;
+
     int64_t size = setWidth * setHeight * 4;
     
     // Additional safety check
@@ -190,6 +194,17 @@ void FlutterGLTexture::changeSize(int setWidth, int setHeight, std::unique_ptr<f
     pixelBuffer->width = setWidth;
     pixelBuffer->height = setHeight;
     memset(pixels.get(), 0x00, size);
+
+    // Recreate FBO/RBO to match new size to avoid partial reads/flicker
+    if (textures.rboId != 0) {
+      glDeleteRenderbuffers(1, &textures.rboId);
+      textures.rboId = 0;
+    }
+    if (textures.fboId != 0) {
+      glDeleteFramebuffers(1, &textures.fboId);
+      textures.fboId = 0;
+    }
+    setupOpenGLResources();
     if(didStart){
       /// we send back the context so that the Dart side can create a linked context. 
       auto response = flutter::EncodableValue(flutter::EncodableMap{
@@ -364,7 +379,6 @@ void FlutterGLTexture::createTexture(std::unique_ptr<flutter::MethodResult<flutt
   if(structure.useBuffer){
     pixelBuffer = std::make_unique<FlutterDesktopPixelBuffer>();
     changeSize(structure.width,structure.height,result);
-    setupOpenGLResources();
   }
 
   didStart = true;
