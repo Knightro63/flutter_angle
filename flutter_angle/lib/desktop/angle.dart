@@ -70,7 +70,7 @@ class FlutterAngleTexture {
   /// you can start rendering on it. If you forget it you will render into the wrong Texture.
   void activate() {
     _flutterAngle.activateTexture(this);
-    _flutterAngle._rawOpenGl.glViewport(0, 0, options.width, options.height);
+    //_flutterAngle._rawOpenGl.glViewport(0, 0, options.width, options.height);
   }
 }
 
@@ -618,8 +618,7 @@ class FlutterAngle {
 
     texture.options = options;
   }
-
-  Future<void> updateTexture(FlutterAngleTexture texture, [WebGLTexture? sourceTexture]) async {
+  void updateSource(FlutterAngleTexture texture, [WebGLTexture? sourceTexture]) async {
     if(_disposed) return;
     if (sourceTexture != null) {
       _rawOpenGl.glClearColor(0.0, 0.0, 0.0, 0.0);
@@ -628,6 +627,11 @@ class FlutterAngle {
       _worker?.renderTexture(sourceTexture, isFBO: Platform.isAndroid);
       _rawOpenGl.glFinish();
     }
+  }
+  Future<void> updateTexture(FlutterAngleTexture texture, [WebGLTexture? sourceTexture]) async {
+    if(_disposed) return;
+    updateSource(texture,sourceTexture);
+    
 
     // If we have an iOS EGL surface created from IOSurface, use it
     if (_useSurface && texture.surfaceId != nullptr) {

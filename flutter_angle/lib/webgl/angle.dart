@@ -117,7 +117,7 @@ class FlutterAngle{
   }
 
   Future<void> init([bool useDebugContext = false, bool useAngle = false]) async {}
-  Future<void> updateTexture(FlutterAngleTexture texture,[WebGLTexture? sourceTexture]) async {
+  void updateSource(FlutterAngleTexture texture, [WebGLTexture? sourceTexture]) async {
     if (sourceTexture != null) {
       texture.rawOpenGl.glClearColor(0.0, 0.0, 0.0, 0.0);
       texture.rawOpenGl.glClear(16384 | 256 | 1024);
@@ -125,7 +125,10 @@ class FlutterAngle{
       _worker?.renderTexture(sourceTexture,isFBO: true);
       texture.rawOpenGl.glFinish();
     }
-    else{
+  }
+  Future<void> updateTexture(FlutterAngleTexture texture, [WebGLTexture? sourceTexture]) async {
+    updateSource(texture,sourceTexture);
+    if (sourceTexture == null) {
       texture.rawOpenGl.glFlush();
     }
   }
