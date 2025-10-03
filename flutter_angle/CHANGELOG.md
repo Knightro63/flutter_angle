@@ -1,3 +1,7 @@
+## 0.3.7
+
+* Fixed Texture activate.
+
 ## 0.3.6
 
 * Removed ANGLE spamming issue on debug
