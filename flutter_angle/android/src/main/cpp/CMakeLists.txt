@@ -43,4 +43,5 @@ target_link_libraries(angle_android_graphic_jni
 
 # Set output directory
 set_target_properties(angle_android_graphic_jni PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR})
+    LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR}
+    PRIVATE "-Wl,-z,max-page-size=16384")
