@@ -43,5 +43,6 @@ target_link_libraries(angle_android_graphic_jni
 
 # Set output directory
 set_target_properties(angle_android_graphic_jni PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR}
-    PRIVATE "-Wl,-z,max-page-size=16384")
+    LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR})
+# after change the SDK and NDK version, it is need not to change params of links    
+#PRIVATE "-Wl,-z,max-page-size=16384")
