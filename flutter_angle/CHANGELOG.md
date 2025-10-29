@@ -1,3 +1,8 @@
+## 0.3.8
+
+* Updated ndk version.
+* Removed emulator stipulation.
+
 ## 0.3.7
 
 * Fixed Texture activate.
