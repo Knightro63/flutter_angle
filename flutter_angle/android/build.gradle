@@ -27,7 +27,8 @@ android {
         namespace 'org.fluttergl.flutter_angle'
     }
     
-    compileSdkVersion 34
+    compileSdkVersion 35
+    ndkVersion = "28.2.13676358"
 
     defaultConfig {
         minSdkVersion 21
