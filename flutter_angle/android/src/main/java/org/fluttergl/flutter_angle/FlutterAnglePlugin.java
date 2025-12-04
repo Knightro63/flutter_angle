@@ -360,8 +360,11 @@ public class FlutterAnglePlugin implements FlutterPlugin, MethodCallHandler {
       // Deinitialize native ANGLE resources
       deinit();
     }
-    catch (Exception e) {
+    catch (UnsatisfiedLinkError e) {
       Log.e(TAG, "Error deinitializing native ANGLE resources", e);
+    }
+    catch (Throwable t) {
+      Log.e(TAG, "General exception in deinit()", t);
     }
   }
 
