@@ -1,7 +1,6 @@
 import 'dart:js_interop';
 import 'dart:typed_data';
 import 'package:flutter/services.dart';
-import 'package:flutter_angle/native-array/index.dart';
 import 'package:flutter_angle/shared/console.dart';
 import 'package:web/web.dart' as html;
 import '../shared/webgl.dart';
@@ -208,10 +207,10 @@ class RenderingContext{
     int border, 
     int format, 
     int type, 
-    NativeArray? pixels
+    TypedData? pixels
   ) {
     startCheck('texImage2D');
-    glTexImage2D(_gl, target, level, internalformat, width, height, border, format, type, pixels?.toJS);
+    glTexImage2D(_gl, target, level, internalformat, width, height, border, format, type, pixels?.jsify());
     checkError('texImage2D');
   }
 
@@ -228,9 +227,9 @@ class RenderingContext{
     checkError('texImage2D_NOSIZE');
   }
 
-  void texImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, NativeArray? pixels) {
+  void texImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, TypedData? pixels) {
     startCheck("texImage3D");
-    glTexImage3D(_gl, target, level, internalformat, width, height, depth,border, format, type, pixels?.toJS);
+    glTexImage3D(_gl, target, level, internalformat, width, height, depth,border, format, type, pixels?.jsify());
     checkError('texImage3D');
   }
 
@@ -354,9 +353,9 @@ class RenderingContext{
     checkError('clearColor');
   }
 
-  void compressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, NativeArray? data){
+  void compressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, TypedData? data){
     startCheck("compressedTexImage2D");
-    glCompressedTexImage2D(_gl, target, level, internalformat, width, height, border, data?.toJS);
+    glCompressedTexImage2D(_gl, target, level, internalformat, width, height, border, data?.jsify());
     checkError('compressedTexImage2D');
   }
 
@@ -479,7 +478,7 @@ class RenderingContext{
       glBufferDatai(_gl, target, data, usage ?? 0);
     }
     else{
-      glBufferData(_gl, target, (data.data as TypedData).jsify(), usage ?? 0);
+      glBufferData(_gl, target, (data as TypedData).jsify(), usage ?? 0);
     }
     
     checkError('bufferData');
@@ -554,9 +553,9 @@ class RenderingContext{
     checkError('copyTexSubImage3D');
   }
 
-  void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, NativeArray? pixels) {
+  void texSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int type, TypedData? pixels) {
     startCheck("texSubImage2D");
-    glTexSubImage2D(_gl, target, level, xoffset, yoffset, width, height, format, type, pixels?.toJS);
+    glTexSubImage2D(_gl, target, level, xoffset, yoffset, width, height, format, type, pixels?.jsify());
     checkError('texSubImage2D');
   }
 
@@ -577,10 +576,10 @@ class RenderingContext{
     int depth,
     int format,
     int type,
-    NativeArray? pixels
+    TypedData? pixels
   ) {
     startCheck('texSubImage3D');
-    glTexSubImage3D(_gl, target, level, xoffset, yoffset, zoffset, width,height, depth, format, type, pixels?.toJS);
+    glTexSubImage3D(_gl, target, level, xoffset, yoffset, zoffset, width,height, depth, format, type, pixels?.jsify());
     checkError('texSubImage3D');
   }
 
@@ -594,10 +593,10 @@ class RenderingContext{
     int height,
     int depth,
     int format,
-    NativeArray? pixels,
+    TypedData? pixels,
   ){
     startCheck('compressedTexSubImage3D');
-    glCompressedTexSubImage3D(_gl, target,level,xoffset,yoffset,zoffset,width,height,depth,format,pixels?.toJS);
+    glCompressedTexSubImage3D(_gl, target,level,xoffset,yoffset,zoffset,width,height,depth,format,pixels!.jsify()!);
     checkError('compressedTexSubImage3D');
   }
 
@@ -609,16 +608,16 @@ class RenderingContext{
     int height,
     int depth,
     int border,
-    NativeArray? pixels,
+    TypedData? pixels,
   ){
     startCheck("compressedTexImage3D");
-    glCompressedTexImage3D(_gl, target,level,internalformat,width,height,depth,border,pixels?.toJS);
+    glCompressedTexImage3D(_gl, target,level,internalformat,width,height,depth,border,pixels!.jsify()!);
     checkError('compressedTexImage3D');
   }
 
-  void compressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, NativeArray? pixels) {
+  void compressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, TypedData? pixels) {
     startCheck("compressedTexSubImage2D");
-    glCompressedTexSubImage2D(_gl, target, level, xoffset, yoffset, width, height, format, pixels?.toJS);
+    glCompressedTexSubImage2D(_gl, target, level, xoffset, yoffset, width, height, format, pixels?.jsify());
     checkError('compressedTexSubImage2D');
   }
 
@@ -662,9 +661,9 @@ class RenderingContext{
     checkError('blitFramebuffer');
   }
 
-  void bufferSubData(int target, int dstByteOffset, NativeArray srcData){
+  void bufferSubData(int target, int dstByteOffset, TypedData srcData){
     startCheck("bufferSubData");
-    glBufferSubData(_gl, target, dstByteOffset, srcData.toJS);
+    glBufferSubData(_gl, target, dstByteOffset, srcData.jsify()!);
     checkError('bufferSubData');
   }
 
@@ -789,9 +788,9 @@ class RenderingContext{
     checkError('drawElements');
   }
 
-  void drawBuffers(NativeArray buffers) {
+  void drawBuffers(TypedData buffers) {
     startCheck("drawBuffers");
-    glDrawBuffers(_gl, buffers.toJS);
+    glDrawBuffers(_gl, buffers.jsify());
     checkError('drawBuffers');
   }
 

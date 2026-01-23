@@ -248,7 +248,7 @@ external void glVertexAttrib1fv(JSObject gl, int index, JSAny? values);
 @JS()
 external void glDrawElements(JSObject gl, int mode, int count, int type, int offset);
 @JS()
-external void glDrawBuffers(JSObject gl, JSAny buffers);
+external void glDrawBuffers(JSObject gl, JSAny? buffers);
 @JS()
 external JSAny? glCreateShader(JSObject gl, int type);
 @JS()

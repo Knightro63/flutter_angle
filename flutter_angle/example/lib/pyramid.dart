@@ -20,9 +20,9 @@ class Pyramid implements Renderable {
   late Buffer colorBuffer;
   RenderingContext gl;
 
-  Float32Array? vertices;
-  Float32Array? vertexNormals;
-  Float32Array? colors;
+  Float32List? vertices;
+  Float32List? vertexNormals;
+  Float32List? colors;
 
   Pyramid(this.gl){
     positionBuffer = gl.createBuffer();
@@ -30,7 +30,7 @@ class Pyramid implements Renderable {
     textureCoordBuffer = gl.createBuffer();
 
     gl.bindBuffer(WebGL.ARRAY_BUFFER, positionBuffer);
-    vertices ??= Float32Array.fromList([
+    vertices ??= Float32List.fromList([
       // Front face
       0.0, 1.0, 0.0,
       -1.0, -1.0, 1.0,
@@ -67,7 +67,7 @@ class Pyramid implements Renderable {
 
     normalBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, normalBuffer);
-    vertexNormals ??= Float32Array.fromList([
+    vertexNormals ??= Float32List.fromList([
       // Front face
       0.0, 0.4472135901451111, 0.8944271802902222,
       0.0, 0.4472135901451111, 0.8944271802902222,
@@ -105,7 +105,7 @@ class Pyramid implements Renderable {
     // TODO: Come up with a better way to store color buffer vs texture buffer :)
     colorBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, colorBuffer);
-    colors ??= Float32Array.fromList([
+    colors ??= Float32List.fromList([
       // Front face
       1.0, 0.0, 0.0, 1.0,
       0.0, 1.0, 0.0, 1.0,
@@ -178,9 +178,9 @@ class Pyramid implements Renderable {
   }
 
   void dispose(){
-    colors?.dispose();
-    vertexNormals?.dispose();
-    vertices?.dispose();
+    // colors?.dispose();
+    // vertexNormals?.dispose();
+    // vertices?.dispose();
 
     colors = null;
     vertexNormals = null;

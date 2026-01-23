@@ -25,10 +25,10 @@ class Lesson3 extends Lesson {
 
   double rTriangle = 0.0, rSquare = 0.0;
 
-  Float32Array? colors2;
-  Float32Array? colors1;
-  Float32Array? indexes1;
-  Float32Array? indexes2; 
+  Float32List? colors2;
+  Float32List? colors1;
+  Float32List? indexes1;
+  Float32List? indexes2; 
 
   Lesson3(RenderingContext gl):super(gl) {
     program = GlProgram(
@@ -68,28 +68,28 @@ class Lesson3 extends Lesson {
     // calloc and build the two buffers we need to draw a triangle and box.
     // createBuffer() asks the WebGL system to calloc some data for us
     triangleVertexPositionBuffer = gl.createBuffer();
-    indexes1 ??= Float32Array.fromList([0.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0]);
+    indexes1 ??= Float32List.fromList([0.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0]);
     // bindBuffer() tells the WebGL system the target of future calls
     gl.bindBuffer(WebGL.ARRAY_BUFFER, triangleVertexPositionBuffer);
     gl.bufferData(WebGL.ARRAY_BUFFER,indexes1!,WebGL.STATIC_DRAW);
 
     triangleVertexColorBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, triangleVertexColorBuffer);
-    colors1 ??= Float32Array.fromList([1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0]);
+    colors1 ??= Float32List.fromList([1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0]);
     gl.bufferData(
       WebGL.ARRAY_BUFFER,
       colors1!,
       WebGL.STATIC_DRAW,
     );
 
-    indexes2 ??= Float32Array.fromList([1.0, 1.0, 0.0, -1.0, 1.0, 0.0, 1.0, -1.0, 0.0, -1.0, -1.0, 0.0]);
+    indexes2 ??= Float32List.fromList([1.0, 1.0, 0.0, -1.0, 1.0, 0.0, 1.0, -1.0, 0.0, -1.0, -1.0, 0.0]);
     squareVertexPositionBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, squareVertexPositionBuffer);
     gl.bufferData(WebGL.ARRAY_BUFFER,indexes2!,WebGL.STATIC_DRAW);
 
     squareVertexColorBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, squareVertexColorBuffer);
-    colors2 ??= Float32Array.fromList([
+    colors2 ??= Float32List.fromList([
       0.5,
       0.5,
       1.0,
@@ -119,10 +119,10 @@ class Lesson3 extends Lesson {
   }
 
   void dispose(){
-    indexes1?.dispose();
-    indexes2?.dispose();
-    colors1?.dispose();
-    colors2?.dispose();
+    // indexes1?.dispose();
+    // indexes2?.dispose();
+    // colors1?.dispose();
+    // colors2?.dispose();
 
     indexes1 = null;
     indexes2 = null;

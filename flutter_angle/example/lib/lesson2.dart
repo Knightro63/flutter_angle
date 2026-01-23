@@ -21,10 +21,10 @@ class Lesson2 extends Lesson {
   late Buffer triangleVertexPositionBuffer, squareVertexPositionBuffer;
   late Buffer triangleVertexColorBuffer, squareVertexColorBuffer;
 
-  Float32Array? colors1;
-  Float32Array? colors2; 
-  Float32Array? indexes1;
-  Float32Array? indexes2; 
+  Float32List? colors1;
+  Float32List? colors2; 
+  Float32List? indexes1;
+  Float32List? indexes2; 
 
   Lesson2(RenderingContext gl):super(gl) {
     program = GlProgram(
@@ -65,13 +65,13 @@ class Lesson2 extends Lesson {
     triangleVertexPositionBuffer = gl.createBuffer();
 
     // bindBuffer() tells the WebGL system the target of future calls
-    indexes1 ??= Float32Array.fromList([0.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0]);
+    indexes1 ??= Float32List.fromList([0.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0]);
     gl.bindBuffer(WebGL.ARRAY_BUFFER, triangleVertexPositionBuffer);
     gl.bufferData(WebGL.ARRAY_BUFFER, indexes1!, WebGL.STATIC_DRAW);
 
     triangleVertexColorBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, triangleVertexColorBuffer);
-    colors1 ??= Float32Array.fromList([1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0]);
+    colors1 ??= Float32List.fromList([1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0]);
     gl.bufferData(
       WebGL.ARRAY_BUFFER,
       colors1!,
@@ -79,13 +79,13 @@ class Lesson2 extends Lesson {
     );
 
     squareVertexPositionBuffer = gl.createBuffer();
-    indexes2 ??= Float32Array.fromList([1.0, 1.0, 0.0, -1.0, 1.0, 0.0, 1.0, -1.0, 0.0, -1.0, -1.0, 0.0]);
+    indexes2 ??= Float32List.fromList([1.0, 1.0, 0.0, -1.0, 1.0, 0.0, 1.0, -1.0, 0.0, -1.0, -1.0, 0.0]);
     gl.bindBuffer(WebGL.ARRAY_BUFFER, squareVertexPositionBuffer);
     gl.bufferData(WebGL.ARRAY_BUFFER,indexes2!, WebGL.STATIC_DRAW);
 
     squareVertexColorBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, squareVertexColorBuffer);
-    colors2 ??= Float32Array.fromList([0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0]);
+    colors2 ??= Float32List.fromList([0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0, 0.5, 0.5, 1.0, 1.0]);
     gl.bufferData(
       WebGL.ARRAY_BUFFER,
       colors2!,
@@ -98,10 +98,10 @@ class Lesson2 extends Lesson {
   }
 
   void dispose(){
-    indexes1?.dispose();
-    indexes2?.dispose();
-    colors1?.dispose();
-    colors2?.dispose();
+    // indexes1?.dispose();
+    // indexes2?.dispose();
+    // colors1?.dispose();
+    // colors2?.dispose();
 
     indexes1 = null;
     indexes2 = null;

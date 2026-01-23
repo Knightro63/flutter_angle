@@ -1,3 +1,7 @@
+## 0.4.0
+
+* Removed NativeArray for Zero-Allocation Updates.
+
 ## 0.3.9
 
 * Fixed: Huawei vulkan error.

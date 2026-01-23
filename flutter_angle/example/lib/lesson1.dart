@@ -19,8 +19,8 @@ class Lesson1 extends Lesson {
   late GlProgram program;
 
   late Buffer triangleVertexPositionBuffer, squareVertexPositionBuffer;
-  Float32Array? indexes1;
-  Float32Array? indexes2;
+  Float32List? indexes1;
+  Float32List? indexes2;
 
   Lesson1(RenderingContext gl):super(gl){
     program = new GlProgram(
@@ -53,12 +53,12 @@ class Lesson1 extends Lesson {
     // createBuffer() asks the WebGL system to calloc some data for us
     triangleVertexPositionBuffer = gl.createBuffer();
 
-    indexes1 ??= Float32Array.fromList([0.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0]);
+    indexes1 ??= Float32List.fromList([0.0, 1.0, 0.0, -1.0, -1.0, 0.0, 1.0, -1.0, 0.0]);
     // bindBuffer() tells the WebGL system the target of future calls
     gl.bindBuffer(WebGL.ARRAY_BUFFER, triangleVertexPositionBuffer);
     gl.bufferData(WebGL.ARRAY_BUFFER, indexes1!, WebGL.STATIC_DRAW);
     
-    indexes2 ??= Float32Array.fromList([1.0, 1.0, 0.0, -1.0, 1.0, 0.0, 1.0, -1.0, 0.0, -1.0, -1.0, 0.0]);
+    indexes2 ??= Float32List.fromList([1.0, 1.0, 0.0, -1.0, 1.0, 0.0, 1.0, -1.0, 0.0, -1.0, -1.0, 0.0]);
     squareVertexPositionBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, squareVertexPositionBuffer);
     gl.bufferData(WebGL.ARRAY_BUFFER,indexes2!, WebGL.STATIC_DRAW);
@@ -69,8 +69,8 @@ class Lesson1 extends Lesson {
   }
 
   void dispose(){
-    indexes1?.dispose();
-    indexes2?.dispose();
+    // indexes1?.dispose();
+    // indexes2?.dispose();
 
     indexes1 = null;
     indexes2 = null;

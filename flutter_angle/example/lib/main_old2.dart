@@ -33,7 +33,7 @@ class _MyAppState extends State<ExampleTriangle01> {
   int n = 0;
 
   int t = DateTime.now().millisecondsSinceEpoch;
-  Float32Array? vertices; 
+  Float32List? vertices; 
   @override
   void initState() {
     super.initState();
@@ -42,7 +42,7 @@ class _MyAppState extends State<ExampleTriangle01> {
 
   @override
   void dispose(){
-    vertices?.dispose();
+    // vertices?.dispose();
     vertices = null;
     angle.dispose([sourceTexture]);
     super.dispose();
@@ -193,7 +193,7 @@ class _MyAppState extends State<ExampleTriangle01> {
   int initVertexBuffers(RenderingContext gl) {
     // Vertices
     final dim = 3;
-    vertices = Float32Array.fromList([
+    vertices = Float32List.fromList([
       -0.5, -0.5, 0, // Vertice #2
       0.5, -0.5, 0, // Vertice #3
       0, 0.5, 0, // Vertice #1

@@ -677,13 +677,13 @@ class FlutterAngle {
 
       Pointer<Uint32> fbo = calloc();
       fbo.value = texture.fboId;
-      _rawOpenGl.glDeleteBuffers(1, fbo);
+      _rawOpenGl.glDeleteBuffersPointer(1, fbo);
       calloc.free(fbo);
       _activeFramebuffer = null;
 
       Pointer<Uint32> depth = calloc();
       depth.value = texture.depth;
-      _rawOpenGl.glDeleteRenderbuffers(1, depth);
+      _rawOpenGl.glDeleteRenderbuffersPointer(1, depth);
       calloc.free(depth);
     }
 

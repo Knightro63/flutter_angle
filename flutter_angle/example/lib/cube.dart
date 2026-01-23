@@ -18,15 +18,15 @@ class Cube implements Renderable {
   RenderingContext gl;
   late dynamic positionBuffer, normalBuffer, textureCoordBuffer, indexBuffer;
 
-  Float32Array? vertices; 
-  Float32Array? vertexNormals;
-  Float32Array? textureCoords;
-  Uint16Array? indxes;
+  Float32List? vertices; 
+  Float32List? vertexNormals;
+  Float32List? textureCoords;
+  Uint16List? indxes;
 
   Cube(this.gl){
     positionBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, positionBuffer);
-    vertices ??= Float32Array.fromList([
+    vertices ??= Float32List.fromList([
       // Front face
       -1.0, -1.0, 1.0,
       1.0, -1.0, 1.0,
@@ -71,7 +71,7 @@ class Cube implements Renderable {
 
     normalBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, normalBuffer);
-    vertexNormals ??= Float32Array.fromList([
+    vertexNormals ??= Float32List.fromList([
       // Front face
       0.0, 0.0, 1.0,
       0.0, 0.0, 1.0,
@@ -116,7 +116,7 @@ class Cube implements Renderable {
 
     textureCoordBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, textureCoordBuffer);
-    textureCoords = Float32Array.fromList([
+    textureCoords = Float32List.fromList([
       // Front face
       0.0, 0.0,
       1.0, 0.0,
@@ -158,7 +158,7 @@ class Cube implements Renderable {
       textureCoords!,
       WebGL.STATIC_DRAW,
     );
-    indxes ??= Uint16Array.fromList([
+    indxes ??= Uint16List.fromList([
       0, 1, 2, 0, 2, 3, // Front face
       4, 5, 6, 4, 6, 7, // Back face
       8, 9, 10, 8, 10, 11, // Top face
@@ -207,10 +207,10 @@ class Cube implements Renderable {
   }
 
   void dispose(){
-    vertices?.dispose();
-    vertexNormals?.dispose();
-    textureCoords?.dispose();
-    indxes?.dispose();
+    // vertices?.dispose();
+    // vertexNormals?.dispose();
+    // textureCoords?.dispose();
+    // indxes?.dispose();
 
     vertices = null;
     vertexNormals = null;
@@ -222,7 +222,7 @@ class Cube implements Renderable {
 /// Holds a color [Buffer] for our cube's element array
 class CubeColor {
   late Buffer colorBuffer;
-  Float32Array? unpackedColors; 
+  Float32List? unpackedColors; 
   CubeColor(RenderingContext gl) {
     colorBuffer = gl.createBuffer();
     gl.bindBuffer(WebGL.ARRAY_BUFFER, colorBuffer);
@@ -236,7 +236,7 @@ class CubeColor {
       [1.0, 0.0, 1.0, 1.0], // Right face
       [0.0, 0.0, 1.0, 1.0] // Left face
     ];
-    unpackedColors ??= Float32Array(24);
+    unpackedColors ??= Float32List(24);
     int k = 0;
     for (var i in colors) {
       for (var j = 0; j < 4; j++) {
@@ -252,7 +252,7 @@ class CubeColor {
   }
 
   void dispose(){
-    unpackedColors?.dispose();
+    // unpackedColors?.dispose();
     unpackedColors = null;
   }
 }

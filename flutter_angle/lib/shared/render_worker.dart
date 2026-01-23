@@ -29,7 +29,7 @@ class RenderWorker{
     double w = 1.0;
     double h = 1.0;
 
-    Float32Array vertices = Float32Array.fromList([
+    Float32List vertices = Float32List.fromList([
       -w,-h,0,0,1,
       w,-h,0,1,1,
       -w,h,0,0,0,
@@ -39,14 +39,14 @@ class RenderWorker{
     vertexBuffer = _gl.createBuffer();
     _gl.bindBuffer(WebGL.ARRAY_BUFFER, vertexBuffer);
     _gl.bufferData(WebGL.ARRAY_BUFFER, vertices, WebGL.STATIC_DRAW);
-    vertices.dispose();
+    //vertices.dispose();
   }
   
   void setupVBO4FBO() {
     double w = 1.0;
     double h = 1.0;
 
-    Float32Array vertices = Float32Array.fromList([
+    Float32List vertices = Float32List.fromList([
       -w,-h,0,0,0,
       w,-h,0,1,0,
       -w,h,0,0,1,
@@ -56,7 +56,7 @@ class RenderWorker{
     vertexBuffer4FBO = _gl.createBuffer();
     _gl.bindBuffer(WebGL.ARRAY_BUFFER, vertexBuffer4FBO);
     _gl.bufferData(WebGL.ARRAY_BUFFER, vertices, WebGL.STATIC_DRAW);
-    vertices.dispose();
+    //vertices.dispose();
   }
 
   void drawTexture({required WebGLTexture? texture, required Buffer vertexBuffer, Float32List? matrix}) {
