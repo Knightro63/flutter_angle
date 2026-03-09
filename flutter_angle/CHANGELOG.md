@@ -1,6 +1,7 @@
 ## 0.4.0
 
 * Removed NativeArray for Zero-Allocation Updates.
+* Fixed: Windows texture creation crash.
 
 ## 0.3.9
 

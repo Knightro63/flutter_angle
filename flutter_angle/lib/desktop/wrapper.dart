@@ -12,8 +12,6 @@ import 'bindings/index.dart';
 import '../shared/webgl.dart';
 import '../shared/classes.dart';
 
-
-// JS "WebGL2RenderingContext")
 class RenderingContext {
   final LibOpenGLES gl;
   final int width;
@@ -25,7 +23,6 @@ class RenderingContext {
   /// As allocating and freeing native memory is expensive and we need regularly
   /// buffers to receive values from FFI function we create a small set here that will
   /// be reused constantly
-  /// 
   void checkError([String message = '']) {
     if(!checkGlErrorOnEveryCall) return;
     final glError = gl.glGetError();
@@ -459,32 +456,29 @@ class RenderingContext {
     checkError('colorMask');
   }
 
-
+  // Pre-allocate these once at the class or global level to avoid GC pressure/malloc overhead
+  final _intBuffer = calloc<Int32>();
   void compileShader(WebGLShader shader, [bool checkForErrors = true]) {
     startCheck('compileShader');
     gl.glCompileShader(shader.id);
 
     if (checkForErrors) {
-      final compiled = calloc<Int32>();
-      gl.glGetShaderiv(shader.id, GL_COMPILE_STATUS, compiled);
-      if (compiled.value == 0) {
-        final infoLen = calloc<Int32>();
+      gl.glGetShaderiv(shader.id, GL_COMPILE_STATUS, _intBuffer);
+      
+      if (_intBuffer.value == GL_FALSE) {
+        gl.glGetShaderiv(shader.id, GL_INFO_LOG_LENGTH, _intBuffer);
+        final int logLen = _intBuffer.value;
 
-        gl.glGetShaderiv(shader.id, GL_INFO_LOG_LENGTH, infoLen);
-
-        String message = '';
-        if (infoLen.value > 1) {
-          final infoLog = calloc<Int8>(infoLen.value);
-
-          gl.glGetShaderInfoLog(shader.id, infoLen.value, nullptr, infoLog);
-          message = "\nError compiling shader:\n${infoLog.cast<Utf8>()}";
+        String message = "Shader compilation failed.";
+        if (logLen > 0) {
+          final infoLog = calloc<Int8>(logLen);
+          gl.glGetShaderInfoLog(shader.id, logLen, nullptr, infoLog);
+          message = infoLog.cast<Utf8>().toDartString();
 
           calloc.free(infoLog);
         }
-        calloc.free(infoLen);
         throw OpenGLException(message, 0);
       }
-      calloc.free(compiled);
     }
   }
 
