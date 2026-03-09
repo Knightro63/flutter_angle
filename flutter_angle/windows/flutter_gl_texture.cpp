@@ -144,17 +144,67 @@ EGLInfo FlutterGLTexture::initOpenGL(std::unique_ptr<flutter::MethodResult<flutt
 }
 
 void FlutterGLTexture::changeSize(int setWidth, int setHeight, std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>>& result) {
+  // Input validation to prevent buffer overrun
+  const int MAX_TEXTURE_SIZE = 8192; // Reasonable maximum texture size
+  if (setWidth <= 0 || setHeight <= 0) {
+    result->Error("Invalid texture dimensions", "Width and height must be positive");
+    return;
+  }
+  if (setWidth > MAX_TEXTURE_SIZE || setHeight > MAX_TEXTURE_SIZE) {
+    result->Error("Texture too large", "Width and height must be less than " + std::to_string(MAX_TEXTURE_SIZE));
+    return;
+  }
+  
+  // Check for integer overflow before multiplication
+  if (setWidth > INT_MAX / setHeight / 4) {
+    result->Error("Texture too large", "Texture dimensions would cause integer overflow");
+    return;
+  }
+
   if (setWidth == structure.width && setHeight == structure.height && didStart) {
     return;
   }
   if(structure.useBuffer){
+    // Update internal dimensions for buffer mode as well
+    structure.width = setWidth;
+    structure.height = setHeight;
+
     int64_t size = setWidth * setHeight * 4;
-    pixels.reset(new uint8_t[size]);
+    
+    // Additional safety check
+    if (size <= 0 || size > SIZE_MAX) {
+      result->Error("Invalid buffer size", "Calculated buffer size is invalid");
+      return;
+    }
+    
+    try {
+      pixels.reset(new uint8_t[size]);
+    } catch (const std::bad_alloc&) {
+      result->Error("Memory allocation failed", "Failed to allocate memory for texture buffer");
+      return;
+    }
+
+    // Validate pixelBuffer is initialized
+    if (!pixelBuffer) {
+      result->Error("Pixel buffer not initialized", "Pixel buffer is null");
+      return;
+    }
 
     pixelBuffer->buffer = pixels.get();
     pixelBuffer->width = setWidth;
     pixelBuffer->height = setHeight;
     memset(pixels.get(), 0x00, size);
+
+    // Recreate FBO/RBO to match new size to avoid partial reads/flicker
+    if (textures.rboId != 0) {
+      glDeleteRenderbuffers(1, &textures.rboId);
+      textures.rboId = 0;
+    }
+    if (textures.fboId != 0) {
+      glDeleteFramebuffers(1, &textures.fboId);
+      textures.fboId = 0;
+    }
+    setupOpenGLResources();
     if(didStart){
       /// we send back the context so that the Dart side can create a linked context. 
       auto response = flutter::EncodableValue(flutter::EncodableMap{
@@ -306,14 +356,14 @@ void FlutterGLTexture::setupOpenGLResources(){
   auto error = glGetError();
   if (error != GL_NO_ERROR){
     std::cerr << "GlError while allocating Renderbuffer" << error << std::endl;
-    throw new OpenGLException("GlError while allocating Renderbuffer", error);
+    throw OpenGLException("GlError while allocating Renderbuffer", error);
   }
   glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER,rbo);
 
   auto frameBufferCheck = glCheckFramebufferStatus(GL_FRAMEBUFFER);
   if (frameBufferCheck != GL_FRAMEBUFFER_COMPLETE){
     std::cerr << "Framebuffer error" << frameBufferCheck << std::endl;
-    throw new OpenGLException("Framebuffer Error while creating Texture", frameBufferCheck);
+    throw OpenGLException("Framebuffer Error while creating Texture", frameBufferCheck);
   }
 
   error = glGetError();
@@ -329,7 +379,6 @@ void FlutterGLTexture::createTexture(std::unique_ptr<flutter::MethodResult<flutt
   if(structure.useBuffer){
     pixelBuffer = std::make_unique<FlutterDesktopPixelBuffer>();
     changeSize(structure.width,structure.height,result);
-    setupOpenGLResources();
   }
 
   didStart = true;
@@ -349,8 +398,44 @@ void FlutterGLTexture::createTexture(std::unique_ptr<flutter::MethodResult<flutt
 
 void FlutterGLTexture::textureFrameAvailable(std::unique_ptr<flutter::MethodResult<flutter::EncodableValue>>& result){
   if(structure.useBuffer){
+    // Validate pixelBuffer and its buffer before use
+    if (!pixelBuffer) {
+      result->Error("Pixel buffer not initialized", "Pixel buffer is null");
+      return;
+    }
+    if (!pixelBuffer->buffer) {
+      result->Error("Pixel buffer data not allocated", "Pixel buffer data is null");
+      return;
+    }
+    if (pixelBuffer->width <= 0 || pixelBuffer->height <= 0) {
+      result->Error("Invalid pixel buffer dimensions", "Pixel buffer dimensions are invalid");
+      return;
+    }
+    
+    // Check for potential buffer overrun
+    int64_t requiredSize = pixelBuffer->width * pixelBuffer->height * 4;
+    if (requiredSize <= 0 || requiredSize > SIZE_MAX) {
+      result->Error("Invalid buffer size for read operation", "Calculated buffer size is invalid");
+      return;
+    }
+    
     glBindFramebuffer(GL_FRAMEBUFFER, textures.fboId);
+    
+    // Check for OpenGL errors before read operation
+    GLenum error = glGetError();
+    if (error != GL_NO_ERROR) {
+      result->Error("OpenGL error before readPixels", "OpenGL error: " + std::to_string(error));
+      return;
+    }
+    
     glReadPixels(0, 0, (GLsizei)pixelBuffer->width, (GLsizei)pixelBuffer->height, GL_RGBA, GL_UNSIGNED_BYTE, (void*)pixelBuffer->buffer);
+    
+    // Check for OpenGL errors after read operation
+    error = glGetError();
+    if (error != GL_NO_ERROR) {
+      result->Error("OpenGL error during readPixels", "OpenGL error: " + std::to_string(error));
+      return;
+    }
   }  
   textureRegistrar->MarkTextureFrameAvailable(textureId);
   result->Success();
