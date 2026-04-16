@@ -89,7 +89,12 @@ import Flutter
           result(FlutterError(code: "INVALID_ARGS", message: "Invalid texture ID", details: nil))
           return
         }
-        self.renders[textureId]!.textureFrameAvailable(result: result)
+        guard let render = self.renders[textureId] else {
+          // A late frame callback can arrive after the texture has been disposed.
+          result(nil)
+          return
+        }
+        render.textureFrameAvailable(result: result)
       case "initOpenGL":
         #if targetEnvironment(simulator)
         eglInfo = nil

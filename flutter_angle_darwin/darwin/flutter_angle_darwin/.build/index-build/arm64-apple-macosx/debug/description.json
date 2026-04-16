@@ -1,0 +1,302 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.flutter_angle_darwin-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/flutter_angle_darwin.build/sources",
+      "importPath" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Sources/flutter_angle_darwin/FlutterAngleOSPlugin.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Sources/flutter_angle_darwin/FlutterAnglePlugin.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Sources/flutter_angle_darwin/FlutterAngleSimPlugin.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+        },
+        {
+          "kind" : "directory",
+          "name" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/libGLESv2.framework"
+        },
+        {
+          "kind" : "directory",
+          "name" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/libEGL.framework"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/flutter_angle_darwin.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "flutter_angle_darwin",
+      "moduleOutputPath" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/Modules/flutter_angle_darwin.swiftmodule",
+      "objects" : [
+        "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/flutter_angle_darwin.build/FlutterAngleOSPlugin.swift.o",
+        "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/flutter_angle_darwin.build/FlutterAnglePlugin.swift.o",
+        "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/flutter_angle_darwin.build/FlutterAngleSimPlugin.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx10.14",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-Onone",
+        "-enable-testing",
+        "-j16",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-I",
+        "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libEGL.xcframework/macos-arm64_x86_64",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libEGL.xcframework/macos-arm64_x86_64",
+        "-I",
+        "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libGLESv2.xcframework/macos-arm64_x86_64",
+        "-Xcc",
+        "-I",
+        "-Xcc",
+        "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libGLESv2.xcframework/macos-arm64_x86_64",
+        "-module-cache-path",
+        "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-F",
+        "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/flutter_angle_darwin.build/include/flutter_angle_darwin-Swift.h",
+        "-swift-version",
+        "5",
+        "-Xfrontend",
+        "-experimental-lazy-typecheck",
+        "-Xfrontend",
+        "-experimental-skip-all-function-bodies",
+        "-Xfrontend",
+        "-experimental-allow-module-with-compiler-errors",
+        "-Xfrontend",
+        "-empty-abi-descriptor",
+        "-plugin-path",
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-F",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-I",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "flutter_angle_darwin"
+      ],
+      "outputFileMapPath" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/flutter_angle_darwin.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/Modules/flutter_angle_darwin.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : true,
+      "sources" : [
+        "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Sources/flutter_angle_darwin/FlutterAngleOSPlugin.swift",
+        "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Sources/flutter_angle_darwin/FlutterAnglePlugin.swift",
+        "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Sources/flutter_angle_darwin/FlutterAngleSimPlugin.swift"
+      ],
+      "tempsPath" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/flutter_angle_darwin.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "flutter_angle_darwin" : [
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "flutter_angle_darwin",
+      "-package-name",
+      "flutter_angle_darwin",
+      "-c",
+      "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Sources/flutter_angle_darwin/FlutterAngleOSPlugin.swift",
+      "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Sources/flutter_angle_darwin/FlutterAnglePlugin.swift",
+      "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Sources/flutter_angle_darwin/FlutterAngleSimPlugin.swift",
+      "-I",
+      "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx10.14",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-Onone",
+      "-enable-testing",
+      "-j16",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-I",
+      "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libEGL.xcframework/macos-arm64_x86_64",
+      "-Xcc",
+      "-I",
+      "-Xcc",
+      "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libEGL.xcframework/macos-arm64_x86_64",
+      "-I",
+      "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libGLESv2.xcframework/macos-arm64_x86_64",
+      "-Xcc",
+      "-I",
+      "-Xcc",
+      "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libGLESv2.xcframework/macos-arm64_x86_64",
+      "-module-cache-path",
+      "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-F",
+      "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/flutter_angle_darwin.build/include/flutter_angle_darwin-Swift.h",
+      "-swift-version",
+      "5",
+      "-Xfrontend",
+      "-experimental-lazy-typecheck",
+      "-Xfrontend",
+      "-experimental-skip-all-function-bodies",
+      "-Xfrontend",
+      "-experimental-allow-module-with-compiler-errors",
+      "-Xfrontend",
+      "-empty-abi-descriptor",
+      "-plugin-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-F",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-I",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX26.2.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/PrivateFrameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "flutter_angle_darwin",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "flutter_angle_darwin" : [
+      "libGLESv2",
+      "libEGL"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/flutter_angle_darwin.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Sources/flutter_angle_darwin/FlutterAngleOSPlugin.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Sources/flutter_angle_darwin/FlutterAnglePlugin.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/Sources/flutter_angle_darwin/FlutterAngleSimPlugin.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/flutter_angle_darwin.build/sources"
+    },
+    "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/epsilon/Projects/flutter_angle/flutter_angle_darwin/darwin/flutter_angle_darwin/.build/index-build/arm64-apple-macosx/debug/swift-version--58304C5D6DBC2206.txt"
+    }
+  }
+}
