@@ -5,7 +5,7 @@ homepage: https://github.com/Knightro63/flutter_angle/tree/main/flutter_angle
 
 environment:
   sdk: ^3.8.1
-  flutter: ">=1.17.0"
+  flutter: ">=1.20.0"
 
 topics:
   - opengl
