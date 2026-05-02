@@ -2,6 +2,7 @@
 
 * Removed NativeArray for Zero-Allocation Updates.
 * Fixed: Windows texture creation crash.
+* Fixed: Add 16KB page size support for Google Play compliance
 
 ## 0.3.9
 
