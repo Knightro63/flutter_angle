@@ -22,12 +22,12 @@ let package = Package(
         .binaryTarget(
             name: "libEGL",
             url: "https://raw.githubusercontent.com/Knightro63/flutter_angle/refs/heads/main/libEGL.xcframework.zip",
-            checksum: "f3faba16e527dd4dd9788e9378ed42916214761a74b9a84a5d14569842f678c3"
+            checksum: "d52a155796377991926da0973abbe20e5642e6aab4f40651edb84b76c7690c5c"
         ),
         .binaryTarget(
             name: "libGLESv2",
             url: "https://raw.githubusercontent.com/Knightro63/flutter_angle/refs/heads/main/libGLESv2.xcframework.zip",
-            checksum: "9b107a172c1cbba9c7061bbc2b6a8e0c1d74754a91fa1dd92cba0227e972c659"
+            checksum: "36a04458baecbbc78c85c6ada6e0dacb38002017ac807e8b71880c74200b7f9c"
         ),
     ]
 )
