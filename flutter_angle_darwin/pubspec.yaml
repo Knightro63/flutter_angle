@@ -21,8 +21,8 @@ flutter:
     implements: flutter_angle
     platforms:
       ios:
-        pluginClass: FlutterAnglePlugin
+        pluginClass: FlutterAngleDarwinPlugin
         sharedDarwinSource: true
       macos:
-        pluginClass: FlutterAnglePlugin
+        pluginClass: FlutterAngleDarwinPlugin
         sharedDarwinSource: true
