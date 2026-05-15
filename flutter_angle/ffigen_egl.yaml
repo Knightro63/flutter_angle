@@ -1,0 +1,41 @@
+name: LibEGL
+description: Clang-safe DynamicLibrary bindings for EGL and OpenGLES APIs.
+output: 'lib/src/egl_bindings.dart'
+
+# Point ffigen directly to your homebrew installation directory
+llvm-path:
+  - '/opt/homebrew/opt/llvm'
+
+#ffi-native:
+  #asset-id: 'package:flutter_angle/libgles'
+
+preamble: |
+  // ignore_for_file: always_specify_types
+  // ignore_for_file: camel_case_types
+  // ignore_for_file: non_constant_identifier_names
+  // ignore_for_file: unused_element
+
+comments:
+  style: any       # Options: 'any' (grabs all) or 'doxygen' (grabs structured text)
+  length: full     # Options: 'full' (all lines) or 'brief' (first sentence only)
+
+headers:
+  entry-points:
+    - '../flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libEGL.xcframework/ios-arm64/libEGL.framework/Headers/libEGL.h'
+  include-directives:
+    - '**/libEGL.h'
+    - '**/egl.h'
+    - '**/eglext.h'
+    - '**/eglext_angle.h'
+    - '**/eglplatform.h'
+
+# FIX: Informs Clang where to resolve the nested internal platform headers
+compiler-opts:
+  - '-I../flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libEGL.xcframework/ios-arm64/libEGL.framework/Headers'
+  - '-I../flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libEGL.xcframework/ios-arm64/libEGL.framework'
+  - '-F../flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libEGL.xcframework/ios-arm64'
+  - '-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk'
+
+functions:
+  include:
+    - 'egl.*'

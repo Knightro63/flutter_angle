@@ -1,3 +1,11 @@
+## 0.4.1
+
+* Updated ffigen.
+* Removed egl_bindings
+* Removed gles_bindings
+* Added angle bindings
+* Updated to SPM
+
 ## 0.4.0
 
 * Removed NativeArray for Zero-Allocation Updates.

@@ -1,0 +1,75 @@
+name: LibGLES
+description: Clang-safe DynamicLibrary bindings for EGL and OpenGLES APIs.
+output: 'lib/src/gles_bindings.dart'
+
+# Point ffigen directly to your homebrew installation directory
+llvm-path:
+  - '/opt/homebrew/opt/llvm'
+
+ffi-native:
+  asset-id: 'package:flutter_angle/libgles'
+
+preamble: |
+  // ignore_for_file: always_specify_types
+  // ignore_for_file: camel_case_types
+  // ignore_for_file: non_constant_identifier_names
+  // ignore_for_file: unused_element
+
+comments:
+  style: any       # Options: 'any' (grabs all) or 'doxygen' (grabs structured text)
+  length: full     # Options: 'full' (all lines) or 'brief' (first sentence only)
+
+headers:
+  entry-points:
+    - '../flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libGLESv2.xcframework/ios-arm64/libGLESv2.framework/Headers/angle_gl.h'
+  include-directives:
+    - '**/libGLESv2.h'
+    - '**/angle_gl.h'
+    - '**/gl*.h'
+
+# FIX: Informs Clang where to resolve the nested internal platform headers
+compiler-opts:
+  - '-I../flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libGLESv2.xcframework/ios-arm64/libGLESv2.framework/Headers'
+  - '-I../flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libGLESv2.xcframework/ios-arm64/libGLESv2.framework'
+  - '-F../flutter_angle_darwin/darwin/flutter_angle_darwin/Frameworks/libGLESv2.xcframework/ios-arm64'
+  - '-isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator.sdk'
+
+functions:
+  include:
+    - 'gl.*'
+    - 'makeCurrent'
+    - 'pinAddress'
+
+macros:
+  include:
+    - 'GL_.*'
+
+unnamed-enums:
+  include:
+    - 'GL_.*'
+
+# forcing ffigen to fall back to primitive ffi.Uint32 and ffi.Int32 maps
+typedefs:
+  exclude:
+    - 'GLuint'
+    - 'GLsizei'
+    - 'GLenum'
+
+library-imports:
+  ffi_custom_handle: 'dart:ffi'
+
+# 3. FIXED: Points 'lib:' directly to the matching 'ffi_custom_handle' alias defined above.
+type-map:
+  typedefs:
+    'GLuint':
+      lib: 'ffi_custom_handle'
+      c-type: 'Uint32'
+      dart-type: 'int'
+    'GLsizei':
+      lib: 'ffi_custom_handle'
+      c-type: 'Int32'
+      dart-type: 'int'
+    'GLenum':
+      lib: 'ffi_custom_handle'
+      c-type: 'Uint32'
+      dart-type: 'int'

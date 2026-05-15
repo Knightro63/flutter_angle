@@ -4,14 +4,14 @@ import 'dart:io';
 import 'package:dylib/dylib.dart';
 import 'package:ffi/ffi.dart';
 import 'package:flutter_angle/shared/console.dart';
-import 'bindings/index.dart';
+import '../src/desktop/angle_bindings.dart' as angle;
 
 class EGL {
   EGL({bool useAngle = false}) {
     loadEGL(useAngle: useAngle);
   }
 
-  static LibEGL? _libEGL;
+  static DynamicLibrary? _libEGL;
   //
   // Public APIs
   //
@@ -22,17 +22,17 @@ class EGL {
 
   static EglError eglGetError() {
     loadEGL();
-    return _libEGL!.eglGetError().toEglError();
+    return angle.eglGetError().toEglError();
   }
 
   Pointer<Void> eglGetCurrentContext() {
     loadEGL();
-    return _libEGL!.eglGetCurrentContext();
+    return angle.eglGetCurrentContext();
   }
 
-  Pointer<Void> eglGetDisplay([Pointer<Void>? displayId]) {
+  Pointer<Void> eglGetDisplay([int? displayId]) {
     loadEGL();
-    final nativeCallResult = _libEGL!.eglGetDisplay(displayId ?? nullptr);
+    final nativeCallResult = angle.eglGetDisplay(displayId ?? 0);
 
     if (nativeCallResult == nullptr) {
       throw EglException(
@@ -44,31 +44,31 @@ class EGL {
 
   int eglBindTexImage(Pointer<Void> dpy, Pointer<Void> surface, int buffer) {
     loadEGL();
-    return _libEGL!.eglBindTexImage(dpy, surface, buffer);
+    return angle.eglBindTexImage(dpy, surface, buffer);
   }
 
   int eglTerminate(Pointer<Void> dpy) {
     loadEGL();
-    return _libEGL!.eglTerminate(dpy);
+    return angle.eglTerminate(dpy);
   }
 
   int eglDestroySurface(Pointer<Void> dpy, Pointer<Void> surface) {
     loadEGL();
-    return _libEGL!.eglDestroySurface(dpy, surface);
+    return angle.eglDestroySurface(dpy, surface);
   }
 
   static void loadEGL({bool useAngle = false}) {
     if (_libEGL == null) {
       if (Platform.isWindows) {
-        _libEGL = LibEGL(DynamicLibrary.open(resolveDylibPath('libEGL')));
+        _libEGL = DynamicLibrary.open(resolveDylibPath('libEGL'));
       } else if (Platform.isAndroid) {
         if (useAngle) {
-          _libEGL = LibEGL(DynamicLibrary.open('libEGL_angle.so'));
+          _libEGL = DynamicLibrary.open('libEGL_angle.so');
         } else {
-          _libEGL = LibEGL(DynamicLibrary.open('libEGL.so'));
+          _libEGL = DynamicLibrary.open('libEGL.so');
         }
       } else {
-        _libEGL = LibEGL(DynamicLibrary.process());
+        _libEGL = DynamicLibrary.process();
       }
     }
   }
@@ -78,7 +78,7 @@ class EGL {
     final major = calloc<Int32>();
     final minor = calloc<Int32>();
     final nativeCallSucceeded =
-        _libEGL!.eglInitialize(display, major, minor) == 1;
+        angle.eglInitialize(display, major, minor) == 1;
     EglInitializeResult result;
 
     if (nativeCallSucceeded) {
@@ -120,7 +120,7 @@ class EGL {
 
     final configs = calloc<IntPtr>(maxConfigs);
     final numConfigs = calloc<Int32>();
-    final nativeCallSucceeded = _libEGL!.eglChooseConfig(
+    final nativeCallSucceeded = angle.eglChooseConfig(
           display,
           attributeList,
           configs.cast<Pointer<Void>>(),
@@ -153,7 +153,7 @@ class EGL {
     loadEGL();
     final configs = calloc<IntPtr>(maxConfigs);
     final numConfigs = calloc<Int32>();
-    final nativeCallSucceeded = _libEGL!.eglGetConfigs(
+    final nativeCallSucceeded = angle.eglGetConfigs(
           display,
           configs.cast<Pointer<Void>>(),
           maxConfigs,
@@ -183,7 +183,7 @@ class EGL {
       EglConfigAttribute attribute) {
     loadEGL();
     final value = calloc<Int32>();
-    final nativeCallSucceeded = _libEGL!.eglGetConfigAttrib(
+    final nativeCallSucceeded = angle.eglGetConfigAttrib(
           display,
           config,
           attribute.toIntValue(),
@@ -257,13 +257,13 @@ class EGL {
         eglGetConfigAttrib(display, config, EglConfigAttribute.surfaceType);
 
     angleConsole.info(
-        'SurfaceType: ${(surfaceType & EGL_MULTISAMPLE_RESOLVE_BOX_BIT) != 0 ? 'EGL_MULTISAMPLE_RESOLVE_BOX_BIT, ' : ''}'
-        '${(surfaceType & EGL_PBUFFER_BIT) != 0 ? 'EGL_PBUFFER_BIT, ' : ''}'
-        '${(surfaceType & EGL_PIXMAP_BIT) != 0 ? 'EGL_PIXMAP_BIT, ' : ''}'
-        '${(surfaceType & EGL_SWAP_BEHAVIOR_PRESERVED_BIT) != 0 ? 'EGL_SWAP_BEHAVIOR_PRESERVED_BIT, ' : ''}'
-        '${(surfaceType & EGL_VG_ALPHA_FORMAT_PRE_BIT) != 0 ? 'EGL_VG_ALPHA_FORMAT_PRE_BIT, ' : ''}'
-        '${(surfaceType & EGL_VG_COLORSPACE_LINEAR_BIT) != 0 ? 'EGL_VG_COLORSPACE_LINEAR_BIT, ' : ''}'
-        '${(surfaceType & EGL_WINDOW_BIT) != 0 ? 'EGL_WINDOW_BIT, ' : ''}');
+        'SurfaceType: ${(surfaceType & angle.EGL_MULTISAMPLE_RESOLVE_BOX_BIT) != 0 ? 'EGL_MULTISAMPLE_RESOLVE_BOX_BIT, ' : ''}'
+        '${(surfaceType & angle.EGL_PBUFFER_BIT) != 0 ? 'EGL_PBUFFER_BIT, ' : ''}'
+        '${(surfaceType & angle.EGL_PIXMAP_BIT) != 0 ? 'EGL_PIXMAP_BIT, ' : ''}'
+        '${(surfaceType & angle.EGL_SWAP_BEHAVIOR_PRESERVED_BIT) != 0 ? 'EGL_SWAP_BEHAVIOR_PRESERVED_BIT, ' : ''}'
+        '${(surfaceType & angle.EGL_VG_ALPHA_FORMAT_PRE_BIT) != 0 ? 'EGL_VG_ALPHA_FORMAT_PRE_BIT, ' : ''}'
+        '${(surfaceType & angle.EGL_VG_COLORSPACE_LINEAR_BIT) != 0 ? 'EGL_VG_COLORSPACE_LINEAR_BIT, ' : ''}'
+        '${(surfaceType & angle.EGL_WINDOW_BIT) != 0 ? 'EGL_WINDOW_BIT, ' : ''}');
     angleConsole.info(
         '${EglConfigAttribute.transparentType.toString()}: ${eglGetConfigAttrib(display, config, EglConfigAttribute.transparentType)}');
     angleConsole.info(
@@ -283,17 +283,17 @@ class EGL {
   }) {
     loadEGL();
     final attributeList = calloc<Int32>(5);
-    attributeList[0] = EGL_CONTEXT_CLIENT_VERSION;
+    attributeList[0] = angle.EGL_CONTEXT_CLIENT_VERSION;
     attributeList[1] = contextClientVersion;
     if (!isDebugContext) {
       attributeList[2] = EglValue.none.toIntValue();
     } else {
-      attributeList[2] = EGL_CONTEXT_OPENGL_DEBUG;
-      attributeList[3] = EGL_TRUE;
+      attributeList[2] = angle.EGL_CONTEXT_OPENGL_DEBUG;
+      attributeList[3] = angle.EGL_TRUE;
       attributeList[4] = EglValue.none.toIntValue();
     }
 
-    final nativeCallResult = _libEGL!.eglCreateContext(
+    final nativeCallResult = angle.eglCreateContext(
         display, config, shareContext ?? nullptr, attributeList);
     late Pointer<Void> result;
 
@@ -318,7 +318,7 @@ class EGL {
   ) {
     loadEGL();
     final nativeCallResult =
-        _libEGL!.eglCreateWindowSurface(display, config, nativeWindow, nullptr);
+        angle.eglCreateWindowSurface(display, config, nativeWindow, nullptr);
 
     if (nativeCallResult == nullptr) {
       throw EglException(
@@ -350,7 +350,7 @@ class EGL {
     attributeList[attributeCount - 1] = EglValue.none.toIntValue();
 
     final nativeCallResult =
-        _libEGL!.eglCreatePbufferSurface(display, config, attributeList);
+        angle.eglCreatePbufferSurface(display, config, attributeList);
 
     calloc.free(attributeList);
     if (nativeCallResult == nullptr) {
@@ -371,11 +371,11 @@ class EGL {
   ) {
     loadEGL();
     // Using direct access to _libEGL to call eglCreatePbufferFromClientBuffer
-    final nativeCallResult = _libEGL!.eglCreatePbufferFromClientBuffer(
+    final nativeCallResult = angle.eglCreatePbufferFromClientBuffer(
         display, bufferType, buffer, config, attribList);
 
     if (nativeCallResult == nullptr) {
-      final error = _libEGL!.eglGetError();
+      final error = angle.eglGetError();
       throw EglException(
           'Failed to create PBuffer from client buffer for display [$display], buffer type [$bufferType], buffer [$buffer], config [$config]. EGL error: $error');
     }
@@ -384,12 +384,12 @@ class EGL {
 
   void eglWaitClient() {
     loadEGL();
-    _libEGL!.eglWaitClient();
+    angle.eglWaitClient();
   }
 
   void makeCurrent(Pointer<Void> context) {
     loadEGL();
-    final nativeCallResult = _libEGL!.makeCurrent(context.address) == 1;
+    final nativeCallResult = angle.makeCurrent(context.address) == 1;
 
     if (nativeCallResult) {
       return;
@@ -430,8 +430,7 @@ class EGL {
                 attributes: attributes);
 
             // Now make current with the new surface instead of the invalid ones
-            final nativeCallResult = _libEGL!
-                    .eglMakeCurrent(display, newSurface, newSurface, context) ==
+            final nativeCallResult = angle.eglMakeCurrent(display, newSurface, newSurface, context) ==
                 1;
             if (nativeCallResult) {
               return;
@@ -447,7 +446,7 @@ class EGL {
 
     // Original implementation
     final nativeCallResult =
-        _libEGL!.eglMakeCurrent(display, draw, read, context) == 1;
+        angle.eglMakeCurrent(display, draw, read, context) == 1;
 
     if (nativeCallResult) {
       return;
@@ -462,7 +461,7 @@ class EGL {
     Pointer<Void> surface,
   ) {
     loadEGL();
-    final nativeCallResult = _libEGL!.eglSwapBuffers(display, surface) == 1;
+    final nativeCallResult = angle.eglSwapBuffers(display, surface) == 1;
 
     if (nativeCallResult) {
       return;
@@ -477,7 +476,7 @@ class EGL {
     Pointer<Void> context,
   ) {
     loadEGL();
-    final nativeCallResult = _libEGL!.eglDestroyContext(display, context) == 1;
+    final nativeCallResult = angle.eglDestroyContext(display, context) == 1;
 
     if (nativeCallResult) {
       return;
@@ -493,12 +492,12 @@ class EGL {
     int textureTarget;
 
     try {
-      if (_libEGL!.eglGetConfigAttrib(
-              display, config, EGL_BIND_TO_TEXTURE_TARGET_ANGLE, targetPtr) ==
+      if (angle.eglGetConfigAttrib(
+              display, config, angle.EGL_BIND_TO_TEXTURE_TARGET_ANGLE, targetPtr) ==
           0) {
-        final error = _libEGL!.eglGetError();
+        final error = angle.eglGetError();
         angleConsole.info('Failed to get texture target: Error $error');
-        textureTarget = EGL_TEXTURE_2D; // Fallback to 2D if query fails
+        textureTarget = angle.EGL_TEXTURE_2D; // Fallback to 2D if query fails
       } else {
         textureTarget = targetPtr.value;
         angleConsole.info(
@@ -597,35 +596,35 @@ extension EglErrorExtension on EglError {
   int toIntValue() {
     switch (this) {
       case EglError.success:
-        return EGL_SUCCESS;
+        return angle.EGL_SUCCESS;
       case EglError.notInitialized:
-        return EGL_NOT_INITIALIZED;
+        return angle.EGL_NOT_INITIALIZED;
       case EglError.badAccess:
-        return EGL_BAD_ACCESS;
+        return angle.EGL_BAD_ACCESS;
       case EglError.badAlloc:
-        return EGL_BAD_ALLOC;
+        return angle.EGL_BAD_ALLOC;
       case EglError.badAttribute:
-        return EGL_BAD_ATTRIBUTE;
+        return angle.EGL_BAD_ATTRIBUTE;
       case EglError.badContext:
-        return EGL_BAD_CONTEXT;
+        return angle.EGL_BAD_CONTEXT;
       case EglError.badConfig:
-        return EGL_BAD_CONFIG;
+        return angle.EGL_BAD_CONFIG;
       case EglError.badCurrentSurface:
-        return EGL_BAD_CURRENT_SURFACE;
+        return angle.EGL_BAD_CURRENT_SURFACE;
       case EglError.badDisplay:
-        return EGL_BAD_DISPLAY;
+        return angle.EGL_BAD_DISPLAY;
       case EglError.badSurface:
-        return EGL_BAD_SURFACE;
+        return angle.EGL_BAD_SURFACE;
       case EglError.badMatch:
-        return EGL_BAD_MATCH;
+        return angle.EGL_BAD_MATCH;
       case EglError.badParameter:
-        return EGL_BAD_PARAMETER;
+        return angle.EGL_BAD_PARAMETER;
       case EglError.badNativePixmap:
-        return EGL_BAD_NATIVE_PIXMAP;
+        return angle.EGL_BAD_NATIVE_PIXMAP;
       case EglError.badNativeWindow:
-        return EGL_BAD_NATIVE_WINDOW;
+        return angle.EGL_BAD_NATIVE_WINDOW;
       case EglError.contextLost:
-        return EGL_CONTEXT_LOST;
+        return angle.EGL_CONTEXT_LOST;
     }
   }
 }
@@ -633,35 +632,35 @@ extension EglErrorExtension on EglError {
 extension EglErrorIntExtension on int {
   EglError toEglError() {
     switch (this) {
-      case EGL_SUCCESS:
+      case angle.EGL_SUCCESS:
         return EglError.success;
-      case EGL_NOT_INITIALIZED:
+      case angle.EGL_NOT_INITIALIZED:
         return EglError.notInitialized;
-      case EGL_BAD_ACCESS:
+      case angle.EGL_BAD_ACCESS:
         return EglError.badAccess;
-      case EGL_BAD_ALLOC:
+      case angle.EGL_BAD_ALLOC:
         return EglError.badAlloc;
-      case EGL_BAD_ATTRIBUTE:
+      case angle.EGL_BAD_ATTRIBUTE:
         return EglError.badAttribute;
-      case EGL_BAD_CONTEXT:
+      case angle.EGL_BAD_CONTEXT:
         return EglError.badContext;
-      case EGL_BAD_CONFIG:
+      case angle.EGL_BAD_CONFIG:
         return EglError.badConfig;
-      case EGL_BAD_CURRENT_SURFACE:
+      case angle.EGL_BAD_CURRENT_SURFACE:
         return EglError.badCurrentSurface;
-      case EGL_BAD_DISPLAY:
+      case angle.EGL_BAD_DISPLAY:
         return EglError.badDisplay;
-      case EGL_BAD_SURFACE:
+      case angle.EGL_BAD_SURFACE:
         return EglError.badSurface;
-      case EGL_BAD_MATCH:
+      case angle.EGL_BAD_MATCH:
         return EglError.badMatch;
-      case EGL_BAD_PARAMETER:
+      case angle.EGL_BAD_PARAMETER:
         return EglError.badParameter;
-      case EGL_BAD_NATIVE_PIXMAP:
+      case angle.EGL_BAD_NATIVE_PIXMAP:
         return EglError.badNativePixmap;
-      case EGL_BAD_NATIVE_WINDOW:
+      case angle.EGL_BAD_NATIVE_WINDOW:
         return EglError.badNativeWindow;
-      case EGL_CONTEXT_LOST:
+      case angle.EGL_CONTEXT_LOST:
         return EglError.contextLost;
       default:
         throw UnsupportedError('Unsupported value: $this');
@@ -948,61 +947,61 @@ extension EglConfigAttributeExtension on EglConfigAttribute {
   int toIntValue() {
     switch (this) {
       case EglConfigAttribute.alphaMaskSize:
-        return EGL_ALPHA_MASK_SIZE;
+        return angle.EGL_ALPHA_MASK_SIZE;
       case EglConfigAttribute.alphaSize:
-        return EGL_ALPHA_SIZE;
+        return angle.EGL_ALPHA_SIZE;
       case EglConfigAttribute.bindToTextureRgb:
-        return EGL_BIND_TO_TEXTURE_RGB;
+        return angle.EGL_BIND_TO_TEXTURE_RGB;
       case EglConfigAttribute.bindToTextureRgba:
-        return EGL_BIND_TO_TEXTURE_RGBA;
+        return angle.EGL_BIND_TO_TEXTURE_RGBA;
       case EglConfigAttribute.blueSize:
-        return EGL_BLUE_SIZE;
+        return angle.EGL_BLUE_SIZE;
       case EglConfigAttribute.bufferSize:
-        return EGL_BUFFER_SIZE;
+        return angle.EGL_BUFFER_SIZE;
       case EglConfigAttribute.colorBufferType:
-        return EGL_COLOR_BUFFER_TYPE;
+        return angle.EGL_COLOR_BUFFER_TYPE;
       case EglConfigAttribute.configCaveat:
-        return EGL_CONFIG_CAVEAT;
+        return angle.EGL_CONFIG_CAVEAT;
       case EglConfigAttribute.configId:
-        return EGL_CONFIG_ID;
+        return angle.EGL_CONFIG_ID;
       case EglConfigAttribute.conformant:
-        return EGL_CONFORMANT;
+        return angle.EGL_CONFORMANT;
       case EglConfigAttribute.depthSize:
-        return EGL_DEPTH_SIZE;
+        return angle.EGL_DEPTH_SIZE;
       case EglConfigAttribute.greenSize:
-        return EGL_GREEN_SIZE;
+        return angle.EGL_GREEN_SIZE;
       case EglConfigAttribute.level:
-        return EGL_LEVEL;
+        return angle.EGL_LEVEL;
       case EglConfigAttribute.luminanceSize:
-        return EGL_LUMINANCE_SIZE;
+        return angle.EGL_LUMINANCE_SIZE;
       case EglConfigAttribute.matchNativePixmap:
-        return EGL_MATCH_NATIVE_PIXMAP;
+        return angle.EGL_MATCH_NATIVE_PIXMAP;
       case EglConfigAttribute.nativeRenderable:
-        return EGL_NATIVE_RENDERABLE;
+        return angle.EGL_NATIVE_RENDERABLE;
       case EglConfigAttribute.maxSwapInterval:
-        return EGL_MAX_SWAP_INTERVAL;
+        return angle.EGL_MAX_SWAP_INTERVAL;
       case EglConfigAttribute.minSwapInterval:
-        return EGL_MIN_SWAP_INTERVAL;
+        return angle.EGL_MIN_SWAP_INTERVAL;
       case EglConfigAttribute.redSize:
-        return EGL_RED_SIZE;
+        return angle.EGL_RED_SIZE;
       case EglConfigAttribute.sampleBuffers:
-        return EGL_SAMPLE_BUFFERS;
+        return angle.EGL_SAMPLE_BUFFERS;
       case EglConfigAttribute.samples:
-        return EGL_SAMPLES;
+        return angle.EGL_SAMPLES;
       case EglConfigAttribute.stencilSize:
-        return EGL_STENCIL_SIZE;
+        return angle.EGL_STENCIL_SIZE;
       case EglConfigAttribute.renderableType:
-        return EGL_RENDERABLE_TYPE;
+        return angle.EGL_RENDERABLE_TYPE;
       case EglConfigAttribute.surfaceType:
-        return EGL_SURFACE_TYPE;
+        return angle.EGL_SURFACE_TYPE;
       case EglConfigAttribute.transparentType:
-        return EGL_TRANSPARENT_TYPE;
+        return angle.EGL_TRANSPARENT_TYPE;
       case EglConfigAttribute.transparentRedValue:
-        return EGL_TRANSPARENT_RED_VALUE;
+        return angle.EGL_TRANSPARENT_RED_VALUE;
       case EglConfigAttribute.transparentGreenValue:
-        return EGL_TRANSPARENT_GREEN_VALUE;
+        return angle.EGL_TRANSPARENT_GREEN_VALUE;
       case EglConfigAttribute.transparentBlueValue:
-        return EGL_TRANSPARENT_BLUE_VALUE;
+        return angle.EGL_TRANSPARENT_BLUE_VALUE;
     }
   }
 }
@@ -1061,15 +1060,15 @@ enum EglSurfaceAttributes {
 }
 
 const _EglSurfaceAttributesToInt = <EglSurfaceAttributes, int>{
-  EglSurfaceAttributes.glColorspace: EGL_GL_COLORSPACE,
-  EglSurfaceAttributes.height: EGL_HEIGHT,
-  EglSurfaceAttributes.largestPbuffer: EGL_LARGEST_PBUFFER,
-  EglSurfaceAttributes.mipmapTexture: EGL_MIPMAP_TEXTURE,
-  EglSurfaceAttributes.textureFormat: EGL_TEXTURE_FORMAT,
-  EglSurfaceAttributes.textureTarget: EGL_TEXTURE_TARGET,
-  EglSurfaceAttributes.vgAlphaFormat: EGL_VG_ALPHA_FORMAT,
-  EglSurfaceAttributes.vgColorspace: EGL_VG_COLORSPACE,
-  EglSurfaceAttributes.width: EGL_WIDTH,
+  EglSurfaceAttributes.glColorspace: angle.EGL_GL_COLORSPACE,
+  EglSurfaceAttributes.height: angle.EGL_HEIGHT,
+  EglSurfaceAttributes.largestPbuffer: angle.EGL_LARGEST_PBUFFER,
+  EglSurfaceAttributes.mipmapTexture: angle.EGL_MIPMAP_TEXTURE,
+  EglSurfaceAttributes.textureFormat: angle.EGL_TEXTURE_FORMAT,
+  EglSurfaceAttributes.textureTarget: angle.EGL_TEXTURE_TARGET,
+  EglSurfaceAttributes.vgAlphaFormat: angle.EGL_VG_ALPHA_FORMAT,
+  EglSurfaceAttributes.vgColorspace: angle.EGL_VG_COLORSPACE,
+  EglSurfaceAttributes.width: angle.EGL_WIDTH,
 };
 
 extension EglSurfaceAttributesExtension on EglSurfaceAttributes {
@@ -1089,11 +1088,11 @@ extension EglValueExtension on EglValue {
   int toIntValue() {
     switch (this) {
       case EglValue.none:
-        return EGL_NONE;
+        return angle.EGL_NONE;
       case EglValue.openglEs2Bit:
-        return EGL_OPENGL_ES2_BIT;
+        return angle.EGL_OPENGL_ES2_BIT;
       case EglValue.openglEs3Bit:
-        return EGL_OPENGL_ES3_BIT;
+        return angle.EGL_OPENGL_ES3_BIT;
     }
   }
 }

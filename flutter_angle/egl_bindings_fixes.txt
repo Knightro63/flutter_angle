@@ -1,0 +1,11 @@
+int makeCurrent(int context)  {
+  return  _makeCurrent(context);
+}
+
+late final _makeCurrent_ptr =
+    _lookup<ffi.NativeFunction<EGLBoolean Function(ffi.Int64)>>('makeCurrent');
+late final _makeCurrent =
+    _makeCurrent_ptr.asFunction<int Function(int)>();
+
+@ffi.Native<ffi.Int64 Function(ffi.Int64)>(isLeaf: false,symbol: 'makeCurrent')
+external int makeCurrent(int context);

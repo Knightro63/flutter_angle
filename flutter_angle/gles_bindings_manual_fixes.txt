@@ -1,0 +1,1080 @@
+// The @Native annotation automatically resolves the 'Pointer' vs 'TypedData' 
+// mismatch when isLeaf is true.
+@ffi.Native<ffi.Void Function(ffi.Uint32, ffi.Int64, ffi.Pointer<ffi.Void>, ffi.Uint32)>(isLeaf: false,symbol: 'glBufferData')
+external void _glBufferDataVoid(int target, int size, ffi.Pointer<ffi.Void> data, int usage);
+
+void glBufferDataVoid(int target, int size, ffi.Pointer<ffi.Void> data, int usage) {
+  _glBufferDataVoid(target, size, data, usage);
+}
+
+// The @Native annotation automatically resolves the 'Pointer' vs 'TypedData' 
+// mismatch when isLeaf is true.
+@ffi.Native<ffi.Void Function(ffi.Uint32, ffi.Int64, ffi.Pointer<ffi.Void>, ffi.Uint32)>(isLeaf: true,symbol: 'glBufferData')
+external void _glBufferData(int target, int size, ffi.Pointer<ffi.Void> data, int usage);
+
+void glBufferData(int target, int size, TypedData data, int usage) {
+  // Use pattern matching to reveal the concrete type
+  switch (data) {
+    case Float64List d:
+      _glBufferData(target, size, d.address.cast<ffi.Void>(), usage);
+    case Float32List d:
+      _glBufferData(target, size, d.address.cast<ffi.Void>(), usage);
+    case Int16List d:
+      _glBufferData(target, size, d.address.cast<ffi.Void>(), usage);
+    case Uint16List d:
+      _glBufferData(target, size, d.address.cast<ffi.Void>(), usage);
+    case Uint8List d:
+      _glBufferData(target, size, d.address.cast<ffi.Void>(), usage);
+    case Int8List d:
+      _glBufferData(target, size, d.address.cast<ffi.Void>(), usage);
+    case Int32List d:
+      _glBufferData(target, size, d.address.cast<ffi.Void>(), usage);
+    case Uint32List d:
+      _glBufferData(target, size, d.address.cast<ffi.Void>(), usage);
+    case Int64List d:
+      _glBufferData(target, size, d.address.cast<ffi.Void>(), usage);
+    case Uint64List d:
+      _glBufferData(target, size, d.address.cast<ffi.Void>(), usage);
+  }
+}
+
+// The @Native annotation automatically resolves the 'Pointer' vs 'TypedData' 
+// mismatch when isLeaf is true.
+@ffi.Native<ffi.Void Function(ffi.Uint32 target, ffi.Int64 offset, ffi.Int64 size, ffi.Pointer<ffi.Void>)>(isLeaf: true, symbol: 'glBufferSubData')
+external void _glBufferSubData(int target, int offset, int size, ffi.Pointer<ffi.Void> data);
+
+void glBufferSubData(int target, int offset, int size, TypedData data) {
+  switch (data) {
+    case Float64List d:
+      _glBufferSubData(target, offset, size, d.address.cast<ffi.Void>());
+    case Float32List d:
+      _glBufferSubData(target, offset, size, d.address.cast<ffi.Void>());
+    case Int16List d:
+      _glBufferSubData(target, offset, size, d.address.cast<ffi.Void>());
+    case Uint16List d:
+      _glBufferSubData(target, offset, size, d.address.cast<ffi.Void>());
+    case Uint8List d:
+      _glBufferSubData(target, offset, size, d.address.cast<ffi.Void>());
+    case Int8List d:
+      _glBufferSubData(target, offset, size, d.address.cast<ffi.Void>());
+    case Int32List d:
+      _glBufferSubData(target, offset, size, d.address.cast<ffi.Void>());
+    case Uint32List d:
+      _glBufferSubData(target, offset, size, d.address.cast<ffi.Void>());
+    case Int64List d:
+      _glBufferSubData(target, offset, size, d.address.cast<ffi.Void>());
+    case Uint64List d:
+      _glBufferSubData(target, offset, size, d.address.cast<ffi.Void>());
+  }
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Uint32 target,
+  ffi.Int32 level,
+  ffi.Uint32 internalformat,
+  ffi.Int32 width,
+  ffi.Int32 height,
+  ffi.Int32 border,
+  ffi.Int32 imageSize,
+  ffi.Pointer<ffi.Void> data,
+)>(isLeaf: true,symbol: 'glCompressedTexImage2D')
+external void _glCompressedTexImage2D(
+  int target,
+  int level,
+  int internalformat,
+  int width,
+  int height,
+  int border,
+  int imageSize,
+  ffi.Pointer<ffi.Void> data,
+);
+
+void glCompressedTexImage2D(int target, int level, int internalformat, int width, int height, int border, int imageSize, TypedData? data) {
+  switch (data) {
+    case null:
+      _glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, ffi.nullptr);
+    case Float64List d:
+      _glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, d.address.cast<ffi.Void>());
+    case Float32List d:
+      _glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, d.address.cast<ffi.Void>());
+    case Int32List d:
+      _glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, d.address.cast<ffi.Void>());
+    case Int16List d:
+      _glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, d.address.cast<ffi.Void>());
+    case Int8List d:
+      _glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, d.address.cast<ffi.Void>());
+    case Uint32List d:
+      _glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, d.address.cast<ffi.Void>());
+    case Uint16List d:
+      _glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, d.address.cast<ffi.Void>());
+    case Uint8List d:
+      _glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, d.address.cast<ffi.Void>());
+    case Uint64List d:
+      _glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, d.address.cast<ffi.Void>());
+    case Int64List d:
+      _glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, d.address.cast<ffi.Void>());
+  }
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Uint32 target,
+  ffi.Int32 level,
+  ffi.Int32 xoffset,
+  ffi.Int32 yoffset,
+  ffi.Int32 width,
+  ffi.Int32 height,
+  ffi.Uint32 format,
+  ffi.Int32 imageSize,
+  ffi.Pointer<ffi.Void> data,
+)>(isLeaf: true,symbol: 'glCompressedTexSubImage2D')
+external void _glCompressedTexSubImage2D(
+  int target,
+  int level,
+  int xoffset,
+  int yoffset,
+  int width,
+  int height,
+  int format,
+  int imageSize,
+  ffi.Pointer<ffi.Void> data,
+);
+
+void glCompressedTexSubImage2D(int target, int level, int xoffset, int yoffset, int width, int height, int format, int imageSize, TypedData? data) {
+  switch (data) {
+    case null:
+      _glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, ffi.nullptr);
+    case Float64List d:
+      _glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, d.address.cast<ffi.Void>());
+    case Float32List d:
+      _glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, d.address.cast<ffi.Void>());
+    case Int32List d:
+      _glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, d.address.cast<ffi.Void>());
+    case Int16List d:
+      _glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, d.address.cast<ffi.Void>());
+    case Int8List d:
+      _glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, d.address.cast<ffi.Void>());
+    case Uint32List d:
+      _glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, d.address.cast<ffi.Void>());
+    case Uint16List d:
+      _glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, d.address.cast<ffi.Void>());
+    case Uint8List d:
+      _glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, d.address.cast<ffi.Void>());
+    case Uint64List d:
+      _glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, d.address.cast<ffi.Void>());
+    case Int64List d:
+      _glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, d.address.cast<ffi.Void>());
+  }
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 n,
+  ffi.Pointer<ffi.Uint32> buffers,
+)>(isLeaf: true,symbol: 'glDeleteBuffers')
+external void _glDeleteBuffers(
+  int n,
+  ffi.Pointer<ffi.Uint32> buffers,
+);
+
+void glDeleteBuffers(
+  int n,
+  Uint32List buffers,
+) {
+  _glDeleteBuffers(n, buffers.address);
+}
+void glDeleteBuffersPointer(
+  int n,
+  ffi.Pointer<ffi.Uint32> buffers,
+) {
+  _glDeleteBuffers(n, buffers);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 n,
+  ffi.Pointer<ffi.Uint32> framebuffers,
+)>(isLeaf: true,symbol: 'glDeleteFramebuffers')
+external void _glDeleteFramebuffers(
+  int n,
+  ffi.Pointer<ffi.Uint32> framebuffers,
+);
+
+void glDeleteFramebuffers(
+  int n,
+  Uint32List framebuffers,
+) {
+  _glDeleteFramebuffers(n, framebuffers.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 n,
+  ffi.Pointer<ffi.Uint32> renderbuffers,
+)>(isLeaf: true,symbol: 'glDeleteRenderbuffers')
+external void _glDeleteRenderbuffers(
+  int n,
+  ffi.Pointer<ffi.Uint32> renderbuffers,
+);
+
+void glDeleteRenderbuffers(
+  int n,
+  Uint32List renderbuffers,
+) {
+  _glDeleteRenderbuffers(n, renderbuffers.address);
+}
+
+void glDeleteRenderbuffersPointer(
+  int n,
+  ffi.Pointer<ffi.Uint32> renderbuffers,
+) {
+  _glDeleteRenderbuffers(n, renderbuffers);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 n,
+  ffi.Pointer<ffi.Uint32> textures,
+)>(isLeaf: true,symbol: 'glDeleteTextures')
+external void _glDeleteTextures(
+  int n,
+  ffi.Pointer<ffi.Uint32> textures,
+);
+
+void glDeleteTextures(
+  int n,
+  Uint32List textures,
+) {
+  _glDeleteTextures(n, textures.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 x,
+  ffi.Int32 y,
+  ffi.Int32 width,
+  ffi.Int32 height,
+  ffi.Uint32 format,
+  ffi.Uint32 type,
+  ffi.Pointer<ffi.Void> pixels,
+)>(isLeaf: true,symbol: 'glReadPixels')
+external void _glReadPixels(
+  int x,
+  int y,
+  int width,
+  int height,
+  int format,
+  int type,
+  ffi.Pointer<ffi.Void> pixels,
+);
+
+void glReadPixels(
+  int x,
+  int y,
+  int width,
+  int height,
+  int format,
+  int type,
+  TypedData? pixels,
+) {
+  switch (pixels) {
+    case null:
+      _glReadPixels(x, y, width, height, format, type, ffi.nullptr);
+    case Float64List d:
+      _glReadPixels(x, y, width, height, format, type, d.address.cast<ffi.Void>());
+    case Float32List d:
+      _glReadPixels(x, y, width, height, format, type, d.address.cast<ffi.Void>());
+    case Int32List d:
+      _glReadPixels(x, y, width, height, format, type, d.address.cast<ffi.Void>());
+    case Int16List d:
+      _glReadPixels(x, y, width, height, format, type, d.address.cast<ffi.Void>());
+    case Int8List d:
+      _glReadPixels(x, y, width, height, format, type, d.address.cast<ffi.Void>());
+    case Uint32List d:
+      _glReadPixels(x, y, width, height, format, type, d.address.cast<ffi.Void>());
+    case Uint16List d:
+      _glReadPixels(x, y, width, height, format, type, d.address.cast<ffi.Void>());
+    case Uint8List d:
+      _glReadPixels(x, y, width, height, format, type, d.address.cast<ffi.Void>());
+    case Int64List d:
+      _glReadPixels(x, y, width, height, format, type, d.address.cast<ffi.Void>());
+    case Uint64List d:
+      _glReadPixels(x, y, width, height, format, type, d.address.cast<ffi.Void>());
+  }
+}
+
+@ffi.Native< ffi.Void Function(
+  ffi.Uint32 target,
+  ffi.Int32 level,
+  ffi.Int32 internalformat,
+  ffi.Int32 width,
+  ffi.Int32 height,
+  ffi.Int32 border,
+  ffi.Uint32 format,
+  ffi.Uint32 type,
+  ffi.Pointer<ffi.Void> pixels,
+)>(isLeaf: true, symbol: 'glTexImage2D')
+external void _glTexImage2D(
+  int target,
+  int level,
+  int internalformat,
+  int width,
+  int height,
+  int border,
+  int format,
+  int type,
+  ffi.Pointer<ffi.Void> pixels,
+);
+
+void glTexImage2D(
+  int target,
+  int level,
+  int internalformat,
+  int width,
+  int height,
+  int border,
+  int format,
+  int type,
+  TypedData? pixels,
+) {
+  switch (pixels) {
+    case null:
+      _glTexImage2D(target, level, internalformat, width, height, border, format, type, ffi.nullptr);
+    case Float64List d:
+      _glTexImage2D(target, level, internalformat, width, height, border, format, type, d.address.cast<ffi.Void>());
+    case Float32List d:
+      _glTexImage2D(target, level, internalformat, width, height, border, format, type, d.address.cast<ffi.Void>());
+    case Int32List d:
+      _glTexImage2D(target, level, internalformat, width, height, border, format, type, d.address.cast<ffi.Void>());
+    case Int16List d:
+      _glTexImage2D(target, level, internalformat, width, height, border, format, type, d.address.cast<ffi.Void>());
+    case Int8List d:
+      _glTexImage2D(target, level, internalformat, width, height, border, format, type, d.address.cast<ffi.Void>());
+    case Uint32List d:
+      _glTexImage2D(target, level, internalformat, width, height, border, format, type, d.address.cast<ffi.Void>());
+    case Uint16List d:
+      _glTexImage2D(target, level, internalformat, width, height, border, format, type, d.address.cast<ffi.Void>());
+    case Uint8List d:
+      _glTexImage2D(target, level, internalformat, width, height, border, format, type, d.address.cast<ffi.Void>());
+    case Uint64List d:
+      _glTexImage2D(target, level, internalformat, width, height, border, format, type, d.address.cast<ffi.Void>());
+    case Int64List d:
+      _glTexImage2D(target, level, internalformat, width, height, border, format, type, d.address.cast<ffi.Void>());
+  }
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Uint32 target,
+  ffi.Int32 level,
+  ffi.Int32 xoffset,
+  ffi.Int32 yoffset,
+  ffi.Int32 width,
+  ffi.Int32 height,
+  ffi.Uint32 format,
+  ffi.Uint32 type,
+  ffi.Pointer<ffi.Void> pixels,
+)>(isLeaf: true,symbol: 'glTexSubImage2D')
+external void _glTexSubImage2D(
+  int target,
+  int level,
+  int xoffset,
+  int yoffset,
+  int width,
+  int height,
+  int format,
+  int type,
+  ffi.Pointer<ffi.Void> pixels,
+);
+
+void glTexSubImage2D(
+  int target,
+  int level,
+  int xoffset,
+  int yoffset,
+  int width,
+  int height,
+  int format,
+  int type,
+  TypedData? pixels,
+) {
+  switch (pixels) {
+    case null:
+      _glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, ffi.nullptr);
+    case Float64List d:
+      _glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, d.address.cast<ffi.Void>());
+    case Float32List d:
+      _glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, d.address.cast<ffi.Void>());
+    case Int32List d:
+      _glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, d.address.cast<ffi.Void>());
+    case Int16List d:
+      _glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, d.address.cast<ffi.Void>());
+    case Int8List d:
+      _glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, d.address.cast<ffi.Void>());
+    case Uint32List d:
+      _glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, d.address.cast<ffi.Void>());
+    case Uint16List d:
+      _glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, d.address.cast<ffi.Void>());
+    case Uint8List d:
+      _glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, d.address.cast<ffi.Void>());
+    case Uint64List d:
+      _glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, d.address.cast<ffi.Void>());
+    case Int64List d:
+      _glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, d.address.cast<ffi.Void>());
+  }
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Pointer<ffi.Float> value,
+)>(isLeaf: true,symbol: 'glUniform1fv')
+external void _glUniform1fv(
+  int location,
+  int count,
+  ffi.Pointer<ffi.Float> value,
+);
+
+void glUniform1fv(
+  int location,
+  int count,
+  Float32List value,
+) {
+  _glUniform1fv(location, count, value.address);
+}
+
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Pointer<ffi.Int32> value,
+)>(isLeaf: true,symbol: 'glUniform1iv')
+external void _glUniform1iv(
+  int location,
+  int count,
+  ffi.Pointer<ffi.Int32> value,
+);
+
+void glUniform1iv(
+  int location,
+  int count,
+  Int32List value,
+) {
+  _glUniform1iv(location, count, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Pointer<ffi.Float> value,
+)>(isLeaf: true,symbol: 'glUniform2fv')
+external void _glUniform2fv(
+  int location,
+  int count,
+  ffi.Pointer<ffi.Float> value,
+);
+
+void glUniform2fv(
+  int location,
+  int count,
+  Float32List value,
+) {
+  _glUniform2fv(location, count, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Pointer<ffi.Int32> value,
+)>(isLeaf: true,symbol: 'glUniform2iv')
+external void _glUniform2iv(
+  int location,
+  int count,
+  ffi.Pointer<ffi.Int32> value,
+);
+
+void glUniform2iv(
+  int location,
+  int count,
+  Int32List value,
+) {
+  _glUniform2iv(location, count, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Pointer<ffi.Float> value,
+)>(isLeaf: true,symbol: 'glUniform3fv')
+external void _glUniform3fv(
+  int location,
+  int count,
+  ffi.Pointer<ffi.Float> value,
+);
+
+void glUniform3fv(
+  int location,
+  int count,
+  Float32List value,
+) {
+  _glUniform3fv(location, count, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Pointer<ffi.Int32> value,
+)>(isLeaf: true,symbol: 'glUniform3iv')
+external void _glUniform3iv(
+  int location,
+  int count,
+  ffi.Pointer<ffi.Int32> value,
+);
+
+void glUniform3iv(
+  int location,
+  int count,
+  Int32List value,
+) {
+  _glUniform3iv(location, count, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Pointer<ffi.Float> value,
+)>(isLeaf: true,symbol: 'glUniform4fv')
+external void _glUniform4fv(
+  int location,
+  int count,
+  ffi.Pointer<ffi.Float> value,
+);
+
+void glUniform4fv(
+  int location,
+  int count,
+  Float32List value,
+) {
+  _glUniform4fv(location, count, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Pointer<ffi.Int32> value,
+)>(isLeaf: true,symbol: 'glUniform4iv')
+external void _glUniform4iv(
+  int location,
+  int count,
+  ffi.Pointer<ffi.Int32> value,
+);
+
+void glUniform4iv(
+  int location,
+  int count,
+  Int32List value,
+) {
+  _glUniform4iv(location, count, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Uint8 transpose,
+  ffi.Pointer<ffi.Float> value,
+)>(isLeaf: true,symbol: 'glUniformMatrix2fv')
+external void _glUniformMatrix2fv(
+  int location,
+  int count,
+  int transpose,
+  ffi.Pointer<ffi.Float> value,
+);
+
+void glUniformMatrix2fv(
+  int location,
+  int count,
+  int transpose,
+  Float32List value,
+) {
+  _glUniformMatrix2fv(location, count, transpose, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Uint8 transpose,
+  ffi.Pointer<ffi.Float> value,
+)>(isLeaf: true,symbol: 'glUniformMatrix3fv')
+external void _glUniformMatrix3fv(
+  int location,
+  int count,
+  int transpose,
+  ffi.Pointer<ffi.Float> value,
+);
+
+void glUniformMatrix3fv(
+  int location,
+  int count,
+  int transpose,
+  Float32List value,
+) {
+  _glUniformMatrix3fv(location, count, transpose, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Uint8 transpose,
+  ffi.Pointer<ffi.Float> value,
+)>(isLeaf: true,symbol: 'glUniformMatrix4fv')
+external void _glUniformMatrix4fv(
+  int location,
+  int count,
+  int transpose,
+  ffi.Pointer<ffi.Float> value,
+);
+
+void glUniformMatrix4fv(
+  int location,
+  int count,
+  int transpose,
+  Float32List value,
+) {
+  _glUniformMatrix4fv(location, count, transpose, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Uint32 index,
+  ffi.Pointer<ffi.Float> v,
+)>(isLeaf: true,symbol: 'glVertexAttrib1fv')
+external void _glVertexAttrib1fv(
+  int index,
+  ffi.Pointer<ffi.Float> v,
+);
+
+void glVertexAttrib1fv(
+  int index,
+  Float32List v,
+) {
+  _glVertexAttrib1fv(index, v.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Uint32 index,
+  ffi.Pointer<ffi.Float> v,
+)>(isLeaf: true,symbol: 'glVertexAttrib2fv')
+external void _glVertexAttrib2fv(
+  int index,
+  ffi.Pointer<ffi.Float> v,
+);
+
+void glVertexAttrib2fv(
+  int index,
+  Float32List v,
+) {
+  _glVertexAttrib2fv(index, v.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Uint32 index,
+  ffi.Pointer<ffi.Float> v,
+)>(isLeaf: true,symbol: 'glVertexAttrib3fv')
+external void _glVertexAttrib3fv(
+  int index,
+  ffi.Pointer<ffi.Float> v,
+);
+
+void glVertexAttrib3fv(
+  int index,
+  Float32List v,
+) {
+  _glVertexAttrib3fv(index, v.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Uint32 index,
+  ffi.Pointer<ffi.Float> v,
+)>(isLeaf: true,symbol: 'glVertexAttrib4fv')
+external void _glVertexAttrib4fv(
+  int index,
+  ffi.Pointer<ffi.Float> v,
+);
+
+void glVertexAttrib4fv(
+  int index,
+  Float32List v,
+) {
+  _glVertexAttrib4fv(index, v.address);
+}
+
+// The @Native annotation automatically resolves the 'Pointer' vs 'TypedData' 
+// mismatch when isLeaf is true.
+@ffi.Native<ffi.Void Function(
+  ffi.Uint32 target,
+  ffi.Int32 level,
+  ffi.Int32 internalformat,
+  ffi.Int32 width,
+  ffi.Int32 height,
+  ffi.Int32 depth,
+  ffi.Int32 border,
+  ffi.Uint32 format,
+  ffi.Uint32 type,
+  ffi.Pointer<ffi.Void> pixels
+)>(isLeaf: true,symbol: 'glTexImage3D')
+external void _glTexImage3D(int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ffi.Pointer<ffi.Void> pixels);
+
+void glTexImage3D(
+  int target,
+  int level,
+  int internalformat,
+  int width,
+  int height,
+  int depth,
+  int border,
+  int format,
+  int type,
+  TypedData? pixels,
+) {
+  switch (pixels) {
+    case null:
+      _glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, ffi.nullptr);
+    case Float64List d:
+      _glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, d.address.cast<ffi.Void>());
+    case Float32List d:
+      _glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, d.address.cast<ffi.Void>());
+    case Int32List d:
+      _glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, d.address.cast<ffi.Void>());
+    case Int16List d:
+      _glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, d.address.cast<ffi.Void>());
+    case Int8List d:
+      _glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, d.address.cast<ffi.Void>());
+    case Uint32List d:
+      _glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, d.address.cast<ffi.Void>());
+    case Uint16List d:
+      _glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, d.address.cast<ffi.Void>());
+    case Uint8List d:
+      _glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, d.address.cast<ffi.Void>());
+    case Uint64List d:
+      _glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, d.address.cast<ffi.Void>());
+    case Int64List d:
+      _glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, d.address.cast<ffi.Void>());
+  }
+}
+
+// The @Native annotation automatically resolves the 'Pointer' vs 'TypedData' 
+// mismatch when isLeaf is true.
+@ffi.Native<ffi.Void Function(
+ffi.Uint32 target,
+ffi.Int32 level,
+ffi.Int32 xoffset,
+ffi.Int32 yoffset,
+ffi.Int32 zoffset,
+ffi.Int32 width,
+ffi.Int32 height,
+ffi.Int32 depth,
+ffi.Uint32 format,
+ffi.Uint32 type,
+ffi.Pointer<ffi.Void> pixels,
+)>(isLeaf: true,symbol: 'glTexSubImage3D')
+external void _glTexSubImage3D(int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ffi.Pointer<ffi.Void> pixels);
+
+void glTexSubImage3D(
+  int target,
+  int level,
+  int xoffset,
+  int yoffset,
+  int zoffset,
+  int width,
+  int height,
+  int depth,
+  int format,
+  int type,
+  TypedData? pixels,
+) {
+  switch (pixels) {
+    case null:
+      _glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, ffi.nullptr);
+    case Float64List d:
+      _glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, d.address.cast<ffi.Void>());
+    case Float32List d:
+      _glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, d.address.cast<ffi.Void>());
+    case Int32List d:
+      _glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, d.address.cast<ffi.Void>());
+    case Int16List d:
+      _glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, d.address.cast<ffi.Void>());
+    case Int8List d:
+      _glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, d.address.cast<ffi.Void>());
+    case Uint32List d:
+      _glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, d.address.cast<ffi.Void>());
+    case Uint16List d:
+      _glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, d.address.cast<ffi.Void>());
+    case Uint8List d:
+      _glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, d.address.cast<ffi.Void>());
+    case Uint64List d:
+      _glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, d.address.cast<ffi.Void>());
+    case Int64List d:
+      _glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, d.address.cast<ffi.Void>());
+  }
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Uint32 target,
+  ffi.Int32 level,
+  ffi.Uint32 internalformat,
+  ffi.Int32 width,
+  ffi.Int32 height,
+  ffi.Int32 depth,
+  ffi.Int32 border,
+  ffi.Int32 imageSize,
+  ffi.Pointer<ffi.Void> data,
+)>(isLeaf: true,symbol: 'glCompressedTexImage3D')
+external void _glCompressedTexImage3D(
+  int target,
+  int level,
+  int internalformat,
+  int width,
+  int height,
+  int depth,
+  int border,
+  int imageSize,
+  ffi.Pointer<ffi.Void> data,
+);
+
+void glCompressedTexImage3D(
+  int target,
+  int level,
+  int internalformat,
+  int width,
+  int height,
+  int depth,
+  int border,
+  int imageSize,
+  TypedData? data,
+) {
+  switch (data) {
+    case null:
+      _glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, ffi.nullptr);
+    case Float64List d:
+      _glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, d.address.cast<ffi.Void>());
+    case Float32List d:
+      _glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, d.address.cast<ffi.Void>());
+    case Int32List d:
+      _glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, d.address.cast<ffi.Void>());
+    case Int16List d:
+      _glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, d.address.cast<ffi.Void>());
+    case Int8List d:
+      _glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, d.address.cast<ffi.Void>());
+    case Uint32List d:
+      _glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, d.address.cast<ffi.Void>());
+    case Uint16List d:
+      _glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, d.address.cast<ffi.Void>());
+    case Uint8List d:
+      _glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, d.address.cast<ffi.Void>());
+    case Uint64List d:
+      _glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, d.address.cast<ffi.Void>());
+    case Int64List d:
+      _glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, d.address.cast<ffi.Void>());
+  }
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Uint32 target,
+  ffi.Int32 level,
+  ffi.Int32 xoffset,
+  ffi.Int32 yoffset,
+  ffi.Int32 zoffset,
+  ffi.Int32 width,
+  ffi.Int32 height,
+  ffi.Int32 depth,
+  ffi.Uint32 format,
+  ffi.Int32 imageSize,
+  ffi.Pointer<ffi.Void> data,
+)>(isLeaf: true,symbol: 'glCompressedTexSubImage3D')
+external void _glCompressedTexSubImage3D(
+  int target,
+  int level,
+  int xoffset,
+  int yoffset,
+  int zoffset,
+  int width,
+  int height,
+  int depth,
+  int format,
+  int imageSize,
+  ffi.Pointer<ffi.Void> data,
+);
+
+void glCompressedTexSubImage3D(
+  int target,
+  int level,
+  int xoffset,
+  int yoffset,
+  int zoffset,
+  int width,
+  int height,
+  int depth,
+  int format,
+  int imageSize,
+  TypedData? data,
+) {
+  switch (data) {
+    case null:
+      _glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, ffi.nullptr);
+    case Int8List d:
+      _glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, d.address.cast<ffi.Void>());
+    case Int16List d:
+      _glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, d.address.cast<ffi.Void>());
+    case Int32List d:
+      _glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, d.address.cast<ffi.Void>());
+    case Int64List d:
+      _glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, d.address.cast<ffi.Void>());
+    case Uint8List d:
+      _glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, d.address.cast<ffi.Void>());
+    case Uint16List d:
+      _glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, d.address.cast<ffi.Void>());
+    case Uint32List d:
+      _glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, d.address.cast<ffi.Void>());
+    case Uint64List d:
+      _glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, d.address.cast<ffi.Void>());
+    case Float32List d:
+      _glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, d.address.cast<ffi.Void>());
+    case Float64List d:
+      _glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, d.address.cast<ffi.Void>());
+  }
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 n,
+  ffi.Pointer<ffi.Uint32> bufs,
+)>(isLeaf: true,symbol: 'glDrawBuffers')
+external void _glDrawBuffers(
+  int n,
+  ffi.Pointer<ffi.Uint32> bufs,
+);
+
+void glDrawBuffers(
+  int n,
+  Uint32List bufs,
+) {
+  _glDrawBuffers(n, bufs.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 n,
+  ffi.Pointer<ffi.Uint32> arrays,
+)>(isLeaf: true,symbol: 'glDeleteVertexArrays')
+external void _glDeleteVertexArrays(
+  int n,
+  ffi.Pointer<ffi.Uint32> arrays,
+);
+
+void glDeleteVertexArrays(
+  int n,
+  Uint32List arrays,
+) {
+  _glDeleteVertexArrays(n, arrays.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Pointer<ffi.Uint32> value,
+)>(isLeaf: true,symbol: 'glUniform1uiv')
+external void _glUniform1uiv(
+  int location,
+  int count,
+  ffi.Pointer<ffi.Uint32> value,
+);
+
+void glUniform1uiv(
+  int location,
+  int count,
+  Uint32List value,
+) {
+  _glUniform1uiv(location, count, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Pointer<ffi.Uint32> value,
+)>(isLeaf: true,symbol: 'glUniform2uiv')
+external void _glUniform2uiv(
+  int location,
+  int count,
+  ffi.Pointer<ffi.Uint32> value,
+);
+
+void glUniform2uiv(
+  int location,
+  int count,
+  Uint32List value,
+) {
+  _glUniform2uiv(location, count, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Pointer<ffi.Uint32> value,
+)>(isLeaf: true,symbol: 'glUniform3uiv')
+external void _glUniform3uiv(
+  int location,
+  int count,
+  ffi.Pointer<ffi.Uint32> value,
+);
+
+void glUniform3uiv(
+  int location,
+  int count,
+  Uint32List value,
+) {
+  _glUniform3uiv(location, count, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 location,
+  ffi.Int32 count,
+  ffi.Pointer<ffi.Uint32> value,  
+)>(isLeaf: true,symbol: 'glUniform4uiv')
+external void _glUniform4uiv(
+  int location,
+  int count,
+  ffi.Pointer<ffi.Uint32> value,
+);
+
+void glUniform4uiv(
+  int location,
+  int count,
+  Uint32List value,
+) {
+  _glUniform4uiv(location, count, value.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 n,
+  ffi.Pointer<ffi.Uint32> ids,
+)>(isLeaf: true,symbol: 'glDeleteTransformFeedbacks')
+external void _glDeleteTransformFeedbacks(
+  int n,
+  ffi.Pointer<ffi.Uint32> ids,
+);
+
+void glDeleteTransformFeedbacks(
+  int n,
+  Uint32List ids,
+) {
+  _glDeleteTransformFeedbacks(n, ids.address);
+}
+
+@ffi.Native<ffi.Void Function(
+  ffi.Int32 target,
+  ffi.Int32 numAttachments,
+  ffi.Pointer<ffi.Uint32> attachments,
+)>(isLeaf: true,symbol: 'glInvalidateFramebuffer')
+external void _glInvalidateFramebuffer(
+  int target,
+  int numAttachments,
+  ffi.Pointer<ffi.Uint32> attachments,
+);
+
+void glInvalidateFramebuffer(
+  int target,
+  int numAttachments,
+  Uint32List attachments,
+) {
+  _glInvalidateFramebuffer(target, numAttachments, attachments.address);
+}

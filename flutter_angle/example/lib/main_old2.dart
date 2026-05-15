@@ -150,7 +150,7 @@ class _MyAppState extends State<ExampleTriangle01> {
     
     _gl.useProgram(glProgram);
     _gl.drawArrays(WebGL.TRIANGLES, 0, n);
-    _gl.gl.glFinish();
+    glFinish();
 
     await angle.updateTexture(sourceTexture,defaultFramebufferTexture);
   }

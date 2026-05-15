@@ -1,0 +1,15 @@
+# Include your standard lint ruleset
+include: package:flutter_lints/flutter_lints.yaml
+
+analyzer:
+  # CRITICAL CRASH FIX: Tells the Dart analyzer (and pana) to completely 
+  # skip processing lint rules or documentation checks on these specific files
+  exclude:
+    - 'lib/src/desktop/angle_bindings.dart'
+    - 'lib/src/web/gles_bindings_wasm.dart'
+    - 'lib/src/web/gles_bindings.dart'
+
+linter:
+  rules:
+    # Optional: Prevents warnings if you intentionally leave out documentation comments
+    public_member_api_docs: false 

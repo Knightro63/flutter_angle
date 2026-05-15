@@ -5,8 +5,8 @@ import '../shared/classes.dart';
 import '../shared/options.dart';
 import 'dart:async';
 import 'package:web/web.dart' as html;
-import 'wrapper_wasm.dart';
-import 'gles_bindings.dart';
+import '../src/web/wrapper_wasm.dart';
+import '../src/web/gles_bindings.dart';
 import 'dart:ui_web' as ui;
 
 class FlutterAngleTexture {
