@@ -407,6 +407,7 @@ class FlutterAngle {
 
     return d3dSurface;
   }
+  
   int _createFBOTexture(int rboId, int width, int height){    
     angleConsole.info(gl.glGetError());
     gl.glActiveTexture(WebGL.TEXTURE0);
@@ -622,6 +623,7 @@ class FlutterAngle {
   void updateSource(FlutterAngleTexture texture, [WebGLTexture? sourceTexture]) async {
     if(_disposed) return;
     if (sourceTexture != null) {
+      gl.glBindFramebuffer(GL_FRAMEBUFFER, texture.fboId);
       gl.glClearColor(0.0, 0.0, 0.0, 0.0);
       gl.glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
       gl.glViewport(0, 0, (texture.options.width*texture.options.dpr).toInt(),( texture.options.height*texture.options.dpr).toInt());
@@ -629,6 +631,7 @@ class FlutterAngle {
       gl.glFinish();
     }
   }
+
   Future<void> updateTexture(FlutterAngleTexture texture, [WebGLTexture? sourceTexture]) async {
     if(_disposed) return;
     updateSource(texture,sourceTexture);
@@ -639,15 +642,22 @@ class FlutterAngle {
       _libEGL!.eglSwapBuffers(_display, texture.surfaceId!);
     }
     else{
-      gl.glBindFramebuffer(GL_FRAMEBUFFER, 0);
-      if(Platform.isIOS){
-        gl.glFlush();
+      gl.glFlush(); 
+      if (Platform.isLinux) {
+        gl.glBindFramebuffer(GL_FRAMEBUFFER, texture.fboId);
+      } else {
+        gl.glBindFramebuffer(GL_FRAMEBUFFER, 0);
       }
       assert(_activeFramebuffer != null, 'There is no active FlutterGL Texture to update');
     }
 
     if (!Platform.isAndroid) {
-      await _channel.invokeMethod('textureFrameAvailable',  {"textureId": texture.textureId});
+      if (Platform.isLinux || Platform.isWindows) {
+        _channel.invokeMethod('textureFrameAvailable', {"textureId": texture.textureId});
+      } 
+      else {
+        await _channel.invokeMethod('textureFrameAvailable', {"textureId": texture.textureId});
+      }
     }
   }
 
