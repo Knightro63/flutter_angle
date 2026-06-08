@@ -4,32 +4,32 @@ import FlutterMacOS
 import Flutter
 #endif
 
-@objc public class FlutterAngleDarwinPlugin: NSObject, FlutterPlugin {
+@objc public class FlutterAnglePlugin: NSObject, FlutterPlugin {
   // Flutter texture-related
   private var textureRegistry: FlutterTextureRegistry
   #if targetEnvironment(simulator)
   private var eglInfo: EGLInfo?
-  private var renders: [Int64: FlutterAngleDarwinSimPlugin];
+  private var renders: [Int64: FlutterAngleSimPlugin];
   #else
-  private var renders: [Int64: FlutterAngleDarwinOSPlugin];
+  private var renders: [Int64: FlutterAngleOSPlugin];
   #endif
     
   init(textureRegistry: FlutterTextureRegistry) {
     self.textureRegistry = textureRegistry;
     #if targetEnvironment(simulator)
-    self.renders = [Int64: FlutterAngleDarwinSimPlugin]();
+    self.renders = [Int64: FlutterAngleSimPlugin]();
     #else
-    self.renders = [Int64: FlutterAngleDarwinOSPlugin]();
+    self.renders = [Int64: FlutterAngleOSPlugin]();
     #endif
   }
     
   public static func register(with registrar: FlutterPluginRegistrar) {
     #if os(iOS)
     let method = FlutterMethodChannel(name:"flutter_angle", binaryMessenger: registrar.messenger())
-    let instance = FlutterAngleDarwinPlugin(textureRegistry: registrar.textures())
+    let instance = FlutterAnglePlugin(textureRegistry: registrar.textures())
     #elseif os(macOS)
     let method = FlutterMethodChannel(name:"flutter_angle", binaryMessenger: registrar.messenger)
-    let instance = FlutterAngleDarwinPlugin(textureRegistry: registrar.textures)
+    let instance = FlutterAnglePlugin(textureRegistry: registrar.textures)
     #endif
     
     registrar.addMethodCallDelegate(instance, channel: method)
@@ -46,9 +46,9 @@ import Flutter
         }
         var textureId: Int64?;
         #if targetEnvironment(simulator)
-        let render = FlutterAngleDarwinSimPlugin(textureRegistry: textureRegistry);
+        let render = FlutterAngleSimPlugin(textureRegistry: textureRegistry);
         #else
-        let render = FlutterAngleDarwinOSPlugin(textureRegistry: textureRegistry);
+        let render = FlutterAngleOSPlugin(textureRegistry: textureRegistry);
         #endif
         textureId = render.textureId;
         self.renders[textureId!] = render;
@@ -91,7 +91,7 @@ import Flutter
       case "initOpenGL":
         #if targetEnvironment(simulator)
         eglInfo = nil
-        eglInfo = FlutterAngleDarwinSimPlugin.initOpenGL(result: result)
+        eglInfo = FlutterAngleSimPlugin.initOpenGL(result: result)
         result(["isSimulator": true])
         #else
         result(["isSimulator": false])

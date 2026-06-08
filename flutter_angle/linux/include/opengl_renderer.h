@@ -6,34 +6,31 @@
 #include <flutter_linux/fl_texture_registrar.h>
 #include <memory>
 #include <map>
+#include <EGL/egl.h>
+#include <EGL/eglext.h>
 
 class OpenglRenderer {
   public:
     uint32_t width = 0;
     uint32_t height = 0;
+
+    OpenglRenderer(FlTextureRegistrar* registrar, EGLDisplay display, EGLContext context, int width, int height);
+    ~OpenglRenderer();
+
+    FlValue* createTexture();
+    void setupOpenGLResources();
+    void updateTexture();
+    void changeSize(int width, int height);
+    void dispose(bool release_context);
+
     int64_t textureId = 0;
 
-    virtual ~OpenglRenderer();
-    OpenglRenderer(OpenglRenderer&& other) noexcept; 
-    OpenglRenderer& operator=(OpenglRenderer&& other) noexcept; 
-    OpenglRenderer(FlTextureRegistrar*,GdkGLContext*,int,int);
-    FlValue *createTexture();
-    void updateTexture();
-    void changeSize(int, int);
-    void dispose(bool);
-
-    template<class T, class U = T>
-    T exchange(T& obj, U&& new_value){
-      T old_value = std::move(obj);
-      obj = std::forward<U>(new_value);
-      return old_value;
-    }
-
   private:
-    GdkGLContext* context;
     FlTextureRegistrar *textureRegistrar;
     FlTexture *texture;
-    //FlAngleTextureGL *angleTexture;
+
+    EGLDisplay eglDisplay = nullptr;
+    EGLContext eglContext = nullptr;
 
     uint32_t texId = 0;
 

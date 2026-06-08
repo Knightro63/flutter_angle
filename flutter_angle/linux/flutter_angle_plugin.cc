@@ -15,6 +15,9 @@
 #include <iostream>
 #include <cstring>
 
+#include <EGL/egl.h>
+#include <EGL/eglext.h>
+
 G_DEFINE_TYPE(FlutterAnglePlugin, flutter_angle_plugin, g_object_get_type())
 
 // Called when a method call is received from Flutter.
@@ -36,10 +39,54 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
     self->context = gdk_window_create_gl_context(self->window, &error);
     gdk_gl_context_realize (self->context,&error);
 
-    g_autoptr(FlValue) value = fl_value_new_map ();
-    fl_value_set_string_take(value, "context", fl_value_new_int ((int64_t)self->context));
-    response = FL_METHOD_RESPONSE(fl_method_success_response_new(value));
+    // 1. Intercept Flutter's exact active display client and context
+    self->eglDisplay = eglGetCurrentDisplay();
+    EGLContext flutterEglContext = eglGetCurrentContext();
 
+    if (self->eglDisplay == EGL_NO_DISPLAY || flutterEglContext == EGL_NO_CONTEXT) {
+      std::cerr << "[AnglePlugin] Failed to intercept ambient GDK EGL pointers." << std::endl;
+      self->eglDisplay = eglGetDisplay(EGL_DEFAULT_DISPLAY);
+    }
+
+    EGLint major, minor;
+    eglInitialize(self->eglDisplay, &major, &minor);
+    eglBindAPI(EGL_OPENGL_ES_API);
+
+    const EGLint attribute_list[] = {
+      EGL_RENDERABLE_TYPE, EGL_OPENGL_ES3_BIT,
+      EGL_RED_SIZE, 8, 
+      EGL_GREEN_SIZE, 8, 
+      EGL_BLUE_SIZE, 8, 
+      EGL_ALPHA_SIZE, 8,
+      EGL_DEPTH_SIZE, 24,
+      EGL_STENCIL_SIZE, 8,
+      EGL_NONE
+    };
+    EGLint num_config;
+    eglChooseConfig(self->eglDisplay, attribute_list, &self->config, 1, &num_config);
+
+    EGLint configId;
+    eglGetConfigAttrib(self->eglDisplay,self->config,EGL_CONFIG_ID,&configId);
+
+    const EGLint contextAttributes[] = {
+      EGL_CONTEXT_CLIENT_VERSION, 3,
+      EGL_NONE
+    };
+
+    // 2. Safely share the context using the exact same display handle
+    self->eglContext = eglCreateContext(
+      self->eglDisplay, 
+      self->config, 
+      flutterEglContext, // Share resources directly
+      contextAttributes
+    );
+
+    std::cerr << "[AnglePlugin] Context sharing locked under unified GDK display client!" << std::endl;
+
+    g_autoptr(FlValue) value = fl_value_new_map();
+    fl_value_set_string_take(value, "context", fl_value_new_int((int64_t)self->eglContext));
+    fl_value_set_string_take(value, "eglConfigId", fl_value_new_int((int64_t)configId));
+    response = FL_METHOD_RESPONSE(fl_method_success_response_new(value));
     self->map = new Map();
   }
 	else if (strcmp(method, "createTexture") == 0){
@@ -59,7 +106,8 @@ static void flutter_angle_plugin_handle_method_call(FlutterAnglePlugin *self, Fl
 
     auto currentTexture = std::make_unique<OpenglRenderer>(
       self->textureRegistrar,
-      self->context,
+      self->eglDisplay,
+      self->eglContext,
       width,
       height
     );
@@ -202,9 +250,4 @@ void flutter_angle_plugin_register_with_registrar(FlPluginRegistrar *registrar){
   );
 
 	g_object_unref(plugin);
-}
-
-extern int makeCurrent(GdkGLContext* context){
-  gdk_gl_context_make_current(context);
-  return 1;
 }

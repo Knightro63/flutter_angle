@@ -3,16 +3,19 @@
 #include <flutter_linux/fl_texture_registrar.h>
 
 OpenglRenderer::OpenglRenderer(
-  FlTextureRegistrar* textureRegistrar,
-  GdkGLContext* context,
+  FlTextureRegistrar* textureRegistrar, 
+  EGLDisplay display, 
+  EGLContext context,
   int width, 
   int height
 ){
-  printf(".... OpenglRenderer create\n");
+  std::cout << "[OpenglRenderer] Creating Headless GPU Renderer..." << std::endl;
   this->textureRegistrar = textureRegistrar;
-  this->context = context;
-  this->width = width;
-  this->height = height;
+  this->eglDisplay = display;
+  this->eglContext = context;
+  this->texId = 0;
+  this->textureId = 0;
+  this->texture = nullptr;
 
   changeSize(width, height);
 }
@@ -25,90 +28,78 @@ FlValue *OpenglRenderer::createTexture() {
 }
 
 void OpenglRenderer::changeSize(int width, int height) {
+  const int MAX_TEXTURE_SIZE = 8192;
+  if (width <= 0 || height <= 0 || width > MAX_TEXTURE_SIZE || height > MAX_TEXTURE_SIZE) {
+    return;
+  }
+
   this->width = width;
   this->height = height;
 
-  if(texId != 0){
-    dispose(false);
+  // 1. Unregister and dispose previous frame assets cleanly
+  if (texture != nullptr) {
+    fl_texture_registrar_unregister_texture(textureRegistrar, texture);
+    texture = nullptr;
+    textureId = 0;
+  }
+  if (texId != 0) {
+    glDeleteTextures(1, &texId);
+    texId = 0;
   }
 
+  // 💡 THREAD SAFETY FIX: Back up whatever context is currently active on this thread right now
+  EGLDisplay prevDisplay = eglGetCurrentDisplay();
+  EGLContext prevContext = eglGetCurrentContext();
+  EGLSurface prevDraw = eglGetCurrentSurface(EGL_DRAW);
+  EGLSurface prevRead = eglGetCurrentSurface(EGL_READ);
+
+  // Make your background context current to generate assets safely
+  eglMakeCurrent(eglDisplay, EGL_NO_SURFACE, EGL_NO_SURFACE, eglContext);
   glGenTextures(1, &texId);
   glBindTexture(GL_TEXTURE_2D, texId);
 
   glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, 0);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+  // 💡 THREAD SAFETY FIX: Put the previous context state right back when done 
+  if (prevContext != EGL_NO_CONTEXT && prevDisplay != EGL_NO_DISPLAY) {
+    eglMakeCurrent(prevDisplay, prevDraw, prevRead, prevContext);
+  } 
+  else {
+    eglMakeCurrent(eglDisplay, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
+  }
 
   auto ft = fl_angle_texture_gl_new(GL_TEXTURE_2D, texId, width, height);
   std::cerr << "Create Texture" <<std::endl;
   texture = FL_TEXTURE(ft);
   fl_texture_registrar_register_texture(textureRegistrar, texture);
-  if(textureId == 0){
-    textureId = fl_texture_get_id(texture);
-  }
+  textureId = fl_texture_get_id(texture);
+
+  std::cerr << "[OpenglRenderer] Pure Shared GL Texture bound successfully. ID: " << texId << std::endl;
 }
 
 void OpenglRenderer::updateTexture() {
-  fl_texture_registrar_mark_texture_frame_available(textureRegistrar,texture);
+  if (texture) {
+    fl_texture_registrar_mark_texture_frame_available(textureRegistrar, texture);
+  }
 }
 
 void OpenglRenderer::dispose(bool release_context) {
-  std::cerr << "Disposed of and deleted everything." << std::endl;
-  glDeleteTextures(1, &texId);
-  texId = 0;
-  if(release_context){
-    fl_texture_registrar_unregister_texture(textureRegistrar,texture);
-    gdk_gl_context_clear_current();
+  std::cout << "[OpenglRenderer] Releasing GPU resources..." << std::endl;
+
+  if (texId != 0) {
+    glDeleteTextures(1, &texId);
+    texId = 0;
+  }
+
+  if (release_context && texture) {
+    fl_texture_registrar_unregister_texture(textureRegistrar, texture);
     textureId = 0;
-    g_object_unref(context);
+    texture = nullptr;
   }
 }
 
 OpenglRenderer::~OpenglRenderer() {
-  //dispose(true);
-}
-
-// Move constructor definition
-OpenglRenderer::OpenglRenderer(OpenglRenderer&& other) noexcept: 
-  textureRegistrar(exchange(other.textureRegistrar, nullptr)), // Transfer ownership and nullify other's pointer
-  context(exchange(other.context, nullptr)),
-  width(exchange(other.width, 0)), // Simple members can be just exchanged or copied, depending on semantics
-  height(exchange(other.height, 0)),
-  textureId(exchange(other.textureId, 0)),
-  texId(exchange(other.texId, 0)),
-  texture(exchange(other.texture, nullptr)
-){
-    // Optionally, if there are more complex resources, perform shallow copy or move operations
-    // For example, if you have std::vector<...> members, you would use std::move to transfer their contents
-}
-
-
-// Move assignment operator definition
-OpenglRenderer& OpenglRenderer::operator=(OpenglRenderer&& other) noexcept {
-  if (this != &other) { // Handle self-assignment
-    // Release existing resources before stealing from other
-    this->~OpenglRenderer(); // Call destructor to release resources
-
-    // Transfer resources
-    textureRegistrar = exchange(other.textureRegistrar, nullptr);
-    context = exchange(other.context, nullptr);
-    width = exchange(other.width, 0);
-    height = exchange(other.height, 0);
-    textureId = exchange(other.textureId, 0);
-    texId = exchange(other.texId, 0);
-    texture = exchange(other.texture, nullptr);
-  }
-  return *this;
-}
-
-// Helper swap function (useful for copy-and-swap idiom for copy assignment, though not strictly needed here)
-void OpenglRenderer::swap(OpenglRenderer& other) noexcept {
-  using std::swap;
-  swap(textureRegistrar, other.textureRegistrar);
-  swap(context, other.context);
-  swap(width, other.width);
-  swap(height, other.height);
-  swap(textureId, other.textureId);
-  swap(texId, other.texId);
-  swap(texture, other.texture);
+  dispose(true);
 }
