@@ -7,10 +7,9 @@ import 'dart:async';
 import 'dart:ui';
 import 'package:ffi/ffi.dart';
 import 'package:flutter/services.dart';
-import 'index.dart';
 import '../../shared/webgl.dart';
 import '../../shared/classes.dart';
-import './angle_bindings.dart' as gl;
+import './gles_bindings.dart' as gl;
 
 class RenderingContext {
   //final LibOpenGLES gl;
@@ -463,10 +462,10 @@ class RenderingContext {
     gl.glCompileShader(shader.id);
 
     if (checkForErrors) {
-      gl.glGetShaderiv(shader.id, GL_COMPILE_STATUS, _intBuffer);
+      gl.glGetShaderiv(shader.id, gl.GL_COMPILE_STATUS, _intBuffer);
       
-      if (_intBuffer.value == GL_FALSE) {
-        gl.glGetShaderiv(shader.id, GL_INFO_LOG_LENGTH, _intBuffer);
+      if (_intBuffer.value == gl.GL_FALSE) {
+        gl.glGetShaderiv(shader.id, gl.GL_INFO_LOG_LENGTH, _intBuffer);
         final int logLen = _intBuffer.value;
 
         String message = "Shader compilation failed.";
@@ -811,7 +810,7 @@ class RenderingContext {
     List<String> _extensions = [];
     var nExtension = getIntegerv(33309);
     for (int i = 0; i < nExtension; i++) {
-      _extensions.add(getStringi(GL_EXTENSIONS, i));
+      _extensions.add(getStringi(gl.GL_EXTENSIONS, i));
     }
 
     return _extensions;
@@ -950,11 +949,11 @@ class RenderingContext {
     gl.glLinkProgram(program.id);
     if (checkForErrors) {
       final linked = calloc<Int>();
-      gl.glGetProgramiv(program.id, GL_LINK_STATUS, linked);
+      gl.glGetProgramiv(program.id, gl.GL_LINK_STATUS, linked);
       if (linked.value == 0) {
         final infoLen = calloc<Int>();
 
-        gl.glGetProgramiv(program.id, GL_INFO_LOG_LENGTH, infoLen);
+        gl.glGetProgramiv(program.id, gl.GL_INFO_LOG_LENGTH, infoLen);
 
         String message = '';
         if (infoLen.value > 1) {
@@ -1300,9 +1299,9 @@ class RenderingContext {
   }
 
   set drawingBufferColorSpace(String cspace) => {
-    gl.glEnable(GL_FRAMEBUFFER_SRGB_EXT)
+    gl.glEnable(gl.GL_FRAMEBUFFER_SRGB_EXT)
   };
   set unpackColorSpace(String cspace) => {
-    gl.glEnable(GL_FRAMEBUFFER_SRGB_EXT)
+    gl.glEnable(gl.GL_FRAMEBUFFER_SRGB_EXT)
   };
 }

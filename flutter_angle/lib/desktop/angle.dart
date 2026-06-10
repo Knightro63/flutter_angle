@@ -1,4 +1,4 @@
-import '../src/desktop/angle_bindings.dart' as gl;
+import '../src/desktop/gles_bindings.dart' as gl;
 import '../shared/render_worker.dart';
 import 'package:flutter_angle/flutter_angle.dart';
 
@@ -115,7 +115,7 @@ class FlutterAngle {
   // Next stepps:
   // * test on all plaforms
   // * mulitple textures on Android and the other OSs
-  Future<void> init([bool useDebugContext = false, bool useAngle = true]) async {
+  Future<void> init([bool useDebugContext = false, bool useAngle = false]) async {
     if (_display != nullptr) return;
     _rawOpenGl();
 
@@ -225,27 +225,27 @@ class FlutterAngle {
 
     final surfaceAttribs = calloc<Int32>(20);
     int i = 0;
-    surfaceAttribs[i++] = gl.EGL_WIDTH;
+    surfaceAttribs[i++] = EGL_WIDTH;
     surfaceAttribs[i++] = width;
-    surfaceAttribs[i++] = gl.EGL_HEIGHT;
+    surfaceAttribs[i++] = EGL_HEIGHT;
     surfaceAttribs[i++] = height;
-    surfaceAttribs[i++] = gl.EGL_IOSURFACE_PLANE_ANGLE;
+    surfaceAttribs[i++] = EGL_IOSURFACE_PLANE_ANGLE;
     surfaceAttribs[i++] = 0;
-    surfaceAttribs[i++] = gl.EGL_TEXTURE_TARGET;
+    surfaceAttribs[i++] = EGL_TEXTURE_TARGET;
     surfaceAttribs[i++] = textureTarget;
-    surfaceAttribs[i++] = gl.EGL_TEXTURE_INTERNAL_FORMAT_ANGLE;
+    surfaceAttribs[i++] = EGL_TEXTURE_INTERNAL_FORMAT_ANGLE;
     surfaceAttribs[i++] = GL_BGRA_EXT;
-    surfaceAttribs[i++] = gl.EGL_TEXTURE_FORMAT;
-    surfaceAttribs[i++] = gl.EGL_TEXTURE_RGBA;
-    surfaceAttribs[i++] = gl.EGL_TEXTURE_TYPE_ANGLE;
+    surfaceAttribs[i++] = EGL_TEXTURE_FORMAT;
+    surfaceAttribs[i++] = EGL_TEXTURE_RGBA;
+    surfaceAttribs[i++] = EGL_TEXTURE_TYPE_ANGLE;
     surfaceAttribs[i++] = GL_UNSIGNED_BYTE;
-    surfaceAttribs[i++] = gl.EGL_NONE;
+    surfaceAttribs[i++] = EGL_NONE;
 
     Pointer<Void>? macIosSurface;
     try {
       macIosSurface = _libEGL!.eglCreatePbufferFromClientBuffer(
         _display,
-        gl.EGL_IOSURFACE_ANGLE, // 0x3454
+        EGL_IOSURFACE_ANGLE, // 0x3454
         ioSurfacePtr,
         _eglConfig,
         surfaceAttribs
@@ -279,21 +279,21 @@ class FlutterAngle {
 
     final surfaceAttribs = calloc<Int32>(20);
     int i = 0;
-    surfaceAttribs[i++] = gl.EGL_WIDTH;
+    surfaceAttribs[i++] = EGL_WIDTH;
     surfaceAttribs[i++] = width;
-    surfaceAttribs[i++] = gl.EGL_HEIGHT;
+    surfaceAttribs[i++] = EGL_HEIGHT;
     surfaceAttribs[i++] = height;
-    surfaceAttribs[i++] = gl.EGL_TEXTURE_TARGET;
+    surfaceAttribs[i++] = EGL_TEXTURE_TARGET;
     surfaceAttribs[i++] = textureTarget;
-    surfaceAttribs[i++] = gl.EGL_TEXTURE_FORMAT;
-    surfaceAttribs[i++] = gl.EGL_TEXTURE_RGBA;
-    surfaceAttribs[i++] = gl.EGL_NONE;
+    surfaceAttribs[i++] = EGL_TEXTURE_FORMAT;
+    surfaceAttribs[i++] = EGL_TEXTURE_RGBA;
+    surfaceAttribs[i++] = EGL_NONE;
 
     Pointer<Void>? d3dSurface;
     try {
       d3dSurface = _libEGL!.eglCreatePbufferFromClientBuffer(
         _display,
-        gl.EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE,
+        EGL_D3D_TEXTURE_2D_SHARE_HANDLE_ANGLE,
         d3dSurfacePtr,
         _eglConfig,
         surfaceAttribs

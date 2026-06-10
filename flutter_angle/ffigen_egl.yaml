@@ -6,14 +6,8 @@ output: 'lib/src/egl_bindings.dart'
 llvm-path:
   - '/opt/homebrew/opt/llvm'
 
-#ffi-native:
-  #asset-id: 'package:flutter_angle/libgles'
-
-preamble: |
-  // ignore_for_file: always_specify_types
-  // ignore_for_file: camel_case_types
-  // ignore_for_file: non_constant_identifier_names
-  // ignore_for_file: unused_element
+ffi-native:
+  asset-id: 'package:flutter_angle/libegl'
 
 comments:
   style: any       # Options: 'any' (grabs all) or 'doxygen' (grabs structured text)
@@ -39,3 +33,42 @@ compiler-opts:
 functions:
   include:
     - 'egl.*'
+    - 'gl.*'
+    - 'makeCurrent'
+    - 'pinAddress'
+
+macros:
+  include:
+    - 'GL_.*'
+    - 'EGL_.*'
+
+unnamed-enums:
+  include:
+    - 'GL_.*'
+    - 'EGL_.*'
+
+# forcing ffigen to fall back to primitive ffi.Uint32 and ffi.Int32 maps
+typedefs:
+  exclude:
+    - 'GLuint'
+    - 'GLsizei'
+    - 'GLenum'
+
+library-imports:
+  ffi_custom_handle: 'dart:ffi'
+
+# 3. FIXED: Points 'lib:' directly to the matching 'ffi_custom_handle' alias defined above.
+type-map:
+  typedefs:
+    'GLuint':
+      lib: 'ffi_custom_handle'
+      c-type: 'Uint32'
+      dart-type: 'int'
+    'GLsizei':
+      lib: 'ffi_custom_handle'
+      c-type: 'Int32'
+      dart-type: 'int'
+    'GLenum':
+      lib: 'ffi_custom_handle'
+      c-type: 'Uint32'
+      dart-type: 'int'

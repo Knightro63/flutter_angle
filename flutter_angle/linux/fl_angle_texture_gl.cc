@@ -13,16 +13,12 @@ static gboolean fl_angle_texture_gl_populate(
   FlTextureGL *texture,
   uint32_t *target,
   uint32_t *name,
-  uint32_t* width,
-  uint32_t* height,
   GError **error
 ){
   // std::cout << "attention: populate called" << std::endl;
   FlAngleTextureGL* f = (FlAngleTextureGL*) texture;
   *target = f->target;
   *name = f->name;
-  *width = f->width;
-  *height = f->height;
   return true;
 }
 

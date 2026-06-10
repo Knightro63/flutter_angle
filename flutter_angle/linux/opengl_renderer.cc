@@ -42,10 +42,9 @@ void OpenglRenderer::changeSize(int width, int height) {
     texture = nullptr;
     textureId = 0;
   }
-  if (texId != 0) {
-    glDeleteTextures(1, &texId);
-    texId = 0;
-  }
+
+  GLint prevTexture2D;
+  glGetIntegerv(GL_TEXTURE_BINDING_2D, &prevTexture2D);
 
   // 💡 THREAD SAFETY FIX: Back up whatever context is currently active on this thread right now
   EGLDisplay prevDisplay = eglGetCurrentDisplay();
@@ -53,8 +52,13 @@ void OpenglRenderer::changeSize(int width, int height) {
   EGLSurface prevDraw = eglGetCurrentSurface(EGL_DRAW);
   EGLSurface prevRead = eglGetCurrentSurface(EGL_READ);
 
-  // Make your background context current to generate assets safely
   eglMakeCurrent(eglDisplay, EGL_NO_SURFACE, EGL_NO_SURFACE, eglContext);
+
+  if (texId != 0) {
+    glDeleteTextures(1, &texId);
+    texId = 0;
+  }
+
   glGenTextures(1, &texId);
   glBindTexture(GL_TEXTURE_2D, texId);
 
@@ -62,13 +66,16 @@ void OpenglRenderer::changeSize(int width, int height) {
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-  // 💡 THREAD SAFETY FIX: Put the previous context state right back when done 
+  glFlush();
+
   if (prevContext != EGL_NO_CONTEXT && prevDisplay != EGL_NO_DISPLAY) {
     eglMakeCurrent(prevDisplay, prevDraw, prevRead, prevContext);
   } 
   else {
     eglMakeCurrent(eglDisplay, EGL_NO_SURFACE, EGL_NO_SURFACE, EGL_NO_CONTEXT);
   }
+
+  glBindTexture(GL_TEXTURE_2D, prevTexture2D);
 
   auto ft = fl_angle_texture_gl_new(GL_TEXTURE_2D, texId, width, height);
   std::cerr << "Create Texture" <<std::endl;
