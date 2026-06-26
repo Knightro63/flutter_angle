@@ -3,6 +3,7 @@ import FlutterMacOS
 #elseif os(iOS)
 import Flutter
 #endif
+import CoreVideo
 
 @objc public class FlutterAngleOSPlugin: NSObject{
   private var textureRegistry: FlutterTextureRegistry?
@@ -36,6 +37,8 @@ import Flutter
     self.width = width
     self.height = height
 
+    cleanCurrentBuffers()
+      
     // Create IOSurface
     NSLog("Creating texture with physical dimensions: \(width) x \(height)")
 
@@ -78,24 +81,23 @@ import Flutter
   }
 
   public func resizeTexture(width: Int, height: Int, result: @escaping FlutterResult) {
-    textures = nil
-        
-    textureToPixelBuffer?.release()
-    textureToPixelBuffer = nil
+    cleanCurrentBuffers()
     createTexture(width: width, height: height, result: result)
+  }
+
+  private func cleanCurrentBuffers() {
+    if let activeBuffer = textureToPixelBuffer {
+      activeBuffer.release() 
+    }
+    textureToPixelBuffer = nil
+    textures = nil              
   }
 
   public func disposeTexture() {
     if let tr = textureRegistry {
       tr.unregisterTexture(textureId)
     }
-    
-    // Clean up our maps
-    textures = nil
-      
-    textureToPixelBuffer?.release()
-    textureToPixelBuffer = nil
-      
+    cleanCurrentBuffers()
     textureRegistry = nil
   }
     
@@ -112,29 +114,29 @@ import Flutter
   }
     
   private func createPixelBufferFromIOSurface(_ surface: IOSurfaceRef) -> Bool {
-    guard CVPixelBufferCreateWithIOSurface(
+    var unmanagedBuffer: Unmanaged<CVPixelBuffer>? = nil
+    
+    let linkStatus = CVPixelBufferCreateWithIOSurface(
       kCFAllocatorDefault,
       surface,
       [kCVPixelBufferMetalCompatibilityKey: true] as CFDictionary,
-      &textureToPixelBuffer
-    ) == kCVReturnSuccess 
-    else{
-      print("CVPixelBuffer is nil")
+      &unmanagedBuffer
+    )
+    
+    guard linkStatus == kCVReturnSuccess, let validBuffer = unmanagedBuffer else {
+      print("Failed linking pixel buffer to IOSurface handle.")
       return false
     }
-    
+
+    textureToPixelBuffer = validBuffer
     return true
   }
 }
 
 extension FlutterAngleOSPlugin: FlutterTexture {
   public func copyPixelBuffer() -> Unmanaged<CVPixelBuffer>? {
-    guard textureToPixelBuffer != nil else {
-      return nil
-    }
-    if let pixBuffer = textureToPixelBuffer?.takeUnretainedValue() {
-      return Unmanaged.passRetained(pixBuffer)
-    }
-    return nil
+    guard let bufferWrapper = textureToPixelBuffer else { return nil }
+    let pixBuffer = bufferWrapper.takeUnretainedValue()
+    return Unmanaged.passRetained(pixBuffer)
   }
 }
