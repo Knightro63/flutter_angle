@@ -11,6 +11,7 @@ topics:
   - opengl
   - angle
   - glsl
+  - gl
 
 dependencies:
   flutter:
@@ -19,8 +20,6 @@ dependencies:
   dylib: ^0.3.3
   ffi: ^2.2.0
   web: ^1.1.1
-  # flutter_angle_darwin: #^0.2.0
-  #   path: ../flutter_angle_darwin
 
 dev_dependencies:
   flutter_test:
@@ -47,7 +46,3 @@ flutter:
       macos:
         pluginClass: FlutterAnglePlugin
         sharedDarwinSource: true
-      # ios:
-      #   default_package: flutter_angle_darwin
-      # macos:
-      #   default_package: flutter_angle_darwin
