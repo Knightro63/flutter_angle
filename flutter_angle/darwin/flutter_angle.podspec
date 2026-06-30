@@ -12,8 +12,8 @@ Pod::Spec.new do |s|
   s.license          = { :file => '../LICENSE' }
   s.authors          = 'Multiple Authors'
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*.{h,m,swift,inc,plist}'
-  s.public_header_files = 'Classes/**/*.{h,inc}'
+  s.source_files = 'flutter_angle/Sources/**/*.{h,m,swift,inc,plist}'
+  s.public_header_files = 'flutter_angle/Sources/**/*.{h,inc}'
   s.swift_version = '5.0'
   s.library = 'c++'
 

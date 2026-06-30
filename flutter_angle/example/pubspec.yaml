@@ -18,6 +18,8 @@ dev_dependencies:
     sdk: flutter
 
 flutter:
+  config:
+    enable-swift-package-manager: true
   uses-material-design: true
   assets:
     - assets/ 
