@@ -689,6 +689,14 @@ class LibOpenGLES {
     int n,
     Uint32List buffers,
   ) {
+    if(useNativeFFI){
+      return (_glDeleteBuffers ??=
+          _dylib.lookupFunction<_c_glDeleteBuffers, _dart_glDeleteBuffers>(
+              'glDeleteBuffers'))(
+        n,
+        buffers.safeNativePointer.cast(),
+      );
+    }
     _glTypedDeleteBuffers(n, buffers.address);
   }
 
@@ -757,6 +765,14 @@ class LibOpenGLES {
     int n,
     Uint32List renderbuffers,
   ) {
+    if(useNativeFFI){
+      return (_glDeleteRenderbuffers ??= _dylib.lookupFunction<
+          _c_glDeleteRenderbuffers,
+          _dart_glDeleteRenderbuffers>('glDeleteRenderbuffers'))(
+        n,
+        renderbuffers.safeNativePointer.cast(),
+      );
+    }
     _glTypedDeleteRenderbuffers(n, renderbuffers.address);
   }
 
